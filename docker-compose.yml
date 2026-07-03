@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  # PostgreSQL 数据库
+  postgres:
+    image: postgres:15
+    container_name: diary-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: diary_platform
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - diary-network
+
+  # 后端 API 服务
+  backend:
+    build: ./backend
+    container_name: diary-backend
+    environment:
+      DATABASE_URL: postgresql+psycopg2://postgres:postgres@postgres:5432/diary_platform
+      SECRET_KEY: your-secret-key-change-in-production
+      ENCRYPTION_KEY: ""
+      DEEPSEEK_API_KEY: ""
+      DEEPSEEK_API_URL: https://api.deepseek.com/v1
+      DEEPSEEK_MODEL: deepseek-v4-flash
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - diary-network
+
+volumes:
+  postgres_data:
+
+networks:
+  diary-network:
+    driver: bridge

@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 基础样式重置 */
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-neutral-50 text-neutral-800 antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      'Helvetica Neue', Arial, sans-serif;
+  }
+
+  /* 移除默认的 input/textarea 样式干扰 */
+  input, textarea, button {
+    @apply outline-none;
+  }
+}
+
+/* 通用工具类 */
+@layer components {
+  /* 安全区域底部留白（给 Tab 栏腾位置） */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* 隐藏滚动条 */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* 日记正文 markdown 渲染样式 */
+.diary-content h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #262626;
+}
+
+.diary-content h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 0.8rem;
+  margin-bottom: 0.3rem;
+  color: #404040;
+}
+
+.diary-content ol,
+.diary-content ul {
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+.diary-content li {
+  margin-bottom: 0.2rem;
+}
+
+.diary-content p {
+  margin-bottom: 0.5rem;
+}
+
+.diary-content strong {
+  font-weight: 600;
+}
