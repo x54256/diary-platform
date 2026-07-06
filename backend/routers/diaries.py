@@ -25,7 +25,7 @@ from services.auth import get_current_user
 
 import asyncio
 from database import SessionLocal
-from utils.diary_render import render_events_to_markdown
+from utils.diary_render import render_diary_to_markdown
 from models.diary import DiaryEvent, DiaryCheckLog, OrganizeTask
 from schemas.diary import OrganizeTaskResponse
 
@@ -284,11 +284,16 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
                 task.current_step = step
                 db.commit()
 
-        # 调用 AI 服务（5次调用，含进度回调）
+        # 调用 AI 服务（6次调用，含进度回调）
         result = await ai_service.organize_diary(original_text, progress_callback=update_step)
 
         # 生成 content markdown
-        content = render_events_to_markdown(result["events"])
+        content = render_diary_to_markdown(
+            events=result["events"],
+            introduction=result.get("introduction", ""),
+            trivia=result.get("trivia"),
+            plans=result.get("plans"),
+        )
 
         # 创建 DiaryOrganized 记录
         organized = DiaryOrganized(
@@ -306,13 +311,10 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
         for i, event in enumerate(result["events"]):
             db.add(DiaryEvent(
                 diary_organized_id=organized.id,
-                event_title=event["title"],
-                background=event["background"],
-                motivation=event["motivation"],
-                process=event["process"],
-                result=event["result"],
-                feeling=event["feeling"],
-                reflection=event["reflection"],
+                event_title=event.get("title", "未命名事件"),
+                body=event.get("body", ""),
+                feeling=event.get("feeling", ""),
+                reflection=event.get("reflection", ""),
                 sort_order=i,
             ))
 

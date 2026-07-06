@@ -128,11 +128,20 @@ const organizeError = ref('')
 const organizeStep = ref('')  // 当前步骤文本
 
 const STEP_LABELS: Record<string, string> = {
-  text_cleaning: '文本清洗中',
+  text_cleaning: '轻度清洗中',
+  deep_cleaning: '深度内容重组中',
   event_organizing: '事件识别与归类中',
-  template_filling: '结构化模板填充中',
+  template_filling: '事件内容整理中',
   content_checking: '内容检查与修正中',
   metadata_generating: '元数据生成中',
+}
+const STEP_KEYS = Object.keys(STEP_LABELS)
+
+const formatStep = (stepKey: string) => {
+  const idx = STEP_KEYS.indexOf(stepKey)
+  const label = STEP_LABELS[stepKey] || stepKey
+  if (idx === -1) return label
+  return `${idx + 1}/${STEP_KEYS.length} ${label}`
 }
 
 // 编辑模式
@@ -207,7 +216,7 @@ onMounted(async () => {
 const handleOrganize = async () => {
   organizing.value = true
   organizeError.value = ''
-  organizeStep.value = '文本清洗中'
+  organizeStep.value = formatStep('text_cleaning')
   try {
     await api(`/diaries/${diaryId.value}/organize`, { method: 'POST' })
     await pollOrganizeStatus()
@@ -228,7 +237,7 @@ const pollOrganizeStatus = async () => {
       )
       consecutiveErrors = 0  // 成功则重置
       if (task.current_step) {
-        organizeStep.value = STEP_LABELS[task.current_step] || task.current_step
+        organizeStep.value = formatStep(task.current_step)
       }
       if (task.status === 'completed') {
         await loadDiary()
@@ -262,7 +271,7 @@ const checkOrganizeStatus = async () => {
     if (task.status === 'running') {
       organizing.value = true
       if (task.current_step) {
-        organizeStep.value = STEP_LABELS[task.current_step] || task.current_step
+        organizeStep.value = formatStep(task.current_step)
       }
       pollOrganizeStatus()
     }

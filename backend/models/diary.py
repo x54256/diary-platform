@@ -78,12 +78,9 @@ class DiaryEvent(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     diary_organized_id = Column(UUID(as_uuid=True), ForeignKey("diary_organized.id"), nullable=False)
     event_title = Column(String(200))
-    background = Column(Text)
-    motivation = Column(Text)
-    process = Column(Text)
-    result = Column(Text)
-    feeling = Column(Text)
-    reflection = Column(Text)
+    body = Column(Text, nullable=False)
+    feeling = Column(Text, nullable=True)
+    reflection = Column(Text, nullable=True)
     sort_order = Column(Integer, default=0)
     created_at = Column(DateTime, default=datetime.utcnow)
 
@@ -120,7 +117,7 @@ class OrganizeTask(Base):
     diary_id = Column(UUID(as_uuid=True), ForeignKey("diaries.id"), nullable=False)
     user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
     status = Column(String(20), default="running")  # running / completed / failed
-    current_step = Column(String(50), nullable=True)  # text_cleaning / event_organizing / template_filling / content_checking / metadata_generating
+    current_step = Column(String(50), nullable=True)  # text_cleaning / deep_cleaning / event_organizing / template_filling / content_checking / metadata_generating
     error_message = Column(Text, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

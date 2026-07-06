@@ -85,5 +85,5 @@ class OrganizeTaskResponse(BaseModel):
 
     diary_id: UUID
     status: str  # running / completed / failed
-    current_step: Optional[str] = None  # text_cleaning / event_organizing / template_filling / content_checking / metadata_generating
+    current_step: Optional[str] = None  # text_cleaning / deep_cleaning / event_organizing / template_filling / content_checking / metadata_generating
     error_message: Optional[str] = None

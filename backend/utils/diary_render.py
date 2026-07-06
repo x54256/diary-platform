@@ -1,48 +1,92 @@
-"""日记事件渲染工具"""
+"""日记 Markdown 渲染工具"""
 
 
-def render_events_to_markdown(events: list[dict]) -> str:
-    """将事件列表渲染为 markdown 格式字符串
+def _render_introduction(introduction: str) -> str:
+    """渲染开头引入段，为空时返回空字符串"""
+    return introduction if introduction else ""
 
-    Args:
-        events: 事件列表，每个事件是 dict，包含
-                title/background/motivation/process/result/feeling/reflection
 
-    Returns:
-        markdown 字符串；events 为空时返回空字符串
-    """
-    if not events:
-        return ""
-
-    sections = []
+def _render_events(events: list) -> str:
+    """渲染事件列表为 Markdown"""
+    parts = []
     for event in events:
         title = event.get("title") or "未命名事件"
-        background = event.get("background") or "原文未明确"
-        motivation = event.get("motivation") or "原文未明确"
-        process = event.get("process") or "原文未明确"
-        result = event.get("result") or "原文未明确"
-        feeling = event.get("feeling") or "原文未明确"
-        reflection = event.get("reflection") or "原文未明确"
+        body = event.get("body") or ""
+        feeling = event.get("feeling") or ""
+        reflection = event.get("reflection") or ""
 
-        section = f"""## 事件：{title}
+        part = f"## 事件：{title}\n\n{body}"
+        if feeling:
+            part += f"\n\n### 感受\n{feeling}"
+        if reflection:
+            part += f"\n\n### 反思与成长\n{reflection}"
+        parts.append(part)
+    return "\n\n".join(parts)
 
-### 背景
-{background}
 
-### 动机
-{motivation}
+def _render_trivia(trivia: list) -> str:
+    """渲染琐事列表为 Markdown"""
+    if not trivia:
+        return ""
+    items = "\n".join(f"{i}. {t}" for i, t in enumerate(trivia, 1))
+    return f"## 琐事\n\n{items}"
 
-### 过程
-{process}
 
-### 结果
-{result}
+def _render_plans(plans: list) -> str:
+    """渲染后续计划列表为 Markdown"""
+    if not plans:
+        return ""
+    items = "\n".join(f"{i}. {p}" for i, p in enumerate(plans, 1))
+    return f"## 后续计划\n\n{items}"
 
-### 感受
-{feeling}
 
-### 反思与成长
-{reflection}"""
-        sections.append(section)
+def render_diary_to_markdown(
+    events: list,
+    introduction: str = "",
+    trivia: list = None,
+    plans: list = None,
+) -> str:
+    """将日记结构化数据渲染为 Markdown 格式字符串
 
+    Args:
+        events: 事件列表，每个事件包含 title/body/feeling/reflection
+        introduction: 开头引入段文本，为空时不输出
+        trivia: 琐事列表
+        plans: 后续计划列表
+
+    Returns:
+        markdown 字符串
+    """
+    sections = [
+        s for s in [
+            _render_introduction(introduction),
+            _render_events(events),
+            _render_trivia(trivia or []),
+            _render_plans(plans or []),
+        ]
+        if s
+    ]
     return "\n\n".join(sections)
+
+
+def render_events_to_markdown(events):
+    """旧接口兼容，不推荐新代码使用"""
+    adapted = []
+    for e in events:
+        if "body" not in e and "background" in e:
+            parts = [
+                e.get("background", ""),
+                e.get("motivation", ""),
+                e.get("process", ""),
+                e.get("result", ""),
+            ]
+            body = "\n\n".join(p for p in parts if p and p != "原文未明确")
+            adapted.append({
+                "title": e.get("title", ""),
+                "body": body,
+                "feeling": e.get("feeling", ""),
+                "reflection": e.get("reflection", ""),
+            })
+        else:
+            adapted.append(e)
+    return render_diary_to_markdown(adapted)

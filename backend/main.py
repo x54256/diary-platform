@@ -1,5 +1,9 @@
 """FastAPI 应用入口"""
 
+import logging
+import os
+from datetime import datetime
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -8,6 +12,32 @@ from routers.auth import router as auth_router
 from routers.diaries import router as diaries_router
 from routers.tags import router as tags_router
 from routers.dialogs import router as dialogs_router
+
+# ---------------------------------------------------------------------------
+# 全局日志配置 - 所有模块日志写入 app_YYYY-MM-DD.log
+# ---------------------------------------------------------------------------
+_log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs")
+os.makedirs(_log_dir, exist_ok=True)
+
+_global_log_file = os.path.join(_log_dir, f"app_{datetime.now().strftime('%Y-%m-%d')}.log")
+_file_handler = logging.FileHandler(_global_log_file, encoding="utf-8")
+_file_handler.setLevel(logging.DEBUG)
+_file_handler.setFormatter(logging.Formatter(
+    "%(asctime)s [%(name)s] %(levelname)s: %(message)s"
+))
+
+_console_handler = logging.StreamHandler()
+_console_handler.setLevel(logging.INFO)
+_console_handler.setFormatter(logging.Formatter(
+    "%(asctime)s [%(name)s] %(levelname)s: %(message)s"
+))
+
+root_logger = logging.getLogger()
+root_logger.setLevel(logging.DEBUG)
+root_logger.addHandler(_file_handler)
+root_logger.addHandler(_console_handler)
+
+_startup_logger = logging.getLogger("app.startup")
 
 # 创建 FastAPI 应用
 app = FastAPI(
@@ -35,6 +65,7 @@ app.include_router(dialogs_router)
 @app.on_event("startup")
 def startup():
     """应用启动时创建数据库表"""
+    _startup_logger.info("应用启动，初始化数据库...")
     # 导入所有模型，确保它们被注册到 Base.metadata
     import models  # noqa: F401
     Base.metadata.create_all(bind=engine)
@@ -57,7 +88,7 @@ def _recover_stuck_tasks():
             task.error_message = "服务器重启，整理任务已中断"
         if stuck_tasks:
             db.commit()
-            print(f"已恢复 {len(stuck_tasks)} 个中断的整理任务")
+            _startup_logger.info("已恢复 %d 个中断的整理任务", len(stuck_tasks))
     finally:
         db.close()
 
@@ -73,7 +104,7 @@ def _create_default_user():
     try:
         existing = db.query(User).filter(User.username == "admin").first()
         if existing:
-            print("默认管理员账号已存在，跳过创建")
+            _startup_logger.info("默认管理员账号已存在，跳过创建")
             return
         admin_user = User(
             username="admin",
@@ -81,7 +112,7 @@ def _create_default_user():
         )
         db.add(admin_user)
         db.commit()
-        print("默认管理员账号已创建: admin / admin123")
+        _startup_logger.info("默认管理员账号已创建: admin / admin123")
     finally:
         db.close()
 
