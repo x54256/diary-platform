@@ -4,7 +4,9 @@ from datetime import date, datetime
 from typing import Optional
 from uuid import UUID
 
-from pydantic import BaseModel
+import json
+
+from pydantic import BaseModel, field_validator
 
 from schemas.tag import TagResponse
 
@@ -34,6 +36,80 @@ class DiaryOrganizedResponse(BaseModel):
     content: Optional[str] = None
     mood: Optional[str] = None
     location: Optional[str] = None
+    introduction: Optional[str] = None
+    trivia: Optional[list[str]] = None
+    plans: Optional[list[str]] = None
+    events: list["DiaryEventResponse"] = []
+    check_logs: list["CheckLogResponse"] = []
+    clean_check_logs: list["CleanCheckLogResponse"] = []
+
+    @field_validator("trivia", "plans", mode="before")
+    @classmethod
+    def parse_json_string(cls, v):
+        if isinstance(v, str):
+            return json.loads(v)
+        return v
+
+    class Config:
+        from_attributes = True
+
+
+class DiaryEventResponse(BaseModel):
+    """日记事件响应"""
+
+    id: UUID
+    event_title: Optional[str] = None
+    body: Optional[list[str]] = None
+    feeling: Optional[list[str]] = None
+    reflection: Optional[list[str]] = None
+    event_tags: Optional[dict] = None
+    sort_order: int = 0
+
+    @field_validator("body", "feeling", "reflection", "event_tags", mode="before")
+    @classmethod
+    def parse_json_string(cls, v):
+        if isinstance(v, str):
+            try:
+                parsed = json.loads(v)
+                # 兼容旧数据：如果解析结果仍是字符串（非列表），包装为列表
+                if isinstance(parsed, str):
+                    return [parsed] if parsed else []
+                return parsed
+            except (json.JSONDecodeError, ValueError):
+                # 旧数据可能是纯字符串，包装为单元素列表
+                return [v] if v else []
+        return v
+
+    class Config:
+        from_attributes = True
+
+
+class CheckLogResponse(BaseModel):
+    """内容审核日志响应"""
+
+    id: UUID
+    check_item: Optional[str] = None
+    status: Optional[str] = None
+    target: Optional[str] = None
+    issue: Optional[str] = None
+    before: Optional[str] = None
+    after: Optional[str] = None
+    reason: Optional[str] = None
+    sort_order: int = 0
+
+    class Config:
+        from_attributes = True
+
+
+class CleanCheckLogResponse(BaseModel):
+    """清洗审核日志响应"""
+
+    id: UUID
+    issue: Optional[str] = None
+    before: Optional[str] = None
+    after: Optional[str] = None
+    reason: Optional[str] = None
+    sort_order: int = 0
 
     class Config:
         from_attributes = True
@@ -85,5 +161,9 @@ class OrganizeTaskResponse(BaseModel):
 
     diary_id: UUID
     status: str  # running / completed / failed
-    current_step: Optional[str] = None  # text_cleaning / deep_cleaning / event_organizing / template_filling / content_checking / metadata_generating
+    current_step: Optional[str] = None  # text_cleaning / clean_checking / event_organizing / structuring / content_checking / metadata_extracting
     error_message: Optional[str] = None
+
+
+# 解决前向引用
+DiaryOrganizedResponse.model_rebuild()

@@ -1,5 +1,6 @@
 """日记管理路由"""
 
+import json
 from datetime import date, timedelta
 from typing import Optional
 from uuid import UUID
@@ -26,7 +27,7 @@ from services.auth import get_current_user
 import asyncio
 from database import SessionLocal
 from utils.diary_render import render_diary_to_markdown
-from models.diary import DiaryEvent, DiaryCheckLog, OrganizeTask
+from models.diary import DiaryEvent, DiaryCheckLog, DiaryCleanCheckLog, OrganizeTask
 from schemas.diary import OrganizeTaskResponse
 
 router = APIRouter(prefix="/api/diaries", tags=["日记管理"])
@@ -297,24 +298,36 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
 
         # 创建 DiaryOrganized 记录
         organized = DiaryOrganized(
+            task_id=task_id,
             diary_id=diary_id,
             title=result["title"],
             summary=result["summary"],
             content=content,
             mood=result["mood"],
             location=result["location"],
+            introduction=result.get("introduction", ""),
+            trivia=json.dumps(result.get("trivia", []), ensure_ascii=False),
+            plans=json.dumps(result.get("plans", []), ensure_ascii=False),
         )
         db.add(organized)
         db.flush()
 
+        # 构建事件标题到标签的映射
+        event_tags_map = {}
+        for et in result.get("event_tags", []):
+            if isinstance(et, dict):
+                event_tags_map[et.get("title", "")] = et.get("tags", {})
+
         # 创建 DiaryEvent 记录
         for i, event in enumerate(result["events"]):
+            event_title = event.get("title", "未命名事件")
             db.add(DiaryEvent(
                 diary_organized_id=organized.id,
-                event_title=event.get("title", "未命名事件"),
-                body=event.get("body", ""),
-                feeling=event.get("feeling", ""),
-                reflection=event.get("reflection", ""),
+                event_title=event_title,
+                body=json.dumps(event.get("body", []), ensure_ascii=False),
+                feeling=json.dumps(event.get("feeling", []), ensure_ascii=False),
+                reflection=json.dumps(event.get("reflection", []), ensure_ascii=False),
+                event_tags=json.dumps(event_tags_map.get(event_title, {}), ensure_ascii=False),
                 sort_order=i,
             ))
 
@@ -325,23 +338,49 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
                 check_item=log.get("check_item", ""),
                 status=log.get("status", "通过"),
                 issue=log.get("issue", ""),
-                fix=log.get("fix", ""),
                 before=log.get("before", ""),
                 after=log.get("after", ""),
+                target=log.get("target", ""),
+                reason=log.get("reason", ""),
                 sort_order=i,
             ))
 
-        # 标签批量处理（消除 N+1）
-        if result.get("tag_names"):
+        # 创建 DiaryCleanCheckLog 记录
+        for i, log in enumerate(result.get("clean_check_log", [])):
+            db.add(DiaryCleanCheckLog(
+                diary_organized_id=organized.id,
+                issue=log.get("issue", ""),
+                before=log.get("before", ""),
+                after=log.get("after", ""),
+                reason=log.get("reason", ""),
+                sort_order=i,
+            ))
+
+        # 标签处理：优先从 event_tags 合并去重，兼容旧的 tag_names 扁平列表
+        all_tag_names = set()
+        for et in result.get("event_tags", []):
+            if isinstance(et, dict):
+                tags_dict = et.get("tags", {})
+                if isinstance(tags_dict, dict):
+                    for category_tags in tags_dict.values():
+                        if isinstance(category_tags, list):
+                            all_tag_names.update(category_tags)
+
+        # 兼容：AI prompt 未更新时，回退到 tag_names 扁平列表
+        if not all_tag_names and result.get("tag_names"):
+            all_tag_names = set(result["tag_names"])
+
+        if all_tag_names:
+            tag_names_list = list(all_tag_names)
             existing_tags = (
                 db.query(Tag)
-                .filter(Tag.user_id == user_id, Tag.name.in_(result["tag_names"]))
+                .filter(Tag.user_id == user_id, Tag.name.in_(tag_names_list))
                 .all()
             )
             existing_names = {t.name for t in existing_tags}
             new_tags = [
                 Tag(user_id=user_id, name=n)
-                for n in result["tag_names"]
+                for n in tag_names_list
                 if n not in existing_names
             ]
             db.add_all(new_tags)

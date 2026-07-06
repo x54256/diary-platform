@@ -75,8 +75,8 @@ const router = useRouter()
 
 // 表单数据
 const form = reactive({
-  username: '',
-  password: '',
+  username: 'admin',
+  password: 'admin123',
   remember: false,
 })
 

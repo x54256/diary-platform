@@ -27,172 +27,330 @@ _file_handler.setFormatter(logging.Formatter("%(asctime)s\n%(message)s"))
 _ai_logger.addHandler(_file_handler)
 
 # ---------------------------------------------------------------------------
-# 结构化日记整理的 5 个独立 Prompt
+# 结构化日记整理的 6 个独立 Prompt
 # ---------------------------------------------------------------------------
 
-CLEAN_PROMPT_LIGHT = """你是一个文本清洗助手。请对用户提供的日记原文（语音转文字）进行基础清洗。
-
-## 规则
-1. 修正语病、错别字、断句错误
-2. 删除口头禅（嗯、啊、然后、反正、就是、那个 等）
-3. 删除明显的重复表达（同一句话说了两遍只保留一遍）
-4. 不改变原文含义，不调整语序，不重组内容
-5. 保留原文的语气和风格
-
-请严格按以下 JSON 格式返回（不要包含 markdown 代码块标记）：
-{"cleaned_text": "清洗后的文本"}"""
-
-CLEAN_PROMPT_DEEP = """你是一个文本清洗助手。请对轻度清洗后的日记原文进行深度重组。
+CLEAN_PROMPT = """你是一个日记文本清洗助手。请对用户提供的日记原文（语音转文字）进行清洗整理，生成一份可读的基准文本，供后续事件整理使用。
 
 ## 最高准则
-尊重事实但不过度尊重原文。整理结果必须让人能看懂，这是给人读的。
+尊重事实，但不过度尊重原始口语形态。整理结果必须让人能看懂，这是给人读的。
+
+## 清洗目标
+在不改变原文事实含义的前提下，删除语音噪音，修正明显错误，整理断句和表达，使文本通顺、自然、可读。
 
 ## 规则
-1. 剔除不承载信息价值的口头语言噪音（录音过程自语、叙述过渡、走神重复、无意义填充等），只要不承载事件、情感或认知信息，都应剔除
-2. 事件描述围绕事件本身，用书面逻辑重新组织表达，按时间先后单向叙述，补全隐含的逻辑关系，结合上下文修正语音识别错误，确保可读性
-3. 不改变事实含义，但整理力度要足够
+1. 修正语病、错别字、断句错误。
+2. 删除口头禅和无意义填充词，例如"嗯、啊、然后、反正、就是、那个"等。
+3. 删除明显重复表达。同一句话或同一意思连续重复时，只保留信息最完整、表达最清楚的一版。
+4. 剔除不承载信息价值的口头语言噪音，包括录音过程自语、叙述过渡、走神重复、无意义填充等。
+5. 保留承载事件、情感、判断、偏好、计划、反思的信息，不要因为表达口语化就删除。
+6. 应当结合上下文修正语音识别错误：如果某个词或短语在上下文中语义不通，且存在一个读音相近的常见词能令句子通顺，则应当修正。但不能强行猜测无法确定的人名、地名、产品名、专有名词（修正后仍然不通的，保留原样）。
+7. 可以在同一句或相邻短句内调整局部语序、合并断裂表达，使表达通顺。
+8. 可以补充标点，以及原文关系已经明确的过渡词；不要补充原文没有明确表达的因果、目的、动机。
+10. 按原文叙述顺序整理，整体时间线不要倒置。
+11. 不新增原文没有的事实、原因、情绪、评价或反思。
+12. 保留原文的语气和风格，不要改成过度正式、文学化或总结式表达。
+13. 如果原文表达含混，只做可读性整理，不要强行解释成确定结论。
 
-## 清洗样例
+## 输出要求
+请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：
 
-输入：今天早上我们昨天昨天晚上下了可大可大的雨了，所以就嗯没按时出来
-输出：昨天晚上下了很大的雨，没按时出来
+{"cleaned_text": "清洗后的文本"}"""
 
-输入：然后刚刚讲到哪了啊，今天把那个软件过程的文档基本上写完了然后明天看看我早上能不能起来
-输出：今天把软件过程的文档基本上写完了，明天早上看看能不能起来
+CLEAN_CHECK_PROMPT = """你是一个日记清洗审核助手。请对照原始日记文本，审核文本清洗结果是否准确，并直接修正清洗结果中的问题。
 
-输入：下楼腿都在那抖，走起路来就好很多了
-输出：下楼腿都在抖，但走起路来就好很多
+## 清洗环节职责（供审核参考）
+前一步"文本清洗"的职责范围：
+- 删除口头填充词和重复表达（嗯、呃、"哈喽"重复、"和和和"结巴等）
+- 修正语音识别错误（人名、产品名等的合理推断修正）
+- 改善断句、标点和可读性
+- 保留所有承载事件、情感、认知、计划信息的实质内容
+上述操作属于清洗的预期行为，审核时不应回退。
 
-输入：然后再讲一个今天早晨的事吧，今天早晨林萧鹏突然问我
-输出：今天早上林萧鹏突然问我
+## 任务目标
+双向检查 cleaned_text 的质量：
+1. 防过度清洗：检查清洗是否误删、误改了有信息价值的内容。
+2. 防漏修：检查 cleaned_text 中是否残留语义不通、明显是语音识别错误但未被修正的表达。
+发现问题时，直接在 checked_text 中修正，输出更可靠的 checked_text。
 
-输入：就闲着也是闲着就说两句
-输出：（删除，属于元叙述）
+## 最高准则
+original_text 中的事实信息（事件、时间、人物、地点、行为、结果、感受、判断、偏好、计划、细节）是最高来源。
+口语填充词、重复表达、语音识别乱码不属于事实信息，清洗环节删除这些是正确行为。
+checked_text 应以 cleaned_text 为基础，只修正审核发现的实质问题，不重新清洗全文，不整体改写表达风格。
 
-请严格按以下 JSON 格式返回（不要包含 markdown 代码块标记）：
-{"cleaned_text": "深度清洗后的文本"}"""
+## 审核规则
+1. 检查 cleaned_text 是否改变了原文事实含义。
+2. 检查 cleaned_text 是否遗漏了有信息价值的内容，包括事件、时间、地点、人物、行为、结果、感受、判断、计划。
+3. 检查 cleaned_text 是否新增了原文没有的事实、原因、情绪、评价或反思。
+4. 检查 cleaned_text 是否强行猜测无法确定的人名、地名、产品名、专有名词。
+5. 检查 cleaned_text 是否把原文中的含混、犹豫、矛盾表达强行改成确定结论。
+6. 检查 cleaned_text 是否存在明显不通顺、断句错误、指代不清的问题。
+7. 检查 cleaned_text 中是否残留语义不通的表达（如某个词在上下文中明显不合理，且存在读音相近的常见词能令句子通顺），这类属于清洗遗漏，应当修正。
 
-EVENT_ORGANIZE_PROMPT = """你是一个事件整理助手。请对用户提供的清洗后日记文本进行事件识别、归类和重组，规则如下：
+## 不属于问题（不应记录到 clean_check_log）
+- 清洗删除了口头填充词（嗯、呃、那个、然后就 的重复使用）
+- 清洗修正了语音识别错误（如人名、产品名的合理推断修正）
+- 清洗合并了重复表达（如"哈喽"重复、"和和和"结巴、同一句话反复说）
+- 清洗改善了断句、标点和局部语序
+- 清洗删除了不承载信息的过渡自语或走神片段
 
-## 事件拆分规则
-- 按"目标"拆分为主：想解决的问题/想完成的事不同就拆成不同事件
-- 时间/地点/人物/场景/主题作为辅助判断维度
-- 每个事件应有明确的目标或主题
+## 修正规则
+1. 发现问题时，直接在 checked_text 中修正。
+2. 每个实质性修正都记录到 clean_check_log。
+3. 如果 cleaned_text 没有明显问题，checked_text 可以等于 cleaned_text，clean_check_log 为空数组。
+4. clean_check_log 只记录影响事实、信息完整性和可读性的实质问题，不记录标点、轻微措辞这类小调整。
+5. 只修正必要问题，不重新清洗全文，不做事件拆分，不做摘要，不做结构化整理。
 
-## 事件内文本重组
-- 将属于同一事件的散落文本聚合到一起
-- 按时间顺序整理事件内的叙述
-- 保留原文表达，不改写含义
+## 输出要求
+请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：
 
-## 引入段识别
-原文开头无法归入事件、琐事、后续计划的开场白或闲聊内容，提取为 introduction。
-- 引入段仅整理原文已有内容，不主动生成
-- 如果没有这类内容，introduction 为空字符串
-
-## 拆分样例
-
-输入：今天把软件过程文档写完了。东莞的项目也收尾了，没啥活了。昨天给自己找了个活去干前端DUS工作。
-输出：
 {
-  "events": [
-    {"event_title": "完成软件过程文档", "organized_text": "今天把软件过程文档基本上写完了，现在就差 Scrum 和 Kanban 两个框架和方法没写，明天早上完成收尾。"},
-    {"event_title": "东莞项目收尾", "organized_text": "东莞的项目基本上做完了，任务完成了，我这边没啥活了，下周估计要跟田总要活。"},
-    {"event_title": "接手前端 DUS 工作", "organized_text": "昨天给自己找了个活，去干前端的 DUS 工作。"}
-  ],
-  "trivia": [],
-  "plans": ["下周跟田总要活"],
-  "introduction": ""
-}
+  "checked_text": "审核修正后的文本",
+  "clean_check_log": [
+    {
+      "issue": "发现的问题",
+      "before": "清洗结果中的问题片段",
+      "after": "修正后的片段",
+      "reason": "修正原因"
+    }
+  ]
+}"""
 
-## 输出格式
-请严格按以下 JSON 格式返回（不要包含 markdown 代码块标记）：
-{"events": [{"event_title": "事件标题（什么时候发生/做了什么）", "organized_text": "该事件的全部相关文本重组后的结果"}], "trivia": [], "plans": [], "introduction": "引入段文本（无则空字符串）"}"""
+EVENT_ORGANIZE_PROMPT = """你是一个日记事件整理助手。请对清洗审核后的日记文本进行事件识别、归类和汇聚。
 
-TEMPLATE_FILL_PROMPT = """你是一个结构化整理助手。请将用户提供的每个事件的文本，按照3字段结构化模板进行填充。
+## 任务目标
+日记中经常出现思维跳跃：说一件事时插入另一件事，之后又回到前一件事。
+你的任务是识别日记中提到的所有事情，并把属于同一件事的散落内容汇聚到一起。
 
-## 核心红线
-1. 只整理原文明确表达的内容，不推断、不补充、不拔高
-2. 对模糊表达采用"保留原始表达 + 标注未明确点"，不强行解释成明确结论
-3. 重复表达只保留信息最完整、表达最清楚的一版
-4. 可以修正错别字、语病、断句，但不改变含义
+## 整理规则
+1. 先识别日记中有哪些事情。
+2. 同一件事即使在原文中分散出现，也要汇聚到同一个 events 项中。
+3. 不同事情不要混在同一个 events 项中。
+4. 每个事件内部按实际发生顺序整理。
+5. 事件标题要具体，能说明"发生了什么"，不要写成抽象主题。
+6. 保留原文中的事实、细节、判断、感受和计划表达，不要拔高总结。
+7. 后续计划放入 plans。
+8. 无完整事件过程，只是简单提了一下的零散内容放入 trivia。
+9. 原文开头纯开场白放入 introduction；真实发生的事情不要放入 introduction。
+10. 提取 introduction、trivia、plans 时，对内容做轻度可读性整理——修正残余的语音识别错误和不通顺表达，但不改变信息内容，不做深度改写。
 
-## 3字段精确定义
-
-### 事件正文（body）
-把背景、动机、过程、结果合并成一段或多段自然语言，按阅读顺序整理。
-- 背景：事件发生前已存在的上下文和外部条件（前因、时间、地点、人物、环境、外部限制）
-- 动机：原文明确表达的"我为什么要做这件事"（想解决的问题、想达成的目标、目的）
-- 过程：事件实际推进经过，按发生顺序整理（做了什么、对方做了什么、中间变化、沟通、协作、冲突）
-- 结果：事件最后形成的状态和后续影响（是否完成、遗留问题、当前状态）
-- 写成自然段，不默认使用编号；只有步骤非常清晰、且编号能明显提升可读性时才使用编号
-- 即时感受可自然融入事件正文句子中，但不展开心理分析
-
-### 感受（feeling）
-对整个事件情绪变化的总结。
-- 归入：主要情绪、情绪变化、情绪转折点、压力、烦躁、轻松、开心、失望、被忽视、被回应等体验
-- 不归入：复述过程细节、事后经验、心理分析
-- 只有原文明确表达情绪时才整理，否则为空字符串
-
-### 反思与成长（reflection）
-原文明确表达的事后理解、判断、感悟、学到的东西、自我认识。
-- 有多条时使用编号列表，只有一条时直接写自然段
-- 不归入：原文没说的经验、推断隐含道理、拔高、拆成内部小标题
-- 只有原文明确表达了才整理，否则为空字符串
-
-## 格式规则
-1. 事件正文写成通顺完整的自然段，即时感受可自然融入句子
-2. 感受字段只总结整个事件的情绪变化，不复述过程细节
-3. 反思与成长不拆成内部小标题，只有原文明确表达了才整理
-4. 字段无内容时填空字符串
+## 拆分判据
+- 以"事情"为核心：想解决的问题不同、目标不同，就是不同的事。
+- 时间、地点、人物、场景、主题作为辅助判断维度。
+- 同一件事即使在原文中分散出现，也要汇聚到一起。
 
 ## 整理样例
 
-输入事件：
-{"event_title": "昨天晚上和今天中午带达达遛弯", "organized_text": "达达今天拉了四回。昨天他憋了一天一晚上，晚上又下雨没出来。12点左右，我带他出来溜溜...今天中午带他出来..."}
+输入：
+今天把软件过程文档基本上写完了，就差 Scrum 和 Kanban 两个没写。东莞的项目也收尾了，我这边没啥活了。昨天给自己找了个活，去干前端的 DUS 工作。下周估计要跟田总要活。
+
 输出：
-{"title": "带达达遛弯", "body": "昨天晚上下雨没带达达出来，他憋了一天一晚上。接近 12 点我带他出来，本想在塑胶道那块溜一会儿，结果达达不愿意，非要往后门走，走到拳击那块就不走了，要过道去玩。我好不容易拽回来，走到正门又不走了，要往地铁站那边走。我还是没让他，带他走了小花园，绕了车库一圈，才生拉硬拽回家。\n\n今天中午带他出来，走到小区正门就死活要出去。我想着中午有时间，点外卖也不快，就惯着他带他出去。出来达达非要走大圈，本来走下渡路都回去了，他非要往回走，无所谓了反正明天休息，宠宠小狗。小狗老舔地上的尿，怎么吓唬都没用，大半是走水坑里了。", "feeling": "对达达又无奈又宠溺", "reflection": ""}
+{
+  "introduction": "",
+  "events": [
+    {"event_title": "完成软件过程文档", "organized_text": "今天把软件过程文档基本上写完了，就差 Scrum 和 Kanban 两个没写。"},
+    {"event_title": "东莞项目收尾", "organized_text": "东莞的项目也收尾了，我这边没啥活了。"},
+    {"event_title": "接手前端 DUS 工作", "organized_text": "昨天给自己找了个活，去干前端的 DUS 工作。"}
+  ],
+  "trivia": [],
+  "plans": ["下周跟田总要活"]
+}
 
-## 输出格式
-请严格按以下 JSON 格式返回（不要包含 markdown 代码块标记）：
-{"events": [{"title": "事件标题", "body": "事件正文", "feeling": "感受内容", "reflection": "反思内容"}]}"""
+## 输出要求
+请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：
 
-CHECK_PROMPT = """你是一个内容审核助手。请对用户提供的结构化事件进行内容检查与修正。
+{
+  "introduction": "引入段文本，无则空字符串",
+  "events": [
+    {
+      "event_title": "事件标题",
+      "organized_text": "同一事件汇聚后的文本"
+    }
+  ],
+  "trivia": [],
+  "plans": []
+}"""
+
+TEMPLATE_FILL_PROMPT = """你是一个结构化整理助手。请将用户提供的事件列表转换为三字段结构。
+
+## 任务目标
+对每个事件填充：
+1. 事件正文 body
+2. 感受 feeling
+3. 反思与成长 reflection
+
+## 核心红线
+1. 不重新拆分事件。
+2. 不合并不同事件。
+3. 不补充原文没有的信息。
+4. 推断感受时必须包含前因后果，不输出孤立的情绪词。
+5. 不拔高反思。
+6. 字段没有内容时填空数组 []。
+
+## 字段定义
+
+### body：事件正文
+整理该事件的背景、过程、结果。
+- body 是字符串数组，每个元素是一个自然段。
+- 可以调整断句，使其读起来通顺。
+- 可以把事件内的内容按发生顺序组织。
+- 保留原文明确表达的事实、细节、判断、计划。
+- 不要把感受和反思强行抽离；如果一句话本身既是事实又带即时体验，可以自然保留在正文中。
+- 涉及不同时间段、不同阶段时，分成多个段落（数组元素）。
+- 内容较短时也可以是单元素数组。
+- 可以使用“在什么场景，发生了什么，做了什么，最终产生了什么效果”这种表述方式
+
+### feeling：感受
+整理原文明确表达，或有明确文本线索支撑的感受、体验、情绪、身体状态或主观评价。
+- feeling 是字符串数组，每个元素是一条自包含的短句，带上触发原因，脱离事件正文也能看懂。
+- 允许基于明确文本线索做轻度推断和概括，但推断时必须包含前因后果。
+- 认知评价（如"增长见识""学到东西"）属于 reflection，不属于 feeling。
+- 不要把他人的状态当成"我"的感受。
+- 如果没有明确表达或明确线索，填空数组 []。
+- 可以使用“发生了什么，有什么感受”这种表述方式
+
+### reflection：反思与成长
+整理原文明确表达，或由原文明显判断推出的事后理解、判断、经验、教训、自我认识。
+- reflection 是字符串数组，每个元素是一条独立的反思。
+- 反思是提炼后的判断或认识，不是事件正文的压缩摘要。不要把事件中的观点、事实、过程重复一遍。
+- 优先使用原文明确结论。
+- 允许把零散判断整理成轻度概括。
+- 不允许拔高成人生经验、方法论或成长感悟。
+- 不允许写原文没有支撑的反思。
+- 如果没有明确表达或明显判断，填空数组 []。
+
+## 输出要求
+请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：
+
+{
+  "events": [
+    {
+      "title": "事件标题",
+      "body": ["段落1", "段落2"],
+      "feeling": ["感受1"],
+      "reflection": ["反思1", "反思2"]
+    }
+  ]
+}"""
+
+CHECK_PROMPT = """你是一个日记内容审核助手。请对照 original_text，审核事件整理与三字段结构化结果，并直接修正问题。
+
+## 任务目标
+检查 introduction、events、trivia、plans 是否准确、完整、归类合理、可读。
+发现问题时，直接输出修正后的完整结果，并记录关键修正。
+
+## 事实来源
+original_text 是最高且唯一的事实来源。
+structured_events、organized_result 是待审核结果。
 
 ## 检查规则
-对照原始日记文本，检查以下8类问题。发现问题直接修正替换，只做一轮检查：
+对照 original_text，检查以下 10 类问题。发现问题直接修正，只做一轮检查：
 
-1. 编造内容：事件中出现了原文没有的内容
-2. 推断动机：事件正文中包含了原文未明确表达的目的或原因
-3. 推断感受：感受字段中包含了原文未明确表达的情绪
-4. 推断反思/成长：反思与成长字段中包含了原文未明确表达的经验或感悟
-5. 过度总结：将具体的经历过度抽象概括，丢失了原文的细节
-6. 事件归类错误：不同目标的内容被放入同一事件，或同一目标被拆成多个事件
-7. 字段放错位置：内容被放入了错误的字段（如把事后反思放进了事件正文，或把过程细节放进了感受）
-8. 可读性不足：以读者视角通读全文，检查是否有句子读不通顺、逻辑跳跃、因果关系不清、时间混乱等影响阅读体验的问题，发现问题直接改写为通顺表达
+1. 编造内容：结果中出现了原文没有的事实、人物、时间、地点、行为、结果、评价或结论。
+2. 信息遗漏：遗漏了原文中有保留价值的事件、细节、判断、感受或计划。
+3. 推断动机：事件正文中包含原文没有明确表达或没有明确线索支撑的目的、原因、动机。
+4. 推断感受：feeling 中包含没有原文表达或明确线索支撑的情绪、体验、主观评价。
+5. 推断反思/成长：reflection 中包含没有原文表达或明确线索支撑的经验、感悟、教训、成长。
+6. 过度总结：将具体经历过度抽象概括，导致原文细节、语气或个人表达丢失。
+7. 事件归类错误：不同事情被放入同一事件，或同一事情被拆成多个事件；trivia/plans/introduction 归类错误也属于此类。
+8. 字段放错位置：内容被放入错误字段，例如计划放入正文、过程细节放入感受、真实事件放入 introduction、完整事件放入 trivia。
+9. 计划处理错误：plans 遗漏、重复、混入非计划内容，或与事件正文重复表达过多。
+10. 可读性不足：句子不通顺、逻辑跳跃、指代不清、时间顺序混乱，影响阅读体验。
 
 ## 修正规则
-- 发现问题直接在 events 中修正对应字段
-- 对每个检查项记录检查结果：通过则 status 为"通过"，发现问题并修正则 status 为"已修正"
-- 只做一轮检查，不反复修正
+1. 发现问题直接修正对应字段。
+2. 修正范围包括 introduction、events、trivia、plans。
+3. 对每个检查项记录检查结果：通过则 status 为"通过"，发现问题并修正则 status 为"已修正"。
+4. 只做一轮检查，不反复修正。
+5. 允许 feeling/reflection 基于明确文本线索做轻度概括，但必须有原文支撑。
+6. check_log 只记录影响事实、归类、字段准确性或可读性的关键修正，不记录轻微标点调整。
+7. 不要重新创作，不要改变整体表达风格。
 
-## 输出格式
-请严格按以下 JSON 格式返回（不要包含 markdown 代码块标记）：
-{"events": [{"title": "...", "body": "...", "feeling": "...", "reflection": "..."}], "check_log": [{"check_item": "编造内容", "status": "通过", "issue": "", "fix": "", "before": "", "after": ""}, {"check_item": "推断动机", "status": "已修正", "issue": "问题描述", "fix": "修正动作", "before": "修正前片段", "after": "修正后片段"}]}
+## 输出要求
+请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：
 
-check_log 必须包含全部8个检查项。通过时 issue/fix/before/after 为空字符串。"""
+{
+  "introduction": "审核后的引入段",
+  "events": [
+    {
+      "title": "事件标题",
+      "body": ["段落1", "段落2"],
+      "feeling": ["感受1"],
+      "reflection": ["反思1", "反思2"]
+    }
+  ],
+  "trivia": [],
+  "plans": [],
+  "check_log": [
+    {
+      "check_item": "检查项名称",
+      "status": "通过或已修正",
+      "target": "被修正的字段，例如 events[0].feeling",
+      "issue": "问题描述，通过时为空字符串",
+      "before": "修正前内容，通过时为空字符串",
+      "after": "修正后内容，通过时为空字符串",
+      "reason": "修正原因，通过时为空字符串"
+    }
+  ]
+}
 
-METADATA_PROMPT = """你是一个元数据提取助手。请根据用户提供的结构化事件和原始日记文本，提取日记的元数据。
+check_log 必须包含全部 10 个检查项。
+通过的检查项：status 为"通过"，target/issue/before/after/reason 为空字符串。
+已修正的检查项：status 为"已修正"，填写 target/issue/before/after/reason。"""
+
+METADATA_PROMPT = """你是一个日记元数据提取助手。请根据审核后的日记整理结果提取元数据。
+
+## 任务目标
+生成日记标题、摘要、整体心情、地点，并为每个事件提取事件级标签。
+
+## 输入说明
+final_result 是已经审核后的最终整理结果，是主要依据。
+original_text 是原始日记文本，仅用于核对事实，不要从原文中挖掘 final_result 已经删除的噪音内容。
 
 ## 提取规则
-1. 标题：10-20字的简洁标题，概括日记核心内容
-2. 摘要：一句话概括日记的主要内容
-3. 心情：单个词概括当天整体心情（如"开心""焦虑""平静"），原文未提到心情时留空字符串
-4. 地点：单个词概括当天所在地点，原文未提到地点时留空字符串
-5. 标签：不限数量，提取日记中的关键主题词作为标签
+1. 标题 title：10-20字的简洁标题，概括日记核心内容。
+2. 摘要 summary：用一句话概括日记中发生的核心事件。
+3. 心情 mood：保留为独立字段，用一个短词表示当天整体情绪或状态，例如"疲惫""平静""烦躁""开心""低落""充实""焦虑""放松"。必须有 final_result 或 original_text 中的明确线索支撑；没有明确线索则填空字符串。
+4. 地点 location：提取当天主要地点。多个地点可用中文顿号连接；原文没有地点则填空字符串。
+5. 事件级标签 event_tags：标签不是简单分类，而是为后续检索、AI 对话、人物画像、心路历程和知识沉淀提供入口。
+6. 标签类型固定为五类：domain、topic、person_object、psychological、knowledge。
+7. 只输出事件级标签，不直接输出整篇日记级标签。日记级标签由所有事件级标签合并、去重后得到。
+8. event_tags 必须与 final_result.events 一一对应，title 使用事件 title。
+9. 每个事件的 tags 都按五类输出：domain、topic、person_object、psychological、knowledge。
+10. 每种标签类型都输出数组；没有对应标签时输出空数组。同一事件、同一类型下可以有多个标签，但不要重复。
+11. 优先提取 topic、person_object、psychological、knowledge；domain 只作为辅助粗分类，数量要少。
+12. 标签必须来自 original_text 或 final_result 中的明确依据。
+13. 不要生成原文没有依据的心情、地点或标签。
+14. 不要把标题写成营销文案或文学化标题。
 
-## 输出格式
-请严格按以下 JSON 格式返回（不要包含 markdown 代码块标记）：
-{"title": "日记标题", "summary": "一句话摘要", "mood": "心情", "location": "地点", "tag_names": ["标签1", "标签2"]}"""
+## 标签类型说明
+- domain：领域标签，用于粗粒度筛选日记，例如"工作""生活""关系""健康""学习""娱乐"。
+- topic：主题标签，用于串起长期反复出现的具体事项，例如"日记管理""AI 开发""小红书爬虫""遛狗"。
+- person_object：人物 / 对象标签，用于串起具体人物、关系和重要对象，例如"林萧鹏""田总""媳妇""达达"。
+- psychological：心理主题标签，用于串起情绪、需求和内在模式，例如"不确定性""控制感""遗憾""无奈""成就感"。
+- knowledge：知识点标签，用于串起学习内容、方法、概念和做事方式，例如"软件工程""需求分析""原型设计""AI 辅助开发""项目管理"。
+
+## 输出要求
+请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：
+
+{
+  "title": "日记标题",
+  "summary": "摘要",
+  "mood": "心情，没有则空字符串",
+  "location": "地点，没有则空字符串",
+  "event_tags": [
+    {
+      "title": "事件标题",
+      "tags": {
+        "domain": [],
+        "topic": [],
+        "person_object": [],
+        "psychological": [],
+        "knowledge": []
+      }
+    }
+  ]
+}"""
 
 
 class AIService:
@@ -202,6 +360,7 @@ class AIService:
         self.api_key = settings.DEEPSEEK_API_KEY
         self.api_url = settings.DEEPSEEK_API_URL
         self.model = settings.DEEPSEEK_MODEL
+        self.client = httpx.AsyncClient(timeout=240.0)
 
     async def chat(self, messages: list[dict], context: str = "") -> str:
         """调用 DeepSeek 对话接口
@@ -224,17 +383,16 @@ class AIService:
         api_messages.extend(messages)
 
         try:
-            async with httpx.AsyncClient(timeout=60.0) as client:
-                response = await client.post(
-                    f"{self.api_url}/chat/completions",
-                    headers={"Authorization": f"Bearer {self.api_key}"},
-                    json={
-                        "model": self.model,
-                        "messages": api_messages,
-                    },
-                )
-                response.raise_for_status()
-                return response.json()["choices"][0]["message"]["content"]
+            response = await self.client.post(
+                f"{self.api_url}/chat/completions",
+                headers={"Authorization": f"Bearer {self.api_key}"},
+                json={
+                    "model": self.model,
+                    "messages": api_messages,
+                },
+            )
+            response.raise_for_status()
+            return response.json()["choices"][0]["message"]["content"]
         except httpx.HTTPStatusError as e:
             logger.error("DeepSeek API 返回错误状态码: %s, 响应: %s", e.response.status_code, e.response.text)
             return "抱歉，AI 服务暂时不可用，请稍后再试。"
@@ -275,28 +433,27 @@ class AIService:
         last_error = None
         for attempt in range(2):  # 最多2次（初始+1次重试）
             try:
-                async with httpx.AsyncClient(timeout=60.0) as client:
-                    response = await client.post(
-                        f"{self.api_url}/chat/completions",
-                        headers={"Authorization": f"Bearer {self.api_key}"},
-                        json={
-                            "model": self.model,
-                            "messages": messages,
-                            "temperature": temperature,
-                            "response_format": {"type": "json_object"},
-                        },
-                    )
-                    response.raise_for_status()
-                    raw_content = response.json()["choices"][0]["message"]["content"]
-                    result = json.loads(raw_content)
+                response = await self.client.post(
+                    f"{self.api_url}/chat/completions",
+                    headers={"Authorization": f"Bearer {self.api_key}"},
+                    json={
+                        "model": self.model,
+                        "messages": messages,
+                        "temperature": temperature,
+                        "response_format": {"type": "json_object"},
+                    },
+                )
+                response.raise_for_status()
+                raw_content = response.json()["choices"][0]["message"]["content"]
+                result = json.loads(raw_content)
 
-                    # 记录响应日志
-                    _ai_logger.info(
-                        f"[Response]\n{json.dumps(result, ensure_ascii=False, indent=2)}\n"
-                        f"{'='*60}\n"
-                    )
+                # 记录响应日志
+                _ai_logger.info(
+                    f"[Response]\n{json.dumps(result, ensure_ascii=False, indent=2)}\n"
+                    f"{'='*60}\n"
+                )
 
-                    return result
+                return result
             except (httpx.HTTPStatusError, json.JSONDecodeError, KeyError, Exception) as e:
                 last_error = e
                 logger.warning("AI 调用第 %d 次失败: %s", attempt + 1, e)
@@ -322,7 +479,10 @@ class AIService:
                 if field == "title":
                     validated_event[field] = event.get(field) or "未命名事件"
                 else:
-                    validated_event[field] = event.get(field) or ""
+                    val = event.get(field) or []
+                    if not isinstance(val, list):
+                        val = [val] if val else []
+                    validated_event[field] = val
             validated.append(validated_event)
         return validated
 
@@ -334,7 +494,7 @@ class AIService:
             progress_callback: 可选的异步进度回调函数，接收 step 字符串
 
         Returns:
-            包含 title/summary/events/check_log/mood/location/tag_names/introduction 的 dict
+            包含 title/summary/events/check_log/clean_check_log/mood/location/event_tags/introduction/trivia/plans 的 dict
         """
         # API Key 未配置时返回占位结果
         if not self.api_key:
@@ -344,68 +504,102 @@ class AIService:
                 "summary": "",
                 "events": [],
                 "check_log": [],
+                "clean_check_log": [],
                 "mood": "",
                 "location": "",
-                "tag_names": [],
+                "event_tags": [],
                 "introduction": "",
+                "trivia": [],
+                "plans": [],
             }
 
-        # Call 1: 轻度清洗
+        # Call 1: 文本清洗 (temp=0.3)
         if progress_callback:
             await progress_callback("text_cleaning")
-        clean_light_result = await self._call_ai(CLEAN_PROMPT_LIGHT, original_text, temperature=0.3)
-        light_cleaned_text = clean_light_result.get("cleaned_text", original_text)
-
-        # Call 2: 深度重组
-        if progress_callback:
-            await progress_callback("deep_cleaning")
-        clean_deep_result = await self._call_ai(
-            CLEAN_PROMPT_DEEP,
-            json.dumps({"cleaned_text": light_cleaned_text}, ensure_ascii=False),
-            temperature=0.5,
+        clean_result = await self._call_ai(
+            CLEAN_PROMPT,
+            json.dumps({"original_text": original_text}, ensure_ascii=False),
+            temperature=0.3,
         )
-        cleaned_text = clean_deep_result.get("cleaned_text", light_cleaned_text)
+        cleaned_text = clean_result.get("cleaned_text", original_text)
 
-        # Call 3: 事件识别+归类+重组
+        # Call 2: 清洗审核 (temp=0.3)
+        if progress_callback:
+            await progress_callback("clean_checking")
+        clean_check_result = await self._call_ai(
+            CLEAN_CHECK_PROMPT,
+            json.dumps({"original_text": original_text, "cleaned_text": cleaned_text}, ensure_ascii=False),
+            temperature=0.3,
+        )
+        checked_text = clean_check_result.get("checked_text", cleaned_text)
+        clean_check_log = clean_check_result.get("clean_check_log", [])
+
+        # Call 3: 事件整理 (temp=0.5)
         if progress_callback:
             await progress_callback("event_organizing")
         event_result = await self._call_ai(
             EVENT_ORGANIZE_PROMPT,
-            json.dumps({"cleaned_text": cleaned_text}, ensure_ascii=False),
+            json.dumps({"checked_text": checked_text}, ensure_ascii=False),
             temperature=0.5,
         )
         introduction = event_result.get("introduction", "")
         if not isinstance(introduction, str):
             introduction = ""
+        trivia = event_result.get("trivia", [])
+        if not isinstance(trivia, list):
+            trivia = []
+        plans = event_result.get("plans", [])
+        if not isinstance(plans, list):
+            plans = []
 
-        # Call 4: 结构化模板填充
+        # Call 4: 三字段结构化 (temp=0.5)
+        # 注意：只传 events，不传 introduction/trivia/plans
         if progress_callback:
-            await progress_callback("template_filling")
+            await progress_callback("structuring")
+        template_input = {"events": event_result.get("events", [])}
         template_result = await self._call_ai(
             TEMPLATE_FILL_PROMPT,
-            json.dumps(event_result, ensure_ascii=False),
+            json.dumps(template_input, ensure_ascii=False),
             temperature=0.5,
         )
         structured_events = self._validate_events(template_result.get("events", []))
 
-        # Call 5: 内容检查与修正
+        # Call 5: 内容审核 (temp=0.3)
         if progress_callback:
             await progress_callback("content_checking")
-        check_input = json.dumps(
-            {"events": structured_events, "original_text": original_text},
-            ensure_ascii=False,
-        )
+        check_input = json.dumps({
+            "original_text": original_text,
+            "organized_result": {
+                "introduction": introduction,
+                "trivia": trivia,
+                "plans": plans,
+            },
+            "structured_events": structured_events,
+        }, ensure_ascii=False)
         check_result = await self._call_ai(CHECK_PROMPT, check_input, temperature=0.3)
+        # 使用审核后全量结果
+        final_introduction = check_result.get("introduction", introduction)
         final_events = self._validate_events(check_result.get("events", structured_events))
+        final_trivia = check_result.get("trivia", trivia)
+        if not isinstance(final_trivia, list):
+            final_trivia = trivia
+        final_plans = check_result.get("plans", plans)
+        if not isinstance(final_plans, list):
+            final_plans = plans
         check_log = check_result.get("check_log", [])
 
-        # Call 6: 元数据生成
+        # Call 6: 元数据提取 (temp=0.3)
         if progress_callback:
-            await progress_callback("metadata_generating")
-        meta_input = json.dumps(
-            {"events": final_events, "original_text": original_text},
-            ensure_ascii=False,
-        )
+            await progress_callback("metadata_extracting")
+        meta_input = json.dumps({
+            "original_text": original_text,
+            "final_result": {
+                "introduction": final_introduction,
+                "events": final_events,
+                "trivia": final_trivia,
+                "plans": final_plans,
+            },
+        }, ensure_ascii=False)
         meta_result = await self._call_ai(METADATA_PROMPT, meta_input, temperature=0.3)
 
         return {
@@ -413,10 +607,13 @@ class AIService:
             "summary": meta_result.get("summary", ""),
             "events": final_events,
             "check_log": check_log,
+            "clean_check_log": clean_check_log,
             "mood": meta_result.get("mood", ""),
             "location": meta_result.get("location", ""),
-            "tag_names": meta_result.get("tag_names", []),
-            "introduction": introduction,
+            "event_tags": meta_result.get("event_tags", []),
+            "introduction": final_introduction,
+            "trivia": final_trivia,
+            "plans": final_plans,
         }
 
 

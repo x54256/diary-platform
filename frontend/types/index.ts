@@ -13,6 +13,12 @@ export interface DiaryOrganized {
   content: string | null
   mood: string | null
   location: string | null
+  introduction: string | null
+  trivia: string[] | null
+  plans: string[] | null
+  events: DiaryEvent[]
+  check_logs: CheckLog[]
+  clean_check_logs: CleanCheckLog[]
 }
 
 // 日记状态：草稿 → 已发布 → 已整理
@@ -36,6 +42,47 @@ export interface Tag {
   id: string
   name: string
   created_at?: string
+}
+
+// 事件级标签
+export interface EventTags {
+  domain: string[]
+  topic: string[]
+  person_object: string[]
+  psychological: string[]
+  knowledge: string[]
+}
+
+// 日记事件
+export interface DiaryEvent {
+  id: string
+  event_title: string | null
+  body: string[]
+  feeling: string[]
+  reflection: string[]
+  event_tags: EventTags | null
+  sort_order: number
+}
+
+// 审核日志
+export interface CheckLog {
+  id: string
+  check_item: string
+  status: string
+  target: string | null
+  issue: string | null
+  before: string | null
+  after: string | null
+  reason: string | null
+}
+
+// 清洗审核日志
+export interface CleanCheckLog {
+  id: string
+  issue: string | null
+  before: string | null
+  after: string | null
+  reason: string | null
 }
 
 // 日历项
@@ -63,3 +110,4 @@ export interface Dialog {
   source_id?: string
   messages: DialogMessage[]
 }
+

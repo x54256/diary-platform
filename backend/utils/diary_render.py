@@ -1,39 +1,78 @@
 """日记 Markdown 渲染工具"""
 
+import json
+
+
+def _ensure_list(value) -> list:
+    """确保返回 list 类型：支持 list、JSON 字符串、None"""
+    if isinstance(value, list):
+        return value
+    if isinstance(value, str):
+        try:
+            parsed = json.loads(value)
+            if isinstance(parsed, list):
+                return parsed
+        except (json.JSONDecodeError, ValueError):
+            pass
+        return []
+    return []
+
 
 def _render_introduction(introduction: str) -> str:
-    """渲染开头引入段，为空时返回空字符串"""
-    return introduction if introduction else ""
+    """渲染开头引入段，为空或 None 时返回空字符串"""
+    if not introduction:
+        return ""
+    return introduction
 
 
 def _render_events(events: list) -> str:
     """渲染事件列表为 Markdown"""
+    if not events or not isinstance(events, list):
+        return ""
     parts = []
     for event in events:
         title = event.get("title") or "未命名事件"
-        body = event.get("body") or ""
-        feeling = event.get("feeling") or ""
-        reflection = event.get("reflection") or ""
+        body = event.get("body") or []
+        feeling = event.get("feeling") or []
+        reflection = event.get("reflection") or []
 
-        part = f"## 事件：{title}\n\n{body}"
+        # 兼容旧数据：如果字段是字符串而非数组，包装为数组
+        if isinstance(body, str):
+            body = [body] if body else []
+        if isinstance(feeling, str):
+            feeling = [feeling] if feeling else []
+        if isinstance(reflection, str):
+            reflection = [reflection] if reflection else []
+
+        part = f"## 事件：{title}\n\n" + "\n\n".join(body)
         if feeling:
-            part += f"\n\n### 感受\n{feeling}"
+            if len(feeling) == 1:
+                part += f"\n\n### 感受\n{feeling[0]}"
+            else:
+                items = "\n".join(f"{i}. {f}" for i, f in enumerate(feeling, 1))
+                part += f"\n\n### 感受\n{items}"
         if reflection:
-            part += f"\n\n### 反思与成长\n{reflection}"
+            if len(reflection) == 1:
+                part += f"\n\n### 反思与成长\n{reflection[0]}"
+            else:
+                items = "\n".join(f"{i}. {r}" for i, r in enumerate(reflection, 1))
+                part += f"\n\n### 反思与成长\n{items}"
         parts.append(part)
     return "\n\n".join(parts)
 
 
-def _render_trivia(trivia: list) -> str:
+def _render_trivia(trivia) -> str:
     """渲染琐事列表为 Markdown"""
+    trivia = _ensure_list(trivia)
     if not trivia:
         return ""
     items = "\n".join(f"{i}. {t}" for i, t in enumerate(trivia, 1))
     return f"## 琐事\n\n{items}"
 
 
-def _render_plans(plans: list) -> str:
+def _render_plans(plans) -> str:
     """渲染后续计划列表为 Markdown"""
+    plans = _ensure_list(plans)
     if not plans:
         return ""
     items = "\n".join(f"{i}. {p}" for i, p in enumerate(plans, 1))
@@ -67,26 +106,3 @@ def render_diary_to_markdown(
         if s
     ]
     return "\n\n".join(sections)
-
-
-def render_events_to_markdown(events):
-    """旧接口兼容，不推荐新代码使用"""
-    adapted = []
-    for e in events:
-        if "body" not in e and "background" in e:
-            parts = [
-                e.get("background", ""),
-                e.get("motivation", ""),
-                e.get("process", ""),
-                e.get("result", ""),
-            ]
-            body = "\n\n".join(p for p in parts if p and p != "原文未明确")
-            adapted.append({
-                "title": e.get("title", ""),
-                "body": body,
-                "feeling": e.get("feeling", ""),
-                "reflection": e.get("reflection", ""),
-            })
-        else:
-            adapted.append(e)
-    return render_diary_to_markdown(adapted)

@@ -128,12 +128,12 @@ const organizeError = ref('')
 const organizeStep = ref('')  // 当前步骤文本
 
 const STEP_LABELS: Record<string, string> = {
-  text_cleaning: '轻度清洗中',
-  deep_cleaning: '深度内容重组中',
+  text_cleaning: '文本清洗中',
+  clean_checking: '清洗审核中',
   event_organizing: '事件识别与归类中',
-  template_filling: '事件内容整理中',
-  content_checking: '内容检查与修正中',
-  metadata_generating: '元数据生成中',
+  structuring: '结构化整理中',
+  content_checking: '内容审核与修正中',
+  metadata_extracting: '元数据提取中',
 }
 const STEP_KEYS = Object.keys(STEP_LABELS)
 
