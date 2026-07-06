@@ -486,12 +486,14 @@ class AIService:
             validated.append(validated_event)
         return validated
 
-    async def organize_diary(self, original_text: str, progress_callback=None) -> dict:
-        """6次AI调用完成结构化日记整理
+    async def organize_diary(self, original_text: str, task_id: str, diary_id: str, user_id: str) -> dict:
+        """6次AI调用完成结构化日记整理（委托给 LangGraph 流水线）
 
         Args:
             original_text: 日记原文
-            progress_callback: 可选的异步进度回调函数，接收 step 字符串
+            task_id: 整理任务 ID（用于 checkpoint）
+            diary_id: 日记 ID
+            user_id: 用户 ID
 
         Returns:
             包含 title/summary/events/check_log/clean_check_log/mood/location/event_tags/introduction/trivia/plans 的 dict
@@ -513,108 +515,8 @@ class AIService:
                 "plans": [],
             }
 
-        # Call 1: 文本清洗 (temp=0.3)
-        if progress_callback:
-            await progress_callback("text_cleaning")
-        clean_result = await self._call_ai(
-            CLEAN_PROMPT,
-            json.dumps({"original_text": original_text}, ensure_ascii=False),
-            temperature=0.3,
-        )
-        cleaned_text = clean_result.get("cleaned_text", original_text)
-
-        # Call 2: 清洗审核 (temp=0.3)
-        if progress_callback:
-            await progress_callback("clean_checking")
-        clean_check_result = await self._call_ai(
-            CLEAN_CHECK_PROMPT,
-            json.dumps({"original_text": original_text, "cleaned_text": cleaned_text}, ensure_ascii=False),
-            temperature=0.3,
-        )
-        checked_text = clean_check_result.get("checked_text", cleaned_text)
-        clean_check_log = clean_check_result.get("clean_check_log", [])
-
-        # Call 3: 事件整理 (temp=0.5)
-        if progress_callback:
-            await progress_callback("event_organizing")
-        event_result = await self._call_ai(
-            EVENT_ORGANIZE_PROMPT,
-            json.dumps({"checked_text": checked_text}, ensure_ascii=False),
-            temperature=0.5,
-        )
-        introduction = event_result.get("introduction", "")
-        if not isinstance(introduction, str):
-            introduction = ""
-        trivia = event_result.get("trivia", [])
-        if not isinstance(trivia, list):
-            trivia = []
-        plans = event_result.get("plans", [])
-        if not isinstance(plans, list):
-            plans = []
-
-        # Call 4: 三字段结构化 (temp=0.5)
-        # 注意：只传 events，不传 introduction/trivia/plans
-        if progress_callback:
-            await progress_callback("structuring")
-        template_input = {"events": event_result.get("events", [])}
-        template_result = await self._call_ai(
-            TEMPLATE_FILL_PROMPT,
-            json.dumps(template_input, ensure_ascii=False),
-            temperature=0.5,
-        )
-        structured_events = self._validate_events(template_result.get("events", []))
-
-        # Call 5: 内容审核 (temp=0.3)
-        if progress_callback:
-            await progress_callback("content_checking")
-        check_input = json.dumps({
-            "original_text": original_text,
-            "organized_result": {
-                "introduction": introduction,
-                "trivia": trivia,
-                "plans": plans,
-            },
-            "structured_events": structured_events,
-        }, ensure_ascii=False)
-        check_result = await self._call_ai(CHECK_PROMPT, check_input, temperature=0.3)
-        # 使用审核后全量结果
-        final_introduction = check_result.get("introduction", introduction)
-        final_events = self._validate_events(check_result.get("events", structured_events))
-        final_trivia = check_result.get("trivia", trivia)
-        if not isinstance(final_trivia, list):
-            final_trivia = trivia
-        final_plans = check_result.get("plans", plans)
-        if not isinstance(final_plans, list):
-            final_plans = plans
-        check_log = check_result.get("check_log", [])
-
-        # Call 6: 元数据提取 (temp=0.3)
-        if progress_callback:
-            await progress_callback("metadata_extracting")
-        meta_input = json.dumps({
-            "original_text": original_text,
-            "final_result": {
-                "introduction": final_introduction,
-                "events": final_events,
-                "trivia": final_trivia,
-                "plans": final_plans,
-            },
-        }, ensure_ascii=False)
-        meta_result = await self._call_ai(METADATA_PROMPT, meta_input, temperature=0.3)
-
-        return {
-            "title": meta_result.get("title", ""),
-            "summary": meta_result.get("summary", ""),
-            "events": final_events,
-            "check_log": check_log,
-            "clean_check_log": clean_check_log,
-            "mood": meta_result.get("mood", ""),
-            "location": meta_result.get("location", ""),
-            "event_tags": meta_result.get("event_tags", []),
-            "introduction": final_introduction,
-            "trivia": final_trivia,
-            "plans": final_plans,
-        }
+        from services.pipeline import run_pipeline
+        return await run_pipeline(original_text, task_id, diary_id, user_id)
 
 
 # 全局 AI 服务实例

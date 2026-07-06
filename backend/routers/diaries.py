@@ -249,16 +249,35 @@ async def organize_diary(
                 error_message=existing_task.error_message,
             )
 
-    # 4. 创建 OrganizeTask 记录
-    task = OrganizeTask(
-        diary_id=diary_id,
-        user_id=current_user.id,
-        status="running",
-        current_step="text_cleaning",
+    # 4. 检查是否存在 failed 任务（断点续跑：复用 task_id）
+    failed_task = (
+        db.query(OrganizeTask)
+        .filter(
+            OrganizeTask.diary_id == diary_id,
+            OrganizeTask.user_id == current_user.id,
+            OrganizeTask.status == "failed",
+        )
+        .order_by(OrganizeTask.created_at.desc())
+        .first()
     )
-    db.add(task)
-    db.commit()
-    db.refresh(task)
+    if failed_task:
+        failed_task.status = "running"
+        failed_task.error_message = None
+        failed_task.current_step = "text_cleaning"
+        db.commit()
+        db.refresh(failed_task)
+        task = failed_task
+    else:
+        # 5. 创建新 OrganizeTask 记录
+        task = OrganizeTask(
+            diary_id=diary_id,
+            user_id=current_user.id,
+            status="running",
+            current_step="text_cleaning",
+        )
+        db.add(task)
+        db.commit()
+        db.refresh(task)
 
     # 5. 启动后台异步任务
     asyncio.create_task(
@@ -278,15 +297,10 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
     """后台执行 AI 整理（独立 DB session）"""
     db = SessionLocal()
     try:
-        # 定义进度回调：更新 organize_tasks.current_step
-        async def update_step(step: str):
-            task = db.query(OrganizeTask).filter(OrganizeTask.id == task_id).first()
-            if task:
-                task.current_step = step
-                db.commit()
-
-        # 调用 AI 服务（6次调用，含进度回调）
-        result = await ai_service.organize_diary(original_text, progress_callback=update_step)
+        # 调用 AI 服务（LangGraph 流水线，进度由 Node 内部更新）
+        result = await ai_service.organize_diary(
+            original_text, task_id=task_id, diary_id=diary_id, user_id=user_id
+        )
 
         # 生成 content markdown
         content = render_diary_to_markdown(
@@ -403,6 +417,10 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
             task.current_step = None
 
         db.commit()
+
+        # 清理 checkpoint 数据（流水线已成功完成，不再需要断点续跑）
+        from services.pipeline import cleanup_checkpoint
+        await cleanup_checkpoint(task_id)
     except Exception as e:
         # 任务失败：日记保持 published，记录错误
         import logging
