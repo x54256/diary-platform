@@ -17,6 +17,7 @@ class DiaryStatus(enum.Enum):
     draft = "draft"          # 草稿
     published = "published"  # 已发布
     organized = "organized"  # 已整理
+    analyzed = "analyzed"    # 已分析
 
 
 class Diary(Base):
@@ -74,6 +75,36 @@ class DiaryOrganized(Base):
     check_logs = relationship("DiaryCheckLog", back_populates="organized", cascade="all, delete-orphan", order_by="DiaryCheckLog.sort_order")
     # 清洗审核日志（1:N）
     clean_check_logs = relationship("DiaryCleanCheckLog", back_populates="organized", cascade="all, delete-orphan", order_by="DiaryCleanCheckLog.sort_order")
+    # 分析结果（1:1）
+    analysis = relationship(
+        "DiaryAnalysis",
+        back_populates="organized",
+        uselist=False,
+        cascade="all, delete-orphan",
+    )
+
+
+class DiaryAnalysis(Base):
+    """日记分析结果表（与 diary_organized 表 1:1 关系）"""
+
+    __tablename__ = "diary_analysis"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    task_id = Column(UUID(as_uuid=True), ForeignKey("organize_tasks.id"), nullable=False)
+    diary_organized_id = Column(
+        UUID(as_uuid=True), ForeignKey("diary_organized.id"), unique=True, nullable=False
+    )
+    mood = Column(String(50))                          # 当天整体心情
+    emotion_analysis = Column(Text)                    # 情绪分析
+    behavior_analysis = Column(Text)                   # 行为与决策分析
+    focus_analysis = Column(Text)                      # 关注点、需求与自我理解
+    cognitive_calibration = Column(Text)               # 认知校准
+    actionable_suggestions = Column(Text)              # 可行动建议
+    analyzed_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    # 关系映射
+    organized = relationship("DiaryOrganized", back_populates="analysis")
 
 
 class DiaryEvent(Base):
@@ -93,6 +124,8 @@ class DiaryEvent(Base):
 
     # 关系映射
     organized = relationship("DiaryOrganized", back_populates="events")
+    # M:N 关系，事件标签
+    tags = relationship("Tag", secondary="event_tags", back_populates="events")
 
 
 class DiaryCheckLog(Base):
@@ -143,6 +176,7 @@ class OrganizeTask(Base):
     diary_id = Column(UUID(as_uuid=True), ForeignKey("diaries.id"), nullable=False)
     user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
     status = Column(String(20), default="running")  # running / completed / failed
+    task_type = Column(String(20), default="organize")  # organize（整理）/ analyze（分析）
     current_step = Column(String(50), nullable=True)  # text_cleaning / clean_checking / event_organizing / structuring / content_checking / metadata_extracting
     error_message = Column(Text, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)

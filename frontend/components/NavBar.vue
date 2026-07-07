@@ -17,8 +17,10 @@
       <!-- 中间：标题 -->
       <h1 class="text-base font-medium text-neutral-800">{{ title }}</h1>
 
-      <!-- 右侧：占位 -->
-      <div class="w-8"></div>
+      <!-- 右侧：操作区（通过 slot 插入） -->
+      <div class="flex items-center gap-2">
+        <slot name="right" />
+      </div>
     </div>
   </header>
 </template>

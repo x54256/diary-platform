@@ -19,10 +19,11 @@ export interface DiaryOrganized {
   events: DiaryEvent[]
   check_logs: CheckLog[]
   clean_check_logs: CleanCheckLog[]
+  analysis: DiaryAnalysis | null
 }
 
-// 日记状态：草稿 → 已发布 → 已整理
-export type DiaryStatus = 'draft' | 'published' | 'organized'
+// 日记状态：草稿 → 已发布 → 已整理 → 已分析
+export type DiaryStatus = 'draft' | 'published' | 'organized' | 'analyzed'
 
 // 日记
 export interface Diary {
@@ -37,20 +38,37 @@ export interface Diary {
   tags?: Tag[]
 }
 
+// 标签类型
+export type TagType = 'domain' | 'topic' | 'person_object' | 'psychological' | 'knowledge'
+
 // 标签
 export interface Tag {
   id: string
   name: string
+  type: TagType | null
   created_at?: string
 }
 
-// 事件级标签
+// 事件级标签（旧结构兼容）
 export interface EventTags {
   domain: string[]
   topic: string[]
   person_object: string[]
   psychological: string[]
   knowledge: string[]
+}
+
+// 日记分析结果
+export interface DiaryAnalysis {
+  id: string
+  mood: string | null
+  emotion_analysis: string | null
+  behavior_analysis: string | null
+  focus_analysis: string | null
+  cognitive_calibration: string | null
+  actionable_suggestions: string | null
+  analyzed_at: string | null
+  updated_at: string | null
 }
 
 // 日记事件
@@ -62,6 +80,7 @@ export interface DiaryEvent {
   reflection: string[]
   event_tags: EventTags | null
   sort_order: number
+  tags: Tag[]
 }
 
 // 审核日志

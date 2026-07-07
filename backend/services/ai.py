@@ -301,34 +301,18 @@ check_log 必须包含全部 10 个检查项。
 METADATA_PROMPT = """你是一个日记元数据提取助手。请根据审核后的日记整理结果提取元数据。
 
 ## 任务目标
-生成日记标题、摘要、整体心情、地点，并为每个事件提取事件级标签。
+生成（标题/摘要/地点）。
 
 ## 输入说明
 final_result 是已经审核后的最终整理结果，是主要依据。
 original_text 是原始日记文本，仅用于核对事实，不要从原文中挖掘 final_result 已经删除的噪音内容。
 
 ## 提取规则
-1. 标题 title：10-20字的简洁标题，概括日记核心内容。
-2. 摘要 summary：用一句话概括日记中发生的核心事件。
-3. 心情 mood：保留为独立字段，用一个短词表示当天整体情绪或状态，例如"疲惫""平静""烦躁""开心""低落""充实""焦虑""放松"。必须有 final_result 或 original_text 中的明确线索支撑；没有明确线索则填空字符串。
-4. 地点 location：提取当天主要地点。多个地点可用中文顿号连接；原文没有地点则填空字符串。
-5. 事件级标签 event_tags：标签不是简单分类，而是为后续检索、AI 对话、人物画像、心路历程和知识沉淀提供入口。
-6. 标签类型固定为五类：domain、topic、person_object、psychological、knowledge。
-7. 只输出事件级标签，不直接输出整篇日记级标签。日记级标签由所有事件级标签合并、去重后得到。
-8. event_tags 必须与 final_result.events 一一对应，title 使用事件 title。
-9. 每个事件的 tags 都按五类输出：domain、topic、person_object、psychological、knowledge。
-10. 每种标签类型都输出数组；没有对应标签时输出空数组。同一事件、同一类型下可以有多个标签，但不要重复。
-11. 优先提取 topic、person_object、psychological、knowledge；domain 只作为辅助粗分类，数量要少。
-12. 标签必须来自 original_text 或 final_result 中的明确依据。
-13. 不要生成原文没有依据的心情、地点或标签。
-14. 不要把标题写成营销文案或文学化标题。
-
-## 标签类型说明
-- domain：领域标签，用于粗粒度筛选日记，例如"工作""生活""关系""健康""学习""娱乐"。
-- topic：主题标签，用于串起长期反复出现的具体事项，例如"日记管理""AI 开发""小红书爬虫""遛狗"。
-- person_object：人物 / 对象标签，用于串起具体人物、关系和重要对象，例如"林萧鹏""田总""媳妇""达达"。
-- psychological：心理主题标签，用于串起情绪、需求和内在模式，例如"不确定性""控制感""遗憾""无奈""成就感"。
-- knowledge：知识点标签，用于串起学习内容、方法、概念和做事方式，例如"软件工程""需求分析""原型设计""AI 辅助开发""项目管理"。
+1. 标题 title：10-20 字，概括当天最主要的 1-2 条内容主线，不要求覆盖所有琐事。不要把标题写成营销文案或文学化标题。
+2. 摘要 summary：用 1 个自然段概括日记核心内容，通常 2-4 句。应覆盖当天最主要的事件主线、重要生活插曲、明显感受或判断。不要逐条罗列所有事件，不要写成标题扩写，也不要加入原文没有的评价。
+3. 地点 location：提取当天主要地点。多个地点可用中文顿号连接；原文没有地点则填空字符串。
+4. 不要生成原文没有依据的标题、摘要或地点。
+5. 仅从 final_result 或 original_text 中已有内容生成，不生成原文没有的信息。
 
 ## 输出要求
 请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：
@@ -336,20 +320,7 @@ original_text 是原始日记文本，仅用于核对事实，不要从原文中
 {
   "title": "日记标题",
   "summary": "摘要",
-  "mood": "心情，没有则空字符串",
-  "location": "地点，没有则空字符串",
-  "event_tags": [
-    {
-      "title": "事件标题",
-      "tags": {
-        "domain": [],
-        "topic": [],
-        "person_object": [],
-        "psychological": [],
-        "knowledge": []
-      }
-    }
-  ]
+  "location": "地点，没有则空字符串"
 }"""
 
 
@@ -496,7 +467,7 @@ class AIService:
             user_id: 用户 ID
 
         Returns:
-            包含 title/summary/events/check_log/clean_check_log/mood/location/event_tags/introduction/trivia/plans 的 dict
+            包含 title/summary/events/check_log/clean_check_log/location/introduction/trivia/plans 的 dict
         """
         # API Key 未配置时返回占位结果
         if not self.api_key:
@@ -507,9 +478,7 @@ class AIService:
                 "events": [],
                 "check_log": [],
                 "clean_check_log": [],
-                "mood": "",
                 "location": "",
-                "event_tags": [],
                 "introduction": "",
                 "trivia": [],
                 "plans": [],
@@ -517,6 +486,37 @@ class AIService:
 
         from services.pipeline import run_pipeline
         return await run_pipeline(original_text, task_id, diary_id, user_id)
+
+    async def analyze_diary(
+        self,
+        original_text: str,
+        structured_diary: dict,
+        task_id: str,
+        diary_id: str,
+        user_id: str,
+        diary_organized_id: str,
+    ) -> dict:
+        """触发分析流水线（3 环节 + 独立检查 + 标签落库）
+
+        Args:
+            original_text: 日记原文
+            structured_diary: 整理后的结构化日记
+            task_id: 分析任务 ID
+            diary_id: 日记 ID
+            user_id: 用户 ID
+            diary_organized_id: diary_organized 的 ID
+
+        Returns:
+            包含 mood/event_tags/emotion_analysis/behavior_analysis/focus_analysis/
+            cognitive_calibration/actionable_suggestions/analysis_check_log 的 dict
+        """
+        if not self.api_key:
+            raise Exception("AI 服务未配置 (DEEPSEEK_API_KEY)")
+
+        from services.analysis_pipeline import run_analysis_pipeline
+        return await run_analysis_pipeline(
+            original_text, structured_diary, task_id, diary_id, user_id, diary_organized_id
+        )
 
 
 # 全局 AI 服务实例

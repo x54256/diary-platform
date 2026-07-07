@@ -69,9 +69,7 @@ class PipelineState(TypedDict, total=False):
     check_log: list
     title: str
     summary: str
-    mood: str
     location: str
-    event_tags: list
 
     # 进度追踪
     current_step: str
@@ -344,9 +342,7 @@ async def metadata_extract(state: PipelineState) -> dict:
     return {
         "title": result.get("title", ""),
         "summary": result.get("summary", ""),
-        "mood": result.get("mood", ""),
         "location": result.get("location", ""),
-        "event_tags": result.get("event_tags", []),
     }
 
 
@@ -397,9 +393,7 @@ async def run_pipeline(
         "events": result.get("final_events", []),
         "check_log": result.get("check_log", []),
         "clean_check_log": result.get("clean_check_log", []),
-        "mood": result.get("mood", ""),
         "location": result.get("location", ""),
-        "event_tags": result.get("event_tags", []),
         "introduction": result.get("final_introduction", ""),
         "trivia": result.get("final_trivia", []),
         "plans": result.get("final_plans", []),

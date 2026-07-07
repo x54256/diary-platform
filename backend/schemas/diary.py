@@ -27,12 +27,29 @@ class DiaryUpdate(BaseModel):
     status: Optional[str] = None
 
 
+class DiaryAnalysisResponse(BaseModel):
+    """日记分析结果响应"""
+
+    id: UUID
+    mood: Optional[str] = None
+    emotion_analysis: Optional[str] = None
+    behavior_analysis: Optional[str] = None
+    focus_analysis: Optional[str] = None
+    cognitive_calibration: Optional[str] = None
+    actionable_suggestions: Optional[str] = None
+    analyzed_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
+
+    class Config:
+        from_attributes = True
+
+
 class DiaryOrganizedResponse(BaseModel):
     """日记整理内容响应"""
 
     id: UUID
-    title: Optional[str] = None
-    summary: Optional[str] = None
+    title: Optional[str] = None           # 日记标题
+    summary: Optional[str] = None          # 摘要（1个自然段，2-4句）
     content: Optional[str] = None
     mood: Optional[str] = None
     location: Optional[str] = None
@@ -42,6 +59,7 @@ class DiaryOrganizedResponse(BaseModel):
     events: list["DiaryEventResponse"] = []
     check_logs: list["CheckLogResponse"] = []
     clean_check_logs: list["CleanCheckLogResponse"] = []
+    analysis: Optional[DiaryAnalysisResponse] = None
 
     @field_validator("trivia", "plans", mode="before")
     @classmethod
@@ -64,6 +82,7 @@ class DiaryEventResponse(BaseModel):
     reflection: Optional[list[str]] = None
     event_tags: Optional[dict] = None
     sort_order: int = 0
+    tags: list[TagResponse] = []
 
     @field_validator("body", "feeling", "reflection", "event_tags", mode="before")
     @classmethod
@@ -140,6 +159,9 @@ class DiaryOrganizedUpdate(BaseModel):
     content: Optional[str] = None
     mood: Optional[str] = None
     location: Optional[str] = None
+    introduction: Optional[str] = None
+    trivia: Optional[list[str]] = None
+    plans: Optional[list[str]] = None
 
 
 class DiaryCalendarItem(BaseModel):
@@ -157,10 +179,11 @@ class DiaryTagsUpdate(BaseModel):
 
 
 class OrganizeTaskResponse(BaseModel):
-    """异步整理任务状态响应"""
+    """异步整理/分析任务状态响应"""
 
     diary_id: UUID
     status: str  # running / completed / failed
+    task_type: Optional[str] = None  # organize（整理）/ analyze（分析）
     current_step: Optional[str] = None  # text_cleaning / clean_checking / event_organizing / structuring / content_checking / metadata_extracting
     error_message: Optional[str] = None
 
