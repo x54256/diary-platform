@@ -57,7 +57,7 @@
 
 ### 2.1 NavBar
 
-- **标题**：取 `diary_organized.title`
+- **标题**：取 `organized.title`
 - **无标题时**：显示 `diary_date`（格式如 `2026-07-06`）
 - 左侧返回按钮，右侧操作按钮（见第 8 节）
 
@@ -71,25 +71,25 @@
 
 | 字段 | 展示方式 | 数据来源 |
 |---|---|---|
-| 心情（mood） | 文字显示 | 已分析状态 → `diary_analysis.mood`；已整理状态 → `diary_organized.mood`（过渡方案，后续整理阶段不再产出 mood） |
-| 地点（location） | 文字显示 | `diary_organized.location` |
-| 日记级标签 | 行内小标签，按类型着色 | 从所有事件的 `event_tags` 中去重汇总 |
+| 心情（mood） | 文字显示 | 已分析状态 → `organized.analysis.mood`；已整理状态 → `organized.mood`（过渡方案，后续整理阶段不再产出 mood） |
+| 地点（location） | 文字显示 | `organized.location` |
+| 日记级标签 | 行内小标签，按类型着色 | 从所有事件的 `tags` 中去重汇总 |
 
 **日记级标签生成规则**：
 
-- 遍历 `diary_events` 中所有事件的 `event_tags`
+- 遍历 `organized.events` 中所有事件的 `tags`
 - 按标签的 `type` + `name` 组合去重
 - 横向排列，按标签类型分别着色（颜色方案见第 7 节）
 
 ### 2.3 摘要
 
-- 数据来源：`diary_organized.summary`
+- 数据来源：`organized.summary`
 - 一段纯文本，直接渲染
 - 样式：正文字号，适当行距
 
 ### 2.4 引入段（introduction）
 
-- 数据来源：`diary_organized.introduction`
+- 数据来源：`organized.introduction`
 - **可选**：有内容时展示，无内容时不占空间
 - 样式：与摘要区分，可用斜体或浅色文字
 
@@ -100,21 +100,21 @@
 
 ### 2.6 琐事（trivia）
 
-- 数据来源：`diary_organized.trivia`
+- 数据来源：`organized.trivia`
 - **可选**：有内容时展示
 - 折叠式卡片，默认展开
 - 详见第 4 节
 
 ### 2.7 后续计划（plans）
 
-- 数据来源：`diary_organized.plans`
+- 数据来源：`organized.plans`
 - **可选**：有内容时展示
 - 折叠式卡片，默认展开
 - 详见第 5 节
 
 ### 2.8 原始文本
 
-- 数据来源：`diary.raw_text`
+- 数据来源：`diary.original_text`
 - 折叠展示，默认收起
 - 标题："原始文本"
 - 展开后显示完整原始文本，使用 `pre` 或等宽字体保持原始格式
@@ -133,8 +133,8 @@
 ```
 
 展示内容：
-- **事件标题**：`event.title`
-- **事件级标签**：`event.event_tags`，标题下方一行展示，行内小标签样式
+- **事件标题**：`event.event_title`
+- **事件级标签**：`event.tags`，标题下方一行展示，行内小标签样式
 
 ### 3.2 展开状态
 
@@ -152,6 +152,19 @@
 │ ───────────────────────────────── │
 │ 反思与成长                        │
 │ 反思内容...                       │
+│ ───────────────────────────────── │
+│ AI 分析                           │
+│                                   │
+│ 自我理解与行动                    │
+│  1. 情绪分析...                   │
+│  2. 行为与决策分析...             │
+│  3. 关注点、需求与自我理解...      │
+│  4. 可行动建议...                 │
+│                                   │
+│ 认知整理                          │
+│  1. 认知校准...                   │
+│  2. 问题解答 Q/A                  │
+│  3. 认知完善...                   │
 └───────────────────────────────────┘
 ```
 
@@ -159,11 +172,55 @@
 
 | 区块 | 数据来源 | 是否必选 | 说明 |
 |---|---|---|---|
-| 事件标题 | `event.title` | 是 | |
-| 事件级标签 | `event.event_tags` | 是 | 按 5 类着色 |
+| 事件标题 | `event.event_title` | 是 | |
+| 事件级标签 | `event.tags` | 否 | 按 5 类着色 |
 | 事件正文 | `event.body` | 是 | 多段落按顺序展示，段落间空行分隔 |
 | 感受 | `event.feeling` | 否 | 有内容时显示，小标题"感受" |
 | 反思与成长 | `event.reflection` | 否 | 有内容时显示，小标题"反思与成长" |
+| AI 分析 | `event.analysis` | 否 | 任一分析字段有内容时显示 |
+
+### 3.2.1 事件级 AI 分析
+
+事件级 AI 分析由后端组装到对应事件的 `event.analysis`，前端不做 `event_index`、标题或排序字段匹配。
+
+事件卡片展开后，AI 分析默认显示在事件正文、感受、反思与成长之后，并使用“AI 分析”标题与日记原始内容分隔。
+
+AI 分析分为两个浅色区块：
+
+| 分组 | 模块 | 数据来源 | 展示方式 |
+|---|---|---|---|
+| 自我理解与行动 | 情绪分析 | `event.analysis.emotion_analyses` | 条目列表 |
+| 自我理解与行动 | 行为与决策分析 | `event.analysis.behavior_decision_analyses` | 条目列表 |
+| 自我理解与行动 | 关注点、需求与自我理解 | `event.analysis.self_understanding_analyses` | 条目列表 |
+| 自我理解与行动 | 可行动建议 | `event.analysis.action_suggestions` | 条目列表 |
+| 认知整理 | 认知校准 | `event.analysis.cognitive_calibration_analyses` | 条目列表 |
+| 认知整理 | 问题解答 | `event.analysis.question_answers` | Q/A 卡片 |
+| 认知整理 | 认知完善 | `event.analysis.cognitive_enhancements` | 条目列表 |
+
+空数据规则：
+
+- 某个模块数组为空时，隐藏该模块。
+- 某个分组下所有模块为空时，隐藏该分组。
+- `event.analysis` 不存在，或所有分析字段都为空时，隐藏整个 AI 分析区域。
+- 事件级 AI 分析按数据是否存在显示，不强依赖日记状态。
+
+问题解答结构：
+
+```json
+{
+  "question": "问题",
+  "answer": "回答"
+}
+```
+
+展示为：
+
+```
+┌───────────────────────────────────┐
+│ Q：问题内容                        │
+│ A：回答内容                        │
+└───────────────────────────────────┘
+```
 
 ### 3.3 交互行为
 
@@ -222,45 +279,48 @@
 
 **仅在日记状态为 `已分析` 时可见。**
 
-从上到下纵向排列，每部分以明确的小标题分隔：
+分析 Tab 展示日记级分析，数据来源为 `organized.analysis`。从上到下纵向排列：
 
 ```
 ┌───────────────────────────────────┐
 │  心情（醒目展示）                 │
 ├───────────────────────────────────┤
-│  情绪分析                        │
-│  正文内容...                     │
+│  自我理解与行动                  │
+│   - 情绪分析                     │
+│   - 行为与决策分析               │
+│   - 关注点、需求与自我理解        │
+│   - 可行动建议                   │
 ├───────────────────────────────────┤
-│  行为与决策分析                   │
-│  正文内容...                     │
-├───────────────────────────────────┤
-│  关注点、需求与自我理解           │
-│  正文内容...                     │
-├───────────────────────────────────┤
-│  认知校准                        │
-│  正文内容...                     │
-├───────────────────────────────────┤
-│  可行动建议                      │
-│  正文内容...                     │
+│  认知整理                        │
+│   - 认知校准                     │
+│   - 问题解答                     │
+│   - 认知完善                     │
 └───────────────────────────────────┘
 ```
 
 ### 6.1 各部分详情
 
-| 序号 | 小标题 | 数据来源字段 | 展示说明 |
+| 分组 | 模块 | 数据来源字段 | 展示说明 |
 |---|---|---|---|
-| 1 | 心情 | `diary_analysis.mood` | 大字号或醒目样式展示，如"平静 / 专注" |
-| 2 | 情绪分析 | `diary_analysis.emotion_analysis` | 小标题 + 正文段落 |
-| 3 | 行为与决策分析 | `diary_analysis.behavior_analysis` | 小标题 + 正文段落 |
-| 4 | 关注点、需求与自我理解 | `diary_analysis.focus_analysis` | 小标题 + 正文段落 |
-| 5 | 认知校准 | `diary_analysis.cognitive_calibration` | 小标题 + 正文段落 |
-| 6 | 可行动建议 | `diary_analysis.actionable_suggestions` | 小标题 + 正文段落 |
+| 顶部 | 心情 | `organized.analysis.mood` | 大字号或醒目样式展示，如"平静 / 专注" |
+| 自我理解与行动 | 情绪分析 | `organized.analysis.emotion_analyses` | 条目列表 |
+| 自我理解与行动 | 行为与决策分析 | `organized.analysis.behavior_decision_analyses` | 条目列表 |
+| 自我理解与行动 | 关注点、需求与自我理解 | `organized.analysis.self_understanding_analyses` | 条目列表 |
+| 自我理解与行动 | 可行动建议 | `organized.analysis.action_suggestions` | 条目列表 |
+| 认知整理 | 认知校准 | `organized.analysis.cognitive_calibration_analyses` | 条目列表 |
+| 认知整理 | 问题解答 | `organized.analysis.question_answers` | Q/A 卡片 |
+| 认知整理 | 认知完善 | `organized.analysis.cognitive_enhancements` | 条目列表 |
 
 ### 6.2 规则
 
 - **全部只读**，不可编辑
-- 每个部分之间使用分割线或卡片间距分隔
-- 正文支持多段落渲染
+- “今日心情”在顶部单独醒目展示
+- “自我理解与行动”“认知整理”使用浅色区块展示
+- 普通分析模块使用条目列表展示
+- `question_answers` 使用 Q/A 卡片展示，只显示 `question` 和 `answer`
+- 某个模块数组为空时隐藏该模块
+- 某个分组下所有模块为空时隐藏该分组
+- `organized.analysis` 不存在，或所有分析字段都为空时，显示“暂无分析数据”
 - 事件标签不在分析 Tab 展示，标签展示在日记 Tab 的事件卡片内（见第 3 节）
 
 ---
@@ -316,14 +376,15 @@
 
 ### 9.1 进度步骤
 
-触发分析后，展示 **3+1** 个步骤的进度：
+触发分析后，展示 3 个环节的并行进度，各环节独立显示状态（待处理 / 进行中 / 已完成）：
 
-| 步骤 | 名称 | 说明 |
+| 环节 | 名称 | 说明 |
 |---|---|---|
 | 1 | 心情与标签提取 | 提取当天心情、生成事件标签 |
-| 2 | 核心分析 | 情绪分析、行为分析、关注点分析 |
-| 3 | 校准与建议 | 认知校准、可行动建议 |
-| +1 | 分析质量检查 | 校验分析结果完整性与一致性 |
+| 2 | 核心分析与建议 | 情绪分析、行为与决策分析、关注点/需求/自我理解、可行动建议 |
+| 3 | 认知分析 | 认知校准、问题解答、认知完善 |
+
+三个环节并行执行，无先后依赖。每个环节完成时独立更新状态，全部完成后结束。
 
 ### 9.2 实现机制
 
@@ -341,36 +402,111 @@
 
 | 展示内容 | 数据来源 | 说明 |
 |---|---|---|
-| 标题 | `diary_organized.title` | |
-| 摘要 | `diary_organized.summary` | |
-| 地点 | `diary_organized.location` | 整理阶段产出 |
-| 心情 | `diary_analysis.mood`（已分析）/ `diary_organized.mood`（已整理） | 分析阶段产出优先；整理阶段为过渡方案 |
-| 日记级标签 | 所有事件 `event_tags` 去重汇总 | 前端计算或后端提供 |
-| 事件级标签 | `diary_events[].event_tags` | 分析阶段产出 |
-| 引入段 | `diary_organized.introduction` | 可选 |
-| 事件正文 | `diary_events[]`（body / feeling / reflection） | |
-| 琐事 | `diary_organized.trivia` | 可选 |
-| 后续计划 | `diary_organized.plans` | 可选，按重要性排序 |
-| 原始文本 | `diary.raw_text` | |
+| 标题 | `organized.title` | |
+| 摘要 | `organized.summary` | |
+| 地点 | `organized.location` | 整理阶段产出 |
+| 心情 | `organized.analysis.mood`（已分析）/ `organized.mood`（已整理） | 分析阶段产出优先；整理阶段为过渡方案 |
+| 日记级标签 | 所有事件 `tags` 去重汇总 | 前端计算或后端提供 |
+| 事件级标签 | `organized.events[].tags` | 分析阶段产出 |
+| 引入段 | `organized.introduction` | 可选 |
+| 事件正文 | `organized.events[]`（body / feeling / reflection） | |
+| 事件级 AI 分析 | `organized.events[].analysis` | 可选，按数据存在展示 |
+| 琐事 | `organized.trivia` | 可选 |
+| 后续计划 | `organized.plans` | 可选，按重要性排序 |
+| 原始文本 | `original_text` | |
 
 ### 10.2 分析 Tab 数据映射
 
 | 展示内容 | 数据来源 | 说明 |
 |---|---|---|
-| 心情 | `diary_analysis.mood` | |
-| 情绪分析 | `diary_analysis.emotion_analysis` | |
-| 行为与决策分析 | `diary_analysis.behavior_analysis` | |
-| 关注点、需求与自我理解 | `diary_analysis.focus_analysis` | |
-| 认知校准 | `diary_analysis.cognitive_calibration` | |
-| 可行动建议 | `diary_analysis.actionable_suggestions` | |
+| 心情 | `organized.analysis.mood` | 顶部醒目展示 |
+| 情绪分析 | `organized.analysis.emotion_analyses` | 自我理解与行动 |
+| 行为与决策分析 | `organized.analysis.behavior_decision_analyses` | 自我理解与行动 |
+| 关注点、需求与自我理解 | `organized.analysis.self_understanding_analyses` | 自我理解与行动 |
+| 可行动建议 | `organized.analysis.action_suggestions` | 自我理解与行动 |
+| 认知校准 | `organized.analysis.cognitive_calibration_analyses` | 认知整理 |
+| 问题解答 | `organized.analysis.question_answers` | 认知整理，Q/A 卡片 |
+| 认知完善 | `organized.analysis.cognitive_enhancements` | 认知整理 |
 
 ### 10.3 状态与数据可用性
 
 | 状态 | 可用数据 |
 |---|---|
-| 已发布 | `diary.raw_text` |
-| 已整理 | `diary_organized` + `diary_events`（无 event_tags） |
-| 已分析 | `diary_organized` + `diary_events`（含 event_tags）+ `diary_analysis` |
+| 已发布 | `original_text` |
+| 已整理 | `organized` + `organized.events`（可无 tags / analysis） |
+| 已分析 | `organized` + `organized.events`（含 tags，可含 event.analysis）+ `organized.analysis` |
+
+### 10.4 后端返回格式约定
+
+`GET /api/diaries/{id}` 必须返回已经组装好的详情数据。后端负责把事件级分析放入对应事件的 `analysis` 字段，前端不做 `event_index`、标题或排序字段匹配。
+
+关键结构：
+
+```json
+{
+  "id": "diary-id",
+  "original_text": "原始日记文本",
+  "diary_date": "2026-07-07",
+  "status": "analyzed",
+  "organized": {
+    "title": "标题",
+    "summary": "摘要",
+    "location": "地点",
+    "introduction": "引入段",
+    "trivia": [],
+    "plans": [],
+    "analysis": {
+      "mood": "平静 / 专注",
+      "emotion_analyses": [],
+      "behavior_decision_analyses": [],
+      "self_understanding_analyses": [],
+      "action_suggestions": [],
+      "cognitive_calibration_analyses": [],
+      "question_answers": [
+        {
+          "question": "问题",
+          "answer": "回答"
+        }
+      ],
+      "cognitive_enhancements": []
+    },
+    "events": [
+      {
+        "id": "event-id",
+        "event_title": "事件标题",
+        "body": [],
+        "feeling": [],
+        "reflection": [],
+        "tags": [],
+        "analysis": {
+          "emotion_analyses": [],
+          "behavior_decision_analyses": [],
+          "self_understanding_analyses": [],
+          "action_suggestions": [],
+          "cognitive_calibration_analyses": [],
+          "question_answers": [
+            {
+              "question": "问题",
+              "answer": "回答"
+            }
+          ],
+          "cognitive_enhancements": []
+        },
+        "sort_order": 0
+      }
+    ]
+  }
+}
+```
+
+接口规则：
+
+- `organized.analysis` 是日记级分析；无分析结果时返回 `null`。
+- `organized.events[].analysis` 是事件级分析；该事件无事件级分析时返回 `null` 或省略字段。
+- 日记级和事件级分析使用同一套字段名，通过层级区分。
+- 所有分析数组字段没有内容时返回空数组，不返回空字符串。
+- `question_answers` 元素只包含 `question` 和 `answer` 两个字段。
+- `mood` 只出现在 `organized.analysis`，事件级 `analysis` 不包含 `mood`。
 
 ---
 
@@ -381,8 +517,10 @@
 | `DiaryDetail.vue` | 页面容器，状态判断，Tab 切换 |
 | `DiaryNavBar.vue` | 标题、返回、操作按钮 |
 | `DiaryMeta.vue` | 元数据区域（心情、地点、标签） |
-| `EventCard.vue` | 单个事件卡片，展开/收起逻辑，含事件级标签 |
+| `EventCard.vue` | 单个事件卡片，展开/收起逻辑，含事件级标签与事件级 AI 分析 |
 | `CollapsibleCard.vue` | 通用折叠卡片（琐事、后续计划、原始文本复用） |
 | `TagBadge.vue` | 标签小徽章，根据类型着色 |
-| `AnalysisTab.vue` | 分析 Tab 内容布局（心情 + 五部分分析） |
+| `AnalysisTab.vue` | 分析 Tab 内容布局（心情 + 两组日记级分析） |
+| `AnalysisGroup.vue` | 分析分组区块（自我理解与行动 / 认知整理） |
+| `QuestionAnswerCard.vue` | 问题解答 Q/A 卡片 |
 | `AnalysisProgress.vue` | 分析进度展示（复用整理进度组件） |
