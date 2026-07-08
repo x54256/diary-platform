@@ -4,7 +4,7 @@ import enum
 import uuid
 from datetime import datetime
 
-from sqlalchemy import Column, String, Text, Date, DateTime, Enum, ForeignKey, Integer
+from sqlalchemy import Column, String, Text, Date, DateTime, Enum, ForeignKey, Integer, Boolean
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
@@ -30,6 +30,7 @@ class Diary(Base):
     original_text = Column(Text, nullable=False)
     diary_date = Column(Date, nullable=False)
     status = Column(Enum(DiaryStatus), default=DiaryStatus.draft)
+    is_dirty = Column(Boolean, default=False, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
@@ -95,11 +96,13 @@ class DiaryAnalysis(Base):
         UUID(as_uuid=True), ForeignKey("diary_organized.id"), unique=True, nullable=False
     )
     mood = Column(String(50))                          # 当天整体心情
-    emotion_analysis = Column(Text)                    # 情绪分析
-    behavior_analysis = Column(Text)                   # 行为与决策分析
-    focus_analysis = Column(Text)                      # 关注点、需求与自我理解
-    cognitive_calibration = Column(Text)               # 认知校准
-    actionable_suggestions = Column(Text)              # 可行动建议
+    emotion_analyses = Column(Text, nullable=True)     # 情绪分析
+    behavior_decision_analyses = Column(Text, nullable=True)  # 行为与决策分析
+    self_understanding_analyses = Column(Text, nullable=True)  # 自我理解
+    action_suggestions = Column(Text, nullable=True)   # 行动建议
+    cognitive_calibration_analyses = Column(Text, nullable=True)  # 认知校准
+    question_answers = Column(Text, nullable=True)     # 问答
+    cognitive_enhancements = Column(Text, nullable=True)  # 认知提升
     analyzed_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
@@ -119,6 +122,7 @@ class DiaryEvent(Base):
     feeling = Column(Text, nullable=True)
     reflection = Column(Text, nullable=True)
     event_tags = Column(Text)        # JSON: {"domain":[], "topic":[], "person_object":[], "psychological":[], "knowledge":[]}
+    analysis = Column(Text, nullable=True)  # JSON 序列化的事件级分析结果
     sort_order = Column(Integer, default=0)
     created_at = Column(DateTime, default=datetime.utcnow)
 

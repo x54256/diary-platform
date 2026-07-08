@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-neutral-50 px-6">
+  <div class="min-h-dvh flex items-center justify-center bg-neutral-50 px-6">
     <div class="w-full max-w-sm">
       <!-- 标题 -->
       <div class="text-center mb-8">

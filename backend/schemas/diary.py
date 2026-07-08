@@ -6,7 +6,7 @@ from uuid import UUID
 
 import json
 
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, ConfigDict, field_validator
 
 from schemas.tag import TagResponse
 
@@ -24,7 +24,7 @@ class DiaryUpdate(BaseModel):
 
     original_text: Optional[str] = None
     diary_date: Optional[date] = None
-    status: Optional[str] = None
+    is_dirty: Optional[bool] = None
 
 
 class DiaryAnalysisResponse(BaseModel):
@@ -32,16 +32,36 @@ class DiaryAnalysisResponse(BaseModel):
 
     id: UUID
     mood: Optional[str] = None
-    emotion_analysis: Optional[str] = None
-    behavior_analysis: Optional[str] = None
-    focus_analysis: Optional[str] = None
-    cognitive_calibration: Optional[str] = None
-    actionable_suggestions: Optional[str] = None
+    emotion_analyses: Optional[list] = None
+    behavior_decision_analyses: Optional[list] = None
+    self_understanding_analyses: Optional[list] = None
+    action_suggestions: Optional[list] = None
+    cognitive_calibration_analyses: Optional[list] = None
+    question_answers: Optional[list] = None
+    cognitive_enhancements: Optional[list] = None
     analyzed_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
+
+    @field_validator(
+        "emotion_analyses",
+        "behavior_decision_analyses",
+        "self_understanding_analyses",
+        "action_suggestions",
+        "cognitive_calibration_analyses",
+        "question_answers",
+        "cognitive_enhancements",
+        mode="before",
+    )
+    @classmethod
+    def parse_json_list(cls, v):
+        if isinstance(v, str):
+            try:
+                return json.loads(v)
+            except (json.JSONDecodeError, TypeError):
+                return []
+        return v if v is not None else []
 
 
 class DiaryOrganizedResponse(BaseModel):
@@ -68,8 +88,7 @@ class DiaryOrganizedResponse(BaseModel):
             return json.loads(v)
         return v
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class DiaryEventResponse(BaseModel):
@@ -81,6 +100,7 @@ class DiaryEventResponse(BaseModel):
     feeling: Optional[list[str]] = None
     reflection: Optional[list[str]] = None
     event_tags: Optional[dict] = None
+    analysis: Optional[dict] = None
     sort_order: int = 0
     tags: list[TagResponse] = []
 
@@ -99,8 +119,17 @@ class DiaryEventResponse(BaseModel):
                 return [v] if v else []
         return v
 
-    class Config:
-        from_attributes = True
+    @field_validator("analysis", mode="before")
+    @classmethod
+    def parse_analysis(cls, v):
+        if isinstance(v, str):
+            try:
+                return json.loads(v)
+            except (json.JSONDecodeError, TypeError):
+                return None
+        return v
+
+    model_config = ConfigDict(from_attributes=True)
 
 
 class CheckLogResponse(BaseModel):
@@ -116,8 +145,7 @@ class CheckLogResponse(BaseModel):
     reason: Optional[str] = None
     sort_order: int = 0
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class CleanCheckLogResponse(BaseModel):
@@ -130,8 +158,7 @@ class CleanCheckLogResponse(BaseModel):
     reason: Optional[str] = None
     sort_order: int = 0
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class DiaryResponse(BaseModel):
@@ -142,13 +169,23 @@ class DiaryResponse(BaseModel):
     original_text: str
     diary_date: date
     status: str
+    is_dirty: bool = False
     created_at: datetime
     updated_at: datetime
     organized: Optional[DiaryOrganizedResponse] = None
     tags: list[TagResponse] = []
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
+
+
+class DiaryEventUpdate(BaseModel):
+    """单个事件的更新数据"""
+
+    id: UUID
+    event_title: Optional[str] = None
+    body: Optional[list[str]] = None
+    feeling: Optional[list[str]] = None
+    reflection: Optional[list[str]] = None
 
 
 class DiaryOrganizedUpdate(BaseModel):
@@ -162,6 +199,7 @@ class DiaryOrganizedUpdate(BaseModel):
     introduction: Optional[str] = None
     trivia: Optional[list[str]] = None
     plans: Optional[list[str]] = None
+    events: Optional[list[DiaryEventUpdate]] = None
 
 
 class DiaryCalendarItem(BaseModel):
@@ -170,6 +208,7 @@ class DiaryCalendarItem(BaseModel):
     diary_date: date
     mood: Optional[str] = None
     status: str
+    is_dirty: bool = False
 
 
 class DiaryTagsUpdate(BaseModel):

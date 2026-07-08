@@ -1,6 +1,6 @@
 <template>
   <!-- 默认布局：带底部 Tab 栏 -->
-  <div class="min-h-screen flex flex-col">
+  <div class="min-h-dvh flex flex-col">
     <!-- 页面内容 -->
     <main class="flex-1 pb-tab">
       <slot />

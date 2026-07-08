@@ -1,15 +1,23 @@
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div class="min-h-dvh flex flex-col">
     <!-- 顶部导航栏 -->
     <NavBar :title="diaryTitle" :show-back="true">
       <template #right>
-        <!-- 编辑按钮：仅 draft/published 且非编辑模式时显示 -->
+        <!-- 结构化编辑按钮：organized/analyzed 且非编辑模式时显示 -->
         <button
-          v-if="isEditable && !isEditing"
-          @click="startEdit"
+          v-if="isStructuredEditable && !isEditingStructured && !isEditing"
+          @click="startEditStructured"
           class="text-primary-600 text-sm font-medium"
         >
           编辑
+        </button>
+        <!-- 编辑原文按钮：draft/organized 且非编辑模式时显示 -->
+        <button
+          v-if="isEditable && !isEditing && !isEditingStructured"
+          @click="startEdit"
+          class="text-primary-600 text-sm font-medium"
+        >
+          {{ diary?.status === 'organized' ? '编辑原文' : '编辑' }}
         </button>
       </template>
     </NavBar>
@@ -27,7 +35,8 @@
           <div class="text-sm text-neutral-500 mb-3">{{ diary.diary_date }}</div>
           <textarea
             v-model="editText"
-            class="w-full min-h-[300px] text-sm text-neutral-800 leading-relaxed p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none"
+            class="w-full min-h-[300px] text-sm text-neutral-800 leading-relaxed p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+            @input="autoResize"
           />
           <p v-if="saveError" class="text-sm text-red-500 mt-2">{{ saveError }}</p>
         </div>
@@ -108,6 +117,131 @@
 
       <!-- 日记 Tab 内容 -->
       <div v-show="activeTab === 'diary'" class="flex-1 overflow-y-auto px-4 py-3 pb-24">
+        <!-- 编辑保存成功提示 -->
+        <div
+          v-if="editSaveMessage"
+          class="mb-3 px-3 py-2 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-700"
+        >
+          {{ editSaveMessage }}
+        </div>
+        <!-- 结构化编辑模式 -->
+        <template v-if="isEditingStructured">
+          <div class="space-y-4">
+            <!-- 标题 -->
+            <div>
+              <label class="text-xs font-medium text-neutral-500 mb-1 block">标题</label>
+              <input
+                v-model="editFormData.title"
+                class="w-full text-sm text-neutral-800 p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
+                placeholder="日记标题"
+              />
+            </div>
+            <!-- 摘要 -->
+            <div>
+              <label class="text-xs font-medium text-neutral-500 mb-1 block">摘要</label>
+              <textarea
+                v-model="editFormData.summary"
+                rows="3"
+                class="w-full text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                placeholder="日记摘要"
+                @input="autoResize"
+              />
+            </div>
+            <!-- 引入段 -->
+            <div>
+              <label class="text-xs font-medium text-neutral-500 mb-1 block">引入段</label>
+              <textarea
+                v-model="editFormData.introduction"
+                rows="2"
+                class="w-full text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                placeholder="引入段"
+                @input="autoResize"
+              />
+            </div>
+            <!-- 事件编辑 -->
+            <div v-if="diary.organized?.events && diary.organized.events.length > 0">
+              <label class="text-xs font-medium text-neutral-500 mb-2 block">事件</label>
+              <EventCard
+                v-for="event in sortedEvents"
+                :key="event.id"
+                :event="event"
+                :editable="true"
+                @update="onEventUpdate"
+              />
+            </div>
+            <!-- 琐事 -->
+            <div>
+              <label class="text-xs font-medium text-neutral-500 mb-1 block">琐事（每项一行）</label>
+              <textarea
+                v-model="editFormData.trivia"
+                rows="3"
+                class="w-full text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                placeholder="每项琐事一行"
+                @input="autoResize"
+              />
+            </div>
+            <!-- 后续计划 -->
+            <div>
+              <label class="text-xs font-medium text-neutral-500 mb-1 block">后续计划（每项一行）</label>
+              <textarea
+                v-model="editFormData.plans"
+                rows="3"
+                class="w-full text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                placeholder="每项计划一行"
+                @input="autoResize"
+              />
+            </div>
+            <!-- 错误提示 -->
+            <p v-if="structuredSaveError" class="text-sm text-red-500">{{ structuredSaveError }}</p>
+            <!-- 保存/取消按钮 -->
+            <div class="flex gap-3 pt-2">
+              <button
+                @click="cancelEditStructured"
+                :disabled="structuredSaving"
+                class="flex-1 py-2.5 rounded-lg border border-neutral-300 text-neutral-700 text-sm font-medium hover:bg-neutral-50 disabled:opacity-50"
+              >
+                取消
+              </button>
+              <button
+                @click="handleSaveStructured"
+                :disabled="structuredSaving"
+                class="flex-1 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-700 disabled:opacity-50"
+              >
+                {{ structuredSaving ? '保存中...' : '保存' }}
+              </button>
+            </div>
+          </div>
+        </template>
+        <!-- organized 状态编辑原文模式 -->
+        <template v-else-if="isEditing && diary.status === 'organized'">
+          <div class="mb-3">
+            <div class="text-sm text-neutral-500 mb-2">编辑原文</div>
+            <textarea
+              v-model="editText"
+              class="w-full min-h-[300px] text-sm text-neutral-800 leading-relaxed p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+              @input="autoResize"
+            />
+            <p v-if="saveError" class="text-sm text-red-500 mt-2">{{ saveError }}</p>
+          </div>
+          <div class="flex gap-3 mb-4">
+            <button
+              @click="cancelEdit"
+              :disabled="saving"
+              class="flex-1 py-2.5 rounded-lg border border-neutral-300 text-neutral-700 text-sm font-medium hover:bg-neutral-50 disabled:opacity-50"
+            >
+              取消
+            </button>
+            <button
+              @click="handleSaveEdit"
+              :disabled="saving"
+              class="flex-1 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-700 disabled:opacity-50"
+            >
+              {{ saving ? '保存中...' : '保存' }}
+            </button>
+          </div>
+        </template>
+        <!-- 正常查看模式 -->
+        <template v-else>
         <!-- 元数据横排 -->
         <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-4">
           <template v-if="displayMood">
@@ -128,7 +262,7 @@
         <!-- 摘要 -->
         <div
           v-if="diary.organized?.summary"
-          class="text-sm text-neutral-600 leading-relaxed mb-4 pb-3 border-b border-neutral-100"
+          class="text-xs italic text-neutral-600 leading-relaxed mb-4 pb-3 border-b border-neutral-100"
         >
           {{ diary.organized.summary }}
         </div>
@@ -136,7 +270,7 @@
         <!-- 引入段 -->
         <div
           v-if="diary.organized?.introduction"
-          class="text-sm text-neutral-500 italic leading-relaxed mb-4"
+          class="text-sm text-neutral-500 leading-relaxed mb-4"
         >
           {{ diary.organized.introduction }}
         </div>
@@ -147,51 +281,47 @@
             v-for="event in sortedEvents"
             :key="event.id"
             :event="event"
+            :editable="isEditingStructured"
+            @update="onEventUpdate"
           />
         </div>
 
-        <!-- 琐事（折叠式，默认展开） -->
+        <!-- 琐事（平铺） -->
         <div v-if="diary.organized?.trivia && diary.organized.trivia.length > 0" class="mb-3">
-          <button
-            class="w-full text-left px-4 py-2.5 flex items-center gap-2 border border-neutral-200 rounded-lg hover:bg-neutral-50 transition-colors"
-            @click="triviaExpanded = !triviaExpanded"
-          >
-            <span class="text-neutral-400 text-sm">{{ triviaExpanded ? '▼' : '▶' }}</span>
-            <span class="text-sm font-medium text-neutral-800">琐事</span>
-          </button>
-          <div v-if="triviaExpanded" class="px-4 py-3 border border-t-0 border-neutral-200 rounded-b-lg">
-            <ol class="list-decimal list-inside space-y-1.5">
-              <li
-                v-for="(item, idx) in diary.organized.trivia"
-                :key="idx"
-                class="text-sm text-neutral-600 leading-relaxed"
-              >
-                {{ item }}
-              </li>
-            </ol>
-          </div>
+          <div class="text-sm font-medium text-neutral-800 mb-2">琐事</div>
+          <ol v-if="diary.organized.trivia.length > 1" class="list-decimal list-inside space-y-1.5">
+            <li
+              v-for="(item, idx) in diary.organized.trivia"
+              :key="idx"
+              class="text-sm text-neutral-600 leading-relaxed"
+            >
+              {{ item }}
+            </li>
+          </ol>
+          <ul v-else class="list-none space-y-1.5">
+            <li class="text-sm text-neutral-600 leading-relaxed">
+              {{ diary.organized.trivia[0] }}
+            </li>
+          </ul>
         </div>
 
-        <!-- 后续计划（折叠式，默认展开） -->
+        <!-- 后续计划（平铺） -->
         <div v-if="diary.organized?.plans && diary.organized.plans.length > 0" class="mb-3">
-          <button
-            class="w-full text-left px-4 py-2.5 flex items-center gap-2 border border-neutral-200 rounded-lg hover:bg-neutral-50 transition-colors"
-            @click="plansExpanded = !plansExpanded"
-          >
-            <span class="text-neutral-400 text-sm">{{ plansExpanded ? '▼' : '▶' }}</span>
-            <span class="text-sm font-medium text-neutral-800">后续计划</span>
-          </button>
-          <div v-if="plansExpanded" class="px-4 py-3 border border-t-0 border-neutral-200 rounded-b-lg">
-            <ol class="list-decimal list-inside space-y-1.5">
-              <li
-                v-for="(item, idx) in diary.organized.plans"
-                :key="idx"
-                class="text-sm text-neutral-600 leading-relaxed"
-              >
-                {{ item }}
-              </li>
-            </ol>
-          </div>
+          <div class="text-sm font-medium text-neutral-800 mb-2">后续计划</div>
+          <ol v-if="diary.organized.plans.length > 1" class="list-decimal list-inside space-y-1.5">
+            <li
+              v-for="(item, idx) in diary.organized.plans"
+              :key="idx"
+              class="text-sm text-neutral-600 leading-relaxed"
+            >
+              {{ item }}
+            </li>
+          </ol>
+          <ul v-else class="list-none space-y-1.5">
+            <li class="text-sm text-neutral-600 leading-relaxed">
+              {{ diary.organized.plans[0] }}
+            </li>
+          </ul>
         </div>
 
         <!-- 原始文本（折叠，默认收起） -->
@@ -201,6 +331,7 @@
             {{ diary.original_text }}
           </div>
         </details>
+        </template>
       </div>
 
       <!-- 分析 Tab 内容 -->
@@ -211,8 +342,8 @@
         </div>
       </div>
 
-      <!-- 底部操作区 -->
-      <div class="fixed bottom-0 left-0 right-0 px-4 py-2 border-t border-neutral-200 bg-white safe-area-bottom">
+      <!-- 底部操作区（编辑模式下隐藏） -->
+      <div v-if="!isEditingStructured" class="fixed bottom-0 left-0 right-0 px-4 py-2 border-t border-neutral-200 bg-white safe-area-bottom">
         <div class="max-w-md mx-auto">
           <!-- 分析中状态 -->
           <div v-if="analyzing" class="flex items-center justify-center gap-2 py-2">
@@ -287,9 +418,9 @@ const isOrganizedOrAnalyzed = computed(() =>
   diary.value?.status === 'organized' || diary.value?.status === 'analyzed'
 )
 
-// 可编辑判断：仅 draft / published 可编辑
+// 可编辑判断：仅 draft / organized 可编辑
 const isEditable = computed(() =>
-  diary.value?.status === 'draft' || diary.value?.status === 'published'
+  diary.value?.status === 'draft' || diary.value?.status === 'organized'
 )
 
 // 标题
@@ -311,6 +442,15 @@ const sortedEvents = computed(() => {
   return [...events].sort((a, b) => a.sort_order - b.sort_order)
 })
 
+// 标签按类别排序：领域 → 主题 → 人物/对象 → 心理 → 知识点
+const TAG_TYPE_ORDER: Record<string, number> = {
+  domain: 0,
+  topic: 1,
+  person_object: 2,
+  psychological: 3,
+  knowledge: 4,
+}
+
 // 日记级标签：从所有事件的 tags 中去重汇总
 const diaryLevelTags = computed<Tag[]>(() => {
   const events = diary.value?.organized?.events || []
@@ -326,12 +466,19 @@ const diaryLevelTags = computed<Tag[]>(() => {
       }
     }
   }
-  return tags
+  return tags.sort((a, b) => {
+    const orderA = TAG_TYPE_ORDER[a.type] ?? 99
+    const orderB = TAG_TYPE_ORDER[b.type] ?? 99
+    return orderA - orderB
+  })
 })
 
-// ───────────────── 折叠状态 ─────────────────
-const triviaExpanded = ref(true)
-const plansExpanded = ref(true)
+// ───────────────── 自动增长 textarea ─────────────────
+const autoResize = (e: Event) => {
+  const target = e.target as HTMLTextAreaElement
+  target.style.height = 'auto'
+  target.style.height = target.scrollHeight + 'px'
+}
 
 // ───────────────── 加载日记 ─────────────────
 const loadDiary = async () => {
@@ -351,21 +498,51 @@ const isEditing = ref(false)
 const editText = ref('')
 const saving = ref(false)
 const saveError = ref('')
+const editSaveMessage = ref('')
+
+// ───────────────── 结构化编辑 ─────────────────
+const isStructuredEditable = computed(() =>
+  diary.value?.status === 'organized' || diary.value?.status === 'analyzed'
+)
+const isEditingStructured = ref(false)
+const editFormData = ref<any>(null)
+const structuredSaving = ref(false)
+const structuredSaveError = ref('')
+const editedEvents = ref<Map<string, any>>(new Map())
+
+// 结构化编辑模式切换时初始化 textarea 高度
+watch(isEditingStructured, (val) => {
+  if (val) {
+    nextTick(() => {
+      document.querySelectorAll('textarea').forEach(el => {
+        el.style.height = 'auto'
+        el.style.height = el.scrollHeight + 'px'
+      })
+    })
+  }
+})
+
+const onEventUpdate = (eventData: any) => {
+  editedEvents.value.set(eventData.id, eventData)
+}
 
 const startEdit = () => {
   editText.value = diary.value?.original_text ?? ''
   saveError.value = ''
+  editSaveMessage.value = ''
   isEditing.value = true
 }
 
 const cancelEdit = () => {
   isEditing.value = false
   saveError.value = ''
+  editSaveMessage.value = ''
 }
 
 const handleSaveEdit = async () => {
   saving.value = true
   saveError.value = ''
+  const wasOrganized = diary.value?.status === 'organized'
   try {
     await api<Diary>(`/diaries/${diaryId.value}`, {
       method: 'PUT',
@@ -373,10 +550,66 @@ const handleSaveEdit = async () => {
     })
     isEditing.value = false
     await loadDiary()
+    if (wasOrganized) {
+      editSaveMessage.value = '原文已修改，如需同步结构化内容请重新整理'
+      setTimeout(() => { editSaveMessage.value = '' }, 5000)
+    }
   } catch (err: any) {
     saveError.value = err?.data?.detail || '保存失败，请稍后重试'
   } finally {
     saving.value = false
+  }
+}
+
+// ───────────────── 结构化编辑函数 ─────────────────
+const startEditStructured = () => {
+  const org = diary.value?.organized
+  if (!org) return
+  editFormData.value = {
+    title: org.title ?? '',
+    summary: org.summary ?? '',
+    introduction: org.introduction ?? '',
+    trivia: (org.trivia ?? []).join('\n'),
+    plans: (org.plans ?? []).join('\n'),
+  }
+  structuredSaveError.value = ''
+  editedEvents.value.clear()
+  isEditingStructured.value = true
+}
+
+const cancelEditStructured = () => {
+  isEditingStructured.value = false
+  editFormData.value = null
+  structuredSaveError.value = ''
+  editedEvents.value.clear()
+}
+
+const handleSaveStructured = async () => {
+  structuredSaving.value = true
+  structuredSaveError.value = ''
+  try {
+    const body: any = {
+      title: editFormData.value.title,
+      summary: editFormData.value.summary,
+      introduction: editFormData.value.introduction,
+      trivia: editFormData.value.trivia.split('\n').filter((s: string) => s.trim()),
+      plans: editFormData.value.plans.split('\n').filter((s: string) => s.trim()),
+    }
+    if (editedEvents.value.size > 0) {
+      body.events = Array.from(editedEvents.value.values())
+    }
+    await api(`/diaries/${diaryId.value}/organized`, {
+      method: 'PUT',
+      body: body,
+    })
+    isEditingStructured.value = false
+    editFormData.value = null
+    editedEvents.value.clear()
+    await loadDiary()
+  } catch (err: any) {
+    structuredSaveError.value = err?.data?.detail || '保存失败，请稍后重试'
+  } finally {
+    structuredSaving.value = false
   }
 }
 
@@ -457,10 +690,9 @@ const analyzeError = ref('')
 const analyzeStep = ref('')
 
 const ANALYZE_STEP_LABELS: Record<string, string> = {
-  mood_tag_extracting: '心情与标签提取中',
-  core_analysis: '核心分析中',
-  calibration_suggestions: '校准与建议生成中',
-  quality_checking: '分析质量检查中',
+  mood_tag_extracting: '心情与标签提取',
+  core_analyzing: '核心分析与建议',
+  cognition_analyzing: '认知分析',
 }
 const ANALYZE_STEP_KEYS = Object.keys(ANALYZE_STEP_LABELS)
 

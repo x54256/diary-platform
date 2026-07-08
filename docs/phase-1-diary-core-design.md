@@ -1145,7 +1145,7 @@ users ──┬── diaries ──┬── diary_organized (1:1) ──┬─
 输出：事件级 + 日记级认知校准、问题解答和认知完善：
 
 - 认知校准（event_cognitive_calibration_analyses、diary_cognitive_calibration_analyses）
-- 问题解答与认知完善（event_cognitive_enhancement_analyses、diary_question_answers、diary_cognitive_enhancements）
+- 问题解答与认知完善（event_question_answers、diary_question_answers、event_cognitive_enhancements、diary_cognitive_enhancements）
 
 提示词要点：
 
@@ -1932,15 +1932,17 @@ original_text 是原始日记文本，仅用于核对事实，不要从原文中
 
 **指导思想：日记分析的目标是帮助用户认清自己。**
 
-分析流水线采用 [LangGraph](https://github.com/langchain-ai/langgraph) 框架构建，将 3 个环节建模为线性状态图。
+分析流水线采用 [LangGraph](https://github.com/langchain-ai/langgraph) 框架构建，将 3 个环节建模为并行状态图。
 
 **图的拓扑结构：**
 
 ```
-START → mood_tag_extract → core_analysis → cognition_analysis → END
+              ┌→ mood_tag_extract ──┐
+START ── fork ┼→ core_analysis ─────┼→ join → END
+              └→ cognition_analysis ┘
 ```
 
-每个 Node 对应一次独立的 LLM 调用，Node 内部只读取 State 中自己需要的字段、写入自己产出的字段，不跨节点直接通信。
+三个环节并行执行，每个 Node 对应一次独立的 LLM 调用，Node 内部只读取 State 中自己需要的字段、写入自己产出的字段，不跨节点直接通信。三个环节全部完成后再合并写入分析结果。
 
 #### 分析 State 数据结构
 
@@ -2385,7 +2387,7 @@ events 是整理后的日记事件列表，是唯一依据。
 2. 再做问题解答：找出日记中的明确问题和隐性问题，直接给出问题和回答，回答必须突出核心重点。
 3. 最后做认知完善：基于日记中的零散知识、随想、判断、类比和问题解答结果，整理成更完整、可复用的认知体系。
 
-数组含义：`cognitive_calibration_analyses`、`diary_cognitive_calibration_analyses` 的每一项是一条独立认知校准文本；`question_answers`、`diary_question_answers` 的每一项是一组问题与回答；`cognitive_enhancements`、`diary_cognitive_enhancements` 的每一项是一条独立认知完善文本。
+数组含义：`event_cognitive_calibration_analyses`、`diary_cognitive_calibration_analyses` 的每一项是一条独立认知校准文本；`event_question_answers`、`diary_question_answers` 的每一项是一组问题与回答；`event_cognitive_enhancements`、`diary_cognitive_enhancements` 的每一项是一条独立认知完善文本。
 
 #### 输入
 
@@ -2418,7 +2420,7 @@ events 是整理后的日记事件列表，是唯一依据。
   "diary_cognitive_calibration_analyses": [
     "整篇日记的一条认知校准"
   ],
-  "event_cognitive_enhancement_analyses": [
+  "event_question_answers": [
     {
       "event_index": 0,
       "title": "事件标题",
@@ -2427,9 +2429,6 @@ events 是整理后的日记事件列表，是唯一依据。
           "question": "识别出的问题",
           "answer": "回答文本，先给核心重点；无法可靠回答时直接说明无法可靠回答的部分"
         }
-      ],
-      "cognitive_enhancements": [
-        "基于该事件的一条体系化认知"
       ]
     }
   ],
@@ -2437,6 +2436,15 @@ events 是整理后的日记事件列表，是唯一依据。
     {
       "question": "识别出的日记级问题",
       "answer": "回答文本，先给核心重点；无法可靠回答时直接说明无法可靠回答的部分"
+    }
+  ],
+  "event_cognitive_enhancements": [
+    {
+      "event_index": 0,
+      "title": "事件标题",
+      "cognitive_enhancements": [
+        "基于该事件的一条体系化认知"
+      ]
     }
   ],
   "diary_cognitive_enhancements": [
@@ -2454,9 +2462,10 @@ events 是整理后的日记事件列表，是唯一依据。
 按以下顺序输出：
 1. event_cognitive_calibration_analyses：事件级认知校准。
 2. diary_cognitive_calibration_analyses：整篇日记的认知校准。
-3. event_cognitive_enhancement_analyses：事件级问题解答与认知完善。
+3. event_question_answers：事件级问题解答。
 4. diary_question_answers：日记级问题解答。
-5. diary_cognitive_enhancements：日记级认知完善。
+5. event_cognitive_enhancements：事件级认知完善。
+6. diary_cognitive_enhancements：日记级认知完善。
 
 ## 输入说明
 events 是整理后的日记事件列表，是主要依据。
@@ -2533,7 +2542,7 @@ events 是整理后的日记事件列表，是主要依据。
   "diary_cognitive_calibration_analyses": [
     "一条独立日记级认知校准文本"
   ],
-  "event_cognitive_enhancement_analyses": [
+  "event_question_answers": [
     {
       "event_index": 0,
       "title": "事件标题",
@@ -2542,9 +2551,6 @@ events 是整理后的日记事件列表，是主要依据。
           "question": "",
           "answer": ""
         }
-      ],
-      "cognitive_enhancements": [
-        "一条独立认知完善文本"
       ]
     }
   ],
@@ -2552,6 +2558,15 @@ events 是整理后的日记事件列表，是主要依据。
     {
       "question": "",
       "answer": ""
+    }
+  ],
+  "event_cognitive_enhancements": [
+    {
+      "event_index": 0,
+      "title": "事件标题",
+      "cognitive_enhancements": [
+        "一条独立认知完善文本"
+      ]
     }
   ],
   "diary_cognitive_enhancements": [

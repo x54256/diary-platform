@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div class="min-h-dvh flex flex-col">
     <!-- 顶部月份导航 -->
     <div class="sticky top-0 z-30 bg-white border-b border-neutral-200">
       <div class="flex items-center justify-between px-4 h-nav">
@@ -48,6 +48,23 @@
       </div>
     </div>
 
+    <!-- 快捷日期筛选栏 -->
+    <div v-if="searchResults === null" class="px-4 pb-2 flex gap-2 overflow-x-auto">
+      <button
+        v-for="f in filters"
+        :key="f.key"
+        @click="toggleFilter(f.key)"
+        :class="[
+          'px-3 py-1 rounded-full text-xs whitespace-nowrap shrink-0',
+          activeFilter === f.key
+            ? 'bg-primary-600 text-white'
+            : 'bg-neutral-100 text-neutral-500'
+        ]"
+      >
+        {{ f.label }}
+      </button>
+    </div>
+
     <!-- 视图切换：日历 / 时间线 -->
     <div v-if="searchResults === null" class="px-4 flex gap-2 mb-3">
       <button
@@ -83,7 +100,7 @@
           <div
             v-for="(cell, index) in calendarCells"
             :key="index"
-            @click="cell.day && handleDateClick(cell.day)"
+            @click="cell.day && cell.hasDiary && handleDateClick(cell.day)"
             :class="[
               'aspect-square flex flex-col items-center justify-center text-xs rounded',
               cell.day ? 'cursor-pointer' : '',
@@ -93,14 +110,15 @@
             ]"
           >
             <span>{{ cell.day || '' }}</span>
-            <span v-if="cell.hasDiary" class="w-1 h-1 rounded-full bg-primary-500 mt-0.5"></span>
+            <span v-if="cell.diaryCount === 1" class="w-1 h-1 rounded-full bg-primary-500 mt-0.5"></span>
+            <span v-else-if="cell.diaryCount > 1" class="text-[10px] text-primary-600 mt-0.5 leading-none">{{ cell.diaryCount }}篇</span>
           </div>
         </div>
       </div>
 
       <!-- 当月日记数量提示 -->
-      <div v-if="calendarData.length > 0" class="text-center text-xs text-neutral-400 mt-3">
-        本月共 {{ calendarData.length }} 篇日记
+      <div v-if="totalMonthCount > 0" class="text-center text-xs text-neutral-400 mt-3">
+        本月共 {{ totalMonthCount }} 篇日记
       </div>
     </div>
 
@@ -119,10 +137,20 @@
           :to="`/diary/${item.id}`"
           class="block bg-white rounded-lg p-3 active:bg-neutral-50"
         >
-          <!-- 日期 -->
-          <div class="text-xs text-neutral-400 mb-1">{{ item.diary_date }}</div>
-          <!-- 内容预览 -->
-          <div class="text-sm text-neutral-800 line-clamp-2">{{ item.original_text }}</div>
+          <!-- 时间 HH:MM + 日期 -->
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs text-neutral-400">{{ formatTime(item.created_at) }}</span>
+            <span class="text-xs text-neutral-300">{{ item.diary_date }}</span>
+          </div>
+          <!-- 已整理/已分析：显示标题+摘要 -->
+          <template v-if="item.organized">
+            <div class="text-sm font-medium text-neutral-800">{{ item.organized.title || '无标题' }}</div>
+            <div v-if="item.organized.summary" class="text-xs text-neutral-500 mt-1 line-clamp-2">{{ item.organized.summary }}</div>
+          </template>
+          <!-- 草稿/已发布：显示原文预览 -->
+          <template v-else>
+            <p class="text-sm text-neutral-600 line-clamp-2">{{ item.original_text }}</p>
+          </template>
           <!-- 状态标签 -->
           <div class="flex items-center gap-2 mt-2">
             <span
@@ -130,6 +158,7 @@
                 'text-xs px-2 py-0.5 rounded',
                 item.status === 'draft' ? 'bg-neutral-100 text-neutral-500' :
                 item.status === 'published' ? 'bg-blue-50 text-blue-500' :
+                item.status === 'analyzed' ? 'bg-purple-50 text-purple-600' :
                 'bg-green-50 text-green-600'
               ]"
             >
@@ -137,6 +166,11 @@
             </span>
             <span v-if="item.organized?.mood" class="text-xs text-primary-600">{{ item.organized.mood }}</span>
             <span v-if="item.organized?.location" class="text-xs text-neutral-400">{{ item.organized.location }}</span>
+          </div>
+          <!-- 已分析卡片标签 -->
+          <div v-if="item.status === 'analyzed' && topicDiaryTags(item.tags).length > 0" class="flex flex-wrap mt-2">
+            <TagBadge v-for="tag in topicDiaryTags(item.tags).slice(0, 5)" :key="tag.id" :tag="tag" />
+            <span v-if="topicDiaryTags(item.tags).length > 5" class="text-xs text-neutral-400 ml-1">+{{ topicDiaryTags(item.tags).length - 5 }}</span>
           </div>
         </NuxtLink>
       </div>
@@ -180,8 +214,17 @@ const viewModes = [
 // 星期标题
 const weekDays = ['日', '一', '二', '三', '四', '五', '六']
 
-// 日历数据
-const calendarData = ref<DiaryCalendarItem[]>([])
+// 日历数据：dateStr → Diary[]（同一天可能多条，存完整 Diary 以显示标题/摘要）
+const calendarData = ref<Map<string, Diary[]>>(new Map())
+
+// 当月日记总数
+const totalMonthCount = computed(() => {
+  let total = 0
+  for (const items of calendarData.value.values()) {
+    total += items.length
+  }
+  return total
+})
 
 // 时间线日记列表
 const diaries = ref<Diary[]>([])
@@ -196,20 +239,18 @@ const calendarCells = computed(() => {
   // 该月天数
   const daysInMonth = new Date(year, month, 0).getDate()
 
-  // 有日记的日期集合
-  const diaryDates = new Set(calendarData.value.map(item => item.diary_date))
-
-  const cells: { day: number | null; hasDiary: boolean }[] = []
+  const cells: { day: number | null; hasDiary: boolean; diaryCount: number }[] = []
 
   // 前置空白
   for (let i = 0; i < firstDay; i++) {
-    cells.push({ day: null, hasDiary: false })
+    cells.push({ day: null, hasDiary: false, diaryCount: 0 })
   }
 
   // 日期
   for (let d = 1; d <= daysInMonth; d++) {
     const dateStr = `${year}-${String(month).padStart(2, '0')}-${String(d).padStart(2, '0')}`
-    cells.push({ day: d, hasDiary: diaryDates.has(dateStr) })
+    const items = calendarData.value.get(dateStr) || []
+    cells.push({ day: d, hasDiary: items.length > 0, diaryCount: items.length })
   }
 
   return cells
@@ -234,15 +275,31 @@ const changeMonth = (delta: number) => {
   }
 }
 
-// 加载日历数据
+// 加载日历数据（获取完整 Diary 对象以显示标题/摘要）
 const loadCalendar = async () => {
+  const year = currentYear.value
+  const month = currentMonth.value
+  const startDate = `${year}-${String(month).padStart(2, '0')}-01`
+  const lastDay = new Date(year, month, 0).getDate()
+  const endDate = `${year}-${String(month).padStart(2, '0')}-${String(lastDay).padStart(2, '0')}`
+
   try {
-    calendarData.value = await api<DiaryCalendarItem[]>('/diaries/calendar', {
-      params: { year: currentYear.value, month: currentMonth.value },
+    const items = await api<Diary[]>('/diaries', {
+      params: { start_date: startDate, end_date: endDate },
     })
+    const map = new Map<string, Diary[]>()
+    for (const item of items) {
+      const list = map.get(item.diary_date)
+      if (list) {
+        list.push(item)
+      } else {
+        map.set(item.diary_date, [item])
+      }
+    }
+    calendarData.value = map
   } catch (err) {
     console.error('加载日历失败', err)
-    calendarData.value = []
+    calendarData.value = new Map()
   }
 }
 
@@ -268,20 +325,19 @@ const loadTimeline = async () => {
   }
 }
 
-// 点击日期
-const handleDateClick = async (day: number) => {
+// 点击日期：1 条直接跳详情，多条跳日期列表页
+const handleDateClick = (day: number) => {
   const year = currentYear.value
   const month = currentMonth.value
   const dateStr = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`
-  try {
-    const dayDiaries = await api<Diary[]>('/diaries', {
-      params: { start_date: dateStr, end_date: dateStr },
-    })
-    if (dayDiaries.length > 0) {
-      navigateTo(`/diary/${dayDiaries[0].id}`)
-    }
-  } catch (err) {
-    console.error('查询日期日记失败', err)
+
+  const cached = calendarData.value.get(dateStr)
+  if (!cached || cached.length === 0) return
+
+  if (cached.length === 1) {
+    navigateTo(`/diary/${cached[0].id}`)
+  } else {
+    navigateTo(`/diary/date/${dateStr}`)
   }
 }
 
@@ -304,12 +360,131 @@ const clearSearch = () => {
   searchResults.value = null
 }
 
+// ── 快捷日期筛选 ──
+type FilterKey = 'today' | 'yesterday' | 'week' | 'last7' | 'month'
+
+const filters: { key: FilterKey; label: string }[] = [
+  { key: 'today', label: '今天' },
+  { key: 'yesterday', label: '昨天' },
+  { key: 'week', label: '本周' },
+  { key: 'last7', label: '近7天' },
+  { key: 'month', label: '本月' },
+]
+
+const activeFilter = ref<FilterKey | null>(null)
+const filterResults = ref<Diary[]>([])
+const filterLoading = ref(false)
+
+const activeFilterLabel = computed(() => {
+  return filters.find(f => f.key === activeFilter.value)?.label || ''
+})
+
+// 根据 filterKey 计算起止日期
+const getFilterRange = (key: FilterKey): { start: string; end: string } => {
+  const today = new Date()
+  const fmt = (d: Date) =>
+    `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+
+  switch (key) {
+    case 'today':
+      return { start: fmt(today), end: fmt(today) }
+    case 'yesterday': {
+      const yd = new Date(today)
+      yd.setDate(yd.getDate() - 1)
+      return { start: fmt(yd), end: fmt(yd) }
+    }
+    case 'week': {
+      const day = today.getDay() // 0=Sun
+      const mon = new Date(today)
+      mon.setDate(mon.getDate() - (day === 0 ? 6 : day - 1))
+      return { start: fmt(mon), end: fmt(today) }
+    }
+    case 'last7': {
+      const d7 = new Date(today)
+      d7.setDate(d7.getDate() - 6)
+      return { start: fmt(d7), end: fmt(today) }
+    }
+    case 'month': {
+      const first = new Date(today.getFullYear(), today.getMonth(), 1)
+      return { start: fmt(first), end: fmt(today) }
+    }
+  }
+}
+
+const toggleFilter = async (key: FilterKey) => {
+  try {
+    const { start, end } = getFilterRange(key)
+    const data = await api<Diary[]>('/diaries', {
+      params: { start_date: start, end_date: end },
+    })
+    const analyzed = data.filter(d => d.status === 'analyzed')
+    if (analyzed.length === 0) return
+
+    if (analyzed.length === 1) {
+      navigateTo(`/diary/${analyzed[0].id}`)
+    } else if (start === end) {
+      // 单日多条 → 日期列表页
+      navigateTo(`/diary/date/${start}`)
+    } else {
+      // 多日多条 → 跳到最新一条的日期列表
+      analyzed.sort((a, b) => {
+        const ta = a.created_at ? new Date(a.created_at).getTime() : 0
+        const tb = b.created_at ? new Date(b.created_at).getTime() : 0
+        return tb - ta
+      })
+      navigateTo(`/diary/date/${analyzed[0].diary_date}`)
+    }
+  } catch (err) {
+    console.error('筛选日记失败', err)
+  }
+}
+
+const clearFilter = () => {
+  activeFilter.value = null
+}
+
+// 日期格式化：M月D日
+const formatDateShort = (dateStr: string) => {
+  if (!dateStr) return ''
+  const [, m, d] = dateStr.split('-')
+  return `${parseInt(m)}月${parseInt(d)}日`
+}
+
+// 时间格式化（HH:MM）
+const formatTime = (dateStr?: string) => {
+  if (!dateStr) return ''
+  const d = new Date(dateStr)
+  return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`
+}
+
+// 标签按类别排序：领域 → 主题 → 人物/对象 → 心理 → 知识点
+const TAG_TYPE_ORDER: Record<string, number> = {
+  domain: 0,
+  topic: 1,
+  person_object: 2,
+  psychological: 3,
+  knowledge: 4,
+}
+
+const sortedDiaryTags = (tags: any[]) => {
+  return [...tags].sort((a, b) => {
+    const orderA = TAG_TYPE_ORDER[a.type] ?? 99
+    const orderB = TAG_TYPE_ORDER[b.type] ?? 99
+    return orderA - orderB
+  })
+}
+
+const topicDiaryTags = (tags?: any[]) => {
+  return sortedDiaryTags(tags || []).filter(tag => tag.type === 'topic')
+}
+
 // 状态标签
 const statusLabel = (status: string) => {
   switch (status) {
     case 'draft': return '草稿'
     case 'published': return '已发布'
     case 'organized': return '已整理'
+    case 'analyzed': return '已分析'
     default: return status
   }
 }

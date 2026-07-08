@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen">
+  <div class="min-h-dvh">
     <!-- 用户信息卡片 -->
     <div class="bg-white px-4 py-6 mb-3">
       <div class="flex items-center gap-4">

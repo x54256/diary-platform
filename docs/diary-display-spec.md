@@ -71,7 +71,7 @@
 
 | 字段 | 展示方式 | 数据来源 |
 |---|---|---|
-| 心情（mood） | 文字显示 | 已分析状态 → `organized.analysis.mood`；已整理状态 → `organized.mood`（过渡方案，后续整理阶段不再产出 mood） |
+| 心情（mood） | 文字显示 | `organized.analysis.mood`（仅已分析状态展示） |
 | 地点（location） | 文字显示 | `organized.location` |
 | 日记级标签 | 行内小标签，按类型着色 | 从所有事件的 `tags` 中去重汇总 |
 
@@ -405,7 +405,7 @@ AI 分析分为两个浅色区块：
 | 标题 | `organized.title` | |
 | 摘要 | `organized.summary` | |
 | 地点 | `organized.location` | 整理阶段产出 |
-| 心情 | `organized.analysis.mood`（已分析）/ `organized.mood`（已整理） | 分析阶段产出优先；整理阶段为过渡方案 |
+| 心情 | `organized.analysis.mood` | 仅已分析状态展示 |
 | 日记级标签 | 所有事件 `tags` 去重汇总 | 前端计算或后端提供 |
 | 事件级标签 | `organized.events[].tags` | 分析阶段产出 |
 | 引入段 | `organized.introduction` | 可选 |

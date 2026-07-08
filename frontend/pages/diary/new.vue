@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div class="min-h-dvh flex flex-col">
     <!-- 顶部导航栏 -->
     <NavBar title="写日记" :show-back="true" />
 
@@ -20,8 +20,9 @@
       <textarea
         v-model="content"
         placeholder="今天发生了什么？写下你的日记..."
-        class="w-full h-full min-h-[400px] text-sm text-neutral-800 placeholder-neutral-400 resize-none"
-      ></textarea>
+        class="w-full flex-1 min-h-[400px] text-sm text-neutral-800 placeholder-neutral-400 resize-none overflow-hidden"
+        @input="autoResize"
+      />
     </div>
 
     <!-- 底部操作按钮 -->
@@ -63,6 +64,13 @@ const content = ref('')
 // 加载状态和错误
 const saving = ref(false)
 const errorMsg = ref('')
+
+// textarea 自动增长高度
+const autoResize = (e: Event) => {
+  const target = e.target as HTMLTextAreaElement
+  target.style.height = 'auto'
+  target.style.height = target.scrollHeight + 'px'
+}
 
 // 保存草稿
 const handleSaveDraft = async () => {

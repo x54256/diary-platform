@@ -20,6 +20,7 @@ from schemas.diary import (
     DiaryOrganizedUpdate,
     DiaryResponse,
     DiaryTagsUpdate,
+    DiaryUpdate,
 )
 from services.ai import ai_service
 from services.auth import get_current_user
@@ -28,7 +29,7 @@ import asyncio
 from database import SessionLocal
 from utils.diary_render import render_diary_to_markdown
 from models.diary import DiaryEvent, DiaryCheckLog, DiaryCleanCheckLog, OrganizeTask
-from schemas.diary import OrganizeTaskResponse
+from schemas.diary import OrganizeTaskResponse, DiaryEventUpdate, DiaryEventResponse
 
 router = APIRouter(prefix="/api/diaries", tags=["日记管理"])
 
@@ -88,7 +89,7 @@ def list_diaries(
         # 使用 any 子查询避免 join 产生重复记录
         query = query.filter(Diary.tags.any(Tag.id == tag_id))
 
-    query = query.order_by(Diary.diary_date.desc())
+    query = query.order_by(Diary.diary_date.desc(), Diary.created_at.desc())
     return query.all()
 
 
@@ -128,6 +129,7 @@ def get_calendar(
                 diary_date=diary.diary_date,
                 mood=mood,
                 status=status_value,
+                is_dirty=diary.is_dirty,
             )
         )
     return result
@@ -176,6 +178,44 @@ def get_diary(
     )
     if not diary:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="日记不存在")
+    return diary
+
+
+@router.put("/{diary_id}", response_model=DiaryResponse)
+def update_diary(
+    diary_id: UUID,
+    update_data: DiaryUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """更新日记原文（仅 draft 和 organized 状态可编辑）"""
+    diary = (
+        db.query(Diary)
+        .filter(Diary.id == diary_id, Diary.user_id == current_user.id)
+        .first()
+    )
+    if not diary:
+        raise HTTPException(status_code=404, detail="日记不存在")
+
+    # 状态守卫：仅 draft、organized 可编辑原文
+    if diary.status not in (DiaryStatus.draft, DiaryStatus.organized):
+        raise HTTPException(
+            status_code=400,
+            detail="当前状态不允许编辑原文",
+        )
+
+    # 仅更新非 None 字段
+    if update_data.original_text is not None:
+        diary.original_text = update_data.original_text
+    if update_data.diary_date is not None:
+        diary.diary_date = update_data.diary_date
+
+    # 脏标记：前端传 is_dirty=True 时置位（仅已整理/已分析状态有意义，但 draft 也允许存）
+    if update_data.is_dirty is True:
+        diary.is_dirty = True
+
+    db.commit()
+    db.refresh(diary)
     return diary
 
 
@@ -673,9 +713,103 @@ def update_organized(
     if update_data.plans is not None:
         organized.plans = json.dumps(update_data.plans, ensure_ascii=False)
 
+    # ── 事件批量更新 ──
+    if update_data.events is not None:
+        existing_events = {e.id: e for e in organized.events}
+        for event_data in update_data.events:
+            event = existing_events.get(event_data.id)
+            if not event:
+                continue
+            if event_data.event_title is not None:
+                event.event_title = event_data.event_title
+            if event_data.body is not None:
+                event.body = json.dumps(event_data.body, ensure_ascii=False)
+            if event_data.feeling is not None:
+                event.feeling = json.dumps(event_data.feeling, ensure_ascii=False)
+            if event_data.reflection is not None:
+                event.reflection = json.dumps(event_data.reflection, ensure_ascii=False)
+
+        # 重新生成 content
+        events_for_render = []
+        for e in organized.events:
+            events_for_render.append({
+                "title": e.event_title,
+                "body": json.loads(e.body) if isinstance(e.body, str) else (e.body or []),
+                "feeling": json.loads(e.feeling) if isinstance(e.feeling, str) else (e.feeling or []),
+                "reflection": json.loads(e.reflection) if isinstance(e.reflection, str) else (e.reflection or []),
+            })
+        organized.content = render_diary_to_markdown(
+            events=events_for_render,
+            introduction=organized.introduction or "",
+            trivia=json.loads(organized.trivia) if isinstance(organized.trivia, str) else (organized.trivia or []),
+            plans=json.loads(organized.plans) if isinstance(organized.plans, str) else (organized.plans or []),
+        )
+
     db.commit()
     db.refresh(organized)
     return organized
+
+
+@router.put("/{diary_id}/events/{event_id}", response_model=DiaryEventResponse)
+def update_diary_event(
+    diary_id: UUID,
+    event_id: UUID,
+    update_data: DiaryEventUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """更新单个事件内容（仅 organized 和 analyzed 状态）"""
+    diary = (
+        db.query(Diary)
+        .filter(Diary.id == diary_id, Diary.user_id == current_user.id)
+        .first()
+    )
+    if not diary:
+        raise HTTPException(status_code=404, detail="日记不存在")
+
+    # 状态守卫：仅 organized 和 analyzed
+    if diary.status not in (DiaryStatus.organized, DiaryStatus.analyzed):
+        raise HTTPException(status_code=400, detail="当前状态不允许编辑事件")
+
+    # 通过 diary_organized_id 关联查找事件
+    event = (
+        db.query(DiaryEvent)
+        .filter(DiaryEvent.id == event_id, DiaryEvent.diary_organized_id == diary.organized.id)
+        .first()
+    )
+    if not event:
+        raise HTTPException(status_code=404, detail="事件不存在")
+
+    # 仅更新内容字段，保护 event_tags、analysis、sort_order
+    if update_data.event_title is not None:
+        event.event_title = update_data.event_title
+    if update_data.body is not None:
+        event.body = json.dumps(update_data.body, ensure_ascii=False)
+    if update_data.feeling is not None:
+        event.feeling = json.dumps(update_data.feeling, ensure_ascii=False)
+    if update_data.reflection is not None:
+        event.reflection = json.dumps(update_data.reflection, ensure_ascii=False)
+
+    # 重新生成 content（Markdown）
+    organized = diary.organized
+    events_for_render = []
+    for e in organized.events:
+        events_for_render.append({
+            "title": e.event_title,
+            "body": json.loads(e.body) if isinstance(e.body, str) else (e.body or []),
+            "feeling": json.loads(e.feeling) if isinstance(e.feeling, str) else (e.feeling or []),
+            "reflection": json.loads(e.reflection) if isinstance(e.reflection, str) else (e.reflection or []),
+        })
+    organized.content = render_diary_to_markdown(
+        events=events_for_render,
+        introduction=organized.introduction or "",
+        trivia=json.loads(organized.trivia) if isinstance(organized.trivia, str) else (organized.trivia or []),
+        plans=json.loads(organized.plans) if isinstance(organized.plans, str) else (organized.plans or []),
+    )
+
+    db.commit()
+    db.refresh(event)
+    return event
 
 
 @router.put("/{diary_id}/tags", response_model=DiaryResponse)

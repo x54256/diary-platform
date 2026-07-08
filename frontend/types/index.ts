@@ -58,15 +58,34 @@ export interface EventTags {
   knowledge: string[]
 }
 
+// 问题解答
+export interface QuestionAnswer {
+  question: string
+  answer: string
+}
+
+// 事件级分析
+export interface EventAnalysis {
+  emotion_analyses: string[]
+  behavior_decision_analyses: string[]
+  self_understanding_analyses: string[]
+  action_suggestions: string[]
+  cognitive_calibration_analyses: string[]
+  question_answers: QuestionAnswer[]
+  cognitive_enhancements: string[]
+}
+
 // 日记分析结果
 export interface DiaryAnalysis {
   id: string
   mood: string | null
-  emotion_analysis: string | null
-  behavior_analysis: string | null
-  focus_analysis: string | null
-  cognitive_calibration: string | null
-  actionable_suggestions: string | null
+  emotion_analyses: string[]
+  behavior_decision_analyses: string[]
+  self_understanding_analyses: string[]
+  action_suggestions: string[]
+  cognitive_calibration_analyses: string[]
+  question_answers: QuestionAnswer[]
+  cognitive_enhancements: string[]
   analyzed_at: string | null
   updated_at: string | null
 }
@@ -81,6 +100,7 @@ export interface DiaryEvent {
   event_tags: EventTags | null
   sort_order: number
   tags: Tag[]
+  analysis: EventAnalysis | null
 }
 
 // 审核日志
@@ -109,6 +129,15 @@ export interface DiaryCalendarItem {
   diary_date: string
   mood: string | null
   status: string
+}
+
+// 事件更新请求 payload
+export interface DiaryEventUpdatePayload {
+  id: string
+  event_title?: string
+  body?: string[]
+  feeling?: string[]
+  reflection?: string[]
 }
 
 // 对话消息
