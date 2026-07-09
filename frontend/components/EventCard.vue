@@ -47,7 +47,7 @@
 
       <!-- 感受 -->
       <div v-if="editable || (event.feeling && event.feeling.length > 0)" class="mt-4">
-        <div class="text-[15px] font-medium text-neutral-500 mb-2">感受</div>
+        <div class="text-[15px] font-medium text-neutral-800 mb-2">感受</div>
         <template v-if="editable">
           <textarea
             v-model="editFeeling"
@@ -71,7 +71,7 @@
 
       <!-- 反思与成长 -->
       <div v-if="editable || (event.reflection && event.reflection.length > 0)" class="mt-4">
-        <div class="text-[15px] font-medium text-neutral-500 mb-2">反思与成长</div>
+        <div class="text-[15px] font-medium text-neutral-800 mb-2">反思与成长</div>
         <template v-if="editable">
           <textarea
             v-model="editReflection"
@@ -95,14 +95,30 @@
 
       <!-- 事件级分析 -->
       <template v-if="!editable && event.analysis">
-        <div v-if="hasEventAnalysis" class="mt-4 pt-3 border-t border-neutral-100">
+        <div v-if="hasEventAnalysis" class="mt-3 pt-2 border-t border-neutral-100">
           <AnalysisGroup
             v-if="hasUnderstanding"
             title="自我理解与行动"
             :data="event.analysis"
             group="understanding"
             compact
+            :show-action-suggestions="false"
           />
+          <div
+            v-if="event.analysis.action_suggestions?.length"
+            class="mt-3"
+          >
+            <div class="text-[15px] font-medium text-neutral-800 mb-1">可行动建议</div>
+            <div class="space-y-2">
+              <div
+                v-for="(item, idx) in event.analysis.action_suggestions"
+                :key="idx"
+                class="text-sm text-neutral-600 leading-relaxed"
+              >
+                {{ item }}
+              </div>
+            </div>
+          </div>
           <AnalysisGroup
             v-if="hasCognition"
             title="认知整理"

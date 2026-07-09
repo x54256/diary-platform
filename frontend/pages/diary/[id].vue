@@ -262,7 +262,7 @@
         <!-- 摘要 -->
         <div
           v-if="diary.organized?.summary"
-          class="text-xs italic text-neutral-600 leading-relaxed mb-4 pb-3 border-b border-neutral-100"
+          class="text-[13px] italic text-neutral-600 leading-relaxed mb-4 pb-3 border-b border-neutral-100"
         >
           {{ diary.organized.summary }}
         </div>
@@ -288,18 +288,18 @@
 
         <!-- 琐事（平铺） -->
         <div v-if="diary.organized?.trivia && diary.organized.trivia.length > 0" class="mb-3">
-          <div class="text-sm font-medium text-neutral-800 mb-2">琐事</div>
+          <div class="text-base font-medium text-neutral-800 mb-2">琐事</div>
           <ol v-if="diary.organized.trivia.length > 1" class="list-decimal list-inside space-y-1.5">
             <li
               v-for="(item, idx) in diary.organized.trivia"
               :key="idx"
-              class="text-sm text-neutral-600 leading-relaxed"
+              class="text-[14px] text-neutral-600 leading-relaxed"
             >
               {{ item }}
             </li>
           </ol>
           <ul v-else class="list-none space-y-1.5">
-            <li class="text-sm text-neutral-600 leading-relaxed">
+            <li class="text-[14px] text-neutral-600 leading-relaxed">
               {{ diary.organized.trivia[0] }}
             </li>
           </ul>
@@ -307,18 +307,18 @@
 
         <!-- 后续计划（平铺） -->
         <div v-if="diary.organized?.plans && diary.organized.plans.length > 0" class="mb-3">
-          <div class="text-sm font-medium text-neutral-800 mb-2">后续计划</div>
+          <div class="text-base font-medium text-neutral-800 mb-2">后续计划</div>
           <ol v-if="diary.organized.plans.length > 1" class="list-decimal list-inside space-y-1.5">
             <li
               v-for="(item, idx) in diary.organized.plans"
               :key="idx"
-              class="text-sm text-neutral-600 leading-relaxed"
+              class="text-[14px] text-neutral-600 leading-relaxed"
             >
               {{ item }}
             </li>
           </ol>
           <ul v-else class="list-none space-y-1.5">
-            <li class="text-sm text-neutral-600 leading-relaxed">
+            <li class="text-[14px] text-neutral-600 leading-relaxed">
               {{ diary.organized.plans[0] }}
             </li>
           </ul>

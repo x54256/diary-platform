@@ -158,7 +158,7 @@
 │ 自我理解与行动                    │
 │  1. 情绪分析...                   │
 │  2. 行为与决策分析...             │
-│  3. 关注点、需求与自我理解...      │
+│  3. 关注点与需求...                │
 │  4. 可行动建议...                 │
 │                                   │
 │ 认知整理                          │
@@ -191,7 +191,7 @@ AI 分析分为两个浅色区块：
 |---|---|---|---|
 | 自我理解与行动 | 情绪分析 | `event.analysis.emotion_analyses` | 条目列表 |
 | 自我理解与行动 | 行为与决策分析 | `event.analysis.behavior_decision_analyses` | 条目列表 |
-| 自我理解与行动 | 关注点、需求与自我理解 | `event.analysis.self_understanding_analyses` | 条目列表 |
+| 自我理解与行动 | 关注点与需求 | `event.analysis.self_understanding_analyses` | 条目列表 |
 | 自我理解与行动 | 可行动建议 | `event.analysis.action_suggestions` | 条目列表 |
 | 认知整理 | 认知校准 | `event.analysis.cognitive_calibration_analyses` | 条目列表 |
 | 认知整理 | 问题解答 | `event.analysis.question_answers` | Q/A 卡片 |
@@ -288,7 +288,7 @@ AI 分析分为两个浅色区块：
 │  自我理解与行动                  │
 │   - 情绪分析                     │
 │   - 行为与决策分析               │
-│   - 关注点、需求与自我理解        │
+│   - 关注点与需求                  │
 │   - 可行动建议                   │
 ├───────────────────────────────────┤
 │  认知整理                        │
@@ -305,7 +305,7 @@ AI 分析分为两个浅色区块：
 | 顶部 | 心情 | `organized.analysis.mood` | 大字号或醒目样式展示，如"平静 / 专注" |
 | 自我理解与行动 | 情绪分析 | `organized.analysis.emotion_analyses` | 条目列表 |
 | 自我理解与行动 | 行为与决策分析 | `organized.analysis.behavior_decision_analyses` | 条目列表 |
-| 自我理解与行动 | 关注点、需求与自我理解 | `organized.analysis.self_understanding_analyses` | 条目列表 |
+| 自我理解与行动 | 关注点与需求 | `organized.analysis.self_understanding_analyses` | 条目列表 |
 | 自我理解与行动 | 可行动建议 | `organized.analysis.action_suggestions` | 条目列表 |
 | 认知整理 | 认知校准 | `organized.analysis.cognitive_calibration_analyses` | 条目列表 |
 | 认知整理 | 问题解答 | `organized.analysis.question_answers` | Q/A 卡片 |
@@ -381,7 +381,7 @@ AI 分析分为两个浅色区块：
 | 环节 | 名称 | 说明 |
 |---|---|---|
 | 1 | 心情与标签提取 | 提取当天心情、生成事件标签 |
-| 2 | 核心分析与建议 | 情绪分析、行为与决策分析、关注点/需求/自我理解、可行动建议 |
+| 2 | 核心分析与建议 | 情绪分析、行为与决策分析、关注点与需求、可行动建议 |
 | 3 | 认知分析 | 认知校准、问题解答、认知完善 |
 
 三个环节并行执行，无先后依赖。每个环节完成时独立更新状态，全部完成后结束。
@@ -422,7 +422,7 @@ AI 分析分为两个浅色区块：
 | 心情 | `organized.analysis.mood` | 顶部醒目展示 |
 | 情绪分析 | `organized.analysis.emotion_analyses` | 自我理解与行动 |
 | 行为与决策分析 | `organized.analysis.behavior_decision_analyses` | 自我理解与行动 |
-| 关注点、需求与自我理解 | `organized.analysis.self_understanding_analyses` | 自我理解与行动 |
+| 关注点与需求 | `organized.analysis.self_understanding_analyses` | 自我理解与行动 |
 | 可行动建议 | `organized.analysis.action_suggestions` | 自我理解与行动 |
 | 认知校准 | `organized.analysis.cognitive_calibration_analyses` | 认知整理 |
 | 问题解答 | `organized.analysis.question_answers` | 认知整理，Q/A 卡片 |
