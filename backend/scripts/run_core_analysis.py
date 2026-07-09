@@ -8,13 +8,11 @@ Usage:
 
 from __future__ import annotations
 
-import argparse
 import asyncio
 import json
 import os
 import sys
 import uuid
-from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -26,19 +24,6 @@ os.chdir(BACKEND_DIR)
 from database import SessionLocal
 from models.diary import Diary, DiaryAnalysis, DiaryEvent
 from services.analysis_pipeline import core_analysis
-
-CORE_EVENT_FIELDS = {
-    "emotion_analyses": ("event_emotion_analyses", "emotion_analyses"),
-    "behavior_decision_analyses": (
-        "event_behavior_decision_analyses",
-        "behavior_decision_analyses",
-    ),
-    "self_understanding_analyses": (
-        "event_self_understanding_analyses",
-        "self_understanding_analyses",
-    ),
-    "action_suggestions": ("event_action_suggestions", "action_suggestions"),
-}
 
 
 def json_dumps(value: Any) -> str:
@@ -55,12 +40,14 @@ def json_loads_or_empty(value: str | None) -> dict[str, Any]:
     return parsed if isinstance(parsed, dict) else {}
 
 
-def get_event_items(event_array: list[Any], event_index: int, inner_key: str) -> list[Any]:
-    for item in event_array:
-        if isinstance(item, dict) and item.get("event_index") == event_index:
-            value = item.get(inner_key, [])
-            return value if isinstance(value, list) else []
-    return []
+def get_event_items(event_analyses: list[Any], event_index: int, inner_key: str) -> list[Any]:
+    if event_index >= len(event_analyses):
+        return []
+    item = event_analyses[event_index]
+    if not isinstance(item, dict):
+        return []
+    value = item.get(inner_key, [])
+    return value if isinstance(value, list) else []
 
 
 def load_events(diary_id: str) -> tuple[dict[str, Any], list[dict[str, str]]]:
@@ -118,17 +105,17 @@ def persist_core_analysis(diary_info: dict[str, Any], result: dict[str, Any]) ->
             )
             db.add(analysis)
 
-        analysis.emotion_analyses = json_dumps(result.get("diary_emotion_analyses", []))
+        diary_analysis = result.get("diary_analysis", {})
+        analysis.emotion_analyses = json_dumps(diary_analysis.get("emotion_analyses", []))
         analysis.behavior_decision_analyses = json_dumps(
-            result.get("diary_behavior_decision_analyses", [])
+            diary_analysis.get("behavior_decision_analyses", [])
         )
         analysis.self_understanding_analyses = json_dumps(
-            result.get("diary_self_understanding_analyses", [])
+            diary_analysis.get("self_understanding_analyses", [])
         )
         analysis.action_suggestions = json_dumps(
-            result.get("diary_action_suggestions", [])
+            diary_analysis.get("action_suggestions", [])
         )
-        analysis.updated_at = datetime.utcnow()
 
         event_rows = (
             db.query(DiaryEvent)
@@ -136,14 +123,16 @@ def persist_core_analysis(diary_info: dict[str, Any], result: dict[str, Any]) ->
             .order_by(DiaryEvent.sort_order)
             .all()
         )
+        event_analyses = result.get("event_analyses", [])
         for event_index, event_row in enumerate(event_rows):
             event_analysis = json_loads_or_empty(event_row.analysis)
-            for target_key, (event_array_key, inner_key) in CORE_EVENT_FIELDS.items():
-                event_analysis[target_key] = get_event_items(
-                    result.get(event_array_key, []),
-                    event_index,
-                    inner_key,
-                )
+            for key in [
+                "emotion_analyses",
+                "behavior_decision_analyses",
+                "self_understanding_analyses",
+                "action_suggestions",
+            ]:
+                event_analysis[key] = get_event_items(event_analyses, event_index, key)
             event_row.analysis = json_dumps(event_analysis)
 
         db.commit()
