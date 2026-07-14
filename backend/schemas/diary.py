@@ -37,7 +37,6 @@ class DiaryAnalysisResponse(BaseModel):
     self_understanding_analyses: Optional[list] = None
     action_suggestions: Optional[list] = None
     cognitive_calibration_analyses: Optional[list] = None
-    question_answers: Optional[list] = None
     cognitive_enhancements: Optional[list] = None
     analyzed_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
@@ -50,7 +49,6 @@ class DiaryAnalysisResponse(BaseModel):
         "self_understanding_analyses",
         "action_suggestions",
         "cognitive_calibration_analyses",
-        "question_answers",
         "cognitive_enhancements",
         mode="before",
     )

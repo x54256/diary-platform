@@ -45,7 +45,6 @@ class AnalysisState(TypedDict, total=False):
     event_cognitive_calibration_analyses: list
     diary_cognitive_calibration_analyses: list
     event_question_answers: list
-    diary_question_answers: list
     event_cognitive_enhancements: list
     diary_cognitive_enhancements: list
 
@@ -215,75 +214,41 @@ event_analyses 必须与输入 events 按顺序一一对应，即第 N 项对应
   }
 }
 """
-COGNITION_ANALYSIS_PROMPT = """你是一个日记认知分析助手。请基于 events，按顺序完成认知校准、问题解答和认知完善。
 
-## 任务目标
-按以下顺序输出：
-1. event_cognitive_calibration_analyses：事件级认知校准。
-2. diary_cognitive_calibration_analyses：整篇日记的认知校准。
-3. event_question_answers：事件级问题解答。
-4. diary_question_answers：日记级问题解答。
-5. event_cognitive_enhancements：事件级认知完善。
-6. diary_cognitive_enhancements：日记级认知完善。
+COGNITION_ANALYSIS_PROMPT = """你是一个日记认知分析助手。只基于 events 完成认知校准、问题解答和认知完善。
+## 通用规则
+- 仅以输入的 events 为唯一事实依据。事件级结果按 events 顺序排列，event_index 从 0 起，title 直接复用原事件标题；无符合内容时对应数组返回空。
+- 输出内容人称要求：分析内容是写给用户本人看的，不要使用“用户……”这类第三人称表述，优先使用“你……”或直接使用无主语的分析句式。
 
-## 输入说明
-events 是整理后的日记事件列表，是主要依据。
-不要引用 events 之外的信息。
+## 认知校准
+目的：纠正 event 内容中的认知与现实情况或事实依据不一致的理解，包括用户对事实、因果、他人动机、自己判断、知识方法的不准确理解。
+触发条件：当事件内容描述中的理解出现事实与解释混淆、过度概括、绝对化判断、无依据推断他人动机，或对知识、方法、因果关系理解不准确。
+事件级规则：
+- 指出不准确时必须说明事实和依据；
+- 对于不明确的认知时，例如“他就是针对我”，需要给出其他可能的情况以及验证方法；
+- 当事件中没有理解时，直接输出空数组；当事件中包含多个不同事物的理解时，需要输出多条。
+日记级规则：
+- 跨多个事件的共性偏差、整体问题、共性知识结构归入日记级。
 
-## 认知校准规则
-1. 主要校准以下内容：
-   - 事实与解释是否混淆。
-   - 是否存在过度概括。
-   - 是否存在绝对化判断。
-   - 是否无依据判断别人动机。
-   - 对知识、方法、因果关系的理解是否准确。
-2. 允许直接指出判断不准确，但必须说明依据。
-3. 事件级认知校准只分析该事件，不引用其他事件。
-4. 日记级认知校准需要综合所有事件，识别整篇日记层面的理解偏差。
-5. 可以引用事件标题和 events 中的具体事实，不引用原始文本。
-6. 语气根据严重程度动态选择：事实错误可以直接指出；情绪中的判断要温和校准。
-7. 如果某个事件没有明显需要校准的判断，该事件 cognitive_calibration_analyses 返回空数组。
-8. 如果整篇日记没有明显需要校准的判断，diary_cognitive_calibration_analyses 返回空数组。
-9. 不否定用户感受。
-10. 不站在道德高地。
-11. 依据不足时不强行纠错。
-12. 不对专业知识胡乱纠正。
-13. 不把认知校准写成行动建议。
+## 问题解答
+目的：回答 events 内容中明确提出或隐含的疑问。
+触发条件：出现直接提问、“我不知道……”这类困惑、“有什么用”这类价值问题、“到底好不好”这类判断问题等明显疑惑时。
+规则：
+- 输出 question 和 answer，answer 先给核心结论，再给具体理由。
+- 可以使用通用知识解释问题，但不能编造具体事实、数据、来源或确定性结论。
+- 当事件中没有疑问时，直接输出空数组；当事件中包含多个不同的疑问时，需要输出多条。
 
-## 问题解答规则
-1. 先从 events 中找出问题，再回答问题。
-2. 需要识别的问题包括：
-   - 日记里明确提出的问题。
-   - "我不知道……"这类隐性问题。
-   - "这个有什么用"这类价值问题。
-   - "这个该归到哪里"这类分类问题。
-   - "这个到底好不好"这类判断问题。
-3. 只输出 question 和 answer 两个字段。
-4. answer 必须先给核心重点，不绕；复杂问题可以在 answer 内部简要拆解。
-5. 可以使用模型已有的通用知识进行解释，但不能编造具体事实、数据、来源或确定性结论。
-6. 没有可靠答案时，在 answer 中直接说明哪些部分无法可靠回答，不能装作确定。
-7. 如果某个事件没有问题，该事件 question_answers 返回空数组。
-8. 如果整篇日记没有日记级问题，diary_question_answers 返回空数组。
-
-## 认知完善规则
-1. 认知完善必须在问题解答之后进行。
-2. 认知完善的输入包括：
-   - events 中的零散知识。
-   - events 中的随想、判断、类比和半成品观点。
-   - 本环节生成的问题解答结果。
-3. 认知完善的目标是把碎片想法转化为可复用的认知体系。
-4. 认知完善应尽量整理出：
-   - 核心概念。
-   - 关键关系。
-   - 因果链。
-   - 适用边界。
-   - 反例或限制。
-   - 可以沉淀的知识点。
-5. 可以使用模型已有的通用知识补全框架，但不能编造具体事实、数据、来源或确定性结论。
-6. 不要先搭框架再反推问题答案，必须先问题解答，再认知完善。
-7. 如果某个事件没有需要完善的认知，该事件 cognitive_enhancements 返回空数组。
-8. 如果整篇日记没有需要完善的认知，diary_cognitive_enhancements 返回空数组。
-9. 不输出行动建议。
+## 认知完善
+目的：把用户在 events 中已经表达出的零散知识、做事方式、感悟、成长、体会和半成品观点，以及上面的认知校准和问题解答内容，整理为结构清晰、边界明确、以后可复用的成体系的知识单元。
+处理流程：
+1. 提取原生认知：仅基于事件内容，精准提取用户真实表达的观点、经验、决策逻辑，禁止无依据拔高、过度引申、脑补用户未表达的结论。
+2. 提炼通用原则：将零散的具体经验，升华为可复用的通用方法/框架，需要具体，禁止空泛表述，不易理解和表述的可以通过例子说明。
+事件级规则：
+- 没有零散知识或可沉淀结构时输出空数组。存在多个不同知识单元时输出多条；同一知识单元的概念、场景、边界应合并成一条。
+- 需要结合通用模型知识进行回答。
+- 格式为“总结词语：详细说明”
+日记级规则：
+- 跨多个事件的共性知识单元归入日记级。
 
 ## 输出要求
 请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：
@@ -294,12 +259,12 @@ events 是整理后的日记事件列表，是主要依据。
       "event_index": 0,
       "title": "事件标题",
       "cognitive_calibration_analyses": [
-        "一条独立认知校准文本"
+        "认知校准文本"
       ]
     }
   ],
   "diary_cognitive_calibration_analyses": [
-    "一条独立日记级认知校准文本"
+    "日记级认知校准文本"
   ],
   "event_question_answers": [
     {
@@ -307,16 +272,10 @@ events 是整理后的日记事件列表，是主要依据。
       "title": "事件标题",
       "question_answers": [
         {
-          "question": "",
-          "answer": ""
+          "question": "问题",
+          "answer": "回答"
         }
       ]
-    }
-  ],
-  "diary_question_answers": [
-    {
-      "question": "",
-      "answer": ""
     }
   ],
   "event_cognitive_enhancements": [
@@ -324,12 +283,12 @@ events 是整理后的日记事件列表，是主要依据。
       "event_index": 0,
       "title": "事件标题",
       "cognitive_enhancements": [
-        "一条独立认知完善文本"
+        "认知完善文本"
       ]
     }
   ],
   "diary_cognitive_enhancements": [
-    "一条独立日记级认知完善文本"
+    "日记级认知完善文本"
   ]
 }"""
 
@@ -537,7 +496,6 @@ async def cognition_analysis(state: AnalysisState) -> dict:
         "event_cognitive_calibration_analyses": safe_list(result.get("event_cognitive_calibration_analyses")),
         "diary_cognitive_calibration_analyses": safe_list(result.get("diary_cognitive_calibration_analyses")),
         "event_question_answers": safe_list(result.get("event_question_answers")),
-        "diary_question_answers": safe_list(result.get("diary_question_answers")),
         "event_cognitive_enhancements": safe_list(result.get("event_cognitive_enhancements")),
         "diary_cognitive_enhancements": safe_list(result.get("diary_cognitive_enhancements")),
     }
@@ -548,7 +506,6 @@ async def cognition_analysis(state: AnalysisState) -> dict:
         _count_event_inner_items(output["event_cognitive_calibration_analyses"], "cognitive_calibration_analyses"),
         _list_len(output["diary_cognitive_calibration_analyses"]),
         _count_event_inner_items(output["event_question_answers"], "question_answers"),
-        _list_len(output["diary_question_answers"]),
         _count_event_inner_items(output["event_cognitive_enhancements"], "cognitive_enhancements"),
         _list_len(output["diary_cognitive_enhancements"]),
     )
@@ -747,7 +704,6 @@ def _save_analysis_result(state: AnalysisState, diary_organized_id: str):
             self_understanding_analyses=to_json(diary_analysis.get("self_understanding_analyses", [])),
             action_suggestions=to_json(diary_analysis.get("action_suggestions", [])),
             cognitive_calibration_analyses=to_json(state.get("diary_cognitive_calibration_analyses", [])),
-            question_answers=to_json(state.get("diary_question_answers", [])),
             cognitive_enhancements=to_json(state.get("diary_cognitive_enhancements", [])),
             analyzed_at=datetime.now(),
         )
@@ -850,7 +806,6 @@ async def run_analysis_pipeline(
         "event_cognitive_calibration_analyses": result.get("event_cognitive_calibration_analyses", []),
         "diary_cognitive_calibration_analyses": result.get("diary_cognitive_calibration_analyses", []),
         "event_question_answers": result.get("event_question_answers", []),
-        "diary_question_answers": result.get("diary_question_answers", []),
         "event_cognitive_enhancements": result.get("event_cognitive_enhancements", []),
         "diary_cognitive_enhancements": result.get("diary_cognitive_enhancements", []),
     }

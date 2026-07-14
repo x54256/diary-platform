@@ -104,7 +104,6 @@ const analysisData = computed<EventAnalysis>(() => ({
   self_understanding_analyses: props.analysis?.self_understanding_analyses || [],
   action_suggestions: props.analysis?.action_suggestions || [],
   cognitive_calibration_analyses: props.analysis?.cognitive_calibration_analyses || [],
-  question_answers: props.analysis?.question_answers || [],
   cognitive_enhancements: props.analysis?.cognitive_enhancements || [],
 }))
 
@@ -126,7 +125,6 @@ const hasUnderstandingDetailContent = computed(() => {
 const hasCognitionContent = computed(() => {
   const d = analysisData.value
   return (d.cognitive_calibration_analyses?.length || 0) > 0 ||
-         (d.question_answers?.length || 0) > 0 ||
          (d.cognitive_enhancements?.length || 0) > 0
 })
 

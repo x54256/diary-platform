@@ -101,7 +101,6 @@ class DiaryAnalysis(Base):
     self_understanding_analyses = Column(Text, nullable=True)  # 自我理解
     action_suggestions = Column(Text, nullable=True)   # 行动建议
     cognitive_calibration_analyses = Column(Text, nullable=True)  # 认知校准
-    question_answers = Column(Text, nullable=True)     # 问答
     cognitive_enhancements = Column(Text, nullable=True)  # 认知提升
     analyzed_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

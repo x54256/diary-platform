@@ -1,9 +1,8 @@
-"""Run only core analysis (step 8) for one diary.
+"""Run analysis step 8 or 9 for one diary.
 
 Usage:
     cd backend
-    venv/bin/python scripts/run_core_analysis.py DIARY_ID
-    venv/bin/python scripts/run_core_analysis.py DIARY_ID --persist
+    venv/bin/python scripts/run_core_analysis.py
 """
 
 from __future__ import annotations
@@ -23,7 +22,7 @@ os.chdir(BACKEND_DIR)
 
 from database import SessionLocal
 from models.diary import Diary, DiaryAnalysis, DiaryEvent
-from services.analysis_pipeline import core_analysis
+from services.analysis_pipeline import cognition_analysis, core_analysis
 
 
 def json_dumps(value: Any) -> str:
@@ -48,6 +47,17 @@ def get_event_items(event_analyses: list[Any], event_index: int, inner_key: str)
         return []
     value = item.get(inner_key, [])
     return value if isinstance(value, list) else []
+
+
+def get_event_items_by_index(event_analyses: list[Any], event_index: int, inner_key: str) -> list[Any]:
+    for item in event_analyses:
+        if not isinstance(item, dict):
+            continue
+        if item.get("event_index") != event_index:
+            continue
+        value = item.get(inner_key, [])
+        return value if isinstance(value, list) else []
+    return []
 
 
 def load_events(diary_id: str) -> tuple[dict[str, Any], list[dict[str, str]]]:
@@ -86,24 +96,30 @@ def load_events(diary_id: str) -> tuple[dict[str, Any], list[dict[str, str]]]:
         db.close()
 
 
+def get_or_create_analysis(db, diary_info: dict[str, Any]) -> DiaryAnalysis:
+    organized_id = uuid.UUID(diary_info["diary_organized_id"])
+    task_id = uuid.UUID(diary_info["organized_task_id"])
+
+    analysis = (
+        db.query(DiaryAnalysis)
+        .filter(DiaryAnalysis.diary_organized_id == organized_id)
+        .first()
+    )
+    if analysis is None:
+        analysis = DiaryAnalysis(
+            task_id=task_id,
+            diary_organized_id=organized_id,
+            mood=diary_info.get("mood", ""),
+        )
+        db.add(analysis)
+    return analysis
+
+
 def persist_core_analysis(diary_info: dict[str, Any], result: dict[str, Any]) -> None:
     db = SessionLocal()
     try:
         organized_id = uuid.UUID(diary_info["diary_organized_id"])
-        task_id = uuid.UUID(diary_info["organized_task_id"])
-
-        analysis = (
-            db.query(DiaryAnalysis)
-            .filter(DiaryAnalysis.diary_organized_id == organized_id)
-            .first()
-        )
-        if analysis is None:
-            analysis = DiaryAnalysis(
-                task_id=task_id,
-                diary_organized_id=organized_id,
-                mood=diary_info.get("mood", ""),
-            )
-            db.add(analysis)
+        analysis = get_or_create_analysis(db, diary_info)
 
         diary_analysis = result.get("diary_analysis", {})
         analysis.emotion_analyses = json_dumps(diary_analysis.get("emotion_analyses", []))
@@ -143,22 +159,77 @@ def persist_core_analysis(diary_info: dict[str, Any], result: dict[str, Any]) ->
         db.close()
 
 
-async def run(diary_id: str, persist: bool) -> dict[str, Any]:
+def persist_cognition_analysis(diary_info: dict[str, Any], result: dict[str, Any]) -> None:
+    db = SessionLocal()
+    try:
+        organized_id = uuid.UUID(diary_info["diary_organized_id"])
+        analysis = get_or_create_analysis(db, diary_info)
+
+        analysis.cognitive_calibration_analyses = json_dumps(
+            result.get("diary_cognitive_calibration_analyses", [])
+        )
+        analysis.cognitive_enhancements = json_dumps(
+            result.get("diary_cognitive_enhancements", [])
+        )
+
+        event_rows = (
+            db.query(DiaryEvent)
+            .filter(DiaryEvent.diary_organized_id == organized_id)
+            .order_by(DiaryEvent.sort_order)
+            .all()
+        )
+        for event_index, event_row in enumerate(event_rows):
+            event_analysis = json_loads_or_empty(event_row.analysis)
+            event_analysis["cognitive_calibration_analyses"] = get_event_items_by_index(
+                result.get("event_cognitive_calibration_analyses", []),
+                event_index,
+                "cognitive_calibration_analyses",
+            )
+            event_analysis["question_answers"] = get_event_items_by_index(
+                result.get("event_question_answers", []),
+                event_index,
+                "question_answers",
+            )
+            event_analysis["cognitive_enhancements"] = get_event_items_by_index(
+                result.get("event_cognitive_enhancements", []),
+                event_index,
+                "cognitive_enhancements",
+            )
+            event_row.analysis = json_dumps(event_analysis)
+
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise
+    finally:
+        db.close()
+
+
+async def run(diary_id: str, phase: str, persist: bool) -> dict[str, Any]:
     diary_info, events = load_events(diary_id)
-    result = await core_analysis(
-        {
-            "task_id": str(uuid.uuid4()),
-            "diary_id": diary_id,
-            "diary_organized_id": diary_info["diary_organized_id"],
-            "structured_diary": {"events": events},
-        }
-    )
+    state = {
+        "task_id": str(uuid.uuid4()),
+        "diary_id": diary_id,
+        "diary_organized_id": diary_info["diary_organized_id"],
+        "structured_diary": {"events": events},
+    }
+    result = await core_analysis(state) if phase == "8" else await cognition_analysis(state)
     if persist:
-        persist_core_analysis(diary_info, result)
+        if phase == "8":
+            persist_core_analysis(diary_info, result)
+        else:
+            persist_cognition_analysis(diary_info, result)
     return result
 
+
 def main() -> None:
-    result = asyncio.run(run("7fe4c154-1190-401c-a6fc-1697146f93e7", False))
+    DIARY_ID = "7fe4c154-1190-401c-a6fc-1697146f93e7"
+    PHASE = "9"  # "8" or "9"
+    PERSIST = True
+    if PHASE not in {"8", "9"}:
+        raise RuntimeError(f"PHASE must be '8' or '9', got: {PHASE}")
+
+    result = asyncio.run(run(DIARY_ID, PHASE, PERSIST))
     print(json_dumps(result))
 
 
