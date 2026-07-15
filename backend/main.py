@@ -12,6 +12,7 @@ from routers.auth import router as auth_router
 from routers.diaries import router as diaries_router
 from routers.tags import router as tags_router
 from routers.dialogs import router as dialogs_router
+from routers.admin_backup import router as admin_backup_router
 
 # ---------------------------------------------------------------------------
 # 全局日志配置 - 所有模块日志写入 app_YYYY-MM-DD.log
@@ -60,6 +61,7 @@ app.include_router(auth_router)
 app.include_router(diaries_router)
 app.include_router(tags_router)
 app.include_router(dialogs_router)
+app.include_router(admin_backup_router)
 
 
 @app.on_event("startup")

@@ -4,6 +4,7 @@ from models.user import User
 from models.diary import Diary, DiaryOrganized, DiaryStatus, DiaryEvent, DiaryCheckLog, OrganizeTask, DiaryAnalysis
 from models.tag import Tag, diary_tags, EventTag
 from models.dialog import Dialog, DialogMessage, SourceType, MessageRole
+from models.backup import BackupRestoreRecord, BackupImportReport
 
 __all__ = [
     "User",
@@ -21,4 +22,6 @@ __all__ = [
     "DialogMessage",
     "SourceType",
     "MessageRole",
+    "BackupRestoreRecord",
+    "BackupImportReport",
 ]

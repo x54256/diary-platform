@@ -15,6 +15,9 @@ class Settings(BaseSettings):
     # Fernet 对称加密密钥（生成方式: Fernet.generate_key()）
     ENCRYPTION_KEY: str = "qj4jBr6s9JAzeQao0P2_H8rMcL-CAEafVPt1Hwclh4c="
 
+    # 系统备份包主密钥。生产环境必须通过环境变量覆盖。
+    BACKUP_MASTER_KEY: str = "123456"
+
     # DeepSeek API 配置
     DEEPSEEK_API_KEY: str = ""
     DEEPSEEK_API_URL: str = "https://api.deepseek.com/v1"
