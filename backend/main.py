@@ -4,7 +4,7 @@ import logging
 import os
 from datetime import datetime
 
-from fastapi import FastAPI
+from fastapi import APIRouter, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from database import Base, engine
@@ -45,6 +45,9 @@ app = FastAPI(
     title="日记管理平台 API",
     description="个人日记管理平台后端服务",
     version="1.0.0",
+    docs_url="/diary/docs",
+    redoc_url="/diary/redoc",
+    openapi_url="/diary/openapi.json",
 )
 
 # CORS 中间件（开发环境允许所有来源）
@@ -57,11 +60,13 @@ app.add_middleware(
 )
 
 # 注册路由
-app.include_router(auth_router)
-app.include_router(diaries_router)
-app.include_router(tags_router)
-app.include_router(dialogs_router)
-app.include_router(admin_backup_router)
+api_router = APIRouter(prefix="/diary")
+api_router.include_router(auth_router)
+api_router.include_router(diaries_router)
+api_router.include_router(tags_router)
+api_router.include_router(dialogs_router)
+api_router.include_router(admin_backup_router)
+app.include_router(api_router)
 
 
 @app.on_event("startup")
@@ -122,4 +127,10 @@ def _create_default_user():
 @app.get("/")
 def root():
     """根路径健康检查"""
-    return {"message": "日记管理平台 API", "docs": "/docs"}
+    return {"message": "日记管理平台 API", "docs": "/diary/docs"}
+
+
+@app.get("/diary")
+def diary_root():
+    """日记平台后端入口健康检查"""
+    return {"message": "日记管理平台 API", "docs": "/diary/docs"}

@@ -4,10 +4,11 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
     public: {
-      apiBase: 'http://localhost:8000/api'
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || '/diary/api'
     }
   },
   app: {
+    baseURL: process.env.NUXT_APP_BASE_URL || '/mind/',
     head: {
       title: '日记平台',
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }]
