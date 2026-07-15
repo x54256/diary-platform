@@ -84,6 +84,7 @@ export interface DiaryAnalysis {
   self_understanding_analyses: string[]
   action_suggestions: string[]
   cognitive_calibration_analyses: string[]
+  question_answers?: QuestionAnswer[]
   cognitive_enhancements: string[]
   analyzed_at: string | null
   updated_at: string | null

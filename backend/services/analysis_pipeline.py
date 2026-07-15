@@ -174,8 +174,8 @@ CORE_ANALYSIS_PROMPT = """
 - 可以输出多条，但每条建议必须对应不同的行动目标；如果多个动作属于同一个处理方案，应合并为一条，不要拆碎。
 日记级汇总规则：
 - 日记建议需要汇总事件级建议中的关键动作，针对全天共性心理、行为问题给出调整动作。
-- 按重要程度排序，优先放置最能降低负面影响、最能解决重复问题、最容易执行且收益明确的建议。
 - 按不同共性问题输出多条，但每条建议都要有独立主题；如果多个动作属于同一个处理方案，应合并为一条。
+- 按重要程度排序，优先放置最能降低负面影响、最能解决重复问题、最容易执行且收益明确的建议。
 
 ## 固定输出JSON模板
 event_analyses 必须与输入 events 按顺序一一对应，即第 N 项对应 events 第 N 项。即使某个事件四类分析都没有内容，也必须输出该事件对象，并将四个分析数组置为空数组。title 直接复用对应事件标题。不要输出 event_index。
@@ -217,15 +217,14 @@ event_analyses 必须与输入 events 按顺序一一对应，即第 N 项对应
 
 COGNITION_ANALYSIS_PROMPT = """你是一个日记认知分析助手。只基于 events 完成认知校准、问题解答和认知完善。
 ## 通用规则
-- 仅以输入的 events 为唯一事实依据。事件级结果按 events 顺序排列，event_index 从 0 起，title 直接复用原事件标题；无符合内容时对应数组返回空。
+- 仅以输入的 events 为唯一事实依据。事件级结果按 events 顺序排列，event_analyses 第 N 项对应 events 第 N 项，title 直接复用原事件标题；无符合内容时对应数组返回空。
 - 输出内容人称要求：分析内容是写给用户本人看的，不要使用“用户……”这类第三人称表述，优先使用“你……”或直接使用无主语的分析句式。
 
 ## 认知校准
 目的：纠正 event 内容中的认知与现实情况或事实依据不一致的理解，包括用户对事实、因果、他人动机、自己判断、知识方法的不准确理解。
 触发条件：当事件内容描述中的理解出现事实与解释混淆、过度概括、绝对化判断、无依据推断他人动机，或对知识、方法、因果关系理解不准确。
 事件级规则：
-- 指出不准确时必须说明事实和依据；
-- 对于不明确的认知时，例如“他就是针对我”，需要给出其他可能的情况以及验证方法；
+- 指出不准确时必须说明事实和依据，可以使用模型通用知识；
 - 当事件中没有理解时，直接输出空数组；当事件中包含多个不同事物的理解时，需要输出多条。
 日记级规则：
 - 跨多个事件的共性偏差、整体问题、共性知识结构归入日记级。
@@ -236,7 +235,7 @@ COGNITION_ANALYSIS_PROMPT = """你是一个日记认知分析助手。只基于 
 规则：
 - 输出 question 和 answer，answer 先给核心结论，再给具体理由。
 - 可以使用通用知识解释问题，但不能编造具体事实、数据、来源或确定性结论。
-- 当事件中没有疑问时，直接输出空数组；当事件中包含多个不同的疑问时，需要输出多条。
+- 只输出事件中真实存在的问题，不要为了完整性硬补，事件中没有疑问时，直接输出空数组；当事件中包含多个不同的疑问时，需要输出多条。
 
 ## 认知完善
 目的：把用户在 events 中已经表达出的零散知识、做事方式、感悟、成长、体会和半成品观点，以及上面的认知校准和问题解答内容，整理为结构清晰、边界明确、以后可复用的成体系的知识单元。
@@ -254,42 +253,31 @@ COGNITION_ANALYSIS_PROMPT = """你是一个日记认知分析助手。只基于 
 请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：
 
 {
-  "event_cognitive_calibration_analyses": [
+  "event_analyses": [
     {
-      "event_index": 0,
       "title": "事件标题",
       "cognitive_calibration_analyses": [
         "认知校准文本"
-      ]
-    }
-  ],
-  "diary_cognitive_calibration_analyses": [
-    "日记级认知校准文本"
-  ],
-  "event_question_answers": [
-    {
-      "event_index": 0,
-      "title": "事件标题",
+      ],
       "question_answers": [
         {
           "question": "问题",
           "answer": "回答"
         }
-      ]
-    }
-  ],
-  "event_cognitive_enhancements": [
-    {
-      "event_index": 0,
-      "title": "事件标题",
+      ],
       "cognitive_enhancements": [
         "认知完善文本"
       ]
     }
   ],
-  "diary_cognitive_enhancements": [
-    "日记级认知完善文本"
-  ]
+  "diary_analysis": {
+    "cognitive_calibration_analyses": [
+      "日记级认知校准文本"
+    ],
+    "cognitive_enhancements": [
+      "日记级认知完善文本"
+    ]
+  }
 }"""
 
 
@@ -492,15 +480,38 @@ async def cognition_analysis(state: AnalysisState) -> dict:
     def safe_list(val):
         return val if isinstance(val, list) else []
 
+    def safe_dict(val):
+        return val if isinstance(val, dict) else {}
+
+    event_cognitive_calibration_analyses = []
+    event_question_answers = []
+    event_cognitive_enhancements = []
+    for item in safe_list(result.get("event_analyses")):
+        if not isinstance(item, dict):
+            continue
+        event_cognitive_calibration_analyses.append({
+            "title": item.get("title", ""),
+            "cognitive_calibration_analyses": safe_list(item.get("cognitive_calibration_analyses")),
+        })
+        event_question_answers.append({
+            "title": item.get("title", ""),
+            "question_answers": safe_list(item.get("question_answers")),
+        })
+        event_cognitive_enhancements.append({
+            "title": item.get("title", ""),
+            "cognitive_enhancements": safe_list(item.get("cognitive_enhancements")),
+        })
+
+    diary_analysis = safe_dict(result.get("diary_analysis"))
     output = {
-        "event_cognitive_calibration_analyses": safe_list(result.get("event_cognitive_calibration_analyses")),
-        "diary_cognitive_calibration_analyses": safe_list(result.get("diary_cognitive_calibration_analyses")),
-        "event_question_answers": safe_list(result.get("event_question_answers")),
-        "event_cognitive_enhancements": safe_list(result.get("event_cognitive_enhancements")),
-        "diary_cognitive_enhancements": safe_list(result.get("diary_cognitive_enhancements")),
+        "event_cognitive_calibration_analyses": event_cognitive_calibration_analyses,
+        "diary_cognitive_calibration_analyses": safe_list(diary_analysis.get("cognitive_calibration_analyses")),
+        "event_question_answers": event_question_answers,
+        "event_cognitive_enhancements": event_cognitive_enhancements,
+        "diary_cognitive_enhancements": safe_list(diary_analysis.get("cognitive_enhancements")),
     }
     logger.info(
-        "分析流水线环节9完成: diary_id=%s, task_id=%s, event_calibration=%d, diary_calibration=%d, event_qa=%d, diary_qa=%d, event_enhancement=%d, diary_enhancement=%d",
+        "分析流水线环节9完成: diary_id=%s, task_id=%s, event_calibration=%d, diary_calibration=%d, event_qa=%d, event_enhancement=%d, diary_enhancement=%d",
         state.get("diary_id"),
         task_id,
         _count_event_inner_items(output["event_cognitive_calibration_analyses"], "cognitive_calibration_analyses"),
@@ -661,29 +672,17 @@ def _save_analysis_result(state: AnalysisState, diary_organized_id: str):
                 return None
             return json.dumps(val, ensure_ascii=False)
 
-        # 辅助函数：从 event_analyses 中提取指定事件的分析
-        def extract_core_event_analysis(event_idx, inner_key):
-            """从环节 8 事件级聚合结果中提取指定事件的分析数据"""
-            event_analyses = state.get("event_analyses", [])
-            if not isinstance(event_analyses, list):
+        # 辅助函数：按顺序从事件数组中提取指定事件的分析
+        def extract_event_items(event_items, event_idx, inner_key):
+            if not isinstance(event_items, list):
                 return []
-            if event_idx >= len(event_analyses):
+            if event_idx >= len(event_items):
                 return []
-            item = event_analyses[event_idx]
+            item = event_items[event_idx]
             if not isinstance(item, dict):
                 return []
             value = item.get(inner_key, [])
             return value if isinstance(value, list) else []
-
-        def extract_event_array_analysis(event_array, event_idx, inner_key):
-            """从环节 9 事件级数组中提取指定事件的分析数据"""
-            if not isinstance(event_array, list):
-                return []
-            for item in event_array:
-                if isinstance(item, dict) and item.get("event_index") == event_idx:
-                    value = item.get(inner_key, [])
-                    return value if isinstance(value, list) else []
-            return []
 
         diary_analysis = state.get("diary_analysis", {})
         if not isinstance(diary_analysis, dict):
@@ -716,13 +715,13 @@ def _save_analysis_result(state: AnalysisState, diary_organized_id: str):
 
         for idx, event_record in enumerate(event_records):
             event_analysis = {
-                "emotion_analyses": extract_core_event_analysis(idx, "emotion_analyses"),
-                "behavior_decision_analyses": extract_core_event_analysis(idx, "behavior_decision_analyses"),
-                "self_understanding_analyses": extract_core_event_analysis(idx, "self_understanding_analyses"),
-                "action_suggestions": extract_core_event_analysis(idx, "action_suggestions"),
-                "cognitive_calibration_analyses": extract_event_array_analysis(state.get("event_cognitive_calibration_analyses", []), idx, "cognitive_calibration_analyses"),
-                "question_answers": extract_event_array_analysis(state.get("event_question_answers", []), idx, "question_answers"),
-                "cognitive_enhancements": extract_event_array_analysis(state.get("event_cognitive_enhancements", []), idx, "cognitive_enhancements"),
+                "emotion_analyses": extract_event_items(state.get("event_analyses", []), idx, "emotion_analyses"),
+                "behavior_decision_analyses": extract_event_items(state.get("event_analyses", []), idx, "behavior_decision_analyses"),
+                "self_understanding_analyses": extract_event_items(state.get("event_analyses", []), idx, "self_understanding_analyses"),
+                "action_suggestions": extract_event_items(state.get("event_analyses", []), idx, "action_suggestions"),
+                "cognitive_calibration_analyses": extract_event_items(state.get("event_cognitive_calibration_analyses", []), idx, "cognitive_calibration_analyses"),
+                "question_answers": extract_event_items(state.get("event_question_answers", []), idx, "question_answers"),
+                "cognitive_enhancements": extract_event_items(state.get("event_cognitive_enhancements", []), idx, "cognitive_enhancements"),
             }
             event_record.analysis = json.dumps(event_analysis, ensure_ascii=False)
 

@@ -49,17 +49,6 @@ def get_event_items(event_analyses: list[Any], event_index: int, inner_key: str)
     return value if isinstance(value, list) else []
 
 
-def get_event_items_by_index(event_analyses: list[Any], event_index: int, inner_key: str) -> list[Any]:
-    for item in event_analyses:
-        if not isinstance(item, dict):
-            continue
-        if item.get("event_index") != event_index:
-            continue
-        value = item.get(inner_key, [])
-        return value if isinstance(value, list) else []
-    return []
-
-
 def load_events(diary_id: str) -> tuple[dict[str, Any], list[dict[str, str]]]:
     db = SessionLocal()
     try:
@@ -180,17 +169,17 @@ def persist_cognition_analysis(diary_info: dict[str, Any], result: dict[str, Any
         )
         for event_index, event_row in enumerate(event_rows):
             event_analysis = json_loads_or_empty(event_row.analysis)
-            event_analysis["cognitive_calibration_analyses"] = get_event_items_by_index(
+            event_analysis["cognitive_calibration_analyses"] = get_event_items(
                 result.get("event_cognitive_calibration_analyses", []),
                 event_index,
                 "cognitive_calibration_analyses",
             )
-            event_analysis["question_answers"] = get_event_items_by_index(
+            event_analysis["question_answers"] = get_event_items(
                 result.get("event_question_answers", []),
                 event_index,
                 "question_answers",
             )
-            event_analysis["cognitive_enhancements"] = get_event_items_by_index(
+            event_analysis["cognitive_enhancements"] = get_event_items(
                 result.get("event_cognitive_enhancements", []),
                 event_index,
                 "cognitive_enhancements",
