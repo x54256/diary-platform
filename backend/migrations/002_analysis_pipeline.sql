@@ -31,10 +31,3 @@ CREATE TABLE event_tags (
     tag_id UUID NOT NULL REFERENCES tags(id),
     PRIMARY KEY (diary_event_id, tag_id)
 );
-
--- 6. 新建 tag_paths 表（标签路径前缀匹配）
-CREATE TABLE tag_paths (
-    tag_id UUID NOT NULL REFERENCES tags(id),
-    path VARCHAR(500) NOT NULL,
-    PRIMARY KEY (tag_id)
-);

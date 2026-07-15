@@ -28,15 +28,6 @@ class EventTag(Base):
     tag_id = Column(UUID(as_uuid=True), ForeignKey("tags.id"), primary_key=True)
 
 
-class TagPath(Base):
-    """标签路径表（用于前缀匹配）"""
-
-    __tablename__ = "tag_paths"
-
-    tag_id = Column(UUID(as_uuid=True), ForeignKey("tags.id"), primary_key=True)
-    path = Column(String(500), nullable=False)
-
-
 class Tag(Base):
     """标签表"""
 
