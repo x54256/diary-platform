@@ -22,8 +22,8 @@ export interface DiaryOrganized {
   analysis: DiaryAnalysis | null
 }
 
-// 日记状态：草稿 → 已发布 → 已整理 → 已分析
-export type DiaryStatus = 'draft' | 'published' | 'organized' | 'analyzed'
+// 日记状态：已保存 → 已整理 → 已分析
+export type DiaryStatus = 'saved' | 'organized' | 'analyzed'
 
 // 日记
 export interface Diary {

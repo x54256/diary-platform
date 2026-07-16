@@ -48,23 +48,6 @@
       </div>
     </div>
 
-    <!-- 快捷日期筛选栏 -->
-    <div v-if="searchResults === null" class="px-4 pb-2 flex gap-2 overflow-x-auto">
-      <button
-        v-for="f in filters"
-        :key="f.key"
-        @click="toggleFilter(f.key)"
-        :class="[
-          'px-3 py-1 rounded-full text-xs whitespace-nowrap shrink-0',
-          activeFilter === f.key
-            ? 'bg-primary-600 text-white'
-            : 'bg-neutral-100 text-neutral-500'
-        ]"
-      >
-        {{ f.label }}
-      </button>
-    </div>
-
     <!-- 视图切换：日历 / 时间线 -->
     <div v-if="searchResults === null" class="px-4 flex gap-2 mb-3">
       <button
@@ -147,7 +130,7 @@
             <div class="text-sm font-medium text-neutral-800">{{ item.organized.title || '无标题' }}</div>
             <div v-if="item.organized.summary" class="text-xs text-neutral-500 mt-1 line-clamp-2">{{ item.organized.summary }}</div>
           </template>
-          <!-- 草稿/已发布：显示原文预览 -->
+          <!-- 已保存：显示原文预览 -->
           <template v-else>
             <p class="text-sm text-neutral-600 line-clamp-2">{{ item.original_text }}</p>
           </template>
@@ -156,8 +139,7 @@
             <span
               :class="[
                 'text-xs px-2 py-0.5 rounded',
-                item.status === 'draft' ? 'bg-neutral-100 text-neutral-500' :
-                item.status === 'published' ? 'bg-blue-50 text-blue-500' :
+                item.status === 'saved' ? 'bg-blue-50 text-blue-500' :
                 item.status === 'analyzed' ? 'bg-purple-50 text-purple-600' :
                 'bg-green-50 text-green-600'
               ]"
@@ -481,8 +463,7 @@ const topicDiaryTags = (tags?: any[]) => {
 // 状态标签
 const statusLabel = (status: string) => {
   switch (status) {
-    case 'draft': return '草稿'
-    case 'published': return '已发布'
+    case 'saved': return '已保存'
     case 'organized': return '已整理'
     case 'analyzed': return '已分析'
     default: return status

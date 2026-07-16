@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 
 from database import get_db
 from models.diary import Diary, DiaryOrganized, DiaryStatus, DiaryAnalysis
-from models.tag import Tag
+from models.tag import EventTag, Tag, diary_tags
 from models.user import User
 from schemas.diary import (
     DiaryCalendarItem,
@@ -45,12 +45,12 @@ def create_diary(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    """创建日记（草稿）"""
+    """创建日记"""
     diary = Diary(
         user_id=current_user.id,
         original_text=diary_data.original_text,
         diary_date=diary_data.diary_date,
-        status=DiaryStatus.draft,
+        status=DiaryStatus.saved,
     )
     db.add(diary)
     db.flush()  # 获取生成的 ID
@@ -188,7 +188,7 @@ def update_diary(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    """更新日记原文（仅 draft 和 organized 状态可编辑）"""
+    """更新日记原文（仅 saved 和 organized 状态可编辑）"""
     diary = (
         db.query(Diary)
         .filter(Diary.id == diary_id, Diary.user_id == current_user.id)
@@ -197,8 +197,8 @@ def update_diary(
     if not diary:
         raise HTTPException(status_code=404, detail="日记不存在")
 
-    # 状态守卫：仅 draft、organized 可编辑原文
-    if diary.status not in (DiaryStatus.draft, DiaryStatus.organized):
+    # 状态守卫：仅 saved、organized 可编辑原文
+    if diary.status not in (DiaryStatus.saved, DiaryStatus.organized):
         raise HTTPException(
             status_code=400,
             detail="当前状态不允许编辑原文",
@@ -210,7 +210,7 @@ def update_diary(
     if update_data.diary_date is not None:
         diary.diary_date = update_data.diary_date
 
-    # 脏标记：前端传 is_dirty=True 时置位（仅已整理/已分析状态有意义，但 draft 也允许存）
+    # 脏标记：前端传 is_dirty=True 时置位（仅已整理/已分析状态有意义）
     if update_data.is_dirty is True:
         diary.is_dirty = True
 
@@ -219,13 +219,13 @@ def update_diary(
     return diary
 
 
-@router.put("/{diary_id}/publish", response_model=DiaryResponse)
-def publish_diary(
+@router.delete("/{diary_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_diary(
     diary_id: UUID,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    """发布日记：将状态从 draft 改为 published"""
+    """删除日记及其整理、分析、标签关联和历史任务"""
     diary = (
         db.query(Diary)
         .filter(Diary.id == diary_id, Diary.user_id == current_user.id)
@@ -234,10 +234,64 @@ def publish_diary(
     if not diary:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="日记不存在")
 
-    diary.status = DiaryStatus.published
+    running_task = (
+        db.query(OrganizeTask)
+        .filter(
+            OrganizeTask.diary_id == diary_id,
+            OrganizeTask.user_id == current_user.id,
+            OrganizeTask.status == "running",
+        )
+        .first()
+    )
+    if running_task:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="当前日记正在整理或分析，完成后再删除",
+        )
+
+    organized_id = diary.organized.id if diary.organized else None
+    event_ids = []
+    if organized_id:
+        event_ids = [
+            row[0]
+            for row in db.query(DiaryEvent.id)
+            .filter(DiaryEvent.diary_organized_id == organized_id)
+            .all()
+        ]
+
+    if event_ids:
+        db.query(EventTag).filter(EventTag.diary_event_id.in_(event_ids)).delete(
+            synchronize_session=False
+        )
+
+    db.execute(diary_tags.delete().where(diary_tags.c.diary_id == diary_id))
+
+    if organized_id:
+        db.query(DiaryAnalysis).filter(
+            DiaryAnalysis.diary_organized_id == organized_id
+        ).delete(synchronize_session=False)
+        db.query(DiaryCheckLog).filter(
+            DiaryCheckLog.diary_organized_id == organized_id
+        ).delete(synchronize_session=False)
+        db.query(DiaryCleanCheckLog).filter(
+            DiaryCleanCheckLog.diary_organized_id == organized_id
+        ).delete(synchronize_session=False)
+        db.query(DiaryEvent).filter(
+            DiaryEvent.diary_organized_id == organized_id
+        ).delete(synchronize_session=False)
+        db.query(DiaryOrganized).filter(DiaryOrganized.id == organized_id).delete(
+            synchronize_session=False
+        )
+
+    db.query(OrganizeTask).filter(
+        OrganizeTask.diary_id == diary_id,
+        OrganizeTask.user_id == current_user.id,
+    ).delete(synchronize_session=False)
+    db.query(Diary).filter(
+        Diary.id == diary_id,
+        Diary.user_id == current_user.id,
+    ).delete(synchronize_session=False)
     db.commit()
-    db.refresh(diary)
-    return diary
 
 
 @router.post("/{diary_id}/organize", response_model=OrganizeTaskResponse)
@@ -256,8 +310,8 @@ async def organize_diary(
     if not diary:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="日记不存在")
 
-    # 2. 状态守卫：仅 published、organized 可重新整理；analyzed 不可
-    if diary.status not in (DiaryStatus.published, DiaryStatus.organized):
+    # 2. 状态守卫：仅 saved、organized 可整理；analyzed 不可
+    if diary.status not in (DiaryStatus.saved, DiaryStatus.organized):
         if diary.status == DiaryStatus.analyzed:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
@@ -265,7 +319,7 @@ async def organize_diary(
             )
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="仅已发布或已整理的日记可以整理",
+            detail="仅已保存或已整理的日记可以整理",
         )
 
     # 3. 检查是否已有 running 整理任务，有则返回当前任务状态
@@ -430,7 +484,7 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
         from services.pipeline import cleanup_checkpoint
         await cleanup_checkpoint(task_id)
     except Exception as e:
-        # 任务失败：日记保持 published，记录错误
+        # 任务失败：日记保持 saved，记录错误
         import logging
         logging.getLogger(__name__).error("后台整理任务失败: %s", e)
         db.rollback()  # 必须先 rollback 恢复 session

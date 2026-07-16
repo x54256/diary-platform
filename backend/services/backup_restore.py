@@ -417,7 +417,8 @@ def model_values(table_name: str, row: Dict[str, Any]) -> Dict[str, Any]:
         elif key in datetime_fields:
             values[key] = parse_datetime_value(value)
         elif table_name == "diaries" and key == "status" and value is not None:
-            values[key] = DiaryStatus(value)
+            status_value = "saved" if value in {"draft", "published"} else value
+            values[key] = DiaryStatus(status_value)
         else:
             values[key] = value
     return values

@@ -1,8 +1,16 @@
 <template>
-  <div class="min-h-dvh flex flex-col">
+  <div class="h-dvh flex flex-col overflow-hidden">
     <!-- 顶部导航栏 -->
     <NavBar :title="diaryTitle" :show-back="true">
       <template #right>
+        <button
+          v-if="diary && !isEditing && !isEditingStructured"
+          @click="handleDelete"
+          :disabled="deleting || organizing || analyzing"
+          class="text-red-500 text-sm font-medium disabled:opacity-50"
+        >
+          {{ deleting ? '删除中' : '删除' }}
+        </button>
         <!-- 结构化编辑按钮：organized/analyzed 且非编辑模式时显示 -->
         <button
           v-if="isStructuredEditable && !isEditingStructured && !isEditing"
@@ -11,7 +19,7 @@
         >
           编辑
         </button>
-        <!-- 编辑原文按钮：draft/organized 且非编辑模式时显示 -->
+        <!-- 编辑原文按钮：saved/organized 且非编辑模式时显示 -->
         <button
           v-if="isEditable && !isEditing && !isEditingStructured"
           @click="startEdit"
@@ -23,20 +31,19 @@
     </NavBar>
 
     <!-- 加载中 -->
-    <div v-if="loading" class="flex-1 flex items-center justify-center">
+    <div v-if="loading" class="flex-1 min-h-0 flex items-center justify-center">
       <span class="text-sm text-neutral-400">加载中...</span>
     </div>
 
-    <!-- 未整理状态（draft/published）：显示原始文本 + 整理按钮 -->
+    <!-- 未整理状态（saved）：显示原始文本 + 整理按钮 -->
     <template v-else-if="diary && !isOrganizedOrAnalyzed">
       <!-- 编辑模式 -->
       <template v-if="isEditing">
-        <div class="flex-1 overflow-y-auto px-4 py-3">
+        <div class="flex-1 min-h-0 flex flex-col px-4 py-3">
           <div class="text-sm text-neutral-500 mb-3">{{ diary.diary_date }}</div>
           <textarea
             v-model="editText"
-            class="w-full min-h-[300px] text-sm text-neutral-800 leading-relaxed p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
-            @input="autoResize"
+            class="w-full flex-1 min-h-0 text-sm text-neutral-800 leading-relaxed p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-y-auto"
           />
           <p v-if="saveError" class="text-sm text-red-500 mt-2">{{ saveError }}</p>
         </div>
@@ -61,7 +68,7 @@
       </template>
       <!-- 查看模式 -->
       <template v-else>
-        <div class="flex-1 overflow-y-auto px-4 py-3">
+        <div class="flex-1 min-h-0 overflow-y-auto px-4 py-3">
           <div class="text-sm text-neutral-500 mb-3">{{ diary.diary_date }}</div>
           <div class="text-sm text-neutral-800 whitespace-pre-wrap leading-relaxed">
             {{ diary.original_text }}
@@ -116,7 +123,7 @@
       </div>
 
       <!-- 日记 Tab 内容 -->
-      <div v-show="activeTab === 'diary'" class="flex-1 overflow-y-auto px-4 py-3 pb-24">
+      <div v-show="activeTab === 'diary'" class="flex-1 min-h-0 overflow-y-auto px-4 py-3 pb-24">
         <!-- 编辑保存成功提示 -->
         <div
           v-if="editSaveMessage"
@@ -142,9 +149,8 @@
               <textarea
                 v-model="editFormData.summary"
                 rows="3"
-                class="w-full text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                class="w-full max-h-40 text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-y-auto"
                 placeholder="日记摘要"
-                @input="autoResize"
               />
             </div>
             <!-- 引入段 -->
@@ -153,9 +159,8 @@
               <textarea
                 v-model="editFormData.introduction"
                 rows="2"
-                class="w-full text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                class="w-full max-h-40 text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-y-auto"
                 placeholder="引入段"
-                @input="autoResize"
               />
             </div>
             <!-- 事件编辑 -->
@@ -175,9 +180,8 @@
               <textarea
                 v-model="editFormData.trivia"
                 rows="3"
-                class="w-full text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                class="w-full max-h-40 text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-y-auto"
                 placeholder="每项琐事一行"
-                @input="autoResize"
               />
             </div>
             <!-- 后续计划 -->
@@ -186,9 +190,8 @@
               <textarea
                 v-model="editFormData.plans"
                 rows="3"
-                class="w-full text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                class="w-full max-h-40 text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-y-auto"
                 placeholder="每项计划一行"
-                @input="autoResize"
               />
             </div>
             <!-- 错误提示 -->
@@ -218,8 +221,7 @@
             <div class="text-sm text-neutral-500 mb-2">编辑原文</div>
             <textarea
               v-model="editText"
-              class="w-full min-h-[300px] text-sm text-neutral-800 leading-relaxed p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
-              @input="autoResize"
+              class="w-full min-h-[300px] max-h-[55dvh] text-sm text-neutral-800 leading-relaxed p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-y-auto"
             />
             <p v-if="saveError" class="text-sm text-red-500 mt-2">{{ saveError }}</p>
           </div>
@@ -335,7 +337,7 @@
       </div>
 
       <!-- 分析 Tab 内容 -->
-      <div v-show="activeTab === 'analysis'" class="flex-1 overflow-y-auto px-4 py-3 pb-20">
+      <div v-show="activeTab === 'analysis'" class="flex-1 min-h-0 overflow-y-auto px-4 py-3 pb-20">
         <AnalysisTab v-if="diary.organized?.analysis" :analysis="diary.organized.analysis" />
         <div v-else class="flex items-center justify-center py-12">
           <span class="text-sm text-neutral-400">暂无分析数据</span>
@@ -387,7 +389,7 @@
     </template>
 
     <!-- 未找到 -->
-    <div v-else class="flex-1 flex items-center justify-center">
+    <div v-else class="flex-1 min-h-0 flex items-center justify-center">
       <span class="text-sm text-neutral-400">日记不存在</span>
     </div>
   </div>
@@ -418,9 +420,9 @@ const isOrganizedOrAnalyzed = computed(() =>
   diary.value?.status === 'organized' || diary.value?.status === 'analyzed'
 )
 
-// 可编辑判断：仅 draft / organized 可编辑
+// 可编辑判断：仅 saved / organized 可编辑
 const isEditable = computed(() =>
-  diary.value?.status === 'draft' || diary.value?.status === 'organized'
+  diary.value?.status === 'saved' || diary.value?.status === 'organized'
 )
 
 // 标题
@@ -473,13 +475,6 @@ const diaryLevelTags = computed<Tag[]>(() => {
   })
 })
 
-// ───────────────── 自动增长 textarea ─────────────────
-const autoResize = (e: Event) => {
-  const target = e.target as HTMLTextAreaElement
-  target.style.height = 'auto'
-  target.style.height = target.scrollHeight + 'px'
-}
-
 // ───────────────── 加载日记 ─────────────────
 const loadDiary = async () => {
   loading.value = true
@@ -490,6 +485,25 @@ const loadDiary = async () => {
     diary.value = null
   } finally {
     loading.value = false
+  }
+}
+
+// ───────────────── 删除日记 ─────────────────
+const deleting = ref(false)
+
+const handleDelete = async () => {
+  if (!diary.value || deleting.value) return
+  const confirmed = window.confirm('确定删除这篇日记吗？删除后不可恢复。')
+  if (!confirmed) return
+
+  deleting.value = true
+  try {
+    await api(`/diaries/${diaryId.value}`, { method: 'DELETE' })
+    await navigateTo('/')
+  } catch (err: any) {
+    window.alert(err?.data?.detail || '删除失败，请稍后重试')
+  } finally {
+    deleting.value = false
   }
 }
 
@@ -509,18 +523,6 @@ const editFormData = ref<any>(null)
 const structuredSaving = ref(false)
 const structuredSaveError = ref('')
 const editedEvents = ref<Map<string, any>>(new Map())
-
-// 结构化编辑模式切换时初始化 textarea 高度
-watch(isEditingStructured, (val) => {
-  if (val) {
-    nextTick(() => {
-      document.querySelectorAll('textarea').forEach(el => {
-        el.style.height = 'auto'
-        el.style.height = el.scrollHeight + 'px'
-      })
-    })
-  }
-})
 
 const onEventUpdate = (eventData: any) => {
   editedEvents.value.set(eventData.id, eventData)
@@ -800,7 +802,7 @@ const Spinner = defineComponent({
 onMounted(async () => {
   await loadDiary()
   if (diary.value) {
-    if (diary.value.status === 'published') {
+    if (diary.value.status === 'saved') {
       checkOrganizeStatus()
     }
     if (diary.value.status === 'organized' || diary.value.status === 'analyzed') {

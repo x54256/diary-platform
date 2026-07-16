@@ -14,8 +14,7 @@ from database import Base
 class DiaryStatus(enum.Enum):
     """日记状态枚举"""
 
-    draft = "draft"          # 草稿
-    published = "published"  # 已发布
+    saved = "saved"          # 已保存
     organized = "organized"  # 已整理
     analyzed = "analyzed"    # 已分析
 
@@ -29,7 +28,7 @@ class Diary(Base):
     user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
     original_text = Column(Text, nullable=False)
     diary_date = Column(Date, nullable=False)
-    status = Column(Enum(DiaryStatus), default=DiaryStatus.draft)
+    status = Column(Enum(DiaryStatus), default=DiaryStatus.saved)
     is_dirty = Column(Boolean, default=False, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

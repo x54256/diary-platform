@@ -28,8 +28,7 @@
           <textarea
             v-model="editBody"
             rows="4"
-            class="w-full p-2 text-sm border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-hidden"
-            @input="autoResize"
+            class="w-full max-h-56 p-2 text-sm border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-y-auto"
           />
         </template>
         <template v-else>
@@ -52,8 +51,7 @@
           <textarea
             v-model="editFeeling"
             rows="3"
-            class="w-full p-2 text-sm border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-hidden"
-            @input="autoResize"
+            class="w-full max-h-48 p-2 text-sm border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-y-auto"
           />
         </template>
         <template v-else>
@@ -76,8 +74,7 @@
           <textarea
             v-model="editReflection"
             rows="3"
-            class="w-full p-2 text-sm border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-hidden"
-            @input="autoResize"
+            class="w-full max-h-48 p-2 text-sm border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-y-auto"
           />
         </template>
         <template v-else>
@@ -134,7 +131,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, nextTick } from 'vue'
+import { ref, computed, watch } from 'vue'
 
 const props = defineProps<{
   event: any
@@ -150,25 +147,13 @@ const editBody = ref('')
 const editFeeling = ref('')
 const editReflection = ref('')
 
-const autoResize = (e: Event) => {
-  const target = e.target as HTMLTextAreaElement
-  target.style.height = 'auto'
-  target.style.height = target.scrollHeight + 'px'
-}
-
-// 编辑模式切换时初始化编辑值和 textarea 高度
+// 编辑模式切换时初始化编辑值
 watch(() => props.editable, (val) => {
   if (val) {
     editTitle.value = props.event.event_title || ''
     editBody.value = (props.event.body || []).join('\n')
     editFeeling.value = (props.event.feeling || []).join('\n')
     editReflection.value = (props.event.reflection || []).join('\n')
-    nextTick(() => {
-      document.querySelectorAll('textarea').forEach(el => {
-        el.style.height = 'auto'
-        el.style.height = el.scrollHeight + 'px'
-      })
-    })
   }
 }, { immediate: true })
 

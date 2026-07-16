@@ -10,7 +10,7 @@
 
     <!-- 无日记 -->
     <div v-else-if="diaries.length === 0" class="flex-1 flex items-center justify-center">
-      <span class="text-sm text-neutral-400">当天暂无已分析日记</span>
+      <span class="text-sm text-neutral-400">当天暂无日记</span>
     </div>
 
     <!-- 日记列表 -->
@@ -25,19 +25,34 @@
         <div class="flex items-center gap-2 mb-1">
           <span class="text-xs text-neutral-400">{{ formatTime(item.created_at) }}</span>
         </div>
-        <!-- 标题+摘要 -->
-        <div class="text-sm font-medium text-neutral-800">{{ item.organized?.title || '无标题' }}</div>
-        <div v-if="item.organized?.summary" class="text-xs text-neutral-500 mt-1 line-clamp-2">{{ item.organized.summary }}</div>
+        <!-- 已整理/已分析：显示标题+摘要 -->
+        <template v-if="item.organized">
+          <div class="text-sm font-medium text-neutral-800">{{ item.organized.title || '无标题' }}</div>
+          <div v-if="item.organized.summary" class="text-xs text-neutral-500 mt-1 line-clamp-2">{{ item.organized.summary }}</div>
+        </template>
+        <!-- 已保存：显示原文预览 -->
+        <template v-else>
+          <p class="text-sm text-neutral-600 line-clamp-2">{{ item.original_text }}</p>
+        </template>
         <!-- 状态标签 -->
         <div class="flex items-center gap-2 mt-2">
-          <span class="text-xs px-2 py-0.5 rounded bg-purple-50 text-purple-600">已分析</span>
+          <span
+            :class="[
+              'text-xs px-2 py-0.5 rounded',
+              item.status === 'saved' ? 'bg-blue-50 text-blue-500' :
+              item.status === 'analyzed' ? 'bg-purple-50 text-purple-600' :
+              'bg-green-50 text-green-600'
+            ]"
+          >
+            {{ statusLabel(item.status) }}
+          </span>
           <span v-if="item.organized?.mood" class="text-xs text-primary-600">{{ item.organized.mood }}</span>
           <span v-if="item.organized?.location" class="text-xs text-neutral-400">{{ item.organized.location }}</span>
         </div>
         <!-- 标签 -->
-        <div v-if="item.tags && item.tags.length > 0" class="flex flex-wrap mt-2">
-          <TagBadge v-for="tag in sortedDiaryTags(item.tags).slice(0, 5)" :key="tag.id" :tag="tag" />
-          <span v-if="item.tags.length > 5" class="text-xs text-neutral-400 ml-1">+{{ item.tags.length - 5 }}</span>
+        <div v-if="item.status === 'analyzed' && topicDiaryTags(item.tags).length > 0" class="flex flex-wrap mt-2">
+          <TagBadge v-for="tag in topicDiaryTags(item.tags).slice(0, 5)" :key="tag.id" :tag="tag" />
+          <span v-if="topicDiaryTags(item.tags).length > 5" class="text-xs text-neutral-400 ml-1">+{{ topicDiaryTags(item.tags).length - 5 }}</span>
         </div>
       </NuxtLink>
     </div>
@@ -66,7 +81,7 @@ const pageTitle = computed(() => {
 const loading = ref(false)
 const diaries = ref<Diary[]>([])
 
-// 加载当天已分析的日记
+// 加载当天全部日记
 const loadDiaries = async () => {
   const date = dateParam.value
   if (!date) return
@@ -75,9 +90,8 @@ const loadDiaries = async () => {
     const data = await api<Diary[]>('/diaries', {
       params: { start_date: date, end_date: date },
     })
-    // 仅保留已分析的日记，按 created_at 降序（最新在上）
+    // 按 created_at 降序（最新在上）
     diaries.value = data
-      .filter(d => d.status === 'analyzed')
       .sort((a, b) => {
         const ta = a.created_at ? new Date(a.created_at).getTime() : 0
         const tb = b.created_at ? new Date(b.created_at).getTime() : 0
@@ -113,6 +127,20 @@ const sortedDiaryTags = (tags: any[]) => {
     const orderB = TAG_TYPE_ORDER[b.type] ?? 99
     return orderA - orderB
   })
+}
+
+const topicDiaryTags = (tags?: any[]) => {
+  return sortedDiaryTags(tags || []).filter(tag => tag.type === 'topic')
+}
+
+// 状态标签
+const statusLabel = (status: string) => {
+  switch (status) {
+    case 'saved': return '已保存'
+    case 'organized': return '已整理'
+    case 'analyzed': return '已分析'
+    default: return status
+  }
 }
 
 onMounted(() => {

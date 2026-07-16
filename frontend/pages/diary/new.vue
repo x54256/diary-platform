@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-dvh flex flex-col">
+  <div class="h-dvh flex flex-col overflow-hidden">
     <!-- 顶部导航栏 -->
     <NavBar title="写日记" :show-back="true" />
 
@@ -16,35 +16,25 @@
     </div>
 
     <!-- 文本输入区 -->
-    <div class="flex-1 px-4 py-3">
+    <div class="flex-1 min-h-0 px-4 py-3">
       <textarea
         v-model="content"
         placeholder="今天发生了什么？写下你的日记..."
-        class="w-full flex-1 min-h-[400px] text-sm text-neutral-800 placeholder-neutral-400 resize-none overflow-hidden"
-        @input="autoResize"
+        class="w-full h-full min-h-0 text-sm text-neutral-800 placeholder-neutral-400 resize-none overflow-y-auto"
       />
     </div>
 
     <!-- 底部操作按钮 -->
-    <div class="flex gap-3 px-4 py-3 border-t border-neutral-200 bg-white safe-area-bottom">
+    <div class="px-4 py-3 border-t border-neutral-200 bg-white safe-area-bottom">
+      <p v-if="errorMsg" class="text-sm text-red-500 text-center pb-2">{{ errorMsg }}</p>
       <button
-        @click="handleSaveDraft"
+        @click="handleSave"
         :disabled="saving"
-        class="flex-1 py-2.5 rounded-lg border border-neutral-300 text-neutral-600 text-sm font-medium hover:bg-neutral-50 disabled:opacity-50"
+        class="w-full py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-700 disabled:opacity-50"
       >
-        {{ saving ? '保存中...' : '保存草稿' }}
-      </button>
-      <button
-        @click="handlePublish"
-        :disabled="saving"
-        class="flex-1 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-700 disabled:opacity-50"
-      >
-        {{ saving ? '发布中...' : '发布' }}
+        {{ saving ? '保存中...' : '保存' }}
       </button>
     </div>
-
-    <!-- 错误提示 -->
-    <p v-if="errorMsg" class="text-sm text-red-500 text-center px-4 pb-3">{{ errorMsg }}</p>
   </div>
 </template>
 
@@ -65,42 +55,12 @@ const content = ref('')
 const saving = ref(false)
 const errorMsg = ref('')
 
-// textarea 自动增长高度
-const autoResize = (e: Event) => {
-  const target = e.target as HTMLTextAreaElement
-  target.style.height = 'auto'
-  target.style.height = target.scrollHeight + 'px'
-}
-
-// 保存草稿
-const handleSaveDraft = async () => {
+// 保存日记
+const handleSave = async () => {
   if (!content.value.trim()) return
   errorMsg.value = ''
   saving.value = true
   try {
-    await api<Diary>('/diaries', {
-      method: 'POST',
-      body: {
-        original_text: content.value,
-        diary_date: diaryDate.value,
-        tag_ids: [],
-      },
-    })
-    navigateTo('/')
-  } catch (err: any) {
-    errorMsg.value = err?.data?.detail || '保存失败，请稍后重试'
-  } finally {
-    saving.value = false
-  }
-}
-
-// 发布日记
-const handlePublish = async () => {
-  if (!content.value.trim()) return
-  errorMsg.value = ''
-  saving.value = true
-  try {
-    // 先创建草稿
     const created = await api<Diary>('/diaries', {
       method: 'POST',
       body: {
@@ -109,11 +69,9 @@ const handlePublish = async () => {
         tag_ids: [],
       },
     })
-    // 再发布
-    await api(`/diaries/${created.id}/publish`, { method: 'PUT' })
-    navigateTo('/')
+    navigateTo(`/diary/${created.id}`, { replace: true })
   } catch (err: any) {
-    errorMsg.value = err?.data?.detail || '发布失败，请稍后重试'
+    errorMsg.value = err?.data?.detail || '保存失败，请稍后重试'
   } finally {
     saving.value = false
   }
