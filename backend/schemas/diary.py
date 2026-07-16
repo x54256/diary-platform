@@ -6,8 +6,9 @@ from uuid import UUID
 
 import json
 
-from pydantic import BaseModel, ConfigDict, field_validator
+from pydantic import BaseModel, ConfigDict, field_serializer, field_validator
 
+from schemas.common import serialize_utc_datetime
 from schemas.tag import TagResponse
 
 
@@ -42,6 +43,10 @@ class DiaryAnalysisResponse(BaseModel):
     updated_at: Optional[datetime] = None
 
     model_config = ConfigDict(from_attributes=True)
+
+    @field_serializer("analyzed_at", "updated_at")
+    def serialize_datetime(self, value: Optional[datetime]):
+        return serialize_utc_datetime(value)
 
     @field_validator(
         "emotion_analyses",
@@ -174,6 +179,10 @@ class DiaryResponse(BaseModel):
     tags: list[TagResponse] = []
 
     model_config = ConfigDict(from_attributes=True)
+
+    @field_serializer("created_at", "updated_at")
+    def serialize_datetime(self, value: datetime):
+        return serialize_utc_datetime(value)
 
 
 class DiaryEventUpdate(BaseModel):

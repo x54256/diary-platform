@@ -21,7 +21,7 @@
         :to="`/diary/${item.id}`"
         class="block bg-white rounded-lg p-3 active:bg-neutral-50 cursor-pointer"
       >
-        <!-- 时间 HH:MM -->
+        <!-- 创建时间 YYYY-MM-DD HH:mm -->
         <div class="flex items-center gap-2 mb-1">
           <span class="text-xs text-neutral-400">{{ formatTime(item.created_at) }}</span>
         </div>
@@ -56,6 +56,13 @@
         </div>
       </NuxtLink>
     </div>
+
+    <NuxtLink
+      :to="`/diary/new?date=${dateParam}`"
+      class="fixed bottom-20 right-4 w-12 h-12 rounded-full bg-primary-600 text-white text-2xl flex items-center justify-center shadow-lg hover:bg-primary-700 transition-colors"
+    >
+      +
+    </NuxtLink>
   </div>
 </template>
 
@@ -105,11 +112,16 @@ const loadDiaries = async () => {
   }
 }
 
-// 时间格式化（HH:MM）
+// 时间格式化（YYYY-MM-DD HH:mm）
 const formatTime = (dateStr?: string) => {
   if (!dateStr) return ''
   const d = new Date(dateStr)
-  return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`
+  const year = d.getFullYear()
+  const month = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  const hour = String(d.getHours()).padStart(2, '0')
+  const minute = String(d.getMinutes()).padStart(2, '0')
+  return `${year}-${month}-${day} ${hour}:${minute}`
 }
 
 // 标签按类别排序：领域 → 主题 → 人物/对象 → 心理 → 知识点

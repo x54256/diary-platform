@@ -14,6 +14,7 @@ from sqlalchemy.orm import Session
 from database import SessionLocal, get_db
 from models.backup import BackupImportReport, BackupRestoreRecord
 from models.user import User
+from schemas.common import serialize_utc_datetime
 from services.auth import get_current_user
 from services.backup_restore import (
     build_scope_summary,
@@ -60,13 +61,13 @@ def record_to_dict(record: BackupRestoreRecord) -> dict:
         "current_table": record.current_table,
         "backup_package_id": record.backup_package_id,
         "file_name": record.file_name,
-        "file_expires_at": record.file_expires_at.isoformat() if record.file_expires_at else None,
-        "started_at": record.started_at.isoformat() if record.started_at else None,
-        "finished_at": record.finished_at.isoformat() if record.finished_at else None,
+        "file_expires_at": serialize_utc_datetime(record.file_expires_at),
+        "started_at": serialize_utc_datetime(record.started_at),
+        "finished_at": serialize_utc_datetime(record.finished_at),
         "result_summary": record.result_summary,
         "error_summary": record.error_summary,
-        "created_at": record.created_at.isoformat() if record.created_at else None,
-        "updated_at": record.updated_at.isoformat() if record.updated_at else None,
+        "created_at": serialize_utc_datetime(record.created_at),
+        "updated_at": serialize_utc_datetime(record.updated_at),
     }
 
 

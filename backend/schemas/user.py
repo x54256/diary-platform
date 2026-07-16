@@ -3,7 +3,9 @@
 from datetime import datetime
 from uuid import UUID
 
-from pydantic import BaseModel
+from pydantic import BaseModel, field_serializer
+
+from schemas.common import serialize_utc_datetime
 
 
 class UserCreate(BaseModel):
@@ -26,6 +28,10 @@ class UserResponse(BaseModel):
     id: UUID
     username: str
     created_at: datetime
+
+    @field_serializer("created_at")
+    def serialize_datetime(self, value: datetime):
+        return serialize_utc_datetime(value)
 
     class Config:
         from_attributes = True

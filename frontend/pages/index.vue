@@ -83,7 +83,7 @@
           <div
             v-for="(cell, index) in calendarCells"
             :key="index"
-            @click="cell.day && cell.hasDiary && handleDateClick(cell.day)"
+            @click="cell.day && handleDateClick(cell.day)"
             :class="[
               'aspect-square flex flex-col items-center justify-center text-xs rounded',
               cell.day ? 'cursor-pointer' : '',
@@ -120,10 +120,9 @@
           :to="`/diary/${item.id}`"
           class="block bg-white rounded-lg p-3 active:bg-neutral-50"
         >
-          <!-- 时间 HH:MM + 日期 -->
+          <!-- 创建时间 YYYY-MM-DD HH:mm -->
           <div class="flex items-center gap-2 mb-1">
             <span class="text-xs text-neutral-400">{{ formatTime(item.created_at) }}</span>
-            <span class="text-xs text-neutral-300">{{ item.diary_date }}</span>
           </div>
           <!-- 已整理/已分析：显示标题+摘要 -->
           <template v-if="item.organized">
@@ -307,14 +306,19 @@ const loadTimeline = async () => {
   }
 }
 
-// 点击日期：1 条直接跳详情，多条跳日期列表页
+const dateStringForDay = (day: number) => {
+  return `${currentYear.value}-${String(currentMonth.value).padStart(2, '0')}-${String(day).padStart(2, '0')}`
+}
+
+// 点击日期：无日记跳新增，1 条跳详情，多条跳日期列表页
 const handleDateClick = (day: number) => {
-  const year = currentYear.value
-  const month = currentMonth.value
-  const dateStr = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`
+  const dateStr = dateStringForDay(day)
 
   const cached = calendarData.value.get(dateStr)
-  if (!cached || cached.length === 0) return
+  if (!cached || cached.length === 0) {
+    navigateTo(`/diary/new?date=${dateStr}`)
+    return
+  }
 
   if (cached.length === 1) {
     navigateTo(`/diary/${cached[0].id}`)
@@ -432,11 +436,16 @@ const formatDateShort = (dateStr: string) => {
   return `${parseInt(m)}月${parseInt(d)}日`
 }
 
-// 时间格式化（HH:MM）
+// 时间格式化（YYYY-MM-DD HH:mm）
 const formatTime = (dateStr?: string) => {
   if (!dateStr) return ''
   const d = new Date(dateStr)
-  return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`
+  const year = d.getFullYear()
+  const month = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  const hour = String(d.getHours()).padStart(2, '0')
+  const minute = String(d.getMinutes()).padStart(2, '0')
+  return `${year}-${month}-${day} ${hour}:${minute}`
 }
 
 // 标签按类别排序：领域 → 主题 → 人物/对象 → 心理 → 知识点

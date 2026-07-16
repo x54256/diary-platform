@@ -4,7 +4,9 @@ from datetime import datetime
 from typing import Optional
 from uuid import UUID
 
-from pydantic import BaseModel
+from pydantic import BaseModel, field_serializer
+
+from schemas.common import serialize_utc_datetime
 
 
 class DialogCreate(BaseModel):
@@ -29,6 +31,10 @@ class MessageResponse(BaseModel):
     content: str
     created_at: datetime
 
+    @field_serializer("created_at")
+    def serialize_datetime(self, value: datetime):
+        return serialize_utc_datetime(value)
+
     class Config:
         from_attributes = True
 
@@ -43,6 +49,10 @@ class DialogResponse(BaseModel):
     created_at: datetime
     updated_at: datetime
     messages: list[MessageResponse] = []
+
+    @field_serializer("created_at", "updated_at")
+    def serialize_datetime(self, value: datetime):
+        return serialize_utc_datetime(value)
 
     class Config:
         from_attributes = True

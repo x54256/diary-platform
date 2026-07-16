@@ -46,9 +46,18 @@ definePageMeta({
 })
 
 const { api } = useApi()
+const route = useRoute()
+
+const todayLocalDate = () => {
+  const now = new Date()
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
+}
 
 // 日记数据
-const diaryDate = ref(new Date().toISOString().slice(0, 10))
+const initialDate = typeof route.query.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(route.query.date)
+  ? route.query.date
+  : todayLocalDate()
+const diaryDate = ref(initialDate)
 const content = ref('')
 
 // 加载状态和错误

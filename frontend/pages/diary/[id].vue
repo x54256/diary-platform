@@ -392,6 +392,14 @@
     <div v-else class="flex-1 min-h-0 flex items-center justify-center">
       <span class="text-sm text-neutral-400">日记不存在</span>
     </div>
+
+    <NuxtLink
+      v-if="diary?.diary_date && !isEditing && !isEditingStructured"
+      :to="`/diary/new?date=${diary.diary_date}`"
+      class="fixed bottom-20 right-4 w-12 h-12 rounded-full bg-primary-600 text-white text-2xl flex items-center justify-center shadow-lg hover:bg-primary-700 transition-colors"
+    >
+      +
+    </NuxtLink>
   </div>
 </template>
 

@@ -4,7 +4,9 @@ from datetime import datetime
 from typing import Optional
 from uuid import UUID
 
-from pydantic import BaseModel
+from pydantic import BaseModel, field_serializer
+
+from schemas.common import serialize_utc_datetime
 
 
 class TagCreate(BaseModel):
@@ -22,6 +24,10 @@ class TagResponse(BaseModel):
     name: str
     type: Optional[str] = None
     created_at: datetime
+
+    @field_serializer("created_at")
+    def serialize_datetime(self, value: datetime):
+        return serialize_utc_datetime(value)
 
     class Config:
         from_attributes = True
