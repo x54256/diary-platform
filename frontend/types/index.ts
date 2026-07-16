@@ -19,7 +19,7 @@ export interface DiaryOrganized {
   events: DiaryEvent[]
   check_logs: CheckLog[]
   clean_check_logs: CleanCheckLog[]
-  analysis: DiaryAnalysis | null
+  analysis: AnalysisRun | null
 }
 
 // 日记状态：已保存 → 已整理 → 已分析
@@ -58,35 +58,48 @@ export interface EventTags {
   knowledge: string[]
 }
 
-// 问题解答
-export interface QuestionAnswer {
-  question: string
-  answer: string
+export type AnalysisScope = 'DIARY' | 'EVENT'
+
+export type AnalysisType =
+  | 'EMOTION'
+  | 'BEHAVIOR_DECISION'
+  | 'SELF_UNDERSTANDING'
+  | 'ACTION_SUGGESTION'
+  | 'COGNITIVE_CALIBRATION'
+  | 'COGNITIVE_ENHANCEMENT'
+  | 'QUESTION_ANSWER'
+
+export interface AnalysisFeedback {
+  id: string
+  rating: number
+  comment: string | null
+  is_inherited: boolean
+  source_feedback_id: string | null
+  updated_at: string | null
 }
 
-// 事件级分析
-export interface EventAnalysis {
-  emotion_analyses: string[]
-  behavior_decision_analyses: string[]
-  self_understanding_analyses: string[]
-  action_suggestions: string[]
-  cognitive_calibration_analyses: string[]
-  question_answers?: QuestionAnswer[]
-  cognitive_enhancements: string[]
+export interface AnalysisItem {
+  id: string
+  content: string
+  question?: string | null
+  sort_order: number
 }
 
-// 日记分析结果
-export interface DiaryAnalysis {
+export interface AnalysisSection {
+  scope: AnalysisScope
+  event_id: string | null
+  analysis_type: AnalysisType
+  title: string
+  items: AnalysisItem[]
+  feedback: AnalysisFeedback | null
+}
+
+export interface AnalysisRun {
   id: string
   mood: string | null
-  emotion_analyses: string[]
-  behavior_decision_analyses: string[]
-  self_understanding_analyses: string[]
-  action_suggestions: string[]
-  cognitive_calibration_analyses: string[]
-  question_answers?: QuestionAnswer[]
-  cognitive_enhancements: string[]
-  analyzed_at: string | null
+  status: 'CURRENT' | 'ARCHIVED'
+  sections: AnalysisSection[]
+  created_at: string | null
   updated_at: string | null
 }
 
@@ -100,7 +113,7 @@ export interface DiaryEvent {
   event_tags: EventTags | null
   sort_order: number
   tags: Tag[]
-  analysis: EventAnalysis | null
+  analysis: AnalysisSection[] | null
 }
 
 // 审核日志

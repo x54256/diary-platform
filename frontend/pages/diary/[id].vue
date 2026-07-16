@@ -171,6 +171,7 @@
                 :key="event.id"
                 :event="event"
                 :editable="true"
+                :analysis-run-id="diary.organized?.analysis?.id"
                 @update="onEventUpdate"
               />
             </div>
@@ -284,6 +285,7 @@
             :key="event.id"
             :event="event"
             :editable="isEditingStructured"
+            :analysis-run-id="diary.organized?.analysis?.id"
             @update="onEventUpdate"
           />
         </div>
@@ -700,9 +702,8 @@ const analyzeError = ref('')
 const analyzeStep = ref('')
 
 const ANALYZE_STEP_LABELS: Record<string, string> = {
-  mood_tag_extracting: '心情与标签提取',
-  core_analyzing: '核心分析与建议',
-  cognition_analyzing: '认知分析',
+  analysis_generating: '生成分析',
+  saving_result: '保存分析结果',
 }
 const ANALYZE_STEP_KEYS = Object.keys(ANALYZE_STEP_LABELS)
 
@@ -716,7 +717,7 @@ const formatAnalyzeStep = (stepKey: string) => {
 const handleAnalyze = async () => {
   analyzing.value = true
   analyzeError.value = ''
-  analyzeStep.value = formatAnalyzeStep('mood_tag_extracting')
+  analyzeStep.value = formatAnalyzeStep('analysis_generating')
   try {
     await api(`/diaries/${diaryId.value}/analyze`, { method: 'POST' })
     await pollAnalyzeStatus()

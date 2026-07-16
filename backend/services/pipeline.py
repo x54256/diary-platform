@@ -82,16 +82,16 @@ class PipelineState(TypedDict, total=False):
 def _get_llm(temperature: float) -> ChatDeepSeek:
     """根据 temperature 创建 ChatDeepSeek 实例（含 api_key 和 JSON 强制输出）"""
     kwargs: dict[str, Any] = {
-        "model": settings.DEEPSEEK_MODEL,
-        "api_key": settings.DEEPSEEK_API_KEY,
+        "model": settings.LLM_MODEL,
+        "api_key": settings.LLM_API_KEY,
         "temperature": temperature,
         "timeout": 120,
         "max_retries": 2,
         "model_kwargs": {"response_format": {"type": "json_object"}},
     }
-    # settings.DEEPSEEK_API_URL 含 /v1 后缀，与 ChatDeepSeek 默认值不同，需显式传入
-    if settings.DEEPSEEK_API_URL:
-        kwargs["base_url"] = settings.DEEPSEEK_API_URL
+    # settings.LLM_API_URL 含 /v1 后缀，与 ChatDeepSeek 默认值不同，需显式传入
+    if settings.LLM_API_URL:
+        kwargs["base_url"] = settings.LLM_API_URL
     return ChatDeepSeek(**kwargs)
 
 

@@ -3,6 +3,8 @@
  * 当前系统以 username=admin 作为超级管理员。
  */
 export default defineNuxtRouteMiddleware((to) => {
+  if (import.meta.server) return
+
   const authStore = useAuthStore()
   authStore.init()
 

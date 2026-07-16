@@ -1,10 +1,9 @@
 """日记相关的请求/响应模型"""
 
 from datetime import date, datetime
+import json
 from typing import Optional
 from uuid import UUID
-
-import json
 
 from pydantic import BaseModel, ConfigDict, field_serializer, field_validator
 
@@ -28,43 +27,61 @@ class DiaryUpdate(BaseModel):
     is_dirty: Optional[bool] = None
 
 
-class DiaryAnalysisResponse(BaseModel):
-    """日记分析结果响应"""
+class AnalysisFeedbackResponse(BaseModel):
+    """分析反馈响应"""
 
     id: UUID
-    mood: Optional[str] = None
-    emotion_analyses: Optional[list] = None
-    behavior_decision_analyses: Optional[list] = None
-    self_understanding_analyses: Optional[list] = None
-    action_suggestions: Optional[list] = None
-    cognitive_calibration_analyses: Optional[list] = None
-    cognitive_enhancements: Optional[list] = None
-    analyzed_at: Optional[datetime] = None
+    rating: int
+    comment: Optional[str] = None
+    is_inherited: bool = False
+    source_feedback_id: Optional[UUID] = None
     updated_at: Optional[datetime] = None
 
     model_config = ConfigDict(from_attributes=True)
 
-    @field_serializer("analyzed_at", "updated_at")
-    def serialize_datetime(self, value: Optional[datetime]):
-        return serialize_utc_datetime(value)
 
-    @field_validator(
-        "emotion_analyses",
-        "behavior_decision_analyses",
-        "self_understanding_analyses",
-        "action_suggestions",
-        "cognitive_calibration_analyses",
-        "cognitive_enhancements",
-        mode="before",
-    )
-    @classmethod
-    def parse_json_list(cls, v):
-        if isinstance(v, str):
-            try:
-                return json.loads(v)
-            except (json.JSONDecodeError, TypeError):
-                return []
-        return v if v is not None else []
+class AnalysisItemResponse(BaseModel):
+    """单条分析内容响应"""
+
+    id: UUID
+    content: str
+    question: Optional[str] = None
+    sort_order: int = 0
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class AnalysisSectionResponse(BaseModel):
+    """分析类型块响应"""
+
+    scope: str
+    event_id: Optional[UUID] = None
+    analysis_type: str
+    title: str
+    items: list[AnalysisItemResponse] = []
+    feedback: Optional[AnalysisFeedbackResponse] = None
+
+
+class AnalysisRunResponse(BaseModel):
+    """当前分析轮次响应"""
+
+    id: UUID
+    mood: Optional[str] = None
+    status: str
+    sections: list[AnalysisSectionResponse] = []
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
+
+
+class AnalysisFeedbackUpsert(BaseModel):
+    """保存分析反馈请求"""
+
+    analysis_run_id: UUID
+    scope: str
+    event_id: Optional[UUID] = None
+    analysis_type: str
+    rating: int
+    comment: Optional[str] = None
 
 
 class DiaryOrganizedResponse(BaseModel):
@@ -82,7 +99,7 @@ class DiaryOrganizedResponse(BaseModel):
     events: list["DiaryEventResponse"] = []
     check_logs: list["CheckLogResponse"] = []
     clean_check_logs: list["CleanCheckLogResponse"] = []
-    analysis: Optional[DiaryAnalysisResponse] = None
+    analysis: Optional[AnalysisRunResponse] = None
 
     @field_validator("trivia", "plans", mode="before")
     @classmethod
@@ -103,7 +120,7 @@ class DiaryEventResponse(BaseModel):
     feeling: Optional[list[str]] = None
     reflection: Optional[list[str]] = None
     event_tags: Optional[dict] = None
-    analysis: Optional[dict] = None
+    analysis: Optional[list[AnalysisSectionResponse]] = None
     sort_order: int = 0
     tags: list[TagResponse] = []
 
@@ -120,16 +137,6 @@ class DiaryEventResponse(BaseModel):
             except (json.JSONDecodeError, ValueError):
                 # 旧数据可能是纯字符串，包装为单元素列表
                 return [v] if v else []
-        return v
-
-    @field_validator("analysis", mode="before")
-    @classmethod
-    def parse_analysis(cls, v):
-        if isinstance(v, str):
-            try:
-                return json.loads(v)
-            except (json.JSONDecodeError, TypeError):
-                return None
         return v
 
     model_config = ConfigDict(from_attributes=True)
@@ -173,6 +180,8 @@ class DiaryResponse(BaseModel):
     diary_date: date
     status: str
     is_dirty: bool = False
+    deleted_at: Optional[datetime] = None
+    deleted_by: Optional[UUID] = None
     created_at: datetime
     updated_at: datetime
     organized: Optional[DiaryOrganizedResponse] = None

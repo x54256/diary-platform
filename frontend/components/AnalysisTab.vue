@@ -6,45 +6,20 @@
       <p class="text-xs text-neutral-400 mt-1">今日心情</p>
     </div>
 
-    <!-- 无分析数据提示 -->
     <div v-if="!hasAnyContent" class="text-center text-neutral-400 py-8">
       暂无分析数据
     </div>
 
     <template v-else>
-      <!-- 可行动建议前置：直接使用现有 action_suggestions 字段 -->
-      <section v-if="analysisData.action_suggestions?.length" class="mb-5">
-        <div class="flex items-center justify-between mb-2">
-          <h3 class="text-base font-semibold text-neutral-800">可行动建议</h3>
-          <span class="text-xs text-neutral-400">{{ analysisData.action_suggestions.length }} 条</span>
-        </div>
-        <div class="space-y-2">
-          <div
-            v-for="(item, i) in visibleActionSuggestions"
-            :key="i"
-            class="rounded-lg border border-primary-100 bg-primary-50/60 px-3.5 py-3"
-          >
-            <div class="flex gap-2.5">
-              <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-600 text-[11px] font-medium text-white">
-                {{ i + 1 }}
-              </span>
-              <p class="text-sm leading-relaxed text-neutral-700">{{ item }}</p>
-            </div>
-          </div>
-        </div>
-        <button
-          v-if="hasMoreActionSuggestions"
-          type="button"
-          class="mt-2 min-h-[36px] text-sm font-medium text-primary-600"
-          @click="showAllActionSuggestions = !showAllActionSuggestions"
-        >
-          {{ showAllActionSuggestions ? '收起' : '展开全部建议' }}
-        </button>
+      <section v-if="actionSection" class="mb-5">
+        <AnalysisSection
+          :analysis-run-id="analysis!.id"
+          :section="actionSection"
+        />
       </section>
 
-      <!-- 分析页内分段切换 -->
       <div
-        v-if="hasUnderstandingDetailContent && hasCognitionContent"
+        v-if="understandingSections.length && cognitionSections.length"
         class="sticky top-0 z-10 -mx-4 mb-4 border-y border-neutral-100 bg-white/95 px-4 py-2 backdrop-blur"
       >
         <div class="grid grid-cols-2 rounded-lg bg-neutral-100 p-1">
@@ -67,80 +42,64 @@
         </div>
       </div>
 
-      <!-- 自我理解与行动 -->
-      <AnalysisGroup
-        v-if="hasUnderstandingDetailContent && activeGroup === 'understanding'"
-        title="自我理解与行动"
-        :data="analysisData"
-        group="understanding"
-        :show-action-suggestions="false"
-      />
+      <div v-if="activeGroup === 'understanding'" class="space-y-3">
+        <AnalysisSection
+          v-for="section in understandingSections"
+          :key="section.analysis_type"
+          :analysis-run-id="analysis!.id"
+          :section="section"
+        />
+      </div>
 
-      <!-- 认知整理 -->
-      <AnalysisGroup
-        v-if="hasCognitionContent && activeGroup === 'cognition'"
-        title="认知整理"
-        :data="analysisData"
-        group="cognition"
-      />
+      <div v-if="activeGroup === 'cognition'" class="space-y-3">
+        <AnalysisSection
+          v-for="section in cognitionSections"
+          :key="section.analysis_type"
+          :analysis-run-id="analysis!.id"
+          :section="section"
+        />
+      </div>
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { DiaryAnalysis, EventAnalysis } from '~/types'
+import type { AnalysisRun, AnalysisSection, AnalysisType } from '~/types'
 
 const props = defineProps<{
-  analysis: DiaryAnalysis | null
+  analysis: AnalysisRun | null
 }>()
 
 const activeGroup = ref<'understanding' | 'cognition'>('understanding')
-const showAllActionSuggestions = ref(false)
 
-// 将 DiaryAnalysis 转换为 EventAnalysis 格式供 AnalysisGroup 使用
-const analysisData = computed<EventAnalysis>(() => ({
-  emotion_analyses: props.analysis?.emotion_analyses || [],
-  behavior_decision_analyses: props.analysis?.behavior_decision_analyses || [],
-  self_understanding_analyses: props.analysis?.self_understanding_analyses || [],
-  action_suggestions: props.analysis?.action_suggestions || [],
-  cognitive_calibration_analyses: props.analysis?.cognitive_calibration_analyses || [],
-  cognitive_enhancements: props.analysis?.cognitive_enhancements || [],
-}))
+const sectionOrder: AnalysisType[] = [
+  'EMOTION',
+  'BEHAVIOR_DECISION',
+  'SELF_UNDERSTANDING',
+  'ACTION_SUGGESTION',
+  'COGNITIVE_CALIBRATION',
+  'QUESTION_ANSWER',
+  'COGNITIVE_ENHANCEMENT',
+]
 
-const hasUnderstandingContent = computed(() => {
-  const d = analysisData.value
-  return (d.emotion_analyses?.length || 0) > 0 ||
-         (d.behavior_decision_analyses?.length || 0) > 0 ||
-         (d.self_understanding_analyses?.length || 0) > 0 ||
-         (d.action_suggestions?.length || 0) > 0
+const sortedSections = computed<AnalysisSection[]>(() => {
+  const sections = props.analysis?.sections || []
+  return [...sections].sort((a, b) => sectionOrder.indexOf(a.analysis_type) - sectionOrder.indexOf(b.analysis_type))
 })
 
-const hasUnderstandingDetailContent = computed(() => {
-  const d = analysisData.value
-  return (d.emotion_analyses?.length || 0) > 0 ||
-         (d.behavior_decision_analyses?.length || 0) > 0 ||
-         (d.self_understanding_analyses?.length || 0) > 0
-})
-
-const hasCognitionContent = computed(() => {
-  const d = analysisData.value
-  return (d.cognitive_calibration_analyses?.length || 0) > 0 ||
-         (d.cognitive_enhancements?.length || 0) > 0
-})
-
-const hasAnyContent = computed(() => hasUnderstandingContent.value || hasCognitionContent.value)
-
-const hasMoreActionSuggestions = computed(() => analysisData.value.action_suggestions.length > 3)
-
-const visibleActionSuggestions = computed(() => {
-  const suggestions = analysisData.value.action_suggestions
-  return showAllActionSuggestions.value ? suggestions : suggestions.slice(0, 3)
-})
+const actionSection = computed(() => sortedSections.value.find(section => section.analysis_type === 'ACTION_SUGGESTION') || null)
+const understandingSections = computed(() => sortedSections.value.filter(section =>
+  ['EMOTION', 'BEHAVIOR_DECISION', 'SELF_UNDERSTANDING'].includes(section.analysis_type)
+))
+const cognitionSections = computed(() => sortedSections.value.filter(section =>
+  ['COGNITIVE_CALIBRATION', 'QUESTION_ANSWER', 'COGNITIVE_ENHANCEMENT'].includes(section.analysis_type)
+))
+const hasAnyContent = computed(() => sortedSections.value.length > 0)
 
 watchEffect(() => {
-  if (!hasUnderstandingDetailContent.value && hasCognitionContent.value) {
+  if (!understandingSections.value.length && cognitionSections.value.length) {
     activeGroup.value = 'cognition'
-  } else if (hasUnderstandingDetailContent.value && !hasCognitionContent.value) {
+  } else if (understandingSections.value.length && !cognitionSections.value.length) {
     activeGroup.value = 'understanding'
   }
 })

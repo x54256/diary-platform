@@ -3,6 +3,8 @@
  * 检查用户是否已登录，未登录则跳转到登录页
  */
 export default defineNuxtRouteMiddleware((to, from) => {
+  if (import.meta.server) return
+
   const authStore = useAuthStore()
 
   // 初始化（从 localStorage 读取 token）

@@ -1,7 +1,7 @@
 """日记管理路由"""
 
 import json
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from typing import Optional
 from uuid import UUID
 
@@ -10,7 +10,7 @@ from sqlalchemy import or_
 from sqlalchemy.orm import Session
 
 from database import get_db
-from models.diary import Diary, DiaryOrganized, DiaryStatus, DiaryAnalysis
+from models.diary import AnalysisFeedback, AnalysisRun, Diary, DiaryOrganized, DiaryStatus
 from models.tag import EventTag, Tag, diary_tags
 from models.user import User
 from schemas.diary import (
@@ -21,8 +21,17 @@ from schemas.diary import (
     DiaryResponse,
     DiaryTagsUpdate,
     DiaryUpdate,
+    AnalysisFeedbackResponse,
+    AnalysisFeedbackUpsert,
 )
 from services.ai import ai_service
+from services.analysis_history import (
+    ALL_ANALYSIS_TYPES,
+    build_run_response,
+    build_sections,
+    effective_feedback,
+    get_current_analysis_run,
+)
 from services.auth import get_current_user
 
 import asyncio
@@ -32,6 +41,81 @@ from models.diary import DiaryEvent, DiaryCheckLog, DiaryCleanCheckLog, Organize
 from schemas.diary import OrganizeTaskResponse, DiaryEventUpdate, DiaryEventResponse
 
 router = APIRouter(prefix="/api/diaries", tags=["日记管理"])
+
+
+def parse_json_value(value, default):
+    if value is None:
+        return default
+    if isinstance(value, str):
+        try:
+            parsed = json.loads(value)
+            return parsed
+        except (json.JSONDecodeError, TypeError):
+            return default
+    return value
+
+
+def serialize_event(event: DiaryEvent, current_run: AnalysisRun | None, user_id: UUID) -> dict:
+    return {
+        "id": event.id,
+        "event_title": event.event_title,
+        "body": parse_json_value(event.body, []),
+        "feeling": parse_json_value(event.feeling, []),
+        "reflection": parse_json_value(event.reflection, []),
+        "event_tags": parse_json_value(event.event_tags, None),
+        "analysis": build_sections(current_run, user_id, "EVENT", event.id),
+        "sort_order": event.sort_order,
+        "tags": event.tags,
+    }
+
+
+def serialize_organized(organized: DiaryOrganized | None, current_run: AnalysisRun | None, user_id: UUID) -> dict | None:
+    if not organized:
+        return None
+    return {
+        "id": organized.id,
+        "title": organized.title,
+        "summary": organized.summary,
+        "content": organized.content,
+        "mood": organized.mood,
+        "location": organized.location,
+        "introduction": organized.introduction,
+        "trivia": parse_json_value(organized.trivia, []),
+        "plans": parse_json_value(organized.plans, []),
+        "events": [
+            serialize_event(event, current_run, user_id)
+            for event in sorted(organized.events, key=lambda item: item.sort_order)
+        ],
+        "check_logs": organized.check_logs,
+        "clean_check_logs": organized.clean_check_logs,
+        "analysis": build_run_response(current_run, user_id),
+    }
+
+
+def serialize_diary(diary: Diary, db: Session, user_id: UUID) -> dict:
+    current_run = get_current_analysis_run(db, diary.id)
+    status_value = diary.status.value if hasattr(diary.status, "value") else str(diary.status)
+    return {
+        "id": diary.id,
+        "user_id": diary.user_id,
+        "original_text": diary.original_text,
+        "diary_date": diary.diary_date,
+        "status": status_value,
+        "is_dirty": diary.is_dirty,
+        "deleted_at": diary.deleted_at,
+        "deleted_by": diary.deleted_by,
+        "created_at": diary.created_at,
+        "updated_at": diary.updated_at,
+        "organized": serialize_organized(diary.organized, current_run, user_id),
+        "tags": diary.tags,
+    }
+
+
+def active_diary_query(db: Session, current_user: User):
+    return db.query(Diary).filter(
+        Diary.user_id == current_user.id,
+        Diary.deleted_at.is_(None),
+    )
 
 
 # ─────────────────── 创建 / 列表 / 日历 / 搜索 ───────────────────
@@ -79,7 +163,7 @@ def list_diaries(
     current_user: User = Depends(get_current_user),
 ):
     """获取日记列表，支持按日期范围、标签筛选，按日期倒序排列"""
-    query = db.query(Diary).filter(Diary.user_id == current_user.id)
+    query = active_diary_query(db, current_user)
 
     if start_date:
         query = query.filter(Diary.diary_date >= start_date)
@@ -90,7 +174,7 @@ def list_diaries(
         query = query.filter(Diary.tags.any(Tag.id == tag_id))
 
     query = query.order_by(Diary.diary_date.desc(), Diary.created_at.desc())
-    return query.all()
+    return [serialize_diary(diary, db, current_user.id) for diary in query.all()]
 
 
 @router.get("/calendar", response_model=list[DiaryCalendarItem])
@@ -112,6 +196,7 @@ def get_calendar(
         db.query(Diary)
         .filter(
             Diary.user_id == current_user.id,
+            Diary.deleted_at.is_(None),
             Diary.diary_date >= start,
             Diary.diary_date <= end,
         )
@@ -121,7 +206,8 @@ def get_calendar(
 
     result = []
     for diary in diaries:
-        mood = diary.organized.mood if diary.organized else None
+        current_run = get_current_analysis_run(db, diary.id)
+        mood = current_run.mood if current_run and current_run.mood else (diary.organized.mood if diary.organized else None)
         # 将枚举状态转为字符串值
         status_value = diary.status.value if hasattr(diary.status, "value") else str(diary.status)
         result.append(
@@ -148,6 +234,7 @@ def search_diaries(
         .join(DiaryOrganized, Diary.id == DiaryOrganized.diary_id)
         .filter(
             Diary.user_id == current_user.id,
+            Diary.deleted_at.is_(None),
             Diary.status == DiaryStatus.organized,
             or_(
                 DiaryOrganized.title.ilike(search_term),
@@ -158,7 +245,87 @@ def search_diaries(
         .order_by(Diary.diary_date.desc())
         .all()
     )
-    return diaries
+    return [serialize_diary(diary, db, current_user.id) for diary in diaries]
+
+
+@router.put("/analysis-feedback", response_model=AnalysisFeedbackResponse)
+def upsert_analysis_feedback(
+    feedback_data: AnalysisFeedbackUpsert,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """保存或更新一个分析类型块反馈"""
+    if feedback_data.rating < 1 or feedback_data.rating > 5:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="评分必须在 1-5 之间")
+    if feedback_data.scope not in {"DIARY", "EVENT"}:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="反馈层级无效")
+    if feedback_data.analysis_type not in ALL_ANALYSIS_TYPES:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="分析类型无效")
+    if feedback_data.scope == "DIARY" and feedback_data.event_id is not None:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="日记级反馈不能包含事件 ID")
+    if feedback_data.scope == "EVENT" and feedback_data.event_id is None:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="事件级反馈必须包含事件 ID")
+
+    run = (
+        db.query(AnalysisRun)
+        .join(Diary, Diary.id == AnalysisRun.diary_id)
+        .filter(
+            AnalysisRun.id == feedback_data.analysis_run_id,
+            Diary.user_id == current_user.id,
+            Diary.deleted_at.is_(None),
+        )
+        .first()
+    )
+    if not run:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="分析结果不存在")
+    if run.status != "CURRENT":
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="只能反馈当前分析结果")
+
+    if feedback_data.scope == "EVENT":
+        event = (
+            db.query(DiaryEvent)
+            .filter(
+                DiaryEvent.id == feedback_data.event_id,
+                DiaryEvent.diary_organized_id == run.diary_organized_id,
+            )
+            .first()
+        )
+        if not event:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="事件不存在")
+
+    query = db.query(AnalysisFeedback).filter(
+        AnalysisFeedback.analysis_run_id == feedback_data.analysis_run_id,
+        AnalysisFeedback.user_id == current_user.id,
+        AnalysisFeedback.scope == feedback_data.scope,
+        AnalysisFeedback.analysis_type == feedback_data.analysis_type,
+    )
+    if feedback_data.event_id is None:
+        query = query.filter(AnalysisFeedback.event_id.is_(None))
+    else:
+        query = query.filter(AnalysisFeedback.event_id == feedback_data.event_id)
+    feedback = query.first()
+
+    if feedback:
+        feedback.rating = feedback_data.rating
+        feedback.comment = feedback_data.comment
+        feedback.is_inherited = False
+        feedback.updated_at = datetime.utcnow()
+    else:
+        feedback = AnalysisFeedback(
+            analysis_run_id=feedback_data.analysis_run_id,
+            user_id=current_user.id,
+            scope=feedback_data.scope,
+            event_id=feedback_data.event_id,
+            analysis_type=feedback_data.analysis_type,
+            rating=feedback_data.rating,
+            comment=feedback_data.comment,
+            is_inherited=False,
+        )
+        db.add(feedback)
+
+    db.commit()
+    db.refresh(feedback)
+    return feedback
 
 
 # ─────────────────── 日记详情 / 状态变更 / 整理 / 标签 ───────────────────
@@ -173,12 +340,12 @@ def get_diary(
     """获取日记详情（包含整理内容和标签）"""
     diary = (
         db.query(Diary)
-        .filter(Diary.id == diary_id, Diary.user_id == current_user.id)
+        .filter(Diary.id == diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None))
         .first()
     )
     if not diary:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="日记不存在")
-    return diary
+    return serialize_diary(diary, db, current_user.id)
 
 
 @router.put("/{diary_id}", response_model=DiaryResponse)
@@ -191,7 +358,7 @@ def update_diary(
     """更新日记原文（仅 saved 和 organized 状态可编辑）"""
     diary = (
         db.query(Diary)
-        .filter(Diary.id == diary_id, Diary.user_id == current_user.id)
+        .filter(Diary.id == diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None))
         .first()
     )
     if not diary:
@@ -216,7 +383,7 @@ def update_diary(
 
     db.commit()
     db.refresh(diary)
-    return diary
+    return serialize_diary(diary, db, current_user.id)
 
 
 @router.delete("/{diary_id}", status_code=status.HTTP_204_NO_CONTENT)
@@ -225,10 +392,10 @@ def delete_diary(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    """删除日记及其整理、分析、标签关联和历史任务"""
+    """软删除日记，保留整理、分析、反馈和任务数据"""
     diary = (
         db.query(Diary)
-        .filter(Diary.id == diary_id, Diary.user_id == current_user.id)
+        .filter(Diary.id == diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None))
         .first()
     )
     if not diary:
@@ -249,48 +416,8 @@ def delete_diary(
             detail="当前日记正在整理或分析，完成后再删除",
         )
 
-    organized_id = diary.organized.id if diary.organized else None
-    event_ids = []
-    if organized_id:
-        event_ids = [
-            row[0]
-            for row in db.query(DiaryEvent.id)
-            .filter(DiaryEvent.diary_organized_id == organized_id)
-            .all()
-        ]
-
-    if event_ids:
-        db.query(EventTag).filter(EventTag.diary_event_id.in_(event_ids)).delete(
-            synchronize_session=False
-        )
-
-    db.execute(diary_tags.delete().where(diary_tags.c.diary_id == diary_id))
-
-    if organized_id:
-        db.query(DiaryAnalysis).filter(
-            DiaryAnalysis.diary_organized_id == organized_id
-        ).delete(synchronize_session=False)
-        db.query(DiaryCheckLog).filter(
-            DiaryCheckLog.diary_organized_id == organized_id
-        ).delete(synchronize_session=False)
-        db.query(DiaryCleanCheckLog).filter(
-            DiaryCleanCheckLog.diary_organized_id == organized_id
-        ).delete(synchronize_session=False)
-        db.query(DiaryEvent).filter(
-            DiaryEvent.diary_organized_id == organized_id
-        ).delete(synchronize_session=False)
-        db.query(DiaryOrganized).filter(DiaryOrganized.id == organized_id).delete(
-            synchronize_session=False
-        )
-
-    db.query(OrganizeTask).filter(
-        OrganizeTask.diary_id == diary_id,
-        OrganizeTask.user_id == current_user.id,
-    ).delete(synchronize_session=False)
-    db.query(Diary).filter(
-        Diary.id == diary_id,
-        Diary.user_id == current_user.id,
-    ).delete(synchronize_session=False)
+    diary.deleted_at = datetime.utcnow()
+    diary.deleted_by = current_user.id
     db.commit()
 
 
@@ -304,7 +431,7 @@ async def organize_diary(
     # 1. 查找日记，校验属于当前用户
     diary = (
         db.query(Diary)
-        .filter(Diary.id == diary_id, Diary.user_id == current_user.id)
+        .filter(Diary.id == diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None))
         .first()
     )
     if not diary:
@@ -468,7 +595,7 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
             ))
 
         # 更新日记状态
-        diary = db.query(Diary).filter(Diary.id == diary_id).first()
+        diary = db.query(Diary).filter(Diary.id == diary_id, Diary.deleted_at.is_(None)).first()
         if diary:
             diary.status = DiaryStatus.organized
 
@@ -506,10 +633,12 @@ def get_organize_status(
     """查询整理任务状态"""
     task = (
         db.query(OrganizeTask)
+        .join(Diary, Diary.id == OrganizeTask.diary_id)
         .filter(
             OrganizeTask.diary_id == diary_id,
             OrganizeTask.user_id == current_user.id,
             OrganizeTask.task_type == "organize",
+            Diary.deleted_at.is_(None),
         )
         .order_by(OrganizeTask.created_at.desc())
         .first()
@@ -535,7 +664,7 @@ async def analyze_diary(
     # 1. 查找日记，校验属于当前用户
     diary = (
         db.query(Diary)
-        .filter(Diary.id == diary_id, Diary.user_id == current_user.id)
+        .filter(Diary.id == diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None))
         .first()
     )
     if not diary:
@@ -554,6 +683,15 @@ async def analyze_diary(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="日记尚未整理，无法分析",
         )
+
+    # 本次分析模式由当前有效反馈决定，并在任务创建后固定下来。
+    current_run = get_current_analysis_run(db, diary.id)
+    has_effective_feedback = bool(
+        current_run and effective_feedback(db, current_run.id)
+    )
+    analysis_mode = "feedback" if has_effective_feedback else "ordinary"
+    feedback_run_id = str(current_run.id) if has_effective_feedback else None
+    feedback_source_run_id = str(current_run.id) if current_run else None
 
     # 4. 检查是否已有 running 分析任务
     existing_task = (
@@ -590,6 +728,7 @@ async def analyze_diary(
             OrganizeTask.user_id == current_user.id,
             OrganizeTask.task_type == "analyze",
             OrganizeTask.status == "failed",
+            OrganizeTask.analysis_mode == analysis_mode,
         )
         .order_by(OrganizeTask.created_at.desc())
         .first()
@@ -597,7 +736,7 @@ async def analyze_diary(
     if failed_task:
         failed_task.status = "running"
         failed_task.error_message = None
-        failed_task.current_step = "mood_tag_extracting"
+        failed_task.current_step = "analysis_generating"
         db.commit()
         db.refresh(failed_task)
         task = failed_task
@@ -607,8 +746,9 @@ async def analyze_diary(
             diary_id=diary_id,
             user_id=current_user.id,
             task_type="analyze",
+            analysis_mode=analysis_mode,
             status="running",
-            current_step="mood_tag_extracting",
+            current_step="analysis_generating",
         )
         db.add(task)
         db.commit()
@@ -640,6 +780,9 @@ async def analyze_diary(
             diary_organized_id=str(diary_organized.id),
             original_text=diary.original_text,
             structured_diary=structured_diary,
+            analysis_mode=analysis_mode,
+            feedback_run_id=feedback_run_id,
+            feedback_source_run_id=feedback_source_run_id,
         )
     )
 
@@ -648,7 +791,7 @@ async def analyze_diary(
         diary_id=diary_id,
         status="running",
         task_type="analyze",
-        current_step="mood_tag_extracting",
+        current_step="analysis_generating",
         error_message=None,
     )
 
@@ -660,19 +803,36 @@ async def _run_analyze(
     diary_organized_id: str,
     original_text: str,
     structured_diary: dict,
+    analysis_mode: str,
+    feedback_run_id: str | None = None,
+    feedback_source_run_id: str | None = None,
 ):
     """后台执行 AI 分析（独立 DB session）"""
     db = SessionLocal()
     try:
-        # 调用分析流水线（内部完成标签落库 + 结果存储 + 状态更新为 analyzed）
-        await ai_service.analyze_diary(
-            original_text=original_text,
-            structured_diary=structured_diary,
-            task_id=task_id,
-            diary_id=diary_id,
-            user_id=user_id,
-            diary_organized_id=diary_organized_id,
-        )
+        if analysis_mode == "feedback":
+            if not feedback_run_id:
+                raise ValueError("反馈分析任务缺少上一轮分析结果")
+            from services.analysis_pipeline import run_feedback_reanalysis_pipeline
+            await run_feedback_reanalysis_pipeline(
+                structured_diary=structured_diary,
+                task_id=task_id,
+                diary_id=diary_id,
+                user_id=user_id,
+                diary_organized_id=diary_organized_id,
+                previous_run_id=feedback_run_id,
+            )
+        else:
+            # 调用分析流水线（内部完成标签落库 + 结果存储 + 状态更新为 analyzed）
+            await ai_service.analyze_diary(
+                original_text=original_text,
+                structured_diary=structured_diary,
+                task_id=task_id,
+                diary_id=diary_id,
+                user_id=user_id,
+                diary_organized_id=diary_organized_id,
+                feedback_source_run_id=feedback_source_run_id,
+            )
 
         # 更新任务状态
         task = db.query(OrganizeTask).filter(OrganizeTask.id == task_id).first()
@@ -702,10 +862,12 @@ def get_analyze_status(
     """查询分析任务状态"""
     task = (
         db.query(OrganizeTask)
+        .join(Diary, Diary.id == OrganizeTask.diary_id)
         .filter(
             OrganizeTask.diary_id == diary_id,
             OrganizeTask.user_id == current_user.id,
             OrganizeTask.task_type == "analyze",
+            Diary.deleted_at.is_(None),
         )
         .order_by(OrganizeTask.created_at.desc())
         .first()
@@ -731,7 +893,7 @@ def update_organized(
     """修改日记的整理内容（仅更新非 None 的字段）"""
     diary = (
         db.query(Diary)
-        .filter(Diary.id == diary_id, Diary.user_id == current_user.id)
+        .filter(Diary.id == diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None))
         .first()
     )
     if not diary:
@@ -801,7 +963,7 @@ def update_organized(
 
     db.commit()
     db.refresh(organized)
-    return organized
+    return serialize_organized(organized, get_current_analysis_run(db, diary.id), current_user.id)
 
 
 @router.put("/{diary_id}/events/{event_id}", response_model=DiaryEventResponse)
@@ -815,7 +977,7 @@ def update_diary_event(
     """更新单个事件内容（仅 organized 和 analyzed 状态）"""
     diary = (
         db.query(Diary)
-        .filter(Diary.id == diary_id, Diary.user_id == current_user.id)
+        .filter(Diary.id == diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None))
         .first()
     )
     if not diary:
@@ -863,7 +1025,7 @@ def update_diary_event(
 
     db.commit()
     db.refresh(event)
-    return event
+    return serialize_event(event, get_current_analysis_run(db, diary.id), current_user.id)
 
 
 @router.put("/{diary_id}/tags", response_model=DiaryResponse)
@@ -876,7 +1038,7 @@ def update_diary_tags(
     """更新日记标签：先删除现有关联，再建立新关联"""
     diary = (
         db.query(Diary)
-        .filter(Diary.id == diary_id, Diary.user_id == current_user.id)
+        .filter(Diary.id == diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None))
         .first()
     )
     if not diary:
@@ -897,4 +1059,4 @@ def update_diary_tags(
 
     db.commit()
     db.refresh(diary)
-    return diary
+    return serialize_diary(diary, db, current_user.id)

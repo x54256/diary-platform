@@ -16,18 +16,29 @@ from sqlalchemy.orm import Session
 
 from config import settings
 from models.backup import BackupImportReport, BackupRestoreRecord
-from models.diary import Diary, DiaryAnalysis, DiaryEvent, DiaryOrganized, DiaryStatus, OrganizeTask
+from models.diary import (
+    AnalysisFeedback,
+    AnalysisItem,
+    AnalysisRun,
+    Diary,
+    DiaryEvent,
+    DiaryOrganized,
+    DiaryStatus,
+    OrganizeTask,
+)
 from models.tag import EventTag, Tag, diary_tags
 from models.user import User
 
-BACKUP_SCHEMA_VERSION = 1
+BACKUP_SCHEMA_VERSION = 2
 BACKUP_TABLES = [
     "users",
     "diaries",
     "organize_tasks",
     "diary_organized",
     "diary_events",
-    "diary_analysis",
+    "analysis_runs",
+    "analysis_items",
+    "analysis_feedback",
     "tags",
     "diary_tags",
     "event_tags",
@@ -39,7 +50,9 @@ MODEL_BY_TABLE = {
     "organize_tasks": OrganizeTask,
     "diary_organized": DiaryOrganized,
     "diary_events": DiaryEvent,
-    "diary_analysis": DiaryAnalysis,
+    "analysis_runs": AnalysisRun,
+    "analysis_items": AnalysisItem,
+    "analysis_feedback": AnalysisFeedback,
     "tags": Tag,
     "event_tags": EventTag,
 }
@@ -50,7 +63,9 @@ IMPORT_ORDER = [
     "organize_tasks",
     "diary_organized",
     "diary_events",
-    "diary_analysis",
+    "analysis_runs",
+    "analysis_items",
+    "analysis_feedback",
     "tags",
     "diary_tags",
     "event_tags",
@@ -158,9 +173,14 @@ def table_rows(
     elif table_name == "diary_events":
         organized_ids = db.query(DiaryOrganized.id).filter(DiaryOrganized.diary_id.in_(diary_ids))
         rows = db.query(DiaryEvent).filter(DiaryEvent.diary_organized_id.in_(organized_ids)).all()
-    elif table_name == "diary_analysis":
-        organized_ids = db.query(DiaryOrganized.id).filter(DiaryOrganized.diary_id.in_(diary_ids))
-        rows = db.query(DiaryAnalysis).filter(DiaryAnalysis.diary_organized_id.in_(organized_ids)).all()
+    elif table_name == "analysis_runs":
+        rows = db.query(AnalysisRun).filter(AnalysisRun.diary_id.in_(diary_ids)).all()
+    elif table_name == "analysis_items":
+        run_ids = db.query(AnalysisRun.id).filter(AnalysisRun.diary_id.in_(diary_ids))
+        rows = db.query(AnalysisItem).filter(AnalysisItem.analysis_run_id.in_(run_ids)).all()
+    elif table_name == "analysis_feedback":
+        run_ids = db.query(AnalysisRun.id).filter(AnalysisRun.diary_id.in_(diary_ids))
+        rows = db.query(AnalysisFeedback).filter(AnalysisFeedback.analysis_run_id.in_(run_ids)).all()
     elif table_name == "tags":
         owner_ids = [row[0] for row in db.query(Diary.user_id).filter(Diary.id.in_(diary_ids)).distinct().all()]
         rows = db.query(Tag).filter(Tag.user_id.in_(owner_ids)).all() if owner_ids else []
@@ -309,12 +329,16 @@ def check_parent_exists(db: Session, table_name: str, row: Dict[str, Any]) -> Op
         "organize_tasks": [("diaries", Diary, "diary_id"), ("users", User, "user_id")],
         "diary_organized": [("organize_tasks", OrganizeTask, "task_id"), ("diaries", Diary, "diary_id")],
         "diary_events": [("diary_organized", DiaryOrganized, "diary_organized_id")],
-        "diary_analysis": [("organize_tasks", OrganizeTask, "task_id"), ("diary_organized", DiaryOrganized, "diary_organized_id")],
+        "analysis_runs": [("diaries", Diary, "diary_id"), ("diary_organized", DiaryOrganized, "diary_organized_id")],
+        "analysis_items": [("analysis_runs", AnalysisRun, "analysis_run_id"), ("diary_events", DiaryEvent, "event_id")],
+        "analysis_feedback": [("analysis_runs", AnalysisRun, "analysis_run_id"), ("users", User, "user_id"), ("diary_events", DiaryEvent, "event_id")],
         "tags": [("users", User, "user_id")],
         "diary_tags": [("diaries", Diary, "diary_id"), ("tags", Tag, "tag_id")],
         "event_tags": [("diary_events", DiaryEvent, "diary_event_id"), ("tags", Tag, "tag_id")],
     }
     for label, model, field in checks.get(table_name, []):
+        if row.get(field) is None:
+            continue
         if db.get(model, parse_uuid(row[field])) is None:
             return f"关联父数据不存在：{label}.{row[field]}"
     return None
@@ -343,12 +367,16 @@ def check_parent_exists_for_precheck(
         "organize_tasks": [("diaries", Diary, "diary_id"), ("users", User, "user_id")],
         "diary_organized": [("organize_tasks", OrganizeTask, "task_id"), ("diaries", Diary, "diary_id")],
         "diary_events": [("diary_organized", DiaryOrganized, "diary_organized_id")],
-        "diary_analysis": [("organize_tasks", OrganizeTask, "task_id"), ("diary_organized", DiaryOrganized, "diary_organized_id")],
+        "analysis_runs": [("diaries", Diary, "diary_id"), ("diary_organized", DiaryOrganized, "diary_organized_id")],
+        "analysis_items": [("analysis_runs", AnalysisRun, "analysis_run_id"), ("diary_events", DiaryEvent, "event_id")],
+        "analysis_feedback": [("analysis_runs", AnalysisRun, "analysis_run_id"), ("users", User, "user_id"), ("diary_events", DiaryEvent, "event_id")],
         "tags": [("users", User, "user_id")],
         "diary_tags": [("diaries", Diary, "diary_id"), ("tags", Tag, "tag_id")],
         "event_tags": [("diary_events", DiaryEvent, "diary_event_id"), ("tags", Tag, "tag_id")],
     }
     for label, model, field in checks.get(table_name, []):
+        if row.get(field) is None:
+            continue
         parent_id = str(row[field])
         if db.get(model, parse_uuid(parent_id)) is not None:
             continue
@@ -402,11 +430,12 @@ def precheck_backup(db: Session, encrypted_bytes: bytes) -> Dict[str, Any]:
 
 def model_values(table_name: str, row: Dict[str, Any]) -> Dict[str, Any]:
     uuid_fields = {
-        "id", "user_id", "diary_id", "task_id", "diary_organized_id", "diary_event_id", "tag_id"
+        "id", "user_id", "diary_id", "task_id", "diary_organized_id", "diary_event_id",
+        "tag_id", "analysis_run_id", "event_id", "deleted_by"
     }
     date_fields = {"diary_date"}
     datetime_fields = {
-        "created_at", "updated_at", "organized_at", "analyzed_at"
+        "created_at", "updated_at", "organized_at", "analyzed_at", "deleted_at"
     }
     values: Dict[str, Any] = {}
     for key, value in row.items():

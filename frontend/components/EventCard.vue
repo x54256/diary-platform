@@ -93,34 +93,11 @@
       <!-- 事件级分析 -->
       <template v-if="!editable && event.analysis">
         <div v-if="hasEventAnalysis" class="mt-3 pt-2 border-t border-neutral-100">
-          <AnalysisGroup
-            v-if="hasUnderstanding"
-            title="自我理解与行动"
-            :data="event.analysis"
-            group="understanding"
-            compact
-            :show-action-suggestions="false"
-          />
-          <div
-            v-if="event.analysis.action_suggestions?.length"
-            class="mt-3"
-          >
-            <div class="text-[15px] font-medium text-neutral-800 mb-1">可行动建议</div>
-            <div class="space-y-2">
-              <div
-                v-for="(item, idx) in event.analysis.action_suggestions"
-                :key="idx"
-                class="text-sm text-neutral-600 leading-relaxed"
-              >
-                {{ item }}
-              </div>
-            </div>
-          </div>
-          <AnalysisGroup
-            v-if="hasCognition"
-            title="认知整理"
-            :data="event.analysis"
-            group="cognition"
+          <AnalysisSection
+            v-for="section in sortedAnalysisSections"
+            :key="section.analysis_type"
+            :analysis-run-id="analysisRunId"
+            :section="section"
             compact
           />
         </div>
@@ -136,6 +113,7 @@ import { ref, computed, watch } from 'vue'
 const props = defineProps<{
   event: any
   editable?: boolean
+  analysisRunId?: string
 }>()
 
 const emit = defineEmits<{
@@ -188,23 +166,21 @@ const sortedTags = computed(() => {
   })
 })
 
-// 事件级分析内容判断
-const hasUnderstanding = computed(() => {
-  const a = props.event.analysis
-  if (!a) return false
-  return (a.emotion_analyses?.length || 0) > 0 ||
-         (a.behavior_decision_analyses?.length || 0) > 0 ||
-         (a.self_understanding_analyses?.length || 0) > 0 ||
-         (a.action_suggestions?.length || 0) > 0
+const sectionOrder = [
+  'EMOTION',
+  'BEHAVIOR_DECISION',
+  'SELF_UNDERSTANDING',
+  'ACTION_SUGGESTION',
+  'COGNITIVE_CALIBRATION',
+  'QUESTION_ANSWER',
+  'COGNITIVE_ENHANCEMENT',
+]
+
+const sortedAnalysisSections = computed(() => {
+  const sections = props.event.analysis || []
+  return [...sections].sort((a: any, b: any) => sectionOrder.indexOf(a.analysis_type) - sectionOrder.indexOf(b.analysis_type))
 })
 
-const hasCognition = computed(() => {
-  const a = props.event.analysis
-  if (!a) return false
-  return (a.cognitive_calibration_analyses?.length || 0) > 0 ||
-         (a.question_answers?.length || 0) > 0 ||
-         (a.cognitive_enhancements?.length || 0) > 0
-})
-
-const hasEventAnalysis = computed(() => hasUnderstanding.value || hasCognition.value)
+const analysisRunId = computed(() => props.analysisRunId || '')
+const hasEventAnalysis = computed(() => sortedAnalysisSections.value.length > 0 && !!analysisRunId.value)
 </script>

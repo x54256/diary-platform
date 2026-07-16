@@ -328,9 +328,9 @@ class AIService:
     """DeepSeek AI 服务封装"""
 
     def __init__(self):
-        self.api_key = settings.DEEPSEEK_API_KEY
-        self.api_url = settings.DEEPSEEK_API_URL
-        self.model = settings.DEEPSEEK_MODEL
+        self.api_key = settings.LLM_API_KEY
+        self.api_url = settings.LLM_API_URL
+        self.model = settings.LLM_MODEL
         self.client = httpx.AsyncClient(timeout=240.0)
 
     async def chat(self, messages: list[dict], context: str = "") -> str:
@@ -345,7 +345,7 @@ class AIService:
         """
         # API Key 未配置时返回友好提示
         if not self.api_key:
-            return "抱歉，AI 服务尚未配置，暂时无法回复。请联系管理员设置 DEEPSEEK_API_KEY。"
+            return "抱歉，AI 服务尚未配置，暂时无法回复。请联系管理员设置 LLM_API_KEY。"
 
         # 构建请求消息：先放 system message（含上下文），再追加对话历史
         api_messages = []
@@ -386,7 +386,7 @@ class AIService:
             Exception: 重试1次后仍失败时抛出
         """
         if not self.api_key:
-            raise Exception("AI 服务未配置 (DEEPSEEK_API_KEY)")
+            raise Exception("AI 服务未配置 (LLM_API_KEY)")
 
         messages = [
             {"role": "system", "content": system_prompt},
@@ -495,6 +495,7 @@ class AIService:
         diary_id: str,
         user_id: str,
         diary_organized_id: str,
+        feedback_source_run_id: str | None = None,
     ) -> dict:
         """触发分析流水线（3 环节 + 独立检查 + 标签落库）
 
@@ -511,11 +512,17 @@ class AIService:
             cognitive_calibration/actionable_suggestions/analysis_check_log 的 dict
         """
         if not self.api_key:
-            raise Exception("AI 服务未配置 (DEEPSEEK_API_KEY)")
+            raise Exception("AI 服务未配置 (LLM_API_KEY)")
 
         from services.analysis_pipeline import run_analysis_pipeline
         return await run_analysis_pipeline(
-            original_text, structured_diary, task_id, diary_id, user_id, diary_organized_id
+            original_text,
+            structured_diary,
+            task_id,
+            diary_id,
+            user_id,
+            diary_organized_id,
+            feedback_source_run_id=feedback_source_run_id,
         )
 
 

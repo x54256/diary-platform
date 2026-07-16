@@ -19,9 +19,9 @@ class Settings(BaseSettings):
     BACKUP_MASTER_KEY: str = "123456"
 
     # DeepSeek API 配置
-    DEEPSEEK_API_KEY: str = ""
-    DEEPSEEK_API_URL: str = "https://api.deepseek.com/v1"
-    DEEPSEEK_MODEL: str = "deepseek-v4-flash"
+    LLM_API_KEY: str = ""
+    LLM_API_URL: str = "https://api.deepseek.com/v1"
+    LLM_MODEL: str = "deepseek-v4-flash"
 
     @property
     def CHECKPOINT_CONN_STRING(self) -> str:

@@ -82,7 +82,7 @@ docker compose up -d
    python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
    ```
 
-2. `DEEPSEEK_API_KEY`：为空时 AI 整理 / AI 伙伴功能不可用。请在 [DeepSeek 开放平台](https://platform.deepseek.com) 申请 API 密钥（`sk-` 开头）后填入。
+2. `LLM_API_KEY`：为空时 AI 整理 / AI 伙伴功能不可用。请在 [DeepSeek 开放平台](https://platform.deepseek.com) 申请 API 密钥（`sk-` 开头）后填入。
 
 另外建议将默认的 `SECRET_KEY` 替换为自行生成的密钥：
 
@@ -137,9 +137,9 @@ SECRET_KEY=<执行: python -c "import secrets; print(secrets.token_urlsafe(32))"
 ENCRYPTION_KEY=<执行: python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())">
 
 # DeepSeek API 配置
-DEEPSEEK_API_KEY=your-deepseek-api-key-here
-DEEPSEEK_API_URL=https://api.deepseek.com/v1
-DEEPSEEK_MODEL=deepseek-v4-flash
+LLM_API_KEY=your-deepseek-api-key-here
+LLM_API_URL=https://api.deepseek.com/v1
+LLM_MODEL=deepseek-v4-flash
 ```
 
 密钥生成命令汇总（在终端执行后将输出值复制到 `.env` 对应字段）：
@@ -204,9 +204,9 @@ npm run dev
 | `DATABASE_URL` | 是 | PostgreSQL 连接串，格式 `postgresql+psycopg2://<用户>:<密码>@<host>:<port>/<数据库名>` | `postgresql+psycopg2://postgres:postgres@localhost:5432/diary_platform` |
 | `SECRET_KEY` | 是 | JWT 签名密钥，生产环境务必替换为随机值 | 生成命令：`python -c "import secrets; print(secrets.token_urlsafe(32))"` |
 | `ENCRYPTION_KEY` | 是 | Fernet 对称加密密钥，用于日记内容加密；为空时加密功能不可用 | 生成命令：`python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"` |
-| `DEEPSEEK_API_KEY` | 是 | DeepSeek 平台 API 密钥，`sk-` 开头；在 https://platform.deepseek.com 申请 | `sk-your-deepseek-api-key-here` |
-| `DEEPSEEK_API_URL` | 否 | DeepSeek API 地址，默认 `https://api.deepseek.com/v1` | `https://api.deepseek.com/v1` |
-| `DEEPSEEK_MODEL` | 否 | DeepSeek 模型名称，可在 DeepSeek 平台查看可用模型列表 | `deepseek-v4-flash` |
+| `LLM_API_KEY` | 是 | DeepSeek 平台 API 密钥，`sk-` 开头；在 https://platform.deepseek.com 申请 | `sk-your-deepseek-api-key-here` |
+| `LLM_API_URL` | 否 | DeepSeek API 地址，默认 `https://api.deepseek.com/v1` | `https://api.deepseek.com/v1` |
+| `LLM_MODEL` | 否 | DeepSeek 模型名称，可在 DeepSeek 平台查看可用模型列表 | `deepseek-v4-flash` |
 
 > 安全提示：以上示例值均为占位符，请勿直接使用。所有密钥请自行生成，`.env` 文件不应提交到版本库。
 

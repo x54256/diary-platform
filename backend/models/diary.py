@@ -30,11 +30,13 @@ class Diary(Base):
     diary_date = Column(Date, nullable=False)
     status = Column(Enum(DiaryStatus), default=DiaryStatus.saved)
     is_dirty = Column(Boolean, default=False, nullable=False)
+    deleted_at = Column(DateTime, nullable=True)
+    deleted_by = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     # 关系映射
-    user = relationship("User", back_populates="diaries")
+    user = relationship("User", back_populates="diaries", foreign_keys=[user_id])
     # 1:1 关系，日记整理内容
     organized = relationship(
         "DiaryOrganized",
@@ -44,6 +46,8 @@ class Diary(Base):
     )
     # M:N 关系，日记标签
     tags = relationship("Tag", secondary="diary_tags", back_populates="diaries")
+    # 历史分析轮次（1:N）
+    analysis_runs = relationship("AnalysisRun", back_populates="diary", cascade="all, delete-orphan")
 
 
 class DiaryOrganized(Base):
@@ -75,37 +79,73 @@ class DiaryOrganized(Base):
     check_logs = relationship("DiaryCheckLog", back_populates="organized", cascade="all, delete-orphan", order_by="DiaryCheckLog.sort_order")
     # 清洗审核日志（1:N）
     clean_check_logs = relationship("DiaryCleanCheckLog", back_populates="organized", cascade="all, delete-orphan", order_by="DiaryCleanCheckLog.sort_order")
-    # 分析结果（1:1）
-    analysis = relationship(
-        "DiaryAnalysis",
-        back_populates="organized",
-        uselist=False,
-        cascade="all, delete-orphan",
-    )
 
+class AnalysisRun(Base):
+    """一次完整分析结果，支持历史版本"""
 
-class DiaryAnalysis(Base):
-    """日记分析结果表（与 diary_organized 表 1:1 关系）"""
-
-    __tablename__ = "diary_analysis"
+    __tablename__ = "analysis_runs"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    task_id = Column(UUID(as_uuid=True), ForeignKey("organize_tasks.id"), nullable=False)
-    diary_organized_id = Column(
-        UUID(as_uuid=True), ForeignKey("diary_organized.id"), unique=True, nullable=False
-    )
-    mood = Column(String(50))                          # 当天整体心情
-    emotion_analyses = Column(Text, nullable=True)     # 情绪分析
-    behavior_decision_analyses = Column(Text, nullable=True)  # 行为与决策分析
-    self_understanding_analyses = Column(Text, nullable=True)  # 自我理解
-    action_suggestions = Column(Text, nullable=True)   # 行动建议
-    cognitive_calibration_analyses = Column(Text, nullable=True)  # 认知校准
-    cognitive_enhancements = Column(Text, nullable=True)  # 认知提升
-    analyzed_at = Column(DateTime, default=datetime.utcnow)
+    diary_id = Column(UUID(as_uuid=True), ForeignKey("diaries.id"), nullable=False)
+    diary_organized_id = Column(UUID(as_uuid=True), ForeignKey("diary_organized.id"), nullable=False)
+    task_id = Column(UUID(as_uuid=True), ForeignKey("organize_tasks.id"), nullable=True)
+    mood = Column(String(50), nullable=True)
+    status = Column(String(20), default="CURRENT", nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-    # 关系映射
-    organized = relationship("DiaryOrganized", back_populates="analysis")
+    diary = relationship("Diary", back_populates="analysis_runs")
+    organized = relationship("DiaryOrganized")
+    items = relationship(
+        "AnalysisItem",
+        back_populates="analysis_run",
+        cascade="all, delete-orphan",
+        order_by="AnalysisItem.sort_order",
+    )
+    feedbacks = relationship("AnalysisFeedback", back_populates="analysis_run", cascade="all, delete-orphan")
+
+
+class AnalysisItem(Base):
+    """分析轮次中的一条分析内容"""
+
+    __tablename__ = "analysis_items"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    analysis_run_id = Column(UUID(as_uuid=True), ForeignKey("analysis_runs.id"), nullable=False)
+    scope = Column(String(20), nullable=False)  # DIARY / EVENT
+    event_id = Column(UUID(as_uuid=True), ForeignKey("diary_events.id"), nullable=True)
+    analysis_type = Column(String(50), nullable=False)
+    content = Column(Text, nullable=False)
+    question = Column(Text, nullable=True)
+    sort_order = Column(Integer, default=0, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    analysis_run = relationship("AnalysisRun", back_populates="items")
+    event = relationship("DiaryEvent")
+
+
+class AnalysisFeedback(Base):
+    """用户对某个分析类型块的反馈"""
+
+    __tablename__ = "analysis_feedback"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    analysis_run_id = Column(UUID(as_uuid=True), ForeignKey("analysis_runs.id"), nullable=False)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
+    scope = Column(String(20), nullable=False)  # DIARY / EVENT
+    event_id = Column(UUID(as_uuid=True), ForeignKey("diary_events.id"), nullable=True)
+    analysis_type = Column(String(50), nullable=False)
+    rating = Column(Integer, nullable=False)
+    comment = Column(Text, nullable=True)
+    is_inherited = Column(Boolean, default=False, nullable=False)
+    source_feedback_id = Column(UUID(as_uuid=True), ForeignKey("analysis_feedback.id"), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    analysis_run = relationship("AnalysisRun", back_populates="feedbacks")
+    user = relationship("User")
+    event = relationship("DiaryEvent")
+    source_feedback = relationship("AnalysisFeedback", remote_side=[id])
 
 
 class DiaryEvent(Base):
@@ -120,7 +160,6 @@ class DiaryEvent(Base):
     feeling = Column(Text, nullable=True)
     reflection = Column(Text, nullable=True)
     event_tags = Column(Text)        # JSON: {"domain":[], "topic":[], "person_object":[], "psychological":[], "knowledge":[]}
-    analysis = Column(Text, nullable=True)  # JSON 序列化的事件级分析结果
     sort_order = Column(Integer, default=0)
     created_at = Column(DateTime, default=datetime.utcnow)
 
@@ -179,6 +218,7 @@ class OrganizeTask(Base):
     user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
     status = Column(String(20), default="running")  # running / completed / failed
     task_type = Column(String(20), default="organize")  # organize（整理）/ analyze（分析）
+    analysis_mode = Column(String(20), nullable=True)  # ordinary（普通分析）/ feedback（反馈分析）
     current_step = Column(String(50), nullable=True)  # text_cleaning / clean_checking / event_organizing / structuring / content_checking / metadata_extracting
     error_message = Column(Text, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)

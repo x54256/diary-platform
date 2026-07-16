@@ -1,4 +1,4 @@
-"""LangGraph 分析流水线 - 3 环节并行 + 标签落库"""
+"""LangGraph 分析流水线 - 3 环节串行 + 标签落库"""
 
 import json
 import logging
@@ -10,8 +10,18 @@ from langgraph.graph import END, START, StateGraph
 
 from config import settings
 from database import SessionLocal
-from models.diary import Diary, DiaryAnalysis, DiaryEvent, DiaryOrganized, DiaryStatus, OrganizeTask
+from models.diary import AnalysisRun, Diary, DiaryEvent, DiaryStatus, OrganizeTask
 from models.tag import EventTag, Tag, diary_tags
+from services.analysis_history import (
+    COGNITION_ANALYSIS_TYPES,
+    CORE_ANALYSIS_TYPES,
+    create_analysis_run_from_state,
+    effective_feedback,
+    feedback_keys_for_run,
+    feedback_to_context,
+    run_to_state,
+    section_key,
+)
 from services.pipeline import _get_llm, _invoke_llm, _update_step, get_checkpointer, cleanup_checkpoint
 
 logger = logging.getLogger(__name__)
@@ -49,6 +59,20 @@ class AnalysisState(TypedDict, total=False):
     diary_cognitive_enhancements: list
 
     # ── 进度追踪 ──
+    current_step: str
+
+
+class FeedbackAnalysisState(TypedDict, total=False):
+    structured_diary: dict
+    task_id: str
+    diary_id: str
+    user_id: str
+    diary_organized_id: str
+    previous_run_id: str
+    previous_state: dict
+    feedback_context: list
+    merged_core: dict
+    merged: dict
     current_step: str
 
 
@@ -102,7 +126,7 @@ structured_diary 是整理后的结构化日记，是主要依据。
   ]
 }"""
 
-CORE_ANALYSIS_PROMPT = """
+CORE_ANALYSIS_RULES = """
 你是专注日记心理复盘的心理咨询分析助手，所有分析仅以传入的events日记事件列表为唯一事实依据，严格遵循统一规范输出JSON结构，客观有据、解读落地。
 
 ## 全局统一硬性约束（全模块通用）
@@ -176,8 +200,9 @@ CORE_ANALYSIS_PROMPT = """
 - 日记建议需要汇总事件级建议中的关键动作，针对全天共性心理、行为问题给出调整动作。
 - 按不同共性问题输出多条，但每条建议都要有独立主题；如果多个动作属于同一个处理方案，应合并为一条。
 - 按重要程度排序，优先放置最能降低负面影响、最能解决重复问题、最容易执行且收益明确的建议。
+"""
 
-## 固定输出JSON模板
+CORE_ANALYSIS_OUTPUT_SCHEMA = """## 固定输出JSON模板
 event_analyses 必须与输入 events 按顺序一一对应，即第 N 项对应 events 第 N 项。即使某个事件四类分析都没有内容，也必须输出该事件对象，并将四个分析数组置为空数组。title 直接复用对应事件标题。不要输出 event_index。
 
 {
@@ -215,7 +240,9 @@ event_analyses 必须与输入 events 按顺序一一对应，即第 N 项对应
 }
 """
 
-COGNITION_ANALYSIS_PROMPT = """你是一个日记认知分析助手。只基于 events 完成认知校准、问题解答和认知完善。
+CORE_ANALYSIS_PROMPT = CORE_ANALYSIS_RULES + "\n\n" + CORE_ANALYSIS_OUTPUT_SCHEMA
+
+COGNITION_ANALYSIS_RULES = """你是一个日记认知分析助手。只基于 events 完成认知校准、问题解答和认知完善。
 ## 通用规则
 - 仅以输入的 events 为唯一事实依据。事件级结果按 events 顺序排列，event_analyses 第 N 项对应 events 第 N 项，title 直接复用原事件标题；无符合内容时对应数组返回空。
 - 输出内容人称要求：分析内容是写给用户本人看的，不要使用“用户……”这类第三人称表述，优先使用“你……”或直接使用无主语的分析句式。
@@ -248,8 +275,9 @@ COGNITION_ANALYSIS_PROMPT = """你是一个日记认知分析助手。只基于 
 - 格式为“总结词语：详细说明”
 日记级规则：
 - 跨多个事件的共性知识单元归入日记级。
+"""
 
-## 输出要求
+COGNITION_ANALYSIS_OUTPUT_SCHEMA = """## 输出要求
 请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：
 
 {
@@ -279,6 +307,8 @@ COGNITION_ANALYSIS_PROMPT = """你是一个日记认知分析助手。只基于 
     ]
   }
 }"""
+
+COGNITION_ANALYSIS_PROMPT = COGNITION_ANALYSIS_RULES + "\n\n" + COGNITION_ANALYSIS_OUTPUT_SCHEMA
 
 
 # ---------------------------------------------------------------------------
@@ -311,6 +341,10 @@ def _list_len(value: Any) -> int:
     return len(value) if isinstance(value, list) else 0
 
 
+def safe_list(value: Any) -> list:
+    return value if isinstance(value, list) else []
+
+
 def _count_event_inner_items(event_items: Any, inner_key: str) -> int:
     if not isinstance(event_items, list):
         return 0
@@ -324,7 +358,6 @@ def _count_event_inner_items(event_items: Any, inner_key: str) -> int:
 async def mood_tag_extract(state: AnalysisState) -> dict:
     """Node 1 (环节 7): 心情 + 标签提取 (temp=0.3)"""
     task_id = state["task_id"]
-    _update_step(task_id, "mood_tag_extracting")
 
     original_text = state["original_text"]
     structured_diary = state["structured_diary"]
@@ -387,7 +420,6 @@ async def mood_tag_extract(state: AnalysisState) -> dict:
 async def core_analysis(state: AnalysisState) -> dict:
     """环节 8：核心分析 + 可行动建议"""
     task_id = state["task_id"]
-    _update_step(task_id, "core_analyzing")
 
     events = state["structured_diary"].get("events", [])
     input_data = {"events": events}
@@ -457,7 +489,6 @@ async def core_analysis(state: AnalysisState) -> dict:
 async def cognition_analysis(state: AnalysisState) -> dict:
     """环节 9：认知校准 + 问题解答 + 认知完善"""
     task_id = state["task_id"]
-    _update_step(task_id, "cognition_analyzing")
 
     events = state["structured_diary"].get("events", [])
     input_data = {"events": events}
@@ -521,6 +552,84 @@ async def cognition_analysis(state: AnalysisState) -> dict:
         _list_len(output["diary_cognitive_enhancements"]),
     )
     return output
+
+
+async def feedback_core_analysis(state: FeedbackAnalysisState) -> dict:
+    """反馈重分析节点 1：根据反馈重写核心分析。"""
+    task_id = state["task_id"]
+    _update_step(task_id, "analysis_generating")
+
+    feedback_context = state["feedback_context"]
+    core_input = {
+        "structured_diary": state["structured_diary"],
+        "previous_core_analysis": {
+            "diary_analysis": state["previous_state"]["diary_analysis"],
+            "event_analyses": state["previous_state"]["event_analyses"],
+        },
+        "feedback": [
+            item for item in feedback_context if item["analysis_type"] in CORE_ANALYSIS_TYPES
+        ],
+    }
+    if not core_input["feedback"]:
+        return {"merged_core": state["previous_state"]}
+
+    llm = _get_llm(0.2)
+    core_result = await _invoke_llm(
+        llm,
+        FEEDBACK_CORE_ANALYSIS_PROMPT,
+        _log_llm_request("feedback_core_analysis", FEEDBACK_CORE_ANALYSIS_PROMPT, core_input),
+        step_name="feedback_core_analysis",
+    )
+    _log_llm_response("feedback_core_analysis", core_result)
+    return {
+        "merged_core": _merge_feedback_core(
+            state["previous_state"], core_result, feedback_context
+        )
+    }
+
+
+async def feedback_cognition_analysis(state: FeedbackAnalysisState) -> dict:
+    """反馈重分析节点 2：根据反馈重写认知分析。"""
+    task_id = state["task_id"]
+    _update_step(task_id, "analysis_generating")
+
+    feedback_context = state["feedback_context"]
+    previous_state = state["previous_state"]
+    cognition_input = {
+        "structured_diary": state["structured_diary"],
+        "previous_cognition_analysis": {
+            "diary_cognitive_calibration_analyses": previous_state[
+                "diary_cognitive_calibration_analyses"
+            ],
+            "diary_cognitive_enhancements": previous_state["diary_cognitive_enhancements"],
+            "event_cognitive_calibration_analyses": previous_state[
+                "event_cognitive_calibration_analyses"
+            ],
+            "event_question_answers": previous_state["event_question_answers"],
+            "event_cognitive_enhancements": previous_state["event_cognitive_enhancements"],
+        },
+        "feedback": [
+            item for item in feedback_context if item["analysis_type"] in COGNITION_ANALYSIS_TYPES
+        ],
+    }
+    if not cognition_input["feedback"]:
+        return {"merged": state["merged_core"]}
+
+    llm = _get_llm(0.2)
+    cognition_result = await _invoke_llm(
+        llm,
+        FEEDBACK_COGNITION_ANALYSIS_PROMPT,
+        _log_llm_request(
+            "feedback_cognition_analysis", FEEDBACK_COGNITION_ANALYSIS_PROMPT, cognition_input
+        ),
+        step_name="feedback_cognition_analysis",
+    )
+    _log_llm_response("feedback_cognition_analysis", cognition_result)
+    return {
+        "merged": _merge_feedback_cognition(
+            state["merged_core"], cognition_result, feedback_context
+        )
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -656,74 +765,27 @@ def _persist_tags(
 # 结果存储 + 状态更新
 # ---------------------------------------------------------------------------
 
-def _save_analysis_result(state: AnalysisState, diary_organized_id: str):
-    """将分析结果存入数据库：日记级分析写入 diary_analysis 表，事件级分析写入 diary_events.analysis"""
+def _save_analysis_result(
+    state: AnalysisState,
+    diary_organized_id: str,
+    feedback_source_run_id: str | None = None,
+    inherited_feedback_keys: set[tuple] | None = None,
+):
+    """将分析结果存入历史分析表，并将新轮次标记为 CURRENT。"""
     db = SessionLocal()
     try:
-        task_id = state["task_id"]
         diary_id = state["diary_id"]
-
-        org_uuid = uuid.UUID(diary_organized_id) if isinstance(diary_organized_id, str) else diary_organized_id
+        task_id = state["task_id"]
         diary_uuid = uuid.UUID(diary_id) if isinstance(diary_id, str) else diary_id
-
-        # 辅助函数：JSON 序列化
-        def to_json(val):
-            if val is None:
-                return None
-            return json.dumps(val, ensure_ascii=False)
-
-        # 辅助函数：按顺序从事件数组中提取指定事件的分析
-        def extract_event_items(event_items, event_idx, inner_key):
-            if not isinstance(event_items, list):
-                return []
-            if event_idx >= len(event_items):
-                return []
-            item = event_items[event_idx]
-            if not isinstance(item, dict):
-                return []
-            value = item.get(inner_key, [])
-            return value if isinstance(value, list) else []
-
-        diary_analysis = state.get("diary_analysis", {})
-        if not isinstance(diary_analysis, dict):
-            diary_analysis = {}
-
-        # 先删除该 diary_organized 的旧分析记录（重新分析场景）
-        db.query(DiaryAnalysis).filter(
-            DiaryAnalysis.diary_organized_id == org_uuid
-        ).delete()
-
-        # 1. 保存日记级分析
-        analysis = DiaryAnalysis(
-            task_id=uuid.UUID(task_id) if isinstance(task_id, str) else task_id,
-            diary_organized_id=org_uuid,
-            mood=state.get("mood", ""),
-            emotion_analyses=to_json(diary_analysis.get("emotion_analyses", [])),
-            behavior_decision_analyses=to_json(diary_analysis.get("behavior_decision_analyses", [])),
-            self_understanding_analyses=to_json(diary_analysis.get("self_understanding_analyses", [])),
-            action_suggestions=to_json(diary_analysis.get("action_suggestions", [])),
-            cognitive_calibration_analyses=to_json(state.get("diary_cognitive_calibration_analyses", [])),
-            cognitive_enhancements=to_json(state.get("diary_cognitive_enhancements", [])),
-            analyzed_at=datetime.now(),
+        if feedback_source_run_id and inherited_feedback_keys is None:
+            inherited_feedback_keys = feedback_keys_for_run(db, feedback_source_run_id)
+        create_analysis_run_from_state(
+            db,
+            state,
+            diary_organized_id,
+            feedback_source_run_id=feedback_source_run_id,
+            inherited_feedback_keys=inherited_feedback_keys,
         )
-        db.add(analysis)
-
-        # 2. 保存事件级分析
-        event_records = db.query(DiaryEvent).filter(
-            DiaryEvent.diary_organized_id == org_uuid
-        ).order_by(DiaryEvent.sort_order).all()
-
-        for idx, event_record in enumerate(event_records):
-            event_analysis = {
-                "emotion_analyses": extract_event_items(state.get("event_analyses", []), idx, "emotion_analyses"),
-                "behavior_decision_analyses": extract_event_items(state.get("event_analyses", []), idx, "behavior_decision_analyses"),
-                "self_understanding_analyses": extract_event_items(state.get("event_analyses", []), idx, "self_understanding_analyses"),
-                "action_suggestions": extract_event_items(state.get("event_analyses", []), idx, "action_suggestions"),
-                "cognitive_calibration_analyses": extract_event_items(state.get("event_cognitive_calibration_analyses", []), idx, "cognitive_calibration_analyses"),
-                "question_answers": extract_event_items(state.get("event_question_answers", []), idx, "question_answers"),
-                "cognitive_enhancements": extract_event_items(state.get("event_cognitive_enhancements", []), idx, "cognitive_enhancements"),
-            }
-            event_record.analysis = json.dumps(event_analysis, ensure_ascii=False)
 
         # 更新日记状态为 analyzed
         diary = db.query(Diary).filter(Diary.id == diary_uuid).first()
@@ -740,6 +802,196 @@ def _save_analysis_result(state: AnalysisState, diary_organized_id: str):
         db.close()
 
 
+FEEDBACK_CORE_ANALYSIS_OUTPUT_SCHEMA = """
+
+## 反馈重写模式
+你将收到 3 类输入：
+1. structured_diary：结构化日记，是唯一事实依据。只能基于其中的 events、trivia、plans 进行重写。
+2. previous_core_analysis：上一轮核心分析结果，是本次被参考和修正的旧分析，不是事实依据。
+3. feedback：用户对上一轮分析结果的反馈意见，用于指出旧分析哪里不准确、太泛、遗漏重点或需要调整。feedback 不是事实，不能当作新增日记内容。
+
+## 重写范围
+- 本次只重写 feedback 命中的 analysis_type。
+- 用户对某个事件的某个 analysis_type 的反馈，作用于该事件该 analysis_type 的整体分析内容，不只是修改某一句话。
+
+## 日记级同步重写
+- 如果 feedback 命中 EVENT 级某个 analysis_type，必须同时重写 DIARY 级同一个 analysis_type。
+- DIARY 级同类型分析要基于全量 structured_diary.events，并参考 previous_core_analysis 中同类型的事件级分析和本次事件级重写方向重新得出。如果用户对日记级分析结果给了反馈意见要着重参考。
+
+## 输出要求
+- 输出必须是标准 JSON，不要包含 markdown、解释文字或额外字段。
+格式如下：
+{
+  "rewrites": [
+    {
+      "scope": "DIARY",
+      "event_title": null,
+      "analysis_type": "EMOTION",
+      "items": ["重写后的分析内容"]
+    },
+    {
+      "scope": "EVENT",
+      "event_title": "事件标题",
+      "analysis_type": "BEHAVIOR_DECISION",
+      "items": ["重写后的分析内容"]
+    }
+  ]
+}
+"""
+
+FEEDBACK_CORE_ANALYSIS_PROMPT = CORE_ANALYSIS_RULES + "\n\n" + FEEDBACK_CORE_ANALYSIS_OUTPUT_SCHEMA
+
+
+FEEDBACK_COGNITION_ANALYSIS_OUTPUT_SCHEMA = """
+
+## 反馈重写模式
+你将收到 3 类输入：
+1. structured_diary：结构化日记，是唯一事实依据。只能基于其中的 events、trivia、plans 进行重写。
+2. previous_cognition_analysis：上一轮认知分析结果，是本次被参考和修正的旧分析，不是事实依据。
+3. feedback：用户对上一轮分析结果的反馈意见，用于指出旧分析哪里不准确、太泛、遗漏重点或需要调整。feedback 不是事实，不能当作新增日记内容。
+
+## 重写范围
+- 本次只重写 feedback 命中的 analysis_type。
+- 用户对某个事件的某个 analysis_type 的反馈，不要扩散到其他 analysis_type。
+
+## 日记级同步重写
+- 如果 feedback 命中 EVENT 级某个 analysis_type，必须同时重写 DIARY 级同一个 analysis_type。
+- DIARY 级同类型分析要基于全量 structured_diary.events，并参考 previous_cognition_analysis 中同类型的事件级分析和本次事件级重写方向重新得出。如果用户对日记级分析结果给了反馈意见要着重参考。
+
+## 输出要求
+- 输出必须是标准 JSON，不要包含 markdown、解释文字或额外字段。
+格式如下：
+{
+  "rewrites": [
+    {
+      "scope": "DIARY",
+      "event_title": null,
+      "analysis_type": "COGNITIVE_CALIBRATION",
+      "items": ["重写后的分析内容"]
+    },
+    {
+      "scope": "EVENT",
+      "event_title": "事件标题",
+      "analysis_type": "QUESTION_ANSWER",
+      "items": [
+        {"question": "问题", "answer": "重写后的回答"}
+      ]
+    }
+  ]
+}
+"""
+
+FEEDBACK_COGNITION_ANALYSIS_PROMPT = COGNITION_ANALYSIS_RULES + "\n\n" + FEEDBACK_COGNITION_ANALYSIS_OUTPUT_SCHEMA
+
+
+def _feedback_targets(feedback_context: list[dict], allowed_types: set[str]) -> set[tuple]:
+    targets = {
+        (item.get("scope"), item.get("event_title"), item.get("analysis_type"))
+        for item in feedback_context
+        if item.get("analysis_type") in allowed_types
+    }
+    for scope, _event_title, analysis_type in list(targets):
+        if scope == "EVENT":
+            targets.add(("DIARY", None, analysis_type))
+    return targets
+
+
+def _inherited_feedback_keys(feedback_context: list[dict]) -> set[tuple]:
+    keys = set()
+    for item in feedback_context:
+        scope = item.get("scope")
+        event_id = item.get("event_id")
+        analysis_type = item.get("analysis_type")
+        if scope not in {"DIARY", "EVENT"} or not analysis_type:
+            continue
+        keys.add(section_key(scope, event_id, analysis_type))
+        if scope == "EVENT":
+            keys.add(section_key("DIARY", None, analysis_type))
+    return keys
+
+
+def _rewrite_items_by_target(rewritten: dict) -> dict[tuple, list]:
+    result: dict[tuple, list] = {}
+    rewrites = rewritten.get("rewrites", []) if isinstance(rewritten, dict) else []
+    if not isinstance(rewrites, list):
+        return result
+    for rewrite in rewrites:
+        if not isinstance(rewrite, dict):
+            continue
+        scope = rewrite.get("scope")
+        event_title = rewrite.get("event_title")
+        analysis_type = rewrite.get("analysis_type")
+        items = rewrite.get("items", [])
+        if scope not in {"DIARY", "EVENT"} or not analysis_type or not isinstance(items, list):
+            continue
+        result[(scope, event_title, analysis_type)] = items
+    return result
+
+
+def _merge_feedback_core(previous: dict, rewritten: dict, feedback_context: list[dict]) -> dict:
+    targets = _feedback_targets(feedback_context, CORE_ANALYSIS_TYPES)
+    if not targets:
+        return previous
+
+    merged = json.loads(json.dumps(previous, ensure_ascii=False))
+    rewrite_items = _rewrite_items_by_target(rewritten)
+    field_by_type = {
+        "EMOTION": "emotion_analyses",
+        "BEHAVIOR_DECISION": "behavior_decision_analyses",
+        "SELF_UNDERSTANDING": "self_understanding_analyses",
+        "ACTION_SUGGESTION": "action_suggestions",
+    }
+
+    for analysis_type, field_name in field_by_type.items():
+        if ("DIARY", None, analysis_type) in targets:
+            rewrite_key = ("DIARY", None, analysis_type)
+            if rewrite_key in rewrite_items:
+                merged["diary_analysis"][field_name] = safe_list(rewrite_items[rewrite_key])
+
+    for idx, current_event in enumerate(merged.get("event_analyses", [])):
+        title = current_event.get("title")
+        for analysis_type, field_name in field_by_type.items():
+            if ("EVENT", title, analysis_type) in targets:
+                rewrite_key = ("EVENT", title, analysis_type)
+                if rewrite_key in rewrite_items:
+                    current_event[field_name] = safe_list(rewrite_items[rewrite_key])
+
+    return merged
+
+
+def _merge_feedback_cognition(previous: dict, rewritten: dict, feedback_context: list[dict]) -> dict:
+    targets = _feedback_targets(feedback_context, COGNITION_ANALYSIS_TYPES)
+    if not targets:
+        return previous
+
+    merged = json.loads(json.dumps(previous, ensure_ascii=False))
+    rewrite_items = _rewrite_items_by_target(rewritten)
+
+    if ("DIARY", None, "COGNITIVE_CALIBRATION") in targets:
+        rewrite_key = ("DIARY", None, "COGNITIVE_CALIBRATION")
+        if rewrite_key in rewrite_items:
+            merged["diary_cognitive_calibration_analyses"] = safe_list(rewrite_items[rewrite_key])
+    if ("DIARY", None, "COGNITIVE_ENHANCEMENT") in targets:
+        rewrite_key = ("DIARY", None, "COGNITIVE_ENHANCEMENT")
+        if rewrite_key in rewrite_items:
+            merged["diary_cognitive_enhancements"] = safe_list(rewrite_items[rewrite_key])
+
+    event_field_map = {
+        "COGNITIVE_CALIBRATION": ("event_cognitive_calibration_analyses", "cognitive_calibration_analyses"),
+        "QUESTION_ANSWER": ("event_question_answers", "question_answers"),
+        "COGNITIVE_ENHANCEMENT": ("event_cognitive_enhancements", "cognitive_enhancements"),
+    }
+    for analysis_type, (state_key, field_name) in event_field_map.items():
+        for idx, current_event in enumerate(merged.get(state_key, [])):
+            title = current_event.get("title")
+            if ("EVENT", title, analysis_type) in targets:
+                rewrite_key = ("EVENT", title, analysis_type)
+                if rewrite_key in rewrite_items:
+                    current_event[field_name] = safe_list(rewrite_items[rewrite_key])
+
+    return merged
+
+
 # ---------------------------------------------------------------------------
 # 流水线执行
 # ---------------------------------------------------------------------------
@@ -751,8 +1003,9 @@ async def run_analysis_pipeline(
     diary_id: str,
     user_id: str,
     diary_organized_id: str,
+    feedback_source_run_id: str | None = None,
 ) -> dict:
-    """构建并执行 LangGraph 分析流水线（3 环节并行）"""
+    """构建并执行 LangGraph 分析流水线（3 环节串行）。"""
     logger.info(
         "分析流水线开始: diary_id=%s, task_id=%s, diary_organized_id=%s, event_count=%d",
         diary_id,
@@ -760,18 +1013,16 @@ async def run_analysis_pipeline(
         diary_organized_id,
         _list_len(structured_diary.get("events")),
     )
+    _update_step(task_id, "analysis_generating")
     builder = StateGraph(AnalysisState)
     builder.add_node("mood_tag_extract", mood_tag_extract)
     builder.add_node("core_analysis", core_analysis)
     builder.add_node("cognition_analysis", cognition_analysis)
 
-    # fan-out: START 并行分叉到 3 个节点
+    # 串行执行：每个节点完成后保存一个 checkpoint，失败重试时从失败节点继续。
     builder.add_edge(START, "mood_tag_extract")
-    builder.add_edge(START, "core_analysis")
-    builder.add_edge(START, "cognition_analysis")
-    # fan-in: 3 个节点全部完成后汇聚到 END
-    builder.add_edge("mood_tag_extract", END)
-    builder.add_edge("core_analysis", END)
+    builder.add_edge("mood_tag_extract", "core_analysis")
+    builder.add_edge("core_analysis", "cognition_analysis")
     builder.add_edge("cognition_analysis", END)
 
     # 配置 checkpointer（支持断点续跑）
@@ -791,10 +1042,6 @@ async def run_analysis_pipeline(
             config=config,
         )
     logger.info("分析流水线图执行完成: diary_id=%s, task_id=%s", diary_id, task_id)
-
-    # 清理 checkpoint
-    await cleanup_checkpoint(task_id)
-    logger.info("分析流水线 checkpoint 已清理: diary_id=%s, task_id=%s", diary_id, task_id)
 
     # 提取结果
     analysis_result = {
@@ -816,7 +1063,15 @@ async def run_analysis_pipeline(
         logger.error("标签落库异常（不影响分析结果返回）: %s", e)
 
     # 保存分析结果 + 更新日记状态
-    _save_analysis_result(result, diary_organized_id)
+    _update_step(task_id, "saving_result")
+    _save_analysis_result(
+        result,
+        diary_organized_id,
+        feedback_source_run_id=feedback_source_run_id,
+    )
+    # 只有分析结果和日记状态都保存成功后，才清理 checkpoint。
+    await cleanup_checkpoint(task_id)
+    logger.info("分析流水线 checkpoint 已清理: diary_id=%s, task_id=%s", diary_id, task_id)
     logger.info(
         "分析流水线完成: diary_id=%s, task_id=%s, mood=%s, event_tags=%d, diary_actions=%d",
         diary_id,
@@ -827,3 +1082,93 @@ async def run_analysis_pipeline(
     )
 
     return analysis_result
+
+
+async def run_feedback_reanalysis_pipeline(
+    structured_diary: dict,
+    task_id: str,
+    diary_id: str,
+    user_id: str,
+    diary_organized_id: str,
+    previous_run_id: str,
+) -> dict:
+    """基于低分文字反馈串行重写环节 8、9，不重跑心情和标签。"""
+    db = SessionLocal()
+    try:
+        previous_run = (
+            db.query(AnalysisRun)
+            .filter(AnalysisRun.id == uuid.UUID(previous_run_id))
+            .first()
+        )
+        if not previous_run:
+            raise ValueError("上一轮分析结果不存在")
+
+        org_uuid = uuid.UUID(diary_organized_id) if isinstance(diary_organized_id, str) else diary_organized_id
+        event_records = (
+            db.query(DiaryEvent)
+            .filter(DiaryEvent.diary_organized_id == org_uuid)
+            .order_by(DiaryEvent.sort_order)
+            .all()
+        )
+        feedbacks = effective_feedback(db, previous_run.id)
+        if not feedbacks:
+            raise ValueError("没有可用于反馈重写的低分文字反馈")
+
+        previous_state = run_to_state(previous_run, event_records)
+        feedback_context = feedback_to_context(feedbacks, event_records)
+    finally:
+        db.close()
+
+    builder = StateGraph(FeedbackAnalysisState)
+    builder.add_node("feedback_core_analysis", feedback_core_analysis)
+    builder.add_node("feedback_cognition_analysis", feedback_cognition_analysis)
+    builder.add_edge(START, "feedback_core_analysis")
+    builder.add_edge("feedback_core_analysis", "feedback_cognition_analysis")
+    builder.add_edge("feedback_cognition_analysis", END)
+
+    async with get_checkpointer() as checkpointer:
+        graph = builder.compile(checkpointer=checkpointer)
+        config = {"configurable": {"thread_id": task_id}}
+        result = await graph.ainvoke(
+            {
+                "structured_diary": structured_diary,
+                "task_id": task_id,
+                "diary_id": diary_id,
+                "user_id": user_id,
+                "diary_organized_id": diary_organized_id,
+                "previous_run_id": previous_run_id,
+                "previous_state": previous_state,
+                "feedback_context": feedback_context,
+            },
+            config=config,
+        )
+
+    merged = result["merged"]
+
+    merged.update(
+        {
+            "task_id": task_id,
+            "diary_id": diary_id,
+            "diary_organized_id": diary_organized_id,
+            "user_id": user_id,
+            "structured_diary": structured_diary,
+        }
+    )
+
+    _update_step(task_id, "saving_result")
+    _save_analysis_result(
+        merged,
+        diary_organized_id,
+        feedback_source_run_id=previous_run_id,
+        inherited_feedback_keys=_inherited_feedback_keys(feedback_context),
+    )
+    # 只有反馈重分析结果保存成功后，才清理 checkpoint。
+    await cleanup_checkpoint(task_id)
+    logger.info("反馈重分析 checkpoint 已清理: diary_id=%s, task_id=%s", diary_id, task_id)
+    logger.info(
+        "反馈重分析完成: diary_id=%s, task_id=%s, feedback_count=%d",
+        diary_id,
+        task_id,
+        len(feedback_context),
+    )
+    return merged

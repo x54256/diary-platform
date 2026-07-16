@@ -21,6 +21,11 @@ class User(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
 
     # 关系映射
-    diaries = relationship("Diary", back_populates="user", cascade="all, delete-orphan")
+    diaries = relationship(
+        "Diary",
+        back_populates="user",
+        cascade="all, delete-orphan",
+        foreign_keys="Diary.user_id",
+    )
     tags = relationship("Tag", back_populates="user", cascade="all, delete-orphan")
     dialogs = relationship("Dialog", back_populates="user", cascade="all, delete-orphan")

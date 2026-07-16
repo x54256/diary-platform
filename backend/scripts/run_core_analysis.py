@@ -21,7 +21,8 @@ if str(BACKEND_DIR) not in sys.path:
 os.chdir(BACKEND_DIR)
 
 from database import SessionLocal
-from models.diary import Diary, DiaryAnalysis, DiaryEvent
+from models.diary import Diary, DiaryEvent
+from services.analysis_history import create_analysis_run_from_state
 from services.analysis_pipeline import cognition_analysis, core_analysis
 
 
@@ -85,107 +86,17 @@ def load_events(diary_id: str) -> tuple[dict[str, Any], list[dict[str, str]]]:
         db.close()
 
 
-def get_or_create_analysis(db, diary_info: dict[str, Any]) -> DiaryAnalysis:
-    organized_id = uuid.UUID(diary_info["diary_organized_id"])
-    task_id = uuid.UUID(diary_info["organized_task_id"])
-
-    analysis = (
-        db.query(DiaryAnalysis)
-        .filter(DiaryAnalysis.diary_organized_id == organized_id)
-        .first()
-    )
-    if analysis is None:
-        analysis = DiaryAnalysis(
-            task_id=task_id,
-            diary_organized_id=organized_id,
-            mood=diary_info.get("mood", ""),
-        )
-        db.add(analysis)
-    return analysis
-
-
-def persist_core_analysis(diary_info: dict[str, Any], result: dict[str, Any]) -> None:
+def persist_analysis(diary_info: dict[str, Any], result: dict[str, Any]) -> None:
     db = SessionLocal()
     try:
-        organized_id = uuid.UUID(diary_info["diary_organized_id"])
-        analysis = get_or_create_analysis(db, diary_info)
-
-        diary_analysis = result.get("diary_analysis", {})
-        analysis.emotion_analyses = json_dumps(diary_analysis.get("emotion_analyses", []))
-        analysis.behavior_decision_analyses = json_dumps(
-            diary_analysis.get("behavior_decision_analyses", [])
-        )
-        analysis.self_understanding_analyses = json_dumps(
-            diary_analysis.get("self_understanding_analyses", [])
-        )
-        analysis.action_suggestions = json_dumps(
-            diary_analysis.get("action_suggestions", [])
-        )
-
-        event_rows = (
-            db.query(DiaryEvent)
-            .filter(DiaryEvent.diary_organized_id == organized_id)
-            .order_by(DiaryEvent.sort_order)
-            .all()
-        )
-        event_analyses = result.get("event_analyses", [])
-        for event_index, event_row in enumerate(event_rows):
-            event_analysis = json_loads_or_empty(event_row.analysis)
-            for key in [
-                "emotion_analyses",
-                "behavior_decision_analyses",
-                "self_understanding_analyses",
-                "action_suggestions",
-            ]:
-                event_analysis[key] = get_event_items(event_analyses, event_index, key)
-            event_row.analysis = json_dumps(event_analysis)
-
-        db.commit()
-    except Exception:
-        db.rollback()
-        raise
-    finally:
-        db.close()
-
-
-def persist_cognition_analysis(diary_info: dict[str, Any], result: dict[str, Any]) -> None:
-    db = SessionLocal()
-    try:
-        organized_id = uuid.UUID(diary_info["diary_organized_id"])
-        analysis = get_or_create_analysis(db, diary_info)
-
-        analysis.cognitive_calibration_analyses = json_dumps(
-            result.get("diary_cognitive_calibration_analyses", [])
-        )
-        analysis.cognitive_enhancements = json_dumps(
-            result.get("diary_cognitive_enhancements", [])
-        )
-
-        event_rows = (
-            db.query(DiaryEvent)
-            .filter(DiaryEvent.diary_organized_id == organized_id)
-            .order_by(DiaryEvent.sort_order)
-            .all()
-        )
-        for event_index, event_row in enumerate(event_rows):
-            event_analysis = json_loads_or_empty(event_row.analysis)
-            event_analysis["cognitive_calibration_analyses"] = get_event_items(
-                result.get("event_cognitive_calibration_analyses", []),
-                event_index,
-                "cognitive_calibration_analyses",
-            )
-            event_analysis["question_answers"] = get_event_items(
-                result.get("event_question_answers", []),
-                event_index,
-                "question_answers",
-            )
-            event_analysis["cognitive_enhancements"] = get_event_items(
-                result.get("event_cognitive_enhancements", []),
-                event_index,
-                "cognitive_enhancements",
-            )
-            event_row.analysis = json_dumps(event_analysis)
-
+        state = {
+            "task_id": str(uuid.uuid4()),
+            "diary_id": diary_info["diary_id"],
+            "diary_organized_id": diary_info["diary_organized_id"],
+            "mood": diary_info.get("mood", ""),
+            **result,
+        }
+        create_analysis_run_from_state(db, state, diary_info["diary_organized_id"])
         db.commit()
     except Exception:
         db.rollback()
@@ -204,10 +115,7 @@ async def run(diary_id: str, phase: str, persist: bool) -> dict[str, Any]:
     }
     result = await core_analysis(state) if phase == "8" else await cognition_analysis(state)
     if persist:
-        if phase == "8":
-            persist_core_analysis(diary_info, result)
-        else:
-            persist_cognition_analysis(diary_info, result)
+        persist_analysis(diary_info, result)
     return result
 
 
