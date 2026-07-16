@@ -85,8 +85,8 @@ def _get_llm(temperature: float) -> ChatDeepSeek:
         "model": settings.LLM_MODEL,
         "api_key": settings.LLM_API_KEY,
         "temperature": temperature,
-        "timeout": 120,
-        "max_retries": 2,
+        "timeout": 12000,
+        "max_retries": 1,
         "model_kwargs": {"response_format": {"type": "json_object"}},
     }
     # settings.LLM_API_URL 含 /v1 后缀，与 ChatDeepSeek 默认值不同，需显式传入
