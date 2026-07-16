@@ -20,7 +20,7 @@
 
       <div
         v-if="understandingSections.length && cognitionSections.length"
-        class="sticky top-0 z-10 -mx-4 mb-4 border-y border-neutral-100 bg-white/95 px-4 py-2 backdrop-blur"
+        class="-mx-4 mb-4 border-y border-neutral-100 bg-white/95 px-4 py-2"
       >
         <div class="grid grid-cols-2 rounded-lg bg-neutral-100 p-1">
           <button
