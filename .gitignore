@@ -35,3 +35,6 @@ data/
 .output/
 .DS_Store/
 backend/logs/
+.env
+deploy.server
+docker-compose.prod.yml
