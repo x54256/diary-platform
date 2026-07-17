@@ -25,7 +25,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends python3 python3-venv gcc nginx \
     && python3 -m venv /opt/venv \
     && rm -f /etc/nginx/sites-enabled/default \
-    && mkdir -p /run/nginx \
+    && mkdir -p /run/nginx /app/data/transcriptions \
     && rm -rf /var/lib/apt/lists/*
 
 COPY backend/requirements.txt /app/backend/requirements.txt

@@ -15,6 +15,7 @@ from models.diary import (
 from models.tag import Tag, diary_tags, EventTag
 from models.dialog import Dialog, DialogMessage, SourceType, MessageRole
 from models.backup import BackupRestoreRecord, BackupImportReport
+from models.transcription import TranscriptionBatch, TranscriptionItem
 
 __all__ = [
     "User",
@@ -36,4 +37,6 @@ __all__ = [
     "MessageRole",
     "BackupRestoreRecord",
     "BackupImportReport",
+    "TranscriptionBatch",
+    "TranscriptionItem",
 ]

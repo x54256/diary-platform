@@ -22,7 +22,14 @@ from services.analysis_history import (
     run_to_state,
     section_key,
 )
-from services.pipeline import _get_llm, _invoke_llm, _update_step, get_checkpointer, cleanup_checkpoint
+from services.pipeline import (
+    _get_llm,
+    _invoke_llm,
+    _update_step,
+    get_checkpointer,
+    cleanup_checkpoint,
+    run_graph_with_checkpoint,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -1013,7 +1020,6 @@ async def run_analysis_pipeline(
         diary_organized_id,
         _list_len(structured_diary.get("events")),
     )
-    _update_step(task_id, "analysis_generating")
     builder = StateGraph(AnalysisState)
     builder.add_node("mood_tag_extract", mood_tag_extract)
     builder.add_node("core_analysis", core_analysis)
@@ -1029,8 +1035,10 @@ async def run_analysis_pipeline(
     async with get_checkpointer() as checkpointer:
         graph = builder.compile(checkpointer=checkpointer)
 
-        config = {"configurable": {"thread_id": task_id}}
-        result = await graph.ainvoke(
+        # 首次执行或从 checkpoint 恢复
+        result = await run_graph_with_checkpoint(
+            graph,
+            task_id,
             {
                 "original_text": original_text,
                 "structured_diary": structured_diary,
@@ -1039,7 +1047,6 @@ async def run_analysis_pipeline(
                 "user_id": user_id,
                 "diary_organized_id": diary_organized_id,
             },
-            config=config,
         )
     logger.info("分析流水线图执行完成: diary_id=%s, task_id=%s", diary_id, task_id)
 
@@ -1069,9 +1076,12 @@ async def run_analysis_pipeline(
         diary_organized_id,
         feedback_source_run_id=feedback_source_run_id,
     )
-    # 只有分析结果和日记状态都保存成功后，才清理 checkpoint。
-    await cleanup_checkpoint(task_id)
-    logger.info("分析流水线 checkpoint 已清理: diary_id=%s, task_id=%s", diary_id, task_id)
+    # 清理 checkpoint 不应影响已提交的分析结果。
+    try:
+        await cleanup_checkpoint(task_id)
+        logger.info("分析流水线 checkpoint 已清理: diary_id=%s, task_id=%s", diary_id, task_id)
+    except Exception as cleanup_error:
+        logger.warning("分析流水线 checkpoint 清理失败，保留 checkpoint: diary_id=%s, task_id=%s, error=%s", diary_id, task_id, cleanup_error)
     logger.info(
         "分析流水线完成: diary_id=%s, task_id=%s, mood=%s, event_tags=%d, diary_actions=%d",
         diary_id,
@@ -1128,8 +1138,10 @@ async def run_feedback_reanalysis_pipeline(
 
     async with get_checkpointer() as checkpointer:
         graph = builder.compile(checkpointer=checkpointer)
-        config = {"configurable": {"thread_id": task_id}}
-        result = await graph.ainvoke(
+        # 首次执行或从 checkpoint 恢复
+        result = await run_graph_with_checkpoint(
+            graph,
+            task_id,
             {
                 "structured_diary": structured_diary,
                 "task_id": task_id,
@@ -1140,7 +1152,6 @@ async def run_feedback_reanalysis_pipeline(
                 "previous_state": previous_state,
                 "feedback_context": feedback_context,
             },
-            config=config,
         )
 
     merged = result["merged"]
@@ -1162,9 +1173,12 @@ async def run_feedback_reanalysis_pipeline(
         feedback_source_run_id=previous_run_id,
         inherited_feedback_keys=_inherited_feedback_keys(feedback_context),
     )
-    # 只有反馈重分析结果保存成功后，才清理 checkpoint。
-    await cleanup_checkpoint(task_id)
-    logger.info("反馈重分析 checkpoint 已清理: diary_id=%s, task_id=%s", diary_id, task_id)
+    # 清理 checkpoint 不应影响已提交的反馈重分析结果。
+    try:
+        await cleanup_checkpoint(task_id)
+        logger.info("反馈重分析 checkpoint 已清理: diary_id=%s, task_id=%s", diary_id, task_id)
+    except Exception as cleanup_error:
+        logger.warning("反馈重分析 checkpoint 清理失败，保留 checkpoint: diary_id=%s, task_id=%s, error=%s", diary_id, task_id, cleanup_error)
     logger.info(
         "反馈重分析完成: diary_id=%s, task_id=%s, feedback_count=%d",
         diary_id,

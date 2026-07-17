@@ -23,6 +23,17 @@ class Settings(BaseSettings):
     LLM_API_URL: str = "https://api.deepseek.com/v1"
     LLM_MODEL: str = "deepseek-v4-flash"
 
+    # Fun-ASR 录音文件识别
+    DASHSCOPE_API_KEY: str = ""
+    DASHSCOPE_WORKSPACE_ID: str = ""
+    DASHSCOPE_API_BASE_URL: str = ""
+    TRANSCRIPTION_PUBLIC_BASE_URL: str = "http://localhost"
+    TRANSCRIPTION_STORAGE_PATH: str = "/app/data/transcriptions"
+    TRANSCRIPTION_MAX_FILE_SIZE: int = 314572800
+    TRANSCRIPTION_MAX_CONCURRENCY: int = 3
+    TRANSCRIPTION_FAILED_RETENTION_DAYS: int = 7
+    TRANSCRIPTION_DOWNLOAD_TOKEN_HOURS: int = 24
+
     @property
     def CHECKPOINT_CONN_STRING(self) -> str:
         """将 DATABASE_URL 的 postgresql+psycopg:// 替换为 postgresql://（AsyncPostgresSaver 需要纯 postgresql:// 格式）"""

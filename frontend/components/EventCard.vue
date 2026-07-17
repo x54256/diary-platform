@@ -28,7 +28,9 @@
           <textarea
             v-model="editBody"
             rows="4"
-            class="w-full max-h-56 p-2 text-sm border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-y-auto"
+            data-auto-resize
+            class="w-full min-h-[6rem] p-2 text-sm border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-hidden"
+            @input="handleTextareaInput"
           />
         </template>
         <template v-else>
@@ -51,7 +53,9 @@
           <textarea
             v-model="editFeeling"
             rows="3"
-            class="w-full max-h-48 p-2 text-sm border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-y-auto"
+            data-auto-resize
+            class="w-full min-h-[4.5rem] p-2 text-sm border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-hidden"
+            @input="handleTextareaInput"
           />
         </template>
         <template v-else>
@@ -74,7 +78,9 @@
           <textarea
             v-model="editReflection"
             rows="3"
-            class="w-full max-h-48 p-2 text-sm border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-y-auto"
+            data-auto-resize
+            class="w-full min-h-[4.5rem] p-2 text-sm border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-hidden"
+            @input="handleTextareaInput"
           />
         </template>
         <template v-else>
@@ -108,7 +114,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+import { nextTick, ref, computed, watch } from 'vue'
+import { resizeTextarea } from '~/composables/useAutoResizeTextarea'
 
 const props = defineProps<{
   event: any
@@ -125,6 +132,10 @@ const editBody = ref('')
 const editFeeling = ref('')
 const editReflection = ref('')
 
+const handleTextareaInput = (event: Event) => {
+  resizeTextarea(event.target as HTMLTextAreaElement)
+}
+
 // 编辑模式切换时初始化编辑值
 watch(() => props.editable, (val) => {
   if (val) {
@@ -132,6 +143,9 @@ watch(() => props.editable, (val) => {
     editBody.value = (props.event.body || []).join('\n')
     editFeeling.value = (props.event.feeling || []).join('\n')
     editReflection.value = (props.event.reflection || []).join('\n')
+    nextTick(() => {
+      document.querySelectorAll<HTMLTextAreaElement>('textarea[data-auto-resize]').forEach(resizeTextarea)
+    })
   }
 }, { immediate: true })
 

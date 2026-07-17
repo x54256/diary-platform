@@ -39,11 +39,13 @@
     <template v-else-if="diary && !isOrganizedOrAnalyzed">
       <!-- 编辑模式 -->
       <template v-if="isEditing">
-        <div class="flex-1 min-h-0 flex flex-col px-4 py-3">
+        <div class="flex-1 min-h-0 overflow-y-auto px-4 py-3">
           <div class="text-sm text-neutral-500 mb-3">{{ diary.diary_date }}</div>
           <textarea
             v-model="editText"
-            class="w-full flex-1 min-h-0 text-sm text-neutral-800 leading-relaxed p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-y-auto"
+            data-auto-resize
+            class="w-full min-h-[300px] text-sm text-neutral-800 leading-relaxed p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+            @input="handleTextareaInput"
           />
           <p v-if="saveError" class="text-sm text-red-500 mt-2">{{ saveError }}</p>
         </div>
@@ -149,7 +151,9 @@
               <textarea
                 v-model="editFormData.summary"
                 rows="3"
-                class="w-full max-h-40 text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-y-auto"
+                data-auto-resize
+                class="w-full min-h-[4.5rem] text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                @input="handleTextareaInput"
                 placeholder="日记摘要"
               />
             </div>
@@ -159,7 +163,9 @@
               <textarea
                 v-model="editFormData.introduction"
                 rows="2"
-                class="w-full max-h-40 text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-y-auto"
+                data-auto-resize
+                class="w-full min-h-[3rem] text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                @input="handleTextareaInput"
                 placeholder="引入段"
               />
             </div>
@@ -181,7 +187,9 @@
               <textarea
                 v-model="editFormData.trivia"
                 rows="3"
-                class="w-full max-h-40 text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-y-auto"
+                data-auto-resize
+                class="w-full min-h-[4.5rem] text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                @input="handleTextareaInput"
                 placeholder="每项琐事一行"
               />
             </div>
@@ -191,7 +199,9 @@
               <textarea
                 v-model="editFormData.plans"
                 rows="3"
-                class="w-full max-h-40 text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-y-auto"
+                data-auto-resize
+                class="w-full min-h-[4.5rem] text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                @input="handleTextareaInput"
                 placeholder="每项计划一行"
               />
             </div>
@@ -222,7 +232,9 @@
             <div class="text-sm text-neutral-500 mb-2">编辑原文</div>
             <textarea
               v-model="editText"
-              class="w-full min-h-[300px] max-h-[55dvh] text-sm text-neutral-800 leading-relaxed p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-y-auto"
+              data-auto-resize
+              class="w-full min-h-[300px] text-sm text-neutral-800 leading-relaxed p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+              @input="handleTextareaInput"
             />
             <p v-if="saveError" class="text-sm text-red-500 mt-2">{{ saveError }}</p>
           </div>
@@ -408,6 +420,9 @@
 <script setup lang="ts">
 // 日记详情页：支持双 Tab（日记 + 分析）
 
+import { nextTick, onMounted } from 'vue'
+import { resizeTextarea, resizeTextareas } from '~/composables/useAutoResizeTextarea'
+
 definePageMeta({
   layout: 'auth',
   middleware: 'auth',
@@ -524,6 +539,10 @@ const saving = ref(false)
 const saveError = ref('')
 const editSaveMessage = ref('')
 
+const handleTextareaInput = (event: Event) => {
+  resizeTextarea(event.target as HTMLTextAreaElement)
+}
+
 // ───────────────── 结构化编辑 ─────────────────
 const isStructuredEditable = computed(() =>
   diary.value?.status === 'organized' || diary.value?.status === 'analyzed'
@@ -543,6 +562,7 @@ const startEdit = () => {
   saveError.value = ''
   editSaveMessage.value = ''
   isEditing.value = true
+  nextTick(() => resizeTextareas())
 }
 
 const cancelEdit = () => {
@@ -587,7 +607,10 @@ const startEditStructured = () => {
   structuredSaveError.value = ''
   editedEvents.value.clear()
   isEditingStructured.value = true
+  nextTick(() => resizeTextareas())
 }
+
+onMounted(() => resizeTextareas())
 
 const cancelEditStructured = () => {
   isEditingStructured.value = false

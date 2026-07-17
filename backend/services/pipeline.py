@@ -125,6 +125,23 @@ async def _invoke_llm(llm: ChatDeepSeek, system_prompt: str, user_message: str, 
     return json.loads(raw_content)
 
 
+async def run_graph_with_checkpoint(graph, task_id: str, initial_state: dict) -> dict:
+    """执行或恢复一个使用 PostgreSQL checkpoint 的 LangGraph 图。
+
+    同一个 task_id 对应同一个 thread_id。首次执行使用初始状态；
+    如果上次执行在节点中失败，则从最近一次成功节点的 checkpoint 继续；
+    如果图已经执行完成但结果落库失败，则直接复用完整 checkpoint 结果。
+    """
+    config = {"configurable": {"thread_id": task_id}}
+    snapshot = await graph.aget_state(config)
+
+    if snapshot.values and not snapshot.next:
+        return dict(snapshot.values)
+    if snapshot.next:
+        return dict(await graph.ainvoke(None, config=config))
+    return dict(await graph.ainvoke(initial_state, config=config))
+
+
 # ---------------------------------------------------------------------------
 # Checkpointer 管理
 # ---------------------------------------------------------------------------
@@ -374,16 +391,16 @@ async def run_pipeline(
     async with get_checkpointer() as checkpointer:
         graph = builder.compile(checkpointer=checkpointer)
 
-        # 执行
-        config = {"configurable": {"thread_id": task_id}}
-        result = await graph.ainvoke(
+        # 首次执行或从 checkpoint 恢复
+        result = await run_graph_with_checkpoint(
+            graph,
+            task_id,
             {
                 "original_text": original_text,
                 "task_id": task_id,
                 "diary_id": diary_id,
                 "user_id": user_id,
             },
-            config=config,
         )
 
     # 返回与 ai.py organize_diary 相同格式的 dict

@@ -13,6 +13,7 @@ from routers.diaries import router as diaries_router
 from routers.tags import router as tags_router
 from routers.dialogs import router as dialogs_router
 from routers.admin_backup import router as admin_backup_router
+from routers.transcriptions import router as transcriptions_router, file_router as transcription_files_router
 
 # ---------------------------------------------------------------------------
 # 全局日志配置 - 所有模块日志写入 app_YYYY-MM-DD.log
@@ -66,11 +67,13 @@ api_router.include_router(diaries_router)
 api_router.include_router(tags_router)
 api_router.include_router(dialogs_router)
 api_router.include_router(admin_backup_router)
+api_router.include_router(transcriptions_router)
+api_router.include_router(transcription_files_router)
 app.include_router(api_router)
 
 
 @app.on_event("startup")
-def startup():
+async def startup():
     """应用启动时创建数据库表"""
     _startup_logger.info("应用启动，初始化数据库...")
     # 导入所有模型，确保它们被注册到 Base.metadata
@@ -80,6 +83,14 @@ def startup():
     _create_default_user()
     # 恢复服务器重启前卡死的整理任务
     _recover_stuck_tasks()
+    from services.transcription_tasks import transcription_task_manager
+    await transcription_task_manager.start()
+
+
+@app.on_event("shutdown")
+async def shutdown():
+    from services.transcription_tasks import transcription_task_manager
+    await transcription_task_manager.stop()
 
 
 def _recover_stuck_tasks():

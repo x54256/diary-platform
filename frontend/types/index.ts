@@ -144,6 +144,38 @@ export interface DiaryCalendarItem {
   status: string
 }
 
+export type TranscriptionBatchStatus =
+  | 'COLLECTING' | 'QUEUED' | 'PROCESSING' | 'PARTIAL_FAILED'
+  | 'FINALIZING' | 'COMPLETED' | 'CANCELLED' | 'EXPIRED'
+
+export type TranscriptionItemStatus =
+  | 'UPLOADING' | 'UPLOADED' | 'QUEUED' | 'SUBMITTING'
+  | 'SUBMITTED' | 'RUNNING' | 'SUCCEEDED' | 'FAILED' | 'DELETED'
+
+export interface TranscriptionItem {
+  id: string
+  sort_order: number
+  filename: string
+  file_size: number
+  status: TranscriptionItemStatus
+  progress?: number
+  transcript_preview?: string | null
+  error_code?: string | null
+  error_message?: string | null
+  retry_count: number
+  local?: boolean
+}
+
+export interface TranscriptionBatch {
+  id: string
+  diary_date: string | null
+  status: TranscriptionBatchStatus
+  diary_id: string | null
+  error_message?: string | null
+  expires_at?: string | null
+  items: TranscriptionItem[]
+}
+
 // 事件更新请求 payload
 export interface DiaryEventUpdatePayload {
   id: string

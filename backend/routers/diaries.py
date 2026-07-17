@@ -1,6 +1,7 @@
 """日记管理路由"""
 
 import json
+import logging
 from datetime import date, datetime, timedelta
 from typing import Optional
 from uuid import UUID
@@ -492,7 +493,6 @@ async def organize_diary(
     if failed_task:
         failed_task.status = "running"
         failed_task.error_message = None
-        failed_task.current_step = "text_cleaning"
         db.commit()
         db.refresh(failed_task)
         task = failed_task
@@ -519,7 +519,7 @@ async def organize_diary(
         diary_id=diary_id,
         status="running",
         task_type="organize",
-        current_step="text_cleaning",
+        current_step=task.current_step,
         error_message=None,
     )
 
@@ -607,12 +607,14 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
 
         db.commit()
 
-        # 清理 checkpoint 数据（流水线已成功完成，不再需要断点续跑）
+        # 清理 checkpoint 数据不应影响已提交的业务结果
         from services.pipeline import cleanup_checkpoint
-        await cleanup_checkpoint(task_id)
+        try:
+            await cleanup_checkpoint(task_id)
+        except Exception as cleanup_error:
+            logging.getLogger(__name__).warning("清理整理 checkpoint 失败: %s", cleanup_error)
     except Exception as e:
         # 任务失败：日记保持 saved，记录错误
-        import logging
         logging.getLogger(__name__).error("后台整理任务失败: %s", e)
         db.rollback()  # 必须先 rollback 恢复 session
         task = db.query(OrganizeTask).filter(OrganizeTask.id == task_id).first()
@@ -736,7 +738,6 @@ async def analyze_diary(
     if failed_task:
         failed_task.status = "running"
         failed_task.error_message = None
-        failed_task.current_step = "analysis_generating"
         db.commit()
         db.refresh(failed_task)
         task = failed_task
@@ -791,7 +792,7 @@ async def analyze_diary(
         diary_id=diary_id,
         status="running",
         task_type="analyze",
-        current_step="analysis_generating",
+        current_step=task.current_step,
         error_message=None,
     )
 
@@ -841,7 +842,6 @@ async def _run_analyze(
             task.current_step = None
         db.commit()
     except Exception as e:
-        import logging
         logging.getLogger(__name__).error("后台分析任务失败: %s", e)
         db.rollback()
         task = db.query(OrganizeTask).filter(OrganizeTask.id == task_id).first()
