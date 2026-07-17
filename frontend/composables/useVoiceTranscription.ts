@@ -7,6 +7,24 @@ const ALLOWED_EXTENSIONS = new Set([
   'mpeg', 'ogg', 'opus', 'wav', 'webm', 'wma', 'wmv',
 ])
 
+const createLocalId = () => {
+  if (globalThis.crypto?.randomUUID) return `local-${globalThis.crypto.randomUUID()}`
+  return `local-${Date.now()}-${Math.random().toString(36).slice(2)}`
+}
+
+const addLocalFailedItem = (items: Ref<TranscriptionItem[]>, file: File, message: string) => {
+  items.value.push({
+    id: createLocalId(),
+    sort_order: Number.MAX_SAFE_INTEGER,
+    filename: file.name || '未命名音频',
+    file_size: file.size,
+    status: 'FAILED',
+    error_message: message,
+    retry_count: 0,
+    local: true,
+  })
+}
+
 export function useVoiceTranscription() {
   const { api } = useApi()
   const config = useRuntimeConfig()
@@ -62,10 +80,12 @@ export function useVoiceTranscription() {
       const extension = file.name.split('.').pop()?.toLowerCase() || ''
       if (!ALLOWED_EXTENSIONS.has(extension)) {
         error.value = `${file.name}：不支持该音频格式`
+        addLocalFailedItem(localItems, file, '不支持该音频格式')
         continue
       }
       if (file.size > MAX_FILE_SIZE) {
         error.value = `${file.name}：单个音频不能超过 300 MB`
+        addLocalFailedItem(localItems, file, '单个音频不能超过 300 MB')
         continue
       }
       valid.push(file)
@@ -77,7 +97,7 @@ export function useVoiceTranscription() {
     const uploadNext = async () => {
       const file = valid[cursor++]
       if (!file) return
-      const localId = `local-${crypto.randomUUID()}`
+      const localId = createLocalId()
       const order = nextOrder++
       localItems.value.push({
         id: localId, sort_order: order, filename: file.name, file_size: file.size,

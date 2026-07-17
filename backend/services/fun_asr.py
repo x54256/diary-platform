@@ -3,12 +3,17 @@
 from __future__ import annotations
 
 import asyncio
+import json
+import logging
 from dataclasses import dataclass
 from typing import Any
+from urllib.parse import urlsplit, urlunsplit
 
 import httpx
 
 from config import settings
+
+logger = logging.getLogger("fun_asr")
 
 
 class FunAsrError(RuntimeError):
@@ -70,12 +75,19 @@ class FunAsrService:
         headers = {**self.headers, "X-DashScope-Async": "enable"}
         for attempt in range(3):
             try:
+                self._log_request(
+                    "POST",
+                    f"{self.base_url}/services/audio/asr/transcription",
+                    payload=payload,
+                    attempt=attempt + 1,
+                )
                 response = await self._client.post(
                     f"{self.base_url}/services/audio/asr/transcription",
                     json=payload,
                     headers=headers,
                     timeout=httpx.Timeout(30, connect=10),
                 )
+                data = self._log_response(response)
             except httpx.ConnectError as exc:
                 if attempt == 2:
                     raise FunAsrError("SUBMIT_CONNECT_ERROR", "无法连接语音识别服务") from exc
@@ -88,7 +100,6 @@ class FunAsrService:
                     await asyncio.sleep(2 ** attempt)
                     continue
             self._raise_for_response(response)
-            data = response.json()
             task_id = data.get("output", {}).get("task_id")
             if not task_id:
                 raise FunAsrError("INVALID_SUBMIT_RESPONSE", "语音识别服务未返回任务 ID")
@@ -124,21 +135,80 @@ class FunAsrService:
     async def _request_json(self, method: str, url: str, timeout: httpx.Timeout, auth: bool = True) -> dict[str, Any]:
         for attempt in range(3):
             try:
+                self._log_request(method, url, attempt=attempt + 1)
                 response = await self._client.request(
                     method,
                     url,
                     headers=self.headers if auth else None,
                     timeout=timeout,
                 )
+                data = self._log_response(response)
                 if response.status_code == 429 or response.status_code >= 500:
                     raise httpx.HTTPStatusError("retryable", request=response.request, response=response)
                 self._raise_for_response(response)
-                return response.json()
+                return data
             except (httpx.TransportError, httpx.HTTPStatusError) as exc:
                 if attempt == 2:
                     raise FunAsrError("PROVIDER_UNAVAILABLE", "语音识别服务暂时不可用") from exc
                 await asyncio.sleep(2 ** attempt)
         raise FunAsrError("PROVIDER_UNAVAILABLE", "语音识别服务暂时不可用")
+
+    def _log_request(self, method: str, url: str, payload: dict[str, Any] | None = None, attempt: int = 1) -> None:
+        body = self._redact(payload) if payload is not None else None
+        logger.info(
+            "Fun-ASR 请求 method=%s url=%s attempt=%s body=%s",
+            method,
+            self._mask_url(url),
+            attempt,
+            self._dump_json(body),
+        )
+
+    def _log_response(self, response: httpx.Response) -> dict[str, Any]:
+        try:
+            data = response.json()
+        except ValueError:
+            data = {"raw": response.text}
+        logger.info(
+            "Fun-ASR 响应 status=%s body=%s",
+            response.status_code,
+            self._dump_json(self._redact(data)),
+        )
+        return data
+
+    @classmethod
+    def _redact(cls, value: Any) -> Any:
+        if isinstance(value, dict):
+            redacted: dict[str, Any] = {}
+            for key, item in value.items():
+                if key.lower() in {"authorization", "api_key", "api-key", "dashscope_api_key"}:
+                    redacted[key] = "***"
+                else:
+                    redacted[key] = cls._redact(item)
+            return redacted
+        if isinstance(value, list):
+            return [cls._redact(item) for item in value]
+        if isinstance(value, str):
+            return cls._mask_url(value)
+        return value
+
+    @staticmethod
+    def _mask_url(value: str) -> str:
+        if not value.startswith(("http://", "https://")):
+            return value
+        parsed = urlsplit(value)
+        path = parsed.path
+        marker = "/transcription-files/"
+        if marker in path:
+            prefix = path.split(marker, 1)[0]
+            path = f"{prefix}{marker}***"
+        query = "***" if parsed.query else ""
+        return urlunsplit((parsed.scheme, parsed.netloc, path, query, ""))
+
+    @staticmethod
+    def _dump_json(value: Any) -> str:
+        if value is None:
+            return ""
+        return json.dumps(value, ensure_ascii=False, default=str)
 
     @staticmethod
     def _raise_for_response(response: httpx.Response) -> None:
