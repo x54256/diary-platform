@@ -1,12 +1,29 @@
+# syntax=docker/dockerfile:1.4
+
 FROM --platform=$BUILDPLATFORM node:20-bookworm-slim AS frontend-build
 
 WORKDIR /build/frontend
 
 COPY frontend/package*.json ./
-RUN npm ci
+RUN --mount=type=cache,target=/root/.npm npm ci
 
 COPY frontend/ ./
 RUN npm run build
+
+FROM node:20-bookworm-slim AS backend-wheels
+
+ENV PATH="/opt/venv/bin:${PATH}"
+
+WORKDIR /build/backend
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends python3 python3-venv gcc \
+    && python3 -m venv /opt/venv \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY backend/requirements.lock.txt ./requirements.lock.txt
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip wheel --wheel-dir /wheels -r requirements.lock.txt
 
 FROM node:20-bookworm-slim AS runtime
 
@@ -22,14 +39,16 @@ ENV NUXT_PUBLIC_API_BASE=/diary/api
 WORKDIR /app
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends python3 python3-venv gcc nginx \
+    && apt-get install -y --no-install-recommends python3 python3-venv nginx \
     && python3 -m venv /opt/venv \
     && rm -f /etc/nginx/sites-enabled/default \
     && mkdir -p /run/nginx /app/data/transcriptions \
     && rm -rf /var/lib/apt/lists/*
 
-COPY backend/requirements.txt /app/backend/requirements.txt
-RUN pip install --no-cache-dir -r /app/backend/requirements.txt
+COPY backend/requirements.lock.txt /app/backend/requirements.lock.txt
+COPY --from=backend-wheels /wheels /wheels
+RUN pip install --no-index --find-links=/wheels -r /app/backend/requirements.lock.txt \
+    && rm -rf /wheels
 
 COPY backend/ /app/backend/
 COPY --from=frontend-build /build/frontend/.output/ /app/frontend/.output/

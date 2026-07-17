@@ -6,7 +6,7 @@
         <p class="mt-0.5 text-xs text-neutral-400">全部识别成功后，后台自动保存日记</p>
       </div>
       <label v-if="!locked" class="voice-add">
-        <input type="file" multiple accept="audio/*,.mp4,.mov,.mkv,.webm" class="hidden" @change="selectFiles" />
+        <input type="file" multiple accept="audio/*,video/*,.aac,.amr,.avi,.flac,.flv,.m4a,.mkv,.mov,.mp3,.mp4,.mpeg,.ogg,.opus,.wav,.webm,.wma,.wmv" class="hidden" @change="selectFiles" />
         <span class="text-lg leading-none">＋</span> 添加语音
       </label>
     </div>

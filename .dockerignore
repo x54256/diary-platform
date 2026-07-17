@@ -8,6 +8,8 @@ frontend/.nuxt
 frontend/.output
 backend/venv
 backend/__pycache__
+**/__pycache__
+**/.pytest_cache
 backend/logs
 backend/.env
 backend/backup_packages
