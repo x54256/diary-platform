@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import type { User } from '~/types'
+import { isTokenExpired } from '~/utils/auth-session'
 
 // 认证状态管理
 export const useAuthStore = defineStore('auth', {
@@ -24,6 +25,10 @@ export const useAuthStore = defineStore('auth', {
       if (import.meta.client) {
         const token = localStorage.getItem('token')
         const userStr = localStorage.getItem('user')
+        if (token && isTokenExpired(token)) {
+          this.logout()
+          return
+        }
         if (token) this.token = token
         if (userStr) {
           try {
@@ -32,6 +37,16 @@ export const useAuthStore = defineStore('auth', {
             this.user = null
           }
         }
+      }
+    },
+
+    /**
+     * 保存服务端续期后的令牌
+     */
+    setToken(token: string) {
+      this.token = token
+      if (import.meta.client) {
+        localStorage.setItem('token', token)
       }
     },
 

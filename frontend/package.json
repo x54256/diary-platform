@@ -5,6 +5,7 @@
   "scripts": {
     "build": "NUXT_APP_BASE_URL=/mind/ NUXT_PUBLIC_API_BASE=/diary/api nuxt build",
     "dev": "NUXT_APP_BASE_URL=/mind/ NUXT_PUBLIC_API_BASE=http://localhost:8000/diary/api nuxt dev",
+    "test": "node --test tests/*.test.ts",
     "generate": "NUXT_APP_BASE_URL=/mind/ NUXT_PUBLIC_API_BASE=/diary/api nuxt generate",
     "preview": "NUXT_APP_BASE_URL=/mind/ NUXT_PUBLIC_API_BASE=http://localhost:8000/diary/api nuxt preview",
     "postinstall": "nuxt prepare"

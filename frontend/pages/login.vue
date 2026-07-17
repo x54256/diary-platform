@@ -72,6 +72,7 @@ definePageMeta({
 
 const { login } = useAuth()
 const router = useRouter()
+const route = useRoute()
 
 // 表单数据
 const form = reactive({
@@ -94,7 +95,7 @@ const handleLogin = async () => {
   loading.value = true
   try {
     await login(form.username, form.password)
-    router.push('/')
+    router.push(getSafeRedirect(route.query.redirect))
   } catch (err: any) {
     errorMsg.value = err?.message || '登录失败，请稍后重试'
   } finally {

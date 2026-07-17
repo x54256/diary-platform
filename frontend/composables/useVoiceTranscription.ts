@@ -29,6 +29,7 @@ export function useVoiceTranscription() {
   const { api } = useApi()
   const config = useRuntimeConfig()
   const authStore = useAuthStore()
+  const router = useRouter()
   const batch = ref<TranscriptionBatch | null>(null)
   const localItems = ref<TranscriptionItem[]>([])
   const actionLoading = ref(false)
@@ -63,8 +64,18 @@ export function useVoiceTranscription() {
     xhr.onload = () => {
       let data: any = null
       try { data = JSON.parse(xhr.responseText) } catch {}
-      if (xhr.status >= 200 && xhr.status < 300) resolve(data as TranscriptionItem)
-      else reject(new Error(data?.detail || '音频上传失败'))
+      const renewedToken = xhr.getResponseHeader('X-Access-Token')
+      if (renewedToken) authStore.setToken(renewedToken)
+      if (xhr.status >= 200 && xhr.status < 300) {
+        resolve(data as TranscriptionItem)
+      } else {
+        if (xhr.status === 401) {
+          const currentPath = router.currentRoute.value.fullPath
+          authStore.logout()
+          void navigateTo(getLoginPath(currentPath))
+        }
+        reject(new Error(data?.detail || '音频上传失败'))
+      }
     }
     xhr.onerror = () => reject(new Error('网络异常，音频上传失败'))
     const form = new FormData()

@@ -12,11 +12,11 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
   // 如果未登录且访问的不是登录页，则跳转到登录页
   if (!authStore.isLoggedIn && to.path !== '/login') {
-    return navigateTo('/login')
+    return navigateTo(getLoginPath(to.fullPath))
   }
 
   // 如果已登录且访问的是登录页，则跳转到主页
   if (authStore.isLoggedIn && to.path === '/login') {
-    return navigateTo('/')
+    return navigateTo(getSafeRedirect(to.query.redirect))
   }
 })
