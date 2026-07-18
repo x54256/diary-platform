@@ -21,9 +21,9 @@ RUN apt-get update \
     && python3 -m venv /opt/venv \
     && rm -rf /var/lib/apt/lists/*
 
-COPY backend/requirements.lock.txt ./requirements.lock.txt
+COPY backend/requirements.txt ./requirements.txt
 RUN --mount=type=cache,target=/root/.cache/pip \
-    pip wheel --wheel-dir /wheels -r requirements.lock.txt
+    pip wheel --wheel-dir /wheels -r requirements.txt
 
 FROM node:20-bookworm-slim AS runtime
 
@@ -45,9 +45,9 @@ RUN apt-get update \
     && mkdir -p /run/nginx \
     && rm -rf /var/lib/apt/lists/*
 
-COPY backend/requirements.lock.txt /app/backend/requirements.lock.txt
+COPY backend/requirements.txt /app/backend/requirements.txt
 COPY --from=backend-wheels /wheels /wheels
-RUN pip install --no-index --find-links=/wheels -r /app/backend/requirements.lock.txt \
+RUN pip install --no-index --find-links=/wheels -r /app/backend/requirements.txt \
     && rm -rf /wheels
 
 COPY backend/ /app/backend/
