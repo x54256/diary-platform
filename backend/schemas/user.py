@@ -3,7 +3,7 @@
 from datetime import datetime
 from uuid import UUID
 
-from pydantic import BaseModel, field_serializer
+from pydantic import BaseModel, Field, field_serializer
 
 from schemas.common import serialize_utc_datetime
 
@@ -11,8 +11,8 @@ from schemas.common import serialize_utc_datetime
 class UserCreate(BaseModel):
     """用户注册请求"""
 
-    username: str
-    password: str
+    username: str = Field(min_length=1, max_length=50)
+    password: str = Field(min_length=6)
 
 
 class UserLogin(BaseModel):

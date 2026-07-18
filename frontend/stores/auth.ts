@@ -78,6 +78,30 @@ export const useAuthStore = defineStore('auth', {
       }
     },
 
+    /** 注册并保存登录状态 */
+    async register(username: string, password: string) {
+      const config = useRuntimeConfig()
+      try {
+        const res = await $fetch<{ access_token: string; token_type: string; user: User }>(
+          '/auth/register',
+          {
+            method: 'POST',
+            body: { username, password },
+            baseURL: config.public.apiBase,
+          }
+        )
+        this.token = res.access_token
+        this.user = res.user
+        if (import.meta.client) {
+          localStorage.setItem('token', res.access_token)
+          localStorage.setItem('user', JSON.stringify(res.user))
+        }
+      } catch (error: any) {
+        const detail = error?.data?.detail || '注册失败，请稍后重试'
+        throw new Error(detail)
+      }
+    },
+
     /**
      * 登出
      */

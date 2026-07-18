@@ -51,15 +51,17 @@
           {{ loading ? '登录中...' : '登录' }}
         </button>
 
+        <NuxtLink
+          to="/register"
+          class="block text-center text-sm text-primary-600 hover:text-primary-700"
+        >
+          注册账号
+        </NuxtLink>
+
         <!-- 错误提示 -->
         <p v-if="errorMsg" class="text-sm text-red-500 text-center">{{ errorMsg }}</p>
       </form>
 
-      <!-- 默认账号提示 -->
-      <div class="mt-6 p-3 rounded-lg bg-neutral-100 text-center space-y-1">
-        <p class="text-xs text-neutral-400">默认账号：admin</p>
-        <p class="text-xs text-neutral-400">默认密码：admin123</p>
-      </div>
     </div>
   </div>
 </template>
@@ -76,8 +78,8 @@ const route = useRoute()
 
 // 表单数据
 const form = reactive({
-  username: 'admin',
-  password: 'admin123',
+  username: '',
+  password: '',
   remember: false,
 })
 

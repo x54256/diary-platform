@@ -1,15 +1,49 @@
 """认证路由"""
 
 from fastapi import APIRouter, Depends, HTTPException, status
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from database import get_db
 from models.user import User
-from schemas.user import UserLogin, UserResponse, TokenResponse
+from schemas.user import UserCreate, UserLogin, UserResponse, TokenResponse
 from services.auth import create_access_token, get_current_user
-from utils.crypto import verify_password
+from utils.crypto import encrypt_password, verify_password
 
 router = APIRouter(prefix="/api/auth", tags=["认证"])
+
+
+@router.post("/register", response_model=TokenResponse, status_code=status.HTTP_201_CREATED)
+def register(payload: UserCreate, db: Session = Depends(get_db)):
+    """注册用户并直接返回登录令牌。"""
+    username = payload.username.strip()
+    if not username:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="用户名不能为空",
+        )
+
+    user = User(
+        username=username,
+        password_encrypted=encrypt_password(payload.password),
+    )
+    try:
+        db.add(user)
+        db.commit()
+        db.refresh(user)
+    except IntegrityError:
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="用户名已存在",
+        )
+
+    token = create_access_token(data={"sub": user.username})
+    return TokenResponse(
+        access_token=token,
+        token_type="bearer",
+        user=UserResponse.model_validate(user),
+    )
 
 
 @router.post("/login", response_model=TokenResponse)

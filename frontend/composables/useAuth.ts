@@ -13,6 +13,7 @@ export function useAuth() {
 
     // 方法
     login: authStore.login,
+    register: authStore.register,
     logout: authStore.logout,
     init: authStore.init,
   }
