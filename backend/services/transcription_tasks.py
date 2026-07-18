@@ -3,11 +3,8 @@
 from __future__ import annotations
 
 import asyncio
-import hashlib
 import logging
-import secrets
 from datetime import datetime, timedelta
-from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 from uuid import UUID
 
@@ -16,6 +13,7 @@ from database import SessionLocal
 from models.diary import Diary, DiaryStatus
 from models.transcription import TranscriptionBatch, TranscriptionItem
 from services.fun_asr import FunAsrError, fun_asr_service
+from services.minio_storage import MinioStorageError, minio_storage_service
 
 logger = logging.getLogger("transcription.tasks")
 
@@ -25,26 +23,11 @@ ACTIVE_BATCH_STATUSES = {"QUEUED", "PROCESSING"}
 
 def _mask_download_url(url: str) -> str:
     parsed = urlsplit(url)
-    marker = "/transcription-files/"
-    path = parsed.path
-    if marker in path:
-        path = f"{path.split(marker, 1)[0]}{marker}***"
-    return urlunsplit((parsed.scheme, parsed.netloc, path, "", ""))
+    return urlunsplit((parsed.scheme, parsed.netloc, parsed.path, "", ""))
 
 
-def token_hash(token: str) -> str:
-    return hashlib.sha256(token.encode("utf-8")).hexdigest()
-
-
-def remove_file(path: str | None) -> bool:
-    if not path:
-        return True
-    try:
-        Path(path).unlink(missing_ok=True)
-        return True
-    except OSError:
-        logger.warning("临时音频删除失败: %s", path, exc_info=True)
-        return False
+def remove_file(object_key: str | None) -> bool:
+    return minio_storage_service.remove(object_key)
 
 
 class TranscriptionTaskManager:
@@ -153,17 +136,15 @@ class TranscriptionTaskManager:
             if not state:
                 logger.info("跳过语音项处理：状态已不可处理 item_id=%s", item_id)
                 return
-            provider_task_id, storage_path = state
-            logger.info("开始处理语音项 item_id=%s has_provider_task=%s has_file=%s", item_id, bool(provider_task_id), bool(storage_path))
+            provider_task_id, storage_key = state
+            logger.info("开始处理语音项 item_id=%s has_provider_task=%s has_file=%s", item_id, bool(provider_task_id), bool(storage_key))
             if not provider_task_id:
-                token = secrets.token_urlsafe(32)
-                ready = await asyncio.to_thread(self._set_download_token, item_id, token)
-                if not ready:
-                    logger.info("跳过语音项提交：下载令牌设置失败 item_id=%s", item_id)
-                    return
-                file_url = (
-                    f"{settings.TRANSCRIPTION_PUBLIC_BASE_URL.rstrip('/')}"
-                    f"/diary/api/transcription-files/{token}"
+                if not storage_key:
+                    raise FunAsrError("OBJECT_KEY_MISSING", "语音对象不存在，请重新上传")
+                file_url = await asyncio.to_thread(
+                    minio_storage_service.presigned_get_url,
+                    storage_key,
+                    timedelta(hours=settings.TRANSCRIPTION_DOWNLOAD_TOKEN_HOURS),
                 )
                 logger.info("提交语音项到 Fun-ASR item_id=%s file_url=%s", item_id, _mask_download_url(file_url))
                 task = await fun_asr_service.submit(file_url)
@@ -200,11 +181,11 @@ class TranscriptionTaskManager:
                         raise FunAsrError("RESULT_URL_MISSING", "识别完成但未返回结果地址")
                     logger.info("语音项识别成功，开始下载结果 item_id=%s provider_task_id=%s", item_id, provider_task_id)
                     text = await fun_asr_service.fetch_transcript(result.transcription_url)
-                    path = await asyncio.to_thread(self._complete_item, item_id, text, result.request_id)
+                    object_key = await asyncio.to_thread(self._complete_item, item_id, text, result.request_id)
                     logger.info("语音项完成 item_id=%s provider_task_id=%s transcript_length=%s", item_id, provider_task_id, len(text))
-                    completed_path = path or storage_path
-                    if await asyncio.to_thread(remove_file, completed_path):
-                        await asyncio.to_thread(self._clear_storage_path, item_id, completed_path)
+                    completed_key = object_key or storage_key
+                    if await asyncio.to_thread(remove_file, completed_key):
+                        await asyncio.to_thread(self._clear_storage_key, item_id, completed_key)
                         logger.info("语音项临时文件已删除 item_id=%s", item_id)
                     await asyncio.to_thread(self.evaluate_batch_for_item, item_id)
                     return
@@ -218,6 +199,10 @@ class TranscriptionTaskManager:
             logger.warning("语音项处理失败 item_id=%s code=%s message=%s", item_id, exc.code, str(exc))
             await asyncio.to_thread(self._fail_item, item_id, exc.code, str(exc))
             await asyncio.to_thread(self.evaluate_batch_for_item, item_id)
+        except MinioStorageError as exc:
+            logger.warning("语音项对象存储处理失败 item_id=%s message=%s", item_id, str(exc))
+            await asyncio.to_thread(self._fail_item, item_id, "STORAGE_ERROR", str(exc))
+            await asyncio.to_thread(self.evaluate_batch_for_item, item_id)
         except Exception:
             logger.exception("处理语音项失败 item_id=%s", item_id)
             await asyncio.to_thread(self._fail_item, item_id, "INTERNAL_ERROR", "语音处理异常，请重试")
@@ -230,22 +215,7 @@ class TranscriptionTaskManager:
             item = db.query(TranscriptionItem).filter_by(id=item_id).first()
             if not item or item.batch.status not in ACTIVE_BATCH_STATUSES:
                 return None
-            return item.provider_task_id, item.storage_path
-        finally:
-            db.close()
-
-    @staticmethod
-    def _set_download_token(item_id: UUID, token: str) -> bool:
-        db = SessionLocal()
-        try:
-            item = db.query(TranscriptionItem).filter_by(id=item_id).with_for_update().first()
-            if not item or item.batch.status not in ACTIVE_BATCH_STATUSES or item.status != "SUBMITTING":
-                return False
-            item.access_token_hash = token_hash(token)
-            item.access_expires_at = datetime.utcnow() + timedelta(hours=settings.TRANSCRIPTION_DOWNLOAD_TOKEN_HOURS)
-            db.commit()
-            logger.info("语音项下载令牌已设置 item_id=%s expires_at=%s", item_id, item.access_expires_at)
-            return True
+            return item.provider_task_id, item.storage_key
         finally:
             db.close()
 
@@ -287,29 +257,27 @@ class TranscriptionTaskManager:
             item = db.query(TranscriptionItem).filter_by(id=item_id).with_for_update().first()
             if not item or item.batch.status not in ACTIVE_BATCH_STATUSES:
                 return None
-            path = item.storage_path
+            object_key = item.storage_key
             item.status = "SUCCEEDED"
             item.transcript_text = text
             item.provider_request_id = request_id or item.provider_request_id
-            item.access_token_hash = None
-            item.access_expires_at = None
             db.commit()
             logger.info("语音项识别结果已保存 item_id=%s transcript_length=%s", item_id, len(text))
-            return path
+            return object_key
         finally:
             db.close()
 
     @staticmethod
-    def _clear_storage_path(item_id: UUID, expected_path: str | None) -> None:
-        if not expected_path:
+    def _clear_storage_key(item_id: UUID, expected_key: str | None) -> None:
+        if not expected_key:
             return
         db = SessionLocal()
         try:
             item = db.query(TranscriptionItem).filter_by(id=item_id).first()
-            if item and item.storage_path == expected_path:
-                item.storage_path = None
+            if item and item.storage_key == expected_key:
+                item.storage_key = None
                 db.commit()
-                logger.info("语音项 storage_path 已清空 item_id=%s", item_id)
+                logger.info("语音项 storage_key 已清空 item_id=%s", item_id)
         finally:
             db.close()
 
@@ -323,8 +291,6 @@ class TranscriptionTaskManager:
             item.status = "FAILED"
             item.error_code = code
             item.error_message = message[:1000]
-            item.access_token_hash = None
-            item.access_expires_at = None
             db.commit()
             logger.info("语音项已标记失败 item_id=%s code=%s message=%s", item_id, code, message[:200])
         finally:
@@ -409,8 +375,6 @@ class TranscriptionTaskManager:
             batch.base_text = None
             for item in items:
                 item.transcript_text = None
-                item.access_token_hash = None
-                item.access_expires_at = None
             db.commit()
             logger.info("语音批次最终化完成 batch_id=%s diary_id=%s text_length=%s", batch.id, diary.id, len(diary.original_text or ""))
         except Exception:
@@ -428,8 +392,6 @@ class TranscriptionTaskManager:
                 item.status = "FAILED"
                 item.error_code = "SUBMIT_RESULT_UNKNOWN"
                 item.error_message = "服务重启时提交结果未知，请手动重试"
-                item.access_token_hash = None
-                item.access_expires_at = None
                 affected.append(item.batch_id)
             batches = db.query(TranscriptionBatch).filter(TranscriptionBatch.status == "FINALIZING").all()
             for batch in batches:
@@ -450,7 +412,7 @@ class TranscriptionTaskManager:
     def _cleanup_expired() -> None:
         now = datetime.utcnow()
         db = SessionLocal()
-        paths: list[str] = []
+        object_keys: list[str] = []
         residual_files: list[tuple[UUID, str]] = []
         try:
             collecting = db.query(TranscriptionBatch).filter(
@@ -458,36 +420,34 @@ class TranscriptionTaskManager:
                 TranscriptionBatch.created_at < now - timedelta(hours=24),
             ).all()
             for batch in collecting:
-                paths.extend(item.storage_path for item in batch.items if item.storage_path)
+                object_keys.extend(item.storage_key for item in batch.items if item.storage_key)
                 db.delete(batch)
             expired = db.query(TranscriptionBatch).filter(
                 TranscriptionBatch.status == "PARTIAL_FAILED",
                 TranscriptionBatch.expires_at <= now,
             ).all()
             for batch in expired:
-                paths.extend(item.storage_path for item in batch.items if item.storage_path)
+                object_keys.extend(item.storage_key for item in batch.items if item.storage_key)
                 batch.status = "EXPIRED"
                 batch.base_text = None
                 batch.completed_at = now
                 for item in batch.items:
                     item.transcript_text = None
-                    item.access_token_hash = None
-                    item.access_expires_at = None
             terminal_cutoff = now - timedelta(days=30)
             residuals = db.query(TranscriptionItem).join(TranscriptionBatch).filter(
-                TranscriptionItem.storage_path.is_not(None),
+                TranscriptionItem.storage_key.is_not(None),
                 (
                     (TranscriptionItem.status == "SUCCEEDED")
                     | TranscriptionBatch.status.in_(("COMPLETED", "CANCELLED", "EXPIRED"))
                 ),
             ).all()
-            residual_files = [(item.id, item.storage_path) for item in residuals if item.storage_path]
+            residual_files = [(item.id, item.storage_key) for item in residuals if item.storage_key]
             terminal = db.query(TranscriptionBatch).filter(
                 TranscriptionBatch.status.in_(("COMPLETED", "CANCELLED", "EXPIRED")),
                 TranscriptionBatch.completed_at < terminal_cutoff,
             ).all()
             for batch in terminal:
-                paths.extend(item.storage_path for item in batch.items if item.storage_path)
+                object_keys.extend(item.storage_key for item in batch.items if item.storage_key)
                 db.delete(batch)
             db.commit()
             if collecting or expired or terminal or residual_files:
@@ -497,15 +457,15 @@ class TranscriptionTaskManager:
                     len(expired),
                     len(terminal),
                     len(residual_files),
-                    len(paths),
+                    len(object_keys),
                 )
         finally:
             db.close()
-        for path in paths:
-            remove_file(path)
-        for item_id, path in residual_files:
-            if remove_file(path):
-                TranscriptionTaskManager._clear_storage_path(item_id, path)
+        for object_key in object_keys:
+            remove_file(object_key)
+        for item_id, object_key in residual_files:
+            if remove_file(object_key):
+                TranscriptionTaskManager._clear_storage_key(item_id, object_key)
 
 
 transcription_task_manager = TranscriptionTaskManager()

@@ -5,9 +5,6 @@ from __future__ import annotations
 import asyncio
 import logging
 import mimetypes
-import os
-import shutil
-import uuid
 from datetime import date, datetime
 from pathlib import Path
 from uuid import UUID
@@ -27,16 +24,23 @@ from schemas.transcription import (
     TranscriptionStart,
 )
 from services.auth import get_current_user
-from services.transcription_tasks import remove_file, token_hash, transcription_task_manager
+from services.minio_storage import MinioStorageError, minio_storage_service
+from services.transcription_tasks import remove_file, transcription_task_manager
 
 router = APIRouter(prefix="/api/transcription-batches", tags=["语音转写"])
-file_router = APIRouter(prefix="/api/transcription-files", tags=["语音转写文件"])
 logger = logging.getLogger("transcription.api")
 
 ALLOWED_EXTENSIONS = {
     "aac", "amr", "avi", "flac", "flv", "m4a", "mkv", "mov", "mp3", "mp4",
     "mpeg", "ogg", "opus", "wav", "webm", "wma", "wmv",
 }
+
+
+def get_upload_file_size(upload_file: UploadFile) -> int:
+    upload_file.file.seek(0, 2)
+    size = upload_file.file.tell()
+    upload_file.file.seek(0)
+    return size
 
 
 def get_batch(db: Session, batch_id: UUID, user_id: UUID, lock: bool = False) -> TranscriptionBatch:
@@ -146,38 +150,30 @@ async def upload_item(
     ):
         logger.warning("拒绝上传语音：Content-Type 不支持 batch_id=%s filename=%s content_type=%s", batch.id, original_name, upload_type)
         raise HTTPException(status_code=415, detail="不支持该音频格式")
-    storage_dir = Path(settings.TRANSCRIPTION_STORAGE_PATH)
-    await asyncio.to_thread(storage_dir.mkdir, parents=True, exist_ok=True)
-    storage_reserve = 10 * 1024 * 1024
-    if shutil.disk_usage(storage_dir).free <= storage_reserve:
-        logger.warning("拒绝上传语音：存储空间不足 batch_id=%s storage_dir=%s", batch.id, storage_dir)
-        raise HTTPException(status_code=507, detail="服务器存储空间不足，请稍后再试")
-    path = storage_dir / f"{uuid.uuid4().hex}.{extension}"
-    size = 0
+    content_type = (mimetypes.guess_type(original_name)[0] or upload_type or "application/octet-stream")[:100]
+    object_key = minio_storage_service.build_object_key(batch.id, original_name)
+    size = await asyncio.to_thread(get_upload_file_size, file)
     try:
-        handle = await asyncio.to_thread(path.open, "wb")
-        try:
-            while chunk := await file.read(1024 * 1024):
-                size += len(chunk)
-                if size > settings.TRANSCRIPTION_MAX_FILE_SIZE:
-                    logger.warning("拒绝上传语音：文件过大 batch_id=%s filename=%s size=%s", batch.id, original_name, size)
-                    raise HTTPException(status_code=413, detail="单个音频不能超过 300 MB")
-                if shutil.disk_usage(storage_dir).free < len(chunk) + storage_reserve:
-                    logger.warning("拒绝上传语音：写入时存储空间不足 batch_id=%s filename=%s size=%s", batch.id, original_name, size)
-                    raise HTTPException(status_code=507, detail="服务器存储空间不足，请稍后再试")
-                await asyncio.to_thread(handle.write, chunk)
-        finally:
-            await asyncio.to_thread(handle.close)
         if size == 0:
             logger.warning("拒绝上传语音：空文件 batch_id=%s filename=%s", batch.id, original_name)
             raise HTTPException(status_code=400, detail="音频文件不能为空")
+        if size > settings.TRANSCRIPTION_MAX_FILE_SIZE:
+            logger.warning("拒绝上传语音：文件过大 batch_id=%s filename=%s size=%s", batch.id, original_name, size)
+            raise HTTPException(status_code=413, detail="单个音频不能超过 300 MB")
+        await asyncio.to_thread(
+            minio_storage_service.upload,
+            object_key,
+            file.file,
+            size,
+            content_type,
+        )
         item = TranscriptionItem(
             batch_id=batch.id,
             sort_order=sort_order,
             original_filename=original_name,
-            content_type=(mimetypes.guess_type(original_name)[0] or "application/octet-stream")[:100],
+            content_type=content_type,
             file_size=size,
-            storage_path=str(path),
+            storage_key=object_key,
             status="UPLOADED",
         )
         db.add(item)
@@ -197,15 +193,18 @@ async def upload_item(
             file_size=item.file_size, status=item.status, retry_count=item.retry_count,
         )
     except HTTPException:
-        remove_file(str(path))
+        remove_file(object_key)
         raise
+    except MinioStorageError as exc:
+        logger.warning("语音上传到 MinIO 失败 batch_id=%s filename=%s object_key=%s", batch.id, original_name, object_key, exc_info=True)
+        raise HTTPException(status_code=500, detail=str(exc))
     except IntegrityError:
         db.rollback()
-        remove_file(str(path))
+        remove_file(object_key)
         logger.warning("语音上传失败：顺序冲突 batch_id=%s filename=%s sort_order=%s", batch.id, original_name, sort_order)
         raise HTTPException(status_code=409, detail="音频顺序冲突，请重新选择")
     except Exception:
-        remove_file(str(path))
+        remove_file(object_key)
         logger.exception("语音上传异常 batch_id=%s filename=%s size=%s", batch.id, original_name, size)
         raise HTTPException(status_code=500, detail="音频上传失败")
 
@@ -270,17 +269,17 @@ def delete_item(
     if item.status not in {"UPLOADED", "FAILED"}:
         logger.warning("拒绝删除语音：状态不允许 batch_id=%s item_id=%s status=%s", batch.id, item.id, item.status)
         raise HTTPException(status_code=409, detail="当前状态不能删除")
-    path = item.storage_path
+    storage_key = item.storage_key
     previous_status = item.status
     item.status = "DELETED"
     item.transcript_text = None
     db.commit()
-    if remove_file(path):
-        item.storage_path = None
+    if remove_file(storage_key):
+        item.storage_key = None
         db.commit()
     if batch.status == "PARTIAL_FAILED":
         transcription_task_manager.evaluate_batch(batch.id)
-    logger.info("删除语音完成 batch_id=%s item_id=%s previous_status=%s file_removed=%s", batch.id, item.id, previous_status, path is not None)
+    logger.info("删除语音完成 batch_id=%s item_id=%s previous_status=%s file_removed=%s", batch.id, item.id, previous_status, storage_key is not None)
     return Response(status_code=204)
 
 
@@ -288,7 +287,10 @@ def retry_items(batch: TranscriptionBatch, items: list[TranscriptionItem], db: S
     if batch.status != "PARTIAL_FAILED" or (batch.expires_at and batch.expires_at <= datetime.utcnow()):
         logger.warning("拒绝重试语音：批次不可重试 batch_id=%s status=%s expires_at=%s", batch.id, batch.status, batch.expires_at)
         raise HTTPException(status_code=410, detail="语音已过期，请重新上传")
-    retryable = [item for item in items if item.status == "FAILED" and item.storage_path and os.path.exists(item.storage_path)]
+    retryable = [
+        item for item in items
+        if item.status == "FAILED" and minio_storage_service.exists(item.storage_key)
+    ]
     if not retryable:
         logger.warning("拒绝重试语音：无可重试项 batch_id=%s requested=%s", batch.id, len(items))
         raise HTTPException(status_code=409, detail="没有可重试的音频")
@@ -336,40 +338,16 @@ def cancel_batch(batch_id: UUID, db: Session = Depends(get_db), current_user: Us
         base_text=batch.base_text or "",
         status="CANCELLED",
     )
-    paths = [item.storage_path for item in batch.items if item.storage_path]
+    object_keys = [item.storage_key for item in batch.items if item.storage_key]
     batch.status = "CANCELLED"
     batch.completed_at = datetime.utcnow()
     batch.base_text = None
     for item in batch.items:
         item.transcript_text = None
-        item.access_token_hash = None
-        item.access_expires_at = None
     db.commit()
-    for item, path in zip([item for item in batch.items if item.storage_path], paths):
-        if remove_file(path):
-            item.storage_path = None
+    for item, object_key in zip([item for item in batch.items if item.storage_key], object_keys):
+        if remove_file(object_key):
+            item.storage_key = None
     db.commit()
-    logger.info("取消语音转写完成 batch_id=%s removed_file_count=%s", batch.id, len(paths))
+    logger.info("取消语音转写完成 batch_id=%s removed_file_count=%s", batch.id, len(object_keys))
     return response
-
-
-@file_router.api_route("/{token}", methods=["GET", "HEAD"])
-def download_file(token: str, db: Session = Depends(get_db)):
-    item = db.query(TranscriptionItem).filter(
-        TranscriptionItem.access_token_hash == token_hash(token),
-        TranscriptionItem.access_expires_at > datetime.utcnow(),
-        TranscriptionItem.status.in_(("SUBMITTING", "SUBMITTED", "RUNNING")),
-    ).first()
-    if not item or not item.storage_path or not os.path.isfile(item.storage_path):
-        logger.warning("语音临时文件下载失败：token 无效、过期或文件不存在")
-        raise HTTPException(status_code=404, detail="文件不存在")
-    logger.info("语音临时文件下载命中 item_id=%s batch_id=%s size=%s content_type=%s", item.id, item.batch_id, item.file_size, item.content_type)
-    filename = Path(item.storage_path).name
-    return Response(
-        status_code=200,
-        headers={
-            "X-Accel-Redirect": f"/protected-transcriptions/{filename}",
-            "Content-Type": item.content_type or "application/octet-stream",
-            "Content-Length": str(item.file_size),
-        },
-    )

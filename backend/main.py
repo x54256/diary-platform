@@ -13,7 +13,7 @@ from routers.diaries import router as diaries_router
 from routers.tags import router as tags_router
 from routers.dialogs import router as dialogs_router
 from routers.admin_backup import router as admin_backup_router
-from routers.transcriptions import router as transcriptions_router, file_router as transcription_files_router
+from routers.transcriptions import router as transcriptions_router
 
 # ---------------------------------------------------------------------------
 # 全局日志配置 - 所有模块日志写入 app_YYYY-MM-DD.log
@@ -69,7 +69,6 @@ api_router.include_router(tags_router)
 api_router.include_router(dialogs_router)
 api_router.include_router(admin_backup_router)
 api_router.include_router(transcriptions_router)
-api_router.include_router(transcription_files_router)
 app.include_router(api_router)
 
 

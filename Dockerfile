@@ -42,7 +42,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends python3 python3-venv nginx \
     && python3 -m venv /opt/venv \
     && rm -f /etc/nginx/sites-enabled/default \
-    && mkdir -p /run/nginx /app/data/transcriptions \
+    && mkdir -p /run/nginx \
     && rm -rf /var/lib/apt/lists/*
 
 COPY backend/requirements.lock.txt /app/backend/requirements.lock.txt

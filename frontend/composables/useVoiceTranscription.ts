@@ -49,7 +49,10 @@ export function useVoiceTranscription() {
   const locked = computed(() => !!batch.value && !['COLLECTING', 'CANCELLED', 'EXPIRED'].includes(batch.value.status))
 
   const createBatch = async () => {
-    if (!batch.value) batch.value = await api<TranscriptionBatch>('/transcription-batches', { method: 'POST' })
+    if (batch.value?.status !== 'COLLECTING') {
+      batch.value = await api<TranscriptionBatch>('/transcription-batches', { method: 'POST' })
+      localItems.value = []
+    }
     return batch.value
   }
 

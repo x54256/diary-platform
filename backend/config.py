@@ -27,12 +27,20 @@ class Settings(BaseSettings):
     DASHSCOPE_API_KEY: str = ""
     DASHSCOPE_WORKSPACE_ID: str = ""
     DASHSCOPE_API_BASE_URL: str = ""
+    TRANSCRIPTION_MODEL: str = "fun-asr"
     TRANSCRIPTION_PUBLIC_BASE_URL: str = "http://localhost"
-    TRANSCRIPTION_STORAGE_PATH: str = "/app/data/transcriptions"
     TRANSCRIPTION_MAX_FILE_SIZE: int = 314572800
     TRANSCRIPTION_MAX_CONCURRENCY: int = 3
     TRANSCRIPTION_FAILED_RETENTION_DAYS: int = 7
     TRANSCRIPTION_DOWNLOAD_TOKEN_HOURS: int = 24
+    MINIO_ENDPOINT: str = "localhost:9000"
+    MINIO_PUBLIC_ENDPOINT: str = "localhost:9000"
+    MINIO_ACCESS_KEY: str = "diary_minio"
+    MINIO_SECRET_KEY: str = "diary_minio_password"
+    MINIO_BUCKET: str = "diary"
+    MINIO_SECURE: bool = False
+    MINIO_PUBLIC_SECURE: bool = False
+    MINIO_UPLOAD_PREFIX: str = "transcriptions"
 
     @property
     def CHECKPOINT_CONN_STRING(self) -> str:

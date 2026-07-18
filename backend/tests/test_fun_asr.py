@@ -13,12 +13,15 @@ class FunAsrServiceTest(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
         self.original_key = settings.DASHSCOPE_API_KEY
         self.original_base = settings.DASHSCOPE_API_BASE_URL
+        self.original_model = settings.TRANSCRIPTION_MODEL
         settings.DASHSCOPE_API_KEY = "test-key"
         settings.DASHSCOPE_API_BASE_URL = "https://example.test/api/v1"
+        settings.TRANSCRIPTION_MODEL = "test-asr-model"
 
     async def asyncTearDown(self):
         settings.DASHSCOPE_API_KEY = self.original_key
         settings.DASHSCOPE_API_BASE_URL = self.original_base
+        settings.TRANSCRIPTION_MODEL = self.original_model
 
     async def test_submit_builds_async_request(self):
         captured = {}
@@ -38,7 +41,7 @@ class FunAsrServiceTest(unittest.IsolatedAsyncioTestCase):
 
         self.assertEqual(task.task_id, "task-1")
         self.assertEqual(captured["headers"]["x-dashscope-async"], "enable")
-        self.assertEqual(captured["body"]["model"], "fun-asr")
+        self.assertEqual(captured["body"]["model"], "test-asr-model")
         self.assertEqual(captured["body"]["input"]["file_urls"], ["https://files.test/audio"])
 
     async def test_query_and_result_text_parsing(self):

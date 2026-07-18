@@ -64,7 +64,7 @@ class FunAsrService:
 
     async def submit(self, file_url: str) -> FunAsrTask:
         payload = {
-            "model": "fun-asr",
+            "model": settings.TRANSCRIPTION_MODEL,
             "input": {"file_urls": [file_url]},
             "parameters": {
                 "channel_id": [0],
@@ -196,13 +196,8 @@ class FunAsrService:
         if not value.startswith(("http://", "https://")):
             return value
         parsed = urlsplit(value)
-        path = parsed.path
-        marker = "/transcription-files/"
-        if marker in path:
-            prefix = path.split(marker, 1)[0]
-            path = f"{prefix}{marker}***"
         query = "***" if parsed.query else ""
-        return urlunsplit((parsed.scheme, parsed.netloc, path, query, ""))
+        return urlunsplit((parsed.scheme, parsed.netloc, parsed.path, query, ""))
 
     @staticmethod
     def _dump_json(value: Any) -> str:

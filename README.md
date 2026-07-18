@@ -161,6 +161,7 @@ cd backend
 python3 -m venv venv
 source venv/bin/activate        # Windows 使用: venv\Scripts\activate
 pip install -r requirements.txt
+backend/venv/bin/python -m pip install -r backend/requirements.txt
 ```
 
 #### 步骤 4：启动后端
