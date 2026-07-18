@@ -8,7 +8,6 @@ from typing import Any, TypedDict
 
 from langgraph.graph import END, START, StateGraph
 
-from config import settings
 from database import SessionLocal
 from models.diary import AnalysisRun, Diary, DiaryEvent, DiaryStatus, OrganizeTask
 from models.tag import EventTag, Tag, diary_tags
@@ -376,7 +375,7 @@ async def mood_tag_extract(state: AnalysisState) -> dict:
         event_count,
     )
 
-    llm = _get_llm(0.3)
+    llm = _get_llm(0.3, "analysis")
     input_data = {"structured_diary": structured_diary}
     result = await _invoke_llm(
         llm,
@@ -437,7 +436,7 @@ async def core_analysis(state: AnalysisState) -> dict:
         _list_len(events),
     )
 
-    llm = _get_llm(0.5)
+    llm = _get_llm(0.5, "analysis")
     result = await _invoke_llm(
         llm,
         CORE_ANALYSIS_PROMPT,
@@ -506,7 +505,7 @@ async def cognition_analysis(state: AnalysisState) -> dict:
         _list_len(events),
     )
 
-    llm = _get_llm(0.5)
+    llm = _get_llm(0.5, "analysis")
     result = await _invoke_llm(
         llm,
         COGNITION_ANALYSIS_PROMPT,
@@ -580,7 +579,7 @@ async def feedback_core_analysis(state: FeedbackAnalysisState) -> dict:
     if not core_input["feedback"]:
         return {"merged_core": state["previous_state"]}
 
-    llm = _get_llm(0.2)
+    llm = _get_llm(0.2, "analysis")
     core_result = await _invoke_llm(
         llm,
         FEEDBACK_CORE_ANALYSIS_PROMPT,
@@ -622,7 +621,7 @@ async def feedback_cognition_analysis(state: FeedbackAnalysisState) -> dict:
     if not cognition_input["feedback"]:
         return {"merged": state["merged_core"]}
 
-    llm = _get_llm(0.2)
+    llm = _get_llm(0.2, "analysis")
     cognition_result = await _invoke_llm(
         llm,
         FEEDBACK_COGNITION_ANALYSIS_PROMPT,

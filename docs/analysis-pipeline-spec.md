@@ -385,14 +385,15 @@ START → feedback_core_analysis → feedback_cognition_analysis → END
 
 ### 6.3 模型调用配置
 
-普通分析和反馈分析都通过 `pipeline._get_llm()` 创建 `ChatDeepSeek`：
+普通分析和反馈分析都通过 `pipeline._get_llm(..., "analysis")` 创建 OpenAI 兼容 Chat 模型。实际 API 地址、密钥和模型名来自管理端 `model_settings.analysis` 指向的 `channel_models`：
 
 ```python
 {
-    "model": settings.LLM_MODEL,
+    "model": model_catalog.model_name,
+    "base_url": api_channels.api_base_url,
     "temperature": temperature,
-    "timeout": 120,
-    "max_retries": 2,
+    "timeout": 12000,
+    "max_retries": 1,
     "model_kwargs": {"response_format": {"type": "json_object"}}
 }
 ```

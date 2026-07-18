@@ -18,16 +18,7 @@ class Settings(BaseSettings):
     # 系统备份包主密钥。生产环境必须通过环境变量覆盖。
     BACKUP_MASTER_KEY: str = "123456"
 
-    # DeepSeek API 配置
-    LLM_API_KEY: str = ""
-    LLM_API_URL: str = "https://api.deepseek.com/v1"
-    LLM_MODEL: str = "deepseek-v4-flash"
-
-    # Fun-ASR 录音文件识别
-    DASHSCOPE_API_KEY: str = ""
-    DASHSCOPE_WORKSPACE_ID: str = ""
-    DASHSCOPE_API_BASE_URL: str = ""
-    TRANSCRIPTION_MODEL: str = "fun-asr"
+    # Fun-ASR 录音文件识别运行参数。模型、API 地址和密钥由管理端模型配置维护。
     TRANSCRIPTION_PUBLIC_BASE_URL: str = "http://localhost"
     TRANSCRIPTION_MAX_FILE_SIZE: int = 314572800
     TRANSCRIPTION_MAX_CONCURRENCY: int = 3
@@ -49,6 +40,7 @@ class Settings(BaseSettings):
 
     class Config:
         env_file = ".env"
+        extra = "ignore"
 
 
 # 全局配置实例

@@ -13,6 +13,7 @@ from routers.diaries import router as diaries_router
 from routers.tags import router as tags_router
 from routers.dialogs import router as dialogs_router
 from routers.admin_backup import router as admin_backup_router
+from routers.admin_models import router as admin_models_router
 from routers.transcriptions import router as transcriptions_router
 
 # ---------------------------------------------------------------------------
@@ -68,6 +69,7 @@ api_router.include_router(diaries_router)
 api_router.include_router(tags_router)
 api_router.include_router(dialogs_router)
 api_router.include_router(admin_backup_router)
+api_router.include_router(admin_models_router)
 api_router.include_router(transcriptions_router)
 app.include_router(api_router)
 
@@ -79,6 +81,8 @@ async def startup():
     # 导入所有模型，确保它们被注册到 Base.metadata
     import models  # noqa: F401
     Base.metadata.create_all(bind=engine)
+    # 初始化内置模型清单
+    _seed_model_catalog()
     # 创建默认管理员账号
     _create_default_user()
     # 恢复服务器重启前卡死的整理任务
@@ -131,6 +135,19 @@ def _create_default_user():
         db.add(admin_user)
         db.commit()
         _startup_logger.info("默认管理员账号已创建: admin / admin123")
+    finally:
+        db.close()
+
+
+def _seed_model_catalog():
+    """启动时幂等初始化内置模型清单。"""
+    from database import SessionLocal
+    from services.model_seed import repair_model_management_schema, seed_model_catalog
+
+    db = SessionLocal()
+    try:
+        repair_model_management_schema(db)
+        seed_model_catalog(db)
     finally:
         db.close()
 

@@ -7,7 +7,7 @@ from contextlib import asynccontextmanager
 from datetime import datetime
 from typing import Any, AsyncIterator, TypedDict
 
-from langchain_deepseek import ChatDeepSeek
+from langchain_openai import ChatOpenAI
 from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
 from langgraph.graph import END, START, StateGraph
 from psycopg import AsyncConnection
@@ -25,6 +25,7 @@ from services.ai import (
     TEMPLATE_FILL_PROMPT,
     ai_service,
 )
+from services.model_runtime import resolve_model_setting
 
 logger = logging.getLogger(__name__)
 
@@ -79,20 +80,19 @@ class PipelineState(TypedDict, total=False):
 # LLM 初始化
 # ---------------------------------------------------------------------------
 
-def _get_llm(temperature: float) -> ChatDeepSeek:
-    """根据 temperature 创建 ChatDeepSeek 实例（含 api_key 和 JSON 强制输出）"""
+def _get_llm(temperature: float, setting_key: str = "organize") -> ChatOpenAI:
+    """根据业务用途创建 OpenAI 兼容 Chat 模型实例。"""
+    runtime_config = resolve_model_setting(setting_key)
     kwargs: dict[str, Any] = {
-        "model": settings.LLM_MODEL,
-        "api_key": settings.LLM_API_KEY,
+        "model": runtime_config.model_name,
+        "api_key": runtime_config.api_key,
         "temperature": temperature,
         "timeout": 12000,
         "max_retries": 1,
+        "base_url": runtime_config.api_base_url,
         "model_kwargs": {"response_format": {"type": "json_object"}},
     }
-    # settings.LLM_API_URL 含 /v1 后缀，与 ChatDeepSeek 默认值不同，需显式传入
-    if settings.LLM_API_URL:
-        kwargs["base_url"] = settings.LLM_API_URL
-    return ChatDeepSeek(**kwargs)
+    return ChatOpenAI(**kwargs)
 
 
 def _update_step(task_id: str, step: str):
@@ -110,7 +110,7 @@ def _update_step(task_id: str, step: str):
         db.close()
 
 
-async def _invoke_llm(llm: ChatDeepSeek, system_prompt: str, user_message: str, step_name: str = "") -> dict:
+async def _invoke_llm(llm: ChatOpenAI, system_prompt: str, user_message: str, step_name: str = "") -> dict:
     """调用 LLM 并解析 JSON 响应（含双向日志）"""
     from langchain_core.messages import HumanMessage, SystemMessage
 

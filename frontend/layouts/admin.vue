@@ -30,6 +30,27 @@
         >
           备份与恢复
         </NuxtLink>
+        <NuxtLink
+          to="/admin/models"
+          class="mt-1 flex items-center px-3 py-2 rounded text-sm"
+          :class="$route.path.startsWith('/admin/models') ? 'bg-neutral-900 text-white' : 'text-neutral-700 hover:bg-neutral-100'"
+        >
+          模型管理
+        </NuxtLink>
+        <NuxtLink
+          to="/admin/channels"
+          class="mt-1 flex items-center px-3 py-2 rounded text-sm"
+          :class="$route.path.startsWith('/admin/channels') ? 'bg-neutral-900 text-white' : 'text-neutral-700 hover:bg-neutral-100'"
+        >
+          渠道管理
+        </NuxtLink>
+        <NuxtLink
+          to="/admin/model-settings"
+          class="mt-1 flex items-center px-3 py-2 rounded text-sm"
+          :class="$route.path.startsWith('/admin/model-settings') ? 'bg-neutral-900 text-white' : 'text-neutral-700 hover:bg-neutral-100'"
+        >
+          模型设置
+        </NuxtLink>
       </aside>
 
       <main class="flex-1 p-6">

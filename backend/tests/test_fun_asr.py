@@ -2,26 +2,24 @@
 
 import json
 import unittest
+from unittest.mock import patch
 
 import httpx
 
-from config import settings
 from services.fun_asr import FunAsrService
+from services.model_runtime import RuntimeModelConfig
 
 
 class FunAsrServiceTest(unittest.IsolatedAsyncioTestCase):
-    async def asyncSetUp(self):
-        self.original_key = settings.DASHSCOPE_API_KEY
-        self.original_base = settings.DASHSCOPE_API_BASE_URL
-        self.original_model = settings.TRANSCRIPTION_MODEL
-        settings.DASHSCOPE_API_KEY = "test-key"
-        settings.DASHSCOPE_API_BASE_URL = "https://example.test/api/v1"
-        settings.TRANSCRIPTION_MODEL = "test-asr-model"
-
-    async def asyncTearDown(self):
-        settings.DASHSCOPE_API_KEY = self.original_key
-        settings.DASHSCOPE_API_BASE_URL = self.original_base
-        settings.TRANSCRIPTION_MODEL = self.original_model
+    def runtime_config(self):
+        return RuntimeModelConfig(
+            setting_key="transcription",
+            model_type="asr",
+            protocol="dashscope_asr",
+            api_base_url="https://example.test/api/v1",
+            api_key="test-key",
+            model_name="test-asr-model",
+        )
 
     async def test_submit_builds_async_request(self):
         captured = {}
@@ -34,10 +32,11 @@ class FunAsrServiceTest(unittest.IsolatedAsyncioTestCase):
         service = FunAsrService()
         await service._client.aclose()
         service._client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
-        try:
-            task = await service.submit("https://files.test/audio")
-        finally:
-            await service.close()
+        with patch("services.fun_asr.resolve_model_setting", return_value=self.runtime_config()):
+            try:
+                task = await service.submit("https://files.test/audio")
+            finally:
+                await service.close()
 
         self.assertEqual(task.task_id, "task-1")
         self.assertEqual(captured["headers"]["x-dashscope-async"], "enable")
@@ -56,11 +55,12 @@ class FunAsrServiceTest(unittest.IsolatedAsyncioTestCase):
         service = FunAsrService()
         await service._client.aclose()
         service._client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
-        try:
-            result = await service.query("task-1")
-            text = await service.fetch_transcript(result.transcription_url or "")
-        finally:
-            await service.close()
+        with patch("services.fun_asr.resolve_model_setting", return_value=self.runtime_config()):
+            try:
+                result = await service.query("task-1")
+                text = await service.fetch_transcript(result.transcription_url or "")
+            finally:
+                await service.close()
 
         self.assertEqual(result.status, "SUCCEEDED")
         self.assertEqual(text, "第一段\n第二段")

@@ -11,7 +11,7 @@ from urllib.parse import urlsplit, urlunsplit
 
 import httpx
 
-from config import settings
+from services.model_runtime import ModelRuntimeError, resolve_model_setting
 
 logger = logging.getLogger("fun_asr")
 
@@ -47,24 +47,25 @@ class FunAsrService:
 
     @property
     def base_url(self) -> str:
-        if settings.DASHSCOPE_API_BASE_URL:
-            return settings.DASHSCOPE_API_BASE_URL.rstrip("/")
-        if settings.DASHSCOPE_WORKSPACE_ID:
-            return f"https://{settings.DASHSCOPE_WORKSPACE_ID}.cn-beijing.maas.aliyuncs.com/api/v1"
-        return "https://dashscope.aliyuncs.com/api/v1"
+        return self._runtime_config().api_base_url
 
     @property
     def headers(self) -> dict[str, str]:
-        if not settings.DASHSCOPE_API_KEY:
-            raise FunAsrError("CONFIG_MISSING", "未配置 DASHSCOPE_API_KEY")
-        return {"Authorization": f"Bearer {settings.DASHSCOPE_API_KEY}"}
+        return {"Authorization": f"Bearer {self._runtime_config().api_key}"}
+
+    @staticmethod
+    def _runtime_config():
+        try:
+            return resolve_model_setting("transcription")
+        except ModelRuntimeError as exc:
+            raise FunAsrError("CONFIG_MISSING", str(exc)) from exc
 
     async def close(self) -> None:
         await self._client.aclose()
 
     async def submit(self, file_url: str) -> FunAsrTask:
         payload = {
-            "model": settings.TRANSCRIPTION_MODEL,
+            "model": self._runtime_config().model_name,
             "input": {"file_urls": [file_url]},
             "parameters": {
                 "channel_id": [0],

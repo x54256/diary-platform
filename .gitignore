@@ -30,9 +30,12 @@ env.bak/
 venv.bak/
 temp/
 data/
+!backend/data/
+!backend/data/model_seed.csv
 .idea/
 .nuxt/
 .output/
+**/.DS_Store/
 .DS_Store/
 backend/logs/
 .env

@@ -4,11 +4,11 @@ import asyncio
 import json
 import logging
 import os
-from datetime import date, datetime
+from datetime import datetime
 
 import httpx
 
-from config import settings
+from services.model_runtime import ModelRuntimeError, resolve_model_setting
 
 logger = logging.getLogger(__name__)
 
@@ -328,9 +328,6 @@ class AIService:
     """DeepSeek AI 服务封装"""
 
     def __init__(self):
-        self.api_key = settings.LLM_API_KEY
-        self.api_url = settings.LLM_API_URL
-        self.model = settings.LLM_MODEL
         self.client = httpx.AsyncClient(timeout=240.0)
 
     async def chat(self, messages: list[dict], context: str = "") -> str:
@@ -343,9 +340,11 @@ class AIService:
         Returns:
             AI 回复文本
         """
-        # API Key 未配置时返回友好提示
-        if not self.api_key:
-            return "抱歉，AI 服务尚未配置，暂时无法回复。请联系管理员设置 LLM_API_KEY。"
+        try:
+            runtime_config = resolve_model_setting("chat")
+        except ModelRuntimeError as exc:
+            logger.warning("对话模型未配置: %s", exc)
+            return str(exc)
 
         # 构建请求消息：先放 system message（含上下文），再追加对话历史
         api_messages = []
@@ -355,10 +354,10 @@ class AIService:
 
         try:
             response = await self.client.post(
-                f"{self.api_url}/chat/completions",
-                headers={"Authorization": f"Bearer {self.api_key}"},
+                f"{runtime_config.api_base_url}/chat/completions",
+                headers={"Authorization": f"Bearer {runtime_config.api_key}"},
                 json={
-                    "model": self.model,
+                    "model": runtime_config.model_name,
                     "messages": api_messages,
                 },
             )
@@ -385,8 +384,7 @@ class AIService:
         Raises:
             Exception: 重试1次后仍失败时抛出
         """
-        if not self.api_key:
-            raise Exception("AI 服务未配置 (LLM_API_KEY)")
+        runtime_config = resolve_model_setting("organize")
 
         messages = [
             {"role": "system", "content": system_prompt},
@@ -405,10 +403,10 @@ class AIService:
         for attempt in range(2):  # 最多2次（初始+1次重试）
             try:
                 response = await self.client.post(
-                    f"{self.api_url}/chat/completions",
-                    headers={"Authorization": f"Bearer {self.api_key}"},
+                    f"{runtime_config.api_base_url}/chat/completions",
+                    headers={"Authorization": f"Bearer {runtime_config.api_key}"},
                     json={
-                        "model": self.model,
+                        "model": runtime_config.model_name,
                         "messages": messages,
                         "temperature": temperature,
                         "response_format": {"type": "json_object"},
@@ -469,21 +467,6 @@ class AIService:
         Returns:
             包含 title/summary/events/check_log/clean_check_log/location/introduction/trivia/plans 的 dict
         """
-        # API Key 未配置时返回占位结果
-        if not self.api_key:
-            today = date.today().isoformat()
-            return {
-                "title": f"日记 - {today}",
-                "summary": "",
-                "events": [],
-                "check_log": [],
-                "clean_check_log": [],
-                "location": "",
-                "introduction": "",
-                "trivia": [],
-                "plans": [],
-            }
-
         from services.pipeline import run_pipeline
         return await run_pipeline(original_text, task_id, diary_id, user_id)
 
@@ -511,9 +494,6 @@ class AIService:
             包含 mood/event_tags/emotion_analysis/behavior_analysis/focus_analysis/
             cognitive_calibration/actionable_suggestions/analysis_check_log 的 dict
         """
-        if not self.api_key:
-            raise Exception("AI 服务未配置 (LLM_API_KEY)")
-
         from services.analysis_pipeline import run_analysis_pipeline
         return await run_analysis_pipeline(
             original_text,

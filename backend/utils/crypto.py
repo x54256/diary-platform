@@ -32,12 +32,22 @@ def _get_fernet() -> Fernet:
 
 def encrypt_password(password: str) -> str:
     """加密明文密码，返回密文字符串"""
-    f = _get_fernet()
-    return f.encrypt(password.encode("utf-8")).decode("utf-8")
+    return encrypt_text(password)
 
 
 def decrypt_password(encrypted: str) -> str:
     """解密密文密码，返回明文字符串"""
+    return decrypt_text(encrypted)
+
+
+def encrypt_text(value: str) -> str:
+    """加密明文文本，返回密文字符串。"""
+    f = _get_fernet()
+    return f.encrypt(value.encode("utf-8")).decode("utf-8")
+
+
+def decrypt_text(encrypted: str) -> str:
+    """解密密文文本，返回明文字符串。"""
     f = _get_fernet()
     return f.decrypt(encrypted.encode("utf-8")).decode("utf-8")
 
