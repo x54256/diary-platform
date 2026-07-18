@@ -1,11 +1,11 @@
 <template>
   <div class="space-y-5">
     <div>
-      <h1 class="text-2xl font-semibold text-neutral-900">模型设置</h1>
-      <p class="mt-1 text-sm text-neutral-500">配置整理、分析、对话和语音转文字当前使用的可调用模型。</p>
+      <h1 class="text-xl font-semibold text-neutral-900 sm:text-2xl">模型设置</h1>
+      <p class="mt-1 text-sm leading-5 text-neutral-500">配置整理、分析、对话和语音转文字当前使用的可调用模型。</p>
     </div>
 
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
       <section v-for="usage in usages" :key="usage.key" class="bg-white border border-neutral-200 rounded p-4">
         <div class="flex items-center justify-between">
           <div>
@@ -70,8 +70,8 @@
       </section>
     </div>
 
-    <div class="flex items-center justify-end gap-3">
-      <span v-if="message" class="text-sm text-neutral-500">{{ message }}</span>
+    <div class="flex flex-col items-stretch justify-end gap-3 sm:flex-row sm:items-center">
+      <span v-if="message" class="text-sm text-neutral-500 sm:mr-auto">{{ message }}</span>
       <button class="h-10 px-5 border border-neutral-300 text-sm rounded disabled:opacity-50" :disabled="batchTesting" @click="testSelectedSettings">
         {{ batchTesting ? '批量测试中' : '批量测试' }}
       </button>

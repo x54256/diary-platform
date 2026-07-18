@@ -1,8 +1,8 @@
 <template>
   <div class="space-y-5">
-    <div class="flex items-start justify-between">
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
       <div>
-        <h1 class="text-2xl font-semibold text-neutral-900">模型管理</h1>
+        <h1 class="text-xl font-semibold text-neutral-900 sm:text-2xl">模型管理</h1>
         <p class="mt-1 text-sm text-neutral-500">维护模型能力清单，模型不保存 API 密钥。</p>
       </div>
       <button class="h-9 px-4 bg-neutral-900 text-white text-sm rounded" @click="openCreate">
@@ -11,7 +11,7 @@
     </div>
 
     <section class="bg-white border border-neutral-200 rounded p-4">
-      <div class="grid grid-cols-6 gap-3">
+      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-6">
         <select v-model="filters.model_type" class="h-9 px-2 border border-neutral-300 rounded text-sm" @change="reloadModels">
           <option value="">全部类型</option>
           <option value="language">language</option>
@@ -30,12 +30,13 @@
           <option value="true">启用</option>
           <option value="false">禁用</option>
         </select>
-        <input v-model="filters.keyword" class="col-span-2 h-9 px-3 border border-neutral-300 rounded text-sm" placeholder="搜索模型、厂商、特点" @keyup.enter="reloadModels">
+        <input v-model="filters.keyword" class="h-9 px-3 border border-neutral-300 rounded text-sm sm:col-span-2" placeholder="搜索模型、厂商、特点" @keyup.enter="reloadModels">
       </div>
     </section>
 
-    <section class="bg-white border border-neutral-200 rounded overflow-hidden">
-      <table class="w-full text-sm">
+    <section class="overflow-hidden rounded border border-neutral-200 bg-white">
+      <div class="overflow-x-auto">
+      <table class="w-full min-w-[760px] text-sm">
         <thead class="bg-neutral-50 text-neutral-500">
           <tr>
             <th class="text-left p-3">状态</th>
@@ -69,6 +70,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
       <div class="px-4 py-3 border-t border-neutral-100 flex items-center justify-between text-sm">
         <div class="text-neutral-500">共 {{ total }} 条，第 {{ page }} / {{ totalPages }} 页</div>
         <div class="flex items-center gap-2">
@@ -83,10 +85,10 @@
       </div>
     </section>
 
-    <div v-if="showForm" class="fixed inset-0 bg-black/30 flex items-center justify-center p-6">
-      <div class="w-[640px] bg-white rounded border border-neutral-200 p-5">
+    <div v-if="showForm" class="fixed inset-0 flex items-center justify-center bg-black/30 p-4 sm:p-6">
+      <div class="w-full max-w-[640px] max-h-[90dvh] overflow-y-auto bg-white rounded border border-neutral-200 p-4 sm:p-5">
         <div class="text-lg font-medium text-neutral-900">{{ editingId ? '编辑模型' : '新增模型' }}</div>
-        <div class="mt-4 grid grid-cols-2 gap-3">
+        <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
           <label class="block">
             <span class="block mb-1 text-sm text-neutral-700">模型类型</span>
             <select v-model="form.model_type" class="w-full h-10 px-3 border border-neutral-300 rounded text-sm" :disabled="!!editingId">
@@ -118,11 +120,11 @@
             <span class="block mb-1 text-sm text-neutral-700">分数</span>
             <input v-model.number="form.score" type="number" step="0.1" class="w-full h-10 px-3 border border-neutral-300 rounded text-sm" placeholder="分数">
           </label>
-          <label class="block col-span-2">
+          <label class="block sm:col-span-2">
             <span class="block mb-1 text-sm text-neutral-700">核心特点</span>
             <textarea v-model="form.core_features" class="w-full h-20 px-3 py-2 border border-neutral-300 rounded text-sm" placeholder="核心特点" />
           </label>
-          <label class="block col-span-2">
+          <label class="block sm:col-span-2">
             <span class="block mb-1 text-sm text-neutral-700">适用场景</span>
             <textarea v-model="form.scenarios" class="w-full h-20 px-3 py-2 border border-neutral-300 rounded text-sm" placeholder="适用场景" />
           </label>

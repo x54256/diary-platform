@@ -1,8 +1,8 @@
 <template>
   <div class="space-y-5">
-    <div class="flex items-start justify-between">
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
       <div>
-        <h1 class="text-2xl font-semibold text-neutral-900">渠道管理</h1>
+        <h1 class="text-xl font-semibold text-neutral-900 sm:text-2xl">渠道管理</h1>
         <p class="mt-1 text-sm text-neutral-500">维护 API 地址、密钥和每个渠道支持的模型。</p>
       </div>
       <button class="h-9 px-4 bg-neutral-900 text-white text-sm rounded" @click="openChannel()">
@@ -10,8 +10,9 @@
       </button>
     </div>
 
-    <section class="bg-white border border-neutral-200 rounded overflow-hidden">
-      <table class="w-full text-sm">
+    <section class="overflow-hidden rounded border border-neutral-200 bg-white">
+      <div class="overflow-x-auto">
+      <table class="w-full min-w-[640px] text-sm">
         <thead class="bg-neutral-50 text-neutral-500">
           <tr>
             <th class="text-left p-3">状态</th>
@@ -36,10 +37,11 @@
           </tr>
         </tbody>
       </table>
+      </div>
     </section>
 
     <div v-if="showChannelForm" class="fixed inset-0 bg-black/30 flex items-center justify-center p-6">
-      <div class="w-[560px] bg-white rounded border border-neutral-200 p-5">
+      <div class="w-full max-w-[560px] bg-white rounded border border-neutral-200 p-5">
         <div class="text-lg font-medium text-neutral-900">{{ channelForm.id ? '编辑渠道' : '新增渠道' }}</div>
         <div class="mt-4 space-y-3">
           <input v-model="channelForm.name" class="w-full h-10 px-3 border border-neutral-300 rounded text-sm" placeholder="渠道名称">
@@ -63,8 +65,8 @@
     </div>
 
     <div v-if="showModelsForm" class="fixed inset-0 bg-black/30 flex items-center justify-center p-6">
-      <div class="w-[900px] max-h-[85dvh] overflow-y-auto bg-white rounded border border-neutral-200 p-5">
-        <div class="flex items-center justify-between">
+      <div class="w-full max-w-[900px] max-h-[90dvh] overflow-y-auto bg-white rounded border border-neutral-200 p-4 sm:p-5">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div class="text-lg font-medium text-neutral-900">{{ selectedChannel?.name }} · 支持模型</div>
           <div class="flex gap-2">
             <button class="h-8 px-3 border border-neutral-300 rounded text-sm" @click="addChannelModel">新增关联</button>
@@ -104,7 +106,7 @@
     </div>
 
     <div v-if="showBulkModelsForm" class="fixed inset-0 bg-black/40 flex items-center justify-center p-6">
-      <div class="w-[960px] max-h-[85dvh] overflow-y-auto bg-white rounded border border-neutral-200 p-5">
+      <div class="w-full max-w-[960px] max-h-[90dvh] overflow-y-auto bg-white rounded border border-neutral-200 p-4 sm:p-5">
         <div class="flex items-center justify-between">
           <div>
             <div class="text-lg font-medium text-neutral-900">批量添加支持模型</div>
@@ -113,7 +115,7 @@
           <button class="h-8 px-3 border border-neutral-300 rounded text-sm" @click="showBulkModelsForm = false">关闭</button>
         </div>
 
-        <div class="mt-4 grid grid-cols-6 gap-3">
+        <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-6">
           <select v-model="bulkFilters.model_type" class="h-9 px-2 border border-neutral-300 rounded text-sm" @change="reloadBulkModels">
             <option value="">全部类型</option>
             <option value="language">language</option>
@@ -127,7 +129,7 @@
             <option value="">全部分类</option>
             <option v-for="item in bulkCategories" :key="item" :value="item">{{ item }}</option>
           </select>
-          <input v-model="bulkFilters.keyword" class="col-span-2 h-9 px-3 border border-neutral-300 rounded text-sm" placeholder="搜索模型、特点" @keyup.enter="reloadBulkModels">
+          <input v-model="bulkFilters.keyword" class="h-9 px-3 border border-neutral-300 rounded text-sm sm:col-span-2" placeholder="搜索模型、特点" @keyup.enter="reloadBulkModels">
           <button class="h-9 px-3 border border-neutral-300 rounded text-sm" @click="reloadBulkModels">查询</button>
         </div>
 
@@ -139,7 +141,8 @@
           </div>
         </div>
 
-        <table class="mt-3 w-full text-sm border border-neutral-200">
+        <div class="mt-3 overflow-x-auto">
+        <table class="w-full min-w-[700px] text-sm border border-neutral-200">
           <thead class="bg-neutral-50 text-neutral-500">
             <tr>
               <th class="text-left p-2 w-12">选择</th>
@@ -167,6 +170,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
 
         <div class="mt-4 flex items-center justify-between text-sm">
           <div class="flex items-center gap-2">

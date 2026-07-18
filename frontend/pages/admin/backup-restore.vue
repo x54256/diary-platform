@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-6">
     <div>
-      <h1 class="text-2xl font-semibold text-neutral-900">系统备份与恢复</h1>
+      <h1 class="text-xl font-semibold text-neutral-900 sm:text-2xl">系统备份与恢复</h1>
       <p class="mt-1 text-sm text-neutral-500">导出、校验并恢复系统核心数据。</p>
     </div>
 
@@ -9,7 +9,7 @@
       高敏感操作：备份包包含用户数据和加密密码字段，请仅在受控环境中操作。
     </div>
 
-    <div class="grid grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
       <section class="bg-white border border-neutral-200 rounded p-5">
         <h2 class="text-base font-medium text-neutral-900">导出数据</h2>
         <div class="mt-4 space-y-3">
@@ -24,7 +24,7 @@
           <input v-model="userIdsInput" class="w-full h-10 px-3 border border-neutral-300 rounded text-sm">
         </div>
 
-        <div v-if="exportForm.scope_type.includes('diary_date')" class="mt-4 grid grid-cols-2 gap-3">
+        <div v-if="exportForm.scope_type.includes('diary_date')" class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div>
             <label class="block text-sm text-neutral-700 mb-1">开始日期</label>
             <input v-model="exportForm.start_date" type="date" class="w-full h-10 px-3 border border-neutral-300 rounded text-sm">
@@ -57,7 +57,8 @@
 
         <div v-if="precheckResult" class="mt-5">
           <div class="text-sm font-medium text-neutral-900 mb-2">预检结果</div>
-          <table class="w-full text-sm border border-neutral-200">
+          <div class="overflow-x-auto">
+          <table class="w-full min-w-[420px] text-sm border border-neutral-200">
             <thead class="bg-neutral-50">
               <tr>
                 <th class="text-left p-2 border-b">数据</th>
@@ -75,6 +76,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
           <button class="mt-4 h-10 px-4 bg-red-600 text-white text-sm rounded" @click="createImport">
             确认导入
           </button>
@@ -82,12 +84,13 @@
       </section>
     </div>
 
-    <section class="bg-white border border-neutral-200 rounded">
+    <section class="bg-white border border-neutral-200 rounded overflow-hidden">
       <div class="px-5 py-4 border-b border-neutral-200 flex items-center justify-between">
         <h2 class="text-base font-medium text-neutral-900">备份恢复记录</h2>
         <button class="text-sm text-neutral-500 hover:text-neutral-900" @click="loadRecords">刷新</button>
       </div>
-      <table class="w-full text-sm">
+      <div class="overflow-x-auto">
+      <table class="w-full min-w-[720px] text-sm">
         <thead class="bg-neutral-50 text-neutral-500">
           <tr>
             <th class="text-left p-3">类型</th>
@@ -124,11 +127,13 @@
           </tr>
         </tbody>
       </table>
+      </div>
     </section>
 
     <section v-if="reportRows.length" class="bg-white border border-neutral-200 rounded p-5">
       <h2 class="text-base font-medium text-neutral-900 mb-3">导入报告</h2>
-      <table class="w-full text-sm border border-neutral-200">
+      <div class="overflow-x-auto">
+      <table class="w-full min-w-[560px] text-sm border border-neutral-200">
         <thead class="bg-neutral-50">
           <tr>
             <th class="text-left p-2 border-b">表</th>
@@ -148,6 +153,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
     </section>
   </div>
 </template>
