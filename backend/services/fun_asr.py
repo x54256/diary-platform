@@ -214,6 +214,7 @@ class FunAsrService:
             data = response.json()
         except ValueError:
             data = {}
+        logger.info(data)
         message = data.get("message") or f"语音识别服务返回 HTTP {response.status_code}"
         code = data.get("code") or f"HTTP_{response.status_code}"
         raise FunAsrError(str(code), str(message))

@@ -20,6 +20,8 @@ from models.user import User
 from schemas.transcription import (
     TranscriptionBatchResponse,
     TranscriptionCancelResponse,
+    TranscriptionBatchCreate,
+    TranscriptionItemOrderUpdate,
     TranscriptionItemResponse,
     TranscriptionStart,
 )
@@ -83,12 +85,16 @@ def serialize_batch(batch: TranscriptionBatch) -> TranscriptionBatchResponse:
 
 
 @router.post("", response_model=TranscriptionBatchResponse, status_code=201)
-def create_batch(db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
-    batch = TranscriptionBatch(user_id=current_user.id, status="COLLECTING")
+def create_batch(
+    payload: TranscriptionBatchCreate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    batch = TranscriptionBatch(user_id=current_user.id, diary_date=payload.diary_date, status="COLLECTING")
     db.add(batch)
     db.commit()
     db.refresh(batch)
-    logger.info("创建语音转写批次 batch_id=%s user_id=%s status=%s", batch.id, current_user.id, batch.status)
+    logger.info("创建语音转写批次 batch_id=%s user_id=%s diary_date=%s status=%s", batch.id, current_user.id, batch.diary_date, batch.status)
     return serialize_batch(batch)
 
 
@@ -101,7 +107,7 @@ def active_batch(
     batch = db.query(TranscriptionBatch).filter(
         TranscriptionBatch.user_id == current_user.id,
         TranscriptionBatch.diary_date == diary_date,
-        TranscriptionBatch.status.in_(("QUEUED", "PROCESSING", "PARTIAL_FAILED", "FINALIZING")),
+        TranscriptionBatch.status.in_(("COLLECTING", "QUEUED", "PROCESSING", "PARTIAL_FAILED", "FINALIZING")),
     ).order_by(TranscriptionBatch.created_at.desc()).first()
     logger.info(
         "查询活动语音转写批次 user_id=%s diary_date=%s found=%s batch_id=%s status=%s",
@@ -252,6 +258,35 @@ def start_batch(
 def query_batch(batch_id: UUID, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     batch = get_batch(db, batch_id, current_user.id)
     logger.info("查询语音转写批次 batch_id=%s user_id=%s status=%s diary_id=%s", batch.id, current_user.id, batch.status, batch.diary_id)
+    return serialize_batch(batch)
+
+
+@router.put("/{batch_id}/item-order", response_model=TranscriptionBatchResponse)
+def update_item_order(
+    batch_id: UUID,
+    payload: TranscriptionItemOrderUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    batch = get_batch(db, batch_id, current_user.id, lock=True)
+    if batch.status != "COLLECTING":
+        raise HTTPException(status_code=409, detail="任务已经开始处理，不能调整顺序")
+    items = [item for item in batch.items if item.status != "DELETED"]
+    item_ids = payload.item_ids
+    if len(item_ids) != len(set(item_ids)) or set(item_ids) != {item.id for item in items}:
+        raise HTTPException(status_code=400, detail="音频排序数据不完整")
+    if any(item.status not in {"UPLOADED", "FAILED"} for item in items):
+        raise HTTPException(status_code=409, detail="请等待全部音频上传完成")
+    item_by_id = {item.id: item for item in items}
+    # 先写入临时负数，避免 (batch_id, sort_order) 唯一约束在交换位置时冲突。
+    for index, item_id in enumerate(item_ids):
+        item_by_id[item_id].sort_order = -(index + 1)
+    db.flush()
+    for index, item_id in enumerate(item_ids):
+        item_by_id[item_id].sort_order = index
+    db.commit()
+    db.refresh(batch)
+    logger.info("更新语音顺序 batch_id=%s item_ids=%s", batch.id, item_ids)
     return serialize_batch(batch)
 
 

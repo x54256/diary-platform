@@ -12,13 +12,28 @@
     </div>
 
     <div v-if="items.length" class="mt-3 max-h-64 space-y-2 overflow-y-auto pr-0.5">
-      <article v-for="item in items" :key="item.id" class="voice-item" :class="`voice-item--${item.status.toLowerCase()}`">
+      <article
+        v-for="(item, index) in items"
+        :key="item.id"
+        class="voice-item"
+        :class="[`voice-item--${item.status.toLowerCase()}`, { 'voice-item--dragging': draggingId === item.id }]"
+        :draggable="canReorder"
+        @dragstart="startDrag(item.id)"
+        @dragover.prevent
+        @drop="dropOn(item.id)"
+        @dragend="draggingId = null"
+      >
         <div class="flex min-w-0 items-start gap-3">
           <div class="voice-icon">{{ item.status === 'FAILED' ? '!' : '♪' }}</div>
           <div class="min-w-0 flex-1">
             <div class="flex items-center justify-between gap-2">
               <p class="truncate text-sm font-medium text-neutral-700">{{ item.filename }}</p>
               <span class="shrink-0 text-xs" :class="statusClass(item.status)">{{ statusText(item.status) }}</span>
+            </div>
+            <div v-if="canReorder" class="mt-1 flex items-center gap-2 text-xs text-neutral-400">
+              <span class="voice-drag-hint">拖拽排序</span>
+              <button class="voice-order-action" :disabled="index === 0" @click="move(item.id, -1)">上移</button>
+              <button class="voice-order-action" :disabled="index === items.length - 1" @click="move(item.id, 1)">下移</button>
             </div>
             <p class="mt-0.5 text-xs text-neutral-400">{{ formatSize(item.file_size) }}</p>
             <div v-if="item.status === 'UPLOADING'" class="mt-2 h-1 overflow-hidden rounded-full bg-neutral-100">
@@ -56,11 +71,37 @@
 <script setup lang="ts">
 import type { TranscriptionBatch, TranscriptionItem, TranscriptionItemStatus } from '~/types'
 
-defineProps<{ items: TranscriptionItem[]; batch: TranscriptionBatch | null; canStart: boolean; locked: boolean; busy: boolean }>()
+const props = defineProps<{ items: TranscriptionItem[]; batch: TranscriptionBatch | null; canStart: boolean; locked: boolean; busy: boolean }>()
 const emit = defineEmits<{
   add: [files: File[]]; remove: [item: TranscriptionItem]; retry: [item: TranscriptionItem]
-  'retry-all': []; cancel: []; start: []
+  reorder: [itemIds: string[]]; 'retry-all': []; cancel: []; start: []
 }>()
+
+const draggingId = ref<string | null>(null)
+const canReorder = computed(() => props.batch?.status === 'COLLECTING' && props.items.every(item => !item.local))
+
+const reorder = (fromId: string, toId: string) => {
+  const from = props.items.findIndex(item => item.id === fromId)
+  const to = props.items.findIndex(item => item.id === toId)
+  if (!canReorder.value || from < 0 || to < 0 || from === to) return
+  const ordered = [...props.items]
+  const [item] = ordered.splice(from, 1)
+  ordered.splice(to, 0, item)
+  emit('reorder', ordered.map(value => value.id))
+}
+
+const startDrag = (itemId: string) => {
+  if (canReorder.value) draggingId.value = itemId
+}
+const dropOn = (itemId: string) => {
+  if (draggingId.value) reorder(draggingId.value, itemId)
+  draggingId.value = null
+}
+const move = (itemId: string, direction: number) => {
+  const index = props.items.findIndex(item => item.id === itemId)
+  const target = index + direction
+  if (target >= 0 && target < props.items.length) reorder(itemId, props.items[target].id)
+}
 
 const selectFiles = (event: Event) => {
   const input = event.target as HTMLInputElement
@@ -81,8 +122,11 @@ const statusClass = (status: TranscriptionItemStatus) => status === 'FAILED' ? '
 .voice-item { @apply rounded-lg border border-neutral-100 bg-neutral-50/80 p-2.5; }
 .voice-item--failed { @apply border-red-100 bg-red-50/60; }
 .voice-item--succeeded { @apply border-emerald-100 bg-emerald-50/50; }
+.voice-item--dragging { @apply opacity-50 ring-2 ring-amber-300; }
 .voice-icon { @apply flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-100 text-sm font-semibold text-amber-700; }
 .voice-item--failed .voice-icon { @apply bg-red-100 text-red-600; }
 .voice-item--succeeded .voice-icon { @apply bg-emerald-100 text-emerald-600; }
 .voice-action { @apply text-xs font-medium text-neutral-600; }
+.voice-order-action { @apply text-neutral-500 underline decoration-dotted underline-offset-2 disabled:cursor-not-allowed disabled:opacity-30; }
+.voice-drag-hint { @apply cursor-grab; }
 </style>

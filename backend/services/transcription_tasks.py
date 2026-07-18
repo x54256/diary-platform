@@ -21,6 +21,13 @@ ACTIVE_ITEM_STATUSES = {"QUEUED", "SUBMITTING", "SUBMITTED", "RUNNING"}
 ACTIVE_BATCH_STATUSES = {"QUEUED", "PROCESSING"}
 
 
+def compose_transcription_text(base_text: str | None, items: list[TranscriptionItem]) -> str:
+    """按用户确认的顺序合并文本，绝不依赖并发完成顺序或 ORM 返回顺序。"""
+    ordered_items = sorted(items, key=lambda item: item.sort_order)
+    parts = [part.strip() for part in [base_text or "", *[item.transcript_text or "" for item in ordered_items]] if part.strip()]
+    return "\n\n".join(parts)
+
+
 def _mask_download_url(url: str) -> str:
     parsed = urlsplit(url)
     return urlunsplit((parsed.scheme, parsed.netloc, parsed.path, "", ""))
@@ -116,7 +123,7 @@ class TranscriptionTaskManager:
                     TranscriptionBatch.status.in_(ACTIVE_BATCH_STATUSES),
                     TranscriptionItem.status.in_(("QUEUED", "SUBMITTED", "RUNNING")),
                 )
-                .order_by(TranscriptionItem.created_at, TranscriptionItem.sort_order)
+                .order_by(TranscriptionBatch.started_at, TranscriptionItem.sort_order, TranscriptionItem.created_at)
             )
             if excluded:
                 query = query.filter(~TranscriptionItem.id.in_(excluded))
@@ -358,11 +365,11 @@ class TranscriptionTaskManager:
             if not items or any(item.status != "SUCCEEDED" for item in items):
                 logger.info("跳过语音批次最终化：仍有未成功项 batch_id=%s item_count=%s", batch.id, len(items))
                 return
-            parts = [part.strip() for part in [batch.base_text or "", *[item.transcript_text or "" for item in items]] if part.strip()]
+            original_text = compose_transcription_text(batch.base_text, items)
             logger.info("开始最终化语音批次 batch_id=%s user_id=%s item_count=%s diary_date=%s", batch.id, batch.user_id, len(items), batch.diary_date)
             diary = Diary(
                 user_id=batch.user_id,
-                original_text="\n\n".join(parts),
+                original_text=original_text,
                 diary_date=batch.diary_date,
                 status=DiaryStatus.saved,
             )

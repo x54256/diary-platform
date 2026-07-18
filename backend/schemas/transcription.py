@@ -14,6 +14,14 @@ class TranscriptionStart(BaseModel):
     base_text: str = ""
 
 
+class TranscriptionBatchCreate(BaseModel):
+    diary_date: date
+
+
+class TranscriptionItemOrderUpdate(BaseModel):
+    item_ids: list[UUID] = Field(min_length=1)
+
+
 class TranscriptionItemResponse(BaseModel):
     id: UUID
     sort_order: int

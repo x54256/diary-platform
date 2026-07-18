@@ -1,4 +1,5 @@
 import type { TranscriptionBatch, TranscriptionItem } from '~/types'
+import { orderAudioFiles } from '~/utils/audio-file-order'
 
 const MAX_FILE_SIZE = 300 * 1024 * 1024
 const MAX_UPLOAD_CONCURRENCY = 3
@@ -48,9 +49,11 @@ export function useVoiceTranscription() {
   )
   const locked = computed(() => !!batch.value && !['COLLECTING', 'CANCELLED', 'EXPIRED'].includes(batch.value.status))
 
-  const createBatch = async () => {
+  const createBatch = async (diaryDate: string) => {
     if (batch.value?.status !== 'COLLECTING') {
-      batch.value = await api<TranscriptionBatch>('/transcription-batches', { method: 'POST' })
+      batch.value = await api<TranscriptionBatch>('/transcription-batches', {
+        method: 'POST', body: { diary_date: diaryDate },
+      })
       localItems.value = []
     }
     return batch.value
@@ -87,7 +90,7 @@ export function useVoiceTranscription() {
     xhr.send(form)
   })
 
-  const addFiles = async (files: File[]) => {
+  const addFiles = async (files: File[], diaryDate: string) => {
     error.value = ''
     const valid: File[] = []
     for (const file of files) {
@@ -105,11 +108,12 @@ export function useVoiceTranscription() {
       valid.push(file)
     }
     if (!valid.length) return
-    const currentBatch = await createBatch()
+    const orderedFiles = orderAudioFiles(valid)
+    const currentBatch = await createBatch(diaryDate)
     let nextOrder = Math.max(-1, ...items.value.map(item => item.sort_order)) + 1
     let cursor = 0
     const uploadNext = async () => {
-      const file = valid[cursor++]
+      const file = orderedFiles[cursor++]
       if (!file) return
       const localId = createLocalId()
       const order = nextOrder++
@@ -131,8 +135,15 @@ export function useVoiceTranscription() {
       await uploadNext()
     }
     await Promise.all(
-      Array.from({ length: Math.min(MAX_UPLOAD_CONCURRENCY, valid.length) }, () => uploadNext()),
+      Array.from({ length: Math.min(MAX_UPLOAD_CONCURRENCY, orderedFiles.length) }, () => uploadNext()),
     )
+  }
+
+  const reorder = async (itemIds: string[]) => {
+    if (!batch.value || batch.value.status !== 'COLLECTING' || localItems.value.length) return
+    batch.value = await api<TranscriptionBatch>(`/transcription-batches/${batch.value.id}/item-order`, {
+      method: 'PUT', body: { item_ids: itemIds },
+    })
   }
 
   const removeItem = async (item: TranscriptionItem) => {
@@ -223,5 +234,5 @@ export function useVoiceTranscription() {
     if (pollTimer) clearTimeout(pollTimer)
   })
 
-  return { batch, items, hasAudio, uploading, canStart, locked, actionLoading, error, addFiles, removeItem, start, loadActive, retry, cancel }
+  return { batch, items, hasAudio, uploading, canStart, locked, actionLoading, error, addFiles, reorder, removeItem, start, loadActive, retry, cancel }
 }

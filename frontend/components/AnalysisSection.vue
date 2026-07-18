@@ -23,9 +23,10 @@
         <div v-if="item.question" class="mb-1 text-sm font-medium text-neutral-700">
           {{ item.question }}
         </div>
-        <p :class="compact ? 'text-sm text-neutral-600 leading-relaxed' : 'text-sm leading-relaxed text-neutral-700'">
-          {{ item.content }}
-        </p>
+        <p
+          :class="compact ? 'analysis-markup text-sm text-neutral-600 leading-relaxed' : 'analysis-markup text-sm leading-relaxed text-neutral-700'"
+          v-html="renderAnalysisMarkup(item.content)"
+        ></p>
       </div>
     </div>
   </section>
@@ -33,6 +34,7 @@
 
 <script setup lang="ts">
 import type { AnalysisFeedback as Feedback, AnalysisSection } from '~/types'
+import { renderAnalysisMarkup } from '~/utils/analysis-markup'
 
 const props = defineProps<{
   analysisRunId: string

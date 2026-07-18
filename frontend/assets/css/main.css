@@ -79,3 +79,18 @@
 .diary-content strong {
   font-weight: 600;
 }
+
+.analysis-markup strong {
+  font-weight: 700;
+  color: #171717;
+}
+
+.analysis-danger {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.analysis-danger strong {
+  color: inherit;
+  font-weight: inherit;
+}

@@ -38,10 +38,9 @@
             <p
               v-for="(item, idx) in event.body"
               :key="idx"
-              class="text-sm text-neutral-600 leading-relaxed"
-            >
-              {{ item }}
-            </p>
+              class="analysis-markup text-sm text-neutral-600 leading-relaxed"
+              v-html="renderAnalysisMarkup(item)"
+            ></p>
           </div>
         </template>
       </div>
@@ -63,9 +62,10 @@
             <p
               v-for="(item, idx) in event.feeling"
               :key="idx"
-              class="text-sm text-neutral-600 leading-relaxed"
+              class="analysis-markup text-sm text-neutral-600 leading-relaxed"
             >
-              <template v-if="event.feeling.length > 1">{{ idx + 1 }}. </template>{{ item }}
+              <template v-if="event.feeling.length > 1">{{ idx + 1 }}. </template>
+              <span v-html="renderAnalysisMarkup(item)" />
             </p>
           </div>
         </template>
@@ -88,9 +88,10 @@
             <p
               v-for="(item, idx) in event.reflection"
               :key="idx"
-              class="text-sm text-neutral-600 leading-relaxed"
+              class="analysis-markup text-sm text-neutral-600 leading-relaxed"
             >
-              <template v-if="event.reflection.length > 1">{{ idx + 1 }}. </template>{{ item }}
+              <template v-if="event.reflection.length > 1">{{ idx + 1 }}. </template>
+              <span v-html="renderAnalysisMarkup(item)" />
             </p>
           </div>
         </template>
@@ -116,6 +117,7 @@
 <script setup lang="ts">
 import { nextTick, ref, computed, watch } from 'vue'
 import { resizeTextarea } from '~/composables/useAutoResizeTextarea'
+import { renderAnalysisMarkup } from '~/utils/analysis-markup'
 
 const props = defineProps<{
   event: any
