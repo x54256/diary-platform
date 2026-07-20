@@ -8,11 +8,11 @@ export default defineNuxtConfig({
     }
   },
   app: {
-    baseURL: process.env.NUXT_APP_BASE_URL || '/mind/',
+    baseURL: process.env.NUXT_APP_BASE_URL || '/secret/',
     head: {
       title: '日记平台',
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
-      link: [{ rel: 'icon', type: 'image/png', href: `${process.env.NUXT_APP_BASE_URL || '/mind/'}favicon.png` }]
+      link: [{ rel: 'icon', type: 'image/png', href: `${process.env.NUXT_APP_BASE_URL || '/secret/'}favicon.png` }]
     }
   }
 })
