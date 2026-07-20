@@ -40,4 +40,4 @@ data/
 backend/logs/
 .env
 deploy.server
-docker-compose.prod.yml
+docker-compose.**.yml**
