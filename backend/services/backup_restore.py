@@ -71,8 +71,14 @@ IMPORT_ORDER = [
     "event_tags",
 ]
 
-BACKUP_DIR = Path(__file__).resolve().parent.parent / "backup_packages"
-BACKUP_DIR.mkdir(exist_ok=True)
+_default_backup_root = Path(__file__).resolve().parent.parent
+_configured_backup_dir = Path(settings.BACKUP_STORAGE_PATH).expanduser()
+BACKUP_DIR = (
+    _configured_backup_dir
+    if _configured_backup_dir.is_absolute()
+    else _default_backup_root / _configured_backup_dir
+)
+BACKUP_DIR.mkdir(parents=True, exist_ok=True)
 logger = logging.getLogger("app.backup_restore")
 
 

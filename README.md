@@ -204,6 +204,9 @@ npm run dev
 | `DATABASE_URL` | 是 | PostgreSQL 连接串，格式 `postgresql+psycopg2://<用户>:<密码>@<host>:<port>/<数据库名>` | `postgresql+psycopg2://postgres:postgres@localhost:5432/diary_platform` |
 | `SECRET_KEY` | 是 | JWT 签名密钥，生产环境务必替换为随机值 | 生成命令：`python -c "import secrets; print(secrets.token_urlsafe(32))"` |
 | `ENCRYPTION_KEY` | 是 | Fernet 对称加密密钥，用于日记内容加密；为空时加密功能不可用 | 生成命令：`python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"` |
+| `BACKUP_STORAGE_PATH` | 否 | 定时备份包存储目录；相对路径相对于后端目录 | `backup_packages` |
+| `BACKUP_SCHEDULE_TIME` | 否 | 每日定时备份触发时间，格式为 `HH:MM` | `02:00` |
+| `BACKUP_SCHEDULE_TIMEZONE` | 否 | 每日定时备份使用的 IANA 时区 | `Asia/Shanghai` |
 | 模型调用配置 | 否 | 不再通过 `.env` 配置。请在管理端维护渠道、密钥和用途模型选择。 | 无 |
 
 > 安全提示：以上示例值均为占位符，请勿直接使用。所有密钥请自行生成，`.env` 文件不应提交到版本库。

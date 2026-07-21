@@ -87,12 +87,16 @@ async def startup():
     _create_default_user()
     # 恢复服务器重启前卡死的整理任务
     _recover_stuck_tasks()
+    from services.backup_scheduler import backup_scheduler
+    await backup_scheduler.start()
     from services.transcription_tasks import transcription_task_manager
     await transcription_task_manager.start()
 
 
 @app.on_event("shutdown")
 async def shutdown():
+    from services.backup_scheduler import backup_scheduler
+    await backup_scheduler.stop()
     from services.transcription_tasks import transcription_task_manager
     await transcription_task_manager.stop()
 

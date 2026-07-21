@@ -17,6 +17,10 @@ class Settings(BaseSettings):
 
     # 系统备份包主密钥。生产环境必须通过环境变量覆盖。
     BACKUP_MASTER_KEY: str = "123456"
+    # 定时备份配置。时间格式为 HH:MM，时区使用 IANA 时区名称。
+    BACKUP_STORAGE_PATH: str = "backup_packages"
+    BACKUP_SCHEDULE_TIME: str = "02:00"
+    BACKUP_SCHEDULE_TIMEZONE: str = "Asia/Shanghai"
 
     # Fun-ASR 录音文件识别运行参数。模型、API 地址和密钥由管理端模型配置维护。
     TRANSCRIPTION_PUBLIC_BASE_URL: str = "http://localhost"
