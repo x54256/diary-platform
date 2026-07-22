@@ -26,6 +26,7 @@ from services.ai import (
     ai_service,
 )
 from services.model_runtime import resolve_model_setting
+from services.organize_settings import get_organize_pipeline_options
 
 logger = logging.getLogger(__name__)
 
@@ -219,6 +220,8 @@ async def clean_check(state: PipelineState) -> dict:
 
     original_text = state["original_text"]
     cleaned_text = state["cleaned_text"]
+    if not get_organize_pipeline_options().clean_check_enabled:
+        return {"checked_text": cleaned_text, "clean_check_log": []}
     llm = _get_llm(0.3)
     result = await _invoke_llm(
         llm,
@@ -294,6 +297,15 @@ async def content_check(state: PipelineState) -> dict:
     trivia = state["trivia"]
     plans = state["plans"]
     structured_events = state["structured_events"]
+
+    if not get_organize_pipeline_options().content_check_enabled:
+        return {
+            "final_introduction": introduction,
+            "final_events": structured_events,
+            "final_trivia": trivia,
+            "final_plans": plans,
+            "check_log": [],
+        }
 
     llm = _get_llm(0.3)
     check_input = json.dumps(

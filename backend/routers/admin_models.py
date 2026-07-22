@@ -38,6 +38,7 @@ from services.model_management import (
     validate_setting_choice,
 )
 from services.model_runtime import ModelRuntimeError, resolve_model_setting
+from services.organize_settings import get_or_create_organize_pipeline_setting
 
 router = APIRouter(prefix="/api/admin", tags=["管理端-模型管理"])
 
@@ -96,6 +97,11 @@ class ModelTestRequest(BaseModel):
     channel_model_id: UUID | None = None
 
 
+class OrganizePipelineSettingsRequest(BaseModel):
+    clean_check_enabled: bool
+    content_check_enabled: bool
+
+
 def _bad_request(exc: Exception):
     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc))
 
@@ -113,6 +119,39 @@ def get_model_options(current_user: User = Depends(require_admin)):
             "chat": "对话",
             "transcription": "语音转文字",
         },
+    }
+
+
+@router.get("/organize-settings")
+def get_organize_settings(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_admin),
+):
+    setting = get_or_create_organize_pipeline_setting(db)
+    db.commit()
+    return {
+        "clean_check_enabled": setting.clean_check_enabled,
+        "content_check_enabled": setting.content_check_enabled,
+        "updated_at": setting.updated_at,
+    }
+
+
+@router.put("/organize-settings")
+def put_organize_settings(
+    request: OrganizePipelineSettingsRequest,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_admin),
+):
+    setting = get_or_create_organize_pipeline_setting(db)
+    setting.clean_check_enabled = request.clean_check_enabled
+    setting.content_check_enabled = request.content_check_enabled
+    setting.updated_by = current_user.id
+    db.commit()
+    db.refresh(setting)
+    return {
+        "clean_check_enabled": setting.clean_check_enabled,
+        "content_check_enabled": setting.content_check_enabled,
+        "updated_at": setting.updated_at,
     }
 
 

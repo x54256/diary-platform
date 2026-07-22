@@ -5,6 +5,27 @@
       <p class="mt-1 text-sm leading-5 text-neutral-500">配置整理、分析、对话和语音转文字当前使用的可调用模型。</p>
     </div>
 
+    <section class="bg-white border border-neutral-200 rounded p-4">
+      <h2 class="text-base font-medium text-neutral-900">整理流程开关</h2>
+      <p class="mt-1 text-sm text-neutral-500">关闭后对应环节直接透传结果，不调用模型；修改立即对新启动或恢复的任务生效。</p>
+      <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <label class="flex items-center gap-3 text-sm text-neutral-700">
+          <input v-model="organizeSettings.clean_check_enabled" type="checkbox" class="h-4 w-4">
+          保留清洗审核
+        </label>
+        <label class="flex items-center gap-3 text-sm text-neutral-700">
+          <input v-model="organizeSettings.content_check_enabled" type="checkbox" class="h-4 w-4">
+          保留内容审核
+        </label>
+      </div>
+      <div class="mt-4 flex items-center gap-3">
+        <button class="h-8 px-3 bg-neutral-900 text-white rounded text-sm disabled:opacity-50" :disabled="savingOrganizeSettings" @click="saveOrganizeSettings">
+          {{ savingOrganizeSettings ? '保存中' : '保存流程开关' }}
+        </button>
+        <span v-if="organizeSettingsMessage" class="text-sm text-neutral-500">{{ organizeSettingsMessage }}</span>
+      </div>
+    </section>
+
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
       <section v-for="usage in usages" :key="usage.key" class="bg-white border border-neutral-200 rounded p-4">
         <div class="flex items-center justify-between">
@@ -103,6 +124,9 @@ const batchTesting = ref(false)
 const draft = reactive<any>({})
 const testResults = reactive<Record<string, { ok: boolean, message: string }>>({})
 const testingKeys = ref(new Set<string>())
+const organizeSettings = reactive({ clean_check_enabled: false, content_check_enabled: false })
+const savingOrganizeSettings = ref(false)
+const organizeSettingsMessage = ref('')
 
 for (const usage of usages) {
   draft[usage.key] = { channel_id: '', ability_category: '', channel_model_id: '', model_keyword: '' }
@@ -113,6 +137,9 @@ const loadData = async () => {
   const rows = await Promise.all(channels.value.map(channel => api<any[]>(`/admin/channels/${channel.id}/models`)))
   channelModels.value = rows.flat().filter(item => item.enabled && item.model?.enabled && item.channel?.enabled)
   savedSettings.value = await api('/admin/model-settings')
+  const pipelineSettings: any = await api('/admin/organize-settings')
+  organizeSettings.clean_check_enabled = pipelineSettings.clean_check_enabled
+  organizeSettings.content_check_enabled = pipelineSettings.content_check_enabled
   for (const setting of savedSettings.value) {
     const cm = setting.channel_model
     if (!cm) continue
@@ -122,6 +149,22 @@ const loadData = async () => {
       channel_model_id: cm.id,
       model_keyword: modelOptionLabel(cm),
     }
+  }
+}
+
+const saveOrganizeSettings = async () => {
+  savingOrganizeSettings.value = true
+  organizeSettingsMessage.value = ''
+  try {
+    await api('/admin/organize-settings', {
+      method: 'PUT',
+      body: { ...organizeSettings },
+    })
+    organizeSettingsMessage.value = '已保存并立即生效'
+  } catch (err: any) {
+    organizeSettingsMessage.value = err?.data?.detail || '保存失败'
+  } finally {
+    savingOrganizeSettings.value = false
   }
 }
 

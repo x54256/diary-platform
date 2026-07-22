@@ -17,6 +17,7 @@ from models.dialog import Dialog, DialogMessage, SourceType, MessageRole
 from models.backup import BackupRestoreRecord, BackupImportReport
 from models.transcription import TranscriptionBatch, TranscriptionItem
 from models.model_config import ModelCatalog, ApiChannel, ChannelModel, ModelSetting
+from models.organize_settings import OrganizePipelineSetting
 
 __all__ = [
     "User",
@@ -44,4 +45,5 @@ __all__ = [
     "ApiChannel",
     "ChannelModel",
     "ModelSetting",
+    "OrganizePipelineSetting",
 ]
