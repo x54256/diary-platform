@@ -18,7 +18,7 @@
 
 ```
 diary-platform/
-├── docker-compose.yml          # 容器编排
+├── docker/                     # Docker 构建、编排与部署文件
 ├── backend/                    # 后端服务
 │   ├── main.py                 # FastAPI 入口
 │   ├── config.py               # 配置管理
@@ -28,7 +28,6 @@ diary-platform/
 │   ├── routers/                # API 路由
 │   ├── services/               # 业务逻辑（认证、AI）
 │   ├── utils/                  # 工具（密码加密）
-│   ├── Dockerfile
 │   └── requirements.txt
 └── frontend/                   # 前端服务
     ├── nuxt.config.ts          # Nuxt 配置
@@ -53,44 +52,22 @@ diary-platform/
 | PostgreSQL | 14+ | 数据存储；也可使用 Docker 提供的 PostgreSQL 实例 |
 | Docker（可选） | 20+ | 选择 Docker Compose 启动方式时需要 |
 
-> 提示：如果本地未安装 PostgreSQL，可使用下方"方式一 Docker Compose"自动启动一个 PostgreSQL 15 容器，无需单独安装数据库。
+> 提示：如果本地未安装 PostgreSQL 或 MinIO，可使用下方“方式一 Docker Compose”启动基础设施容器。
 
 ---
 
 ### 方式一：Docker Compose 启动
 
-项目根目录下的 `docker-compose.yml` 定义了 `postgres` 与 `backend` 两个服务，可一键拉起数据库与后端。
+`docker/docker-compose.infra.yml` 定义了 PostgreSQL 与 MinIO 服务，可启动本地基础设施。
 
 ```bash
 cd diary-platform
-docker compose up -d
+docker compose -f docker/docker-compose.infra.yml up -d
 ```
 
-启动后：
+生产环境 Docker 部署请参阅 [`docker/部署打包流程.md`](docker/部署打包流程.md)。
 
-- `postgres` 容器：PostgreSQL 15，端口 `5432`，用户名 `postgres`，密码 `postgres`，数据库 `diary_platform`，数据持久化于 `postgres_data` 卷。
-- `backend` 容器：FastAPI 服务，端口 `8000`，启动时自动创建数据表。
-
-⚠️ **重要提示（启动前务必修改）：**
-
-`docker-compose.yml` 中 `backend` 服务的以下两个环境变量当前为空值，**必须补充后才能完整使用对应功能**：
-
-1. `ENCRYPTION_KEY`：为空时用户密码
-2. 加密功能不可用。请在 `docker-compose.yml` 的 `backend.environment` 中填入通过以下命令生成的密钥：
-
-   ```bash
-   python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
-   ```
-
-2. 模型渠道和密钥：AI 整理 / 分析 / 对话 / 语音转文字需要在管理端的模型管理、渠道管理和模型设置中完成配置。
-
-另外建议将默认的 `SECRET_KEY` 替换为自行生成的密钥：
-
-```bash
-python -c "import secrets; print(secrets.token_urlsafe(32))"
-```
-
-> 注意：`docker-compose.yml` 未定义前端服务。使用 Docker 启动数据库与后端后，前端仍需按"方式二·步骤5"本地启动。
+> 注意：该 Compose 文件仅启动 PostgreSQL 和 MinIO；应用容器使用生产 Compose 文件部署。
 
 ---
 
