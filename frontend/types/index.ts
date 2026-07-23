@@ -144,6 +144,21 @@ export interface DiaryCalendarItem {
   status: string
 }
 
+export type ScheduleStatus = 'pending' | 'completed' | 'deleted'
+export interface ScheduleOccurrence {
+  id: string
+  task_id: string
+  scheduled_date: string
+  title: string
+  is_all_day: boolean
+  start_time: string | null
+  end_time: string | null
+  status: ScheduleStatus
+  completed_at: string | null
+  overdue_reason: string | null
+  recurrence_type: 'NONE' | 'DAILY' | 'WEEKLY' | 'MONTHLY_DATE' | 'MONTHLY_NTH_WEEKDAY'
+}
+
 export type TranscriptionBatchStatus =
   | 'COLLECTING' | 'QUEUED' | 'PROCESSING' | 'PARTIAL_FAILED'
   | 'FINALIZING' | 'COMPLETED' | 'CANCELLED' | 'EXPIRED'

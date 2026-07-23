@@ -29,3 +29,4 @@ class User(Base):
     )
     tags = relationship("Tag", back_populates="user", cascade="all, delete-orphan")
     dialogs = relationship("Dialog", back_populates="user", cascade="all, delete-orphan")
+    schedule_tasks = relationship("ScheduleTask", back_populates="user", cascade="all, delete-orphan")

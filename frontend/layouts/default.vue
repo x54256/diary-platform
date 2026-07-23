@@ -20,6 +20,7 @@ const route = useRoute()
 const tabActive = computed(() => {
   const path = route.path
   if (path === '/') return 'diary'
+  if (path.startsWith('/schedule')) return 'schedule'
   if (path.startsWith('/review')) return 'review'
   if (path.startsWith('/ai')) return 'ai'
   if (path.startsWith('/profile')) return 'profile'
