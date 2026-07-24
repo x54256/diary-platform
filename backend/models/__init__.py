@@ -18,7 +18,7 @@ from models.backup import BackupRestoreRecord, BackupImportReport
 from models.transcription import TranscriptionBatch, TranscriptionItem
 from models.model_config import ModelCatalog, ApiChannel, ChannelModel, ModelSetting
 from models.organize_settings import OrganizePipelineSetting
-from models.schedule import ScheduleTask, ScheduleOccurrence, ScheduleHolidayYear
+from models.schedule import ScheduleTask, ScheduleOccurrence, ScheduleHolidayYear, ScheduleMaintenanceJob
 
 __all__ = [
     "User",
@@ -50,4 +50,5 @@ __all__ = [
     "ScheduleTask",
     "ScheduleOccurrence",
     "ScheduleHolidayYear",
+    "ScheduleMaintenanceJob",
 ]

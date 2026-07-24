@@ -1,13 +1,16 @@
 """日程任务接口。循环任务的实例采用滚动 180 天持久化。"""
 import calendar
+import logging
+from time import perf_counter
 from datetime import date, datetime, timedelta
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
+from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import Session
 
 from database import get_db
-from models.schedule import ScheduleOccurrence, ScheduleTask
+from models.schedule import ScheduleMaintenanceJob, ScheduleOccurrence, ScheduleTask
 from models.user import User
 from schemas.schedule import ScheduleOccurrenceComplete, ScheduleOccurrenceNoteUpdate, ScheduleOccurrenceResponse, ScheduleOccurrenceUpdate, ScheduleTaskCreate
 from services.auth import get_current_user
@@ -15,6 +18,8 @@ from services.schedule_holidays import ensure_holiday_years, holiday_sets
 
 router = APIRouter(prefix="/api/schedules", tags=["日程管理"])
 WINDOW_DAYS = 180
+IMMEDIATE_WINDOW_DAYS = 7
+logger = logging.getLogger("app.schedules")
 
 def sunday_weekday(value: date) -> int:
     return (value.weekday() + 1) % 7
@@ -60,17 +65,17 @@ def occurs(task: ScheduleTask, target: date, workdays: set[date] | None = None, 
         cursor += timedelta(days=1)
     return count <= int(task.recurrence_count)
 
-def ensure_occurrences_for_task(db: Session, task: ScheduleTask, end: date, workdays: set[date] | None = None, restdays: set[date] | None = None):
+def ensure_occurrences_for_task(db: Session, task: ScheduleTask, end: date, workdays: set[date] | None = None, restdays: set[date] | None = None, window_days: int = WINDOW_DAYS, start_from: date | None = None):
     """批量补齐单个日程任务的实例窗口，避免逐日期查询。"""
-    start = max(task.start_date, date.today())
-    horizon = max(end, date.today() + timedelta(days=WINDOW_DAYS))
+    start = max(task.start_date, date.today(), start_from or task.start_date)
+    horizon = max(end, date.today() + timedelta(days=window_days))
     if task.recurrence_until:
         horizon = min(horizon, task.recurrence_until)
     if start > horizon:
-        return
+        return 0, 0
+    started_at = perf_counter()
     if task.recurrence_type in {"WORKDAY", "REST_DAY"} and workdays is None and restdays is None:
-        ensure_holiday_years(db, range(start.year, horizon.year + 1))
-        workdays, restdays = holiday_sets(db, range(start.year, horizon.year + 1))
+        raise RuntimeError("日程实例生成禁止在请求路径同步获取节假日数据")
     workdays, restdays = workdays or set(), restdays or set()
     existing_dates = {
         value[0] for value in db.query(ScheduleOccurrence.scheduled_date).filter(
@@ -86,6 +91,7 @@ def ensure_occurrences_for_task(db: Session, task: ScheduleTask, end: date, work
             missing_dates.append(cursor)
         cursor += timedelta(days=1)
     if task.recurrence_type in {"WORKDAY", "REST_DAY"}:
+        stale_deleted = 0
         stale = db.query(ScheduleOccurrence).filter(
             ScheduleOccurrence.task_id == task.id,
             ScheduleOccurrence.scheduled_date >= start,
@@ -96,12 +102,34 @@ def ensure_occurrences_for_task(db: Session, task: ScheduleTask, end: date, work
         for item in stale:
             if not occurs(task, item.scheduled_date, workdays, restdays):
                 db.delete(item)
+                stale_deleted += 1
+    else:
+        stale_deleted = 0
     if missing_dates:
-        db.add_all([
-            ScheduleOccurrence(user_id=task.user_id, task_id=task.id, scheduled_date=scheduled_date,
-                title=task.title, is_all_day=task.is_all_day, start_time=task.start_time, end_time=task.end_time)
+        occurrence_values = [
+            {
+                "user_id": task.user_id,
+                "task_id": task.id,
+                "scheduled_date": scheduled_date,
+                "title": task.title,
+                "is_all_day": task.is_all_day,
+                "start_time": task.start_time,
+                "end_time": task.end_time,
+            }
             for scheduled_date in missing_dates
-        ])
+        ]
+        db.execute(
+            insert(ScheduleOccurrence)
+            .values(occurrence_values)
+            .on_conflict_do_nothing(index_elements=["task_id", "scheduled_date"])
+        )
+    logger.info(
+        "日程实例窗口生成完成 task_id=%s start=%s horizon=%s scanned_days=%d missing=%d stale_deleted=%d duration_ms=%d window_days=%d",
+        task.id, start, horizon, (horizon - start).days + 1, len(missing_dates),
+        stale_deleted,
+        int((perf_counter() - started_at) * 1000), window_days,
+    )
+    return len(missing_dates), (horizon - start).days + 1
 
 
 def ensure_occurrences(db: Session, user: User, end: date):
@@ -115,6 +143,25 @@ def ensure_occurrences(db: Session, user: User, end: date):
     for task in tasks:
         ensure_occurrences_for_task(db, task, end, workdays, restdays)
 
+
+def cached_holiday_sets(db: Session, task: ScheduleTask, end: date) -> tuple[set[date], set[date]]:
+    if task.recurrence_type not in {"WORKDAY", "REST_DAY"}:
+        return set(), set()
+    start = max(task.start_date, date.today())
+    if task.recurrence_until:
+        end = min(end, task.recurrence_until)
+    if start > end:
+        return set(), set()
+    return holiday_sets(db, range(start.year, end.year + 1))
+
+
+def enqueue_maintenance_job(db: Session, task_id, operation: str, scheduled_from: date) -> None:
+    db.add(ScheduleMaintenanceJob(
+        task_id=task_id,
+        operation=operation,
+        scheduled_from=scheduled_from,
+    ))
+
 @router.post("", response_model=list[ScheduleOccurrenceResponse], status_code=status.HTTP_201_CREATED)
 def create_schedule(data: ScheduleTaskCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     weekdays = data.weekdays or ([sunday_weekday(data.start_date)] if data.recurrence_type == "WEEKLY" else [])
@@ -126,7 +173,13 @@ def create_schedule(data: ScheduleTaskCreate, db: Session = Depends(get_db), cur
         weekdays=",".join(map(str, weekdays)) or None, month_day=str(month_day) if month_day else None,
         nth_week=str(nth_week) if nth_week else None, nth_weekday=str(nth_weekday) if nth_weekday is not None else None,
         recurrence_until=data.recurrence_until, recurrence_count=str(data.recurrence_count) if data.recurrence_count else None)
-    db.add(task); db.flush(); ensure_occurrences_for_task(db, task, date.today() + timedelta(days=WINDOW_DAYS)); db.commit()
+    db.add(task); db.flush()
+    immediate_end = data.start_date + timedelta(days=IMMEDIATE_WINDOW_DAYS - 1)
+    workdays, restdays = cached_holiday_sets(db, task, immediate_end)
+    ensure_occurrences_for_task(db, task, immediate_end, workdays, restdays, IMMEDIATE_WINDOW_DAYS)
+    if task.recurrence_type != "NONE":
+        enqueue_maintenance_job(db, task.id, "ENSURE", immediate_end + timedelta(days=1))
+    db.commit()
     return db.query(ScheduleOccurrence).filter(ScheduleOccurrence.task_id == task.id).order_by(ScheduleOccurrence.scheduled_date).all()
 
 @router.get("", response_model=list[ScheduleOccurrenceResponse])
@@ -173,8 +226,11 @@ def update_occurrence(occurrence_id: UUID, data: ScheduleOccurrenceUpdate, db: S
     ])
     if repeat_changed:
         old_task.recurrence_until = item.scheduled_date - timedelta(days=1)
+        immediate_end = item.scheduled_date + timedelta(days=IMMEDIATE_WINDOW_DAYS - 1)
         db.query(ScheduleOccurrence).filter(ScheduleOccurrence.task_id == old_task.id,
-            ScheduleOccurrence.scheduled_date >= item.scheduled_date).delete(synchronize_session=False)
+            ScheduleOccurrence.scheduled_date >= item.scheduled_date,
+            ScheduleOccurrence.scheduled_date <= immediate_end).delete(synchronize_session=False)
+        enqueue_maintenance_job(db, old_task.id, "DELETE", immediate_end + timedelta(days=1))
         weekdays = data.weekdays or ([sunday_weekday(item.scheduled_date)] if data.recurrence_type == "WEEKLY" else [])
         month_day = data.month_day or (item.scheduled_date.day if data.recurrence_type == "MONTHLY_DATE" else None)
         nth_week = data.nth_week
@@ -187,7 +243,11 @@ def update_occurrence(occurrence_id: UUID, data: ScheduleOccurrenceUpdate, db: S
             nth_weekday=str(nth_weekday) if nth_weekday is not None else None,
             recurrence_until=data.recurrence_until,
             recurrence_count=str(data.recurrence_count) if data.recurrence_count else None)
-        db.add(new_task); db.flush(); ensure_occurrences_for_task(db, new_task, item.scheduled_date)
+        db.add(new_task); db.flush()
+        workdays, restdays = cached_holiday_sets(db, new_task, immediate_end)
+        ensure_occurrences_for_task(db, new_task, immediate_end, workdays, restdays, IMMEDIATE_WINDOW_DAYS)
+        if new_task.recurrence_type != "NONE":
+            enqueue_maintenance_job(db, new_task.id, "ENSURE", immediate_end + timedelta(days=1))
         updated = db.query(ScheduleOccurrence).filter_by(task_id=new_task.id, scheduled_date=item.scheduled_date).first()
         if not updated:
             updated = ScheduleOccurrence(user_id=current_user.id, task_id=new_task.id,
@@ -212,8 +272,11 @@ def delete_occurrence(occurrence_id: UUID, scope: str = Query("single", pattern=
     if not item: raise HTTPException(404, "日程实例不存在")
     if scope == "following" and item.task.recurrence_type != "NONE":
         item.task.recurrence_until = item.scheduled_date - timedelta(days=1)
+        immediate_end = item.scheduled_date + timedelta(days=IMMEDIATE_WINDOW_DAYS - 1)
         db.query(ScheduleOccurrence).filter(ScheduleOccurrence.task_id == item.task_id,
-            ScheduleOccurrence.scheduled_date >= item.scheduled_date).delete(synchronize_session=False)
+            ScheduleOccurrence.scheduled_date >= item.scheduled_date,
+            ScheduleOccurrence.scheduled_date <= immediate_end).delete(synchronize_session=False)
+        enqueue_maintenance_job(db, item.task_id, "DELETE", immediate_end + timedelta(days=1))
     else:
         item.status = "deleted"
     db.commit()

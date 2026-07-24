@@ -101,3 +101,18 @@ class ScheduleHolidayYear(Base):
     workdays = Column(Text, nullable=False, default="[]")
     restdays = Column(Text, nullable=False, default="[]")
     fetched_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+
+
+class ScheduleMaintenanceJob(Base):
+    __tablename__ = "schedule_maintenance_jobs"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    task_id = Column(UUID(as_uuid=True), ForeignKey("schedule_tasks.id", ondelete="CASCADE"), nullable=False)
+    operation = Column(String(20), nullable=False)  # ENSURE / DELETE
+    scheduled_from = Column(Date, nullable=False)
+    status = Column(String(20), nullable=False, default="queued")  # queued / running / completed
+    attempts = Column(Integer, nullable=False, default=0)
+    available_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+    last_error = Column(Text, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)

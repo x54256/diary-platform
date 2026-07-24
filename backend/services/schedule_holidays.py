@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from typing import Iterable
 
 import httpx
@@ -14,6 +14,15 @@ from models.schedule import ScheduleHolidayYear
 
 logger = logging.getLogger("app.schedule_holidays")
 HOLIDAY_URL = "https://timor.tech/api/holiday/year/{year}"
+HOLIDAY_RETRY_INTERVAL = timedelta(days=30)
+HOLIDAY_REQUEST_HEADERS = {
+    "Accept": "application/json",
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/150.0.0.0 Safari/537.36"
+    ),
+}
 
 
 def _classify_entry(entry: dict) -> tuple[set[date], set[date]]:
@@ -55,13 +64,25 @@ def refresh_holiday_year(db: Session, year: int) -> ScheduleHolidayYear:
     cached = db.query(ScheduleHolidayYear).filter_by(year=year).first()
     if cached and cached.is_available:
         return cached
+    now = datetime.utcnow()
+    if cached and cached.fetched_at and now - cached.fetched_at < HOLIDAY_RETRY_INTERVAL:
+        return cached
     try:
-        response = httpx.get(HOLIDAY_URL.format(year=year), timeout=10)
+        response = httpx.get(
+            HOLIDAY_URL.format(year=year),
+            timeout=10,
+            follow_redirects=True,
+            headers=HOLIDAY_REQUEST_HEADERS,
+        )
         response.raise_for_status()
         workdays, restdays = parse_holiday_payload(response.json(), year)
         available = bool(workdays or restdays)
     except Exception:
-        logger.exception("获取节假日年度数据失败 year=%s", year)
+        logger.exception(
+            "获取节假日年度数据失败 year=%s，下次重试时间=%s",
+            year,
+            now + HOLIDAY_RETRY_INTERVAL,
+        )
         workdays, restdays, available = set(), set(), False
     if not cached:
         cached = ScheduleHolidayYear(year=year)
@@ -69,7 +90,7 @@ def refresh_holiday_year(db: Session, year: int) -> ScheduleHolidayYear:
     cached.is_available = available
     cached.workdays = json.dumps(sorted(value.isoformat() for value in workdays), ensure_ascii=False)
     cached.restdays = json.dumps(sorted(value.isoformat() for value in restdays), ensure_ascii=False)
-    cached.fetched_at = datetime.utcnow()
+    cached.fetched_at = now
     return cached
 
 
