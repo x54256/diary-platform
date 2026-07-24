@@ -3,7 +3,7 @@
 import uuid
 from datetime import datetime
 
-from sqlalchemy import Boolean, Column, Date, DateTime, ForeignKey, Index, String, Text, Time, UniqueConstraint
+from sqlalchemy import Boolean, Column, Date, DateTime, ForeignKey, Index, Integer, String, Text, Time, UniqueConstraint
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
@@ -55,6 +55,8 @@ class ScheduleOccurrence(Base):
     status = Column(String(20), nullable=False, default="pending")
     completed_at = Column(DateTime, nullable=True)
     overdue_reason = Column(Text, nullable=True)
+    execution_note = Column(Text, nullable=True)
+    manually_modified = Column(Boolean, nullable=False, default=False)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
@@ -63,3 +65,39 @@ class ScheduleOccurrence(Base):
     @property
     def recurrence_type(self):
         return self.task.recurrence_type if self.task else "NONE"
+
+    @property
+    def recurrence_until(self):
+        return self.task.recurrence_until if self.task else None
+
+    @property
+    def recurrence_count(self):
+        return int(self.task.recurrence_count) if self.task and self.task.recurrence_count else None
+
+    @property
+    def interval(self):
+        return int(self.task.interval or 1) if self.task else 1
+
+    @property
+    def weekdays(self):
+        if not self.task or not self.task.weekdays:
+            return []
+        return [int(value) for value in self.task.weekdays.split(",") if value != ""]
+
+    @property
+    def nth_week(self):
+        return int(self.task.nth_week) if self.task and self.task.nth_week else None
+
+    @property
+    def nth_weekday(self):
+        return int(self.task.nth_weekday) if self.task and self.task.nth_weekday else None
+
+
+class ScheduleHolidayYear(Base):
+    __tablename__ = "schedule_holiday_years"
+
+    year = Column(Integer, primary_key=True)
+    is_available = Column(Boolean, nullable=False, default=False)
+    workdays = Column(Text, nullable=False, default="[]")
+    restdays = Column(Text, nullable=False, default="[]")
+    fetched_at = Column(DateTime, nullable=False, default=datetime.utcnow)

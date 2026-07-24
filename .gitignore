@@ -41,3 +41,4 @@ backend/logs/
 .env
 deploy.server
 docker-compose.**.yml**
+**/*.zip

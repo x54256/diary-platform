@@ -155,8 +155,14 @@ export interface ScheduleOccurrence {
   end_time: string | null
   status: ScheduleStatus
   completed_at: string | null
-  overdue_reason: string | null
-  recurrence_type: 'NONE' | 'DAILY' | 'WEEKLY' | 'MONTHLY_DATE' | 'MONTHLY_NTH_WEEKDAY'
+  execution_note: string | null
+  recurrence_type: 'NONE' | 'DAILY' | 'WEEKLY' | 'MONTHLY_DATE' | 'MONTHLY_NTH_WEEKDAY' | 'YEARLY' | 'WORKDAY' | 'REST_DAY'
+  recurrence_until: string | null
+  recurrence_count: number | null
+  interval: number
+  weekdays: number[]
+  nth_week: number | null
+  nth_weekday: number | null
 }
 
 export type TranscriptionBatchStatus =

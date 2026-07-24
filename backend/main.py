@@ -91,6 +91,8 @@ async def startup():
     _recover_stuck_tasks()
     from services.backup_scheduler import backup_scheduler
     await backup_scheduler.start()
+    from services.schedule_occurrence_scheduler import schedule_occurrence_scheduler
+    await schedule_occurrence_scheduler.start()
     from services.transcription_tasks import transcription_task_manager
     await transcription_task_manager.start()
 
@@ -99,6 +101,8 @@ async def startup():
 async def shutdown():
     from services.backup_scheduler import backup_scheduler
     await backup_scheduler.stop()
+    from services.schedule_occurrence_scheduler import schedule_occurrence_scheduler
+    await schedule_occurrence_scheduler.stop()
     from services.transcription_tasks import transcription_task_manager
     await transcription_task_manager.stop()
 
