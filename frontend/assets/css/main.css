@@ -8,6 +8,16 @@
     -webkit-tap-highlight-color: transparent;
   }
 
+  /* iOS Safari 会放大字号小于 16px 的可编辑控件。统一移动端表单字号，避免聚焦时页面跳变。 */
+  @media (max-width: 767px) {
+    input:not([type='checkbox']):not([type='radio']),
+    textarea,
+    select {
+      font-size: 16px !important;
+      -webkit-text-size-adjust: 100%;
+    }
+  }
+
   body {
     @apply bg-neutral-50 text-neutral-800 antialiased;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,

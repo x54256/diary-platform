@@ -40,8 +40,10 @@ from database import SessionLocal
 from utils.diary_render import render_diary_to_markdown
 from models.diary import DiaryEvent, DiaryCheckLog, DiaryCleanCheckLog, OrganizeTask
 from schemas.diary import OrganizeTaskResponse, DiaryEventUpdate, DiaryEventResponse
+from utils.log_context import Stopwatch, log_extra
 
 router = APIRouter(prefix="/api/diaries", tags=["日记管理"])
+logger = logging.getLogger(__name__)
 
 
 def parse_json_value(value, default):
@@ -663,6 +665,11 @@ async def analyze_diary(
     current_user: User = Depends(get_current_user),
 ):
     """AI 分析日记：异步任务模式，立即返回任务状态"""
+    request_started = Stopwatch()
+    logger.info(
+        "收到 AI 日记分析请求",
+        extra=log_extra(event="analysis.request.received", diary_id=str(diary_id), user_id=str(current_user.id)),
+    )
     # 1. 查找日记，校验属于当前用户
     diary = (
         db.query(Diary)
@@ -670,10 +677,18 @@ async def analyze_diary(
         .first()
     )
     if not diary:
+        logger.warning(
+            "AI 日记分析请求被拒绝：日记不存在",
+            extra=log_extra(event="analysis.request.rejected", diary_id=str(diary_id), user_id=str(current_user.id), reason="diary_not_found"),
+        )
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="日记不存在")
 
     # 2. 状态守卫：仅 organized、analyzed 可触发分析
     if diary.status not in (DiaryStatus.organized, DiaryStatus.analyzed):
+        logger.warning(
+            "AI 日记分析请求被拒绝：日记状态不允许",
+            extra=log_extra(event="analysis.request.rejected", diary_id=str(diary_id), user_id=str(current_user.id), reason="invalid_diary_status", status=diary.status.value),
+        )
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="仅已整理或已分析的日记可以触发分析",
@@ -681,6 +696,10 @@ async def analyze_diary(
 
     # 3. 必须有整理记录才能分析
     if not diary.organized:
+        logger.warning(
+            "AI 日记分析请求被拒绝：缺少整理结果",
+            extra=log_extra(event="analysis.request.rejected", diary_id=str(diary_id), user_id=str(current_user.id), reason="organized_result_missing"),
+        )
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="日记尚未整理，无法分析",
@@ -694,6 +713,17 @@ async def analyze_diary(
     analysis_mode = "feedback" if has_effective_feedback else "ordinary"
     feedback_run_id = str(current_run.id) if has_effective_feedback else None
     feedback_source_run_id = str(current_run.id) if current_run else None
+    logger.info(
+        "AI 日记分析分支已确定",
+        extra=log_extra(
+            event="analysis.branch.selected",
+            diary_id=str(diary_id),
+            user_id=str(current_user.id),
+            analysis_mode=analysis_mode,
+            feedback_source_run_id=feedback_source_run_id,
+            has_effective_feedback=has_effective_feedback,
+        ),
+    )
 
     # 4. 检查是否已有 running 分析任务
     existing_task = (
@@ -713,7 +743,22 @@ async def analyze_diary(
             existing_task.status = "failed"
             existing_task.error_message = "分析任务超时，已自动终止"
             db.commit()
+            logger.warning(
+                "超时分析任务已终止",
+                extra=log_extra(
+                    event="analysis.task.timed_out",
+                    diary_id=str(diary_id),
+                    task_id=str(existing_task.id),
+                    analysis_mode=existing_task.analysis_mode,
+                    old_status="running",
+                    new_status="failed",
+                ),
+            )
         else:
+            logger.info(
+                "复用正在运行的分析任务",
+                extra=log_extra(event="analysis.task.reused", diary_id=str(diary_id), task_id=str(existing_task.id), status=existing_task.status, current_step=existing_task.current_step),
+            )
             return OrganizeTaskResponse(
                 diary_id=diary_id,
                 status=existing_task.status,
@@ -741,6 +786,10 @@ async def analyze_diary(
         db.commit()
         db.refresh(failed_task)
         task = failed_task
+        logger.info(
+            "失败分析任务已重新启动",
+            extra=log_extra(event="analysis.task.restarted", diary_id=str(diary_id), task_id=str(task.id), analysis_mode=analysis_mode, old_status="failed", new_status="running"),
+        )
     else:
         # 6. 创建新 OrganizeTask 记录（task_type=analyze）
         task = OrganizeTask(
@@ -754,6 +803,10 @@ async def analyze_diary(
         db.add(task)
         db.commit()
         db.refresh(task)
+        logger.info(
+            "分析任务已创建",
+            extra=log_extra(event="analysis.task.created", diary_id=str(diary_id), task_id=str(task.id), user_id=str(current_user.id), analysis_mode=analysis_mode, status=task.status, current_step=task.current_step),
+        )
 
     # 7. 组装 structured_diary，供分析流水线使用
     diary_organized = diary.organized
@@ -784,7 +837,12 @@ async def analyze_diary(
             analysis_mode=analysis_mode,
             feedback_run_id=feedback_run_id,
             feedback_source_run_id=feedback_source_run_id,
-        )
+        ),
+        name=f"analysis-{task.id}",
+    )
+    logger.info(
+        "后台分析任务已启动",
+        extra=log_extra(event="analysis.task.started", diary_id=str(diary_id), task_id=str(task.id), analysis_mode=analysis_mode, event_count=len(structured_diary["events"]), duration_ms=request_started.elapsed_ms()),
     )
 
     # 9. 立即返回任务状态
@@ -809,7 +867,12 @@ async def _run_analyze(
     feedback_source_run_id: str | None = None,
 ):
     """后台执行 AI 分析（独立 DB session）"""
+    task_started = Stopwatch()
     db = SessionLocal()
+    logger.info(
+        "后台分析任务开始执行",
+        extra=log_extra(event="analysis.background.started", diary_id=diary_id, task_id=task_id, analysis_mode=analysis_mode, feedback_source_run_id=feedback_source_run_id),
+    )
     try:
         if analysis_mode == "feedback":
             if not feedback_run_id:
@@ -841,14 +904,25 @@ async def _run_analyze(
             task.status = "completed"
             task.current_step = None
         db.commit()
+        logger.info(
+            "后台分析任务完成",
+            extra=log_extra(event="analysis.task.completed", diary_id=diary_id, task_id=task_id, analysis_mode=analysis_mode, old_status="running", new_status="completed", duration_ms=task_started.elapsed_ms()),
+        )
     except Exception as e:
-        logging.getLogger(__name__).error("后台分析任务失败: %s", e)
+        logger.exception(
+            "后台分析任务失败",
+            extra=log_extra(event="analysis.task.failed", diary_id=diary_id, task_id=task_id, analysis_mode=analysis_mode, error_type=type(e).__name__, duration_ms=task_started.elapsed_ms()),
+        )
         db.rollback()
         task = db.query(OrganizeTask).filter(OrganizeTask.id == task_id).first()
         if task:
             task.status = "failed"
             task.error_message = str(e)
         db.commit()
+        logger.info(
+            "后台分析任务失败状态已保存",
+            extra=log_extra(event="analysis.task.failure_persisted", diary_id=diary_id, task_id=task_id, new_status="failed"),
+        )
     finally:
         db.close()
 

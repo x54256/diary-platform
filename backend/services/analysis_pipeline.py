@@ -29,6 +29,7 @@ from services.pipeline import (
     cleanup_checkpoint,
     run_graph_with_checkpoint,
 )
+from utils.log_context import Stopwatch, log_extra
 
 logger = logging.getLogger(__name__)
 
@@ -357,13 +358,19 @@ def _log_llm_request(step_name: str, system_prompt: str, input_data: dict) -> st
         step_name,
         system_prompt,
         user_message,
+        extra=log_extra(event="analysis.llm.request_payload", step=step_name),
     )
     return user_message
 
 
 def _log_llm_response(step_name: str, result: dict) -> None:
     """记录分析流水线完整 LLM JSON 响应。"""
-    _ai_logger.info("[%s] 完整LLM响应: %s", step_name, _json_dumps(result))
+    _ai_logger.info(
+        "[%s] 完整LLM响应: %s",
+        step_name,
+        _json_dumps(result),
+        extra=log_extra(event="analysis.llm.response_payload", step=step_name),
+    )
 
 
 def _list_len(value: Any) -> int:
@@ -387,6 +394,8 @@ def _count_event_inner_items(event_items: Any, inner_key: str) -> int:
 async def mood_tag_extract(state: AnalysisState) -> dict:
     """Node 1 (环节 7): 心情 + 标签提取 (temp=0.3)"""
     task_id = state["task_id"]
+    started = Stopwatch()
+    _update_step(task_id, "mood_tag_extract")
 
     original_text = state["original_text"]
     structured_diary = state["structured_diary"]
@@ -442,6 +451,16 @@ async def mood_tag_extract(state: AnalysisState) -> dict:
         mood,
         len(validated_event_tags),
         tag_count,
+        extra=log_extra(
+            event="analysis.node.completed",
+            step="mood_tag_extract",
+            diary_id=state.get("diary_id"),
+            task_id=task_id,
+            event_count=event_count,
+            event_tag_count=len(validated_event_tags),
+            tag_count=tag_count,
+            duration_ms=started.elapsed_ms(),
+        ),
     )
     return {"mood": mood, "event_tags": validated_event_tags}
 
@@ -449,6 +468,8 @@ async def mood_tag_extract(state: AnalysisState) -> dict:
 async def core_analysis(state: AnalysisState) -> dict:
     """环节 8：核心分析 + 可行动建议"""
     task_id = state["task_id"]
+    started = Stopwatch()
+    _update_step(task_id, "core_analysis")
 
     events = state["structured_diary"].get("events", [])
     input_data = {"events": events}
@@ -511,6 +532,14 @@ async def core_analysis(state: AnalysisState) -> dict:
         _list_len(output["diary_analysis"]["self_understanding_analyses"]),
         _count_event_inner_items(output["event_analyses"], "action_suggestions"),
         _list_len(output["diary_analysis"]["action_suggestions"]),
+        extra=log_extra(
+            event="analysis.node.completed",
+            step="core_analysis",
+            diary_id=state.get("diary_id"),
+            task_id=task_id,
+            event_count=_list_len(events),
+            duration_ms=started.elapsed_ms(),
+        ),
     )
     return output
 
@@ -518,6 +547,8 @@ async def core_analysis(state: AnalysisState) -> dict:
 async def cognition_analysis(state: AnalysisState) -> dict:
     """环节 9：认知校准 + 问题解答 + 认知完善"""
     task_id = state["task_id"]
+    started = Stopwatch()
+    _update_step(task_id, "cognition_analysis")
 
     events = state["structured_diary"].get("events", [])
     input_data = {"events": events}
@@ -579,6 +610,14 @@ async def cognition_analysis(state: AnalysisState) -> dict:
         _count_event_inner_items(output["event_question_answers"], "question_answers"),
         _count_event_inner_items(output["event_cognitive_enhancements"], "cognitive_enhancements"),
         _list_len(output["diary_cognitive_enhancements"]),
+        extra=log_extra(
+            event="analysis.node.completed",
+            step="cognition_analysis",
+            diary_id=state.get("diary_id"),
+            task_id=task_id,
+            event_count=_list_len(events),
+            duration_ms=started.elapsed_ms(),
+        ),
     )
     return output
 
@@ -586,7 +625,8 @@ async def cognition_analysis(state: AnalysisState) -> dict:
 async def feedback_core_analysis(state: FeedbackAnalysisState) -> dict:
     """反馈重分析节点 1：根据反馈重写核心分析。"""
     task_id = state["task_id"]
-    _update_step(task_id, "analysis_generating")
+    started = Stopwatch()
+    _update_step(task_id, "feedback_core_analysis")
 
     feedback_context = state["feedback_context"]
     core_input = {
@@ -600,6 +640,10 @@ async def feedback_core_analysis(state: FeedbackAnalysisState) -> dict:
         ],
     }
     if not core_input["feedback"]:
+        logger.info(
+            "反馈核心分析无命中内容，复用上一轮结果",
+            extra=log_extra(event="analysis.feedback.node.reused", step="feedback_core_analysis", task_id=task_id, feedback_count=0),
+        )
         return {"merged_core": state["previous_state"]}
 
     llm = _get_llm(0.2, "analysis")
@@ -610,6 +654,10 @@ async def feedback_core_analysis(state: FeedbackAnalysisState) -> dict:
         step_name="feedback_core_analysis",
     )
     _log_llm_response("feedback_core_analysis", core_result)
+    logger.info(
+        "反馈核心分析节点完成",
+        extra=log_extra(event="analysis.node.completed", step="feedback_core_analysis", task_id=task_id, feedback_count=len(core_input["feedback"]), duration_ms=started.elapsed_ms()),
+    )
     return {
         "merged_core": _merge_feedback_core(
             state["previous_state"], core_result, feedback_context
@@ -620,7 +668,8 @@ async def feedback_core_analysis(state: FeedbackAnalysisState) -> dict:
 async def feedback_cognition_analysis(state: FeedbackAnalysisState) -> dict:
     """反馈重分析节点 2：根据反馈重写认知分析。"""
     task_id = state["task_id"]
-    _update_step(task_id, "analysis_generating")
+    started = Stopwatch()
+    _update_step(task_id, "feedback_cognition_analysis")
 
     feedback_context = state["feedback_context"]
     previous_state = state["previous_state"]
@@ -642,6 +691,10 @@ async def feedback_cognition_analysis(state: FeedbackAnalysisState) -> dict:
         ],
     }
     if not cognition_input["feedback"]:
+        logger.info(
+            "反馈认知分析无命中内容，复用上一轮结果",
+            extra=log_extra(event="analysis.feedback.node.reused", step="feedback_cognition_analysis", task_id=task_id, feedback_count=0),
+        )
         return {"merged": state["merged_core"]}
 
     llm = _get_llm(0.2, "analysis")
@@ -654,6 +707,10 @@ async def feedback_cognition_analysis(state: FeedbackAnalysisState) -> dict:
         step_name="feedback_cognition_analysis",
     )
     _log_llm_response("feedback_cognition_analysis", cognition_result)
+    logger.info(
+        "反馈认知分析节点完成",
+        extra=log_extra(event="analysis.node.completed", step="feedback_cognition_analysis", task_id=task_id, feedback_count=len(cognition_input["feedback"]), duration_ms=started.elapsed_ms()),
+    )
     return {
         "merged": _merge_feedback_cognition(
             state["merged_core"], cognition_result, feedback_context
@@ -679,6 +736,11 @@ def _persist_tags(
     4. 为日记创建 diary_tags 关联（去重后）
     """
     db = SessionLocal()
+    started = Stopwatch()
+    logger.info(
+        "开始标签落库",
+        extra=log_extra(event="analysis.tags.persist_started", diary_id=diary_id, diary_organized_id=diary_organized_id, event_tag_count=_list_len(event_tags)),
+    )
     try:
         user_uuid = uuid.UUID(user_id) if isinstance(user_id, str) else user_id
         diary_uuid = uuid.UUID(diary_id) if isinstance(diary_id, str) else diary_id
@@ -781,9 +843,17 @@ def _persist_tags(
             )
 
         db.commit()
-        logger.info("标签落库完成: diary_id=%s, 标签数=%d", diary_id, len(all_tag_ids))
+        logger.info(
+            "标签落库完成: diary_id=%s, 标签数=%d",
+            diary_id,
+            len(all_tag_ids),
+            extra=log_extra(event="analysis.tags.persisted", diary_id=diary_id, diary_organized_id=diary_organized_id, tag_count=len(all_tag_ids), event_count=len(events), duration_ms=started.elapsed_ms()),
+        )
     except Exception as e:
-        logger.error("标签落库失败: %s", e)
+        logger.exception(
+            "标签落库失败",
+            extra=log_extra(event="analysis.tags.persist_failed", diary_id=diary_id, diary_organized_id=diary_organized_id, error_type=type(e).__name__, duration_ms=started.elapsed_ms()),
+        )
         db.rollback()
         raise
     finally:
@@ -802,13 +872,14 @@ def _save_analysis_result(
 ):
     """将分析结果存入历史分析表，并将新轮次标记为 CURRENT。"""
     db = SessionLocal()
+    started = Stopwatch()
     try:
         diary_id = state["diary_id"]
         task_id = state["task_id"]
         diary_uuid = uuid.UUID(diary_id) if isinstance(diary_id, str) else diary_id
         if feedback_source_run_id and inherited_feedback_keys is None:
             inherited_feedback_keys = feedback_keys_for_run(db, feedback_source_run_id)
-        create_analysis_run_from_state(
+        run = create_analysis_run_from_state(
             db,
             state,
             diary_organized_id,
@@ -818,13 +889,32 @@ def _save_analysis_result(
 
         # 更新日记状态为 analyzed
         diary = db.query(Diary).filter(Diary.id == diary_uuid).first()
+        old_status = diary.status.value if diary and hasattr(diary.status, "value") else str(diary.status) if diary else None
         if diary:
             diary.status = DiaryStatus.analyzed
 
         db.commit()
-        logger.info("分析结果已保存: diary_id=%s, task_id=%s", diary_id, task_id)
+        logger.info(
+            "分析结果已保存: diary_id=%s, task_id=%s",
+            diary_id,
+            task_id,
+            extra=log_extra(
+                event="analysis.result.persisted",
+                diary_id=diary_id,
+                task_id=task_id,
+                analysis_run_id=str(run.id),
+                feedback_source_run_id=feedback_source_run_id,
+                old_status=old_status,
+                new_status="analyzed",
+                analysis_item_count=len(run.items),
+                duration_ms=started.elapsed_ms(),
+            ),
+        )
     except Exception as e:
-        logger.error("保存分析结果失败: %s", e)
+        logger.exception(
+            "保存分析结果失败",
+            extra=log_extra(event="analysis.result.persist_failed", diary_id=state.get("diary_id"), task_id=state.get("task_id"), error_type=type(e).__name__, duration_ms=started.elapsed_ms()),
+        )
         db.rollback()
         raise
     finally:
@@ -1035,12 +1125,14 @@ async def run_analysis_pipeline(
     feedback_source_run_id: str | None = None,
 ) -> dict:
     """构建并执行 LangGraph 分析流水线（3 环节串行）。"""
+    started = Stopwatch()
     logger.info(
         "分析流水线开始: diary_id=%s, task_id=%s, diary_organized_id=%s, event_count=%d",
         diary_id,
         task_id,
         diary_organized_id,
         _list_len(structured_diary.get("events")),
+        extra=log_extra(event="analysis.pipeline.started", diary_id=diary_id, task_id=task_id, diary_organized_id=diary_organized_id, event_count=_list_len(structured_diary.get("events")), feedback_source_run_id=feedback_source_run_id),
     )
     builder = StateGraph(AnalysisState)
     builder.add_node("mood_tag_extract", mood_tag_extract)
@@ -1089,7 +1181,10 @@ async def run_analysis_pipeline(
     try:
         _persist_tags(user_id, diary_id, diary_organized_id, analysis_result["event_tags"])
     except Exception as e:
-        logger.error("标签落库异常（不影响分析结果返回）: %s", e)
+        logger.exception(
+            "标签落库异常（不影响分析结果返回）",
+            extra=log_extra(event="analysis.tags.degraded", diary_id=diary_id, task_id=task_id, error_type=type(e).__name__),
+        )
 
     # 保存分析结果 + 更新日记状态
     _update_step(task_id, "saving_result")
@@ -1101,9 +1196,9 @@ async def run_analysis_pipeline(
     # 清理 checkpoint 不应影响已提交的分析结果。
     try:
         await cleanup_checkpoint(task_id)
-        logger.info("分析流水线 checkpoint 已清理: diary_id=%s, task_id=%s", diary_id, task_id)
+        logger.info("分析流水线 checkpoint 已清理: diary_id=%s, task_id=%s", diary_id, task_id, extra=log_extra(event="analysis.checkpoint.cleaned", diary_id=diary_id, task_id=task_id, checkpoint_action="cleanup"))
     except Exception as cleanup_error:
-        logger.warning("分析流水线 checkpoint 清理失败，保留 checkpoint: diary_id=%s, task_id=%s, error=%s", diary_id, task_id, cleanup_error)
+        logger.warning("分析流水线 checkpoint 清理失败，保留 checkpoint: diary_id=%s, task_id=%s, error=%s", diary_id, task_id, cleanup_error, extra=log_extra(event="analysis.checkpoint.cleanup_failed", diary_id=diary_id, task_id=task_id, checkpoint_action="retained", error_type=type(cleanup_error).__name__))
     logger.info(
         "分析流水线完成: diary_id=%s, task_id=%s, mood=%s, event_tags=%d, diary_actions=%d",
         diary_id,
@@ -1111,6 +1206,7 @@ async def run_analysis_pipeline(
         analysis_result["mood"],
         _list_len(analysis_result["event_tags"]),
         _list_len(analysis_result["diary_analysis"].get("action_suggestions") if isinstance(analysis_result["diary_analysis"], dict) else []),
+        extra=log_extra(event="analysis.pipeline.completed", diary_id=diary_id, task_id=task_id, event_tag_count=_list_len(analysis_result["event_tags"]), duration_ms=started.elapsed_ms()),
     )
 
     return analysis_result
@@ -1125,6 +1221,11 @@ async def run_feedback_reanalysis_pipeline(
     previous_run_id: str,
 ) -> dict:
     """基于低分文字反馈串行重写环节 8、9，不重跑心情和标签。"""
+    started = Stopwatch()
+    logger.info(
+        "反馈重分析流水线开始",
+        extra=log_extra(event="analysis.feedback.pipeline.started", diary_id=diary_id, task_id=task_id, previous_run_id=previous_run_id),
+    )
     db = SessionLocal()
     try:
         previous_run = (
@@ -1144,6 +1245,10 @@ async def run_feedback_reanalysis_pipeline(
         )
         feedbacks = effective_feedback(db, previous_run.id)
         if not feedbacks:
+            logger.warning(
+                "反馈重分析没有有效反馈",
+                extra=log_extra(event="analysis.feedback.pipeline.rejected", diary_id=diary_id, task_id=task_id, previous_run_id=previous_run_id, reason="feedback_missing"),
+            )
             raise ValueError("没有可用于反馈重写的低分文字反馈")
 
         previous_state = run_to_state(previous_run, event_records)
@@ -1206,5 +1311,6 @@ async def run_feedback_reanalysis_pipeline(
         diary_id,
         task_id,
         len(feedback_context),
+        extra=log_extra(event="analysis.feedback.pipeline.completed", diary_id=diary_id, task_id=task_id, previous_run_id=previous_run_id, feedback_count=len(feedback_context), duration_ms=started.elapsed_ms()),
     )
     return merged

@@ -4,7 +4,7 @@ import logging
 import os
 from datetime import datetime
 
-from fastapi import APIRouter, FastAPI
+from fastapi import APIRouter, FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
 from database import Base, engine
@@ -16,6 +16,7 @@ from routers.admin_backup import router as admin_backup_router
 from routers.admin_models import router as admin_models_router
 from routers.transcriptions import router as transcriptions_router
 from routers.schedules import router as schedules_router
+from utils.log_context import ContextFormatter, LogContextFilter, log_extra, new_id, reset_request_context, set_request_context
 
 # ---------------------------------------------------------------------------
 # 全局日志配置 - 所有模块日志写入 app_YYYY-MM-DD.log
@@ -26,14 +27,25 @@ os.makedirs(_log_dir, exist_ok=True)
 _global_log_file = os.path.join(_log_dir, f"app_{datetime.now().strftime('%Y-%m-%d')}.log")
 _file_handler = logging.FileHandler(_global_log_file, encoding="utf-8")
 _file_handler.setLevel(logging.DEBUG)
-_file_handler.setFormatter(logging.Formatter(
-    "%(asctime)s [%(name)s] %(levelname)s: %(message)s"
+_log_filter = LogContextFilter()
+_log_format = (
+    "%(asctime)s [%(name)s] %(levelname)s "
+    "chain_id=%(chain_id)s request_id=%(request_id)s "
+    "process=%(process)d thread=%(threadName)s/%(thread)d "
+    "async_task=%(async_task)s event=%(event)s: %(message)s"
+)
+_file_handler.addFilter(_log_filter)
+_file_handler.setFormatter(ContextFormatter(
+    _log_format,
+    defaults={"event": "-", "chain_id": "-", "request_id": "-", "async_task": "-"},
 ))
 
 _console_handler = logging.StreamHandler()
 _console_handler.setLevel(logging.INFO)
-_console_handler.setFormatter(logging.Formatter(
-    "%(asctime)s [%(name)s] %(levelname)s: %(message)s"
+_console_handler.addFilter(_log_filter)
+_console_handler.setFormatter(ContextFormatter(
+    _log_format,
+    defaults={"event": "-", "chain_id": "-", "request_id": "-", "async_task": "-"},
 ))
 
 root_logger = logging.getLogger()
@@ -53,6 +65,48 @@ app = FastAPI(
     openapi_url="/diary/openapi.json",
 )
 
+
+@app.middleware("http")
+async def request_logging_middleware(request: Request, call_next):
+    """为每个 HTTP 请求建立 request_id/chain_id 并记录请求闭环。"""
+    request_id = request.headers.get("X-Request-ID") or new_id("req")
+    chain_id = request.headers.get("X-Chain-ID") or request_id
+    context_tokens = set_request_context(chain_id=chain_id, request_id=request_id)
+    started_at = datetime.now()
+    request_logger = logging.getLogger("http.request")
+    status_code = 500
+    try:
+        response = await call_next(request)
+        status_code = response.status_code
+        return response
+    except Exception:
+        request_logger.exception(
+            "HTTP 请求未处理异常",
+            extra=log_extra(
+                event="http.request.failed",
+                method=request.method,
+                path=request.url.path,
+                error_type="unhandled_exception",
+            ),
+        )
+        raise
+    finally:
+        duration_ms = int((datetime.now() - started_at).total_seconds() * 1000)
+        request_logger.info(
+            "HTTP 请求完成",
+            extra=log_extra(
+                event="http.request.completed",
+                method=request.method,
+                path=request.url.path,
+                status_code=status_code,
+                duration_ms=duration_ms,
+            ),
+        )
+        if "response" in locals():
+            response.headers["X-Request-ID"] = request_id
+            response.headers["X-Chain-ID"] = chain_id
+        reset_request_context(context_tokens)
+
 # CORS 中间件（开发环境允许所有来源）
 app.add_middleware(
     CORSMiddleware,
@@ -60,7 +114,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-    expose_headers=["X-Access-Token"],
+    expose_headers=["X-Access-Token", "X-Request-ID", "X-Chain-ID"],
 )
 
 # 注册路由

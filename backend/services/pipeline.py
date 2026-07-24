@@ -27,6 +27,7 @@ from services.ai import (
 )
 from services.model_runtime import resolve_model_setting
 from services.organize_settings import get_organize_pipeline_options
+from utils.log_context import ContextFormatter, LogContextFilter, Stopwatch, log_extra
 
 logger = logging.getLogger(__name__)
 
@@ -37,7 +38,12 @@ _log_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "logs")
 os.makedirs(_log_dir, exist_ok=True)
 _log_file = os.path.join(_log_dir, f"ai_{datetime.now().strftime('%Y-%m-%d')}.log")
 _file_handler = logging.FileHandler(_log_file, encoding="utf-8")
-_file_handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(message)s"))
+_file_handler.addFilter(LogContextFilter())
+_file_handler.setFormatter(ContextFormatter(
+    "%(asctime)s [%(levelname)s] chain_id=%(chain_id)s request_id=%(request_id)s "
+    "process=%(process)d thread=%(threadName)s/%(thread)d async_task=%(async_task)s event=%(event)s: %(message)s",
+    defaults={"event": "-", "chain_id": "-", "request_id": "-", "async_task": "-"},
+))
 if not _ai_logger.handlers:
     _ai_logger.addHandler(_file_handler)
 
@@ -104,6 +110,10 @@ def _update_step(task_id: str, step: str):
         if task:
             task.current_step = step
             db.commit()
+            logger.info(
+                "分析任务当前步骤已更新",
+                extra=log_extra(event="analysis.step.updated", task_id=task_id, current_step=step),
+            )
     except Exception as e:
         logger.warning("更新 current_step 失败: %s", e)
         db.rollback()
@@ -119,11 +129,47 @@ async def _invoke_llm(llm: ChatOpenAI, system_prompt: str, user_message: str, st
         SystemMessage(content=system_prompt),
         HumanMessage(content=user_message),
     ]
-    _ai_logger.info("[%s] 请求: system=%s, user=%s", step_name, system_prompt[:200], user_message[:500])
-    response = await llm.ainvoke(messages)
-    raw_content = response.content
-    _ai_logger.info("[%s] 响应: %s", step_name, raw_content[:1000])
-    return json.loads(raw_content)
+    started = Stopwatch()
+    model_name = getattr(llm, "model_name", None) or getattr(llm, "model", None)
+    logger.info(
+        "LLM 调用开始",
+        extra=log_extra(event="analysis.llm.started", step=step_name, model=model_name),
+    )
+    _ai_logger.info(
+        "[%s] 请求: system=%s, user=%s",
+        step_name,
+        system_prompt[:200],
+        user_message[:500],
+        extra=log_extra(event="analysis.llm.request_payload", step=step_name),
+    )
+    try:
+        response = await llm.ainvoke(messages)
+        raw_content = response.content
+        _ai_logger.info(
+            "[%s] 响应: %s",
+            step_name,
+            raw_content[:1000],
+            extra=log_extra(event="analysis.llm.response_payload", step=step_name),
+        )
+        try:
+            result = json.loads(raw_content)
+        except Exception as exc:
+            logger.exception(
+                "LLM 响应 JSON 解析失败",
+                extra=log_extra(event="analysis.llm.json_parse_failed", step=step_name, model=model_name, error_type=type(exc).__name__, response_length=len(raw_content), duration_ms=started.elapsed_ms()),
+            )
+            raise
+        logger.info(
+            "LLM 调用完成",
+            extra=log_extra(event="analysis.llm.completed", step=step_name, model=model_name, response_length=len(raw_content), duration_ms=started.elapsed_ms()),
+        )
+        return result
+    except Exception as exc:
+        logger.exception(
+            "LLM 调用失败",
+            extra=log_extra(event="analysis.llm.failed", step=step_name, model=model_name, error_type=type(exc).__name__, duration_ms=started.elapsed_ms()),
+        )
+        raise
 
 
 async def run_graph_with_checkpoint(graph, task_id: str, initial_state: dict) -> dict:
@@ -137,9 +183,21 @@ async def run_graph_with_checkpoint(graph, task_id: str, initial_state: dict) ->
     snapshot = await graph.aget_state(config)
 
     if snapshot.values and not snapshot.next:
+        logger.info(
+            "复用已完成 checkpoint 结果",
+            extra=log_extra(event="analysis.checkpoint.reused", task_id=task_id, checkpoint_action="completed_result_reused"),
+        )
         return dict(snapshot.values)
     if snapshot.next:
+        logger.info(
+            "从 checkpoint 恢复分析",
+            extra=log_extra(event="analysis.checkpoint.resumed", task_id=task_id, checkpoint_action="resume", resume_nodes=tuple(snapshot.next)),
+        )
         return dict(await graph.ainvoke(None, config=config))
+    logger.info(
+        "开始执行全新分析图",
+        extra=log_extra(event="analysis.checkpoint.started", task_id=task_id, checkpoint_action="new_execution"),
+    )
     return dict(await graph.ainvoke(initial_state, config=config))
 
 
