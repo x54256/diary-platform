@@ -42,6 +42,7 @@ class FunAsrServiceTest(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(captured["headers"]["x-dashscope-async"], "enable")
         self.assertEqual(captured["body"]["model"], "test-asr-model")
         self.assertEqual(captured["body"]["input"]["file_urls"], ["https://files.test/audio"])
+        self.assertNotIn("vocabulary_id", captured["body"]["parameters"])
 
     async def test_query_and_result_text_parsing(self):
         def handler(request: httpx.Request):
@@ -64,6 +65,53 @@ class FunAsrServiceTest(unittest.IsolatedAsyncioTestCase):
 
         self.assertEqual(result.status, "SUCCEEDED")
         self.assertEqual(text, "第一段\n第二段")
+
+    async def test_submit_includes_vocabulary_id_when_present(self):
+        captured = {}
+
+        def handler(request: httpx.Request):
+            captured["body"] = json.loads(request.content)
+            return httpx.Response(200, json={"output": {"task_id": "task-vocab"}})
+
+        service = FunAsrService()
+        await service._client.aclose()
+        service._client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+        with patch("services.fun_asr.resolve_model_setting", return_value=self.runtime_config()):
+            try:
+                await service.submit("https://files.test/audio", vocabulary_id="vocab-1")
+            finally:
+                await service.close()
+
+        self.assertEqual(captured["body"]["parameters"]["vocabulary_id"], "vocab-1")
+
+    async def test_vocabulary_create_and_update_requests(self):
+        requests = []
+
+        def handler(request: httpx.Request):
+            requests.append(json.loads(request.content))
+            if request.url.path.endswith("/customization") and requests[-1]["input"]["action"] == "create_vocabulary":
+                return httpx.Response(200, json={"output": {"vocabulary_id": "vocab-1"}})
+            return httpx.Response(200, json={"output": {}})
+
+        service = FunAsrService()
+        await service._client.aclose()
+        service._client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+        with patch("services.fun_asr.resolve_model_setting", return_value=self.runtime_config()):
+            try:
+                vocabulary_id = await service.create_vocabulary(
+                    [{"text": "探途趣游", "weight": 4, "lang": "zh"}],
+                    "d123456789",
+                )
+                await service.update_vocabulary(
+                    vocabulary_id,
+                    [{"text": "codex", "weight": 4, "lang": "zh"}],
+                )
+            finally:
+                await service.close()
+
+        self.assertEqual(vocabulary_id, "vocab-1")
+        self.assertEqual(requests[0]["input"]["target_model"], "test-asr-model")
+        self.assertEqual(requests[1]["input"]["vocabulary_id"], "vocab-1")
 
 
 if __name__ == "__main__":

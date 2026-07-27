@@ -32,6 +32,8 @@ class TranscriptionBatch(Base):
     status = Column(String(30), nullable=False, default="COLLECTING")
     diary_id = Column(UUID(as_uuid=True), ForeignKey("diaries.id"), nullable=True, unique=True)
     error_message = Column(Text, nullable=True)
+    hotword_vocabulary_id = Column(String(200), nullable=True)
+    hotword_fingerprint = Column(String(64), nullable=True)
     started_at = Column(DateTime, nullable=True)
     completed_at = Column(DateTime, nullable=True)
     expires_at = Column(DateTime, nullable=True)

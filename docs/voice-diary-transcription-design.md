@@ -28,7 +28,7 @@
 - 不在日记详情页提供音频播放。
 - 不增加日记草稿状态。
 - 不支持实时流式识别。
-- 第一版不启用说话人分离、热词和敏感词过滤。
+- 不支持说话人分离和敏感词过滤；语音转写启用定制热词。
 - 不使用 DashScope Python SDK。
 - 不改变无语音场景下现有的手工保存流程。
 
@@ -250,10 +250,25 @@ X-DashScope-Async: enable
   "parameters": {
     "channel_id": [0],
     "language_hints": ["zh"],
-    "diarization_enabled": false
+    "diarization_enabled": false,
+    "vocabulary_id": "可选，当前用户的阿里云热词列表 ID"
   }
 }
 ```
+
+### 8.3.1 热词同步规则
+
+语音批次第一次提交音频前，系统从当前用户资料构造完整热词集合：
+
+- 热词管理中的全部热词；
+- 人物关系管理中的姓名；
+- 人物关系管理中的全部常用名。
+
+系统对集合生成指纹，并与用户上次同步到阿里云的指纹比较。指纹未变化时复用原热词列表；指纹变化时使用阿里云 `update_vocabulary` 完整覆盖原列表。集合为空时删除阿里云热词列表并且不传 `vocabulary_id`。
+
+同一语音批次内的多个音频复用批次开始时确定的 `vocabulary_id`。因此，批次进行期间对热词或人物关系的修改只影响后续批次。
+
+当前 ASR 模型或地域不支持定制热词时，系统跳过热词参数，继续提交普通语音识别任务。
 
 单个 Fun-ASR 请求只包含一个文件 URL。
 
@@ -736,6 +751,7 @@ backend/
 ├── schemas/transcription.py
 ├── routers/transcriptions.py
 ├── services/fun_asr.py
+├── services/asr_vocabulary.py
 ├── services/transcription_tasks.py
 └── migrations/011_voice_transcription.sql
 
@@ -761,6 +777,11 @@ frontend/
 - 不支持格式拒绝。
 - Fun-ASR 提交请求头和请求体正确。
 - 提供方状态映射正确。
+- ASR 提交请求在有热词列表时正确传入 `vocabulary_id`。
+- 热词、人物姓名和常用名能够合并去重并生成稳定指纹。
+- 热词指纹未变化时复用词表，变化时完整更新词表。
+- 同一批次内多个音频复用同一个词表 ID。
+- 不支持热词的模型跳过热词后继续识别。
 - 结果 JSON 正确提取 `transcripts[].text`。
 - 空转写结果标记失败。
 - 并发槽最多为 3。

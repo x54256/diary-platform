@@ -8,3 +8,9 @@ CREATE TABLE IF NOT EXISTS asr_vocabularies (
     fingerprint VARCHAR(64),
     updated_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
+
+ALTER TABLE transcription_batches
+    ADD COLUMN IF NOT EXISTS hotword_vocabulary_id VARCHAR(200);
+
+ALTER TABLE transcription_batches
+    ADD COLUMN IF NOT EXISTS hotword_fingerprint VARCHAR(64);

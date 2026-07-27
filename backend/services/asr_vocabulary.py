@@ -37,10 +37,10 @@ def build_hotword_entries(db: Session, user_id: UUID) -> list[dict[str, object]]
 
 def hotword_fingerprint(entries: Iterable[dict[str, object]]) -> str:
     """生成与词表内容相关的稳定指纹。"""
-    canonical = [
+    canonical = sorted([
         {"text": str(item["text"]), "weight": int(item.get("weight", HOTWORD_WEIGHT)), "lang": item.get("lang", "zh")}
         for item in entries
-    ]
+    ], key=lambda item: (item["text"].casefold(), item["text"]))
     payload = json.dumps(canonical, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 

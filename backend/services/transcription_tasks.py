@@ -150,12 +150,14 @@ class TranscriptionTaskManager:
             if not state:
                 logger.info("跳过语音项处理：状态已不可处理 item_id=%s", item_id)
                 return
-            provider_task_id, storage_key, user_id = state
+            provider_task_id, storage_key, user_id, batch_id, batch_vocabulary_id, batch_fingerprint = state
             logger.info("开始处理语音项 item_id=%s has_provider_task=%s has_file=%s", item_id, bool(provider_task_id), bool(storage_key))
             if not provider_task_id:
                 if not storage_key:
                     raise FunAsrError("OBJECT_KEY_MISSING", "语音对象不存在，请重新上传")
-                vocabulary_id = await self._ensure_user_vocabulary(user_id)
+                vocabulary_id = batch_vocabulary_id
+                if batch_fingerprint is None:
+                    vocabulary_id = await self._ensure_batch_vocabulary(batch_id, user_id)
                 file_url = await asyncio.to_thread(
                     minio_storage_service.presigned_get_url,
                     storage_key,
@@ -224,50 +226,66 @@ class TranscriptionTaskManager:
             await asyncio.to_thread(self.evaluate_batch_for_item, item_id)
 
     @staticmethod
-    def _load_item_state(item_id: UUID) -> tuple[str | None, str | None, UUID] | None:
+    def _load_item_state(item_id: UUID) -> tuple[str | None, str | None, UUID, UUID, str | None, str | None] | None:
         db = SessionLocal()
         try:
             item = db.query(TranscriptionItem).filter_by(id=item_id).first()
             if not item or item.batch.status not in ACTIVE_BATCH_STATUSES:
                 return None
-            return item.provider_task_id, item.storage_key, item.batch.user_id
+            return (
+                item.provider_task_id,
+                item.storage_key,
+                item.batch.user_id,
+                item.batch.id,
+                item.batch.hotword_vocabulary_id,
+                item.batch.hotword_fingerprint,
+            )
         finally:
             db.close()
 
-    async def _ensure_user_vocabulary(self, user_id: UUID) -> str | None:
-        """每轮提交前按本地指纹检查并完整覆盖阿里云词表。"""
+    async def _ensure_batch_vocabulary(self, batch_id: UUID, user_id: UUID) -> str | None:
+        """批次首次提交前同步一次词表，批次内后续音频复用同一词表。"""
         async with self._vocabulary_lock:
-            entries, fingerprint, state = await asyncio.to_thread(self._load_vocabulary_inputs, user_id)
-            target_model = await asyncio.to_thread(lambda: fun_asr_service.model_name)
-            if state and state.fingerprint == fingerprint and state.target_model == target_model:
-                return state.vocabulary_id
+            current = await asyncio.to_thread(self._load_batch_vocabulary_state, batch_id)
+            if current and current[1] is not None:
+                return current[0]
+            vocabulary_id, fingerprint = await self._ensure_user_vocabulary(user_id)
+            await asyncio.to_thread(self._set_batch_vocabulary, batch_id, vocabulary_id, fingerprint)
+            return vocabulary_id
 
-            if not entries:
+    async def _ensure_user_vocabulary(self, user_id: UUID) -> tuple[str | None, str]:
+        """按用户级指纹检查并完整覆盖阿里云词表。"""
+        entries, fingerprint, state = await asyncio.to_thread(self._load_vocabulary_inputs, user_id)
+        target_model = await asyncio.to_thread(lambda: fun_asr_service.model_name)
+        if state and state.fingerprint == fingerprint and state.target_model == target_model:
+            return state.vocabulary_id, fingerprint
+
+        if not entries:
+            if state and state.vocabulary_id:
+                try:
+                    await fun_asr_service.delete_vocabulary(state.vocabulary_id)
+                except FunAsrError:
+                    logger.warning("清理空热词表失败 user_id=%s vocabulary_id=%s", user_id, state.vocabulary_id, exc_info=True)
+            await asyncio.to_thread(self._persist_vocabulary_state, user_id, None, target_model, fingerprint)
+            return None, fingerprint
+
+        try:
+            if state and state.vocabulary_id and state.target_model == target_model:
+                await fun_asr_service.update_vocabulary(state.vocabulary_id, entries)
+                vocabulary_id = state.vocabulary_id
+            else:
                 if state and state.vocabulary_id:
                     try:
                         await fun_asr_service.delete_vocabulary(state.vocabulary_id)
                     except FunAsrError:
-                        logger.warning("清理空热词表失败 user_id=%s vocabulary_id=%s", user_id, state.vocabulary_id, exc_info=True)
-                await asyncio.to_thread(self._persist_vocabulary_state, user_id, None, target_model, fingerprint)
-                return None
+                        logger.warning("清理旧热词表失败 user_id=%s vocabulary_id=%s", user_id, state.vocabulary_id, exc_info=True)
+                vocabulary_id = await fun_asr_service.create_vocabulary(entries, f"d{user_id.hex[:9]}")
+        except HotwordUnsupported as exc:
+            logger.warning("当前 ASR 模型不支持热词，跳过热词 user_id=%s model=%s message=%s", user_id, target_model, exc)
+            vocabulary_id = None
 
-            try:
-                if state and state.vocabulary_id and state.target_model == target_model:
-                    await fun_asr_service.update_vocabulary(state.vocabulary_id, entries)
-                    vocabulary_id = state.vocabulary_id
-                else:
-                    if state and state.vocabulary_id:
-                        try:
-                            await fun_asr_service.delete_vocabulary(state.vocabulary_id)
-                        except FunAsrError:
-                            logger.warning("清理旧热词表失败 user_id=%s vocabulary_id=%s", user_id, state.vocabulary_id, exc_info=True)
-                    vocabulary_id = await fun_asr_service.create_vocabulary(entries, f"d{user_id.hex[:9]}")
-            except HotwordUnsupported as exc:
-                logger.warning("当前 ASR 模型不支持热词，跳过热词 user_id=%s model=%s message=%s", user_id, target_model, exc)
-                vocabulary_id = None
-
-            await asyncio.to_thread(self._persist_vocabulary_state, user_id, vocabulary_id, target_model, fingerprint)
-            return vocabulary_id
+        await asyncio.to_thread(self._persist_vocabulary_state, user_id, vocabulary_id, target_model, fingerprint)
+        return vocabulary_id, fingerprint
 
     @staticmethod
     def _load_vocabulary_inputs(user_id: UUID):
@@ -277,6 +295,30 @@ class TranscriptionTaskManager:
             fingerprint = hotword_fingerprint(entries)
             state = load_vocabulary_state(db, user_id)
             return entries, fingerprint, state
+        finally:
+            db.close()
+
+    @staticmethod
+    def _load_batch_vocabulary_state(batch_id: UUID) -> tuple[str | None, str | None] | None:
+        db = SessionLocal()
+        try:
+            batch = db.query(TranscriptionBatch).filter_by(id=batch_id).first()
+            if not batch or batch.status not in ACTIVE_BATCH_STATUSES:
+                return None
+            return batch.hotword_vocabulary_id, batch.hotword_fingerprint
+        finally:
+            db.close()
+
+    @staticmethod
+    def _set_batch_vocabulary(batch_id: UUID, vocabulary_id: str | None, fingerprint: str) -> None:
+        db = SessionLocal()
+        try:
+            batch = db.query(TranscriptionBatch).filter_by(id=batch_id).with_for_update().first()
+            if not batch or batch.status not in ACTIVE_BATCH_STATUSES or batch.hotword_fingerprint is not None:
+                return
+            batch.hotword_vocabulary_id = vocabulary_id
+            batch.hotword_fingerprint = fingerprint
+            db.commit()
         finally:
             db.close()
 
