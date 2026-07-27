@@ -19,6 +19,7 @@ from models.transcription import TranscriptionBatch, TranscriptionItem
 from models.model_config import ModelCatalog, ApiChannel, ChannelModel, ModelSetting
 from models.organize_settings import OrganizePipelineSetting
 from models.schedule import ScheduleTask, ScheduleOccurrence, ScheduleHolidayYear, ScheduleMaintenanceJob
+from models.voice_profile import AsrVocabulary, HotWord, PersonRelation
 
 __all__ = [
     "User",
@@ -51,4 +52,7 @@ __all__ = [
     "ScheduleOccurrence",
     "ScheduleHolidayYear",
     "ScheduleMaintenanceJob",
+    "HotWord",
+    "PersonRelation",
+    "AsrVocabulary",
 ]

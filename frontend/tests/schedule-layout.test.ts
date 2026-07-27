@@ -22,3 +22,12 @@ test('日程页应固定在视口内，让顶部日历由内部滚动结构控�
 
   assert.match(source, /class="schedule-page fixed inset-0 flex flex-col overflow-hidden bg-white"/)
 })
+
+test('日程页的一周应从周一开始，且不改变星期值编码', async () => {
+  const source = await readFile(schedulePage, 'utf8')
+
+  assert.match(source, /now\.getDate\(\) - \(\(now\.getDay\(\) \+ 6\) % 7\)/)
+  assert.match(source, /d\.setDate\(d\.getDate\(\)-\(\(d\.getDay\(\)\+6\)%7\)\)/)
+  assert.match(source, /const weekdayOptions = \[\{value:1,label:'一'\}.*\{value:0,label:'日'\}\]/)
+  assert.ok(source.includes('const monday=new Date(jan4);monday.setDate(jan4.getDate()-((jan4.getDay()+6)%7)+(week-1)*7);weekStart.value=monday'))
+})

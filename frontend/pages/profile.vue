@@ -1,5 +1,7 @@
 <template>
-  <div class="min-h-dvh">
+  <NuxtPage v-if="route.path !== '/profile'" />
+
+  <div v-else class="min-h-dvh">
     <!-- 用户信息卡片 -->
     <div class="bg-white px-4 py-6 mb-3">
       <div class="flex items-center gap-4">
@@ -58,10 +60,13 @@ definePageMeta({
 })
 
 const { user, logout } = useAuth()
+const route = useRoute()
 const router = useRouter()
 
 // 模块入口列表
 const menuItems = [
+  { icon: '🔤', label: '热词管理', path: '/profile/hot-words' },
+  { icon: '👥', label: '用户关系管理', path: '/profile/person-relations' },
   { icon: '🎯', label: '人物画像', path: '/profile/persona' },
   { icon: '📈', label: '心路历程', path: '/profile/journey' },
   { icon: '💡', label: '认知洞察', path: '/profile/insights' },

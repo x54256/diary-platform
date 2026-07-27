@@ -5,6 +5,25 @@ export interface User {
   created_at?: string
 }
 
+export interface HotWord {
+  id: string
+  text: string
+  created_at?: string
+  updated_at?: string
+}
+
+export type PersonGender = 'male' | 'female' | 'unknown'
+
+export interface PersonRelation {
+  id: string
+  name: string
+  common_names: string[]
+  gender: PersonGender
+  relation: string
+  created_at?: string
+  updated_at?: string
+}
+
 // 日记整理内容（后端字段可能为 null）
 export interface DiaryOrganized {
   id: string

@@ -26,6 +26,12 @@ class SubmitResultUnknown(FunAsrError):
     pass
 
 
+class HotwordUnsupported(FunAsrError):
+    """当前 ASR 模型或地域不支持定制热词。"""
+
+    pass
+
+
 @dataclass
 class FunAsrTask:
     task_id: str
@@ -53,6 +59,10 @@ class FunAsrService:
     def headers(self) -> dict[str, str]:
         return {"Authorization": f"Bearer {self._runtime_config().api_key}"}
 
+    @property
+    def model_name(self) -> str:
+        return self._runtime_config().model_name
+
     @staticmethod
     def _runtime_config():
         try:
@@ -63,15 +73,18 @@ class FunAsrService:
     async def close(self) -> None:
         await self._client.aclose()
 
-    async def submit(self, file_url: str) -> FunAsrTask:
+    async def submit(self, file_url: str, vocabulary_id: str | None = None) -> FunAsrTask:
+        parameters = {
+            "channel_id": [0],
+            "language_hints": ["zh"],
+            "diarization_enabled": False,
+        }
+        if vocabulary_id:
+            parameters["vocabulary_id"] = vocabulary_id
         payload = {
             "model": self._runtime_config().model_name,
             "input": {"file_urls": [file_url]},
-            "parameters": {
-                "channel_id": [0],
-                "language_hints": ["zh"],
-                "diarization_enabled": False,
-            },
+            "parameters": parameters,
         }
         headers = {**self.headers, "X-DashScope-Async": "enable"}
         for attempt in range(3):
@@ -107,6 +120,46 @@ class FunAsrService:
             return FunAsrTask(task_id=task_id, request_id=data.get("request_id"))
         raise FunAsrError("SUBMIT_FAILED", "提交语音识别失败")
 
+    async def create_vocabulary(self, vocabulary: list[dict[str, object]], prefix: str) -> str:
+        data = await self._request_vocabulary(
+            {
+                "model": "speech-biasing",
+                "input": {
+                    "action": "create_vocabulary",
+                    "target_model": self.model_name,
+                    "prefix": prefix,
+                    "vocabulary": vocabulary,
+                },
+            }
+        )
+        vocabulary_id = data.get("output", {}).get("vocabulary_id")
+        if not vocabulary_id:
+            raise FunAsrError("INVALID_VOCABULARY_RESPONSE", "阿里云未返回热词列表 ID")
+        return str(vocabulary_id)
+
+    async def update_vocabulary(self, vocabulary_id: str, vocabulary: list[dict[str, object]]) -> None:
+        await self._request_vocabulary(
+            {
+                "model": "speech-biasing",
+                "input": {
+                    "action": "update_vocabulary",
+                    "vocabulary_id": vocabulary_id,
+                    "vocabulary": vocabulary,
+                },
+            }
+        )
+
+    async def delete_vocabulary(self, vocabulary_id: str) -> None:
+        await self._request_vocabulary(
+            {
+                "model": "speech-biasing",
+                "input": {
+                    "action": "delete_vocabulary",
+                    "vocabulary_id": vocabulary_id,
+                },
+            }
+        )
+
     async def query(self, task_id: str) -> FunAsrStatus:
         data = await self._request_json(
             "GET",
@@ -133,14 +186,38 @@ class FunAsrService:
             raise FunAsrError("NO_SPEECH_TEXT", "未识别到有效语音")
         return text
 
-    async def _request_json(self, method: str, url: str, timeout: httpx.Timeout, auth: bool = True) -> dict[str, Any]:
+    async def _request_vocabulary(self, payload: dict[str, Any]) -> dict[str, Any]:
+        try:
+            return await self._request_json(
+                "POST",
+                f"{self.base_url}/services/audio/asr/customization",
+                timeout=httpx.Timeout(30, connect=10),
+                payload=payload,
+            )
+        except FunAsrError as exc:
+            if self._is_hotword_unsupported(exc):
+                raise HotwordUnsupported(exc.code, str(exc)) from exc
+            raise
+
+    async def _request_json(
+        self,
+        method: str,
+        url: str,
+        timeout: httpx.Timeout,
+        auth: bool = True,
+        payload: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         for attempt in range(3):
             try:
-                self._log_request(method, url, attempt=attempt + 1)
+                self._log_request(method, url, payload=payload, attempt=attempt + 1)
+                headers = self.headers if auth else None
+                if payload is not None:
+                    headers = {**(headers or {}), "Content-Type": "application/json"}
                 response = await self._client.request(
                     method,
                     url,
-                    headers=self.headers if auth else None,
+                    headers=headers,
+                    json=payload,
                     timeout=timeout,
                 )
                 data = self._log_response(response)
@@ -153,6 +230,20 @@ class FunAsrService:
                     raise FunAsrError("PROVIDER_UNAVAILABLE", "语音识别服务暂时不可用") from exc
                 await asyncio.sleep(2 ** attempt)
         raise FunAsrError("PROVIDER_UNAVAILABLE", "语音识别服务暂时不可用")
+
+    @staticmethod
+    def _is_hotword_unsupported(exc: FunAsrError) -> bool:
+        value = f"{exc.code} {exc}".casefold()
+        return any(
+            marker in value
+            for marker in (
+                "unsupported_model",
+                "modelnotsupport",
+                "not support",
+                "unsupported",
+                "不支持",
+            )
+        )
 
     def _log_request(self, method: str, url: str, payload: dict[str, Any] | None = None, attempt: int = 1) -> None:
         body = self._redact(payload) if payload is not None else None

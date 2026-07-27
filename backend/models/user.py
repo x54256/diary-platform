@@ -30,3 +30,6 @@ class User(Base):
     tags = relationship("Tag", back_populates="user", cascade="all, delete-orphan")
     dialogs = relationship("Dialog", back_populates="user", cascade="all, delete-orphan")
     schedule_tasks = relationship("ScheduleTask", back_populates="user", cascade="all, delete-orphan")
+    hot_words = relationship("HotWord", back_populates="user", cascade="all, delete-orphan")
+    person_relations = relationship("PersonRelation", back_populates="user", cascade="all, delete-orphan")
+    asr_vocabulary = relationship("AsrVocabulary", back_populates="user", cascade="all, delete-orphan", uselist=False)
