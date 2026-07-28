@@ -15,6 +15,9 @@
         <AnalysisSection
           :analysis-run-id="analysis!.id"
           :section="actionSection"
+          :annotations="props.annotations"
+          @annotation-select="emit('annotation-select', $event)"
+          @annotation-clicked="emit('annotation-clicked', $event)"
         />
       </section>
 
@@ -48,6 +51,9 @@
           :key="section.analysis_type"
           :analysis-run-id="analysis!.id"
           :section="section"
+          :annotations="props.annotations"
+          @annotation-select="emit('annotation-select', $event)"
+          @annotation-clicked="emit('annotation-clicked', $event)"
         />
       </div>
 
@@ -57,6 +63,9 @@
           :key="section.analysis_type"
           :analysis-run-id="analysis!.id"
           :section="section"
+          :annotations="props.annotations"
+          @annotation-select="emit('annotation-select', $event)"
+          @annotation-clicked="emit('annotation-clicked', $event)"
         />
       </div>
     </template>
@@ -64,10 +73,16 @@
 </template>
 
 <script setup lang="ts">
-import type { AnalysisRun, AnalysisSection, AnalysisType } from '~/types'
+import type { AnalysisRun, AnalysisSection, AnalysisType, DiaryAnnotation, DiaryAnnotationClick, DiaryAnnotationSelection } from '~/types'
 
 const props = defineProps<{
   analysis: AnalysisRun | null
+  annotations?: DiaryAnnotation[]
+}>()
+
+const emit = defineEmits<{
+  (event: 'annotation-select', selection: DiaryAnnotationSelection): void
+  (event: 'annotation-clicked', payload: DiaryAnnotationClick): void
 }>()
 
 const activeGroup = ref<'understanding' | 'cognition'>('understanding')

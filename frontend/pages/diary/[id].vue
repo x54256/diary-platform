@@ -298,7 +298,10 @@
             :event="event"
             :editable="isEditingStructured"
             :analysis-run-id="diary.organized?.analysis?.id"
+            :annotations="annotations"
             @update="onEventUpdate"
+            @annotation-select="openAnnotationSelection"
+            @annotation-clicked="openAnnotationById"
           />
         </div>
 
@@ -352,7 +355,13 @@
 
       <!-- 分析 Tab 内容 -->
       <div v-show="activeTab === 'analysis'" class="flex-1 min-h-0 overflow-y-auto px-4 py-3 pb-20">
-        <AnalysisTab v-if="diary.organized?.analysis" :analysis="diary.organized.analysis" />
+        <AnalysisTab
+          v-if="diary.organized?.analysis"
+          :analysis="diary.organized.analysis"
+          :annotations="annotations"
+          @annotation-select="openAnnotationSelection"
+          @annotation-clicked="openAnnotationById"
+        />
         <div v-else class="flex items-center justify-center py-12">
           <span class="text-sm text-neutral-400">暂无分析数据</span>
         </div>
@@ -414,14 +423,153 @@
     >
       +
     </NuxtLink>
+
+    <!-- 选中文本后的浮动操作栏 -->
+    <Teleport to="body">
+      <div
+        v-if="selectionToolbarOpen"
+        ref="selectionToolbarRef"
+        class="fixed z-50 flex w-32 items-stretch overflow-hidden rounded-md bg-neutral-700 text-white shadow-lg"
+        :style="selectionToolbarStyle"
+        @mousedown.prevent
+        @click.stop
+      >
+        <button
+          type="button"
+          class="flex flex-1 flex-col items-center gap-0.5 px-2 py-1.5 text-xs hover:bg-neutral-600 disabled:opacity-50"
+          :class="annotationActionOpen ? 'text-green-400' : 'text-white'"
+          :disabled="annotationSaving"
+          @click="annotationActionOpen ? deleteAnnotationFromAction() : saveAnnotation(false)"
+        >
+          <span class="text-base leading-4">▔</span>
+          <span>划线</span>
+        </button>
+        <button
+          type="button"
+          class="flex flex-1 flex-col items-center gap-0.5 px-2 py-1.5 text-xs hover:bg-neutral-600 disabled:opacity-50"
+          :disabled="annotationSaving"
+          @click="annotationActionOpen ? showAnnotationCommentEditorFromAction() : showAnnotationCommentEditor()"
+        >
+          <span class="text-base leading-4">✎</span>
+          <span>{{ annotationActionOpen ? '评论' : '写评论' }}</span>
+        </button>
+      </div>
+    </Teleport>
+
+    <!-- 选择文字后写评论：只显示底部输入栏 -->
+    <Teleport to="body">
+      <div
+        v-if="selectionCommentBarOpen"
+        class="fixed bottom-0 left-0 right-0 z-50 border-t border-neutral-200 bg-white px-4 py-3 safe-area-bottom"
+      >
+        <div class="mx-auto flex max-w-md gap-2">
+          <input
+            ref="annotationCommentInput"
+            v-model="annotationCommentText"
+            type="text"
+            placeholder="写评论……"
+            class="min-w-0 flex-1 rounded-full bg-neutral-100 px-4 py-2 text-base text-neutral-800 placeholder-neutral-400"
+            @keyup.enter="saveAnnotationComment"
+          />
+          <button
+            type="button"
+            class="shrink-0 rounded-full bg-primary-600 px-4 py-2 text-sm font-medium text-white disabled:opacity-50"
+            :disabled="annotationSaving || !annotationCommentText.trim()"
+            @click="saveAnnotationComment"
+          >
+            提交
+          </button>
+        </div>
+        <p v-if="annotationError" class="mx-auto mt-1 max-w-md text-center text-xs text-red-500">{{ annotationError }}</p>
+      </div>
+    </Teleport>
+
+    <!-- 点击已有划线后的全屏评论查看层 -->
+    <Teleport to="body">
+      <div
+        v-if="annotationPanelOpen"
+        class="fixed inset-0 z-50 bg-black/45"
+      >
+        <section
+          class="absolute bottom-0 left-0 right-0 mx-auto flex h-[100dvh] max-h-[100dvh] w-full flex-col overflow-hidden rounded-t-2xl bg-white shadow-2xl"
+          :style="annotationViewerSheetStyle"
+          @click.stop
+        >
+          <div
+            class="flex shrink-0 cursor-grab touch-none justify-center py-4 active:cursor-grabbing"
+            @pointerdown="startAnnotationViewerDrag"
+            @pointermove="moveAnnotationViewerDrag"
+            @pointerup="endAnnotationViewerDrag"
+            @pointercancel="endAnnotationViewerDrag"
+          >
+            <span class="h-1 w-12 rounded-full bg-neutral-300" />
+          </div>
+
+          <div class="min-h-0 flex-1 overflow-y-auto px-4 pb-3">
+            <blockquote class="border-l-2 border-primary-500 pl-3 text-sm leading-relaxed text-neutral-700">
+              {{ annotationPanelQuote }}
+            </blockquote>
+
+            <div class="pt-5">
+              <div class="mb-3 text-base font-medium text-neutral-800">
+                评论 {{ annotationPanelComments.length }}
+              </div>
+              <div v-if="annotationPanelComments.length" class="space-y-3">
+                <div
+                  v-for="item in annotationPanelComments"
+                  :key="`${item.annotation.id}-${item.comment.id}`"
+                  class="border-b border-neutral-100 pb-3"
+                >
+                  <div class="mb-1 flex items-center justify-between gap-2">
+                    <div class="text-xs text-neutral-400">{{ formatAnnotationTime(item.comment.created_at) }}</div>
+                    <button
+                      type="button"
+                      class="shrink-0 text-xs text-red-500 disabled:opacity-50"
+                      :disabled="annotationSaving"
+                      @click="deleteAnnotationComment(item.annotation.id, item.comment.id)"
+                    >
+                      删除
+                    </button>
+                  </div>
+                  <p class="whitespace-pre-wrap text-sm leading-relaxed text-neutral-700">{{ item.comment.content }}</p>
+                </div>
+              </div>
+              <p v-else class="py-4 text-center text-sm text-neutral-400">暂无评论</p>
+            </div>
+          </div>
+
+          <div class="flex shrink-0 gap-2 border-t border-neutral-100 bg-white px-4 py-3 safe-area-bottom">
+            <input
+              ref="annotationViewerCommentInput"
+              v-model="annotationCommentText"
+              type="text"
+              placeholder="写评论……"
+              class="min-w-0 flex-1 rounded-full bg-neutral-100 px-4 py-2 text-base text-neutral-800 placeholder-neutral-400"
+              @keyup.enter="saveAnnotationComment"
+            />
+            <button
+              type="button"
+              class="shrink-0 rounded-full bg-primary-600 px-4 py-2 text-sm font-medium text-white disabled:opacity-50"
+              :disabled="annotationSaving || !annotationCommentText.trim()"
+              @click="saveAnnotationComment"
+            >
+              发送
+            </button>
+          </div>
+          <p v-if="annotationError" class="shrink-0 px-4 pb-2 text-center text-xs text-red-500">{{ annotationError }}</p>
+        </section>
+      </div>
+    </Teleport>
+
   </div>
 </template>
 
 <script setup lang="ts">
 // 日记详情页：支持双 Tab（日记 + 分析）
 
-import { nextTick, onMounted } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 import { resizeTextarea, resizeTextareas } from '~/composables/useAutoResizeTextarea'
+import type { DiaryAnnotation, DiaryAnnotationClick, DiaryAnnotationSelection } from '~/types'
 
 definePageMeta({
   layout: 'auth',
@@ -439,6 +587,27 @@ const diaryId = computed(() => route.params.id as string)
 const diary = ref<Diary | null>(null)
 const loading = ref(true)
 const activeTab = ref<'diary' | 'analysis'>('diary')
+const annotations = ref<DiaryAnnotation[]>([])
+
+const annotationPanelOpen = ref(false)
+const selectionToolbarOpen = ref(false)
+const selectionToolbarRef = ref<HTMLElement | null>(null)
+const selectionToolbarStyle = ref<Record<string, string>>({ top: '8px', left: '8px' })
+const selectionCommentBarOpen = ref(false)
+const annotationPanelMode = ref<'selection' | 'existing'>('selection')
+const annotationSelection = ref<DiaryAnnotationSelection | null>(null)
+const annotationClickQuote = ref('')
+const annotationActionOpen = ref(false)
+const annotationActionId = ref<string | null>(null)
+const activeAnnotationId = ref<string | null>(null)
+const annotationCommentText = ref('')
+const annotationSaving = ref(false)
+const annotationError = ref('')
+const annotationCommentInput = ref<HTMLInputElement | null>(null)
+const annotationViewerCommentInput = ref<HTMLInputElement | null>(null)
+const annotationViewerDragStartY = ref<number | null>(null)
+const annotationViewerDragOffset = ref(0)
+const annotationViewerDragging = ref(false)
 
 // 状态判断
 const isOrganizedOrAnalyzed = computed(() =>
@@ -500,16 +669,378 @@ const diaryLevelTags = computed<Tag[]>(() => {
   })
 })
 
+const activeAnnotation = computed(() =>
+  annotations.value.find(annotation => annotation.id === activeAnnotationId.value) || null,
+)
+
+const annotationPanelQuote = computed(() =>
+  annotationSelection.value?.selected_text || annotationClickQuote.value || activeAnnotation.value?.selected_text || '',
+)
+
+const sameAnnotationSource = (left: DiaryAnnotation, right: DiaryAnnotation) =>
+  left.target_type === right.target_type
+  && left.event_id === right.event_id
+  && left.analysis_item_id === right.analysis_item_id
+  && left.field_name === right.field_name
+
+const compareAnnotationPoint = (
+  paragraph: number,
+  offset: number,
+  otherParagraph: number,
+  otherOffset: number,
+) => paragraph - otherParagraph || offset - otherOffset
+
+const annotationsOverlap = (left: DiaryAnnotation, right: DiaryAnnotation) => {
+  if (!sameAnnotationSource(left, right)) return false
+  const leftBeforeRight = compareAnnotationPoint(
+    left.end_paragraph,
+    left.end_offset,
+    right.start_paragraph,
+    right.start_offset,
+  ) <= 0
+  const rightBeforeLeft = compareAnnotationPoint(
+    right.end_paragraph,
+    right.end_offset,
+    left.start_paragraph,
+    left.start_offset,
+  ) <= 0
+  return !leftBeforeRight && !rightBeforeLeft
+}
+
+const annotationPanelAnnotations = computed(() => {
+  if (!activeAnnotation.value) return []
+  return annotations.value.filter(annotation => annotationsOverlap(annotation, activeAnnotation.value!))
+})
+
+const annotationPanelComments = computed(() =>
+  annotationPanelAnnotations.value.flatMap(annotation =>
+    annotation.comments.map(comment => ({ annotation, comment })),
+  ).sort((left, right) =>
+    new Date(left.comment.created_at).getTime() - new Date(right.comment.created_at).getTime(),
+  ),
+)
+
+const annotationViewerSheetStyle = computed(() => ({
+  transform: `translateY(${annotationViewerDragOffset.value}px)`,
+  transition: annotationViewerDragging.value ? 'none' : 'transform 180ms ease-out',
+}))
+
+const formatAnnotationTime = (value: string) => {
+  const time = new Date(value)
+  if (Number.isNaN(time.getTime())) return value
+  return time.toLocaleString('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+}
+
+const startAnnotationViewerDrag = (event: PointerEvent) => {
+  annotationViewerDragStartY.value = event.clientY
+  annotationViewerDragOffset.value = 0
+  annotationViewerDragging.value = true
+  ;(event.currentTarget as HTMLElement)?.setPointerCapture?.(event.pointerId)
+}
+
+const moveAnnotationViewerDrag = (event: PointerEvent) => {
+  if (annotationViewerDragStartY.value === null) return
+  annotationViewerDragOffset.value = Math.max(0, event.clientY - annotationViewerDragStartY.value)
+}
+
+const endAnnotationViewerDrag = () => {
+  if (annotationViewerDragStartY.value === null) return
+  const shouldClose = annotationViewerDragOffset.value >= 100
+  annotationViewerDragStartY.value = null
+  annotationViewerDragging.value = false
+  if (shouldClose) {
+    closeAnnotationPanel()
+  } else {
+    annotationViewerDragOffset.value = 0
+  }
+}
+
+const updateSelectionToolbarPosition = () => {
+  const selection = window.getSelection()
+  if (!selection || selection.rangeCount === 0) return
+  const rect = selection.getRangeAt(0).getBoundingClientRect()
+  const toolbarWidth = 128
+  const toolbarHeight = 56
+  const gap = 8
+  const left = Math.min(
+    Math.max(gap, rect.left + (rect.width - toolbarWidth) / 2),
+    window.innerWidth - toolbarWidth - gap,
+  )
+  const top = rect.top >= toolbarHeight + gap
+    ? rect.top - toolbarHeight - gap
+    : Math.min(rect.bottom + gap, window.innerHeight - toolbarHeight - gap)
+  selectionToolbarStyle.value = {
+    top: `${Math.max(gap, top)}px`,
+    left: `${Math.max(gap, left)}px`,
+  }
+}
+
+const updateAnnotationToolbarPosition = (clientX: number, clientY: number) => {
+  const toolbarWidth = 128
+  const toolbarHeight = 56
+  const gap = 8
+  const left = Math.min(
+    Math.max(gap, clientX - toolbarWidth / 2),
+    window.innerWidth - toolbarWidth - gap,
+  )
+  const top = clientY >= toolbarHeight + gap
+    ? clientY - toolbarHeight - gap
+    : Math.min(clientY + gap, window.innerHeight - toolbarHeight - gap)
+  selectionToolbarStyle.value = {
+    top: `${Math.max(gap, top)}px`,
+    left: `${Math.max(gap, left)}px`,
+  }
+}
+
+const clearPendingSelectionHighlight = () => {
+  const highlights = (window.CSS as typeof window.CSS & {
+    highlights?: { delete: (name: string) => void }
+  }).highlights
+  highlights?.delete('pending-annotation-selection')
+}
+
+const updatePendingSelectionHighlight = () => {
+  const selection = window.getSelection()
+  if (!selection || selection.rangeCount === 0 || selection.isCollapsed) {
+    clearPendingSelectionHighlight()
+    return
+  }
+  const highlights = (window.CSS as typeof window.CSS & {
+    highlights?: {
+      set: (name: string, highlight: unknown) => void
+    }
+  }).highlights
+  const HighlightConstructor = (window as typeof window & {
+    Highlight?: new (...ranges: Range[]) => unknown
+  }).Highlight
+  if (!highlights || !HighlightConstructor) return
+  highlights.set(
+    'pending-annotation-selection',
+    new HighlightConstructor(selection.getRangeAt(0).cloneRange()),
+  )
+}
+
+const closeSelectionToolbar = () => {
+  selectionToolbarOpen.value = false
+  clearPendingSelectionHighlight()
+  if (!annotationPanelOpen.value) {
+    annotationSelection.value = null
+    annotationError.value = ''
+  }
+}
+
+const handleDocumentPointerDown = (event: PointerEvent) => {
+  if (!selectionToolbarOpen.value) return
+  const target = event.target as Node | null
+  if (target && selectionToolbarRef.value?.contains(target)) return
+  if (annotationActionOpen.value) closeAnnotationAction()
+  else closeSelectionToolbar()
+}
+
+const handleDocumentScroll = () => {
+  if (selectionToolbarOpen.value) closeSelectionToolbar()
+}
+
 // ───────────────── 加载日记 ─────────────────
+const loadAnnotations = async () => {
+  if (!diary.value || diary.value.status === 'saved') {
+    annotations.value = []
+    return
+  }
+  try {
+    annotations.value = await api<DiaryAnnotation[]>(`/diaries/${diaryId.value}/annotations`)
+  } catch (err) {
+    console.error('加载日记批注失败', err)
+    annotations.value = []
+  }
+}
+
 const loadDiary = async () => {
   loading.value = true
   try {
     diary.value = await api<Diary>(`/diaries/${diaryId.value}`)
+    await loadAnnotations()
   } catch (err) {
     console.error('加载日记失败', err)
     diary.value = null
+    annotations.value = []
   } finally {
     loading.value = false
+  }
+}
+
+const openAnnotationSelection = (selection: DiaryAnnotationSelection) => {
+  annotationSelection.value = selection
+  annotationClickQuote.value = ''
+  clearPendingSelectionHighlight()
+  annotationActionOpen.value = false
+  annotationActionId.value = null
+  annotationPanelMode.value = 'selection'
+  activeAnnotationId.value = null
+  selectionCommentBarOpen.value = false
+  annotationCommentText.value = ''
+  annotationError.value = ''
+  annotationPanelOpen.value = false
+  selectionToolbarOpen.value = true
+  nextTick(updateSelectionToolbarPosition)
+}
+
+const openAnnotationById = (payload: DiaryAnnotationClick) => {
+  const annotation = annotations.value.find(item => item.id === payload.annotationId)
+  if (!annotation) return
+  annotationSelection.value = null
+  annotationClickQuote.value = payload.selectedText
+  selectionToolbarOpen.value = false
+  selectionCommentBarOpen.value = false
+  annotationCommentText.value = ''
+  annotationError.value = ''
+  if (annotation.comments.length === 0) {
+    annotationActionId.value = annotation.id
+    annotationActionOpen.value = true
+    updateAnnotationToolbarPosition(payload.clientX, payload.clientY)
+    selectionToolbarOpen.value = true
+    return
+  }
+  annotationPanelMode.value = 'existing'
+  activeAnnotationId.value = annotation.id
+  annotationViewerDragOffset.value = 0
+  annotationViewerDragging.value = false
+  annotationPanelOpen.value = true
+}
+
+const closeAnnotationAction = () => {
+  annotationActionOpen.value = false
+  annotationActionId.value = null
+  annotationClickQuote.value = ''
+  selectionToolbarOpen.value = false
+}
+
+const updateAnnotation = (saved: DiaryAnnotation) => {
+  const index = annotations.value.findIndex(annotation => annotation.id === saved.id)
+  if (index >= 0) annotations.value[index] = saved
+}
+
+const deleteAnnotationFromAction = async () => {
+  const annotationId = annotationActionId.value
+  if (!annotationId || annotationSaving.value) return
+  annotationSaving.value = true
+  annotationError.value = ''
+  try {
+    await api<DiaryAnnotation>(
+      `/diaries/${diaryId.value}/annotations/${annotationId}`,
+      { method: 'DELETE' },
+    )
+    annotations.value = annotations.value.filter(annotation => annotation.id !== annotationId)
+    closeAnnotationAction()
+  } catch (err: any) {
+    annotationError.value = err?.data?.detail || '取消划线失败，请稍后重试'
+  } finally {
+    annotationSaving.value = false
+  }
+}
+
+const showAnnotationCommentEditorFromAction = () => {
+  const annotationId = annotationActionId.value
+  if (!annotationId) return
+  closeAnnotationAction()
+  activeAnnotationId.value = annotationId
+  annotationPanelMode.value = 'existing'
+  selectionCommentBarOpen.value = true
+  nextTick(() => annotationCommentInput.value?.focus())
+}
+
+const closeAnnotationPanel = () => {
+  annotationPanelOpen.value = false
+  selectionCommentBarOpen.value = false
+  closeSelectionToolbar()
+  annotationSelection.value = null
+  annotationClickQuote.value = ''
+  activeAnnotationId.value = null
+  annotationCommentText.value = ''
+  annotationError.value = ''
+  annotationViewerDragOffset.value = 0
+  annotationViewerDragStartY.value = null
+  annotationViewerDragging.value = false
+}
+
+const showAnnotationCommentEditor = () => {
+  updatePendingSelectionHighlight()
+  selectionToolbarOpen.value = false
+  selectionCommentBarOpen.value = true
+  nextTick(() => annotationCommentInput.value?.focus())
+}
+
+const saveAnnotation = async (withComment: boolean) => {
+  if (!annotationSelection.value || annotationSaving.value) return
+  const comment = annotationCommentText.value.trim()
+  if (withComment && !comment) {
+    annotationError.value = '请输入评论内容'
+    return
+  }
+  annotationSaving.value = true
+  annotationError.value = ''
+  try {
+    const saved = await api<DiaryAnnotation>(`/diaries/${diaryId.value}/annotations`, {
+      method: 'POST',
+      body: { ...annotationSelection.value, comment: withComment ? comment : null },
+    })
+    const index = annotations.value.findIndex(annotation => annotation.id === saved.id)
+    if (index >= 0) annotations.value[index] = saved
+    else annotations.value.push(saved)
+    closeAnnotationPanel()
+  } catch (err: any) {
+    annotationError.value = err?.data?.detail || '保存批注失败，请稍后重试'
+  } finally {
+    annotationSaving.value = false
+  }
+}
+
+const saveAnnotationComment = async () => {
+  const content = annotationCommentText.value.trim()
+  if (!content || annotationSaving.value) return
+  if (annotationPanelMode.value === 'selection') {
+    await saveAnnotation(true)
+    return
+  }
+  if (!activeAnnotationId.value) return
+  annotationSaving.value = true
+  annotationError.value = ''
+  try {
+    const saved = await api<DiaryAnnotation>(
+      `/diaries/${diaryId.value}/annotations/${activeAnnotationId.value}/comments`,
+      { method: 'POST', body: { content } },
+    )
+    updateAnnotation(saved)
+    annotationCommentText.value = ''
+  } catch (err: any) {
+    annotationError.value = err?.data?.detail || '保存评论失败，请稍后重试'
+  } finally {
+    annotationSaving.value = false
+  }
+}
+
+const deleteAnnotationComment = async (annotationId: string, commentId: string) => {
+  if (annotationSaving.value) return
+  if (!window.confirm('确定删除这条评论吗？')) return
+  annotationSaving.value = true
+  annotationError.value = ''
+  try {
+    const saved = await api<DiaryAnnotation>(
+      `/diaries/${diaryId.value}/annotations/${annotationId}/comments/${commentId}`,
+      { method: 'DELETE' },
+    )
+    updateAnnotation(saved)
+    if (saved.comments.length === 0) closeAnnotationPanel()
+  } catch (err: any) {
+    annotationError.value = err?.data?.detail || '删除评论失败，请稍后重试'
+  } finally {
+    annotationSaving.value = false
   }
 }
 
@@ -610,7 +1141,16 @@ const startEditStructured = () => {
   nextTick(() => resizeTextareas())
 }
 
-onMounted(() => resizeTextareas())
+onMounted(() => {
+  resizeTextareas()
+  document.addEventListener('pointerdown', handleDocumentPointerDown, true)
+  window.addEventListener('scroll', handleDocumentScroll, true)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('pointerdown', handleDocumentPointerDown, true)
+  window.removeEventListener('scroll', handleDocumentScroll, true)
+})
 
 const cancelEditStructured = () => {
   isEditingStructured.value = false

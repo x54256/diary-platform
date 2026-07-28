@@ -2,7 +2,7 @@
 
 from datetime import date, datetime
 import json
-from typing import Optional
+from typing import Literal, Optional
 from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict, field_serializer, field_validator
@@ -231,6 +231,63 @@ class DiaryTagsUpdate(BaseModel):
     """更新日记标签的请求体"""
 
     tag_ids: list[UUID] = []
+
+
+AnnotationTargetType = Literal[
+    "EVENT_BODY",
+    "EVENT_FEELING",
+    "EVENT_REFLECTION",
+    "ANALYSIS_ITEM",
+]
+
+
+class DiaryAnnotationCommentResponse(BaseModel):
+    id: UUID
+    content: str
+    created_at: datetime
+    updated_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class DiaryAnnotationResponse(BaseModel):
+    id: UUID
+    diary_id: UUID
+    target_type: str
+    event_id: Optional[UUID] = None
+    field_name: Optional[str] = None
+    analysis_item_id: Optional[UUID] = None
+    start_paragraph: int
+    start_offset: int
+    end_paragraph: int
+    end_offset: int
+    selected_text: str
+    context_before: Optional[str] = None
+    context_after: Optional[str] = None
+    created_at: datetime
+    updated_at: datetime
+    comments: list[DiaryAnnotationCommentResponse] = []
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class DiaryAnnotationCreate(BaseModel):
+    target_type: AnnotationTargetType
+    event_id: Optional[UUID] = None
+    field_name: Optional[Literal["body", "feeling", "reflection"]] = None
+    analysis_item_id: Optional[UUID] = None
+    start_paragraph: int = 0
+    start_offset: int = 0
+    end_paragraph: int = 0
+    end_offset: int = 0
+    selected_text: str
+    context_before: Optional[str] = None
+    context_after: Optional[str] = None
+    comment: Optional[str] = None
+
+
+class DiaryAnnotationCommentUpsert(BaseModel):
+    content: str
 
 
 class OrganizeTaskResponse(BaseModel):

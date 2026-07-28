@@ -34,14 +34,17 @@
           />
         </template>
         <template v-else>
-          <div v-if="event.body && event.body.length > 0" class="space-y-2">
-            <p
-              v-for="(item, idx) in event.body"
-              :key="idx"
-              class="analysis-markup text-sm text-neutral-600 leading-relaxed"
-              v-html="renderAnalysisMarkup(item)"
-            ></p>
-          </div>
+          <DiaryAnnotationText
+            v-if="event.body && event.body.length > 0"
+            :paragraphs="event.body"
+            target-type="EVENT_BODY"
+            :event-id="event.id"
+            :annotations="annotations"
+            container-class="space-y-2"
+            paragraph-class="analysis-markup text-sm text-neutral-600 leading-relaxed"
+            @select="emit('annotation-select', $event)"
+            @annotation-clicked="emit('annotation-clicked', $event)"
+          />
         </template>
       </div>
 
@@ -58,16 +61,17 @@
           />
         </template>
         <template v-else>
-          <div class="space-y-2">
-            <p
-              v-for="(item, idx) in event.feeling"
-              :key="idx"
-              class="analysis-markup text-sm text-neutral-600 leading-relaxed"
-            >
-              <template v-if="event.feeling.length > 1">{{ idx + 1 }}. </template>
-              <span v-html="renderAnalysisMarkup(item)" />
-            </p>
-          </div>
+          <DiaryAnnotationText
+            :paragraphs="event.feeling || []"
+            target-type="EVENT_FEELING"
+            :event-id="event.id"
+            :annotations="annotations"
+            container-class="space-y-2"
+            paragraph-class="analysis-markup text-sm text-neutral-600 leading-relaxed"
+            :show-index="true"
+            @select="emit('annotation-select', $event)"
+            @annotation-clicked="emit('annotation-clicked', $event)"
+          />
         </template>
       </div>
 
@@ -84,16 +88,17 @@
           />
         </template>
         <template v-else>
-          <div class="space-y-2">
-            <p
-              v-for="(item, idx) in event.reflection"
-              :key="idx"
-              class="analysis-markup text-sm text-neutral-600 leading-relaxed"
-            >
-              <template v-if="event.reflection.length > 1">{{ idx + 1 }}. </template>
-              <span v-html="renderAnalysisMarkup(item)" />
-            </p>
-          </div>
+          <DiaryAnnotationText
+            :paragraphs="event.reflection || []"
+            target-type="EVENT_REFLECTION"
+            :event-id="event.id"
+            :annotations="annotations"
+            container-class="space-y-2"
+            paragraph-class="analysis-markup text-sm text-neutral-600 leading-relaxed"
+            :show-index="true"
+            @select="emit('annotation-select', $event)"
+            @annotation-clicked="emit('annotation-clicked', $event)"
+          />
         </template>
       </div>
 
@@ -106,6 +111,9 @@
             :analysis-run-id="analysisRunId"
             :section="section"
             compact
+            :annotations="annotations"
+            @annotation-select="emit('annotation-select', $event)"
+            @annotation-clicked="emit('annotation-clicked', $event)"
           />
         </div>
       </template>
@@ -117,17 +125,22 @@
 <script setup lang="ts">
 import { nextTick, ref, computed, watch } from 'vue'
 import { resizeTextarea } from '~/composables/useAutoResizeTextarea'
-import { renderAnalysisMarkup } from '~/utils/analysis-markup'
+import type { DiaryAnnotation, DiaryAnnotationClick, DiaryAnnotationSelection } from '~/types'
 
 const props = defineProps<{
   event: any
   editable?: boolean
   analysisRunId?: string
+  annotations?: DiaryAnnotation[]
 }>()
 
 const emit = defineEmits<{
   (e: 'update', data: any): void
+  (e: 'annotation-select', selection: DiaryAnnotationSelection): void
+  (e: 'annotation-clicked', payload: DiaryAnnotationClick): void
 }>()
+
+const annotations = computed(() => props.annotations || [])
 
 const editTitle = ref('')
 const editBody = ref('')

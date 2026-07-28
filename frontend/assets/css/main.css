@@ -104,3 +104,21 @@
   color: inherit;
   font-weight: inherit;
 }
+
+/* 日记批注高亮 */
+.diary-annotation-mark {
+  background: #c7f1df;
+  color: inherit;
+  padding: 0 0.05em;
+  border-bottom: 2px solid #2f9e76;
+  cursor: pointer;
+}
+
+.diary-annotation-mark--commented {
+  background: #dbeafe;
+  border-bottom-color: #3b82f6;
+}
+
+::highlight(pending-annotation-selection) {
+  background: #dbeafe;
+}

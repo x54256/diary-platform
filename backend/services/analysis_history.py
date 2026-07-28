@@ -7,7 +7,7 @@ from typing import Any, Dict, Iterable, Optional
 
 from sqlalchemy.orm import Session
 
-from models.diary import AnalysisFeedback, AnalysisItem, AnalysisRun, DiaryEvent
+from models.diary import AnalysisFeedback, AnalysisItem, AnalysisRun, DiaryAnnotation, DiaryEvent
 
 
 ANALYSIS_TYPE_TITLES = {
@@ -132,6 +132,55 @@ def add_question_answer_items(
         )
 
 
+def reconcile_analysis_annotations(
+    db: Session,
+    previous_items: list[AnalysisItem],
+    current_items: list[AnalysisItem],
+) -> None:
+    """分析重跑后保留未变化区块的批注，失效区块执行逻辑删除。"""
+    current_by_key = {
+        (
+            item.scope,
+            str(item.event_id) if item.event_id else None,
+            item.analysis_type,
+            item.sort_order,
+        ): item
+        for item in current_items
+    }
+    now = datetime.utcnow()
+    for previous_item in previous_items:
+        annotations = (
+            db.query(DiaryAnnotation)
+            .filter(
+                DiaryAnnotation.analysis_item_id == previous_item.id,
+                DiaryAnnotation.deleted_at.is_(None),
+            )
+            .all()
+        )
+        if not annotations:
+            continue
+        key = (
+            previous_item.scope,
+            str(previous_item.event_id) if previous_item.event_id else None,
+            previous_item.analysis_type,
+            previous_item.sort_order,
+        )
+        current_item = current_by_key.get(key)
+        unchanged = bool(
+            current_item
+            and current_item.content == previous_item.content
+            and current_item.question == previous_item.question
+        )
+        for annotation in annotations:
+            if unchanged:
+                annotation.analysis_item_id = current_item.id
+                annotation.updated_at = now
+            else:
+                annotation.deleted_at = now
+                annotation.deleted_reason = "analysis_changed"
+                annotation.updated_at = now
+
+
 def extract_event_items(event_items: Any, event_idx: int, inner_key: str) -> list:
     if not isinstance(event_items, list) or event_idx >= len(event_items):
         return []
@@ -154,6 +203,8 @@ def create_analysis_run_from_state(
     task_id = normalize_uuid(state["task_id"])
     org_id = normalize_uuid(diary_organized_id)
 
+    previous_run = get_current_analysis_run(db, diary_id)
+    previous_items = list(previous_run.items) if previous_run else []
     archive_current_runs(db, diary_id)
 
     run = AnalysisRun(
@@ -213,6 +264,14 @@ def create_analysis_run_from_state(
             run,
             inherited_feedback_keys or set(),
         )
+
+    db.flush()
+    current_items = (
+        db.query(AnalysisItem)
+        .filter(AnalysisItem.analysis_run_id == run.id)
+        .all()
+    )
+    reconcile_analysis_annotations(db, previous_items, current_items)
 
     return run
 

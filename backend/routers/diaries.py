@@ -11,7 +11,17 @@ from sqlalchemy import or_
 from sqlalchemy.orm import Session
 
 from database import get_db
-from models.diary import AnalysisFeedback, AnalysisRun, Diary, DiaryOrganized, DiaryStatus
+from models.diary import (
+    AnalysisFeedback,
+    AnalysisItem,
+    AnalysisRun,
+    Diary,
+    DiaryAnnotation,
+    DiaryAnnotationComment,
+    DiaryEvent,
+    DiaryOrganized,
+    DiaryStatus,
+)
 from models.tag import EventTag, Tag, diary_tags
 from models.user import User
 from schemas.diary import (
@@ -24,6 +34,9 @@ from schemas.diary import (
     DiaryUpdate,
     AnalysisFeedbackResponse,
     AnalysisFeedbackUpsert,
+    DiaryAnnotationCommentUpsert,
+    DiaryAnnotationCreate,
+    DiaryAnnotationResponse,
 )
 from services.ai import ai_service
 from services.analysis_history import (
@@ -38,7 +51,7 @@ from services.auth import get_current_user
 import asyncio
 from database import SessionLocal
 from utils.diary_render import render_diary_to_markdown
-from models.diary import DiaryEvent, DiaryCheckLog, DiaryCleanCheckLog, OrganizeTask
+from models.diary import DiaryCheckLog, DiaryCleanCheckLog, OrganizeTask
 from schemas.diary import OrganizeTaskResponse, DiaryEventUpdate, DiaryEventResponse
 from utils.log_context import Stopwatch, log_extra
 
@@ -112,6 +125,291 @@ def serialize_diary(diary: Diary, db: Session, user_id: UUID) -> dict:
         "organized": serialize_organized(diary.organized, current_run, user_id),
         "tags": diary.tags,
     }
+
+
+def serialize_annotation(annotation: DiaryAnnotation) -> dict:
+    comments = [item for item in annotation.comments if item.deleted_at is None]
+    comments.sort(key=lambda item: item.created_at)
+    return {
+        "id": annotation.id,
+        "diary_id": annotation.diary_id,
+        "target_type": annotation.target_type,
+        "event_id": annotation.event_id,
+        "field_name": annotation.field_name,
+        "analysis_item_id": annotation.analysis_item_id,
+        "start_paragraph": annotation.start_paragraph,
+        "start_offset": annotation.start_offset,
+        "end_paragraph": annotation.end_paragraph,
+        "end_offset": annotation.end_offset,
+        "selected_text": annotation.selected_text,
+        "context_before": annotation.context_before,
+        "context_after": annotation.context_after,
+        "created_at": annotation.created_at,
+        "updated_at": annotation.updated_at,
+        "comments": comments,
+    }
+
+
+def get_owned_diary(diary_id: UUID, db: Session, current_user: User) -> Diary:
+    diary = (
+        db.query(Diary)
+        .filter(
+            Diary.id == diary_id,
+            Diary.user_id == current_user.id,
+            Diary.deleted_at.is_(None),
+        )
+        .first()
+    )
+    if not diary:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="日记不存在")
+    return diary
+
+
+def validate_annotation_target(
+    data: DiaryAnnotationCreate,
+    diary: Diary,
+    db: Session,
+) -> None:
+    if data.start_paragraph < 0 or data.end_paragraph < 0:
+        raise HTTPException(status_code=400, detail="批注段落位置无效")
+    if data.start_offset < 0 or data.end_offset < 0:
+        raise HTTPException(status_code=400, detail="批注字符位置无效")
+    if data.end_paragraph < data.start_paragraph or (
+        data.end_paragraph == data.start_paragraph
+        and data.end_offset <= data.start_offset
+    ):
+        raise HTTPException(status_code=400, detail="批注选区不能为空")
+    if not data.selected_text.strip():
+        raise HTTPException(status_code=400, detail="批注内容不能为空")
+
+    if data.target_type == "ANALYSIS_ITEM":
+        if data.event_id or data.field_name:
+            raise HTTPException(status_code=400, detail="AI 分析批注定位参数无效")
+        item = (
+            db.query(AnalysisItem)
+            .join(AnalysisRun, AnalysisRun.id == AnalysisItem.analysis_run_id)
+            .filter(
+                AnalysisItem.id == data.analysis_item_id,
+                AnalysisRun.diary_id == diary.id,
+                AnalysisRun.status == "CURRENT",
+            )
+            .first()
+        )
+        if not item:
+            raise HTTPException(status_code=404, detail="AI 分析内容不存在")
+        return
+
+    expected_field = {
+        "EVENT_BODY": "body",
+        "EVENT_FEELING": "feeling",
+        "EVENT_REFLECTION": "reflection",
+    }.get(data.target_type)
+    if not expected_field or data.analysis_item_id:
+        raise HTTPException(status_code=400, detail="批注类型无效")
+    if data.field_name != expected_field or not data.event_id:
+        raise HTTPException(status_code=400, detail="事件批注定位参数无效")
+    if not diary.organized:
+        raise HTTPException(status_code=400, detail="日记尚未整理，无法添加事件批注")
+    event = (
+        db.query(DiaryEvent)
+        .filter(
+            DiaryEvent.id == data.event_id,
+            DiaryEvent.diary_organized_id == diary.organized.id,
+        )
+        .first()
+    )
+    if not event:
+        raise HTTPException(status_code=404, detail="事件不存在")
+
+
+def annotation_source_matches(annotation: DiaryAnnotation, data: DiaryAnnotationCreate) -> bool:
+    return (
+        annotation.target_type == data.target_type
+        and str(annotation.event_id or "") == str(data.event_id or "")
+        and annotation.field_name == data.field_name
+        and str(annotation.analysis_item_id or "") == str(data.analysis_item_id or "")
+    )
+
+
+def compare_annotation_point(paragraph: int, offset: int, other_paragraph: int, other_offset: int) -> int:
+    return (paragraph - other_paragraph) or (offset - other_offset)
+
+
+def annotation_contains(annotation: DiaryAnnotation, data: DiaryAnnotationCreate) -> bool:
+    return (
+        compare_annotation_point(annotation.start_paragraph, annotation.start_offset, data.start_paragraph, data.start_offset) <= 0
+        and compare_annotation_point(annotation.end_paragraph, annotation.end_offset, data.end_paragraph, data.end_offset) >= 0
+    )
+
+
+def annotations_overlap(annotation: DiaryAnnotation, data: DiaryAnnotationCreate) -> bool:
+    return not (
+        compare_annotation_point(annotation.end_paragraph, annotation.end_offset, data.start_paragraph, data.start_offset) <= 0
+        or compare_annotation_point(data.end_paragraph, data.end_offset, annotation.start_paragraph, annotation.start_offset) <= 0
+    )
+
+
+def annotation_overlaps_range(
+    annotation: DiaryAnnotation,
+    start_paragraph: int,
+    start_offset: int,
+    end_paragraph: int,
+    end_offset: int,
+) -> bool:
+    return not (
+        compare_annotation_point(annotation.end_paragraph, annotation.end_offset, start_paragraph, start_offset) <= 0
+        or compare_annotation_point(end_paragraph, end_offset, annotation.start_paragraph, annotation.start_offset) <= 0
+    )
+
+
+def annotation_union_text(annotations: list[DiaryAnnotation], data: DiaryAnnotationCreate) -> str:
+    """返回合并后可用的选中文本；定位范围才是渲染的权威数据。"""
+    for item in annotations:
+        if (
+            item.start_paragraph == data.start_paragraph
+            and item.start_offset == data.start_offset
+            and item.end_paragraph == data.end_paragraph
+            and item.end_offset == data.end_offset
+        ):
+            return item.selected_text
+    return data.selected_text
+
+
+def merge_annotation_ranges(
+    db: Session,
+    diary: Diary,
+    data: DiaryAnnotationCreate,
+    current_user: User,
+) -> DiaryAnnotation | None:
+    active = (
+        db.query(DiaryAnnotation)
+        .filter(
+            DiaryAnnotation.diary_id == diary.id,
+            DiaryAnnotation.deleted_at.is_(None),
+        )
+        .all()
+    )
+    candidates = [item for item in active if annotation_source_matches(item, data)]
+    overlapping = [item for item in candidates if annotations_overlap(item, data)]
+    # 以当前并集为边界继续吸收相交划线，保证历史上已有的多条重叠数据也会归并。
+    while overlapping:
+        start_paragraph = min(
+            [data.start_paragraph] + [item.start_paragraph for item in overlapping],
+        )
+        start_offset = min(
+            item.start_offset if item.start_paragraph == start_paragraph else data.start_offset
+            for item in overlapping + [data]
+            if item.start_paragraph == start_paragraph
+        )
+        end_paragraph = max(
+            [data.end_paragraph] + [item.end_paragraph for item in overlapping],
+        )
+        end_offset = max(
+            item.end_offset if item.end_paragraph == end_paragraph else data.end_offset
+            for item in overlapping + [data]
+            if item.end_paragraph == end_paragraph
+        )
+        additional = [
+            item for item in candidates
+            if item not in overlapping
+            and annotation_overlaps_range(item, start_paragraph, start_offset, end_paragraph, end_offset)
+        ]
+        if not additional:
+            break
+        overlapping.extend(additional)
+
+    containing = next((item for item in overlapping if annotation_contains(item, data)), None)
+    if containing and len(overlapping) == 1:
+        if data.comment and data.comment.strip():
+            db.add(DiaryAnnotationComment(annotation_id=containing.id, content=data.comment.strip()))
+        return containing
+
+    if not overlapping:
+        return None
+
+    all_items = overlapping
+    start_item = min(
+        all_items,
+        key=lambda item: (item.start_paragraph, item.start_offset),
+    )
+    end_item = max(
+        all_items,
+        key=lambda item: (item.end_paragraph, item.end_offset),
+    )
+    start_paragraph = min(item.start_paragraph for item in all_items + [data])
+    start_offset = (
+        data.start_offset if data.start_paragraph == start_paragraph
+        else start_item.start_offset
+    )
+    if start_item.start_paragraph == start_paragraph:
+        start_offset = min(start_offset, start_item.start_offset)
+    end_paragraph = max(item.end_paragraph for item in all_items + [data])
+    end_offset = (
+        data.end_offset if data.end_paragraph == end_paragraph
+        else end_item.end_offset
+    )
+    if end_item.end_paragraph == end_paragraph:
+        end_offset = max(end_offset, end_item.end_offset)
+
+    survivor = start_item
+    survivor.start_paragraph = start_paragraph
+    survivor.start_offset = start_offset
+    survivor.end_paragraph = end_paragraph
+    survivor.end_offset = end_offset
+    survivor.selected_text = annotation_union_text(overlapping, data)
+    survivor.context_before = data.context_before
+    survivor.context_after = data.context_after
+    survivor.updated_at = datetime.utcnow()
+
+    now = datetime.utcnow()
+    for item in overlapping:
+        if item.id == survivor.id:
+            continue
+        comments = (
+            db.query(DiaryAnnotationComment)
+            .filter(
+                DiaryAnnotationComment.annotation_id == item.id,
+                DiaryAnnotationComment.deleted_at.is_(None),
+            )
+            .all()
+        )
+        for comment in comments:
+            comment.annotation_id = survivor.id
+            comment.updated_at = now
+        item.deleted_at = now
+        item.deleted_by = current_user.id
+        item.deleted_reason = "merged"
+        item.merged_into_id = survivor.id
+        item.updated_at = now
+    if data.comment and data.comment.strip():
+        db.add(DiaryAnnotationComment(annotation_id=survivor.id, content=data.comment.strip()))
+    return survivor
+
+
+def soft_delete_event_annotations(
+    db: Session,
+    event_id: UUID,
+    fields: set[str],
+    user_id: UUID,
+    reason: str = "content_changed",
+) -> None:
+    if not fields:
+        return
+    annotations = (
+        db.query(DiaryAnnotation)
+        .filter(
+            DiaryAnnotation.event_id == event_id,
+            DiaryAnnotation.field_name.in_(fields),
+            DiaryAnnotation.deleted_at.is_(None),
+        )
+        .all()
+    )
+    now = datetime.utcnow()
+    for annotation in annotations:
+        annotation.deleted_at = now
+        annotation.deleted_by = user_id
+        annotation.deleted_reason = reason
+        annotation.updated_at = now
 
 
 def active_diary_query(db: Session, current_user: User):
@@ -329,6 +627,236 @@ def upsert_analysis_feedback(
     db.commit()
     db.refresh(feedback)
     return feedback
+
+
+# ─────────────────── 日记批注 ───────────────────
+
+
+@router.get("/{diary_id}/annotations", response_model=list[DiaryAnnotationResponse])
+def list_diary_annotations(
+    diary_id: UUID,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """获取当前日记中仍有效的划线批注。"""
+    get_owned_diary(diary_id, db, current_user)
+    annotations = (
+        db.query(DiaryAnnotation)
+        .filter(
+            DiaryAnnotation.diary_id == diary_id,
+            DiaryAnnotation.deleted_at.is_(None),
+            or_(
+                DiaryAnnotation.target_type != "ANALYSIS_ITEM",
+                DiaryAnnotation.analysis_item_id.in_(
+                    db.query(AnalysisItem.id)
+                    .join(AnalysisRun, AnalysisRun.id == AnalysisItem.analysis_run_id)
+                    .filter(
+                        AnalysisRun.diary_id == diary_id,
+                        AnalysisRun.status == "CURRENT",
+                    )
+                ),
+            ),
+        )
+        .order_by(DiaryAnnotation.created_at)
+        .all()
+    )
+    return [serialize_annotation(item) for item in annotations]
+
+
+@router.post("/{diary_id}/annotations", response_model=DiaryAnnotationResponse, status_code=status.HTTP_201_CREATED)
+def create_diary_annotation(
+    diary_id: UUID,
+    annotation_data: DiaryAnnotationCreate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """创建一条划线，可在同一事务中创建评论。"""
+    diary = get_owned_diary(diary_id, db, current_user)
+    validate_annotation_target(annotation_data, diary, db)
+    existing = merge_annotation_ranges(db, diary, annotation_data, current_user)
+    if existing:
+        db.commit()
+        db.refresh(existing)
+        return serialize_annotation(existing)
+    annotation = DiaryAnnotation(
+        diary_id=diary.id,
+        target_type=annotation_data.target_type,
+        event_id=annotation_data.event_id,
+        field_name=annotation_data.field_name,
+        analysis_item_id=annotation_data.analysis_item_id,
+        start_paragraph=annotation_data.start_paragraph,
+        start_offset=annotation_data.start_offset,
+        end_paragraph=annotation_data.end_paragraph,
+        end_offset=annotation_data.end_offset,
+        selected_text=annotation_data.selected_text,
+        context_before=annotation_data.context_before,
+        context_after=annotation_data.context_after,
+    )
+    db.add(annotation)
+    db.flush()
+    if annotation_data.comment and annotation_data.comment.strip():
+        db.add(
+            DiaryAnnotationComment(
+                annotation_id=annotation.id,
+                content=annotation_data.comment.strip(),
+            )
+        )
+    db.commit()
+    db.refresh(annotation)
+    return serialize_annotation(annotation)
+
+
+@router.post(
+    "/{diary_id}/annotations/{annotation_id}/comments",
+    response_model=DiaryAnnotationResponse,
+    status_code=status.HTTP_201_CREATED,
+)
+def create_diary_annotation_comment(
+    diary_id: UUID,
+    annotation_id: UUID,
+    comment_data: DiaryAnnotationCommentUpsert,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """为划线新增评论。"""
+    diary = get_owned_diary(diary_id, db, current_user)
+    content = comment_data.content.strip()
+    if not content:
+        raise HTTPException(status_code=400, detail="评论内容不能为空")
+    annotation = (
+        db.query(DiaryAnnotation)
+        .filter(
+            DiaryAnnotation.id == annotation_id,
+            DiaryAnnotation.diary_id == diary.id,
+            DiaryAnnotation.deleted_at.is_(None),
+        )
+        .first()
+    )
+    if not annotation:
+        raise HTTPException(status_code=404, detail="批注不存在")
+    db.add(DiaryAnnotationComment(annotation_id=annotation.id, content=content))
+    db.commit()
+    db.refresh(annotation)
+    return serialize_annotation(annotation)
+
+
+@router.put(
+    "/{diary_id}/annotations/{annotation_id}/comments/{comment_id}",
+    response_model=DiaryAnnotationResponse,
+)
+def update_diary_annotation_comment(
+    diary_id: UUID,
+    annotation_id: UUID,
+    comment_id: UUID,
+    comment_data: DiaryAnnotationCommentUpsert,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """新增或修改划线评论。"""
+    diary = get_owned_diary(diary_id, db, current_user)
+    content = comment_data.content.strip()
+    if not content:
+        raise HTTPException(status_code=400, detail="评论内容不能为空")
+    annotation = (
+        db.query(DiaryAnnotation)
+        .filter(
+            DiaryAnnotation.id == annotation_id,
+            DiaryAnnotation.diary_id == diary.id,
+            DiaryAnnotation.deleted_at.is_(None),
+        )
+        .first()
+    )
+    if not annotation:
+        raise HTTPException(status_code=404, detail="批注不存在")
+    comment = next(
+        (
+            item for item in annotation.comments
+            if item.id == comment_id and item.deleted_at is None
+        ),
+        None,
+    )
+    if not comment:
+        raise HTTPException(status_code=404, detail="评论不存在")
+    comment.content = content
+    comment.updated_at = datetime.utcnow()
+    db.commit()
+    db.refresh(annotation)
+    return serialize_annotation(annotation)
+
+
+@router.delete(
+    "/{diary_id}/annotations/{annotation_id}/comments/{comment_id}",
+    response_model=DiaryAnnotationResponse,
+)
+def delete_diary_annotation_comment(
+    diary_id: UUID,
+    annotation_id: UUID,
+    comment_id: UUID,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """逻辑删除评论，划线本身继续保留。"""
+    diary = get_owned_diary(diary_id, db, current_user)
+    annotation = (
+        db.query(DiaryAnnotation)
+        .filter(
+            DiaryAnnotation.id == annotation_id,
+            DiaryAnnotation.diary_id == diary.id,
+            DiaryAnnotation.deleted_at.is_(None),
+        )
+        .first()
+    )
+    if not annotation:
+        raise HTTPException(status_code=404, detail="批注不存在")
+    now = datetime.utcnow()
+    comment = next(
+        (
+            item for item in annotation.comments
+            if item.id == comment_id and item.deleted_at is None
+        ),
+        None,
+    )
+    if not comment:
+        raise HTTPException(status_code=404, detail="评论不存在")
+    comment.deleted_at = now
+    comment.deleted_by = current_user.id
+    comment.deleted_reason = "comment_deleted"
+    comment.updated_at = now
+    db.commit()
+    db.refresh(annotation)
+    return serialize_annotation(annotation)
+
+
+@router.delete("/{diary_id}/annotations/{annotation_id}", response_model=DiaryAnnotationResponse)
+def delete_diary_annotation(
+    diary_id: UUID,
+    annotation_id: UUID,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """逻辑删除划线，保留评论历史记录。"""
+    diary = get_owned_diary(diary_id, db, current_user)
+    annotation = (
+        db.query(DiaryAnnotation)
+        .filter(
+            DiaryAnnotation.id == annotation_id,
+            DiaryAnnotation.diary_id == diary.id,
+            DiaryAnnotation.deleted_at.is_(None),
+        )
+        .first()
+    )
+    if not annotation:
+        raise HTTPException(status_code=404, detail="批注不存在")
+    if any(comment.deleted_at is None for comment in annotation.comments):
+        raise HTTPException(status_code=409, detail="请先删除划线上的全部评论")
+    now = datetime.utcnow()
+    annotation.deleted_at = now
+    annotation.deleted_by = current_user.id
+    annotation.deleted_reason = "annotation_deleted"
+    annotation.updated_at = now
+    db.commit()
+    db.refresh(annotation)
+    return serialize_annotation(annotation)
 
 
 # ─────────────────── 日记详情 / 状态变更 / 整理 / 标签 ───────────────────
@@ -1010,14 +1538,22 @@ def update_organized(
             event = existing_events.get(event_data.id)
             if not event:
                 continue
+            changed_fields: set[str] = set()
             if event_data.event_title is not None:
                 event.event_title = event_data.event_title
             if event_data.body is not None:
+                if parse_json_value(event.body, []) != event_data.body:
+                    changed_fields.add("body")
                 event.body = json.dumps(event_data.body, ensure_ascii=False)
             if event_data.feeling is not None:
+                if parse_json_value(event.feeling, []) != event_data.feeling:
+                    changed_fields.add("feeling")
                 event.feeling = json.dumps(event_data.feeling, ensure_ascii=False)
             if event_data.reflection is not None:
+                if parse_json_value(event.reflection, []) != event_data.reflection:
+                    changed_fields.add("reflection")
                 event.reflection = json.dumps(event_data.reflection, ensure_ascii=False)
+            soft_delete_event_annotations(db, event.id, changed_fields, current_user.id)
 
         # 重新生成 content
         events_for_render = []
@@ -1070,15 +1606,23 @@ def update_diary_event(
     if not event:
         raise HTTPException(status_code=404, detail="事件不存在")
 
+    changed_fields: set[str] = set()
     # 仅更新内容字段，保护 event_tags、analysis、sort_order
     if update_data.event_title is not None:
         event.event_title = update_data.event_title
     if update_data.body is not None:
+        if parse_json_value(event.body, []) != update_data.body:
+            changed_fields.add("body")
         event.body = json.dumps(update_data.body, ensure_ascii=False)
     if update_data.feeling is not None:
+        if parse_json_value(event.feeling, []) != update_data.feeling:
+            changed_fields.add("feeling")
         event.feeling = json.dumps(update_data.feeling, ensure_ascii=False)
     if update_data.reflection is not None:
+        if parse_json_value(event.reflection, []) != update_data.reflection:
+            changed_fields.add("reflection")
         event.reflection = json.dumps(update_data.reflection, ensure_ascii=False)
+    soft_delete_event_annotations(db, event.id, changed_fields, current_user.id)
 
     # 重新生成 content（Markdown）
     organized = diary.organized

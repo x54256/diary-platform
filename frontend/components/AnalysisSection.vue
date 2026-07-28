@@ -23,28 +23,37 @@
         <div v-if="item.question" class="mb-1 text-sm font-medium text-neutral-700">
           {{ item.question }}
         </div>
-        <p
-          :class="compact ? 'analysis-markup text-sm text-neutral-600 leading-relaxed' : 'analysis-markup text-sm leading-relaxed text-neutral-700'"
-          v-html="renderAnalysisMarkup(item.content)"
-        ></p>
+        <DiaryAnnotationText
+          :paragraphs="[item.content]"
+          target-type="ANALYSIS_ITEM"
+          :analysis-item-id="item.id"
+          :annotations="annotations"
+          :paragraph-class="compact ? 'analysis-markup text-sm text-neutral-600 leading-relaxed' : 'analysis-markup text-sm leading-relaxed text-neutral-700'"
+          @select="emit('annotation-select', $event)"
+          @annotation-clicked="emit('annotation-clicked', $event)"
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import type { AnalysisFeedback as Feedback, AnalysisSection } from '~/types'
-import { renderAnalysisMarkup } from '~/utils/analysis-markup'
+import type { AnalysisFeedback as Feedback, AnalysisSection, DiaryAnnotation, DiaryAnnotationClick, DiaryAnnotationSelection } from '~/types'
 
 const props = defineProps<{
   analysisRunId: string
   section: AnalysisSection
   compact?: boolean
+  annotations?: DiaryAnnotation[]
 }>()
 
 const emit = defineEmits<{
   (e: 'feedback-saved', section: AnalysisSection): void
+  (e: 'annotation-select', selection: DiaryAnnotationSelection): void
+  (e: 'annotation-clicked', payload: DiaryAnnotationClick): void
 }>()
+
+const annotations = computed(() => props.annotations || [])
 
 const sortedItems = computed(() => [...props.section.items].sort((a, b) => a.sort_order - b.sort_order))
 

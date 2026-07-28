@@ -169,6 +169,55 @@ class DiaryEvent(Base):
     tags = relationship("Tag", secondary="event_tags", back_populates="events")
 
 
+class DiaryAnnotation(Base):
+    """日记内容划线批注的定位信息。"""
+
+    __tablename__ = "diary_annotations"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    diary_id = Column(UUID(as_uuid=True), ForeignKey("diaries.id"), nullable=False)
+    target_type = Column(String(30), nullable=False)
+    event_id = Column(UUID(as_uuid=True), ForeignKey("diary_events.id"), nullable=True)
+    field_name = Column(String(30), nullable=True)
+    analysis_item_id = Column(UUID(as_uuid=True), ForeignKey("analysis_items.id"), nullable=True)
+    start_paragraph = Column(Integer, nullable=False, default=0)
+    start_offset = Column(Integer, nullable=False)
+    end_paragraph = Column(Integer, nullable=False, default=0)
+    end_offset = Column(Integer, nullable=False)
+    selected_text = Column(Text, nullable=False)
+    context_before = Column(Text, nullable=True)
+    context_after = Column(Text, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+    deleted_at = Column(DateTime, nullable=True)
+    deleted_by = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=True)
+    deleted_reason = Column(String(30), nullable=True)
+    merged_into_id = Column(UUID(as_uuid=True), ForeignKey("diary_annotations.id"), nullable=True)
+
+    diary = relationship("Diary")
+    event = relationship("DiaryEvent")
+    analysis_item = relationship("AnalysisItem")
+    comments = relationship("DiaryAnnotationComment", back_populates="annotation")
+    merged_into = relationship("DiaryAnnotation", remote_side=[id], uselist=False)
+
+
+class DiaryAnnotationComment(Base):
+    """日记划线对应的单条评论。"""
+
+    __tablename__ = "diary_annotation_comments"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    annotation_id = Column(UUID(as_uuid=True), ForeignKey("diary_annotations.id"), nullable=False)
+    content = Column(Text, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+    deleted_at = Column(DateTime, nullable=True)
+    deleted_by = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=True)
+    deleted_reason = Column(String(30), nullable=True)
+
+    annotation = relationship("DiaryAnnotation", back_populates="comments")
+
+
 class DiaryCheckLog(Base):
     """内容检查记录表（内部保留，用户不可见）"""
 

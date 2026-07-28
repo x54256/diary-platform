@@ -135,6 +135,60 @@ export interface DiaryEvent {
   analysis: AnalysisSection[] | null
 }
 
+export type DiaryAnnotationTargetType =
+  | 'EVENT_BODY'
+  | 'EVENT_FEELING'
+  | 'EVENT_REFLECTION'
+  | 'ANALYSIS_ITEM'
+
+export interface DiaryAnnotationComment {
+  id: string
+  content: string
+  created_at: string
+  updated_at: string
+}
+
+export interface DiaryAnnotation {
+  id: string
+  diary_id: string
+  target_type: DiaryAnnotationTargetType
+  event_id: string | null
+  field_name: 'body' | 'feeling' | 'reflection' | null
+  analysis_item_id: string | null
+  start_paragraph: number
+  start_offset: number
+  end_paragraph: number
+  end_offset: number
+  selected_text: string
+  context_before: string | null
+  context_after: string | null
+  created_at: string
+  updated_at: string
+  deleted_at?: string | null
+  comments: DiaryAnnotationComment[]
+}
+
+export interface DiaryAnnotationSelection {
+  target_type: DiaryAnnotationTargetType
+  event_id?: string
+  field_name?: 'body' | 'feeling' | 'reflection'
+  analysis_item_id?: string
+  start_paragraph: number
+  start_offset: number
+  end_paragraph: number
+  end_offset: number
+  selected_text: string
+  context_before: string
+  context_after: string
+}
+
+export interface DiaryAnnotationClick {
+  annotationId: string
+  selectedText: string
+  clientX: number
+  clientY: number
+}
+
 // 审核日志
 export interface CheckLog {
   id: string
