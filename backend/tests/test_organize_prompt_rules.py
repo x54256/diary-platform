@@ -6,6 +6,11 @@ PROMPT_SOURCE = (Path(__file__).parents[1] / "services" / "ai.py").read_text(enc
 
 
 class OrganizePromptRulesTest(unittest.TestCase):
+    def test_person_relation_rules_preserve_registered_common_names(self):
+        self.assertIn("common_names 是用户确认过的有效称呼", PROMPT_SOURCE)
+        self.assertIn("原文使用 common_names 时，必须保留原称呼", PROMPT_SOURCE)
+        self.assertIn("只有结合上下文能够明确判断为该人物的识别错误", PROMPT_SOURCE)
+
     def test_event_text_keeps_plans_after_extraction(self):
         self.assertIn("plans 是从完整事件叙述中提取", PROMPT_SOURCE)
         self.assertIn("仍必须在对应事件的 organized_text 中保留", PROMPT_SOURCE)

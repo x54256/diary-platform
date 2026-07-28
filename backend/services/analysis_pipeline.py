@@ -29,6 +29,7 @@ from services.pipeline import (
     cleanup_checkpoint,
     run_graph_with_checkpoint,
 )
+from services.person_relations import load_person_relation_context
 from utils.log_context import Stopwatch, log_extra
 
 logger = logging.getLogger(__name__)
@@ -49,6 +50,7 @@ class AnalysisState(TypedDict, total=False):
     diary_id: str
     diary_organized_id: str
     user_id: str
+    person_relations: list[dict]
 
     # ── 环节 7 产物：心情 + 标签提取 ──
     mood: str
@@ -71,6 +73,7 @@ class AnalysisState(TypedDict, total=False):
 
 class FeedbackAnalysisState(TypedDict, total=False):
     structured_diary: dict
+    person_relations: list[dict]
     task_id: str
     diary_id: str
     user_id: str
@@ -86,6 +89,10 @@ class FeedbackAnalysisState(TypedDict, total=False):
 # ---------------------------------------------------------------------------
 # Prompts
 # ---------------------------------------------------------------------------
+
+PERSON_RELATION_RULES = """## 人物关系参考
+输入参数 person_relations 为分析时理解人物身份、人物与用户的关系以及指代的参考，无法确认 events 中的称呼对应哪条人物资料时，保留原文含义，不强行匹配。
+"""
 
 TEXT_MARKUP_RULES = """## 重点标记规则
 可见正文允许使用两种短语级标记：
@@ -149,7 +156,7 @@ structured_diary 是整理后的结构化日记，是主要依据。
   ]
 }"""
 
-CORE_ANALYSIS_RULES = """
+CORE_ANALYSIS_RULES = PERSON_RELATION_RULES + "\n" + """
 你是日记复盘分析助手，所有分析仅以传入的events日记事件列表为唯一事实依据，严格遵循统一规范输出JSON结构，客观有据、解读落地。
 
 ## 全局统一硬性约束（全模块通用）
@@ -268,7 +275,7 @@ event_analyses 必须与输入 events 按顺序一一对应，即第 N 项对应
 
 CORE_ANALYSIS_PROMPT = CORE_ANALYSIS_RULES + "\n\n" + CORE_ANALYSIS_OUTPUT_SCHEMA
 
-COGNITION_ANALYSIS_RULES = """你是一个日记认知分析助手。只基于 events 完成认知校准、问题解答和认知完善。
+COGNITION_ANALYSIS_RULES = PERSON_RELATION_RULES + "\n" + """你是一个日记认知分析助手。只基于 events 完成认知校准、问题解答和认知完善。
 ## 通用规则
 - 仅以输入的 events 为唯一事实依据。事件级结果按 events 顺序排列，event_analyses 第 N 项对应 events 第 N 项，title 直接复用原事件标题；无符合内容时对应数组返回空。
 - 分析事件 N 时只允许使用事件 N 的内容，禁止把相邻或其他事件中的观点、术语和事实用于事件 N。其他事件只能用于日记级归纳。
@@ -472,7 +479,10 @@ async def core_analysis(state: AnalysisState) -> dict:
     _update_step(task_id, "core_analysis")
 
     events = state["structured_diary"].get("events", [])
-    input_data = {"events": events}
+    input_data = {
+        "events": events,
+        "person_relations": state.get("person_relations", []),
+    }
     logger.info(
         "分析流水线环节8开始: diary_id=%s, task_id=%s, event_count=%d",
         state.get("diary_id"),
@@ -551,7 +561,10 @@ async def cognition_analysis(state: AnalysisState) -> dict:
     _update_step(task_id, "cognition_analysis")
 
     events = state["structured_diary"].get("events", [])
-    input_data = {"events": events}
+    input_data = {
+        "events": events,
+        "person_relations": state.get("person_relations", []),
+    }
     logger.info(
         "分析流水线环节9开始: diary_id=%s, task_id=%s, event_count=%d",
         state.get("diary_id"),
@@ -631,6 +644,7 @@ async def feedback_core_analysis(state: FeedbackAnalysisState) -> dict:
     feedback_context = state["feedback_context"]
     core_input = {
         "structured_diary": state["structured_diary"],
+        "person_relations": state.get("person_relations", []),
         "previous_core_analysis": {
             "diary_analysis": state["previous_state"]["diary_analysis"],
             "event_analyses": state["previous_state"]["event_analyses"],
@@ -675,6 +689,7 @@ async def feedback_cognition_analysis(state: FeedbackAnalysisState) -> dict:
     previous_state = state["previous_state"]
     cognition_input = {
         "structured_diary": state["structured_diary"],
+        "person_relations": state.get("person_relations", []),
         "previous_cognition_analysis": {
             "diary_cognitive_calibration_analyses": previous_state[
                 "diary_cognitive_calibration_analyses"
@@ -1134,6 +1149,12 @@ async def run_analysis_pipeline(
         _list_len(structured_diary.get("events")),
         extra=log_extra(event="analysis.pipeline.started", diary_id=diary_id, task_id=task_id, diary_organized_id=diary_organized_id, event_count=_list_len(structured_diary.get("events")), feedback_source_run_id=feedback_source_run_id),
     )
+    db = SessionLocal()
+    try:
+        person_relations = load_person_relation_context(db, user_id)
+    finally:
+        db.close()
+
     builder = StateGraph(AnalysisState)
     builder.add_node("mood_tag_extract", mood_tag_extract)
     builder.add_node("core_analysis", core_analysis)
@@ -1159,6 +1180,7 @@ async def run_analysis_pipeline(
                 "task_id": task_id,
                 "diary_id": diary_id,
                 "user_id": user_id,
+                "person_relations": person_relations,
                 "diary_organized_id": diary_organized_id,
             },
         )
@@ -1251,6 +1273,7 @@ async def run_feedback_reanalysis_pipeline(
             )
             raise ValueError("没有可用于反馈重写的低分文字反馈")
 
+        person_relations = load_person_relation_context(db, user_id)
         previous_state = run_to_state(previous_run, event_records)
         feedback_context = feedback_to_context(feedbacks, event_records)
     finally:
@@ -1271,6 +1294,7 @@ async def run_feedback_reanalysis_pipeline(
             task_id,
             {
                 "structured_diary": structured_diary,
+                "person_relations": person_relations,
                 "task_id": task_id,
                 "diary_id": diary_id,
                 "user_id": user_id,

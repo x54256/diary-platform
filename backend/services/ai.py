@@ -68,6 +68,12 @@ CLEAN_PROMPT = """你是一个日记文本清洗助手。请对用户提供的�
 12. 保留原文的语气和风格，不要改成过度正式、文学化或总结式表达。
 13. 如果原文表达含混，只做可读性整理，不要强行解释成确定结论。
 
+### 人物关系与人名校正
+输入中的 person_relations 是用户维护的人物名称和性别资料，仅用于识别人名和人称。
+1. name 是人物主名；common_names 是用户确认过的有效称呼，不得统一替换为 name。
+2. 原文出现未登记的近音、错写人名时，或结合上下文能够明确判断为该人物的识别错误，才修正为切近的名字；无法明确判断时保留原文。
+3. gender 为 male 或 female 时，可在指代明确且原文确有指代错误时分别修正为“他”或“她”；unknown 时不得强行改为“它”，应保留原文指代。
+
 ## 输出要求
 请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：
 
@@ -491,8 +497,16 @@ class AIService:
         Returns:
             包含 title/summary/events/check_log/clean_check_log/location/introduction/trivia/plans 的 dict
         """
+        from database import SessionLocal
+        from services.person_relations import load_person_name_gender_context
         from services.pipeline import run_pipeline
-        return await run_pipeline(original_text, task_id, diary_id, user_id)
+
+        db = SessionLocal()
+        try:
+            person_relations = load_person_name_gender_context(db, user_id)
+        finally:
+            db.close()
+        return await run_pipeline(original_text, task_id, diary_id, user_id, person_relations)
 
     async def analyze_diary(
         self,

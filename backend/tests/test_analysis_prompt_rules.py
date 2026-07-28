@@ -11,6 +11,12 @@ from services.analysis_pipeline import (
 
 
 class CoreAnalysisPromptRuleTest(unittest.TestCase):
+    def test_person_relations_are_context_only(self):
+        self.assertIn("人物关系参考", CORE_ANALYSIS_RULES)
+        self.assertIn("只作为分析时理解人物身份", CORE_ANALYSIS_RULES)
+        self.assertIn("不得统一替换、纠正或改写", CORE_ANALYSIS_RULES)
+        self.assertIn("relation 理解该人物与用户的关系", CORE_ANALYSIS_RULES)
+
     def test_role_does_not_default_to_psychological_counseling(self):
         self.assertIn("你是日记复盘分析助手", CORE_ANALYSIS_RULES)
         self.assertNotIn("心理咨询分析助手", CORE_ANALYSIS_RULES)

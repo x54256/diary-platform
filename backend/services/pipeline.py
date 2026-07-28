@@ -58,6 +58,7 @@ class PipelineState(TypedDict, total=False):
     task_id: str
     diary_id: str
     user_id: str
+    person_relations: list[dict]
 
     # 中间产物
     cleaned_text: str
@@ -261,11 +262,15 @@ async def text_clean(state: PipelineState) -> dict:
     _update_step(task_id, "text_cleaning")
 
     original_text = state["original_text"]
+    person_relations = state.get("person_relations", [])
     llm = _get_llm(0.3)
     result = await _invoke_llm(
         llm,
         CLEAN_PROMPT,
-        json.dumps({"original_text": original_text}, ensure_ascii=False),
+        json.dumps(
+            {"original_text": original_text, "person_relations": person_relations},
+            ensure_ascii=False,
+        ),
         step_name="text_clean",
     )
     return {"cleaned_text": result.get("cleaned_text", original_text)}
@@ -438,7 +443,11 @@ async def metadata_extract(state: PipelineState) -> dict:
 # ---------------------------------------------------------------------------
 
 async def run_pipeline(
-    original_text: str, task_id: str, diary_id: str, user_id: str
+    original_text: str,
+    task_id: str,
+    diary_id: str,
+    user_id: str,
+    person_relations: list[dict] | None = None,
 ) -> dict:
     """构建并执行 LangGraph 6 阶段流水线"""
     builder = StateGraph(PipelineState)
@@ -470,6 +479,7 @@ async def run_pipeline(
                 "task_id": task_id,
                 "diary_id": diary_id,
                 "user_id": user_id,
+                "person_relations": person_relations or [],
             },
         )
 
