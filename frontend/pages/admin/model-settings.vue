@@ -18,12 +18,6 @@
           保留内容审核
         </label>
       </div>
-      <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <label v-for="item in thinkingStepOptions" :key="item.key" class="flex items-center gap-3 text-sm text-neutral-700">
-          <input v-model="organizeSettings.thinking_steps[item.key]" type="checkbox" class="h-4 w-4">
-          {{ item.label }}启用思考
-        </label>
-      </div>
       <div class="mt-4 flex items-center gap-3">
         <button class="h-8 px-3 bg-neutral-900 text-white rounded text-sm disabled:opacity-50" :disabled="savingOrganizeSettings" @click="saveOrganizeSettings">
           {{ savingOrganizeSettings ? '保存中' : '保存流程开关' }}
@@ -83,6 +77,11 @@
               </div>
             </div>
           </div>
+
+          <label v-if="usage.key !== 'transcription'" class="flex items-center gap-3 text-sm text-neutral-700">
+            <input v-model="draft[usage.key].thinking_enabled" type="checkbox" class="h-4 w-4">
+            启用思考
+          </label>
         </div>
 
         <div v-if="reasonFor(usage.key)" class="mt-3 text-xs text-red-600">{{ reasonFor(usage.key) }}</div>
@@ -93,8 +92,94 @@
           <span v-if="testResults[usage.key]" class="text-xs" :class="testResults[usage.key].ok ? 'text-green-700' : 'text-red-600'">
             {{ testResults[usage.key].message }}
           </span>
+          <button
+            v-if="usage.key === 'organize' || usage.key === 'analysis'"
+            class="h-8 px-3 border border-neutral-300 rounded text-sm"
+            @click="openStepSettings(usage)"
+          >
+            配置环节
+          </button>
         </div>
       </section>
+    </div>
+
+    <div v-if="showStepSettings" class="fixed inset-0 z-30 bg-black/30 flex items-center justify-center p-4 sm:p-6">
+      <div class="w-full max-w-[900px] max-h-[90dvh] overflow-y-auto bg-white rounded border border-neutral-200 p-4 sm:p-5">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="text-lg font-medium text-neutral-900">{{ stepSettingUsage?.label }}环节配置</div>
+            <div class="mt-1 text-sm text-neutral-500">模型和思考模式未指定时，继承{{ stepSettingUsage?.label }}阶段配置。</div>
+          </div>
+          <button class="h-8 px-3 border border-neutral-300 rounded text-sm" @click="showStepSettings = false">关闭</button>
+        </div>
+
+        <div class="mt-4 space-y-4">
+          <section v-for="step in visibleStepSettings" :key="step.step_key" class="border border-neutral-200 rounded p-3">
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <div class="font-medium text-neutral-900">{{ step.step_label }}</div>
+                <div v-if="step.step_key.startsWith('feedback_')" class="mt-1 text-xs text-neutral-500">仅反馈重分析时执行</div>
+              </div>
+              <label class="flex items-center gap-2 text-sm text-neutral-700">
+                <input v-model="step.override_model" type="checkbox" class="h-4 w-4" @change="handleStepOverrideChange(step)">
+                指定模型
+              </label>
+            </div>
+
+            <div v-if="step.override_model" class="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
+              <select v-model="step.channel_id" class="w-full h-10 px-2 border border-neutral-300 rounded text-base sm:text-sm" @change="handleStepChannelChange(step)">
+                <option value="">选择渠道</option>
+                <option v-for="channel in channels" :key="channel.id" :value="channel.id">{{ channel.name }}</option>
+              </select>
+
+              <select v-model="step.ability_category" class="w-full h-10 px-2 border border-neutral-300 rounded text-base sm:text-sm" @change="clearStepAfterCategory(step)">
+                <option value="">选择分类</option>
+                <option v-for="category in categoriesForStep(step)" :key="category" :value="category">{{ category }}</option>
+              </select>
+
+              <div class="relative">
+                <input
+                  v-model="step.model_keyword"
+                  class="w-full h-10 px-3 border border-neutral-300 rounded text-base sm:text-sm"
+                  placeholder="输入并选择模型"
+                  @focus="openStepModelPicker(step)"
+                  @input="handleStepModelKeywordInput(step)"
+                  @blur="closeStepModelPicker(step)"
+                >
+                <div
+                  v-if="openModelPicker === `step:${step.step_key}`"
+                  class="absolute z-40 mt-1 max-h-64 w-full overflow-y-auto bg-white border border-neutral-200 rounded shadow-sm"
+                >
+                  <button
+                    v-for="item in modelsForStep(step)"
+                    :key="item.id"
+                    type="button"
+                    class="block w-full px-3 py-2 text-left text-sm hover:bg-neutral-50"
+                    @mousedown.prevent="selectStepModel(step, item)"
+                  >
+                    <span class="block font-medium text-neutral-900">{{ item.model.model_name }}</span>
+                    <span class="block mt-0.5 text-xs text-neutral-500">{{ item.model.ability_tier }} / {{ item.model.score_label || item.model.score || '-' }}</span>
+                  </button>
+                  <div v-if="modelsForStep(step).length === 0" class="px-3 py-2 text-sm text-neutral-400">无匹配模型</div>
+                </div>
+              </div>
+            </div>
+
+            <label class="mt-3 block">
+              <span class="block mb-1 text-sm text-neutral-700">思考模式</span>
+              <select v-model="step.thinking_value" class="w-full h-10 px-2 border border-neutral-300 rounded text-base sm:text-sm sm:max-w-xs">
+                <option value="inherit">继承阶段配置</option>
+                <option value="true">开启</option>
+                <option value="false">关闭</option>
+              </select>
+            </label>
+          </section>
+        </div>
+
+        <div class="mt-5 flex justify-end">
+          <button class="h-9 px-4 bg-neutral-900 text-white rounded text-sm" @click="showStepSettings = false">完成</button>
+        </div>
+      </div>
     </div>
 
     <div class="flex flex-col items-stretch justify-end gap-3 sm:flex-row sm:items-center">
@@ -123,26 +208,28 @@ const usages = [
 
 const channels = ref<any[]>([])
 const channelModels = ref<any[]>([])
-const savedSettings = ref<any[]>([])
+const savedSettings = ref<any>({ settings: {}, steps: [] })
 const message = ref('')
 const openModelPicker = ref('')
 const batchTesting = ref(false)
 const draft = reactive<any>({})
 const testResults = reactive<Record<string, { ok: boolean, message: string }>>({})
 const testingKeys = ref(new Set<string>())
-const thinkingStepOptions = [
-  { key: 'event_organize', label: '事件整理' },
-  { key: 'core_analysis', label: '核心分析' },
-  { key: 'cognition_analysis', label: '认知分析' },
-  { key: 'feedback_core_analysis', label: '反馈核心分析' },
-  { key: 'feedback_cognition_analysis', label: '反馈认知分析' },
-]
-const organizeSettings = reactive<any>({ clean_check_enabled: false, content_check_enabled: false, thinking_steps: {} })
+const organizeSettings = reactive<any>({ clean_check_enabled: false, content_check_enabled: false })
 const savingOrganizeSettings = ref(false)
 const organizeSettingsMessage = ref('')
+const stepSettings = ref<any[]>([])
+const showStepSettings = ref(false)
+const stepSettingUsage = ref<any>(null)
 
 for (const usage of usages) {
-  draft[usage.key] = { channel_id: '', ability_category: '', channel_model_id: '', model_keyword: '' }
+  draft[usage.key] = {
+    channel_id: '',
+    ability_category: '',
+    channel_model_id: '',
+    model_keyword: '',
+    thinking_enabled: false,
+  }
 }
 
 const loadData = async () => {
@@ -153,8 +240,7 @@ const loadData = async () => {
   const pipelineSettings: any = await api('/admin/organize-settings')
   organizeSettings.clean_check_enabled = pipelineSettings.clean_check_enabled
   organizeSettings.content_check_enabled = pipelineSettings.content_check_enabled
-  organizeSettings.thinking_steps = { ...pipelineSettings.thinking_steps }
-  for (const setting of savedSettings.value) {
+  for (const setting of Object.values(savedSettings.value.settings || {}) as any[]) {
     const cm = setting.channel_model
     if (!cm) continue
     draft[setting.setting_key] = {
@@ -162,8 +248,10 @@ const loadData = async () => {
       ability_category: cm.model.ability_category,
       channel_model_id: cm.id,
       model_keyword: modelOptionLabel(cm),
+      thinking_enabled: Boolean(setting.thinking_enabled),
     }
   }
+  stepSettings.value = (savedSettings.value.steps || []).map(toStepDraft)
 }
 
 const saveOrganizeSettings = async () => {
@@ -255,16 +343,19 @@ const closeModelPicker = (key: string) => {
 }
 
 const reasonFor = (key: string) => {
-  const setting = savedSettings.value.find(item => item.setting_key === key)
+  const setting = savedSettings.value.settings?.[key]
   return setting?.unavailable_reason || ''
 }
 
 const saveSettings = async () => {
   message.value = ''
-  const body: Record<string, string> = {}
+  const body: Record<string, any> = {}
   for (const usage of usages) {
     if (draft[usage.key].channel_model_id) {
-      body[usage.key] = draft[usage.key].channel_model_id
+      body[usage.key] = {
+        channel_model_id: draft[usage.key].channel_model_id,
+        thinking_enabled: usage.key === 'transcription' ? null : draft[usage.key].thinking_enabled,
+      }
     }
   }
   if (Object.keys(body).length === 0) {
@@ -272,7 +363,13 @@ const saveSettings = async () => {
     return
   }
   try {
-    savedSettings.value = await api('/admin/model-settings', { method: 'PUT', body: { settings: body } })
+    const steps = stepSettings.value.map(step => ({
+      step_key: step.step_key,
+      channel_model_id: step.override_model ? (step.channel_model_id || null) : null,
+      thinking_enabled: step.thinking_value === 'inherit' ? null : step.thinking_value === 'true',
+    }))
+    savedSettings.value = await api('/admin/model-settings', { method: 'PUT', body: { settings: body, steps } })
+    stepSettings.value = (savedSettings.value.steps || []).map(toStepDraft)
     message.value = '已保存'
   } catch (err: any) {
     message.value = err?.data?.detail || '保存失败'
@@ -291,6 +388,7 @@ const testUsage = async (key: string) => {
       body: {
         setting_key: key,
         channel_model_id: draft[key].channel_model_id,
+        thinking_enabled: key === 'transcription' ? null : draft[key].thinking_enabled,
       },
     })
     testResults[key] = {
@@ -318,7 +416,9 @@ const testSelectedSettings = async () => {
     const groups = new Map<string, any[]>()
     for (const usage of selectedUsages) {
       const channelModelId = draft[usage.key].channel_model_id
-      groups.set(channelModelId, [...(groups.get(channelModelId) || []), usage])
+      const thinkingEnabled = usage.key === 'transcription' ? 'none' : String(draft[usage.key].thinking_enabled)
+      const groupKey = `${channelModelId}:${thinkingEnabled}`
+      groups.set(groupKey, [...(groups.get(groupKey) || []), usage])
     }
     for (const group of groups.values()) {
       const usage = group[0]
@@ -328,6 +428,7 @@ const testSelectedSettings = async () => {
           body: {
             setting_key: usage.key,
             channel_model_id: draft[usage.key].channel_model_id,
+            thinking_enabled: usage.key === 'transcription' ? null : draft[usage.key].thinking_enabled,
           },
         })
         const payload = {
@@ -347,6 +448,96 @@ const testSelectedSettings = async () => {
   } finally {
     batchTesting.value = false
   }
+}
+
+const toStepDraft = (step: any) => {
+  const cm = step.channel_model
+  return {
+    ...step,
+    override_model: Boolean(step.channel_model_id),
+    channel_id: cm?.channel_id || '',
+    ability_category: cm?.model?.ability_category || '',
+    channel_model_id: step.channel_model_id || '',
+    model_keyword: cm ? modelOptionLabel(cm) : '',
+    thinking_value: step.thinking_enabled === null ? 'inherit' : String(step.thinking_enabled),
+  }
+}
+
+const visibleStepSettings = computed(() =>
+  stepSettings.value.filter(step => step.setting_key === stepSettingUsage.value?.key)
+)
+
+const openStepSettings = (usage: any) => {
+  stepSettingUsage.value = usage
+  showStepSettings.value = true
+}
+
+const handleStepOverrideChange = (step: any) => {
+  if (step.override_model) return
+  step.channel_id = ''
+  step.ability_category = ''
+  step.channel_model_id = ''
+  step.model_keyword = ''
+  openModelPicker.value = ''
+}
+
+const candidatesForStep = (step: any) => channelModels.value.filter(item =>
+  item.channel_id === step.channel_id &&
+  item.model?.model_type === 'language'
+)
+
+const categoriesForStep = (step: any) =>
+  Array.from(new Set(candidatesForStep(step).map(item => item.model.ability_category)))
+
+const modelsForStep = (step: any) => {
+  const keyword = String(step.model_keyword || '').trim().toLowerCase()
+  return candidatesForStep(step)
+    .filter(item => !step.ability_category || item.model.ability_category === step.ability_category)
+    .filter(item => {
+      if (!keyword) return true
+      return [
+        item.model?.model_name,
+        item.model?.ability_tier,
+        item.model?.score_label,
+        item.model?.score,
+      ].some(value => String(value || '').toLowerCase().includes(keyword))
+    })
+    .sort((a, b) => scoreOf(b) - scoreOf(a) || String(a.model?.model_name || '').localeCompare(String(b.model?.model_name || '')))
+}
+
+const handleStepChannelChange = (step: any) => {
+  step.ability_category = ''
+  step.channel_model_id = ''
+  step.model_keyword = ''
+}
+
+const clearStepAfterCategory = (step: any) => {
+  step.channel_model_id = ''
+  step.model_keyword = ''
+}
+
+const openStepModelPicker = (step: any) => {
+  openModelPicker.value = `step:${step.step_key}`
+  if (step.channel_model_id) step.model_keyword = ''
+}
+
+const handleStepModelKeywordInput = (step: any) => {
+  step.channel_model_id = ''
+  openModelPicker.value = `step:${step.step_key}`
+}
+
+const selectStepModel = (step: any, item: any) => {
+  step.channel_model_id = item.id
+  step.model_keyword = modelOptionLabel(item)
+  openModelPicker.value = ''
+}
+
+const closeStepModelPicker = (step: any) => {
+  window.setTimeout(() => {
+    if (openModelPicker.value === `step:${step.step_key}`) openModelPicker.value = ''
+    const selected = channelModels.value.find(item => item.id === step.channel_model_id)
+    if (selected && !step.model_keyword) step.model_keyword = modelOptionLabel(selected)
+  }, 120)
 }
 
 onMounted(loadData)

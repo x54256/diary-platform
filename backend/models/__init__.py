@@ -18,7 +18,7 @@ from models.tag import Tag, diary_tags, EventTag
 from models.dialog import Dialog, DialogMessage, SourceType, MessageRole
 from models.backup import BackupRestoreRecord, BackupImportReport
 from models.transcription import TranscriptionBatch, TranscriptionItem
-from models.model_config import ModelCatalog, ApiChannel, ChannelModel, ModelSetting
+from models.model_config import ApiChannel, ChannelModel, ModelCatalog, ModelSetting, ModelStepSetting
 from models.organize_settings import OrganizePipelineSetting
 from models.schedule import ScheduleTask, ScheduleOccurrence, ScheduleHolidayYear, ScheduleMaintenanceJob
 from models.voice_profile import AsrVocabulary, HotWord, PersonRelation
@@ -52,6 +52,7 @@ __all__ = [
     "ApiChannel",
     "ChannelModel",
     "ModelSetting",
+    "ModelStepSetting",
     "OrganizePipelineSetting",
     "ScheduleTask",
     "ScheduleOccurrence",

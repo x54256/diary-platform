@@ -70,6 +70,7 @@ class ChannelModel(Base):
     channel = relationship("ApiChannel", back_populates="channel_models")
     model = relationship("ModelCatalog", back_populates="channel_models")
     settings = relationship("ModelSetting", back_populates="channel_model")
+    step_settings = relationship("ModelStepSetting", back_populates="channel_model")
 
 
 class ModelSetting(Base):
@@ -80,8 +81,25 @@ class ModelSetting(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     setting_key = Column(String(30), nullable=False, unique=True)
     channel_model_id = Column(UUID(as_uuid=True), ForeignKey("channel_models.id"), nullable=False)
+    thinking_enabled = Column(Boolean, nullable=True)
     updated_by = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=True)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     channel_model = relationship("ChannelModel", back_populates="settings")
+    updater = relationship("User")
+
+
+class ModelStepSetting(Base):
+    """整理或分析环节的模型与思考覆盖配置。"""
+
+    __tablename__ = "model_step_settings"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    step_key = Column(String(50), nullable=False, unique=True)
+    channel_model_id = Column(UUID(as_uuid=True), ForeignKey("channel_models.id"), nullable=True)
+    thinking_enabled = Column(Boolean, nullable=True)
+    updated_by = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=True)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    channel_model = relationship("ChannelModel", back_populates="step_settings")
     updater = relationship("User")

@@ -8,7 +8,7 @@ from datetime import datetime
 
 import httpx
 
-from services.model_runtime import ModelRuntimeError, resolve_model_setting
+from services.model_runtime import ModelRuntimeError, resolve_model_setting, resolve_thinking_payload
 from services.llm_metrics import prompt_token_count, record_llm_call
 from utils.log_context import Stopwatch, log_extra
 
@@ -360,13 +360,15 @@ class AIService:
         )
 
         try:
+            request_body = {
+                "model": runtime_config.model_name,
+                "messages": api_messages,
+            }
+            request_body.update(resolve_thinking_payload(runtime_config))
             response = await self.client.post(
                 f"{runtime_config.api_base_url}/chat/completions",
                 headers={"Authorization": f"Bearer {runtime_config.api_key}"},
-                json={
-                    "model": runtime_config.model_name,
-                    "messages": api_messages,
-                },
+                json=request_body,
             )
             response.raise_for_status()
             response_data = response.json()

@@ -3,7 +3,7 @@
 from datetime import datetime
 
 from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer
-from sqlalchemy.dialects.postgresql import JSONB, UUID
+from sqlalchemy.dialects.postgresql import UUID
 
 from database import Base
 
@@ -16,6 +16,5 @@ class OrganizePipelineSetting(Base):
     id = Column(Integer, primary_key=True, default=1)
     clean_check_enabled = Column(Boolean, nullable=False, default=False)
     content_check_enabled = Column(Boolean, nullable=False, default=False)
-    thinking_steps = Column(JSONB, nullable=False, default=dict)
     updated_by = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=True)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

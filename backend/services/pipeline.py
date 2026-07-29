@@ -88,27 +88,13 @@ class PipelineState(TypedDict, total=False):
 # LLM 初始化
 # ---------------------------------------------------------------------------
 
-THINKING_ENABLED_BY_STEP = {
-    "text_clean": False,
-    "clean_check": False,
-    "event_organize": True,
-    "template_fill": False,
-    "content_check": False,
-    "mood_tag_extract": False,
-    "core_analysis": True,
-    "cognition_analysis": True,
-    "feedback_core_analysis": True,
-    "feedback_cognition_analysis": True,
-}
-
-
 def _get_llm(
     temperature: float,
     setting_key: str = "organize",
     step_name: str = "",
 ) -> ChatOpenAI:
     """根据业务用途创建 OpenAI 兼容 Chat 模型实例。"""
-    runtime_config = resolve_model_setting(setting_key)
+    runtime_config = resolve_model_setting(setting_key, step_name)
     kwargs: dict[str, Any] = {
         "model": runtime_config.model_name,
         "api_key": runtime_config.api_key,
@@ -118,15 +104,7 @@ def _get_llm(
         "base_url": runtime_config.api_base_url,
         "model_kwargs": {"response_format": {"type": "json_object"}},
     }
-    options = get_organize_pipeline_options()
-    thinking_enabled = (options.thinking_steps or {}).get(
-        step_name,
-        THINKING_ENABLED_BY_STEP.get(step_name, False),
-    )
-    thinking_payload = resolve_thinking_payload(
-        runtime_config,
-        thinking_enabled,
-    )
+    thinking_payload = resolve_thinking_payload(runtime_config)
     if thinking_payload:
         kwargs["extra_body"] = thinking_payload
     return ChatOpenAI(**kwargs)

@@ -5,11 +5,11 @@ from uuid import UUID
 
 import httpx
 from fastapi import APIRouter, Depends, HTTPException, Query, status
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session, joinedload
 
 from database import get_db
-from models.model_config import ApiChannel, ChannelModel, ModelCatalog, ModelSetting
+from models.model_config import ApiChannel, ChannelModel, ModelCatalog
 from models.user import User
 from routers.admin_backup import require_admin
 from services.model_management import (
@@ -18,6 +18,7 @@ from services.model_management import (
     MODEL_TYPES,
     REASONING_MODES,
     SETTING_KEYS,
+    STEP_SETTING_KEYS,
     ModelConfigError,
     clear_channel_api_key,
     create_channel,
@@ -25,20 +26,21 @@ from services.model_management import (
     delete_channel,
     delete_model,
     decrypt_channel_key,
+    get_model_settings_payload,
     list_models,
     protocol_for_model_type,
     save_model_settings,
     serialize_channel,
     serialize_channel_model,
     serialize_model,
-    serialize_setting,
     set_channel_models,
     update_channel,
     update_model,
     ensure_channel_model_not_used,
     validate_setting_choice,
+    validate_thinking_choice,
 )
-from services.model_runtime import ModelRuntimeError, resolve_model_setting
+from services.model_runtime import ModelRuntimeError, resolve_model_setting, resolve_thinking_payload
 from services.organize_settings import get_or_create_organize_pipeline_setting
 
 router = APIRouter(prefix="/api/admin", tags=["管理端-模型管理"])
@@ -93,19 +95,32 @@ class ChannelModelRequest(BaseModel):
     enabled: bool = True
 
 
+class DefaultModelSettingRequest(BaseModel):
+    channel_model_id: UUID
+    thinking_enabled: bool | None = None
+
+
+class StepModelSettingRequest(BaseModel):
+    step_key: str
+    channel_model_id: UUID | None = None
+    thinking_enabled: bool | None = None
+
+
 class ModelSettingsRequest(BaseModel):
-    settings: dict[str, UUID]
+    settings: dict[str, DefaultModelSettingRequest]
+    steps: list[StepModelSettingRequest] = Field(default_factory=list)
 
 
 class ModelTestRequest(BaseModel):
     setting_key: str | None = None
+    step_key: str | None = None
     channel_model_id: UUID | None = None
+    thinking_enabled: bool | None = None
 
 
 class OrganizePipelineSettingsRequest(BaseModel):
     clean_check_enabled: bool
     content_check_enabled: bool
-    thinking_steps: dict[str, bool] = {}
 
 
 def _bad_request(exc: Exception):
@@ -139,7 +154,6 @@ def get_organize_settings(
     return {
         "clean_check_enabled": setting.clean_check_enabled,
         "content_check_enabled": setting.content_check_enabled,
-        "thinking_steps": setting.thinking_steps or {},
         "updated_at": setting.updated_at,
     }
 
@@ -153,14 +167,12 @@ def put_organize_settings(
     setting = get_or_create_organize_pipeline_setting(db)
     setting.clean_check_enabled = request.clean_check_enabled
     setting.content_check_enabled = request.content_check_enabled
-    setting.thinking_steps = request.thinking_steps
     setting.updated_by = current_user.id
     db.commit()
     db.refresh(setting)
     return {
         "clean_check_enabled": setting.clean_check_enabled,
         "content_check_enabled": setting.content_check_enabled,
-        "thinking_steps": setting.thinking_steps or {},
         "updated_at": setting.updated_at,
     }
 
@@ -440,16 +452,7 @@ def get_model_settings(
     db: Session = Depends(get_db),
     current_user: User = Depends(require_admin),
 ):
-    rows = (
-        db.query(ModelSetting)
-        .options(
-            joinedload(ModelSetting.channel_model).joinedload(ChannelModel.model),
-            joinedload(ModelSetting.channel_model).joinedload(ChannelModel.channel),
-        )
-        .order_by(ModelSetting.setting_key)
-        .all()
-    )
-    return [serialize_setting(item) for item in rows]
+    return get_model_settings_payload(db)
 
 
 @router.put("/model-settings")
@@ -459,8 +462,12 @@ def put_model_settings(
     current_user: User = Depends(require_admin),
 ):
     try:
-        rows = save_model_settings(db, {k: str(v) for k, v in request.settings.items()}, current_user.id)
-        return [serialize_setting(item) for item in rows]
+        return save_model_settings(
+            db,
+            {key: value.model_dump() for key, value in request.settings.items()},
+            [item.model_dump() for item in request.steps],
+            current_user.id,
+        )
     except ModelConfigError as exc:
         _bad_request(exc)
 
@@ -473,6 +480,8 @@ async def test_model_setting(
 ):
     if not request.setting_key:
         raise HTTPException(status_code=400, detail="模型用途不能为空")
+    if request.step_key and STEP_SETTING_KEYS.get(request.step_key) != request.setting_key:
+        raise HTTPException(status_code=400, detail="环节与模型用途不匹配")
     if request.channel_model_id:
         channel_model = (
             db.query(ChannelModel)
@@ -484,31 +493,53 @@ async def test_model_setting(
             raise HTTPException(status_code=400, detail="渠道模型不存在")
         try:
             validate_setting_choice(request.setting_key, channel_model)
+            if request.setting_key != "transcription":
+                if request.thinking_enabled is None:
+                    raise ModelConfigError("测试语言模型时必须指定思考状态")
+                validate_thinking_choice(channel_model, request.thinking_enabled, request.step_key or request.setting_key)
             api_key = decrypt_channel_key(channel_model.channel)
         except ModelConfigError as exc:
             raise HTTPException(status_code=400, detail=str(exc))
         protocol = protocol_for_model_type(channel_model.model.model_type)
         api_base_url = channel_model.channel.api_base_url.rstrip("/")
         model_name = channel_model.model.model_name
+        thinking_payload = {}
+        if request.setting_key != "transcription":
+            from services.model_runtime import RuntimeModelConfig
+            thinking_payload = resolve_thinking_payload(RuntimeModelConfig(
+                setting_key=request.setting_key,
+                step_key=request.step_key,
+                model_type=channel_model.model.model_type,
+                protocol=protocol,
+                api_base_url=api_base_url,
+                api_key=api_key,
+                model_name=model_name,
+                reasoning_mode=channel_model.model.reasoning_mode,
+                thinking_enabled=request.thinking_enabled,
+                thinkmode=channel_model.channel.thinkmode or {},
+            ))
     else:
         try:
-            config = resolve_model_setting(request.setting_key)
+            config = resolve_model_setting(request.setting_key, request.step_key)
         except ModelRuntimeError as exc:
             raise HTTPException(status_code=400, detail=str(exc))
         protocol = config.protocol
         api_base_url = config.api_base_url
         api_key = config.api_key
         model_name = config.model_name
+        thinking_payload = resolve_thinking_payload(config) if protocol == "openai_chat" else {}
     if protocol != "openai_chat":
         return {"status": "skipped", "message": "ASR 首版不执行真实音频测试"}
     async with httpx.AsyncClient(timeout=30) as client:
+        body = {
+            "model": model_name,
+            "messages": [{"role": "user", "content": "返回 ok"}],
+        }
+        body.update(thinking_payload)
         response = await client.post(
             f"{api_base_url}/chat/completions",
             headers={"Authorization": f"Bearer {api_key}"},
-            json={
-                "model": model_name,
-                "messages": [{"role": "user", "content": "返回 ok"}],
-            },
+            json=body,
         )
         response.raise_for_status()
         content = response.json()["choices"][0]["message"]["content"]

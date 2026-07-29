@@ -7,7 +7,7 @@ from uuid import UUID
 from sqlalchemy import case, or_
 from sqlalchemy.orm import Session, joinedload
 
-from models.model_config import ApiChannel, ChannelModel, ModelCatalog, ModelSetting
+from models.model_config import ApiChannel, ChannelModel, ModelCatalog, ModelSetting, ModelStepSetting
 from utils.crypto import decrypt_text, encrypt_text
 
 MODEL_TYPES = ["language", "asr"]
@@ -34,6 +34,30 @@ SETTING_REQUIREMENTS = {
     "analysis": ("language", "openai_chat"),
     "chat": ("language", "openai_chat"),
     "transcription": ("asr", "dashscope_asr"),
+}
+STEP_SETTING_KEYS = {
+    "text_clean": "organize",
+    "clean_check": "organize",
+    "event_organize": "organize",
+    "template_fill": "organize",
+    "content_check": "organize",
+    "mood_tag_extract": "analysis",
+    "core_analysis": "analysis",
+    "cognition_analysis": "analysis",
+    "feedback_core_analysis": "analysis",
+    "feedback_cognition_analysis": "analysis",
+}
+STEP_LABELS = {
+    "text_clean": "文本清洗",
+    "clean_check": "清洗审核",
+    "event_organize": "事件整理",
+    "template_fill": "三字段结构化",
+    "content_check": "内容审核",
+    "mood_tag_extract": "元数据、心情与标签",
+    "core_analysis": "核心分析",
+    "cognition_analysis": "认知分析",
+    "feedback_core_analysis": "反馈核心分析",
+    "feedback_cognition_analysis": "反馈认知分析",
 }
 
 
@@ -101,10 +125,67 @@ def serialize_setting(setting: ModelSetting) -> dict[str, Any]:
         "id": str(setting.id),
         "setting_key": setting.setting_key,
         "channel_model_id": str(setting.channel_model_id),
+        "thinking_enabled": setting.thinking_enabled,
         "channel_model": serialize_channel_model(setting.channel_model),
         "updated_by": str(setting.updated_by) if setting.updated_by else None,
         "updated_at": setting.updated_at.isoformat() if setting.updated_at else None,
         "unavailable_reason": unavailable_reason(setting.channel_model),
+    }
+
+
+def serialize_step_setting(
+    step_key: str,
+    setting: ModelStepSetting | None,
+    default_setting: ModelSetting | None,
+) -> dict[str, Any]:
+    override_model = setting.channel_model if setting else None
+    effective_model = override_model or (default_setting.channel_model if default_setting else None)
+    thinking_override = setting.thinking_enabled if setting else None
+    effective_thinking = (
+        thinking_override
+        if thinking_override is not None
+        else (default_setting.thinking_enabled if default_setting else None)
+    )
+    return {
+        "id": str(setting.id) if setting else None,
+        "step_key": step_key,
+        "step_label": STEP_LABELS[step_key],
+        "setting_key": STEP_SETTING_KEYS[step_key],
+        "channel_model_id": str(setting.channel_model_id) if setting and setting.channel_model_id else None,
+        "thinking_enabled": thinking_override,
+        "channel_model": serialize_channel_model(override_model) if override_model else None,
+        "effective_channel_model_id": str(effective_model.id) if effective_model else None,
+        "effective_channel_model": serialize_channel_model(effective_model) if effective_model else None,
+        "effective_thinking_enabled": effective_thinking,
+        "updated_at": setting.updated_at.isoformat() if setting and setting.updated_at else None,
+    }
+
+
+def get_model_settings_payload(db: Session) -> dict[str, Any]:
+    settings = (
+        db.query(ModelSetting)
+        .options(
+            joinedload(ModelSetting.channel_model).joinedload(ChannelModel.model),
+            joinedload(ModelSetting.channel_model).joinedload(ChannelModel.channel),
+        )
+        .all()
+    )
+    step_settings = (
+        db.query(ModelStepSetting)
+        .options(
+            joinedload(ModelStepSetting.channel_model).joinedload(ChannelModel.model),
+            joinedload(ModelStepSetting.channel_model).joinedload(ChannelModel.channel),
+        )
+        .all()
+    )
+    setting_map = {item.setting_key: item for item in settings}
+    step_map = {item.step_key: item for item in step_settings}
+    return {
+        "settings": {key: serialize_setting(setting_map[key]) for key in SETTING_KEYS if key in setting_map},
+        "steps": [
+            serialize_step_setting(step_key, step_map.get(step_key), setting_map.get(setting_key))
+            for step_key, setting_key in STEP_SETTING_KEYS.items()
+        ],
     }
 
 
@@ -342,38 +423,110 @@ def protocol_for_model_type(model_type: str) -> str:
     raise ModelConfigError("模型类型不合法")
 
 
-def save_model_settings(db: Session, settings_data: dict[str, str], user_id: UUID) -> list[ModelSetting]:
-    settings: list[ModelSetting] = []
-    for setting_key, channel_model_id_text in settings_data.items():
+def _load_channel_model(db: Session, channel_model_id: Any) -> ChannelModel:
+    try:
+        model_id = UUID(str(channel_model_id))
+    except (TypeError, ValueError) as exc:
+        raise ModelConfigError("渠道模型标识不合法") from exc
+    channel_model = (
+        db.query(ChannelModel)
+        .options(joinedload(ChannelModel.model), joinedload(ChannelModel.channel))
+        .filter(ChannelModel.id == model_id)
+        .first()
+    )
+    if not channel_model:
+        raise ModelConfigError("渠道模型不存在")
+    return channel_model
+
+
+def validate_thinking_choice(channel_model: ChannelModel, enabled: bool, label: str = "") -> None:
+    mode = channel_model.model.reasoning_mode
+    prefix = f"{label}：" if label else ""
+    if mode == "unsupported" and enabled:
+        raise ModelConfigError(f"{prefix}所选模型不支持思考模式")
+    if mode == "always_on" and not enabled:
+        raise ModelConfigError(f"{prefix}所选模型强制开启思考模式")
+    if mode not in REASONING_MODES:
+        raise ModelConfigError(f"{prefix}模型推理模式不合法")
+    if mode in {"switchable", "always_on"}:
+        thinkmode = validate_thinkmode(channel_model.channel.thinkmode)
+        if not thinkmode:
+            raise ModelConfigError(f"{prefix}所选渠道未配置思考参数")
+
+
+def save_model_settings(
+    db: Session,
+    settings_data: dict[str, dict[str, Any]],
+    steps_data: list[dict[str, Any]],
+    user_id: UUID,
+) -> dict[str, Any]:
+    for setting_key, data in settings_data.items():
         if setting_key not in SETTING_KEYS:
             raise ModelConfigError("模型用途不合法")
-        channel_model = (
-            db.query(ChannelModel)
-            .options(joinedload(ChannelModel.model), joinedload(ChannelModel.channel))
-            .filter(ChannelModel.id == UUID(str(channel_model_id_text)))
-            .first()
-        )
-        if not channel_model:
-            raise ModelConfigError("渠道模型不存在")
+        channel_model = _load_channel_model(db, data.get("channel_model_id"))
         validate_setting_choice(setting_key, channel_model)
+        thinking_enabled = data.get("thinking_enabled")
+        if setting_key == "transcription":
+            if thinking_enabled is not None:
+                raise ModelConfigError("语音转文字不能配置思考模式")
+        elif not isinstance(thinking_enabled, bool):
+            raise ModelConfigError(f"{setting_key} 必须配置默认思考状态")
         setting = db.query(ModelSetting).filter(ModelSetting.setting_key == setting_key).first()
         if not setting:
             setting = ModelSetting(setting_key=setting_key)
             db.add(setting)
         setting.channel_model_id = channel_model.id
+        setting.thinking_enabled = thinking_enabled
         setting.updated_by = user_id
         setting.updated_at = datetime.utcnow()
-        settings.append(setting)
-    db.commit()
-    return (
-        db.query(ModelSetting)
-        .options(
-            joinedload(ModelSetting.channel_model).joinedload(ChannelModel.model),
-            joinedload(ModelSetting.channel_model).joinedload(ChannelModel.channel),
-        )
-        .order_by(ModelSetting.setting_key)
-        .all()
-    )
+
+    for data in steps_data:
+        step_key = data.get("step_key")
+        if step_key not in STEP_SETTING_KEYS:
+            raise ModelConfigError("环节标识不合法")
+        channel_model_id = data.get("channel_model_id")
+        thinking_enabled = data.get("thinking_enabled")
+        if thinking_enabled is not None and not isinstance(thinking_enabled, bool):
+            raise ModelConfigError(f"{STEP_LABELS[step_key]}思考状态不合法")
+        setting = db.query(ModelStepSetting).filter(ModelStepSetting.step_key == step_key).first()
+        if channel_model_id is None and thinking_enabled is None:
+            if setting:
+                db.delete(setting)
+            continue
+        if not setting:
+            setting = ModelStepSetting(step_key=step_key)
+            db.add(setting)
+        setting.channel_model_id = _load_channel_model(db, channel_model_id).id if channel_model_id else None
+        setting.thinking_enabled = thinking_enabled
+        setting.updated_by = user_id
+        setting.updated_at = datetime.utcnow()
+
+    try:
+        db.flush()
+        setting_map = {item.setting_key: item for item in db.query(ModelSetting).all()}
+        step_map = {item.step_key: item for item in db.query(ModelStepSetting).all()}
+        for key, setting in setting_map.items():
+            validate_setting_choice(key, setting.channel_model)
+            if key != "transcription":
+                validate_thinking_choice(setting.channel_model, bool(setting.thinking_enabled), key)
+        for step_key, setting_key in STEP_SETTING_KEYS.items():
+            default = setting_map.get(setting_key)
+            if not default:
+                continue
+            override = step_map.get(step_key)
+            channel_model = override.channel_model if override and override.channel_model else default.channel_model
+            thinking_enabled = (
+                override.thinking_enabled
+                if override and override.thinking_enabled is not None
+                else default.thinking_enabled
+            )
+            validate_setting_choice(setting_key, channel_model)
+            validate_thinking_choice(channel_model, bool(thinking_enabled), STEP_LABELS[step_key])
+        db.commit()
+    except Exception:
+        db.rollback()
+        raise
+    return get_model_settings_payload(db)
 
 
 def validate_setting_choice(setting_key: str, channel_model: ChannelModel) -> None:
@@ -392,7 +545,13 @@ def ensure_model_not_used(db: Session, model_id: UUID) -> None:
         .filter(ChannelModel.model_id == model_id)
         .first()
     )
-    if exists:
+    step_exists = (
+        db.query(ModelStepSetting)
+        .join(ChannelModel)
+        .filter(ChannelModel.model_id == model_id)
+        .first()
+    )
+    if exists or step_exists:
         raise ModelConfigError("模型正在被模型设置使用，不能执行该操作")
 
 
@@ -403,13 +562,24 @@ def ensure_channel_not_used(db: Session, channel_id: UUID) -> None:
         .filter(ChannelModel.channel_id == channel_id)
         .first()
     )
-    if exists:
+    step_exists = (
+        db.query(ModelStepSetting)
+        .join(ChannelModel)
+        .filter(ChannelModel.channel_id == channel_id)
+        .first()
+    )
+    if exists or step_exists:
         raise ModelConfigError("渠道正在被模型设置使用，不能执行该操作")
 
 
 def ensure_channel_model_not_used(db: Session, channel_model_id: UUID) -> None:
     exists = db.query(ModelSetting).filter(ModelSetting.channel_model_id == channel_model_id).first()
-    if exists:
+    step_exists = (
+        db.query(ModelStepSetting)
+        .filter(ModelStepSetting.channel_model_id == channel_model_id)
+        .first()
+    )
+    if exists or step_exists:
         raise ModelConfigError("渠道模型正在被模型设置使用，不能执行该操作")
 
 
