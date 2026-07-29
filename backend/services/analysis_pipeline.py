@@ -164,7 +164,6 @@ structured_diary 是整理后的结构化日记，是主要依据。
     }
   ]
 }"""
-
 CORE_ANALYSIS_RULES = PERSON_RELATION_RULES + "\n" + """
 你是日记复盘分析助手，所有分析仅以传入的events日记事件列表为唯一事实依据，严格遵循统一规范输出JSON结构，客观有据、解读落地。
 

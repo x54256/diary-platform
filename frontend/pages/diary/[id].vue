@@ -370,11 +370,17 @@
       <!-- 底部操作区（编辑模式下隐藏） -->
       <div v-if="!isEditingStructured" class="fixed bottom-0 left-0 right-0 px-4 py-2 border-t border-neutral-200 bg-white safe-area-bottom">
         <div class="max-w-md mx-auto">
-          <!-- 分析中状态 -->
-          <div v-if="analyzing" class="flex items-center justify-center gap-2 py-2">
-            <Spinner />
-            <span class="text-sm text-neutral-500">{{ analyzeStep }}...</span>
-          </div>
+          <!-- 分析中状态：与整理阶段保持一致的全宽主按钮 -->
+          <button
+            v-if="analyzing"
+            disabled
+            class="w-full py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium disabled:opacity-50"
+          >
+            <span class="inline-flex items-center gap-2">
+              <Spinner />
+              {{ analyzeStep + '...' }}
+            </span>
+          </button>
           <!-- 操作按钮 -->
           <div v-else class="flex items-center gap-2">
             <!-- 对话输入（日记 Tab 时显示） -->
@@ -1262,26 +1268,46 @@ const pollOrganizeStatus = async () => {
 const analyzing = ref(false)
 const analyzeError = ref('')
 const analyzeStep = ref('')
+const analyzeMode = ref<'ordinary' | 'feedback'>('ordinary')
 
-const ANALYZE_STEP_LABELS: Record<string, string> = {
-  analysis_generating: '生成分析',
-  saving_result: '保存分析结果',
+const ANALYZE_STEP_LABELS: Record<'ordinary' | 'feedback', Record<string, string>> = {
+  ordinary: {
+    mood_tag_extract: '环节 7：元数据、心情与标签提取',
+    core_analysis: '环节 8：核心分析与可行动建议',
+    cognition_analysis: '环节 9：认知校准、问题解答与认知完善',
+    saving_result: '保存分析结果',
+  },
+  feedback: {
+    feedback_core_analysis: '反馈版环节 8：核心分析与可行动建议',
+    feedback_cognition_analysis: '反馈版环节 9：认知校准、问题解答与认知完善',
+    saving_result: '保存分析结果',
+  },
 }
-const ANALYZE_STEP_KEYS = Object.keys(ANALYZE_STEP_LABELS)
 
 const formatAnalyzeStep = (stepKey: string) => {
-  const idx = ANALYZE_STEP_KEYS.indexOf(stepKey)
-  const label = ANALYZE_STEP_LABELS[stepKey] || stepKey
+  const labels = ANALYZE_STEP_LABELS[analyzeMode.value]
+  const stepKeys = Object.keys(labels)
+  const idx = stepKeys.indexOf(stepKey)
+  const label = labels[stepKey] || stepKey
   if (idx === -1) return label
-  return `${idx + 1}/${ANALYZE_STEP_KEYS.length} ${label}`
+  return `${idx + 1}/${stepKeys.length} ${label}`
 }
 
 const handleAnalyze = async () => {
   analyzing.value = true
   analyzeError.value = ''
-  analyzeStep.value = formatAnalyzeStep('analysis_generating')
+  analyzeStep.value = formatAnalyzeStep('mood_tag_extract')
   try {
-    await api(`/diaries/${diaryId.value}/analyze`, { method: 'POST' })
+    const task = await api<{ analysis_mode?: 'ordinary' | 'feedback'; current_step?: string }>(
+      `/diaries/${diaryId.value}/analyze`,
+      { method: 'POST' },
+    )
+    if (task.analysis_mode) {
+      analyzeMode.value = task.analysis_mode
+    }
+    if (task.current_step) {
+      analyzeStep.value = formatAnalyzeStep(task.current_step)
+    }
     await pollAnalyzeStatus()
   } catch (err: any) {
     analyzeError.value = err?.data?.detail || '分析启动失败'
@@ -1295,10 +1321,13 @@ const pollAnalyzeStatus = async () => {
   for (let i = 0; i < maxAttempts; i++) {
     await new Promise(resolve => setTimeout(resolve, 2000))
     try {
-      const task = await api<{ status: string; current_step?: string; error_message?: string }>(
+      const task = await api<{ status: string; analysis_mode?: 'ordinary' | 'feedback'; current_step?: string; error_message?: string }>(
         `/diaries/${diaryId.value}/analyze/status`
       )
       consecutiveErrors = 0
+      if (task.analysis_mode) {
+        analyzeMode.value = task.analysis_mode
+      }
       if (task.current_step) {
         analyzeStep.value = formatAnalyzeStep(task.current_step)
       }
@@ -1344,11 +1373,14 @@ const checkOrganizeStatus = async () => {
 
 const checkAnalyzeStatus = async () => {
   try {
-    const task = await api<{ status: string; current_step?: string }>(
+    const task = await api<{ status: string; analysis_mode?: 'ordinary' | 'feedback'; current_step?: string }>(
       `/diaries/${diaryId.value}/analyze/status`
     )
     if (task.status === 'running') {
       analyzing.value = true
+      if (task.analysis_mode) {
+        analyzeMode.value = task.analysis_mode
+      }
       if (task.current_step) {
         analyzeStep.value = formatAnalyzeStep(task.current_step)
       }

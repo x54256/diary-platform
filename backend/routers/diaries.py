@@ -1023,6 +1023,7 @@ async def organize_diary(
     if failed_task:
         failed_task.status = "running"
         failed_task.error_message = None
+        failed_task.current_step = "feedback_core_analysis" if analysis_mode == "feedback" else "mood_tag_extract"
         db.commit()
         db.refresh(failed_task)
         task = failed_task
@@ -1181,6 +1182,7 @@ def get_organize_status(
         diary_id=diary_id,
         status=task.status,
         task_type=task.task_type,
+        analysis_mode=task.analysis_mode,
         current_step=task.current_step,
         error_message=task.error_message,
     )
@@ -1291,6 +1293,7 @@ async def analyze_diary(
                 diary_id=diary_id,
                 status=existing_task.status,
                 task_type="analyze",
+                analysis_mode=existing_task.analysis_mode,
                 current_step=existing_task.current_step,
                 error_message=existing_task.error_message,
             )
@@ -1326,7 +1329,7 @@ async def analyze_diary(
             task_type="analyze",
             analysis_mode=analysis_mode,
             status="running",
-            current_step="analysis_generating",
+            current_step="feedback_core_analysis" if analysis_mode == "feedback" else "mood_tag_extract",
         )
         db.add(task)
         db.commit()
@@ -1378,6 +1381,7 @@ async def analyze_diary(
         diary_id=diary_id,
         status="running",
         task_type="analyze",
+        analysis_mode=task.analysis_mode,
         current_step=task.current_step,
         error_message=None,
     )
@@ -1480,6 +1484,7 @@ def get_analyze_status(
         diary_id=diary_id,
         status=task.status,
         task_type=task.task_type,
+        analysis_mode=task.analysis_mode,
         current_step=task.current_step,
         error_message=task.error_message,
     )
