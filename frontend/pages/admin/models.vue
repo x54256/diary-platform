@@ -43,6 +43,7 @@
             <th class="text-left p-3">类型</th>
             <th class="text-left p-3">梯队</th>
             <th class="text-left p-3">分类</th>
+            <th class="text-left p-3">推理模式</th>
             <th class="text-left p-3">模型</th>
             <th class="text-left p-3">核心特点</th>
             <th class="text-right p-3">分数</th>
@@ -57,6 +58,7 @@
             <td class="p-3">{{ model.model_type }}</td>
             <td class="p-3">{{ model.ability_tier }}</td>
             <td class="p-3">{{ model.ability_category }}</td>
+            <td class="p-3">{{ model.reasoning_mode }}</td>
             <td class="p-3 font-medium text-neutral-900">{{ model.model_name }}</td>
             <td class="p-3 max-w-md text-neutral-600">
               <div class="line-clamp-2">{{ model.core_features || '-' }}</div>
@@ -117,6 +119,14 @@
             </select>
           </label>
           <label class="block">
+            <span class="block mb-1 text-sm text-neutral-700">推理模式</span>
+            <select v-model="form.reasoning_mode" class="w-full h-10 px-3 border border-neutral-300 rounded text-sm">
+              <option value="unsupported">不支持</option>
+              <option value="switchable">可开关</option>
+              <option value="always_on">固定推理</option>
+            </select>
+          </label>
+          <label class="block">
             <span class="block mb-1 text-sm text-neutral-700">分数</span>
             <input v-model.number="form.score" type="number" step="0.1" class="w-full h-10 px-3 border border-neutral-300 rounded text-sm" placeholder="分数">
           </label>
@@ -159,6 +169,7 @@ const form = reactive<any>({
   model_name: '',
   ability_tier: 'T0 旗舰全能',
   ability_category: '通用对话',
+  reasoning_mode: 'unsupported',
   core_features: '',
   scenarios: '',
   score: null,
@@ -203,7 +214,7 @@ const changePage = async (target: number) => {
 const openCreate = () => {
   editingId.value = ''
   error.value = ''
-  Object.assign(form, { model_type: 'language', provider_name: '', model_name: '', ability_tier: 'T0 旗舰全能', ability_category: '通用对话', core_features: '', scenarios: '', score: null })
+  Object.assign(form, { model_type: 'language', provider_name: '', model_name: '', ability_tier: 'T0 旗舰全能', ability_category: '通用对话', reasoning_mode: 'unsupported', core_features: '', scenarios: '', score: null })
   showForm.value = true
 }
 

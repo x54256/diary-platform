@@ -11,6 +11,7 @@ from models.model_config import ApiChannel, ChannelModel, ModelCatalog, ModelSet
 from utils.crypto import decrypt_text, encrypt_text
 
 MODEL_TYPES = ["language", "asr"]
+REASONING_MODES = ["unsupported", "switchable", "always_on"]
 SETTING_KEYS = ["organize", "analysis", "chat", "transcription"]
 LANGUAGE_CATEGORIES = ["通用对话", "深度推理", "长上下文", "代码能力", "轻量高速"]
 ASR_CATEGORIES = ["实时语音识别", "录音文件识别"]
@@ -54,6 +55,7 @@ def serialize_model(model: ModelCatalog) -> dict[str, Any]:
         "model_type": model.model_type,
         "provider_name": model.provider_name,
         "model_name": model.model_name,
+        "reasoning_mode": model.reasoning_mode,
         "ability_tier": model.ability_tier,
         "ability_category": model.ability_category,
         "original_category": model.original_category,
@@ -73,6 +75,7 @@ def serialize_channel(channel: ApiChannel) -> dict[str, Any]:
         "id": str(channel.id),
         "name": channel.name,
         "api_base_url": channel.api_base_url,
+        "thinkmode": channel.thinkmode or {},
         "has_api_key": has_api_key(channel),
         "enabled": channel.enabled,
         "created_at": channel.created_at.isoformat() if channel.created_at else None,
@@ -167,6 +170,7 @@ def create_model(db: Session, data: dict[str, Any]) -> ModelCatalog:
         model_type=data["model_type"],
         provider_name=data["provider_name"],
         model_name=data["model_name"],
+        reasoning_mode=data.get("reasoning_mode", "unsupported"),
         ability_tier=data["ability_tier"],
         ability_category=data["ability_category"],
         original_category=data.get("original_category") or data["ability_category"],
@@ -189,6 +193,7 @@ def update_model(db: Session, model: ModelCatalog, data: dict[str, Any]) -> Mode
     for field in [
         "provider_name",
         "model_name",
+        "reasoning_mode",
         "ability_tier",
         "ability_category",
         "original_category",
@@ -206,6 +211,7 @@ def update_model(db: Session, model: ModelCatalog, data: dict[str, Any]) -> Mode
         "model_name": model.model_name,
         "ability_tier": model.ability_tier,
         "ability_category": model.ability_category,
+        "reasoning_mode": model.reasoning_mode,
     })
     db.commit()
     db.refresh(model)
@@ -229,13 +235,29 @@ def validate_model_payload(data: dict[str, Any]) -> None:
         raise ModelConfigError("语言模型能力分类不合法")
     if model_type == "asr" and category not in ASR_CATEGORIES:
         raise ModelConfigError("ASR 模型能力分类不合法")
+    if data.get("reasoning_mode", "unsupported") not in REASONING_MODES:
+        raise ModelConfigError("模型推理模式不合法")
+
+
+def validate_thinkmode(value: Any) -> dict[str, Any]:
+    if value is None:
+        return {}
+    if not isinstance(value, dict):
+        raise ModelConfigError("渠道 thinkmode 必须是 JSON 对象")
+    if not value:
+        return {}
+    if not isinstance(value.get("enabled"), dict) or not isinstance(value.get("disabled"), dict):
+        raise ModelConfigError("渠道 thinkmode 必须同时包含 enabled 和 disabled 对象")
+    return value
 
 
 def create_channel(db: Session, data: dict[str, Any]) -> ApiChannel:
+    thinkmode = validate_thinkmode(data.get("thinkmode", {}))
     channel = ApiChannel(
         name=data["name"],
         api_base_url=data["api_base_url"].rstrip("/"),
         api_key_encrypted=encrypt_text(data["api_key"]) if data.get("api_key") else None,
+        thinkmode=thinkmode,
         enabled=data.get("enabled", True),
     )
     db.add(channel)
@@ -253,6 +275,8 @@ def update_channel(db: Session, channel: ApiChannel, data: dict[str, Any]) -> Ap
         channel.api_base_url = data["api_base_url"].rstrip("/")
     if data.get("api_key"):
         channel.api_key_encrypted = encrypt_text(data["api_key"])
+    if "thinkmode" in data:
+        channel.thinkmode = validate_thinkmode(data["thinkmode"])
     if "enabled" in data:
         channel.enabled = data["enabled"]
     db.commit()

@@ -36,16 +36,22 @@ def seed_model_catalog(db: Session) -> int:
         logger.warning("模型种子文件不存在: %s", SEED_FILE)
         return 0
 
-    existing = {
-        item.model_name
-        for item in db.query(ModelCatalog.model_name).all()
-    }
+    existing_models = {item.model_name: item for item in db.query(ModelCatalog).all()}
+    existing = set(existing_models)
     created = 0
+    updated = 0
     with SEED_FILE.open("r", encoding="utf-8", newline="") as file:
         reader = csv.DictReader(file)
         for row in reader:
             model_name = row["model_name"].strip()
-            if not model_name or model_name in existing:
+            if not model_name:
+                continue
+            reasoning_mode = (row.get("reasoning_mode") or "unsupported").strip()
+            if model_name in existing:
+                model = existing_models[model_name]
+                if not model.is_custom and model.reasoning_mode != reasoning_mode:
+                    model.reasoning_mode = reasoning_mode
+                    updated += 1
                 continue
             score_text = row.get("score") or ""
             db.add(
@@ -53,6 +59,7 @@ def seed_model_catalog(db: Session) -> int:
                     model_type=row["model_type"].strip(),
                     provider_name=row["provider_name"].strip(),
                     model_name=model_name,
+                    reasoning_mode=reasoning_mode,
                     ability_tier=row["ability_tier"].strip(),
                     ability_category=row["ability_category"].strip(),
                     original_category=(row.get("original_category") or "").strip(),
@@ -66,7 +73,7 @@ def seed_model_catalog(db: Session) -> int:
             )
             existing.add(model_name)
             created += 1
-    if created:
+    if created or updated:
         db.commit()
-        logger.info("模型清单初始化完成，新增 %d 个模型", created)
+        logger.info("模型清单初始化完成，新增 %d 个模型，更新 %d 个模型", created, updated)
     return created

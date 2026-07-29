@@ -18,6 +18,7 @@
             <th class="text-left p-3">状态</th>
             <th class="text-left p-3">渠道名称</th>
             <th class="text-left p-3">API 地址</th>
+            <th class="text-left p-3">思考参数</th>
             <th class="text-left p-3">密钥</th>
             <th class="text-right p-3">操作</th>
           </tr>
@@ -27,6 +28,7 @@
             <td class="p-3">{{ channel.enabled ? 'ON' : 'OFF' }}</td>
             <td class="p-3 font-medium text-neutral-900">{{ channel.name }}</td>
             <td class="p-3 max-w-xl truncate">{{ channel.api_base_url }}</td>
+            <td class="p-3">{{ Object.keys(channel.thinkmode || {}).length ? '已配置' : '未配置' }}</td>
             <td class="p-3">{{ channel.has_api_key ? '已配置' : '未配置' }}</td>
             <td class="p-3 text-right space-x-3">
               <button class="text-neutral-900 underline" @click="openChannel(channel)">编辑</button>
@@ -47,6 +49,10 @@
           <input v-model="channelForm.name" class="w-full h-10 px-3 border border-neutral-300 rounded text-sm" placeholder="渠道名称">
           <input v-model="channelForm.api_base_url" class="w-full h-10 px-3 border border-neutral-300 rounded text-sm" placeholder="API Base URL">
           <input v-model="channelForm.api_key" class="w-full h-10 px-3 border border-neutral-300 rounded text-sm" placeholder="API Key，留空不修改">
+          <label class="block">
+            <span class="block mb-1 text-sm text-neutral-700">thinkmode JSON</span>
+            <textarea v-model="channelForm.thinkmode_text" class="w-full h-24 px-3 py-2 border border-neutral-300 rounded text-sm font-mono" placeholder='{"enabled":{"enable_thinking":true},"disabled":{"enable_thinking":false}}' />
+          </label>
           <label class="flex items-center gap-2 text-sm text-neutral-700">
             <input v-model="channelForm.enabled" type="checkbox">
             启用渠道
@@ -205,7 +211,7 @@ const showModelsForm = ref(false)
 const showBulkModelsForm = ref(false)
 const selectedChannel = ref<any | null>(null)
 const channelModelRows = ref<any[]>([])
-const channelForm = reactive<any>({ id: '', name: '', api_base_url: '', api_key: '', enabled: true })
+const channelForm = reactive<any>({ id: '', name: '', api_base_url: '', api_key: '', enabled: true, thinkmode_text: '{}' })
 const bulkModels = ref<any[]>([])
 const bulkTotal = ref(0)
 const bulkPage = ref(1)
@@ -273,7 +279,7 @@ const changeBulkPage = async (target: number) => {
 
 const openChannel = (channel?: any) => {
   error.value = ''
-  Object.assign(channelForm, channel ? { ...channel, api_key: '' } : { id: '', name: '', api_base_url: '', api_key: '', enabled: true })
+  Object.assign(channelForm, channel ? { ...channel, api_key: '', thinkmode_text: JSON.stringify(channel.thinkmode || {}, null, 2) } : { id: '', name: '', api_base_url: '', api_key: '', enabled: true, thinkmode_text: '{}' })
   showChannelForm.value = true
 }
 
@@ -282,6 +288,12 @@ const saveChannel = async () => {
   try {
     const body = { ...channelForm }
     if (!body.api_key) delete body.api_key
+    try {
+      body.thinkmode = JSON.parse(body.thinkmode_text || '{}')
+    } catch {
+      throw { data: { detail: 'thinkmode JSON 格式不正确' } }
+    }
+    delete body.thinkmode_text
     if (channelForm.id) {
       await api(`/admin/channels/${channelForm.id}`, { method: 'PATCH', body })
     } else {

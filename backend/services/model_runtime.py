@@ -1,6 +1,7 @@
 """运行时模型配置解析。"""
 
 from dataclasses import dataclass
+from typing import Any
 
 from sqlalchemy.orm import joinedload
 
@@ -27,6 +28,8 @@ class RuntimeModelConfig:
     api_base_url: str
     api_key: str
     model_name: str
+    reasoning_mode: str = "unsupported"
+    thinkmode: dict[str, Any] | None = None
 
 
 def resolve_model_setting(setting_key: str) -> RuntimeModelConfig:
@@ -60,6 +63,22 @@ def resolve_model_setting(setting_key: str) -> RuntimeModelConfig:
             api_base_url=channel_model.channel.api_base_url.rstrip("/"),
             api_key=api_key,
             model_name=channel_model.model.model_name,
+            reasoning_mode=channel_model.model.reasoning_mode,
+            thinkmode=channel_model.channel.thinkmode or {},
         )
     finally:
         db.close()
+
+
+def resolve_thinking_payload(config: RuntimeModelConfig, enabled: bool) -> dict[str, Any]:
+    """根据模型能力和渠道参数生成 OpenAI 兼容接口的扩展请求体。"""
+    if config.reasoning_mode == "unsupported":
+        return {}
+    if config.reasoning_mode == "always_on":
+        enabled = True
+    if config.reasoning_mode not in {"switchable", "always_on"}:
+        raise ModelRuntimeError("模型推理模式不合法")
+    payload = (config.thinkmode or {}).get("enabled" if enabled else "disabled")
+    if not isinstance(payload, dict):
+        raise ModelRuntimeError("当前渠道未配置完整的 thinkmode 参数")
+    return payload

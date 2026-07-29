@@ -16,6 +16,7 @@ from services.model_management import (
     ASR_CATEGORIES,
     LANGUAGE_CATEGORIES,
     MODEL_TYPES,
+    REASONING_MODES,
     SETTING_KEYS,
     ModelConfigError,
     clear_channel_api_key,
@@ -47,6 +48,7 @@ class ModelCreateRequest(BaseModel):
     model_type: str
     provider_name: str
     model_name: str
+    reasoning_mode: str = "unsupported"
     ability_tier: str
     ability_category: str
     original_category: str | None = None
@@ -59,6 +61,7 @@ class ModelCreateRequest(BaseModel):
 class ModelUpdateRequest(BaseModel):
     provider_name: str | None = None
     model_name: str | None = None
+    reasoning_mode: str | None = None
     ability_tier: str | None = None
     ability_category: str | None = None
     original_category: str | None = None
@@ -73,6 +76,7 @@ class ChannelCreateRequest(BaseModel):
     name: str
     api_base_url: str
     api_key: str | None = None
+    thinkmode: dict[str, Any] = {}
     enabled: bool = True
 
 
@@ -80,6 +84,7 @@ class ChannelUpdateRequest(BaseModel):
     name: str | None = None
     api_base_url: str | None = None
     api_key: str | None = None
+    thinkmode: dict[str, Any] | None = None
     enabled: bool | None = None
 
 
@@ -100,6 +105,7 @@ class ModelTestRequest(BaseModel):
 class OrganizePipelineSettingsRequest(BaseModel):
     clean_check_enabled: bool
     content_check_enabled: bool
+    thinking_steps: dict[str, bool] = {}
 
 
 def _bad_request(exc: Exception):
@@ -113,6 +119,7 @@ def get_model_options(current_user: User = Depends(require_admin)):
         "setting_keys": SETTING_KEYS,
         "language_categories": LANGUAGE_CATEGORIES,
         "asr_categories": ASR_CATEGORIES,
+        "reasoning_modes": REASONING_MODES,
         "usage_labels": {
             "organize": "整理",
             "analysis": "分析",
@@ -132,6 +139,7 @@ def get_organize_settings(
     return {
         "clean_check_enabled": setting.clean_check_enabled,
         "content_check_enabled": setting.content_check_enabled,
+        "thinking_steps": setting.thinking_steps or {},
         "updated_at": setting.updated_at,
     }
 
@@ -145,12 +153,14 @@ def put_organize_settings(
     setting = get_or_create_organize_pipeline_setting(db)
     setting.clean_check_enabled = request.clean_check_enabled
     setting.content_check_enabled = request.content_check_enabled
+    setting.thinking_steps = request.thinking_steps
     setting.updated_by = current_user.id
     db.commit()
     db.refresh(setting)
     return {
         "clean_check_enabled": setting.clean_check_enabled,
         "content_check_enabled": setting.content_check_enabled,
+        "thinking_steps": setting.thinking_steps or {},
         "updated_at": setting.updated_at,
     }
 

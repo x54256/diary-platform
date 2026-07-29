@@ -422,7 +422,7 @@ async def mood_tag_extract(state: AnalysisState) -> dict:
         event_count,
     )
 
-    llm = _get_llm(0.3, "analysis")
+    llm = _get_llm(0.3, "analysis", "mood_tag_extract")
     input_data = {"structured_diary": structured_diary}
     result = await _invoke_llm(
         llm,
@@ -514,7 +514,7 @@ async def core_analysis(state: AnalysisState) -> dict:
         _list_len(events),
     )
 
-    llm = _get_llm(0.5, "analysis")
+    llm = _get_llm(0.5, "analysis", "core_analysis")
     result = await _invoke_llm(
         llm,
         CORE_ANALYSIS_PROMPT,
@@ -596,7 +596,7 @@ async def cognition_analysis(state: AnalysisState) -> dict:
         _list_len(events),
     )
 
-    llm = _get_llm(0.5, "analysis")
+    llm = _get_llm(0.5, "analysis", "cognition_analysis")
     result = await _invoke_llm(
         llm,
         COGNITION_ANALYSIS_PROMPT,
@@ -685,7 +685,7 @@ async def feedback_core_analysis(state: FeedbackAnalysisState) -> dict:
         )
         return {"merged_core": state["previous_state"]}
 
-    llm = _get_llm(0.2, "analysis")
+    llm = _get_llm(0.2, "analysis", "feedback_core_analysis")
     core_result = await _invoke_llm(
         llm,
         FEEDBACK_CORE_ANALYSIS_PROMPT,
@@ -739,7 +739,7 @@ async def feedback_cognition_analysis(state: FeedbackAnalysisState) -> dict:
         )
         return {"merged": state["merged_core"]}
 
-    llm = _get_llm(0.2, "analysis")
+    llm = _get_llm(0.2, "analysis", "feedback_cognition_analysis")
     cognition_result = await _invoke_llm(
         llm,
         FEEDBACK_COGNITION_ANALYSIS_PROMPT,

@@ -10,6 +10,7 @@ from models.organize_settings import OrganizePipelineSetting
 class OrganizePipelineOptions:
     clean_check_enabled: bool = False
     content_check_enabled: bool = False
+    thinking_steps: dict[str, bool] | None = None
 
 
 def get_organize_pipeline_options() -> OrganizePipelineOptions:
@@ -22,6 +23,7 @@ def get_organize_pipeline_options() -> OrganizePipelineOptions:
         return OrganizePipelineOptions(
             clean_check_enabled=setting.clean_check_enabled,
             content_check_enabled=setting.content_check_enabled,
+            thinking_steps=setting.thinking_steps or {},
         )
     finally:
         db.close()

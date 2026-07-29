@@ -18,6 +18,12 @@
           保留内容审核
         </label>
       </div>
+      <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <label v-for="item in thinkingStepOptions" :key="item.key" class="flex items-center gap-3 text-sm text-neutral-700">
+          <input v-model="organizeSettings.thinking_steps[item.key]" type="checkbox" class="h-4 w-4">
+          {{ item.label }}启用思考
+        </label>
+      </div>
       <div class="mt-4 flex items-center gap-3">
         <button class="h-8 px-3 bg-neutral-900 text-white rounded text-sm disabled:opacity-50" :disabled="savingOrganizeSettings" @click="saveOrganizeSettings">
           {{ savingOrganizeSettings ? '保存中' : '保存流程开关' }}
@@ -124,7 +130,14 @@ const batchTesting = ref(false)
 const draft = reactive<any>({})
 const testResults = reactive<Record<string, { ok: boolean, message: string }>>({})
 const testingKeys = ref(new Set<string>())
-const organizeSettings = reactive({ clean_check_enabled: false, content_check_enabled: false })
+const thinkingStepOptions = [
+  { key: 'event_organize', label: '事件整理' },
+  { key: 'core_analysis', label: '核心分析' },
+  { key: 'cognition_analysis', label: '认知分析' },
+  { key: 'feedback_core_analysis', label: '反馈核心分析' },
+  { key: 'feedback_cognition_analysis', label: '反馈认知分析' },
+]
+const organizeSettings = reactive<any>({ clean_check_enabled: false, content_check_enabled: false, thinking_steps: {} })
 const savingOrganizeSettings = ref(false)
 const organizeSettingsMessage = ref('')
 
@@ -140,6 +153,7 @@ const loadData = async () => {
   const pipelineSettings: any = await api('/admin/organize-settings')
   organizeSettings.clean_check_enabled = pipelineSettings.clean_check_enabled
   organizeSettings.content_check_enabled = pipelineSettings.content_check_enabled
+  organizeSettings.thinking_steps = { ...pipelineSettings.thinking_steps }
   for (const setting of savedSettings.value) {
     const cm = setting.channel_model
     if (!cm) continue

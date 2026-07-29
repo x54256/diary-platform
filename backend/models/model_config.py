@@ -4,7 +4,7 @@ import uuid
 from datetime import datetime
 
 from sqlalchemy import Boolean, Column, DateTime, Float, ForeignKey, String, Text, UniqueConstraint
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy.orm import relationship
 
 from database import Base
@@ -19,6 +19,7 @@ class ModelCatalog(Base):
     model_type = Column(String(20), nullable=False)  # language / asr
     provider_name = Column(String(100), nullable=False)
     model_name = Column(String(200), nullable=False, unique=True)
+    reasoning_mode = Column(String(20), nullable=False, default="unsupported")
     ability_tier = Column(String(100), nullable=False)
     ability_category = Column(String(50), nullable=False)
     original_category = Column(String(100), nullable=True)
@@ -43,6 +44,7 @@ class ApiChannel(Base):
     name = Column(String(100), nullable=False, unique=True)
     api_base_url = Column(String(500), nullable=False)
     api_key_encrypted = Column(Text, nullable=True)
+    thinkmode = Column(JSONB, nullable=False, default=dict)
     enabled = Column(Boolean, default=True, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

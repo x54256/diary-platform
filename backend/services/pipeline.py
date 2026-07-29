@@ -24,7 +24,7 @@ from services.ai import (
     TEMPLATE_FILL_PROMPT,
     ai_service,
 )
-from services.model_runtime import resolve_model_setting
+from services.model_runtime import resolve_model_setting, resolve_thinking_payload
 from services.organize_settings import get_organize_pipeline_options
 from services.llm_metrics import prompt_token_count, record_llm_call
 from utils.log_context import ContextFormatter, LogContextFilter, Stopwatch, log_extra
@@ -88,7 +88,25 @@ class PipelineState(TypedDict, total=False):
 # LLM 初始化
 # ---------------------------------------------------------------------------
 
-def _get_llm(temperature: float, setting_key: str = "organize") -> ChatOpenAI:
+THINKING_ENABLED_BY_STEP = {
+    "text_clean": False,
+    "clean_check": False,
+    "event_organize": True,
+    "template_fill": False,
+    "content_check": False,
+    "mood_tag_extract": False,
+    "core_analysis": True,
+    "cognition_analysis": True,
+    "feedback_core_analysis": True,
+    "feedback_cognition_analysis": True,
+}
+
+
+def _get_llm(
+    temperature: float,
+    setting_key: str = "organize",
+    step_name: str = "",
+) -> ChatOpenAI:
     """根据业务用途创建 OpenAI 兼容 Chat 模型实例。"""
     runtime_config = resolve_model_setting(setting_key)
     kwargs: dict[str, Any] = {
@@ -100,6 +118,17 @@ def _get_llm(temperature: float, setting_key: str = "organize") -> ChatOpenAI:
         "base_url": runtime_config.api_base_url,
         "model_kwargs": {"response_format": {"type": "json_object"}},
     }
+    options = get_organize_pipeline_options()
+    thinking_enabled = (options.thinking_steps or {}).get(
+        step_name,
+        THINKING_ENABLED_BY_STEP.get(step_name, False),
+    )
+    thinking_payload = resolve_thinking_payload(
+        runtime_config,
+        thinking_enabled,
+    )
+    if thinking_payload:
+        kwargs["extra_body"] = thinking_payload
     return ChatOpenAI(**kwargs)
 
 
@@ -299,7 +328,7 @@ async def text_clean(state: PipelineState) -> dict:
 
     original_text = state["original_text"]
     person_relations = state.get("person_relations", [])
-    llm = _get_llm(0.3)
+    llm = _get_llm(0.3, step_name="text_clean")
     result = await _invoke_llm(
         llm,
         CLEAN_PROMPT,
@@ -321,7 +350,7 @@ async def clean_check(state: PipelineState) -> dict:
     cleaned_text = state["cleaned_text"]
     if not get_organize_pipeline_options().clean_check_enabled:
         return {"checked_text": cleaned_text, "clean_check_log": []}
-    llm = _get_llm(0.3)
+    llm = _get_llm(0.3, step_name="clean_check")
     result = await _invoke_llm(
         llm,
         CLEAN_CHECK_PROMPT,
@@ -343,7 +372,7 @@ async def event_organize(state: PipelineState) -> dict:
     _update_step(task_id, "event_organizing")
 
     checked_text = state["checked_text"]
-    llm = _get_llm(0.5)
+    llm = _get_llm(0.5, step_name="event_organize")
     result = await _invoke_llm(
         llm,
         EVENT_ORGANIZE_PROMPT,
@@ -375,7 +404,7 @@ async def template_fill(state: PipelineState) -> dict:
     _update_step(task_id, "structuring")
 
     events_raw = state["events_raw"]
-    llm = _get_llm(0.5)
+    llm = _get_llm(0.5, step_name="template_fill")
     result = await _invoke_llm(
         llm,
         TEMPLATE_FILL_PROMPT,
@@ -406,7 +435,7 @@ async def content_check(state: PipelineState) -> dict:
             "check_log": [],
         }
 
-    llm = _get_llm(0.3)
+    llm = _get_llm(0.3, step_name="content_check")
     check_input = json.dumps(
         {
             "original_text": original_text,
