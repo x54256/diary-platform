@@ -1,4 +1,4 @@
-"""LangGraph 6 阶段 AI 整理流水线 - 支持断点续跑"""
+"""LangGraph 5 阶段 AI 整理流水线 - 支持断点续跑"""
 
 import json
 import logging
@@ -21,7 +21,6 @@ from services.ai import (
     CLEAN_CHECK_PROMPT,
     CLEAN_PROMPT,
     EVENT_ORGANIZE_PROMPT,
-    METADATA_PROMPT,
     TEMPLATE_FILL_PROMPT,
     ai_service,
 )
@@ -405,39 +404,6 @@ async def content_check(state: PipelineState) -> dict:
     }
 
 
-async def metadata_extract(state: PipelineState) -> dict:
-    """Node 6: 元数据提取 (temp=0.3)"""
-    task_id = state["task_id"]
-    _update_step(task_id, "metadata_extracting")
-
-    original_text = state["original_text"]
-    final_introduction = state["final_introduction"]
-    final_events = state["final_events"]
-    final_trivia = state["final_trivia"]
-    final_plans = state["final_plans"]
-
-    llm = _get_llm(0.3)
-    meta_input = json.dumps(
-        {
-            "original_text": original_text,
-            "final_result": {
-                "introduction": final_introduction,
-                "events": final_events,
-                "trivia": final_trivia,
-                "plans": final_plans,
-            },
-        },
-        ensure_ascii=False,
-    )
-    result = await _invoke_llm(llm, METADATA_PROMPT, meta_input, step_name="metadata_extract")
-
-    return {
-        "title": result.get("title", ""),
-        "summary": result.get("summary", ""),
-        "location": result.get("location", ""),
-    }
-
-
 # ---------------------------------------------------------------------------
 # 流水线执行
 # ---------------------------------------------------------------------------
@@ -449,22 +415,20 @@ async def run_pipeline(
     user_id: str,
     person_relations: list[dict] | None = None,
 ) -> dict:
-    """构建并执行 LangGraph 6 阶段流水线"""
+    """构建并执行 LangGraph 5 阶段整理流水线"""
     builder = StateGraph(PipelineState)
     builder.add_node("text_clean", text_clean)
     builder.add_node("clean_check", clean_check)
     builder.add_node("event_organize", event_organize)
     builder.add_node("template_fill", template_fill)
     builder.add_node("content_check", content_check)
-    builder.add_node("metadata_extract", metadata_extract)
 
     builder.add_edge(START, "text_clean")
     builder.add_edge("text_clean", "clean_check")
     builder.add_edge("clean_check", "event_organize")
     builder.add_edge("event_organize", "template_fill")
     builder.add_edge("template_fill", "content_check")
-    builder.add_edge("content_check", "metadata_extract")
-    builder.add_edge("metadata_extract", END)
+    builder.add_edge("content_check", END)
 
     # 配置 checkpointer（支持断点续跑，复用单例连接确保 setup 已执行）
     async with get_checkpointer() as checkpointer:
@@ -485,12 +449,12 @@ async def run_pipeline(
 
     # 返回与 ai.py organize_diary 相同格式的 dict
     return {
-        "title": result.get("title", ""),
-        "summary": result.get("summary", ""),
+        "title": "",
+        "summary": "",
         "events": result.get("final_events", []),
         "check_log": result.get("check_log", []),
         "clean_check_log": result.get("clean_check_log", []),
-        "location": result.get("location", ""),
+        "location": "",
         "introduction": result.get("final_introduction", ""),
         "trivia": result.get("final_trivia", []),
         "plans": result.get("final_plans", []),

@@ -1199,7 +1199,6 @@ const STEP_LABELS: Record<string, string> = {
   event_organizing: '事件识别与归类中',
   structuring: '结构化整理中',
   content_checking: '内容审核与修正中',
-  metadata_extracting: '元数据提取中',
 }
 const STEP_KEYS = Object.keys(STEP_LABELS)
 

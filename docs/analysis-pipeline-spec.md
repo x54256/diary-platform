@@ -190,7 +190,7 @@ analysis_mode=feedback
 ```mermaid
 flowchart TD
     A[创建 analyze 任务] --> B[构造 structured_diary]
-    B --> C[环节 7：心情与标签]
+    B --> C[环节 7：元数据、心情与标签]
     C --> D[环节 8：核心分析]
     D --> E[环节 9：认知整理]
     E --> F[标签落库]
@@ -213,7 +213,7 @@ builder.add_node("cognition_analysis", cognition_analysis)
 START → mood_tag_extract → core_analysis → cognition_analysis → END
 ```
 
-### 4.2 环节 7：心情与事件标签
+### 4.2 环节 7：元数据、心情与事件标签
 
 实现：`mood_tag_extract`。
 
@@ -223,6 +223,9 @@ START → mood_tag_extract → core_analysis → cognition_analysis → END
 
 ```json
 {
+  "title": "日记标题",
+  "summary": "摘要",
+  "location": "地点，没有则空字符串",
   "mood": "今日整体心情",
   "event_tags": [
     {
@@ -368,7 +371,7 @@ START → feedback_core_analysis → feedback_cognition_analysis → END
 
 | Prompt | 对应节点 | 主要约束 |
 |---|---|---|
-| `MOOD_TAG_PROMPT` | `mood_tag_extract` | 从结构化事件提取整体心情和五类事件标签 |
+| `MOOD_TAG_PROMPT` | `mood_tag_extract` | 从结构化事件生成元数据，并提取整体心情和五类事件标签 |
 | `CORE_ANALYSIS_RULES` + `CORE_ANALYSIS_OUTPUT_SCHEMA` | `core_analysis` | 输出情绪、行为决策、自我理解、行动建议，区分事件级和日记级 |
 | `COGNITION_ANALYSIS_RULES` + `COGNITION_ANALYSIS_OUTPUT_SCHEMA` | `cognition_analysis` | 输出认知校准、问题解答、认知完善，禁止与行动建议混淆 |
 
@@ -491,7 +494,7 @@ return dict(await graph.ainvoke(initial_state, config=config))
 
 ```text
 text_cleaning → clean_checking → event_organizing
-→ structuring → content_checking → metadata_extracting
+→ structuring → content_checking
 ```
 
 节点开始时通过 `_update_step()` 更新数据库；失败后保留最后记录的步骤，重试接口返回该步骤。

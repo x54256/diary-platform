@@ -877,7 +877,7 @@ AI 智能分析是整理之后的独立阶段，基于整理后的结构化日�
 | user_id | UUID, FK | 所属用户 |
 | status | varchar(20) | 任务状态：running / completed / failed |
 | task_type | varchar(20) | 任务类型：organize（整理）/ analyze（分析） |
-| current_step | varchar(50), nullable | 当前步骤：整理流水线（text_cleaning / clean_checking / event_organizing / structuring / content_checking / metadata_extracting）；分析流水线（mood_tag_extracting / core_analyzing / calibration_suggesting） |
+| current_step | varchar(50), nullable | 当前步骤：整理流水线（text_cleaning / clean_checking / event_organizing / structuring / content_checking）；分析流水线（mood_tag_extracting / core_analyzing / calibration_suggesting） |
 | error_message | text, nullable | 错误信息 |
 | created_at | timestamp | 创建时间 |
 | updated_at | timestamp | 更新时间 |
@@ -1154,7 +1154,7 @@ users ──┬── diaries ──┬── diary_organized (1:1) ──┬─
 
 #### 日记整理提示词
 
-整理阶段采用 6 环节流水线（文本清洗 → 清洗审核 → 事件整理 → 三字段结构化 → 内容审核 → 元数据提取），各环节独立调用 LLM。
+整理阶段采用 5 环节流水线（文本清洗 → 清洗审核 → 事件整理 → 三字段结构化 → 内容审核）；标题、摘要、地点在分析阶段环节 7 与心情、标签一并生成。
 
 **输出**：标题、摘要、地点、结构化日记正文（引入段 + 事件 + 琐事 + 后续计划）
 
@@ -1171,10 +1171,10 @@ users ──┬── diaries ──┬── diary_organized (1:1) ──┬─
 
 分析阶段分三个环节执行：
 
-**环节 7：心情 + 标签提取**
+**环节 7：元数据 + 心情 + 标签提取**
 
-输入：结构化日记 + 原始文本
-输出：心情（mood）、事件级标签（event_tags，按 5 类分组：domain / topic / person_object / psychological / knowledge）
+输入：结构化日记
+输出：标题（title）、摘要（summary）、地点（location）、心情（mood）、事件级标签（event_tags，按 5 类分组：domain / topic / person_object / psychological / knowledge）
 
 提示词要点：
 
@@ -1229,7 +1229,7 @@ users ──┬── diaries ──┬── diary_organized (1:1) ──┬─
 
 ### 背景
 
-当前日记处理流程采用 6 阶段流水线，将语音转文字的原始文本逐步整理为结构化日记：
+当前日记整理流程采用 5 阶段流水线，将语音转文字的原始文本逐步整理为结构化日记；元数据在后续分析阶段生成：
 
 ```text
 文本清洗 → 清洗审核 → 事件整理 → 三字段结构化 → 内容审核 → 输出
@@ -1248,13 +1248,13 @@ users ──┬── diaries ──┬── diary_organized (1:1) ──┬─
 
 #### 技术框架：LangGraph
 
-流水线采用 [LangGraph](https://github.com/langchain-ai/langgraph) 框架构建，将 6 阶段流水线建模为线性状态图。
+流水线采用 [LangGraph](https://github.com/langchain-ai/langgraph) 框架构建，将 5 阶段整理流水线建模为线性状态图。
 
 **核心概念映射：**
 
 | 概念 | 在本项目中的对应 |
 |---|---|
-| StateGraph | 将 6 阶段流水线建模为线性图，节点间通过 Edge 串联 |
+| StateGraph | 将 5 阶段整理流水线建模为线性图，节点间通过 Edge 串联 |
 | Node | 每个 AI 调用环节映射为一个 Node 函数，接收 State、返回 State 更新 |
 | State | 共享数据结构（TypedDict），包含所有中间产物，节点间通过 State 传递数据 |
 
@@ -1920,13 +1920,13 @@ check_log 必须包含全部 10 个检查项。
 - 能修正归类、字段、遗漏和事实问题。
 - 不能重新创作，不能改变整体表达风格。
 
-### 环节 6：元数据生成
+### 元数据生成说明（已并入分析环节 7）
 
 #### 环节定位
 
-元数据提取放在最后，基于内容审核后的最终整理结果生成展示和检索所需的元数据（标题、摘要、地点）。
+标题、摘要、地点不再作为整理流水线的独立环节，而是在分析流水线环节 7 中与心情、事件标签一次生成。输入改为整理完成后的结构化事件。
 
-它不负责内容审核，不生成 `check_log`。
+元数据输出字段仍为 `title`、`summary`、`location`，与环节 7 的 `mood`、`event_tags` 一并返回。
 
 #### 输入
 
@@ -1962,7 +1962,7 @@ check_log 必须包含全部 10 个检查项。
 #### Prompt
 
 ```text
-你是一个日记元数据提取助手。请根据审核后的日记整理结果提取元数据。
+（以下为历史独立元数据 Prompt，现已废弃；现行规则已合并至分析流水线环节 7 的 Prompt。）
 
 ## 任务目标
 生成（标题/摘要/地点）。
@@ -2072,7 +2072,7 @@ class AnalysisState(TypedDict):
 | 断点恢复 | 失败后用户重新触发分析，系统检测 checkpoint 存在，使用相同 `thread_id` 调用，LangGraph 自动从断点恢复 |
 | 清理策略 | 分析成功后主动调用 `checkpointer.adelete_thread()` 清理 checkpoint |
 
-### 环节 7：心情 + 标签提取
+### 环节 7：元数据 + 心情 + 标签提取
 
 #### 环节定位
 

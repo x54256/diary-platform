@@ -296,7 +296,7 @@ class OrganizeTaskResponse(BaseModel):
     diary_id: UUID
     status: str  # running / completed / failed
     task_type: Optional[str] = None  # organize（整理）/ analyze（分析）
-    current_step: Optional[str] = None  # text_cleaning / clean_checking / event_organizing / structuring / content_checking / metadata_extracting
+    current_step: Optional[str] = None  # text_cleaning / clean_checking / event_organizing / structuring / content_checking
     error_message: Optional[str] = None
 
 

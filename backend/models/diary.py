@@ -268,7 +268,7 @@ class OrganizeTask(Base):
     status = Column(String(20), default="running")  # running / completed / failed
     task_type = Column(String(20), default="organize")  # organize（整理）/ analyze（分析）
     analysis_mode = Column(String(20), nullable=True)  # ordinary（普通分析）/ feedback（反馈分析）
-    current_step = Column(String(50), nullable=True)  # text_cleaning / clean_checking / event_organizing / structuring / content_checking / metadata_extracting
+    current_step = Column(String(50), nullable=True)  # text_cleaning / clean_checking / event_organizing / structuring / content_checking
     error_message = Column(Text, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

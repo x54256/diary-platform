@@ -3,13 +3,12 @@
 import json
 import logging
 import uuid
-from datetime import datetime
 from typing import Any, TypedDict
 
 from langgraph.graph import END, START, StateGraph
 
 from database import SessionLocal
-from models.diary import AnalysisRun, Diary, DiaryEvent, DiaryStatus, OrganizeTask
+from models.diary import AnalysisRun, Diary, DiaryEvent, DiaryOrganized, DiaryStatus, OrganizeTask
 from models.tag import EventTag, Tag, diary_tags
 from services.analysis_history import (
     COGNITION_ANALYSIS_TYPES,
@@ -52,7 +51,10 @@ class AnalysisState(TypedDict, total=False):
     user_id: str
     person_relations: list[dict]
 
-    # ── 环节 7 产物：心情 + 标签提取 ──
+    # ── 环节 7 产物：元数据、心情 + 标签提取 ──
+    title: str
+    summary: str
+    location: str
     mood: str
     event_tags: list
 
@@ -110,30 +112,34 @@ TEXT_MARKUP_RULES = """## 重点标记规则
 5. <red> 是自定义文本标记，不是 HTML；除 **...** 和 <red>...</red> 外，不要输出其他 Markdown 或 HTML。
 """
 
-MOOD_TAG_PROMPT = """你是一个日记心情与标签提取助手。请根据结构化日记和原始文本，提取当天整体心情和事件级标签。
+MOOD_TAG_PROMPT = """你是一个日记标题、摘要、涉及地点、心情和标签的提取助手。
 
 ## 任务目标
-1. 提取当天整体心情 mood。
-2. 为每个事件提取事件级标签 event_tags，按五类分组。
+1. 生成日记标题、摘要和地点。
+2. 提取当天整体心情 mood。
+3. 为每个事件提取事件级标签 event_tags，按五类分组。
+4. 所有内容只能依据 structured_diary 生成，不补充原文没有的信息。
 
 ## 输入说明
 structured_diary 是整理后的结构化日记，是主要依据。
 
-## 心情提取规则
-1. 心情用一个短词表示当天整体情绪或状态，例如"疲惫""平静""烦躁""开心""低落""充实""焦虑""放松"。
-2. 必须有 structured_diary 中的明确线索支撑。没有明确线索则填空字符串。
+## 生成规则
+1. 标题 title：10-20 字，概括当天最主要的 1-2 条事件主线，不写营销文案或文学化标题。
+2. 摘要 summary：用 1 个自然段概括核心事件，通常 2-4 句，不加入原文没有的评价。
+3. 地点 location：提取事件中明确出现的主要地点；多个地点用中文顿号连接，没有则填空字符串。
+4. 心情 mood：用一个短词表示当天整体情绪或状态，例如"疲惫""平静""烦躁""开心""低落""充实""焦虑""放松"。
 
 ## 标签提取规则
-2. 标签类型固定为五类：domain、topic、person_object、psychological、knowledge。
-4. event_tags 必须与 structured_diary.events 一一对应，title 使用事件 title。
-6. 每种标签类型都输出数组；没有对应标签时输出空数组。同一事件、同一类型下可以有多个标签，但不要重复。
-7. 优先提取 topic、person_object、psychological、knowledge；domain 只作为辅助粗分类，数量要少。
-8. 标签必须来自 structured_diary 中的明确依据。
+1. 标签类型固定为五类：domain、topic、person_object、psychological、knowledge。
+2. event_tags 必须与 structured_diary.events 一一对应，title 使用事件 title。
+3. 每种标签类型都输出数组；没有对应标签时输出空数组。同一事件、同一类型下可以有多个标签，但不要重复。
+4. 优先提取 topic、person_object、psychological、knowledge；domain 只作为辅助粗分类，数量要少。
+5. 标签必须来自 structured_diary 中的明确依据。
 
 ## 标签类型说明
 - domain：领域标签，用于粗粒度筛选日记，例如"工作""生活""关系""健康""学习""娱乐"。
 - topic：主题标签，用于串起长期反复出现的具体事项，例如"日记管理""AI 开发""小红书爬虫""遛狗"。
-- person_object：人物标签，用于串起具体人物、关系和重要对象，例如"殷萧鹏""田总""媳妇""达达"。
+- person_object：人物标签，用于串起具体人物、关系和重要对象，例如"殷萧鹏""田总""媳妇""哒哒"。
 - psychological：心理主题标签，用于串起情绪、需求和内在模式，例如"不确定性""控制感""遗憾""无奈""成就感"。
 - knowledge：知识点标签，用于串起学习内容、方法、概念和做事方式，例如"软件工程""需求分析""原型设计""AI 辅助开发""项目管理"。
 
@@ -141,6 +147,9 @@ structured_diary 是整理后的结构化日记，是主要依据。
 请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：
 
 {
+  "title": "日记标题",
+  "summary": "摘要",
+  "location": "地点，没有则空字符串",
   "mood": "心情，没有则空字符串",
   "event_tags": [
     {
@@ -399,7 +408,7 @@ def _count_event_inner_items(event_items: Any, inner_key: str) -> int:
 
 
 async def mood_tag_extract(state: AnalysisState) -> dict:
-    """Node 1 (环节 7): 心情 + 标签提取 (temp=0.3)"""
+    """Node 1 (环节 7): 元数据、心情 + 标签提取 (temp=0.3)"""
     task_id = state["task_id"]
     started = Stopwatch()
     _update_step(task_id, "mood_tag_extract")
@@ -469,7 +478,23 @@ async def mood_tag_extract(state: AnalysisState) -> dict:
             duration_ms=started.elapsed_ms(),
         ),
     )
-    return {"mood": mood, "event_tags": validated_event_tags}
+    title = result.get("title", "")
+    summary = result.get("summary", "")
+    location = result.get("location", "")
+    if not isinstance(title, str):
+        title = ""
+    if not isinstance(summary, str):
+        summary = ""
+    if not isinstance(location, str):
+        location = ""
+
+    return {
+        "title": title,
+        "summary": summary,
+        "location": location,
+        "mood": mood,
+        "event_tags": validated_event_tags,
+    }
 
 
 async def core_analysis(state: AnalysisState) -> dict:
@@ -656,7 +681,8 @@ async def feedback_core_analysis(state: FeedbackAnalysisState) -> dict:
     if not core_input["feedback"]:
         logger.info(
             "反馈核心分析无命中内容，复用上一轮结果",
-            extra=log_extra(event="analysis.feedback.node.reused", step="feedback_core_analysis", task_id=task_id, feedback_count=0),
+            extra=log_extra(event="analysis.feedback.node.reused", step="feedback_core_analysis", task_id=task_id,
+                            feedback_count=0),
         )
         return {"merged_core": state["previous_state"]}
 
@@ -670,7 +696,8 @@ async def feedback_core_analysis(state: FeedbackAnalysisState) -> dict:
     _log_llm_response("feedback_core_analysis", core_result)
     logger.info(
         "反馈核心分析节点完成",
-        extra=log_extra(event="analysis.node.completed", step="feedback_core_analysis", task_id=task_id, feedback_count=len(core_input["feedback"]), duration_ms=started.elapsed_ms()),
+        extra=log_extra(event="analysis.node.completed", step="feedback_core_analysis", task_id=task_id,
+                        feedback_count=len(core_input["feedback"]), duration_ms=started.elapsed_ms()),
     )
     return {
         "merged_core": _merge_feedback_core(
@@ -708,7 +735,8 @@ async def feedback_cognition_analysis(state: FeedbackAnalysisState) -> dict:
     if not cognition_input["feedback"]:
         logger.info(
             "反馈认知分析无命中内容，复用上一轮结果",
-            extra=log_extra(event="analysis.feedback.node.reused", step="feedback_cognition_analysis", task_id=task_id, feedback_count=0),
+            extra=log_extra(event="analysis.feedback.node.reused", step="feedback_cognition_analysis", task_id=task_id,
+                            feedback_count=0),
         )
         return {"merged": state["merged_core"]}
 
@@ -724,7 +752,8 @@ async def feedback_cognition_analysis(state: FeedbackAnalysisState) -> dict:
     _log_llm_response("feedback_cognition_analysis", cognition_result)
     logger.info(
         "反馈认知分析节点完成",
-        extra=log_extra(event="analysis.node.completed", step="feedback_cognition_analysis", task_id=task_id, feedback_count=len(cognition_input["feedback"]), duration_ms=started.elapsed_ms()),
+        extra=log_extra(event="analysis.node.completed", step="feedback_cognition_analysis", task_id=task_id,
+                        feedback_count=len(cognition_input["feedback"]), duration_ms=started.elapsed_ms()),
     )
     return {
         "merged": _merge_feedback_cognition(
@@ -738,10 +767,10 @@ async def feedback_cognition_analysis(state: FeedbackAnalysisState) -> dict:
 # ---------------------------------------------------------------------------
 
 def _persist_tags(
-    user_id: str,
-    diary_id: str,
-    diary_organized_id: str,
-    event_tags: list,
+        user_id: str,
+        diary_id: str,
+        diary_organized_id: str,
+        event_tags: list,
 ):
     """
     将分析环节提取的标签落库：
@@ -754,7 +783,8 @@ def _persist_tags(
     started = Stopwatch()
     logger.info(
         "开始标签落库",
-        extra=log_extra(event="analysis.tags.persist_started", diary_id=diary_id, diary_organized_id=diary_organized_id, event_tag_count=_list_len(event_tags)),
+        extra=log_extra(event="analysis.tags.persist_started", diary_id=diary_id, diary_organized_id=diary_organized_id,
+                        event_tag_count=_list_len(event_tags)),
     )
     try:
         user_uuid = uuid.UUID(user_id) if isinstance(user_id, str) else user_id
@@ -862,12 +892,15 @@ def _persist_tags(
             "标签落库完成: diary_id=%s, 标签数=%d",
             diary_id,
             len(all_tag_ids),
-            extra=log_extra(event="analysis.tags.persisted", diary_id=diary_id, diary_organized_id=diary_organized_id, tag_count=len(all_tag_ids), event_count=len(events), duration_ms=started.elapsed_ms()),
+            extra=log_extra(event="analysis.tags.persisted", diary_id=diary_id, diary_organized_id=diary_organized_id,
+                            tag_count=len(all_tag_ids), event_count=len(events), duration_ms=started.elapsed_ms()),
         )
     except Exception as e:
         logger.exception(
             "标签落库失败",
-            extra=log_extra(event="analysis.tags.persist_failed", diary_id=diary_id, diary_organized_id=diary_organized_id, error_type=type(e).__name__, duration_ms=started.elapsed_ms()),
+            extra=log_extra(event="analysis.tags.persist_failed", diary_id=diary_id,
+                            diary_organized_id=diary_organized_id, error_type=type(e).__name__,
+                            duration_ms=started.elapsed_ms()),
         )
         db.rollback()
         raise
@@ -880,10 +913,10 @@ def _persist_tags(
 # ---------------------------------------------------------------------------
 
 def _save_analysis_result(
-    state: AnalysisState,
-    diary_organized_id: str,
-    feedback_source_run_id: str | None = None,
-    inherited_feedback_keys: set[tuple] | None = None,
+        state: AnalysisState,
+        diary_organized_id: str,
+        feedback_source_run_id: str | None = None,
+        inherited_feedback_keys: set[tuple] | None = None,
 ):
     """将分析结果存入历史分析表，并将新轮次标记为 CURRENT。"""
     db = SessionLocal()
@@ -902,9 +935,25 @@ def _save_analysis_result(
             inherited_feedback_keys=inherited_feedback_keys,
         )
 
+        # 环节 7 同步生成的元数据写回整理结果。
+        organized = (
+            db.query(DiaryOrganized)
+            .filter(DiaryOrganized.id == uuid.UUID(diary_organized_id))
+            .first()
+        )
+        if organized:
+            # 反馈重分析不经过环节 7，不能覆盖已有元数据。
+            if "title" in state:
+                organized.title = state.get("title", "")
+            if "summary" in state:
+                organized.summary = state.get("summary", "")
+            if "location" in state:
+                organized.location = state.get("location", "")
+
         # 更新日记状态为 analyzed
         diary = db.query(Diary).filter(Diary.id == diary_uuid).first()
-        old_status = diary.status.value if diary and hasattr(diary.status, "value") else str(diary.status) if diary else None
+        old_status = diary.status.value if diary and hasattr(diary.status, "value") else str(
+            diary.status) if diary else None
         if diary:
             diary.status = DiaryStatus.analyzed
 
@@ -928,7 +977,9 @@ def _save_analysis_result(
     except Exception as e:
         logger.exception(
             "保存分析结果失败",
-            extra=log_extra(event="analysis.result.persist_failed", diary_id=state.get("diary_id"), task_id=state.get("task_id"), error_type=type(e).__name__, duration_ms=started.elapsed_ms()),
+            extra=log_extra(event="analysis.result.persist_failed", diary_id=state.get("diary_id"),
+                            task_id=state.get("task_id"), error_type=type(e).__name__,
+                            duration_ms=started.elapsed_ms()),
         )
         db.rollback()
         raise
@@ -974,7 +1025,6 @@ FEEDBACK_CORE_ANALYSIS_OUTPUT_SCHEMA = """
 """
 
 FEEDBACK_CORE_ANALYSIS_PROMPT = CORE_ANALYSIS_RULES + "\n\n" + FEEDBACK_CORE_ANALYSIS_OUTPUT_SCHEMA
-
 
 FEEDBACK_COGNITION_ANALYSIS_OUTPUT_SCHEMA = """
 
@@ -1131,13 +1181,13 @@ def _merge_feedback_cognition(previous: dict, rewritten: dict, feedback_context:
 # ---------------------------------------------------------------------------
 
 async def run_analysis_pipeline(
-    original_text: str,
-    structured_diary: dict,
-    task_id: str,
-    diary_id: str,
-    user_id: str,
-    diary_organized_id: str,
-    feedback_source_run_id: str | None = None,
+        original_text: str,
+        structured_diary: dict,
+        task_id: str,
+        diary_id: str,
+        user_id: str,
+        diary_organized_id: str,
+        feedback_source_run_id: str | None = None,
 ) -> dict:
     """构建并执行 LangGraph 分析流水线（3 环节串行）。"""
     started = Stopwatch()
@@ -1147,7 +1197,9 @@ async def run_analysis_pipeline(
         task_id,
         diary_organized_id,
         _list_len(structured_diary.get("events")),
-        extra=log_extra(event="analysis.pipeline.started", diary_id=diary_id, task_id=task_id, diary_organized_id=diary_organized_id, event_count=_list_len(structured_diary.get("events")), feedback_source_run_id=feedback_source_run_id),
+        extra=log_extra(event="analysis.pipeline.started", diary_id=diary_id, task_id=task_id,
+                        diary_organized_id=diary_organized_id, event_count=_list_len(structured_diary.get("events")),
+                        feedback_source_run_id=feedback_source_run_id),
     )
     db = SessionLocal()
     try:
@@ -1188,6 +1240,9 @@ async def run_analysis_pipeline(
 
     # 提取结果
     analysis_result = {
+        "title": result.get("title", ""),
+        "summary": result.get("summary", ""),
+        "location": result.get("location", ""),
         "mood": result.get("mood", ""),
         "event_tags": result.get("event_tags", []),
         "event_analyses": result.get("event_analyses", []),
@@ -1205,7 +1260,8 @@ async def run_analysis_pipeline(
     except Exception as e:
         logger.exception(
             "标签落库异常（不影响分析结果返回）",
-            extra=log_extra(event="analysis.tags.degraded", diary_id=diary_id, task_id=task_id, error_type=type(e).__name__),
+            extra=log_extra(event="analysis.tags.degraded", diary_id=diary_id, task_id=task_id,
+                            error_type=type(e).__name__),
         )
 
     # 保存分析结果 + 更新日记状态
@@ -1218,35 +1274,44 @@ async def run_analysis_pipeline(
     # 清理 checkpoint 不应影响已提交的分析结果。
     try:
         await cleanup_checkpoint(task_id)
-        logger.info("分析流水线 checkpoint 已清理: diary_id=%s, task_id=%s", diary_id, task_id, extra=log_extra(event="analysis.checkpoint.cleaned", diary_id=diary_id, task_id=task_id, checkpoint_action="cleanup"))
+        logger.info("分析流水线 checkpoint 已清理: diary_id=%s, task_id=%s", diary_id, task_id,
+                    extra=log_extra(event="analysis.checkpoint.cleaned", diary_id=diary_id, task_id=task_id,
+                                    checkpoint_action="cleanup"))
     except Exception as cleanup_error:
-        logger.warning("分析流水线 checkpoint 清理失败，保留 checkpoint: diary_id=%s, task_id=%s, error=%s", diary_id, task_id, cleanup_error, extra=log_extra(event="analysis.checkpoint.cleanup_failed", diary_id=diary_id, task_id=task_id, checkpoint_action="retained", error_type=type(cleanup_error).__name__))
+        logger.warning("分析流水线 checkpoint 清理失败，保留 checkpoint: diary_id=%s, task_id=%s, error=%s", diary_id,
+                       task_id, cleanup_error,
+                       extra=log_extra(event="analysis.checkpoint.cleanup_failed", diary_id=diary_id, task_id=task_id,
+                                       checkpoint_action="retained", error_type=type(cleanup_error).__name__))
     logger.info(
         "分析流水线完成: diary_id=%s, task_id=%s, mood=%s, event_tags=%d, diary_actions=%d",
         diary_id,
         task_id,
         analysis_result["mood"],
         _list_len(analysis_result["event_tags"]),
-        _list_len(analysis_result["diary_analysis"].get("action_suggestions") if isinstance(analysis_result["diary_analysis"], dict) else []),
-        extra=log_extra(event="analysis.pipeline.completed", diary_id=diary_id, task_id=task_id, event_tag_count=_list_len(analysis_result["event_tags"]), duration_ms=started.elapsed_ms()),
+        _list_len(
+            analysis_result["diary_analysis"].get("action_suggestions") if isinstance(analysis_result["diary_analysis"],
+                                                                                      dict) else []),
+        extra=log_extra(event="analysis.pipeline.completed", diary_id=diary_id, task_id=task_id,
+                        event_tag_count=_list_len(analysis_result["event_tags"]), duration_ms=started.elapsed_ms()),
     )
 
     return analysis_result
 
 
 async def run_feedback_reanalysis_pipeline(
-    structured_diary: dict,
-    task_id: str,
-    diary_id: str,
-    user_id: str,
-    diary_organized_id: str,
-    previous_run_id: str,
+        structured_diary: dict,
+        task_id: str,
+        diary_id: str,
+        user_id: str,
+        diary_organized_id: str,
+        previous_run_id: str,
 ) -> dict:
     """基于低分文字反馈串行重写环节 8、9，不重跑心情和标签。"""
     started = Stopwatch()
     logger.info(
         "反馈重分析流水线开始",
-        extra=log_extra(event="analysis.feedback.pipeline.started", diary_id=diary_id, task_id=task_id, previous_run_id=previous_run_id),
+        extra=log_extra(event="analysis.feedback.pipeline.started", diary_id=diary_id, task_id=task_id,
+                        previous_run_id=previous_run_id),
     )
     db = SessionLocal()
     try:
@@ -1269,7 +1334,8 @@ async def run_feedback_reanalysis_pipeline(
         if not feedbacks:
             logger.warning(
                 "反馈重分析没有有效反馈",
-                extra=log_extra(event="analysis.feedback.pipeline.rejected", diary_id=diary_id, task_id=task_id, previous_run_id=previous_run_id, reason="feedback_missing"),
+                extra=log_extra(event="analysis.feedback.pipeline.rejected", diary_id=diary_id, task_id=task_id,
+                                previous_run_id=previous_run_id, reason="feedback_missing"),
             )
             raise ValueError("没有可用于反馈重写的低分文字反馈")
 
@@ -1329,12 +1395,15 @@ async def run_feedback_reanalysis_pipeline(
         await cleanup_checkpoint(task_id)
         logger.info("反馈重分析 checkpoint 已清理: diary_id=%s, task_id=%s", diary_id, task_id)
     except Exception as cleanup_error:
-        logger.warning("反馈重分析 checkpoint 清理失败，保留 checkpoint: diary_id=%s, task_id=%s, error=%s", diary_id, task_id, cleanup_error)
+        logger.warning("反馈重分析 checkpoint 清理失败，保留 checkpoint: diary_id=%s, task_id=%s, error=%s", diary_id,
+                       task_id, cleanup_error)
     logger.info(
         "反馈重分析完成: diary_id=%s, task_id=%s, feedback_count=%d",
         diary_id,
         task_id,
         len(feedback_context),
-        extra=log_extra(event="analysis.feedback.pipeline.completed", diary_id=diary_id, task_id=task_id, previous_run_id=previous_run_id, feedback_count=len(feedback_context), duration_ms=started.elapsed_ms()),
+        extra=log_extra(event="analysis.feedback.pipeline.completed", diary_id=diary_id, task_id=task_id,
+                        previous_run_id=previous_run_id, feedback_count=len(feedback_context),
+                        duration_ms=started.elapsed_ms()),
     )
     return merged
