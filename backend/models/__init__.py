@@ -22,6 +22,7 @@ from models.model_config import ModelCatalog, ApiChannel, ChannelModel, ModelSet
 from models.organize_settings import OrganizePipelineSetting
 from models.schedule import ScheduleTask, ScheduleOccurrence, ScheduleHolidayYear, ScheduleMaintenanceJob
 from models.voice_profile import AsrVocabulary, HotWord, PersonRelation
+from models.llm_call import LlmCallLog
 
 __all__ = [
     "User",
@@ -59,4 +60,5 @@ __all__ = [
     "HotWord",
     "PersonRelation",
     "AsrVocabulary",
+    "LlmCallLog",
 ]

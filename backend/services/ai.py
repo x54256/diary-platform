@@ -9,6 +9,8 @@ from datetime import datetime
 import httpx
 
 from services.model_runtime import ModelRuntimeError, resolve_model_setting
+from services.llm_metrics import prompt_token_count, record_llm_call
+from utils.log_context import Stopwatch, log_extra
 
 logger = logging.getLogger(__name__)
 
@@ -351,6 +353,11 @@ class AIService:
         if context:
             api_messages.append({"role": "system", "content": context})
         api_messages.extend(messages)
+        started = Stopwatch()
+        prompt_payload = json.dumps(api_messages, ensure_ascii=False)
+        prompt_tokens, prompt_tokens_source = prompt_token_count(
+            None, runtime_config.model_name, context, prompt_payload,
+        )
 
         try:
             response = await self.client.post(
@@ -362,13 +369,49 @@ class AIService:
                 },
             )
             response.raise_for_status()
-            return response.json()["choices"][0]["message"]["content"]
+            response_data = response.json()
+            prompt_tokens, prompt_tokens_source = prompt_token_count(
+                response_data, runtime_config.model_name, context, prompt_payload,
+            )
+            duration_ms = started.elapsed_ms()
+            record_llm_call(
+                step_name="chat",
+                model_name=runtime_config.model_name,
+                prompt_tokens=prompt_tokens,
+                prompt_tokens_source=prompt_tokens_source,
+                duration_ms=duration_ms,
+                status="success",
+            )
+            _ai_logger.info(
+                "LLM 调用统计",
+                extra=log_extra(event="llm.call.metrics", step="chat", model=runtime_config.model_name, prompt_tokens=prompt_tokens, prompt_tokens_source=prompt_tokens_source, duration_ms=duration_ms, status="success"),
+            )
+            return response_data["choices"][0]["message"]["content"]
         except httpx.HTTPStatusError as e:
+            self._record_chat_failure(runtime_config.model_name, prompt_tokens, prompt_tokens_source, started, type(e).__name__)
             logger.error("DeepSeek API 返回错误状态码: %s, 响应: %s", e.response.status_code, e.response.text)
             return "抱歉，AI 服务暂时不可用，请稍后再试。"
         except Exception as e:
+            self._record_chat_failure(runtime_config.model_name, prompt_tokens, prompt_tokens_source, started, type(e).__name__)
             logger.error("调用 DeepSeek 对话接口失败: %s", e)
             return "抱歉，AI 服务出现异常，请稍后再试。"
+
+    @staticmethod
+    def _record_chat_failure(model_name: str, prompt_tokens: int, prompt_tokens_source: str, started: Stopwatch, error_type: str) -> None:
+        duration_ms = started.elapsed_ms()
+        record_llm_call(
+            step_name="chat",
+            model_name=model_name,
+            prompt_tokens=prompt_tokens,
+            prompt_tokens_source=prompt_tokens_source,
+            duration_ms=duration_ms,
+            status="failed",
+            error_type=error_type,
+        )
+        _ai_logger.info(
+            "LLM 调用统计",
+            extra=log_extra(event="llm.call.metrics", step="chat", model=model_name, prompt_tokens=prompt_tokens, prompt_tokens_source=prompt_tokens_source, duration_ms=duration_ms, status="failed", error_type=error_type),
+        )
 
     async def _call_ai(self, system_prompt: str, user_message: str, temperature: float = 0.3) -> dict:
         """通用 AI 调用方法

@@ -26,6 +26,7 @@ from services.ai import (
 )
 from services.model_runtime import resolve_model_setting
 from services.organize_settings import get_organize_pipeline_options
+from services.llm_metrics import prompt_token_count, record_llm_call
 from utils.log_context import ContextFormatter, LogContextFilter, Stopwatch, log_extra
 
 logger = logging.getLogger(__name__)
@@ -131,6 +132,8 @@ async def _invoke_llm(llm: ChatOpenAI, system_prompt: str, user_message: str, st
     ]
     started = Stopwatch()
     model_name = getattr(llm, "model_name", None) or getattr(llm, "model", None)
+    prompt_tokens = 0
+    prompt_tokens_source = "estimated"
     logger.info(
         "LLM 调用开始",
         extra=log_extra(event="analysis.llm.started", step=step_name, model=model_name),
@@ -144,6 +147,9 @@ async def _invoke_llm(llm: ChatOpenAI, system_prompt: str, user_message: str, st
     )
     try:
         response = await llm.ainvoke(messages)
+        prompt_tokens, prompt_tokens_source = prompt_token_count(
+            response, model_name, system_prompt, user_message,
+        )
         raw_content = response.content
         _ai_logger.info(
             "[%s] 响应: %s",
@@ -161,13 +167,44 @@ async def _invoke_llm(llm: ChatOpenAI, system_prompt: str, user_message: str, st
             raise
         logger.info(
             "LLM 调用完成",
-            extra=log_extra(event="analysis.llm.completed", step=step_name, model=model_name, response_length=len(raw_content), duration_ms=started.elapsed_ms()),
+            extra=log_extra(event="analysis.llm.completed", step=step_name, model=model_name, response_length=len(raw_content), duration_ms=started.elapsed_ms(), prompt_tokens=prompt_tokens, prompt_tokens_source=prompt_tokens_source),
+        )
+        duration_ms = started.elapsed_ms()
+        record_llm_call(
+            step_name=step_name,
+            model_name=model_name,
+            prompt_tokens=prompt_tokens,
+            prompt_tokens_source=prompt_tokens_source,
+            duration_ms=duration_ms,
+            status="success",
+        )
+        _ai_logger.info(
+            "LLM 调用统计",
+            extra=log_extra(event="llm.call.metrics", step=step_name, model=model_name, prompt_tokens=prompt_tokens, prompt_tokens_source=prompt_tokens_source, duration_ms=duration_ms, status="success"),
         )
         return result
     except Exception as exc:
+        duration_ms = started.elapsed_ms()
+        if prompt_tokens == 0:
+            prompt_tokens, prompt_tokens_source = prompt_token_count(
+                None, model_name, system_prompt, user_message,
+            )
+        record_llm_call(
+            step_name=step_name,
+            model_name=model_name,
+            prompt_tokens=prompt_tokens,
+            prompt_tokens_source=prompt_tokens_source,
+            duration_ms=duration_ms,
+            status="failed",
+            error_type=type(exc).__name__,
+        )
+        _ai_logger.info(
+            "LLM 调用统计",
+            extra=log_extra(event="llm.call.metrics", step=step_name, model=model_name, prompt_tokens=prompt_tokens, prompt_tokens_source=prompt_tokens_source, duration_ms=duration_ms, status="failed", error_type=type(exc).__name__),
+        )
         logger.exception(
             "LLM 调用失败",
-            extra=log_extra(event="analysis.llm.failed", step=step_name, model=model_name, error_type=type(exc).__name__, duration_ms=started.elapsed_ms()),
+            extra=log_extra(event="analysis.llm.failed", step=step_name, model=model_name, error_type=type(exc).__name__, duration_ms=duration_ms, prompt_tokens=prompt_tokens, prompt_tokens_source=prompt_tokens_source),
         )
         raise
 
