@@ -5,6 +5,16 @@
       <template #right>
         <button
           v-if="diary && !isEditing && !isEditingStructured"
+          type="button"
+          :disabled="favoriteSaving"
+          :aria-label="diary.is_favorite ? '取消收藏日记' : '收藏日记'"
+          class="text-amber-500 text-xl leading-none disabled:opacity-50"
+          @click="toggleDiaryFavorite"
+        >
+          {{ diary.is_favorite ? '★' : '☆' }}
+        </button>
+        <button
+          v-if="diary && !isEditing && !isEditingStructured"
           @click="handleDelete"
           :disabled="deleting || organizing || analyzing"
           class="text-red-500 text-sm font-medium disabled:opacity-50"
@@ -176,6 +186,7 @@
                 v-for="event in sortedEvents"
                 :key="event.id"
                 :event="event"
+                :id="`event-${event.id}`"
                 :editable="true"
                 :analysis-run-id="diary.organized?.analysis?.id"
                 @update="onEventUpdate"
@@ -296,12 +307,15 @@
             v-for="event in sortedEvents"
             :key="event.id"
             :event="event"
+            :id="`event-${event.id}`"
             :editable="isEditingStructured"
             :analysis-run-id="diary.organized?.analysis?.id"
             :annotations="annotations"
+            :favorite-saving="favoriteSaving"
             @update="onEventUpdate"
             @annotation-select="openAnnotationSelection"
             @annotation-clicked="openAnnotationById"
+            @favorite-toggle="toggleEventFavorite"
           />
         </div>
 
@@ -358,9 +372,11 @@
         <AnalysisTab
           v-if="diary.organized?.analysis"
           :analysis="diary.organized.analysis"
-          :annotations="annotations"
+            :annotations="annotations"
+            :favorite-saving="favoriteSaving"
           @annotation-select="openAnnotationSelection"
-          @annotation-clicked="openAnnotationById"
+            @annotation-clicked="openAnnotationById"
+            @favorite-toggle="toggleEventFavorite"
         />
         <div v-else class="flex items-center justify-center py-12">
           <span class="text-sm text-neutral-400">暂无分析数据</span>
@@ -594,6 +610,7 @@ const diary = ref<Diary | null>(null)
 const loading = ref(true)
 const activeTab = ref<'diary' | 'analysis'>('diary')
 const annotations = ref<DiaryAnnotation[]>([])
+const favoriteSaving = ref(false)
 
 const annotationPanelOpen = ref(false)
 const selectionToolbarOpen = ref(false)
@@ -882,12 +899,52 @@ const loadDiary = async () => {
   try {
     diary.value = await api<Diary>(`/diaries/${diaryId.value}`)
     await loadAnnotations()
+    const eventId = route.query.event as string | undefined
+    if (eventId) {
+      await nextTick()
+      const target = document.getElementById(`event-${eventId}`)
+      target?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      if (target) {
+        target.classList.add('favorite-event-highlight')
+        window.setTimeout(() => target.classList.remove('favorite-event-highlight'), 1600)
+      }
+    }
   } catch (err) {
     console.error('加载日记失败', err)
     diary.value = null
     annotations.value = []
   } finally {
     loading.value = false
+  }
+}
+
+const toggleDiaryFavorite = async () => {
+  if (!diary.value || favoriteSaving.value) return
+  favoriteSaving.value = true
+  try {
+    const action = diary.value.is_favorite ? 'DELETE' : 'PUT'
+    await api(`/diaries/${diary.value.id}/favorite`, { method: action })
+    diary.value.is_favorite = !diary.value.is_favorite
+  } catch (err) {
+    console.error('切换日记收藏失败', err)
+  } finally {
+    favoriteSaving.value = false
+  }
+}
+
+const toggleEventFavorite = async (eventId: string) => {
+  if (!diary.value || favoriteSaving.value) return
+  const event = diary.value.organized?.events.find(item => item.id === eventId)
+  if (!event) return
+  favoriteSaving.value = true
+  try {
+    const action = event.is_favorite ? 'DELETE' : 'PUT'
+    await api(`/diaries/${diary.value.id}/events/${eventId}/favorite`, { method: action })
+    event.is_favorite = !event.is_favorite
+  } catch (err) {
+    console.error('切换事件收藏失败', err)
+  } finally {
+    favoriteSaving.value = false
   }
 }
 
@@ -1282,19 +1339,18 @@ const analyzeMode = ref<'ordinary' | 'feedback'>('ordinary')
 
 const ANALYZE_STEP_LABELS: Record<'ordinary' | 'feedback', Record<string, string>> = {
   ordinary: {
-    mood_tag_extract: '环节 7：元数据、心情与标签提取',
-    core_analysis: '环节 8：核心分析与可行动建议',
-    cognition_analysis: '环节 9：认知校准、问题解答与认知完善',
-    saving_result: '保存分析结果',
+    mood_tag_extract: '元数据、心情与标签提取',
+    core_analysis: '核心分析与可行动建议',
+    cognition_analysis: '认知校准、问题解答与认知完善',
   },
   feedback: {
-    feedback_core_analysis: '反馈版环节 8：核心分析与可行动建议',
-    feedback_cognition_analysis: '反馈版环节 9：认知校准、问题解答与认知完善',
-    saving_result: '保存分析结果',
+    feedback_core_analysis: '核心分析与可行动建议',
+    feedback_cognition_analysis: '认知校准、问题解答与认知完善',
   },
 }
 
 const formatAnalyzeStep = (stepKey: string) => {
+  if (stepKey === 'saving_result') return '正在保存分析结果'
   const labels = ANALYZE_STEP_LABELS[analyzeMode.value]
   const stepKeys = Object.keys(labels)
   const idx = stepKeys.indexOf(stepKey)

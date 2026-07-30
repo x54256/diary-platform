@@ -26,10 +26,11 @@ from models.diary import (
     DiaryStatus,
     OrganizeTask,
 )
+from models.favorite import Favorite
 from models.tag import EventTag, Tag, diary_tags
 from models.user import User
 
-BACKUP_SCHEMA_VERSION = 2
+BACKUP_SCHEMA_VERSION = 3
 BACKUP_TABLES = [
     "users",
     "diaries",
@@ -42,6 +43,7 @@ BACKUP_TABLES = [
     "tags",
     "diary_tags",
     "event_tags",
+    "favorites",
 ]
 
 MODEL_BY_TABLE = {
@@ -55,6 +57,7 @@ MODEL_BY_TABLE = {
     "analysis_feedback": AnalysisFeedback,
     "tags": Tag,
     "event_tags": EventTag,
+    "favorites": Favorite,
 }
 
 IMPORT_ORDER = [
@@ -69,6 +72,7 @@ IMPORT_ORDER = [
     "tags",
     "diary_tags",
     "event_tags",
+    "favorites",
 ]
 
 _default_backup_root = Path(__file__).resolve().parent.parent
@@ -197,6 +201,12 @@ def table_rows(
         organized_ids = db.query(DiaryOrganized.id).filter(DiaryOrganized.diary_id.in_(diary_ids))
         event_ids = db.query(DiaryEvent.id).filter(DiaryEvent.diary_organized_id.in_(organized_ids))
         rows = db.query(EventTag).filter(EventTag.diary_event_id.in_(event_ids)).all()
+    elif table_name == "favorites":
+        organized_ids = db.query(DiaryOrganized.id).filter(DiaryOrganized.diary_id.in_(diary_ids))
+        event_ids = db.query(DiaryEvent.id).filter(DiaryEvent.diary_organized_id.in_(organized_ids))
+        rows = db.query(Favorite).filter(
+            (Favorite.diary_id.in_(diary_ids)) | (Favorite.event_id.in_(event_ids))
+        ).all()
     else:
         rows = []
     return [row_to_dict(row) for row in rows]
@@ -341,6 +351,7 @@ def check_parent_exists(db: Session, table_name: str, row: Dict[str, Any]) -> Op
         "tags": [("users", User, "user_id")],
         "diary_tags": [("diaries", Diary, "diary_id"), ("tags", Tag, "tag_id")],
         "event_tags": [("diary_events", DiaryEvent, "diary_event_id"), ("tags", Tag, "tag_id")],
+        "favorites": [("users", User, "user_id"), ("diaries", Diary, "diary_id"), ("diary_events", DiaryEvent, "event_id")],
     }
     for label, model, field in checks.get(table_name, []):
         if row.get(field) is None:
@@ -379,6 +390,7 @@ def check_parent_exists_for_precheck(
         "tags": [("users", User, "user_id")],
         "diary_tags": [("diaries", Diary, "diary_id"), ("tags", Tag, "tag_id")],
         "event_tags": [("diary_events", DiaryEvent, "diary_event_id"), ("tags", Tag, "tag_id")],
+        "favorites": [("users", User, "user_id"), ("diaries", Diary, "diary_id"), ("diary_events", DiaryEvent, "event_id")],
     }
     for label, model, field in checks.get(table_name, []):
         if row.get(field) is None:

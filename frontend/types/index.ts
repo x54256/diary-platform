@@ -55,6 +55,7 @@ export interface Diary {
   updated_at?: string
   organized?: DiaryOrganized | null
   tags?: Tag[]
+  is_favorite: boolean
 }
 
 // 标签类型
@@ -133,6 +134,15 @@ export interface DiaryEvent {
   sort_order: number
   tags: Tag[]
   analysis: AnalysisSection[] | null
+  is_favorite: boolean
+}
+
+export interface FavoriteItem {
+  id: string
+  favorite_type: 'diary' | 'event'
+  created_at: string
+  diary: Diary
+  event: DiaryEvent | null
 }
 
 export type DiaryAnnotationTargetType =

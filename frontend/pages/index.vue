@@ -3,9 +3,11 @@
     <!-- 顶部月份导航 -->
     <div class="sticky top-0 z-30 bg-white border-b border-neutral-200">
       <div class="flex items-center justify-between px-4 h-nav">
-        <button @click="changeMonth(-1)" class="text-neutral-400 text-lg w-8 h-8 flex items-center justify-center">‹</button>
-        <span class="text-base font-medium text-neutral-800">{{ currentYear }}年{{ currentMonth }}月</span>
-        <button @click="changeMonth(1)" class="text-neutral-400 text-lg w-8 h-8 flex items-center justify-center">›</button>
+        <button v-if="viewMode !== 'favorites'" @click="changeMonth(-1)" class="text-neutral-400 text-lg w-8 h-8 flex items-center justify-center">‹</button>
+        <span v-else class="w-8 h-8" aria-hidden="true" />
+        <span class="text-base font-medium text-neutral-800">{{ viewMode === 'favorites' ? '我的收藏' : `${currentYear}年${currentMonth}月` }}</span>
+        <button v-if="viewMode !== 'favorites'" @click="changeMonth(1)" class="text-neutral-400 text-lg w-8 h-8 flex items-center justify-center">›</button>
+        <span v-else class="w-8 h-8" aria-hidden="true" />
       </div>
     </div>
 
@@ -48,7 +50,7 @@
       </div>
     </div>
 
-    <!-- 视图切换：日历 / 时间线 -->
+    <!-- 视图切换：日历 / 时间线 / 收藏 -->
     <div v-if="searchResults === null" class="px-4 flex gap-2 mb-3">
       <button
         v-for="mode in viewModes"
@@ -63,6 +65,55 @@
       >
         {{ mode.label }}
       </button>
+    </div>
+
+    <!-- 收藏视图 -->
+    <div v-if="searchResults === null && viewMode === 'favorites'" class="flex-1 px-4 pb-20">
+      <div class="flex gap-2 mb-3">
+        <button
+          v-for="filter in favoriteFilters"
+          :key="filter.key"
+          type="button"
+          class="px-3 py-1 rounded-full text-xs"
+          :class="favoriteFilter === filter.key ? 'bg-primary-600 text-white' : 'bg-neutral-100 text-neutral-500'"
+          @click="favoriteFilter = filter.key"
+        >
+          {{ filter.label }}
+        </button>
+      </div>
+      <div v-if="favoritesLoading" class="text-center text-sm text-neutral-400 py-6">加载中...</div>
+      <div v-else-if="filteredFavorites.length === 0" class="text-center text-sm text-neutral-400 py-10">
+        还没有收藏的日记或事件
+      </div>
+      <div v-else class="space-y-3">
+        <NuxtLink
+          v-for="item in filteredFavorites"
+          :key="item.id"
+          :to="favoriteLink(item)"
+          class="block bg-white rounded-lg p-3 active:bg-neutral-50"
+        >
+          <template v-if="item.favorite_type === 'diary'">
+            <div class="flex items-center justify-between gap-3">
+              <span class="text-xs font-medium text-amber-600">★ 日记</span>
+              <span class="text-xs text-neutral-400">{{ item.diary.diary_date }}</span>
+            </div>
+            <div class="mt-1 text-sm font-medium text-neutral-800">{{ item.diary.organized?.title || '无标题日记' }}</div>
+            <div v-if="item.diary.organized?.summary" class="mt-1 text-xs text-neutral-500 line-clamp-2">
+              {{ item.diary.organized.summary }}
+            </div>
+            <div v-else class="mt-1 text-xs text-neutral-500 line-clamp-2">{{ item.diary.original_text }}</div>
+          </template>
+          <template v-else-if="item.event">
+            <div class="flex items-center justify-between gap-3">
+              <span class="text-xs font-medium text-amber-600">★ 事件</span>
+              <span class="text-xs text-neutral-400">{{ item.diary.diary_date }}</span>
+            </div>
+            <div class="mt-1 text-sm font-medium text-neutral-800">{{ item.event.event_title || '未命名事件' }}</div>
+            <div class="mt-1 text-xs text-neutral-500 line-clamp-2">{{ eventPreview(item.event) }}</div>
+            <div class="mt-2 text-xs text-neutral-400">来自《{{ item.diary.organized?.title || '无标题日记' }}》</div>
+          </template>
+        </NuxtLink>
+      </div>
     </div>
 
     <!-- 日历视图 -->
@@ -186,10 +237,11 @@ const searchQuery = ref('')
 const searchResults = ref<Diary[] | null>(null)
 
 // 视图模式
-const viewMode = ref<'calendar' | 'timeline'>('calendar')
+const viewMode = ref<'calendar' | 'timeline' | 'favorites'>('calendar')
 const viewModes = [
   { key: 'calendar' as const, label: '日历' },
   { key: 'timeline' as const, label: '时间线' },
+  { key: 'favorites' as const, label: '★ 收藏' },
 ]
 
 // 星期标题
@@ -210,6 +262,17 @@ const totalMonthCount = computed(() => {
 // 时间线日记列表
 const diaries = ref<Diary[]>([])
 const timelineLoading = ref(false)
+const favorites = ref<FavoriteItem[]>([])
+const favoritesLoading = ref(false)
+const favoriteFilter = ref<'all' | 'diary' | 'event'>('all')
+const favoriteFilters = [
+  { key: 'all' as const, label: '全部' },
+  { key: 'diary' as const, label: '日记' },
+  { key: 'event' as const, label: '事件' },
+]
+const filteredFavorites = computed(() => favoriteFilter.value === 'all'
+  ? favorites.value
+  : favorites.value.filter(item => item.favorite_type === favoriteFilter.value))
 
 // 日历单元格
 const calendarCells = computed(() => {
@@ -305,6 +368,24 @@ const loadTimeline = async () => {
     timelineLoading.value = false
   }
 }
+
+const loadFavorites = async () => {
+  favoritesLoading.value = true
+  try {
+    favorites.value = await api<FavoriteItem[]>('/diaries/favorites')
+  } catch (err) {
+    console.error('加载收藏失败', err)
+    favorites.value = []
+  } finally {
+    favoritesLoading.value = false
+  }
+}
+
+const eventPreview = (event: DiaryEvent) => event.body?.join(' ') || event.feeling?.join(' ') || '暂无事件正文'
+
+const favoriteLink = (item: FavoriteItem) => item.favorite_type === 'event' && item.event
+  ? `/diary/${item.diary.id}?event=${item.event.id}`
+  : `/diary/${item.diary.id}`
 
 const dateStringForDay = (day: number) => {
   return `${currentYear.value}-${String(currentMonth.value).padStart(2, '0')}-${String(day).padStart(2, '0')}`
@@ -483,6 +564,9 @@ const statusLabel = (status: string) => {
 watch(viewMode, (newMode) => {
   if (newMode === 'timeline' && diaries.value.length === 0) {
     loadTimeline()
+  }
+  if (newMode === 'favorites') {
+    loadFavorites()
   }
 })
 

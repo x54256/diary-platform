@@ -95,6 +95,11 @@
   color: #171717;
 }
 
+.favorite-event-highlight {
+  box-shadow: 0 0 0 2px #f59e0b;
+  transition: box-shadow 240ms ease-out;
+}
+
 .analysis-danger {
   color: #dc2626;
   font-weight: 600;

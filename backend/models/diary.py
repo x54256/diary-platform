@@ -48,6 +48,7 @@ class Diary(Base):
     tags = relationship("Tag", secondary="diary_tags", back_populates="diaries")
     # 历史分析轮次（1:N）
     analysis_runs = relationship("AnalysisRun", back_populates="diary", cascade="all, delete-orphan")
+    favorites = relationship("Favorite", back_populates="diary", cascade="all, delete-orphan")
 
 
 class DiaryOrganized(Base):
@@ -167,6 +168,7 @@ class DiaryEvent(Base):
     organized = relationship("DiaryOrganized", back_populates="events")
     # M:N 关系，事件标签
     tags = relationship("Tag", secondary="event_tags", back_populates="events")
+    favorites = relationship("Favorite", back_populates="event", cascade="all, delete-orphan")
 
 
 class DiaryAnnotation(Base):

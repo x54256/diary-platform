@@ -123,6 +123,7 @@ class DiaryEventResponse(BaseModel):
     analysis: Optional[list[AnalysisSectionResponse]] = None
     sort_order: int = 0
     tags: list[TagResponse] = []
+    is_favorite: bool = False
 
     @field_validator("body", "feeling", "reflection", "event_tags", mode="before")
     @classmethod
@@ -186,11 +187,28 @@ class DiaryResponse(BaseModel):
     updated_at: datetime
     organized: Optional[DiaryOrganizedResponse] = None
     tags: list[TagResponse] = []
+    is_favorite: bool = False
 
     model_config = ConfigDict(from_attributes=True)
 
     @field_serializer("created_at", "updated_at")
     def serialize_datetime(self, value: datetime):
+        return serialize_utc_datetime(value)
+
+
+class FavoriteResponse(BaseModel):
+    """收藏列表项。事件收藏始终附带所属日记，便于跳转定位。"""
+
+    id: UUID
+    favorite_type: Literal["diary", "event"]
+    created_at: datetime
+    diary: DiaryResponse
+    event: Optional[DiaryEventResponse] = None
+
+    model_config = ConfigDict(from_attributes=True)
+
+    @field_serializer("created_at")
+    def serialize_created_at(self, value: datetime):
         return serialize_utc_datetime(value)
 
 

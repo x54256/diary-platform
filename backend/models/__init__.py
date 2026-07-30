@@ -23,6 +23,7 @@ from models.organize_settings import OrganizePipelineSetting
 from models.schedule import ScheduleTask, ScheduleOccurrence, ScheduleHolidayYear, ScheduleMaintenanceJob
 from models.voice_profile import AsrVocabulary, HotWord, PersonRelation
 from models.llm_call import LlmCallLog
+from models.favorite import Favorite
 
 __all__ = [
     "User",
@@ -62,4 +63,5 @@ __all__ = [
     "PersonRelation",
     "AsrVocabulary",
     "LlmCallLog",
+    "Favorite",
 ]

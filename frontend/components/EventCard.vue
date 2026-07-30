@@ -10,9 +10,21 @@
     <template v-else>
       <!-- 查看模式：始终展开，不可折叠 -->
       <div class="px-4 py-3">
-        <div class="text-base font-medium text-neutral-800">
-            {{ event.event_title || '未命名事件' }}
+        <div class="flex items-start justify-between gap-3">
+          <div class="text-base font-medium text-neutral-800">
+              {{ event.event_title || '未命名事件' }}
           </div>
+          <button
+            type="button"
+            class="shrink-0 -mr-1 -mt-1 w-8 h-8 text-lg leading-none text-amber-500 disabled:opacity-50"
+            :aria-label="event.is_favorite ? '取消收藏事件' : '收藏事件'"
+            :title="event.is_favorite ? '取消收藏' : '收藏'"
+            :disabled="favoriteSaving"
+            @click.stop="emit('favorite-toggle', event.id)"
+          >
+            {{ event.is_favorite ? '★' : '☆' }}
+          </button>
+        </div>
         <!-- 事件标签（按类别排序） -->
         <div v-if="sortedTags.length > 0" class="flex flex-wrap mt-1.5">
           <TagBadge v-for="tag in sortedTags" :key="tag.id" :tag="tag" />
@@ -132,12 +144,14 @@ const props = defineProps<{
   editable?: boolean
   analysisRunId?: string
   annotations?: DiaryAnnotation[]
+  favoriteSaving?: boolean
 }>()
 
 const emit = defineEmits<{
   (e: 'update', data: any): void
   (e: 'annotation-select', selection: DiaryAnnotationSelection): void
   (e: 'annotation-clicked', payload: DiaryAnnotationClick): void
+  (e: 'favorite-toggle', eventId: string): void
 }>()
 
 const annotations = computed(() => props.annotations || [])

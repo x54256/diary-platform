@@ -22,6 +22,7 @@ from models.diary import (
     DiaryOrganized,
     DiaryStatus,
 )
+from models.favorite import Favorite
 from models.tag import EventTag, Tag, diary_tags
 from models.user import User
 from schemas.diary import (
@@ -32,6 +33,7 @@ from schemas.diary import (
     DiaryResponse,
     DiaryTagsUpdate,
     DiaryUpdate,
+    FavoriteResponse,
     AnalysisFeedbackResponse,
     AnalysisFeedbackUpsert,
     DiaryAnnotationCommentUpsert,
@@ -71,7 +73,21 @@ def parse_json_value(value, default):
     return value
 
 
-def serialize_event(event: DiaryEvent, current_run: AnalysisRun | None, user_id: UUID) -> dict:
+def is_diary_favorite(diary_id: UUID, user_id: UUID, db: Session) -> bool:
+    return db.query(Favorite.id).filter(
+        Favorite.user_id == user_id,
+        Favorite.diary_id == diary_id,
+    ).first() is not None
+
+
+def is_event_favorite(event_id: UUID, user_id: UUID, db: Session) -> bool:
+    return db.query(Favorite.id).filter(
+        Favorite.user_id == user_id,
+        Favorite.event_id == event_id,
+    ).first() is not None
+
+
+def serialize_event(event: DiaryEvent, current_run: AnalysisRun | None, user_id: UUID, db: Session) -> dict:
     return {
         "id": event.id,
         "event_title": event.event_title,
@@ -82,10 +98,11 @@ def serialize_event(event: DiaryEvent, current_run: AnalysisRun | None, user_id:
         "analysis": build_sections(current_run, user_id, "EVENT", event.id),
         "sort_order": event.sort_order,
         "tags": event.tags,
+        "is_favorite": is_event_favorite(event.id, user_id, db),
     }
 
 
-def serialize_organized(organized: DiaryOrganized | None, current_run: AnalysisRun | None, user_id: UUID) -> dict | None:
+def serialize_organized(organized: DiaryOrganized | None, current_run: AnalysisRun | None, user_id: UUID, db: Session) -> dict | None:
     if not organized:
         return None
     return {
@@ -99,7 +116,7 @@ def serialize_organized(organized: DiaryOrganized | None, current_run: AnalysisR
         "trivia": parse_json_value(organized.trivia, []),
         "plans": parse_json_value(organized.plans, []),
         "events": [
-            serialize_event(event, current_run, user_id)
+            serialize_event(event, current_run, user_id, db)
             for event in sorted(organized.events, key=lambda item: item.sort_order)
         ],
         "check_logs": organized.check_logs,
@@ -122,8 +139,9 @@ def serialize_diary(diary: Diary, db: Session, user_id: UUID) -> dict:
         "deleted_by": diary.deleted_by,
         "created_at": diary.created_at,
         "updated_at": diary.updated_at,
-        "organized": serialize_organized(diary.organized, current_run, user_id),
+        "organized": serialize_organized(diary.organized, current_run, user_id, db),
         "tags": diary.tags,
+        "is_favorite": is_diary_favorite(diary.id, user_id, db),
     }
 
 
@@ -549,6 +567,129 @@ def search_diaries(
     return [serialize_diary(diary, db, current_user.id) for diary in diaries]
 
 
+def serialize_favorite(favorite: Favorite, db: Session, user_id: UUID) -> dict:
+    """将收藏统一转换为日记或事件列表项。"""
+    if favorite.diary_id:
+        diary = favorite.diary
+        event = None
+        favorite_type = "diary"
+    else:
+        event = favorite.event
+        diary = event.organized.diary if event and event.organized else None
+        favorite_type = "event"
+
+    if diary is None:
+        raise ValueError("收藏目标缺少所属日记")
+
+    current_run = get_current_analysis_run(db, diary.id)
+    return {
+        "id": favorite.id,
+        "favorite_type": favorite_type,
+        "created_at": favorite.created_at,
+        "diary": serialize_diary(diary, db, user_id),
+        "event": serialize_event(event, current_run, user_id, db) if event else None,
+    }
+
+
+@router.get("/favorites", response_model=list[FavoriteResponse])
+def list_favorites(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """获取当前用户收藏的日记与事件，按所属日记日期倒序排列。"""
+    favorites = (
+        db.query(Favorite)
+        .filter(Favorite.user_id == current_user.id)
+        .all()
+    )
+
+    valid_favorites: list[tuple[Favorite, Diary]] = []
+    for favorite in favorites:
+        diary = favorite.diary if favorite.diary_id else (
+            favorite.event.organized.diary if favorite.event and favorite.event.organized else None
+        )
+        if diary and diary.deleted_at is None:
+            valid_favorites.append((favorite, diary))
+
+    valid_favorites.sort(
+        key=lambda item: (item[1].diary_date, item[0].created_at),
+        reverse=True,
+    )
+    return [serialize_favorite(favorite, db, current_user.id) for favorite, _ in valid_favorites]
+
+
+@router.put("/{diary_id}/favorite", status_code=status.HTTP_204_NO_CONTENT)
+def favorite_diary(
+    diary_id: UUID,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """收藏日记；重复请求保持幂等。"""
+    get_owned_diary(diary_id, db, current_user)
+    existing = db.query(Favorite.id).filter(
+        Favorite.user_id == current_user.id,
+        Favorite.diary_id == diary_id,
+    ).first()
+    if not existing:
+        db.add(Favorite(user_id=current_user.id, diary_id=diary_id))
+        db.commit()
+
+
+@router.delete("/{diary_id}/favorite", status_code=status.HTTP_204_NO_CONTENT)
+def unfavorite_diary(
+    diary_id: UUID,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """取消收藏日记；目标不存在或未收藏时均返回成功。"""
+    db.query(Favorite).filter(
+        Favorite.user_id == current_user.id,
+        Favorite.diary_id == diary_id,
+    ).delete(synchronize_session=False)
+    db.commit()
+
+
+@router.put("/{diary_id}/events/{event_id}/favorite", status_code=status.HTTP_204_NO_CONTENT)
+def favorite_event(
+    diary_id: UUID,
+    event_id: UUID,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """收藏日记内事件；重复请求保持幂等。"""
+    diary = get_owned_diary(diary_id, db, current_user)
+    event = (
+        db.query(DiaryEvent)
+        .filter(DiaryEvent.id == event_id, DiaryEvent.diary_organized_id == diary.organized.id)
+        .first()
+        if diary.organized else None
+    )
+    if not event:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="事件不存在")
+    existing = db.query(Favorite.id).filter(
+        Favorite.user_id == current_user.id,
+        Favorite.event_id == event_id,
+    ).first()
+    if not existing:
+        db.add(Favorite(user_id=current_user.id, event_id=event_id))
+        db.commit()
+
+
+@router.delete("/{diary_id}/events/{event_id}/favorite", status_code=status.HTTP_204_NO_CONTENT)
+def unfavorite_event(
+    diary_id: UUID,
+    event_id: UUID,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """取消收藏事件；目标不存在或未收藏时均返回成功。"""
+    db.query(Favorite).filter(
+        Favorite.user_id == current_user.id,
+        Favorite.event_id == event_id,
+    ).delete(synchronize_session=False)
+    db.commit()
+
+
 @router.put("/analysis-feedback", response_model=AnalysisFeedbackResponse)
 def upsert_analysis_feedback(
     feedback_data: AnalysisFeedbackUpsert,
@@ -949,6 +1090,12 @@ def delete_diary(
 
     diary.deleted_at = datetime.utcnow()
     diary.deleted_by = current_user.id
+    db.query(Favorite).filter(Favorite.diary_id == diary_id).delete(synchronize_session=False)
+    event_ids = db.query(DiaryEvent.id).filter(
+        DiaryEvent.diary_organized_id == diary.organized.id
+    ) if diary.organized else []
+    if diary.organized:
+        db.query(Favorite).filter(Favorite.event_id.in_(event_ids)).delete(synchronize_session=False)
     db.commit()
 
 
@@ -1072,20 +1219,52 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
             plans=result.get("plans"),
         )
 
-        # 创建 DiaryOrganized 记录
-        organized = DiaryOrganized(
-            task_id=task_id,
-            diary_id=diary_id,
-            title=result["title"],
-            summary=result["summary"],
-            content=content,
-            location=result["location"],
-            introduction=result.get("introduction", ""),
-            trivia=json.dumps(result.get("trivia", []), ensure_ascii=False),
-            plans=json.dumps(result.get("plans", []), ensure_ascii=False),
-        )
-        db.add(organized)
-        db.flush()
+        # 已整理日记再次整理时复用一对一的整理记录，并清除会被替换的旧事件。
+        organized = db.query(DiaryOrganized).filter(DiaryOrganized.diary_id == diary_id).first()
+        if organized:
+            old_event_ids = [event.id for event in organized.events]
+            if old_event_ids:
+                annotation_ids = [item[0] for item in db.query(DiaryAnnotation.id).filter(
+                    DiaryAnnotation.event_id.in_(old_event_ids)
+                ).all()]
+                if annotation_ids:
+                    db.query(DiaryAnnotationComment).filter(
+                        DiaryAnnotationComment.annotation_id.in_(annotation_ids)
+                    ).delete(synchronize_session=False)
+                    db.query(DiaryAnnotation).filter(
+                        DiaryAnnotation.id.in_(annotation_ids)
+                    ).delete(synchronize_session=False)
+                db.query(Favorite).filter(Favorite.event_id.in_(old_event_ids)).delete(synchronize_session=False)
+                db.query(EventTag).filter(EventTag.diary_event_id.in_(old_event_ids)).delete(synchronize_session=False)
+                db.query(DiaryEvent).filter(DiaryEvent.id.in_(old_event_ids)).delete(synchronize_session=False)
+            db.query(DiaryCheckLog).filter(
+                DiaryCheckLog.diary_organized_id == organized.id
+            ).delete(synchronize_session=False)
+            db.query(DiaryCleanCheckLog).filter(
+                DiaryCleanCheckLog.diary_organized_id == organized.id
+            ).delete(synchronize_session=False)
+            organized.task_id = task_id
+            organized.title = result["title"]
+            organized.summary = result["summary"]
+            organized.content = content
+            organized.location = result["location"]
+            organized.introduction = result.get("introduction", "")
+            organized.trivia = json.dumps(result.get("trivia", []), ensure_ascii=False)
+            organized.plans = json.dumps(result.get("plans", []), ensure_ascii=False)
+        else:
+            organized = DiaryOrganized(
+                task_id=task_id,
+                diary_id=diary_id,
+                title=result["title"],
+                summary=result["summary"],
+                content=content,
+                location=result["location"],
+                introduction=result.get("introduction", ""),
+                trivia=json.dumps(result.get("trivia", []), ensure_ascii=False),
+                plans=json.dumps(result.get("plans", []), ensure_ascii=False),
+            )
+            db.add(organized)
+            db.flush()
 
         # 创建 DiaryEvent 记录（event_tags 留空，由分析阶段产出）
         for i, event in enumerate(result["events"]):
@@ -1578,7 +1757,7 @@ def update_organized(
 
     db.commit()
     db.refresh(organized)
-    return serialize_organized(organized, get_current_analysis_run(db, diary.id), current_user.id)
+    return serialize_organized(organized, get_current_analysis_run(db, diary.id), current_user.id, db)
 
 
 @router.put("/{diary_id}/events/{event_id}", response_model=DiaryEventResponse)
@@ -1648,7 +1827,7 @@ def update_diary_event(
 
     db.commit()
     db.refresh(event)
-    return serialize_event(event, get_current_analysis_run(db, diary.id), current_user.id)
+    return serialize_event(event, get_current_analysis_run(db, diary.id), current_user.id, db)
 
 
 @router.put("/{diary_id}/tags", response_model=DiaryResponse)
