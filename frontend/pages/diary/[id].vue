@@ -774,13 +774,17 @@ const updateSelectionToolbarPosition = () => {
   const toolbarWidth = 128
   const toolbarHeight = 56
   const gap = 8
+  const isMobile = window.matchMedia('(max-width: 767px)').matches
   const left = Math.min(
     Math.max(gap, rect.left + (rect.width - toolbarWidth) / 2),
     window.innerWidth - toolbarWidth - gap,
   )
-  const top = rect.top >= toolbarHeight + gap
-    ? rect.top - toolbarHeight - gap
-    : Math.min(rect.bottom + gap, window.innerHeight - toolbarHeight - gap)
+  // 手机浏览器的原生选中文单通常紧贴选区下方，预留其高度后再放置应用操作栏。
+  const top = isMobile
+    ? Math.min(rect.bottom + 40, window.innerHeight - toolbarHeight - gap)
+    : rect.top >= toolbarHeight + gap
+      ? rect.top - toolbarHeight - gap
+      : Math.min(rect.bottom + gap, window.innerHeight - toolbarHeight - gap)
   selectionToolbarStyle.value = {
     top: `${Math.max(gap, top)}px`,
     left: `${Math.max(gap, left)}px`,
@@ -841,10 +845,16 @@ const closeSelectionToolbar = () => {
   }
 }
 
+const clearNativeSelection = () => {
+  window.getSelection()?.removeAllRanges()
+}
+
 const handleDocumentPointerDown = (event: PointerEvent) => {
   if (!selectionToolbarOpen.value) return
   const target = event.target as Node | null
   if (target && selectionToolbarRef.value?.contains(target)) return
+  // 选区保留时，卡片内后续 touchend 会把旧选区再次识别为新的批注选择。
+  clearNativeSelection()
   if (annotationActionOpen.value) closeAnnotationAction()
   else closeSelectionToolbar()
 }
