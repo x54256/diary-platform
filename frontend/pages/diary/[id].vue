@@ -1,5 +1,5 @@
 <template>
-  <div class="h-dvh flex flex-col overflow-hidden">
+  <div class="relative h-dvh flex flex-col overflow-hidden">
     <!-- 顶部导航栏 -->
     <NavBar :title="diaryTitle" :show-back="true">
       <template #right>
@@ -134,8 +134,36 @@
         </div>
       </div>
 
+      <!-- 原事件标题滚出内容区后显示；完整复用原标题行的布局与收藏操作。 -->
+      <div
+        v-if="stickyEvent && activeTab === 'diary' && !isEditing && !isEditingStructured"
+        class="absolute inset-x-0 z-30 border-b border-neutral-200 bg-white"
+        :style="{ top: `${diaryContentTop}px` }"
+      >
+        <div class="flex items-start justify-between gap-3 px-4 py-3">
+          <div class="text-base font-medium text-neutral-800">
+            {{ stickyEvent.event_title || '未命名事件' }}
+          </div>
+          <button
+            type="button"
+            class="shrink-0 -mr-1 -mt-1 w-8 h-8 text-lg leading-none text-amber-500 disabled:opacity-50"
+            :aria-label="stickyEvent.is_favorite ? '取消收藏事件' : '收藏事件'"
+            :title="stickyEvent.is_favorite ? '取消收藏' : '收藏'"
+            :disabled="favoriteSaving"
+            @click.stop="toggleEventFavorite(stickyEvent.id)"
+          >
+            {{ stickyEvent.is_favorite ? '★' : '☆' }}
+          </button>
+        </div>
+      </div>
+
       <!-- 日记 Tab 内容 -->
-      <div v-show="activeTab === 'diary'" class="flex-1 min-h-0 overflow-y-auto px-4 py-3 pb-24">
+      <div
+        v-show="activeTab === 'diary'"
+        ref="diaryContentRef"
+        class="flex-1 min-h-0 overflow-y-auto px-4 py-3 pb-24"
+        @scroll="updateStickyEventTitle"
+      >
         <!-- 编辑保存成功提示 -->
         <div
           v-if="editSaveMessage"
@@ -589,7 +617,7 @@
 <script setup lang="ts">
 // 日记详情页：支持双 Tab（日记 + 分析）
 
-import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { resizeTextarea, resizeTextareas } from '~/composables/useAutoResizeTextarea'
 import type { DiaryAnnotation, DiaryAnnotationClick, DiaryAnnotationSelection } from '~/types'
 
@@ -611,6 +639,9 @@ const loading = ref(true)
 const activeTab = ref<'diary' | 'analysis'>('diary')
 const annotations = ref<DiaryAnnotation[]>([])
 const favoriteSaving = ref(false)
+const diaryContentRef = ref<HTMLElement | null>(null)
+const diaryContentTop = ref(44)
+const stickyEvent = ref<DiaryEvent | null>(null)
 
 const annotationPanelOpen = ref(false)
 const selectionToolbarOpen = ref(false)
@@ -660,6 +691,25 @@ const sortedEvents = computed(() => {
   const events = diary.value?.organized?.events || []
   return [...events].sort((a, b) => a.sort_order - b.sort_order)
 })
+
+const updateStickyEventTitle = () => {
+  const content = diaryContentRef.value
+  if (!content || activeTab.value !== 'diary' || isEditing.value || isEditingStructured.value) {
+    stickyEvent.value = null
+    return
+  }
+
+  const contentTop = content.getBoundingClientRect().top
+  diaryContentTop.value = contentTop
+  let currentEvent: DiaryEvent | null = null
+  for (const event of sortedEvents.value) {
+    const eventElement = document.getElementById(`event-${event.id}`)
+    if (eventElement && eventElement.getBoundingClientRect().top <= contentTop) {
+      currentEvent = event
+    }
+  }
+  stickyEvent.value = currentEvent
+}
 
 // 标签按类别排序：领域 → 主题 → 人物/对象 → 心理 → 知识点
 const TAG_TYPE_ORDER: Record<string, number> = {
@@ -915,6 +965,8 @@ const loadDiary = async () => {
     annotations.value = []
   } finally {
     loading.value = false
+    await nextTick()
+    updateStickyEventTitle()
   }
 }
 
@@ -1157,6 +1209,10 @@ const structuredSaving = ref(false)
 const structuredSaveError = ref('')
 const editedEvents = ref<Map<string, any>>(new Map())
 
+watch([activeTab, isEditing, isEditingStructured], () => {
+  nextTick(updateStickyEventTitle)
+})
+
 const onEventUpdate = (eventData: any) => {
   editedEvents.value.set(eventData.id, eventData)
 }
@@ -1218,11 +1274,13 @@ onMounted(() => {
   resizeTextareas()
   document.addEventListener('pointerdown', handleDocumentPointerDown, true)
   window.addEventListener('scroll', handleDocumentScroll, true)
+  window.addEventListener('resize', updateStickyEventTitle)
 })
 
 onBeforeUnmount(() => {
   document.removeEventListener('pointerdown', handleDocumentPointerDown, true)
   window.removeEventListener('scroll', handleDocumentScroll, true)
+  window.removeEventListener('resize', updateStickyEventTitle)
 })
 
 const cancelEditStructured = () => {
