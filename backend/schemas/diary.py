@@ -124,6 +124,11 @@ class DiaryEventResponse(BaseModel):
     sort_order: int = 0
     tags: list[TagResponse] = []
     is_favorite: bool = False
+    ai_importance: Optional[Literal["HIGH", "MEDIUM", "LOW"]] = None
+    ai_importance_reason: Optional[str] = None
+    user_importance: Optional[Literal["HIGH", "MEDIUM", "LOW"]] = None
+    user_importance_reason: Optional[str] = None
+    importance_origin: Optional[str] = None
 
     @field_validator("body", "feeling", "reflection", "event_tags", mode="before")
     @classmethod
@@ -220,6 +225,8 @@ class DiaryEventUpdate(BaseModel):
     body: Optional[list[str]] = None
     feeling: Optional[list[str]] = None
     reflection: Optional[list[str]] = None
+    user_importance: Optional[Literal["HIGH", "MEDIUM", "LOW"]] = None
+    user_importance_reason: Optional[str] = None
 
 
 class DiaryOrganizedUpdate(BaseModel):

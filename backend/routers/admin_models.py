@@ -138,6 +138,7 @@ def get_model_options(current_user: User = Depends(require_admin)):
         "usage_labels": {
             "organize": "整理",
             "analysis": "分析",
+            "review": "回顾",
             "chat": "对话",
             "transcription": "语音转文字",
         },

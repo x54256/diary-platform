@@ -28,6 +28,7 @@ from services.model_runtime import resolve_model_setting, resolve_thinking_paylo
 from services.organize_settings import get_organize_pipeline_options
 from services.llm_metrics import prompt_token_count, record_llm_call
 from utils.log_context import ContextFormatter, LogContextFilter, Stopwatch, log_extra
+from utils.llm_log import truncate_llm_log
 
 logger = logging.getLogger(__name__)
 
@@ -100,7 +101,7 @@ def _get_llm(
         "api_key": runtime_config.api_key,
         "temperature": temperature,
         "timeout": 12000,
-        "max_retries": 1,
+        "max_retries": settings.LLM_MAX_ATTEMPTS - 1,
         "base_url": runtime_config.api_base_url,
         "model_kwargs": {"response_format": {"type": "json_object"}},
     }
@@ -146,10 +147,10 @@ async def _invoke_llm(llm: ChatOpenAI, system_prompt: str, user_message: str, st
         extra=log_extra(event="analysis.llm.started", step=step_name, model=model_name),
     )
     _ai_logger.info(
-        "[%s] 请求: system=%s, user=%s",
+        "[%s] 请求（正文最多 2000 字符）: system=%s, user=%s",
         step_name,
-        system_prompt[:200],
-        user_message[:500],
+        truncate_llm_log(system_prompt),
+        truncate_llm_log(user_message),
         extra=log_extra(event="analysis.llm.request_payload", step=step_name),
     )
     try:
@@ -159,9 +160,9 @@ async def _invoke_llm(llm: ChatOpenAI, system_prompt: str, user_message: str, st
         )
         raw_content = response.content
         _ai_logger.info(
-            "[%s] 响应: %s",
+            "[%s] 响应（正文最多 2000 字符）: %s",
             step_name,
-            raw_content[:1000],
+            truncate_llm_log(raw_content),
             extra=log_extra(event="analysis.llm.response_payload", step=step_name),
         )
         try:

@@ -135,6 +135,11 @@ export interface DiaryEvent {
   tags: Tag[]
   analysis: AnalysisSection[] | null
   is_favorite: boolean
+  ai_importance?: 'HIGH' | 'MEDIUM' | 'LOW' | null
+  ai_importance_reason?: string | null
+  user_importance?: 'HIGH' | 'MEDIUM' | 'LOW' | null
+  user_importance_reason?: string | null
+  importance_origin?: string | null
 }
 
 export interface FavoriteItem {
@@ -287,6 +292,8 @@ export interface DiaryEventUpdatePayload {
   body?: string[]
   feeling?: string[]
   reflection?: string[]
+  user_importance?: 'HIGH' | 'MEDIUM' | 'LOW' | null
+  user_importance_reason?: string | null
 }
 
 // 对话消息
@@ -306,4 +313,234 @@ export interface Dialog {
   source_type: DialogSourceType
   source_id?: string
   messages: DialogMessage[]
+}
+
+// 定期回顾
+export type ReviewType = 'WEEK' | 'MONTH'
+export type ReviewDomainCode =
+  | 'WORK_CAREER'
+  | 'HEALTH_WELLBEING'
+  | 'RELATIONSHIPS_SOCIAL'
+  | 'LEARNING_GROWTH'
+  | 'LIFE_RESOURCES'
+  | 'LEISURE_EXPERIENCE'
+
+export interface ReviewSummary {
+  id: string
+  review_type: ReviewType
+  period_start: string
+  period_end: string
+  current_version_id: string | null
+  current_version_no: number | null
+  version_count?: number
+  is_unread: boolean
+  summary: string | null
+  analysis_stale?: boolean
+  updated_at: string | null
+}
+
+export interface ReviewEventThread {
+  id?: string
+  thread_id?: string
+  thread_key: string
+  title: string
+  narrative: string
+  primary_domain: ReviewDomainCode
+  related_domains?: ReviewDomainCode[]
+  continuity_status?: string
+  current_status?: string
+  nodes?: Array<{ node_key: string; source_date: string; fact: string; source_ids: string[] }>
+  prior_context_source_ids?: string[]
+  user_overridden?: boolean
+  narrative_correction_source_id?: string | null
+}
+
+export interface ReviewCoreFocus {
+  focus_key: string
+  label: string
+  thread_keys: string[]
+  source_ids: string[]
+}
+
+export interface ReviewEventDomain {
+  domain_code: ReviewDomainCode
+  core_focus?: ReviewCoreFocus[]
+  event_threads: ReviewEventThread[]
+}
+
+export interface ReviewAnalysisItemData {
+  id?: string
+  analysis_item_id?: string
+  analysis_key: string
+  angle_code: string
+  claim: string
+  supporting_source_ids: string[]
+  counterevidence_source_ids?: string[]
+  context_source_ids?: string[]
+  thread_keys?: string[]
+  related_domains?: ReviewDomainCode[]
+}
+
+export interface ReviewAnalysisDomain {
+  domain_code: ReviewDomainCode
+  analysis_items: ReviewAnalysisItemData[]
+}
+
+export interface ReviewEventDocument {
+  domains: ReviewEventDomain[]
+  other_matters?: Array<{ title: string; narrative: string; source_ids: string[] }>
+}
+
+export interface ReviewAnalysisDocument {
+  domains: ReviewAnalysisDomain[]
+}
+
+export type ReviewActionStatus = 'CANDIDATE' | 'CONFIRMED' | 'IGNORED'
+
+export interface ReviewAction {
+  id: string
+  version_id?: string
+  domain_code?: ReviewDomainCode
+  primary_domain: ReviewDomainCode
+  related_domains?: ReviewDomainCode[]
+  content: string
+  edited_content?: string | null
+  rationale?: string | null
+  status: ReviewActionStatus
+  basis_analysis_ids?: string[]
+  basis_source_ids?: string[]
+  verification_rule?: { success_condition?: string; allow_partial?: boolean }
+}
+
+export interface ReviewActionCheck {
+  id: string
+  previous_action_id: string
+  primary_domain?: ReviewDomainCode
+  check_status: 'FULFILLED' | 'PARTIALLY_FULFILLED' | 'EXPLICITLY_NOT_FULFILLED' | 'NOT_ASSESSABLE'
+  explanation: string
+  evidence_source_ids: string[]
+  previous_action_content?: string
+  previous_action?: ReviewAction
+}
+
+export interface ReviewFeedback {
+  id?: string
+  analysis_item_id: string
+  rating: number | null
+  comment: string | null
+  is_inherited?: boolean
+  updated_at?: string | null
+}
+
+export interface ReviewVersion {
+  id: string
+  review_id: string
+  version_no: number
+  version_type: string
+  base_version_id: string | null
+  source_set_id: string | null
+  event_document: ReviewEventDocument
+  analysis_document: ReviewAnalysisDocument
+  summary: string | null
+  analysis_stale: boolean
+  superseded_at_creation: boolean
+  missing_periods?: unknown[]
+  event_model_info?: Record<string, unknown> | null
+  analysis_model_info?: Record<string, unknown> | null
+  created_at: string
+}
+
+export interface ReviewVersionDetail {
+  review: ReviewSummary
+  version: ReviewVersion
+  actions: ReviewAction[]
+  action_checks: ReviewActionCheck[]
+  feedback: ReviewFeedback[]
+  dependencies?: unknown[]
+  source_updates_available?: boolean
+}
+
+export interface ReviewDailyDigest {
+  id: string
+  review_task_id: string
+  review_version_id: string | null
+  digest_date: string
+  status: 'EMPTY' | 'EVENT_READY' | 'ANALYSIS_READY' | 'FAILED'
+  event_document: {
+    digest_date?: string
+    items: ReviewDailyEventItem[]
+  }
+  analysis_document: {
+    items: ReviewDailyAnalysisItem[]
+  }
+  created_at: string
+  updated_at: string
+}
+
+export interface ReviewDailyEventItem {
+  item_key: string
+  title: string
+  fact: string
+  current_status: string
+  open_points: string[]
+  source_ids: string[]
+}
+
+export interface ReviewDailyAnalysisItem {
+  item_key: string
+  user_attention: string[]
+  preferred_explanations: string[]
+  prohibited_explanations: string[]
+  feedback_constraints: string[]
+  insufficient_evidence: string[]
+  evidence_ids: string[]
+}
+
+export type ReviewTaskStatus =
+  | 'PENDING'
+  | 'PENDING_START'
+  | 'QUEUED'
+  | 'RUNNING'
+  | 'SUCCEEDED'
+  | 'COMPLETED'
+  | 'FAILED'
+  | 'SKIPPED_NO_DATA'
+
+export interface ReviewTask {
+  id: string
+  review_id: string | null
+  review_type?: ReviewType
+  period_start?: string
+  period_end?: string
+  trigger_type: string
+  generation_mode: 'FULL' | 'ANALYSIS_ONLY'
+  base_version_id: string | null
+  status: ReviewTaskStatus
+  requested_start_at?: string | null
+  started_by_user_id?: string | null
+  current_step: string | null
+  error_code: string | null
+  error_message: string | null
+  created_at: string
+  started_at: string | null
+  completed_at: string | null
+  result_version_id: string | null
+}
+
+export interface ReviewSource {
+  id: string
+  type?: string
+  source_type?: string
+  fact_kind?: string | null
+  date?: string | null
+  source_date?: string | null
+  role?: string | null
+  period_role?: string | null
+  content: string
+  snapshot?: Record<string, unknown> | null
+  lineage?: unknown[]
+  origin_review_id?: string | null
+  origin_review_version_id?: string | null
+  origin_content_item_key?: string | null
+  origin?: { type?: string; id?: string; diary_id?: string; date?: string } | null
 }

@@ -8,9 +8,11 @@ from datetime import datetime
 
 import httpx
 
+from config import settings
 from services.model_runtime import ModelRuntimeError, resolve_model_setting, resolve_thinking_payload
 from services.llm_metrics import prompt_token_count, record_llm_call
 from utils.log_context import Stopwatch, log_extra
+from utils.llm_log import truncate_llm_log
 
 logger = logging.getLogger(__name__)
 
@@ -365,6 +367,11 @@ class AIService:
                 "messages": api_messages,
             }
             request_body.update(resolve_thinking_payload(runtime_config))
+            _ai_logger.info(
+                "[chat] LLM 请求（正文最多 2000 字符）: %s",
+                truncate_llm_log(request_body),
+                extra=log_extra(event="chat.llm.request_payload", model=runtime_config.model_name),
+            )
             response = await self.client.post(
                 f"{runtime_config.api_base_url}/chat/completions",
                 headers={"Authorization": f"Bearer {runtime_config.api_key}"},
@@ -372,6 +379,11 @@ class AIService:
             )
             response.raise_for_status()
             response_data = response.json()
+            _ai_logger.info(
+                "[chat] LLM 原始响应（正文最多 2000 字符）: %s",
+                truncate_llm_log(response_data),
+                extra=log_extra(event="chat.llm.response_payload", model=runtime_config.model_name),
+            )
             prompt_tokens, prompt_tokens_source = prompt_token_count(
                 response_data, runtime_config.model_name, context, prompt_payload,
             )
@@ -391,7 +403,7 @@ class AIService:
             return response_data["choices"][0]["message"]["content"]
         except httpx.HTTPStatusError as e:
             self._record_chat_failure(runtime_config.model_name, prompt_tokens, prompt_tokens_source, started, type(e).__name__)
-            logger.error("DeepSeek API 返回错误状态码: %s, 响应: %s", e.response.status_code, e.response.text)
+            logger.error("对话模型返回错误状态码: %s, 响应: %s", e.response.status_code, truncate_llm_log(e.response.text))
             return "抱歉，AI 服务暂时不可用，请稍后再试。"
         except Exception as e:
             self._record_chat_failure(runtime_config.model_name, prompt_tokens, prompt_tokens_source, started, type(e).__name__)
@@ -438,14 +450,14 @@ class AIService:
 
         # 记录请求日志
         _ai_logger.info(
-            f"=== AI Call: {system_prompt[:50]}... ===\n"
+            f"=== AI Call: {truncate_llm_log(system_prompt, 50)} ===\n"
             f"[Temperature] {temperature}\n"
-            f"[System Prompt]\n{system_prompt}\n"
-            f"[User Message]\n{user_message}"
+            f"[System Prompt]\n{truncate_llm_log(system_prompt)}\n"
+            f"[User Message]\n{truncate_llm_log(user_message)}"
         )
 
         last_error = None
-        for attempt in range(2):  # 最多2次（初始+1次重试）
+        for attempt in range(settings.LLM_MAX_ATTEMPTS):
             try:
                 response = await self.client.post(
                     f"{runtime_config.api_base_url}/chat/completions",
@@ -463,7 +475,7 @@ class AIService:
 
                 # 记录响应日志
                 _ai_logger.info(
-                    f"[Response]\n{json.dumps(result, ensure_ascii=False, indent=2)}\n"
+                    f"[Response]\n{truncate_llm_log(json.dumps(result, ensure_ascii=False, indent=2))}\n"
                     f"{'='*60}\n"
                 )
 
@@ -471,10 +483,10 @@ class AIService:
             except (httpx.HTTPStatusError, json.JSONDecodeError, KeyError, Exception) as e:
                 last_error = e
                 logger.warning("AI 调用第 %d 次失败: %s", attempt + 1, e)
-                if attempt < 1:  # 第一次失败，等待2秒后重试
+                if attempt + 1 < settings.LLM_MAX_ATTEMPTS:
                     await asyncio.sleep(2)
 
-        raise Exception(f"AI 调用重试1次后仍失败: {last_error}")
+        raise Exception(f"AI 调用在 {settings.LLM_MAX_ATTEMPTS} 次尝试后仍失败: {last_error}")
 
     def _validate_events(self, events: list) -> list:
         """验证并容错处理事件列表"""

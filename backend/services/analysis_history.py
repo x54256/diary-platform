@@ -7,7 +7,7 @@ from typing import Any, Dict, Iterable, Optional
 
 from sqlalchemy.orm import Session
 
-from models.diary import AnalysisFeedback, AnalysisItem, AnalysisRun, DiaryAnnotation, DiaryEvent
+from models.diary import AnalysisFeedback, AnalysisItem, AnalysisRun, DiaryAnnotation, DiaryEvent, DiaryOrganized
 
 
 ANALYSIS_TYPE_TITLES = {
@@ -207,9 +207,11 @@ def create_analysis_run_from_state(
     previous_items = list(previous_run.items) if previous_run else []
     archive_current_runs(db, diary_id)
 
+    organized = db.query(DiaryOrganized).filter(DiaryOrganized.id == org_id).one()
     run = AnalysisRun(
         diary_id=diary_id,
         diary_organized_id=org_id,
+        source_structured_revision=organized.structured_revision,
         task_id=task_id,
         mood=state.get("mood", ""),
         status="CURRENT",

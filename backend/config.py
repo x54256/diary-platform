@@ -1,6 +1,7 @@
 """应用配置模块"""
 
 from pydantic_settings import BaseSettings
+from pydantic import Field
 
 
 class Settings(BaseSettings):
@@ -21,6 +22,9 @@ class Settings(BaseSettings):
     BACKUP_STORAGE_PATH: str = "backup_packages"
     BACKUP_SCHEDULE_TIME: str = "02:00"
     BACKUP_SCHEDULE_TIMEZONE: str = "Asia/Shanghai"
+
+    # 大模型单个业务步骤的最大总调用次数；1 表示失败后不自动重试。
+    LLM_MAX_ATTEMPTS: int = Field(default=1, ge=1)
 
     # Fun-ASR 录音文件识别运行参数。模型、API 地址和密钥由管理端模型配置维护。
     TRANSCRIPTION_PUBLIC_BASE_URL: str = "http://localhost"

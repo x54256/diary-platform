@@ -17,6 +17,7 @@ from routers.admin_models import router as admin_models_router
 from routers.transcriptions import router as transcriptions_router
 from routers.schedules import router as schedules_router
 from routers.voice_profile import router as voice_profile_router
+from routers.reviews import router as reviews_router
 from utils.log_context import ContextFormatter, LogContextFilter, log_extra, new_id, reset_request_context, set_request_context
 
 # ---------------------------------------------------------------------------
@@ -129,6 +130,7 @@ api_router.include_router(admin_models_router)
 api_router.include_router(transcriptions_router)
 api_router.include_router(schedules_router)
 api_router.include_router(voice_profile_router)
+api_router.include_router(reviews_router)
 app.include_router(api_router)
 
 
@@ -151,6 +153,8 @@ async def startup():
     await schedule_occurrence_scheduler.start()
     from services.transcription_tasks import transcription_task_manager
     await transcription_task_manager.start()
+    from services.review_tasks import review_task_manager
+    await review_task_manager.start()
 
 
 @app.on_event("shutdown")
@@ -161,6 +165,8 @@ async def shutdown():
     await schedule_occurrence_scheduler.stop()
     from services.transcription_tasks import transcription_task_manager
     await transcription_task_manager.stop()
+    from services.review_tasks import review_task_manager
+    await review_task_manager.stop()
 
 
 def _recover_stuck_tasks():

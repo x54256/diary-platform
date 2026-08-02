@@ -3,6 +3,7 @@
 import json
 import logging
 import uuid
+from datetime import datetime
 from typing import Any, TypedDict
 
 from langgraph.graph import END, START, StateGraph
@@ -30,6 +31,7 @@ from services.pipeline import (
 )
 from services.person_relations import load_person_relation_context
 from utils.log_context import Stopwatch, log_extra
+from utils.llm_log import truncate_llm_log
 
 logger = logging.getLogger(__name__)
 
@@ -57,6 +59,7 @@ class AnalysisState(TypedDict, total=False):
     location: str
     mood: str
     event_tags: list
+    event_importances: list
 
     # ── 环节 8 产物：核心分析 + 可行动建议 ──
     event_analyses: list
@@ -118,7 +121,8 @@ MOOD_TAG_PROMPT = """你是一个日记标题、摘要、涉及地点、心情�
 1. 生成日记标题、摘要和地点。
 2. 提取当天整体心情 mood。
 3. 为每个事件提取事件级标签 event_tags，按五类分组。
-4. 所有内容只能依据 structured_diary 生成，不补充原文没有的信息。
+4. 为每个事件判定重要性 event_importances。
+5. 所有内容只能依据 structured_diary 生成，不补充原文没有的信息。
 
 ## 输入说明
 structured_diary 是整理后的结构化日记，是主要依据。
@@ -135,6 +139,13 @@ structured_diary 是整理后的结构化日记，是主要依据。
 3. 每种标签类型都输出数组；没有对应标签时输出空数组。同一事件、同一类型下可以有多个标签，但不要重复。
 4. 优先提取 topic、person_object、psychological、knowledge；domain 只作为辅助粗分类，数量要少。
 5. 标签必须来自 structured_diary 中的明确依据。
+
+## 事件重要性规则
+1. 重要性衡量的是这件事对用户本人的影响，不是事件规模、稀有程度，也不是对分析质量的评分。
+2. HIGH：对目标、情绪、行为、关系、认知/价值观或下一周期约束产生明显影响；包括明确结果、关键决定、明显转折、重要关系互动、重大困难或强约束。
+3. MEDIUM：对以上任一方面有明确影响或推进，但不足以成为当天主线。
+4. LOW：日常记录、零散琐事，或重复但没有新进展的信息。
+5. event_importances 必须与 structured_diary.events 一一对应，按相同顺序输出；reason 只写一句可从该事件直接验证的依据。
 
 ## 标签类型说明
 - domain：领域标签，用于粗粒度筛选日记，例如"工作""生活""关系""健康""学习""娱乐"。
@@ -161,6 +172,12 @@ structured_diary 是整理后的结构化日记，是主要依据。
         "psychological": [],
         "knowledge": []
       }
+    }
+  ],
+  "event_importances": [
+    {
+      "importance": "HIGH",
+      "reason": "一句基于事件事实的影响依据"
     }
   ]
 }"""
@@ -366,24 +383,24 @@ def _json_dumps(value: Any) -> str:
 
 
 def _log_llm_request(step_name: str, system_prompt: str, input_data: dict) -> str:
-    """记录分析流水线完整 LLM 请求，并返回 user message。"""
+    """记录分析流水线 LLM 请求摘要，并返回未截断的 user message。"""
     user_message = _json_dumps(input_data)
     _ai_logger.info(
-        "[%s] 完整LLM请求: system=%s\nuser=%s",
+        "[%s] LLM 请求（正文最多 2000 字符）: system=%s\nuser=%s",
         step_name,
-        system_prompt,
-        user_message,
+        truncate_llm_log(system_prompt),
+        truncate_llm_log(user_message),
         extra=log_extra(event="analysis.llm.request_payload", step=step_name),
     )
     return user_message
 
 
 def _log_llm_response(step_name: str, result: dict) -> None:
-    """记录分析流水线完整 LLM JSON 响应。"""
+    """记录分析流水线 LLM JSON 响应摘要。"""
     _ai_logger.info(
-        "[%s] 完整LLM响应: %s",
+        "[%s] LLM 响应（正文最多 2000 字符）: %s",
         step_name,
-        _json_dumps(result),
+        truncate_llm_log(_json_dumps(result)),
         extra=log_extra(event="analysis.llm.response_payload", step=step_name),
     )
 
@@ -404,6 +421,21 @@ def _count_event_inner_items(event_items: Any, inner_key: str) -> int:
         if isinstance(item, dict):
             total += _list_len(item.get(inner_key))
     return total
+
+
+def _validated_event_importances(value: Any, event_count: int) -> list[dict[str, str]]:
+    """将模型的重要性结果按事件顺序对齐；异常项安全降为低重要性。"""
+    raw_items = value if isinstance(value, list) else []
+    normalized: list[dict[str, str]] = []
+    for index in range(event_count):
+        item = raw_items[index] if index < len(raw_items) and isinstance(raw_items[index], dict) else {}
+        importance = item.get("importance")
+        reason = item.get("reason")
+        normalized.append({
+            "importance": importance if importance in {"HIGH", "MEDIUM", "LOW"} else "LOW",
+            "reason": reason.strip() if isinstance(reason, str) and reason.strip() else "未识别到明确的用户影响。",
+        })
+    return normalized
 
 
 async def mood_tag_extract(state: AnalysisState) -> dict:
@@ -493,6 +525,7 @@ async def mood_tag_extract(state: AnalysisState) -> dict:
         "location": location,
         "mood": mood,
         "event_tags": validated_event_tags,
+        "event_importances": _validated_event_importances(result.get("event_importances"), event_count),
     }
 
 
@@ -948,6 +981,22 @@ def _save_analysis_result(
                 organized.summary = state.get("summary", "")
             if "location" in state:
                 organized.location = state.get("location", "")
+
+        # 常规日记分析同步沉淀事件重要性；反馈重分析没有该字段，不改动原判定。
+        if "event_importances" in state:
+            events = (
+                db.query(DiaryEvent)
+                .filter(DiaryEvent.diary_organized_id == uuid.UUID(diary_organized_id))
+                .order_by(DiaryEvent.sort_order)
+                .all()
+            )
+            for event, importance in zip(events, state.get("event_importances", [])):
+                if not isinstance(importance, dict):
+                    continue
+                event.ai_importance = importance.get("importance")
+                event.ai_importance_reason = importance.get("reason")
+                event.importance_origin = "DIARY_ANALYSIS"
+                event.importance_updated_at = datetime.utcnow()
 
         # 更新日记状态为 analyzed
         diary = db.query(Diary).filter(Diary.id == diary_uuid).first()

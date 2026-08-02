@@ -93,7 +93,7 @@
             {{ testResults[usage.key].message }}
           </span>
           <button
-            v-if="usage.key === 'organize' || usage.key === 'analysis'"
+            v-if="usage.key === 'organize' || usage.key === 'analysis' || usage.key === 'review'"
             class="h-8 px-3 border border-neutral-300 rounded text-sm"
             @click="openStepSettings(usage)"
           >
@@ -202,6 +202,7 @@ const { api } = useApi()
 const usages = [
   { key: 'organize', label: '整理', modelType: 'language' },
   { key: 'analysis', label: '分析', modelType: 'language' },
+  { key: 'review', label: '回顾', modelType: 'language' },
   { key: 'chat', label: '对话', modelType: 'language' },
   { key: 'transcription', label: '语音转文字', modelType: 'asr' },
 ]

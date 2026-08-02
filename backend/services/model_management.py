@@ -12,7 +12,7 @@ from utils.crypto import decrypt_text, encrypt_text
 
 MODEL_TYPES = ["language", "asr"]
 REASONING_MODES = ["unsupported", "switchable", "always_on"]
-SETTING_KEYS = ["organize", "analysis", "chat", "transcription"]
+SETTING_KEYS = ["organize", "analysis", "review", "chat", "transcription"]
 LANGUAGE_CATEGORIES = ["通用对话", "深度推理", "长上下文", "代码能力", "轻量高速"]
 ASR_CATEGORIES = ["实时语音识别", "录音文件识别"]
 ABILITY_TIER_ORDER = {
@@ -32,6 +32,7 @@ ABILITY_TIER_ORDER = {
 SETTING_REQUIREMENTS = {
     "organize": ("language", "openai_chat"),
     "analysis": ("language", "openai_chat"),
+    "review": ("language", "openai_chat"),
     "chat": ("language", "openai_chat"),
     "transcription": ("asr", "dashscope_asr"),
 }
@@ -46,6 +47,10 @@ STEP_SETTING_KEYS = {
     "cognition_analysis": "analysis",
     "feedback_core_analysis": "analysis",
     "feedback_cognition_analysis": "analysis",
+    "review_daily_event_digest": "review",
+    "review_daily_analysis_digest": "review",
+    "review_event_organize": "review",
+    "review_analysis_action": "review",
 }
 STEP_LABELS = {
     "text_clean": "文本清洗",
@@ -58,6 +63,10 @@ STEP_LABELS = {
     "cognition_analysis": "认知分析",
     "feedback_core_analysis": "反馈核心分析",
     "feedback_cognition_analysis": "反馈认知分析",
+    "review_daily_event_digest": "每日事件提炼",
+    "review_daily_analysis_digest": "每日分析提炼",
+    "review_event_organize": "回顾事件组织",
+    "review_analysis_action": "回顾分析与行动",
 }
 
 

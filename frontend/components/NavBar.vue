@@ -3,11 +3,11 @@
   <header class="sticky top-0 z-40 h-nav bg-white border-b border-neutral-200">
     <div class="flex items-center justify-between h-full px-4 max-w-md mx-auto">
       <!-- 左侧：返回按钮 -->
-      <div class="flex items-center w-8">
+      <div class="flex w-11 items-center">
         <button
           v-if="showBack"
           @click="goBack"
-          class="text-neutral-600 text-lg"
+          class="flex h-11 w-11 items-center justify-center text-lg text-neutral-600"
           aria-label="返回"
         >
           ←

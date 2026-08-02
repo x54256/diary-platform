@@ -3,7 +3,7 @@
 import uuid
 from datetime import datetime
 
-from sqlalchemy import Column, DateTime, Integer, String
+from sqlalchemy import Column, DateTime, ForeignKey, Integer, String
 from sqlalchemy.dialects.postgresql import UUID
 
 from database import Base
@@ -19,9 +19,11 @@ class LlmCallLog(Base):
     step_name = Column(String(100), nullable=False)
     model_name = Column(String(200), nullable=True)
     prompt_tokens = Column(Integer, nullable=False)
+    completion_tokens = Column(Integer, nullable=True)
     prompt_tokens_source = Column(String(20), nullable=False)  # usage / estimated
     duration_ms = Column(Integer, nullable=False)
     status = Column(String(20), nullable=False)  # success / failed
     error_type = Column(String(100), nullable=True)
     request_id = Column(String(100), nullable=True)
     chain_id = Column(String(100), nullable=True)
+    review_task_id = Column(UUID(as_uuid=True), ForeignKey("review_tasks.id", ondelete="SET NULL"), nullable=True)

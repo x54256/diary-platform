@@ -30,6 +30,8 @@ class Diary(Base):
     diary_date = Column(Date, nullable=False)
     status = Column(Enum(DiaryStatus), default=DiaryStatus.saved)
     is_dirty = Column(Boolean, default=False, nullable=False)
+    # 原文变更时递增；整理结果只有在修订号一致时才可作为回顾来源。
+    content_revision = Column(Integer, default=1, nullable=False)
     deleted_at = Column(DateTime, nullable=True)
     deleted_by = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
@@ -61,6 +63,9 @@ class DiaryOrganized(Base):
     diary_id = Column(
         UUID(as_uuid=True), ForeignKey("diaries.id"), unique=True, nullable=False
     )
+    source_content_revision = Column(Integer, default=1, nullable=False)
+    # 结构化事件被重新产生或编辑时递增。
+    structured_revision = Column(Integer, default=1, nullable=False)
     title = Column(String(200))
     summary = Column(Text)
     content = Column(Text)
@@ -89,6 +94,7 @@ class AnalysisRun(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     diary_id = Column(UUID(as_uuid=True), ForeignKey("diaries.id"), nullable=False)
     diary_organized_id = Column(UUID(as_uuid=True), ForeignKey("diary_organized.id"), nullable=False)
+    source_structured_revision = Column(Integer, default=1, nullable=False)
     task_id = Column(UUID(as_uuid=True), ForeignKey("organize_tasks.id"), nullable=True)
     mood = Column(String(50), nullable=True)
     status = Column(String(20), default="CURRENT", nullable=False)
@@ -162,6 +168,12 @@ class DiaryEvent(Base):
     reflection = Column(Text, nullable=True)
     event_tags = Column(Text)        # JSON: {"domain":[], "topic":[], "person_object":[], "psychological":[], "knowledge":[]}
     sort_order = Column(Integer, default=0)
+    ai_importance = Column(String(8), nullable=True)
+    ai_importance_reason = Column(Text, nullable=True)
+    user_importance = Column(String(8), nullable=True)
+    user_importance_reason = Column(Text, nullable=True)
+    importance_origin = Column(String(24), nullable=True)
+    importance_updated_at = Column(DateTime, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
 
     # 关系映射
