@@ -1,8 +1,8 @@
 <template>
   <Teleport to="body">
     <div v-if="open" class="fixed inset-0 z-[80] flex items-end justify-center bg-black/35" role="dialog" aria-modal="true" aria-label="分析依据" @click.self="$emit('close')" @keydown.esc="$emit('close')">
-      <section ref="dialogRef" tabindex="-1" class="max-h-[82dvh] w-full max-w-md overflow-y-auto rounded-t-3xl bg-white pb-[calc(1.25rem+env(safe-area-inset-bottom))] focus:outline-none">
-        <div class="sticky top-0 z-10 border-b border-neutral-100 bg-white px-5 pb-3 pt-2">
+      <section ref="dialogRef" tabindex="-1" class="max-h-[82dvh] w-full max-w-2xl overflow-y-auto rounded-t-3xl bg-[#fffdf8] pb-[calc(1.25rem+env(safe-area-inset-bottom))] focus:outline-none">
+        <div class="sticky top-0 z-10 border-b border-[#e8e1d5] bg-[#fffdf8] px-5 pb-3 pt-2">
           <div class="mx-auto mb-3 h-1 w-10 rounded-full bg-neutral-300" />
           <div class="flex items-center justify-between gap-3">
             <div>
@@ -16,7 +16,7 @@
         <div class="space-y-3 p-5">
           <p v-if="loading" class="py-8 text-center text-sm text-neutral-400">正在读取依据…</p>
           <ReviewStatusBanner v-else-if="error" :title="error" tone="error" />
-          <article v-for="source in sources" :key="source.id" class="rounded-xl border border-neutral-200 p-4">
+          <article v-for="source in sources" :key="source.id" class="rounded-2xl border border-[#e8e1d5] bg-white p-4">
             <p class="text-xs font-medium text-primary-700">{{ sourceTypeLabel(source.source_type || source.type || '') }}<span v-if="source.source_date || source.date"> · {{ source.source_date || source.date }}</span></p>
             <template v-if="source.source_type === 'USER_FACT_CORRECTION' && correctionOriginal(source)">
               <p class="mt-2 text-xs font-medium text-neutral-400">修正后内容</p>

@@ -1,11 +1,11 @@
 <template>
-  <article class="rounded-2xl border border-neutral-200 bg-white p-4">
+  <article class="rounded-3xl border border-[#e8e1d5] bg-[#fffdf8] p-5">
     <div class="flex items-start justify-between gap-3">
       <div>
         <h3 class="text-sm font-semibold text-neutral-800">{{ typeLabel }}<span v-if="periodLabel"> · {{ periodLabel }}</span></h3>
         <p class="mt-1 text-xs text-neutral-400">{{ triggerLabel }}</p>
       </div>
-      <span class="rounded-full px-2 py-1 text-xs font-medium" :class="statusClass">{{ statusLabel }}</span>
+      <span class="rounded-full px-2.5 py-1 text-xs font-medium" :class="statusClass">{{ statusLabel }}</span>
     </div>
     <div v-if="isRunning" class="mt-4">
       <div class="h-1.5 overflow-hidden rounded-full bg-neutral-100"><div class="h-full rounded-full bg-primary-500 transition-all" :style="{ width: `${progress}%` }" /></div>
@@ -14,10 +14,10 @@
     <p v-if="task.status === 'FAILED'" class="mt-3 text-sm leading-6 text-red-600">{{ task.error_message || '本次生成没有完成，可以重试。' }}</p>
     <p v-if="task.status === 'SKIPPED_NO_DATA'" class="mt-3 text-sm leading-6 text-neutral-500">这个周期没有可用于回顾的记录。</p>
     <div v-if="task.status === 'PENDING_START' || task.status === 'FAILED' || canOpen" class="mt-3 flex justify-end gap-2">
-      <button v-if="task.status === 'PENDING_START'" type="button" class="min-h-11 rounded-lg bg-primary-600 px-4 text-sm font-semibold text-white disabled:opacity-50" :disabled="starting" @click="$emit('start', task)">
+      <button v-if="task.status === 'PENDING_START'" type="button" class="min-h-11 rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white disabled:opacity-50" :disabled="starting" @click="$emit('start', task)">
         {{ starting ? '启动中…' : '开始生成' }}
       </button>
-      <button v-if="task.status === 'FAILED'" type="button" class="min-h-11 rounded-lg bg-primary-50 px-4 text-sm font-semibold text-primary-700 disabled:opacity-50" :disabled="retrying" @click="$emit('retry', task)">
+      <button v-if="task.status === 'FAILED'" type="button" class="min-h-11 rounded-xl bg-primary-50 px-4 text-sm font-semibold text-primary-700 disabled:opacity-50" :disabled="retrying" @click="$emit('retry', task)">
         {{ retrying ? '重试中…' : '重试' }}
       </button>
       <NuxtLink v-if="canOpen" :to="detailUrl" class="flex min-h-11 items-center px-3 text-sm font-medium text-primary-700">查看回顾 ›</NuxtLink>

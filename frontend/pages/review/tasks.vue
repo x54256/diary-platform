@@ -1,33 +1,34 @@
 <template>
-  <div class="min-h-dvh bg-neutral-50">
-    <NavBar :title="creating ? '新建回顾任务' : '回顾任务'" show-back>
+  <div class="min-h-dvh bg-[#f6f4ee]">
+    <ReviewTopBar :title="creating ? '新建回顾任务' : '回顾任务'" eyebrow="生活编年" show-back>
       <template #right>
-        <button v-if="!creating" type="button" class="min-h-11 text-sm font-semibold text-primary-700" @click="creating = true">新建</button>
+        <button v-if="!creating" type="button" class="min-h-11 rounded-full px-3 text-sm font-semibold text-primary-700 transition hover:bg-primary-50" @click="creating = true">新建</button>
       </template>
-    </NavBar>
-    <main class="mx-auto max-w-md px-4 py-5">
-      <ReviewTaskCreateForm v-if="creating" :reviews="reviews" :tasks="tasks" :submitting="submitting" :error="createError" @submit="createTask" />
+    </ReviewTopBar>
+    <main class="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+      <ReviewTaskCreateForm v-if="creating" class="max-w-2xl" :reviews="reviews" :tasks="tasks" :submitting="submitting" :error="createError" @submit="createTask" />
       <template v-else>
-        <div v-if="loading" class="space-y-3"><div v-for="index in 3" :key="index" class="h-32 animate-pulse rounded-2xl bg-white" /></div>
+        <p class="mb-6 text-sm leading-6 text-neutral-500">这里集中处理自动生成、补生成和重新生成的回顾任务。</p>
+        <div v-if="loading" class="grid gap-4 md:grid-cols-2 xl:grid-cols-3"><div v-for="index in 3" :key="index" class="h-36 animate-pulse rounded-3xl bg-white" /></div>
         <ReviewStatusBanner v-else-if="loadError" :title="loadError" action-label="重新加载" tone="error" @action="load" />
-        <div v-else class="space-y-7">
+        <div v-else class="space-y-8">
           <section v-if="pendingStartTasks.length">
-            <h2 class="mb-3 text-sm font-semibold text-neutral-600">待启动 {{ pendingStartTasks.length }} 项</h2>
-            <div class="space-y-3"><ReviewTaskCard v-for="task in pendingStartTasks" :key="task.id" :task="task" :starting="startingId === task.id" @start="startTask" /></div>
+            <h2 class="mb-4 flex items-center gap-3 text-sm font-semibold text-neutral-600"><span class="h-px w-6 bg-primary-400" />待启动 {{ pendingStartTasks.length }} 项</h2>
+            <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3"><ReviewTaskCard v-for="task in pendingStartTasks" :key="task.id" :task="task" :starting="startingId === task.id" @start="startTask" /></div>
           </section>
           <section v-if="activeTasks.length">
-            <h2 class="mb-3 text-sm font-semibold text-neutral-600">进行中 {{ activeTasks.length }} 项</h2>
-            <div class="space-y-3"><ReviewTaskCard v-for="task in activeTasks" :key="task.id" :task="task" :starting="startingId === task.id" @start="startTask" /></div>
+            <h2 class="mb-4 flex items-center gap-3 text-sm font-semibold text-neutral-600"><span class="h-px w-6 bg-primary-400" />进行中 {{ activeTasks.length }} 项</h2>
+            <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3"><ReviewTaskCard v-for="task in activeTasks" :key="task.id" :task="task" :starting="startingId === task.id" @start="startTask" /></div>
           </section>
           <section v-if="failedTasks.length">
-            <h2 class="mb-3 text-sm font-semibold text-red-600">需要处理 {{ failedTasks.length }} 项</h2>
-            <div class="space-y-3"><ReviewTaskCard v-for="task in failedTasks" :key="task.id" :task="task" :retrying="retryingId === task.id" @retry="retryTask" /></div>
+            <h2 class="mb-4 flex items-center gap-3 text-sm font-semibold text-red-600"><span class="h-px w-6 bg-red-400" />需要处理 {{ failedTasks.length }} 项</h2>
+            <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3"><ReviewTaskCard v-for="task in failedTasks" :key="task.id" :task="task" :retrying="retryingId === task.id" @retry="retryTask" /></div>
           </section>
           <section v-if="completedTasks.length">
             <button type="button" class="flex min-h-11 w-full items-center justify-between text-sm font-semibold text-neutral-600" @click="completedOpen = !completedOpen">
               <span>已完成 {{ completedTasks.length }} 项</span><span>{{ completedOpen ? '收起' : '展开' }}</span>
             </button>
-            <div v-if="completedOpen" class="mt-3 space-y-3"><ReviewTaskCard v-for="task in completedTasks" :key="task.id" :task="task" /></div>
+            <div v-if="completedOpen" class="mt-3 grid gap-4 md:grid-cols-2 xl:grid-cols-3"><ReviewTaskCard v-for="task in completedTasks" :key="task.id" :task="task" /></div>
           </section>
           <section v-if="!tasks.length" class="py-16 text-center">
             <p class="text-sm text-neutral-500">还没有回顾任务</p>

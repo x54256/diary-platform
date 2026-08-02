@@ -1,8 +1,8 @@
 <template>
-  <form class="space-y-6" @submit.prevent="submit">
+  <form class="rounded-3xl border border-[#e8e1d5] bg-[#fffdf8] p-5 sm:p-6 space-y-6" @submit.prevent="submit">
     <fieldset>
       <legend class="mb-2 text-sm font-semibold text-neutral-700">回顾类型</legend>
-      <div class="grid grid-cols-2 gap-2 rounded-xl bg-neutral-100 p-1">
+      <div class="grid grid-cols-2 gap-2 rounded-2xl bg-neutral-100 p-1">
         <button v-for="item in typeOptions" :key="item.value" type="button" class="min-h-11 rounded-lg text-sm font-medium" :class="type === item.value ? 'bg-white text-primary-700 shadow-sm' : 'text-neutral-500'" @click="selectType(item.value)">
           {{ item.label }}<span v-if="type === item.value"> ●</span>
         </button>
@@ -11,7 +11,7 @@
 
     <fieldset>
       <legend class="mb-2 text-sm font-semibold text-neutral-700">选择周期</legend>
-      <div class="overflow-hidden rounded-2xl border border-neutral-200 bg-white">
+      <div class="overflow-hidden rounded-2xl border border-[#e8e1d5] bg-white">
         <label v-for="option in options" :key="option.start" class="flex min-h-14 items-center gap-3 border-b border-neutral-100 px-4 last:border-b-0" :class="option.disabled ? 'text-neutral-400' : 'text-neutral-800'">
           <input v-model="periodStart" type="radio" name="review-period" :value="option.start" :disabled="option.disabled" class="h-5 w-5 accent-[#cc6230]" />
           <span class="flex-1 text-sm">{{ option.label }}</span>
@@ -20,7 +20,7 @@
       </div>
     </fieldset>
 
-    <p class="rounded-xl bg-primary-50 px-4 py-3 text-sm leading-6 text-primary-800">
+    <p class="rounded-2xl bg-primary-50 px-4 py-3 text-sm leading-6 text-primary-800">
       将使用目前保存的事件、分析、日程和上一同级回顾，生成一个固定版本。
     </p>
     <p v-if="error" class="text-sm text-red-600">{{ error }}</p>

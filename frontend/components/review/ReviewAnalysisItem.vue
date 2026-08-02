@@ -1,5 +1,5 @@
 <template>
-  <article class="rounded-xl bg-[#faf9fb] px-4 py-4">
+  <article class="rounded-2xl border border-[#ebe6ed] bg-[#faf9fb] px-4 py-4">
     <div class="flex items-start justify-between gap-3">
       <h4 class="text-sm font-semibold text-neutral-800">{{ angleLabel }}</h4>
       <span v-if="savedMessage" class="shrink-0 text-xs text-emerald-600">{{ savedMessage }}</span>
@@ -21,7 +21,7 @@
       </div>
     </div>
     <p v-if="feedback?.is_inherited" class="text-xs text-amber-700">来自上一版本，请重新确认</p>
-    <div v-if="expanded" class="mt-3 rounded-xl border border-neutral-200 bg-white p-3">
+    <div v-if="expanded" class="mt-3 rounded-xl border border-[#e8e1d5] bg-white p-3">
       <textarea
         v-model="comment"
         rows="3"

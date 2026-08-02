@@ -1,7 +1,8 @@
 <template>
-  <section :id="`review-domain-${domainCode}`" class="scroll-mt-[104px] rounded-2xl border border-neutral-200 bg-white px-4 py-5">
+  <section :id="`review-domain-${domainCode}`" class="scroll-mt-[88px] rounded-3xl border border-[#e8e1d5] bg-[#fffdf8] px-5 py-6 sm:px-6">
     <header>
-      <h2 class="text-lg font-semibold text-neutral-900">{{ domainMeta.icon }} {{ domainMeta.label }}</h2>
+      <p class="text-[11px] font-semibold tracking-[0.16em] text-primary-700">生活领域</p>
+      <h2 class="mt-1 text-xl font-semibold tracking-tight text-[#26322b]">{{ domainMeta.icon }} {{ domainMeta.label }}</h2>
       <p v-if="focusLabel" class="mt-1 text-sm leading-6 text-neutral-500">核心关注：{{ focusLabel }}</p>
     </header>
 

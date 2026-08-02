@@ -1,21 +1,36 @@
 <template>
-  <div class="min-h-dvh bg-neutral-50 pb-24">
-    <NavBar :title="reviewTypeLabel" show-back>
+  <div class="min-h-dvh bg-[#f6f4ee] pb-[calc(10rem+52px+env(safe-area-inset-bottom))]">
+    <ReviewTopBar :title="reviewTypeLabel" eyebrow="生活编年" show-back>
       <template #right>
-        <button type="button" class="min-h-11 text-sm font-semibold text-primary-700" @click="versionOpen = true">版本</button>
+        <button type="button" class="min-h-11 rounded-full px-3 text-sm font-semibold text-primary-700 transition hover:bg-primary-50" @click="versionOpen = true">版本</button>
       </template>
-    </NavBar>
+    </ReviewTopBar>
 
-    <div v-if="loading" class="mx-auto max-w-md space-y-4 p-4"><div class="h-40 animate-pulse rounded-2xl bg-white"/><div v-for="index in 2" :key="index" class="h-72 animate-pulse rounded-2xl bg-white"/></div>
-    <main v-else-if="detail" class="mx-auto max-w-md">
-      <header class="bg-white px-5 py-6">
-        <p class="text-sm font-medium text-primary-700">{{ periodLabel }}</p>
-        <p class="mt-1 text-xs text-neutral-400">v{{ detail.version.version_no }} · {{ formatDateTime(detail.version.created_at) }}</p>
-        <p class="mt-4 whitespace-pre-wrap text-base leading-7 text-neutral-700">{{ detail.version.summary || '这份回顾已根据本期记录生成。' }}</p>
-        <p class="mt-4 text-xs text-neutral-400">{{ domainCodes.length }} 个领域 · {{ threadCount }} 条主要发展线</p>
+    <div v-if="loading" class="mx-auto grid w-full max-w-7xl gap-4 p-4 sm:p-6 lg:grid-cols-[18rem_minmax(0,1fr)] lg:p-8"><div class="h-64 animate-pulse rounded-3xl bg-white"/><div class="space-y-4"><div class="h-48 animate-pulse rounded-3xl bg-white"/><div v-for="index in 2" :key="index" class="h-72 animate-pulse rounded-3xl bg-white"/></div></div>
+    <main v-else-if="detail" class="w-full">
+      <header class="border-b border-[#e8e1d5] bg-[#fffdf8]">
+        <div class="mx-auto grid w-full max-w-7xl gap-5 px-4 py-6 sm:px-6 lg:grid-cols-[18rem_minmax(0,1fr)] lg:px-8 lg:py-8">
+          <div>
+            <p class="font-serif text-2xl font-semibold tracking-tight text-[#26322b]">{{ periodLabel }}</p>
+            <p class="mt-2 text-xs text-neutral-400">v{{ detail.version.version_no }} · {{ formatDateTime(detail.version.created_at) }}</p>
+          </div>
+          <div>
+            <p class="whitespace-pre-wrap text-base leading-7 text-neutral-700">{{ detail.version.summary || '这份回顾已根据本期记录生成。' }}</p>
+            <p class="mt-4 text-xs text-neutral-400">{{ domainCodes.length }} 个领域 · {{ threadCount }} 条主要发展线</p>
+          </div>
+        </div>
       </header>
 
-      <div class="space-y-3 px-4 pt-4">
+      <div class="mx-auto grid w-full max-w-7xl gap-6 px-4 py-5 sm:px-6 lg:grid-cols-[18rem_minmax(0,1fr)] lg:px-8 lg:py-8">
+        <aside v-if="domainCodes.length" class="hidden lg:block">
+          <div class="sticky top-20 rounded-3xl border border-[#e8e1d5] bg-[#fffdf8] p-4">
+            <p class="px-3 text-[11px] font-semibold tracking-[0.16em] text-primary-700">本期地图</p>
+            <p class="mt-2 px-3 text-sm leading-6 text-neutral-500">沿领域阅读，随时回到当前生活线索。</p>
+            <ReviewDomainNav class="mt-3" orientation="vertical" :domains="domainCodes" :active="activeDomain" @select="scrollToDomain" />
+          </div>
+        </aside>
+        <div class="min-w-0">
+          <div class="space-y-3">
         <ReviewStatusBanner v-if="isHistorical" title="你正在查看历史版本" action-label="返回当前版本" @action="returnCurrent" />
         <ReviewStatusBanner v-if="detail.version.superseded_at_creation" title="生成期间内容已更新" description="这个版本没有设为当前版本。" tone="warning" />
         <ReviewStatusBanner v-if="detail.version.analysis_stale" title="事件事实已由你修改" description="当前分析和候选行动可能不再适用。" action-label="更新分析和行动" tone="warning" @action="regenerateAnalysis" />
@@ -24,7 +39,7 @@
         <ReviewStatusBanner v-if="generationMessage" :title="generationMessage" :description="generationVersionId ? '当前版本仍然保留，你可以选择切换到新版本。' : '生成期间仍可阅读当前版本。'" :action-label="generationVersionId ? '查看新版本' : '查看任务'" @action="handleGenerationAction" />
       </div>
 
-      <section v-if="dailyDigests.length" class="mx-4 mt-4 rounded-2xl bg-white px-4 py-4">
+      <section v-if="dailyDigests.length" class="mt-4 rounded-3xl border border-[#e8e1d5] bg-[#fffdf8] px-4 py-5 sm:px-5">
         <h2 class="text-base font-semibold text-neutral-900">每日提炼</h2>
         <p class="mt-1 text-sm leading-5 text-neutral-500">按自然日合并当日多篇日记，仅供查看；修改原始日记、分析反馈或划线评论后，重新生成回顾即可更新。</p>
         <details v-for="digest in dailyDigests" :key="digest.id" class="border-b border-neutral-100 py-3 last:border-b-0">
@@ -46,10 +61,10 @@
         </details>
       </section>
 
-      <div v-if="domainCodes.length" class="sticky top-nav z-30 mt-4 border-y border-neutral-100 bg-white">
+      <div v-if="domainCodes.length" class="sticky top-14 z-30 mt-4 border-y border-[#e8e1d5] bg-[#fffdf8] lg:hidden">
         <ReviewDomainNav :domains="domainCodes" :active="activeDomain" @select="scrollToDomain" />
       </div>
-      <div class="space-y-4 px-4 py-4">
+      <div class="space-y-5 py-5">
         <ReviewDomainSection
           v-for="code in domainCodes"
           :key="code"
@@ -68,7 +83,7 @@
           @action-ignored="showUndoToast"
           @related-select="scrollToDomain"
         />
-        <section v-if="detail.version.event_document.other_matters?.length" class="rounded-2xl bg-white px-5 py-4">
+        <section v-if="detail.version.event_document.other_matters?.length" class="rounded-3xl border border-[#e8e1d5] bg-[#fffdf8] px-5 py-5">
           <h2 class="text-base font-semibold text-neutral-900">其他事项</h2>
           <article v-for="item in detail.version.event_document.other_matters" :key="`${item.title}-${item.narrative}`" class="border-b border-neutral-100 py-3 last:border-b-0">
             <p class="text-sm font-semibold text-neutral-800">{{ item.title }}</p>
@@ -76,16 +91,17 @@
             <button type="button" class="mt-1 min-h-11 text-sm text-primary-700" @click="openSources(item.source_ids, item.title)">查看依据</button>
           </article>
         </section>
-        <section v-if="!domainCodes.length" class="rounded-2xl bg-white px-5 py-16 text-center text-sm text-neutral-500">这个版本没有可展示的回顾内容。</section>
+        <section v-if="!domainCodes.length" class="rounded-3xl border border-[#e8e1d5] bg-[#fffdf8] px-5 py-16 text-center text-sm text-neutral-500">这个版本没有可展示的回顾内容。</section>
+      </div>
+        </div>
       </div>
     </main>
-    <div v-else class="mx-auto max-w-md p-4"><ReviewStatusBanner :title="error || '回顾不存在'" action-label="重新加载" tone="error" @action="load" /></div>
+    <div v-else class="mx-auto w-full max-w-3xl p-4 sm:p-6"><ReviewStatusBanner :title="error || '回顾不存在'" action-label="重新加载" tone="error" @action="load" /></div>
 
-    <div v-if="detail" class="fixed inset-x-0 bottom-0 z-40 border-t border-neutral-200 bg-white pb-[env(safe-area-inset-bottom)]">
-      <div class="mx-auto flex max-w-md gap-3 px-4 py-3">
-        <NuxtLink v-if="detail" :to="`/review/${reviewId}/chat?version=${detail.version.id}`" class="flex min-h-12 flex-1 items-center justify-center rounded-xl border border-primary-200 bg-primary-50 text-sm font-semibold text-primary-700">围绕这份回顾对话</NuxtLink>
-        <button type="button" class="min-h-12 flex-1 rounded-xl bg-primary-600 text-sm font-semibold text-white" @click="menuOpen = true">回顾操作</button>
-        <button type="button" class="min-h-12 w-12 rounded-xl bg-neutral-100 text-xl text-neutral-600" aria-label="更多操作" @click="menuOpen = true">···</button>
+    <div v-if="detail" class="fixed inset-x-0 bottom-[calc(52px+env(safe-area-inset-bottom))] z-40 border-t border-[#e8e1d5] bg-[#fffdf8]/95 backdrop-blur">
+      <div class="mx-auto flex w-full max-w-7xl gap-3 px-4 py-3 sm:px-6 lg:px-8">
+        <NuxtLink :to="`/review/${reviewId}/chat?version=${detail.version.id}`" class="flex min-h-12 flex-1 items-center justify-center rounded-xl border border-primary-200 bg-primary-50 text-sm font-semibold text-primary-700">围绕这份回顾对话</NuxtLink>
+        <button type="button" class="min-h-12 flex-1 rounded-xl bg-primary-600 text-sm font-semibold text-white shadow-sm" @click="menuOpen = true">回顾操作</button>
       </div>
     </div>
 
@@ -129,7 +145,7 @@
 <script setup lang="ts">
 import type { ReviewAction, ReviewAnalysisDomain, ReviewDailyAnalysisItem, ReviewDailyDigest, ReviewDomainCode, ReviewEventDomain, ReviewFeedback, ReviewTask, ReviewVersionDetail } from '~/types'
 
-definePageMeta({ layout: 'auth', middleware: 'auth' })
+definePageMeta({ layout: 'default', middleware: 'auth' })
 const route = useRoute()
 const router = useRouter()
 const { api } = useApi()

@@ -1,14 +1,14 @@
 <template>
-  <div class="min-h-dvh bg-neutral-50">
-    <NavBar title="编辑我的回顾" show-back>
+  <div class="min-h-dvh bg-[#f6f4ee]">
+    <ReviewTopBar title="编辑我的回顾" eyebrow="生活编年" show-back>
       <template #right>
-        <button type="button" class="min-h-11 px-2 text-sm font-semibold text-primary-700 disabled:text-neutral-300" :disabled="saving || !dirty" @click="save">保存</button>
+        <button type="button" class="min-h-11 rounded-full px-3 text-sm font-semibold text-primary-700 disabled:text-neutral-300" :disabled="saving || !dirty" @click="save">保存</button>
       </template>
-    </NavBar>
-    <main class="mx-auto max-w-md px-4 py-5">
-      <div v-if="loading" class="h-64 animate-pulse rounded-2xl bg-white" />
+    </ReviewTopBar>
+    <main class="mx-auto w-full max-w-3xl px-4 py-6 sm:px-6">
+      <div v-if="loading" class="h-64 animate-pulse rounded-3xl bg-white" />
       <ReviewStatusBanner v-else-if="error" :title="error" tone="error" action-label="重新加载" @action="load" />
-      <section v-else-if="thread" class="rounded-2xl border border-neutral-200 bg-white p-5">
+      <section v-else-if="thread" class="rounded-3xl border border-[#e8e1d5] bg-[#fffdf8] p-5 sm:p-6">
         <p class="text-xs font-medium text-primary-700">{{ domainLabel }}</p>
         <h1 class="mt-2 text-lg font-semibold text-neutral-900">{{ thread.title }}</h1>
         <textarea ref="narrativeRef" v-model="narrative" rows="1" data-auto-resize class="mt-5 min-h-64 w-full resize-none overflow-hidden rounded-xl border border-neutral-200 p-3 text-base leading-7 text-neutral-800 focus:border-primary-400 focus:outline-none" aria-label="事件主线叙事" @input="resizeNarrative" />

@@ -1,27 +1,27 @@
 <template>
-  <div class="flex min-h-dvh flex-col bg-neutral-50">
-    <NavBar title="与这份回顾对话" show-back>
-      <template #right><NuxtLink :to="`/review/${reviewId}?version=${versionId}`" class="min-h-11 flex items-center text-sm text-primary-700">详情</NuxtLink></template>
-    </NavBar>
-    <main class="mx-auto flex w-full max-w-md flex-1 flex-col px-4 pb-28 pt-4">
-      <p class="mb-4 rounded-xl bg-white px-4 py-3 text-sm leading-6 text-neutral-500">基于固定版本 v{{ versionNo }}。本次对话不会混入其他版本的内容。</p>
+  <div class="flex min-h-dvh flex-col bg-[#f6f4ee]">
+    <ReviewTopBar title="与这份回顾对话" eyebrow="生活编年" show-back>
+      <template #right><NuxtLink :to="`/review/${reviewId}?version=${versionId}`" class="flex min-h-11 items-center rounded-full px-3 text-sm font-semibold text-primary-700 transition hover:bg-primary-50">详情</NuxtLink></template>
+    </ReviewTopBar>
+    <main class="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 pb-28 pt-5 sm:px-6">
+      <p class="mb-5 rounded-2xl border border-[#e8e1d5] bg-[#fffdf8] px-4 py-3 text-sm leading-6 text-neutral-500">基于固定版本 v{{ versionNo }}。本次对话不会混入其他版本的内容。</p>
       <div v-if="loading" class="py-10 text-center text-sm text-neutral-400">正在读取对话…</div>
       <div v-else class="space-y-3">
-        <article v-for="message in messages" :key="message.id" class="rounded-2xl px-4 py-3 text-base leading-7" :class="message.role === 'user' ? 'ml-8 bg-primary-100 text-primary-950' : 'mr-8 bg-white text-neutral-800'">
+        <article v-for="message in messages" :key="message.id" class="rounded-3xl px-4 py-3 text-base leading-7" :class="message.role === 'user' ? 'ml-8 bg-primary-100 text-primary-950' : 'mr-8 border border-[#e8e1d5] bg-[#fffdf8] text-neutral-800'">
           {{ message.content }}
         </article>
-        <div v-if="!messages.length" class="rounded-2xl bg-white px-4 py-5 text-sm leading-6 text-neutral-500">
+        <div v-if="!messages.length" class="rounded-3xl border border-[#e8e1d5] bg-[#fffdf8] px-4 py-5 text-sm leading-6 text-neutral-500">
           <p>你可以从这份回顾出发继续反思：</p>
           <button v-for="question in starterQuestions" :key="question" type="button" class="mt-2 flex min-h-11 w-full items-center rounded-xl bg-neutral-50 px-3 text-left text-sm text-primary-700" @click="draft = question">{{ question }}</button>
         </div>
       </div>
     </main>
-    <form class="fixed inset-x-0 bottom-0 border-t border-neutral-200 bg-white pb-[env(safe-area-inset-bottom)]" @submit.prevent="send">
-      <div class="mx-auto flex max-w-md items-end gap-2 px-4 py-3">
+    <form class="fixed inset-x-0 bottom-0 border-t border-[#e8e1d5] bg-[#fffdf8]/95 pb-[env(safe-area-inset-bottom)] backdrop-blur" @submit.prevent="send">
+      <div class="mx-auto flex max-w-3xl items-end gap-2 px-4 py-3 sm:px-6">
         <textarea v-model="draft" rows="1" class="max-h-32 min-h-12 flex-1 resize-y rounded-xl border border-neutral-200 p-3 text-base leading-6 focus:border-primary-400 focus:outline-none" placeholder="围绕这份回顾继续聊……" aria-label="回顾对话输入" :disabled="sending" />
         <button type="submit" class="min-h-12 min-w-12 rounded-xl bg-primary-600 px-3 text-sm font-semibold text-white disabled:opacity-50" :disabled="sending || !draft.trim()">{{ sending ? '…' : '发送' }}</button>
       </div>
-      <p v-if="error" class="mx-auto max-w-md px-4 pb-2 text-sm text-red-600">{{ error }}</p>
+      <p v-if="error" class="mx-auto max-w-3xl px-4 pb-2 text-sm text-red-600 sm:px-6">{{ error }}</p>
     </form>
   </div>
 </template>

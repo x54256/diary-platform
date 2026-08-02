@@ -1,5 +1,5 @@
 <template>
-  <article v-if="action.status !== 'IGNORED' || showIgnored" class="rounded-xl border border-neutral-200 bg-white p-4">
+  <article v-if="action.status !== 'IGNORED' || showIgnored" class="rounded-2xl border border-[#e8e1d5] bg-white p-4">
     <div class="flex items-start gap-3">
       <span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 text-[10px]" :class="action.status === 'CONFIRMED' ? 'border-emerald-500 bg-emerald-500 text-white' : 'border-primary-300'">
         {{ action.status === 'CONFIRMED' ? '●' : '' }}

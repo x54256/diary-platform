@@ -1,33 +1,38 @@
 <template>
-  <div class="min-h-dvh bg-neutral-50">
-    <NavBar title="定期回顾">
+  <div class="min-h-dvh bg-[#f6f4ee]">
+    <ReviewTopBar title="定期回顾" eyebrow="生活编年">
       <template #right>
-        <NuxtLink to="/review/tasks" class="relative flex h-11 w-11 items-center justify-center text-neutral-600" aria-label="回顾任务">
+        <NuxtLink to="/review/tasks" class="relative flex h-11 w-11 items-center justify-center rounded-full text-neutral-600 transition hover:bg-primary-50" aria-label="回顾任务">
           <svg viewBox="0 0 24 24" class="h-6 w-6 fill-none stroke-current stroke-2"><path d="M6 5h14M6 12h14M6 19h14"/><circle cx="3" cy="5" r="1"/><circle cx="3" cy="12" r="1"/><circle cx="3" cy="19" r="1"/></svg>
           <span v-if="attentionTaskCount" class="absolute right-0 top-0 flex h-5 min-w-5 items-center justify-center rounded-full bg-red-500 px-1 text-[11px] font-semibold text-white">{{ attentionTaskCount > 99 ? '99+' : attentionTaskCount }}</span>
         </NuxtLink>
       </template>
-    </NavBar>
+    </ReviewTopBar>
 
-    <main class="mx-auto max-w-md px-4 py-4">
-      <ReviewPeriodFilter v-model="filter" />
-      <NuxtLink v-if="activeTaskCount || failedTaskCount" to="/review/tasks" class="mt-3 flex min-h-12 items-center justify-between rounded-xl border border-primary-100 bg-primary-50 px-4 text-sm text-primary-800">
-        <span>{{ activeTaskCount ? `${activeTaskCount} 项任务进行中` : '' }}{{ activeTaskCount && failedTaskCount ? '，' : '' }}{{ failedTaskCount ? `${failedTaskCount} 项需要处理` : '' }}</span><span>›</span>
-      </NuxtLink>
+    <main class="mx-auto w-full max-w-7xl px-4 py-5 sm:px-6 lg:px-8 lg:py-8">
+      <section class="grid gap-5 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
+        <div>
+          <p class="text-sm leading-6 text-neutral-500">把已经发生的事，连成下一段更清楚的生活线索。</p>
+          <ReviewPeriodFilter v-model="filter" class="mt-4 max-w-md" />
+        </div>
+        <NuxtLink v-if="activeTaskCount || failedTaskCount" to="/review/tasks" class="flex min-h-14 items-center justify-between rounded-2xl border border-primary-200 bg-[#fffaf4] px-4 text-sm text-primary-800 transition hover:border-primary-300">
+          <span>{{ activeTaskCount ? `${activeTaskCount} 项任务进行中` : '' }}{{ activeTaskCount && failedTaskCount ? '，' : '' }}{{ failedTaskCount ? `${failedTaskCount} 项需要处理` : '' }}</span><span>›</span>
+        </NuxtLink>
+      </section>
 
-      <div v-if="loading" class="mt-5 space-y-4">
-        <div v-for="item in 3" :key="item" class="h-44 animate-pulse rounded-2xl border border-neutral-200 bg-white p-4"><div class="h-5 w-20 rounded bg-neutral-100"/><div class="mt-4 h-4 w-36 rounded bg-neutral-100"/><div class="mt-4 space-y-2"><div class="h-3 rounded bg-neutral-100"/><div class="h-3 w-4/5 rounded bg-neutral-100"/></div></div>
+      <div v-if="loading" class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div v-for="item in 3" :key="item" class="h-52 animate-pulse rounded-3xl border border-[#e8e1d5] bg-white p-5"><div class="h-5 w-20 rounded bg-neutral-100"/><div class="mt-5 h-5 w-40 rounded bg-neutral-100"/><div class="mt-5 space-y-2"><div class="h-3 rounded bg-neutral-100"/><div class="h-3 w-4/5 rounded bg-neutral-100"/></div></div>
       </div>
-      <ReviewStatusBanner v-else-if="error" class="mt-5" :title="error" action-label="重新加载" tone="error" @action="load" />
-      <div v-else-if="groupedReviews.length" class="mt-5 space-y-6">
+      <ReviewStatusBanner v-else-if="error" class="mt-8" :title="error" action-label="重新加载" tone="error" @action="load" />
+      <div v-else-if="groupedReviews.length" class="mt-8 space-y-9">
         <section v-for="group in groupedReviews" :key="group.key">
-          <h2 class="mb-3 px-1 text-sm font-semibold text-neutral-500">{{ group.label }}</h2>
-          <div class="space-y-3"><ReviewListCard v-for="review in group.items" :key="review.id" :review="review" /></div>
+          <h2 class="mb-4 flex items-center gap-3 text-sm font-semibold text-neutral-500"><span class="h-px w-6 bg-primary-400" />{{ group.label }}</h2>
+          <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3"><ReviewListCard v-for="review in group.items" :key="review.id" :review="review" /></div>
         </section>
-        <button v-if="nextCursor" type="button" class="min-h-12 w-full rounded-xl bg-white text-sm font-semibold text-primary-700 disabled:opacity-50" :disabled="loadingMore" @click="loadMore">{{ loadingMore ? '正在加载…' : '加载更多' }}</button>
+        <button v-if="nextCursor" type="button" class="min-h-12 w-full rounded-2xl border border-[#e8e1d5] bg-white text-sm font-semibold text-primary-700 disabled:opacity-50" :disabled="loadingMore" @click="loadMore">{{ loadingMore ? '正在加载…' : '加载更多' }}</button>
       </div>
-      <section v-else class="py-20 text-center">
-        <div class="text-4xl text-primary-300">◌</div>
+      <section v-else class="py-24 text-center">
+        <div class="text-5xl text-primary-300">◌</div>
         <h2 class="mt-4 font-semibold text-neutral-800">还没有可以查看的回顾</h2>
         <p class="mx-auto mt-2 max-w-xs text-sm leading-6 text-neutral-500">周期结束后系统会自动生成；也可以从任务中心选择过去的周期生成。</p>
         <NuxtLink to="/review/tasks?create=1" class="mt-6 inline-flex min-h-11 items-center rounded-xl bg-primary-600 px-5 text-sm font-semibold text-white">新建回顾任务</NuxtLink>
