@@ -5,16 +5,6 @@
       <!-- 编辑模式：直接展示 -->
       <div class="px-4 pt-3">
         <input v-model="editTitle" class="w-full p-1 text-base font-semibold border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none" @click.stop />
-        <label class="mt-3 flex items-center gap-2 text-sm text-neutral-700">
-          <span>重要性</span>
-          <select v-model="editImportance" class="min-h-10 rounded border border-neutral-300 bg-white px-2 text-base" @click.stop>
-            <option value="">按 AI 判断</option>
-            <option value="HIGH">高</option>
-            <option value="MEDIUM">中</option>
-            <option value="LOW">低</option>
-          </select>
-        </label>
-        <input v-if="editImportance" v-model="editImportanceReason" class="mt-2 min-h-10 w-full rounded border border-neutral-300 px-2 text-base" placeholder="调整原因（可选）" @click.stop>
       </div>
     </template>
     <template v-else>
@@ -171,8 +161,6 @@ const editTitle = ref('')
 const editBody = ref('')
 const editFeeling = ref('')
 const editReflection = ref('')
-const editImportance = ref('')
-const editImportanceReason = ref('')
 
 const handleTextareaInput = (event: Event) => {
   resizeTextarea(event.target as HTMLTextAreaElement)
@@ -185,8 +173,6 @@ watch(() => props.editable, (val) => {
     editBody.value = (props.event.body || []).join('\n')
     editFeeling.value = (props.event.feeling || []).join('\n')
     editReflection.value = (props.event.reflection || []).join('\n')
-    editImportance.value = props.event.user_importance || ''
-    editImportanceReason.value = props.event.user_importance_reason || ''
     nextTick(() => {
       document.querySelectorAll<HTMLTextAreaElement>('textarea[data-auto-resize]').forEach(resizeTextarea)
     })
@@ -194,7 +180,7 @@ watch(() => props.editable, (val) => {
 }, { immediate: true })
 
 // 编辑模式下，实时向父组件发送更新通知
-watch([editTitle, editBody, editFeeling, editReflection, editImportance, editImportanceReason], () => {
+watch([editTitle, editBody, editFeeling, editReflection], () => {
   if (props.editable) {
     emit('update', {
       id: props.event.id,
@@ -202,8 +188,6 @@ watch([editTitle, editBody, editFeeling, editReflection, editImportance, editImp
       body: editBody.value.split('\n').filter((s: string) => s.trim()),
       feeling: editFeeling.value.split('\n').filter((s: string) => s.trim()),
       reflection: editReflection.value.split('\n').filter((s: string) => s.trim()),
-      user_importance: editImportance.value || null,
-      user_importance_reason: editImportance.value ? editImportanceReason.value || null : null,
     })
   }
 }, { deep: true })
