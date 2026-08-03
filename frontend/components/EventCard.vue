@@ -14,7 +14,19 @@
           <div class="text-base font-medium text-neutral-800">
               {{ event.event_title || '未命名事件' }}
           </div>
-          <span v-if="effectiveImportance" class="rounded bg-primary-50 px-2 py-1 text-xs text-primary-700">{{ effectiveImportance }}重要</span>
+          <select
+            v-if="effectiveImportance"
+            :value="effectiveImportanceCode"
+            class="min-h-7 rounded bg-primary-50 px-1.5 text-[11px] text-primary-700 outline-none"
+            aria-label="修改事件重要性"
+            :disabled="importanceSaving"
+            @click.stop
+            @change="handleImportanceChange"
+          >
+            <option value="HIGH">高</option>
+            <option value="MEDIUM">中</option>
+            <option value="LOW">低</option>
+          </select>
           <button
             type="button"
             class="shrink-0 -mr-1 -mt-1 w-8 h-8 text-lg leading-none text-amber-500 disabled:opacity-50"
@@ -146,10 +158,12 @@ const props = defineProps<{
   analysisRunId?: string
   annotations?: DiaryAnnotation[]
   favoriteSaving?: boolean
+  importanceSaving?: boolean
 }>()
 
 const emit = defineEmits<{
   (e: 'update', data: any): void
+  (e: 'importance-change', eventId: string, importance: 'HIGH' | 'MEDIUM' | 'LOW'): void
   (e: 'annotation-select', selection: DiaryAnnotationSelection): void
   (e: 'annotation-clicked', payload: DiaryAnnotationClick): void
   (e: 'favorite-toggle', eventId: string): void
@@ -227,5 +241,19 @@ const sortedAnalysisSections = computed(() => {
 
 const analysisRunId = computed(() => props.analysisRunId || '')
 const hasEventAnalysis = computed(() => sortedAnalysisSections.value.length > 0 && !!analysisRunId.value)
-const effectiveImportance = computed(() => ({ HIGH: '高', MEDIUM: '中', LOW: '低' }[props.event.user_importance || props.event.ai_importance || ''] || ''))
+const importanceLabels: Record<'HIGH' | 'MEDIUM' | 'LOW', string> = {
+  HIGH: '高',
+  MEDIUM: '中',
+  LOW: '低',
+}
+const effectiveImportanceCode = computed<'HIGH' | 'MEDIUM' | 'LOW' | ''>(() => {
+  const value = props.event.user_importance || props.event.ai_importance
+  return value === 'HIGH' || value === 'MEDIUM' || value === 'LOW' ? value : ''
+})
+const effectiveImportance = computed(() => importanceLabels[effectiveImportanceCode.value as keyof typeof importanceLabels] || '')
+
+const handleImportanceChange = (event: Event) => {
+  const importance = (event.target as HTMLSelectElement).value as 'HIGH' | 'MEDIUM' | 'LOW'
+  emit('importance-change', props.event.id, importance)
+}
 </script>

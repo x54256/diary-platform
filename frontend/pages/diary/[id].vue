@@ -340,7 +340,9 @@
             :analysis-run-id="diary.organized?.analysis?.id"
             :annotations="annotations"
             :favorite-saving="favoriteSaving"
+            :importance-saving="importanceSavingEventId === event.id"
             @update="onEventUpdate"
+            @importance-change="updateEventImportance"
             @annotation-select="openAnnotationSelection"
             @annotation-clicked="openAnnotationById"
             @favorite-toggle="toggleEventFavorite"
@@ -639,6 +641,7 @@ const loading = ref(true)
 const activeTab = ref<'diary' | 'analysis'>('diary')
 const annotations = ref<DiaryAnnotation[]>([])
 const favoriteSaving = ref(false)
+const importanceSavingEventId = ref<string | null>(null)
 const diaryContentRef = ref<HTMLElement | null>(null)
 const diaryContentTop = ref(44)
 const stickyEvent = ref<DiaryEvent | null>(null)
@@ -997,6 +1000,34 @@ const toggleEventFavorite = async (eventId: string) => {
     console.error('切换事件收藏失败', err)
   } finally {
     favoriteSaving.value = false
+  }
+}
+
+const updateEventImportance = async (eventId: string, importance: 'HIGH' | 'MEDIUM' | 'LOW') => {
+  if (!diary.value || importanceSavingEventId.value) return
+  const event = diary.value.organized?.events.find(item => item.id === eventId)
+  if (!event) return
+
+  const previousImportance = event.user_importance
+  const previousReason = event.user_importance_reason
+  importanceSavingEventId.value = eventId
+  event.user_importance = importance
+  event.user_importance_reason = null
+  try {
+    await api(`/diaries/${diary.value.id}/events/${eventId}`, {
+      method: 'PUT',
+      body: {
+        id: eventId,
+        user_importance: importance,
+        user_importance_reason: null,
+      },
+    })
+  } catch (err) {
+    event.user_importance = previousImportance
+    event.user_importance_reason = previousReason
+    console.error('修改事件重要性失败', err)
+  } finally {
+    importanceSavingEventId.value = null
   }
 }
 
