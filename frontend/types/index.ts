@@ -465,35 +465,30 @@ export interface ReviewDailyDigest {
   review_task_id: string
   review_version_id: string | null
   digest_date: string
-  status: 'EMPTY' | 'EVENT_READY' | 'ANALYSIS_READY' | 'FAILED'
-  event_document: {
-    digest_date?: string
-    items: ReviewDailyEventItem[]
-  }
-  analysis_document: {
-    items: ReviewDailyAnalysisItem[]
-  }
+  status: 'EMPTY' | 'READY' | 'FAILED'
+  material_document: ReviewDailyMaterialDocument
   created_at: string
   updated_at: string
 }
 
-export interface ReviewDailyEventItem {
-  item_key: string
-  title: string
-  fact: string
-  current_status: string
-  open_points: string[]
-  source_ids: string[]
+export interface ReviewDailyMaterialDocument {
+  digest_date?: string
+  day_overview: { main_changes: string[]; overall_state: string[]; open_loops: string[] }
+  matters: ReviewDailyMatter[]
 }
 
-export interface ReviewDailyAnalysisItem {
+export interface ReviewDailyMatter {
   item_key: string
-  user_attention: string[]
-  preferred_explanations: string[]
-  prohibited_explanations: string[]
-  feedback_constraints: string[]
-  insufficient_evidence: string[]
-  evidence_ids: string[]
+  title: string
+  core_changes: string[]
+  facts_and_progress: string[]
+  emotions_and_state: string[]
+  actions_and_results: Array<{ action: string; result: string }>
+  concerns_and_expectations: Array<{ kind: 'ATTENTION' | 'CONCERN' | 'EXPECTATION'; text: string }>
+  follow_ups: string[]
+  reflections_and_learning: string[]
+  key_quotes: string[]
+  source_ids: string[]
 }
 
 export type ReviewTaskStatus =

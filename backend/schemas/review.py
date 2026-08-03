@@ -297,9 +297,8 @@ class ReviewDailyDigestResponse(BaseModel):
     review_task_id: UUID
     review_version_id: Optional[UUID] = None
     digest_date: date
-    status: Literal["EMPTY", "EVENT_READY", "ANALYSIS_READY", "FAILED"]
-    event_document: dict[str, Any] = Field(default_factory=dict)
-    analysis_document: dict[str, Any] = Field(default_factory=dict)
+    status: Literal["EMPTY", "READY", "FAILED"]
+    material_document: dict[str, Any] = Field(default_factory=dict)
     created_at: datetime
     updated_at: datetime
 

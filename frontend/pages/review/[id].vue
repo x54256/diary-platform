@@ -40,23 +40,28 @@
       </div>
 
       <section v-if="dailyDigests.length" class="mt-4 rounded-3xl border border-[#e8e1d5] bg-[#fffdf8] px-4 py-5 sm:px-5">
-        <h2 class="text-base font-semibold text-neutral-900">每日提炼</h2>
-        <p class="mt-1 text-sm leading-5 text-neutral-500">按自然日合并当日多篇日记，仅供查看；修改原始日记、分析反馈或划线评论后，重新生成回顾即可更新。</p>
+        <h2 class="text-base font-semibold text-neutral-900">每日周回顾素材</h2>
+        <p class="mt-1 text-sm leading-5 text-neutral-500">按自然日整理重要事项，为周回顾保留过程、状态、行为、关注和感悟。</p>
         <details v-for="digest in dailyDigests" :key="digest.id" class="border-b border-neutral-100 py-3 last:border-b-0">
-          <summary class="cursor-pointer list-none text-sm font-medium text-neutral-800">{{ shortDate(digest.digest_date) }} · {{ digestItems(digest).length }} 条本日事项</summary>
+          <summary class="cursor-pointer list-none text-sm font-medium text-neutral-800">{{ shortDate(digest.digest_date) }} · {{ digestMatters(digest).length }} 条本日事项</summary>
           <div class="mt-3 space-y-3">
-            <article v-for="item in digestItems(digest)" :key="item.item_key" class="rounded-xl bg-neutral-50 px-3 py-3">
+            <div v-if="digest.material_document.day_overview.main_changes?.length || digest.material_document.day_overview.overall_state?.length || digest.material_document.day_overview.open_loops?.length" class="rounded-xl bg-primary-50 px-3 py-3 text-sm leading-6 text-neutral-700">
+              <p v-if="digest.material_document.day_overview.main_changes?.length">{{ digest.material_document.day_overview.main_changes.join('；') }}</p>
+              <p v-if="digest.material_document.day_overview.overall_state?.length" class="mt-1">状态：{{ digest.material_document.day_overview.overall_state.join('；') }}</p>
+              <p v-if="digest.material_document.day_overview.open_loops?.length" class="mt-1">待关注：{{ digest.material_document.day_overview.open_loops.join('；') }}</p>
+            </div>
+            <article v-for="item in digestMatters(digest)" :key="item.item_key" class="rounded-xl bg-neutral-50 px-3 py-3">
               <p class="text-sm font-semibold text-neutral-800">{{ item.title }}</p>
-              <p class="mt-1 whitespace-pre-wrap text-sm leading-6 text-neutral-700">{{ item.fact }}</p>
-              <p v-if="item.open_points?.length" class="mt-2 text-xs leading-5 text-neutral-500">待跟进：{{ item.open_points.join('；') }}</p>
+              <p v-if="item.core_changes?.length" class="mt-1 whitespace-pre-wrap text-sm leading-6 text-neutral-700">{{ item.core_changes.join('；') }}</p>
+              <p v-if="item.facts_and_progress?.length" class="mt-2 text-sm leading-6 text-neutral-700">进展：{{ item.facts_and_progress.join('；') }}</p>
+              <p v-if="item.emotions_and_state?.length" class="mt-2 text-sm leading-6 text-neutral-700">状态：{{ item.emotions_and_state.join('；') }}</p>
+              <p v-if="item.actions_and_results?.length" class="mt-2 text-sm leading-6 text-neutral-700">行动与结果：{{ item.actions_and_results.map(value => `${value.action}：${value.result}`).join('；') }}</p>
+              <p v-if="item.concerns_and_expectations?.length" class="mt-2 text-sm leading-6 text-neutral-700">关注：{{ item.concerns_and_expectations.map(value => value.text).join('；') }}</p>
+              <p v-if="item.follow_ups?.length" class="mt-2 text-sm leading-6 text-neutral-700">后续：{{ item.follow_ups.join('；') }}</p>
+              <p v-if="item.reflections_and_learning?.length" class="mt-2 text-sm leading-6 text-neutral-700">感悟：{{ item.reflections_and_learning.join('；') }}</p>
+              <p v-if="item.key_quotes?.length" class="mt-2 border-l-2 border-neutral-300 pl-2 text-sm leading-6 text-neutral-600">“{{ item.key_quotes.join('” “') }}”</p>
+              <button v-if="item.source_ids?.length" type="button" class="mt-2 min-h-11 text-sm text-primary-700" @click="openSources(item.source_ids, `${item.title}依据`)">查看原始事件定位</button>
             </article>
-            <template v-for="item in digestAnalysisItems(digest)" :key="item.item_key">
-              <article v-if="digestAnalysisText(item)" class="rounded-xl bg-primary-50 px-3 py-3">
-                <p class="text-xs font-semibold text-primary-700">分析</p>
-                <p class="mt-1 whitespace-pre-wrap text-sm leading-6 text-neutral-700">{{ digestAnalysisText(item) }}</p>
-              </article>
-            </template>
-            <button v-if="digestSourceIds(digest).length" type="button" class="min-h-11 text-sm text-primary-700" @click="openSources(digestSourceIds(digest), `${shortDate(digest.digest_date)}每日提炼依据`)">查看原始事件定位</button>
           </div>
         </details>
       </section>
@@ -143,7 +148,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ReviewAction, ReviewAnalysisDomain, ReviewDailyAnalysisItem, ReviewDailyDigest, ReviewDomainCode, ReviewEventDomain, ReviewFeedback, ReviewTask, ReviewVersionDetail } from '~/types'
+import type { ReviewAction, ReviewAnalysisDomain, ReviewDailyDigest, ReviewDomainCode, ReviewEventDomain, ReviewFeedback, ReviewTask, ReviewVersionDetail } from '~/types'
 
 definePageMeta({ layout: 'default', middleware: 'auth' })
 const route = useRoute()
@@ -226,15 +231,7 @@ const domainCodes = computed(() => {
   return [...values].filter(Boolean)
 })
 const threadCount = computed(() => eventDomains.value.reduce((sum, domain) => sum + (domain.event_threads?.length || 0), 0))
-const digestItems = (digest: ReviewDailyDigest) => digest.event_document?.items || []
-const digestAnalysisItems = (digest: ReviewDailyDigest) => digest.analysis_document?.items || []
-const digestAnalysisText = (item: ReviewDailyAnalysisItem) => [
-  ...(item.user_attention || []),
-  ...(item.preferred_explanations || []),
-  ...(item.feedback_constraints || []),
-  ...(item.insufficient_evidence || []),
-].join('；')
-const digestSourceIds = (digest: ReviewDailyDigest) => [...new Set(digestItems(digest).flatMap(item => item.source_ids || []))]
+const digestMatters = (digest: ReviewDailyDigest) => digest.material_document?.matters || []
 const missingPeriodDescription = computed(() => {
   const periods = (detail.value?.version.missing_periods || []) as Array<{ period_start?: string; period_end?: string; status?: string }>
   if (!periods.length) return ''

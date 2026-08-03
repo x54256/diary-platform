@@ -30,10 +30,9 @@ from models.review import (
     ReviewVersionType,
     ReviewSourceSet,
 )
-from models.diary import DiaryEvent
 from services.review_ai import (
-    ReviewAIError, actual_review_model_info, review_analysis_action, review_daily_analysis_digest,
-    review_daily_event_digest, review_week_event_organize_from_digests, validate_analysis_action_document,
+    ReviewAIError, actual_review_model_info, review_analysis_action, review_daily_material,
+    review_week_event_organize_from_digests, validate_analysis_action_document,
 )
 from services.review_periods import ReviewPeriod
 from services.review_sources import (
@@ -58,7 +57,7 @@ def _dates_between(start: date, end: date) -> list[date]:
 
 def _document_source_ids(document: dict[str, Any]) -> set[str]:
     ids: set[str] = set()
-    for item in document.get("items", []) if isinstance(document, dict) else []:
+    for item in ((document.get("items", []) + document.get("matters", [])) if isinstance(document, dict) else []):
         if isinstance(item, dict):
             ids.update(str(value) for value in item.get("source_ids", []) if value)
     for domain in document.get("domains", []) if isinstance(document, dict) else []:
@@ -74,51 +73,35 @@ def _daily_item_key(digest_date: date, source_ids: list[str]) -> str:
     return f"day-{uuid.uuid5(uuid.NAMESPACE_URL, seed)}"
 
 
-def _assemble_daily_event_document(
-    model_result: dict[str, Any], digest_date: date, sources: list[dict[str, Any]],
+def _assemble_daily_material_document(
+    model_result: dict[str, Any], digest_date: date, events: list[dict[str, Any]], annotation_source_ids: dict[str, list[str]],
 ) -> dict[str, Any]:
-    """将模型最小语义输出映射为可持久化的每日事项卡。"""
-    source_by_id = {str(item.get("source_id")): item for item in sources}
-    items: list[dict[str, Any]] = []
-    for matter in model_result.get("matters", []):
-        source_ids = sorted(str(value) for value in matter.get("source_ids", []))
-        categories = {"event_source_ids": [], "annotation_source_ids": [], "schedule_source_ids": []}
-        for source_id in source_ids:
-            source = source_by_id[source_id]
-            metadata = source.get("metadata") or {}
-            if source.get("source_type") == "SCHEDULE_OCCURRENCE":
-                categories["schedule_source_ids"].append(source_id)
-            elif metadata.get("annotation_id"):
-                categories["annotation_source_ids"].append(source_id)
-            else:
-                categories["event_source_ids"].append(source_id)
-        items.append({
-            "item_key": _daily_item_key(digest_date, source_ids),
-            "title": matter["title"],
-            "fact": matter["fact"],
-            "current_status": matter["current_status"],
-            "open_points": matter["open_points"],
-            "source_ids": source_ids,
-            **categories,
+    """将临时事件序号映射为事项级冻结来源，并生成稳定事项键。"""
+    event_by_no = {int(event["event_no"]): event for event in events}
+    matters: list[dict[str, Any]] = []
+    for matter in model_result["matters"]:
+        source_events = [event_by_no[no] for no in matter["source_event_nos"]]
+        source_ids = sorted({str(event["source_id"]) for event in source_events} | {
+            annotation_id for event in source_events for annotation_id in annotation_source_ids.get(str(event["event_id"]), [])
         })
-    return {"digest_date": digest_date.isoformat(), "items": items}
+        material = {key: copy.deepcopy(value) for key, value in matter.items() if key != "source_event_nos"}
+        material.update({
+            "item_key": _daily_item_key(digest_date, source_ids),
+            "source_ids": source_ids,
+            "source_event_ids": [str(event["event_id"]) for event in source_events],
+        })
+        matters.append(material)
+    return {"digest_date": digest_date.isoformat(), "day_overview": copy.deepcopy(model_result["day_overview"]), "matters": matters}
 
 
-def _assemble_daily_analysis_document(items: list[dict[str, Any]], model_result: dict[str, Any]) -> dict[str, Any]:
-    """按代码预置事项补齐每日分析，禁止模型新增事项。"""
-    by_key = {str(item.get("item_key")): item for item in model_result.get("matter_analyses", [])}
-    fields = ("user_attention", "preferred_explanations", "prohibited_explanations", "feedback_constraints", "insufficient_evidence", "evidence_ids")
-    return {
-        "items": [
-            {"item_key": item["item_key"], **{field: copy.deepcopy(by_key.get(item["item_key"], {}).get(field, [])) for field in fields}}
-            for item in items
-        ]
-    }
+def _weekly_fact(item: dict[str, Any]) -> str:
+    values = item.get("facts_and_progress") or item.get("core_changes") or []
+    return "；".join(value for value in values if isinstance(value, str))
 
 
-def _assemble_week_event_document(model_result: dict[str, Any], daily_items: list[dict[str, Any]]) -> dict[str, Any]:
+def _assemble_week_event_document(model_result: dict[str, Any], weekly_items: list[dict[str, Any]]) -> dict[str, Any]:
     """由模型的事项归属生成稳定的周级主线、节点与关注点。"""
-    items = {str(item["item_key"]): item for item in daily_items}
+    items = {str(item["item_key"]): item for item in weekly_items}
     domains: dict[str, dict[str, Any]] = {}
     for position, semantic in enumerate(model_result.get("threads", []), start=1):
         item_keys = semantic["item_keys"]
@@ -130,18 +113,18 @@ def _assemble_week_event_document(model_result: dict[str, Any], daily_items: lis
             node_key = f"node-{uuid.uuid5(uuid.NAMESPACE_URL, item_key)}"
             ids = list(item["source_ids"])
             source_ids.extend(ids)
-            nodes.append({"node_key": node_key, "source_date": item["digest_date"], "change_type": "CURRENT_STATE", "fact": item["fact"], "source_ids": ids})
+            nodes.append({"node_key": node_key, "source_date": item["digest_date"], "change_type": "CURRENT_STATE", "fact": _weekly_fact(item), "source_ids": ids})
         domain_code = semantic["domain_code"]
         domain = domains.setdefault(domain_code, {"domain_code": domain_code, "core_focus": [], "event_threads": []})
         domain["event_threads"].append({
             "thread_key": thread_key, "title": semantic["title"], "primary_domain": domain_code,
-            "related_domains": [], "narrative": "；".join(item["fact"] for item in (items[key] for key in item_keys)),
+            "related_domains": [], "narrative": "；".join(_weekly_fact(item) for item in (items[key] for key in item_keys)),
             "narrative_node_keys": [node["node_key"] for node in nodes], "continuity_status": "NEW",
             "current_status": semantic["current_status"], "previous_thread_key": None,
             "prior_context_source_ids": [], "selection_reason_codes": [semantic["selection_reason_code"]], "nodes": nodes, "links": [],
         })
         domain["core_focus"].append({"focus_key": f"focus-{thread_key}", "label": semantic["title"], "thread_keys": [thread_key], "source_ids": sorted(set(source_ids))})
-    other_matters = [{"title": items[key]["title"], "narrative": items[key]["fact"], "source_ids": items[key]["source_ids"]} for key in model_result.get("other_item_keys", [])]
+    other_matters = [{"title": items[key]["title"], "narrative": _weekly_fact(items[key]), "source_ids": items[key]["source_ids"]} for key in model_result.get("other_item_keys", [])]
     return {"domains": list(domains.values()), "other_matters": other_matters}
 
 
@@ -149,6 +132,22 @@ def _stable_key(kind: str, *parts: object) -> str:
     """所有内部键均由代码根据稳定输入生成，模型不能控制。"""
     seed = "|".join(str(part) for part in parts)
     return f"{kind}-{uuid.uuid5(uuid.NAMESPACE_URL, seed)}"
+
+
+def _weekly_materials_for_analysis(weekly_items: list[dict[str, Any]], event_document: dict[str, Any]) -> list[dict[str, Any]]:
+    """保留完整周级素材，并显式标记它们归属的主线。"""
+    item_threads: dict[str, list[str]] = {}
+    for domain in event_document.get("domains", []):
+        for thread in domain.get("event_threads", []):
+            thread_key = thread.get("thread_key")
+            if not isinstance(thread_key, str):
+                continue
+            node_keys = {node.get("node_key") for node in thread.get("nodes", []) if isinstance(node, dict)}
+            for item in weekly_items:
+                item_key = str(item.get("item_key"))
+                if f"node-{uuid.uuid5(uuid.NAMESPACE_URL, item_key)}" in node_keys:
+                    item_threads.setdefault(item_key, []).append(thread_key)
+    return [{**copy.deepcopy(item), "thread_keys": item_threads.get(str(item.get("item_key")), [])} for item in weekly_items]
 
 
 def _assemble_analysis_action_document(model_result: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]:
@@ -228,32 +227,38 @@ def _daily_candidates(candidates: list[dict[str, Any]], source_ids: set[str]) ->
     return [item for item in candidates if source_ids.intersection(str(value) for value in item.get("evidence_source_ids", []))]
 
 
-def _daily_source_catalog(day_sources: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """每日调用只携带中高事件、历史未判定事件、划线及日程事实。"""
-    highlighted_event_ids = {
-        str((source.get("metadata") or {}).get("event_id"))
-        for source in day_sources
-        if (source.get("metadata") or {}).get("annotation_id")
-        and (source.get("metadata") or {}).get("event_id")
-    }
-    result: list[dict[str, Any]] = []
+def _daily_material_input(day_sources: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], dict[str, list[str]]]:
+    """构造每日模型输入；日程和未评定事件保持在每日模型之外。"""
+    annotations: dict[str, list[str]] = {}
+    event_sources: list[dict[str, Any]] = []
     for source in day_sources:
-        if source.get("source_type") == "SCHEDULE_OCCURRENCE":
-            result.append(source)
-            continue
         metadata = source.get("metadata") or {}
-        if metadata.get("annotation_id"):
-            result.append(source)
-            continue
         event_id = metadata.get("event_id")
-        importance = metadata.get("effective_importance")
-        if event_id and (
-            importance in {"HIGH", "MEDIUM"}
-            or importance is None
-            or str(event_id) in highlighted_event_ids
+        if metadata.get("annotation_id") and event_id:
+            annotations.setdefault(str(event_id), []).append(str(source["source_id"]))
+            continue
+        if (
+            source.get("source_type") == "DIARY_EVENT"
+            and event_id
+            and not metadata.get("annotation_id")
+            and metadata.get("effective_importance") in {"HIGH", "MEDIUM"}
         ):
-            result.append(source)
-    return result
+            event_sources.append(source)
+    event_sources.sort(key=lambda source: ((source.get("metadata") or {}).get("sort_order", 0), str(source["source_id"])))
+    events = [{
+        "event_no": index,
+        "source_id": str(source["source_id"]),
+        "event_id": str((source.get("metadata") or {})["event_id"]),
+        "title": str((source.get("metadata") or {}).get("title") or "未命名事件"),
+        "body": list((source.get("metadata") or {}).get("body") or []),
+        "feeling": list((source.get("metadata") or {}).get("feeling") or []),
+        "reflection": list((source.get("metadata") or {}).get("reflection") or []),
+        "related_user_notes": [
+            str(note_source.get("content") or "") for note_source in day_sources
+            if str(note_source.get("source_id")) in annotations.get(str((source.get("metadata") or {})["event_id"]), [])
+        ],
+    } for index, source in enumerate(event_sources, start=1)]
+    return events, annotations
 
 
 def _compact_week_catalog(source_catalog: list[dict[str, Any]], source_ids: set[str]) -> list[dict[str, Any]]:
@@ -264,8 +269,8 @@ def _compact_week_catalog(source_catalog: list[dict[str, Any]], source_ids: set[
             continue
         compact = copy.deepcopy(source)
         compact["content"] = (
-            "该日程事实已按主题聚合；详见 schedule_aggregates。"
-            if is_schedule else "该原始证据已被每日提炼引用；详见对应每日事项卡。"
+            "该日程事实已按主题聚合；详见 weekly_items。"
+            if is_schedule else "该原始证据已被每日素材引用；详见对应每日事项。"
         )
         result.append(compact)
     return result
@@ -278,14 +283,26 @@ def _schedule_aggregates(source_catalog: list[dict[str, Any]]) -> list[dict[str,
             continue
         metadata = source.get("metadata") or {}
         title = str(metadata.get("title") or source.get("content") or "日程")
-        group = groups.setdefault(title, {"title": title, "planned_count": 0, "completed_count": 0, "dates": [], "details": []})
+        group = groups.setdefault(title, {"title": title, "planned_count": 0, "completed_count": 0, "dates": [], "details": [], "source_ids": []})
         group["planned_count"] += 1
         group["dates"].append(source.get("source_date"))
+        group["source_ids"].append(str(source["source_id"]))
         if metadata.get("status") == "completed":
             group["completed_count"] += 1
         if metadata.get("execution_note"):
             group["details"].append({"source_id": source.get("source_id"), "note": metadata["execution_note"]})
-    return list(groups.values())
+    result = []
+    for group in groups.values():
+        source_ids = sorted(set(group["source_ids"]))
+        dates = sorted(value for value in group["dates"] if isinstance(value, str))
+        result.append({
+            **group,
+            "item_key": _stable_key("schedule", group["title"], *source_ids),
+            "item_type": "SCHEDULE",
+            "digest_date": dates[0] if dates else None,
+            "facts_and_progress": [f"计划 {group['planned_count']} 次，已完成 {group['completed_count']} 次"],
+        })
+    return result
 
 
 class ReviewGenerationError(RuntimeError):
@@ -600,6 +617,7 @@ async def execute_review_task(
         )
         event_model_info = base_version.event_model_info if base_version else None
         analysis_model_info = None
+        weekly_materials: list[dict[str, Any]] = []
 
         if task.generation_mode == ReviewGenerationMode.FULL.value:
             source_set = (
@@ -669,13 +687,13 @@ async def execute_review_task(
                 task.event_attempts += 1
             _advance(db, task_id, run_token, ReviewTaskStep.EVENT_ORGANIZE.value)
             daily_rows: list[ReviewDailyDigest] = []
-            daily_analysis_candidates: list[dict[str, Any]] = []
             all_daily_source_ids: set[str] = set()
             for digest_date in _dates_between(review.period_start, review.period_end):
-                day_catalog = _daily_source_catalog([
+                day_sources = [
                     item for item in source_catalog
                     if item.get("period_role") == "CURRENT" and item.get("source_date") == digest_date.isoformat()
-                ])
+                ]
+                daily_events, annotation_source_ids = _daily_material_input(day_sources)
                 row = db.query(ReviewDailyDigest).filter(
                     ReviewDailyDigest.review_task_id == task.id,
                     ReviewDailyDigest.digest_date == digest_date,
@@ -684,80 +702,50 @@ async def execute_review_task(
                     row = ReviewDailyDigest(review_task_id=task.id, source_set_id=task.source_set_id, digest_date=digest_date)
                     db.add(row)
                     db.flush()
-                if row.status == ReviewDailyDigestStatus.ANALYSIS_READY.value:
-                    ids = _document_source_ids(row.event_document or {})
+                if row.status == ReviewDailyDigestStatus.READY.value:
+                    ids = _document_source_ids(row.material_document or {})
                     all_daily_source_ids.update(ids)
-                    daily_analysis_candidates.append({
-                        "analysis_id": f"daily:{row.id}", "content": str(row.analysis_document),
-                        "feedback_usage": "NEUTRAL", "evidence_source_ids": sorted(ids), "feedbacks": [],
-                    })
                     daily_rows.append(row)
                     continue
-                if not day_catalog:
+                if not daily_events:
                     row.status = ReviewDailyDigestStatus.EMPTY.value
                     daily_rows.append(row)
                     continue
-                day_source_ids = {str(item["source_id"]) for item in day_catalog}
-                day_candidates = _daily_candidates(existing_candidates, day_source_ids)
-                if row.status != ReviewDailyDigestStatus.EVENT_READY.value:
-                    event_payload = {
-                        "review": {"generation_mode": "FULL", "review_type": "WEEK", "period_start": digest_date.isoformat(), "period_end": digest_date.isoformat()},
-                        "source_catalog": day_catalog,
-                        "existing_analysis_candidates": day_candidates,
-                        "missing_periods": [],
-                    }
-                    daily_result = await review_daily_event_digest(event_payload, review_task_id=str(task_id), max_attempts=settings.LLM_MAX_ATTEMPTS)
-                    for update in daily_result.get("importance_updates", []):
-                        source = next((item for item in day_catalog if item.get("source_id") == update.get("source_id")), None)
-                        source_metadata = (source or {}).get("metadata", {})
-                        event_id = None if source_metadata.get("annotation_id") else source_metadata.get("event_id")
-                        if event_id:
-                            event = db.query(DiaryEvent).filter(DiaryEvent.id == uuid.UUID(event_id)).first()
-                            if event and not event.ai_importance:
-                                event.ai_importance = update["importance"]
-                                event.ai_importance_reason = update["reason"]
-                                event.importance_origin = "LEGACY_BACKFILL"
-                                event.importance_updated_at = datetime.utcnow()
-                    row.event_document = _assemble_daily_event_document(daily_result, digest_date, day_catalog)
-                    row.status = ReviewDailyDigestStatus.EVENT_READY.value
-                    row.event_model_info = actual_review_model_info()
-                    # 每日事件层是独立恢复点；分析失败不得回滚已完成事件层。
+                try:
+                    daily_result = await review_daily_material(
+                        {"date": digest_date.isoformat(), "events": [{key: value for key, value in event.items() if key not in {"source_id", "event_id"}} for event in daily_events]},
+                        review_task_id=str(task_id), max_attempts=settings.LLM_MAX_ATTEMPTS,
+                    )
+                except ReviewAIError:
+                    row.status = ReviewDailyDigestStatus.FAILED.value
                     db.commit()
-                daily_analysis_payload = {
-                    "items": row.event_document["items"],
-                    "existing_analysis_candidates": day_candidates,
-                }
-                daily_analysis = await review_daily_analysis_digest(daily_analysis_payload, review_task_id=str(task_id), max_attempts=settings.LLM_MAX_ATTEMPTS)
-                row.analysis_document = _assemble_daily_analysis_document(row.event_document["items"], daily_analysis)
-                row.analysis_model_info = actual_review_model_info()
-                row.status = ReviewDailyDigestStatus.ANALYSIS_READY.value
-                ids = _document_source_ids(row.event_document)
+                    raise
+                row.material_document = _assemble_daily_material_document(daily_result, digest_date, daily_events, annotation_source_ids)
+                row.model_info = actual_review_model_info()
+                row.status = ReviewDailyDigestStatus.READY.value
+                ids = _document_source_ids(row.material_document)
                 all_daily_source_ids.update(ids)
-                daily_analysis_candidates.append({
-                    "analysis_id": f"daily:{row.id}", "content": str(row.analysis_document),
-                    "feedback_usage": "NEUTRAL", "evidence_source_ids": sorted(ids), "feedbacks": [],
-                })
                 daily_rows.append(row)
                 db.commit()
-            if not all_daily_source_ids:
+            daily_items = [
+                {**item, "digest_date": row.digest_date.isoformat(), "item_type": "DAILY_MATTER"}
+                for row in daily_rows if row.status == ReviewDailyDigestStatus.READY.value
+                for item in (row.material_document or {}).get("matters", [])
+            ]
+            schedule_items = _schedule_aggregates(source_catalog)
+            weekly_items = daily_items + schedule_items
+            if not weekly_items:
                 task = _task_owned(db, task_id, run_token)
                 task.status = ReviewTaskStatus.SKIPPED_NO_DATA.value
                 task.completed_at = datetime.utcnow()
                 db.commit()
                 return
             week_catalog = _compact_week_catalog(source_catalog, all_daily_source_ids)
-            daily_items = [
-                {**item, "digest_date": row.digest_date.isoformat()}
-                for row in daily_rows if row.status == ReviewDailyDigestStatus.ANALYSIS_READY.value
-                for item in (row.event_document or {}).get("items", [])
-            ]
             event_payload = {
                 "review": {"generation_mode": "FULL", "review_type": review.review_type, "period_start": review.period_start.isoformat(), "period_end": review.period_end.isoformat()},
                 "source_catalog": week_catalog,
-                "daily_digests": [{"digest_date": row.digest_date.isoformat(), "event_document": row.event_document} for row in daily_rows if row.status == ReviewDailyDigestStatus.ANALYSIS_READY.value],
-                "daily_items": daily_items,
-                "schedule_aggregates": _schedule_aggregates(source_catalog),
-                "existing_analysis_candidates": daily_analysis_candidates,
+                "daily_digests": [{"digest_date": row.digest_date.isoformat(), "material_document": row.material_document} for row in daily_rows if row.status == ReviewDailyDigestStatus.READY.value],
+                "weekly_items": weekly_items,
                 "missing_periods": [],
             }
             if isinstance(task.event_result, dict) and "domains" in task.event_result:
@@ -765,13 +753,13 @@ async def execute_review_task(
                 event_document = copy.deepcopy(task.event_result)
             else:
                 weekly_semantics = await review_week_event_organize_from_digests(event_payload, review_task_id=str(task_id), max_attempts=settings.LLM_MAX_ATTEMPTS)
-                event_document = _assemble_week_event_document(weekly_semantics, daily_items)
+                event_document = _assemble_week_event_document(weekly_semantics, weekly_items)
                 event_model_info = actual_review_model_info()
                 task = _task_owned(db, task_id, run_token)
                 task.event_result = event_document
                 db.commit()
             source_catalog = week_catalog
-            existing_candidates = daily_analysis_candidates
+            weekly_materials = _weekly_materials_for_analysis(weekly_items, event_document)
             if stop_after == ReviewTaskStep.EVENT_ORGANIZE.value:
                 return
         else:
@@ -806,6 +794,7 @@ async def execute_review_task(
             },
             "source_catalog": source_catalog,
             "event_document": event_document,
+            "weekly_materials": weekly_materials,
             "existing_analysis_candidates": existing_candidates,
             "base_version_actions": _actions_payload(base_actions),
             "previous_confirmed_actions": previous_actions,

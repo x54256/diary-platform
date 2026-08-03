@@ -47,8 +47,7 @@ STEP_SETTING_KEYS = {
     "cognition_analysis": "analysis",
     "feedback_core_analysis": "analysis",
     "feedback_cognition_analysis": "analysis",
-    "review_daily_event_digest": "review",
-    "review_daily_analysis_digest": "review",
+    "review_daily_material": "review",
     "review_event_organize": "review",
     "review_analysis_action": "review",
 }
@@ -63,8 +62,7 @@ STEP_LABELS = {
     "cognition_analysis": "认知分析",
     "feedback_core_analysis": "反馈核心分析",
     "feedback_cognition_analysis": "反馈认知分析",
-    "review_daily_event_digest": "每日事件提炼",
-    "review_daily_analysis_digest": "每日分析提炼",
+    "review_daily_material": "每日周回顾素材",
     "review_event_organize": "回顾事件组织",
     "review_analysis_action": "回顾分析与行动",
 }

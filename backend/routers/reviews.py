@@ -845,7 +845,7 @@ def list_daily_digests(version_id: UUID, db: Session = Depends(get_db), user: Us
     version = _version(db, version_id, user)
     return db.query(ReviewDailyDigest).filter(
         ReviewDailyDigest.review_version_id == version.id,
-        ReviewDailyDigest.status == "ANALYSIS_READY",
+        ReviewDailyDigest.status == "READY",
     ).order_by(ReviewDailyDigest.digest_date).all()
 
 

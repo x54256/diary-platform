@@ -244,7 +244,7 @@ ANALYSIS_ACTION_PROMPT = """你是“定期回顾分析与行动生成器”。�
 只输出符合 review_analysis_action_document_v1 JSON Schema 的 JSON，不输出解释、Markdown 或 Schema 外字段。"""
 
 
-ANALYSIS_ACTION_SEMANTIC_PROMPT = """你是定期回顾分析与行动提炼器。只能依据输入的当前周期主线、允许引用的既有分析、反馈、行动和冻结来源，给出有证据支持的分析判断、行动文本和上一周期行动核查。
+ANALYSIS_ACTION_SEMANTIC_PROMPT = """你是定期回顾分析与行动提炼器。只能依据输入的当前周期主线、weekly_materials、允许引用的既有分析、反馈、行动和冻结来源，给出有证据支持的分析判断、行动文本和上一周期行动核查。
 
 模型只做语义判断：领域归属、分析角度、事实证据选择、分析文本、行动文本、核查结论。代码负责生成所有内部 ID、对象骨架及持久化结构。
 
@@ -259,6 +259,7 @@ ANALYSIS_ACTION_SEMANTIC_PROMPT = """你是定期回顾分析与行动提炼器�
 - check_status：FULFILLED、PARTIALLY_FULFILLED、EXPLICITLY_NOT_FULFILLED、NOT_ASSESSABLE。
 
 证据引用规则：
+- weekly_materials 是每日事项和日程聚合项的正式完整素材。每项通过 thread_keys 对应当前主线；分析主线时读取其完整字段，尤其是情绪、关注、后续、感悟和关键原句。它们用于理解和表达，不改变来源 ID 与主线引用白名单。
 - analysis_reference_catalog 是代码生成的唯一引用白名单；不得根据 UUID 相似性、文本相似性或主观推断扩展其范围。
 - 每条 thread_reference 给出该主线可用的 CURRENT source_id、source_date、root_fact_id 和 node_key。signal 不返回 source_id：将其 thread_keys 按字典序排列并依次拼接 current_sources，source_indexes 必须是该列表的从 0 开始下标。分析支持/反证来源与节点只能引用所选 thread_keys 的并集。
 - existing_analysis_roots 给出每个既有分析的底层事实；只有其 root_fact_id 与 supporting_source_ids 至少有一个相同，才能填入 used_existing_analysis_ids。
@@ -932,93 +933,118 @@ async def review_event_organize(
     )
 
 
-DAILY_EVENT_DIGEST_PROMPT = """你是每日事件提炼器。输入只包含同一自然日的冻结来源。
-先对 metadata.effective_importance 为空、metadata.annotation_id 为空且 source_type=DIARY_EVENT、snapshot.event_id 非空的事件给出重要性补判；再只组织中、高重要事件和用户划线关联片段。合并同一事项在当天的进展，不跨日串联。
-事实层只能重述来源事实和用户明确自述，不作分析、评价或建议。只输出 JSON，顶层只能有 importance_updates 和 matters。
+DAILY_MATERIAL_PROMPT = """你是“每日周回顾素材整理器”。
 
-importance_updates 必须是数组，每项为 source_id、importance（HIGH|MEDIUM|LOW）和 reason。matters 必须是数组；每项只能包含 title、fact、current_status、open_points、source_ids。source_ids 必须引用输入中的原始 source_id；同一来源不得出现在多个 matter 中。不要输出日期、ID、领域、节点、主线、关系或任何 Schema 外字段。当天没有符合筛选规则的事项时返回 {"importance_updates":[],"matters":[]}。"""
+你的任务是在完整保留原意和关键语义的前提下，把同一天的中高重要事件整理成可供周回顾使用的结构化素材。
 
-DAILY_ANALYSIS_PROMPT = """你是每日分析提炼器。输入提供代码生成的每日事项卡及其关联的既有分析、评分、划线和评论。只分析同一自然日内每个事项；划线是关注信号，评论是感想或修正约束，均不得改写为新增客观事实。
-只输出 JSON：{"matter_analyses":[{"item_key":"输入中已有的item_key","user_attention":[],"preferred_explanations":[],"prohibited_explanations":[],"feedback_constraints":[],"insufficient_evidence":[],"evidence_ids":[]}]}。只能回传输入已有的 item_key 和 evidence_ids；没有内容的事项可以省略，代码会补空项。不得输出其他字段。"""
+必须遵守：
+1. 内容来源为输入事件的 title、body、feeling、reflection 和 related_user_notes。
+2. title 用于识别事项，具体事实、情绪和认识以其余内容为准。
+3. source_event_nos 使用输入中已有的 event_no 原值。
+4. 同一现实事项在当天被多次记录时可以合并，但必须保留过程和时间顺序、中间转折和当前状态、情绪与状态的变化、用户采取的行为、行为产生的结果、关注、担忧和期待、后续事项，以及用户明确表达的感悟、成长和学习。
+5. 每条独立含义分别输出，保留具体对象、过程、行为、结果和变化。
+6. 心理原因、因果关系、感悟、成长和建议需要输入中的明确表述支持。
+7. 担忧归入 CONCERN，期待归入 EXPECTATION，计划与已执行行为分别记录。
+8. 事项内容覆盖前置过程、失败尝试、中间转折和最终结果。
+9. 没有对应内容的数组字段返回空数组。
+10. key_quotes 的每一项逐字等于该事项来源事件 body、feeling 或 reflection 中的一条完整原句。
+11. 每个输入 event_no 必须且只能归入一个 matter。
+12. day_overview 和 core_changes 用于快速阅读，完整事项内容用于周回顾分析。
+13. day_overview 汇总本次输出中的 matters。
+14. 事项数量、字段条数和总字数随有效信息量变化。
+15. 输出为符合以下约定结构的纯 JSON，不输出真实事件 ID、来源 ID、日期、解释、Markdown 或 Schema 外字段。
+
+{"day_overview":{"main_changes":[],"overall_state":[],"open_loops":[]},"matters":[{"title":"...","source_event_nos":[1],"core_changes":[],"facts_and_progress":[],"emotions_and_state":[],"actions_and_results":[{"action":"...","result":"..."}],"concerns_and_expectations":[{"kind":"ATTENTION|CONCERN|EXPECTATION","text":"..."}],"follow_ups":[],"reflections_and_learning":[],"key_quotes":[]}]}"""
 
 
-def _validate_daily_event_digest(document: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]:
+def _daily_material_text_list(value: Any, path: str, errors: list[str]) -> list[str]:
+    return _string_list(value, path, errors)
+
+
+def validate_daily_material_document(document: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]:
+    """校验每日素材的完整结构、事件覆盖和原句引用。"""
     errors: list[str] = []
-    _exact_keys(document, {"importance_updates", "matters"}, "daily_digest", errors)
-    sources = _validate_input_and_source_catalog(payload, errors)
-    for pos, item in enumerate(_list(document.get("importance_updates"), "daily_digest.importance_updates", errors)):
-        path = f"daily_digest.importance_updates[{pos}]"
-        if not _mapping(item, path, errors):
+    _exact_keys(document, {"day_overview", "matters"}, "daily_material", errors)
+    overview = document.get("day_overview")
+    if _mapping(overview, "daily_material.day_overview", errors):
+        _exact_keys(overview, {"main_changes", "overall_state", "open_loops"}, "daily_material.day_overview", errors)
+        for field in ("main_changes", "overall_state", "open_loops"):
+            _daily_material_text_list(overview.get(field), f"daily_material.day_overview.{field}", errors)
+
+    events = _list(payload.get("events"), "daily_material_input.events", errors)
+    event_by_no: dict[int, dict[str, Any]] = {}
+    for pos, event in enumerate(events):
+        path = f"daily_material_input.events[{pos}]"
+        if not _mapping(event, path, errors):
             continue
-        _exact_keys(item, {"source_id", "importance", "reason"}, path, errors)
-        source_id = _nonempty_string(item.get("source_id"), f"{path}.source_id", errors)
-        if source_id not in sources:
-            errors.append(f"{path}.source_id 不存在")
-        _enum(item.get("importance"), {"HIGH", "MEDIUM", "LOW"}, f"{path}.importance", errors)
-        _nonempty_string(item.get("reason"), f"{path}.reason", errors)
-    claimed_source_ids: set[str] = set()
-    for pos, matter in enumerate(_list(document.get("matters"), "daily_digest.matters", errors)):
-        path = f"daily_digest.matters[{pos}]"
+        _exact_keys(event, {"event_no", "title", "body", "feeling", "reflection", "related_user_notes"}, path, errors)
+        event_no = event.get("event_no")
+        if not isinstance(event_no, int) or event_no < 1 or event_no in event_by_no:
+            errors.append(f"{path}.event_no 必须是唯一正整数")
+            continue
+        event_by_no[event_no] = event
+        _nonempty_string(event.get("title"), f"{path}.title", errors)
+        for field in ("body", "feeling", "reflection", "related_user_notes"):
+            _daily_material_text_list(event.get(field), f"{path}.{field}", errors)
+
+    assigned: set[int] = set()
+    for pos, matter in enumerate(_list(document.get("matters"), "daily_material.matters", errors)):
+        path = f"daily_material.matters[{pos}]"
         if not _mapping(matter, path, errors):
             continue
-        _exact_keys(matter, {"title", "fact", "current_status", "open_points", "source_ids"}, path, errors)
+        _exact_keys(matter, {
+            "title", "source_event_nos", "core_changes", "facts_and_progress", "emotions_and_state",
+            "actions_and_results", "concerns_and_expectations", "follow_ups", "reflections_and_learning", "key_quotes",
+        }, path, errors)
         _nonempty_string(matter.get("title"), f"{path}.title", errors)
-        _nonempty_string(matter.get("fact"), f"{path}.fact", errors)
-        _nonempty_string(matter.get("current_status"), f"{path}.current_status", errors)
-        _string_list(matter.get("open_points"), f"{path}.open_points", errors)
-        ids = _source_id_list(matter.get("source_ids"), f"{path}.source_ids", sources, errors, nonempty=True)
-        for source_id in ids:
-            if source_id in claimed_source_ids:
-                errors.append(f"{path}.source_ids 与其他事项重复: {source_id}")
-            claimed_source_ids.add(source_id)
+        source_nos = matter.get("source_event_nos")
+        if not isinstance(source_nos, list) or not source_nos:
+            errors.append(f"{path}.source_event_nos 必须是非空数组")
+            source_nos = []
+        local_nos: set[int] = set()
+        for no in source_nos:
+            if not isinstance(no, int) or no not in event_by_no or no in local_nos or no in assigned:
+                errors.append(f"{path}.source_event_nos 包含重复、越界或已分配序号: {no}")
+            local_nos.add(no)
+            assigned.add(no)
+        for field in ("core_changes", "facts_and_progress", "emotions_and_state", "follow_ups", "reflections_and_learning", "key_quotes"):
+            _daily_material_text_list(matter.get(field), f"{path}.{field}", errors)
+        for action_pos, action in enumerate(_list(matter.get("actions_and_results"), f"{path}.actions_and_results", errors)):
+            action_path = f"{path}.actions_and_results[{action_pos}]"
+            if _mapping(action, action_path, errors):
+                _exact_keys(action, {"action", "result"}, action_path, errors)
+                _nonempty_string(action.get("action"), f"{action_path}.action", errors)
+                _nonempty_string(action.get("result"), f"{action_path}.result", errors)
+        for concern_pos, concern in enumerate(_list(matter.get("concerns_and_expectations"), f"{path}.concerns_and_expectations", errors)):
+            concern_path = f"{path}.concerns_and_expectations[{concern_pos}]"
+            if _mapping(concern, concern_path, errors):
+                _exact_keys(concern, {"kind", "text"}, concern_path, errors)
+                _enum(concern.get("kind"), {"ATTENTION", "CONCERN", "EXPECTATION"}, f"{concern_path}.kind", errors)
+                _nonempty_string(concern.get("text"), f"{concern_path}.text", errors)
+        allowed_quotes = {
+            quote for no in local_nos for field in ("body", "feeling", "reflection")
+            for quote in event_by_no.get(no, {}).get(field, []) if isinstance(quote, str)
+        }
+        for quote in matter.get("key_quotes") or []:
+            if quote not in allowed_quotes:
+                errors.append(f"{path}.key_quotes 必须逐字等于来源事件 body、feeling 或 reflection 的完整原句")
+    if assigned != set(event_by_no):
+        errors.append("每个输入 event_no 必须且只能归入一个 matter")
     _raise_structure_errors(errors)
     return document
 
 
-def _validate_daily_analysis_digest(document: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]:
-    errors: list[str] = []
-    _exact_keys(document, {"matter_analyses"}, "daily_analysis", errors)
-    items = payload.get("items") if isinstance(payload.get("items"), list) else []
-    item_sources = {str(item.get("item_key")): set(item.get("source_ids") or []) for item in items if isinstance(item, dict)}
-    seen: set[str] = set()
-    for pos, value in enumerate(_list(document.get("matter_analyses"), "daily_analysis.matter_analyses", errors)):
-        path = f"daily_analysis.matter_analyses[{pos}]"
-        if not _mapping(value, path, errors):
-            continue
-        _exact_keys(value, {"item_key", "user_attention", "preferred_explanations", "prohibited_explanations", "feedback_constraints", "insufficient_evidence", "evidence_ids"}, path, errors)
-        item_key = _nonempty_string(value.get("item_key"), f"{path}.item_key", errors)
-        if item_key in seen:
-            errors.append(f"{path}.item_key 重复")
-        seen.add(item_key)
-        if item_key not in item_sources:
-            errors.append(f"{path}.item_key 不存在")
-        for field in ("user_attention", "preferred_explanations", "prohibited_explanations", "feedback_constraints", "insufficient_evidence"):
-            _string_list(value.get(field), f"{path}.{field}", errors)
-        for source_id in _string_list(value.get("evidence_ids"), f"{path}.evidence_ids", errors):
-            if source_id not in item_sources.get(item_key, set()):
-                errors.append(f"{path}.evidence_ids 引用了非本事项来源: {source_id}")
-    _raise_structure_errors(errors)
-    return document
-
-
-async def review_daily_event_digest(payload: dict[str, Any], *, review_task_id: str | None = None, max_attempts: int | None = None) -> dict[str, Any]:
+async def review_daily_material(
+    payload: dict[str, Any], *, review_task_id: str | None = None, max_attempts: int | None = None,
+) -> dict[str, Any]:
     return await _run_step(
-        step_key="review_daily_event_digest", system_prompt=DAILY_EVENT_DIGEST_PROMPT,
-        payload=payload, validator=_validate_daily_event_digest,
+        step_key="review_daily_material", system_prompt=DAILY_MATERIAL_PROMPT,
+        payload=payload, validator=validate_daily_material_document,
         review_task_id=review_task_id, max_attempts=max_attempts,
     )
 
 
-async def review_daily_analysis_digest(payload: dict[str, Any], *, review_task_id: str | None = None, max_attempts: int | None = None) -> dict[str, Any]:
-    """每日分析只返回对代码预置事项的最小语义结果。"""
-    return await _run_step(
-        step_key="review_daily_analysis_digest", system_prompt=DAILY_ANALYSIS_PROMPT,
-        payload=payload, validator=_validate_daily_analysis_digest,
-        review_task_id=review_task_id, max_attempts=max_attempts,
-    )
-
-
-WEEK_EVENT_FROM_DIGESTS_PROMPT = """你是周回顾事件组织器。daily_digests 是本周已冻结的每日事项卡；只能基于事项卡和日程聚合组织跨日事项，不得补充新事实。
+WEEK_EVENT_FROM_DIGESTS_PROMPT = """你是周回顾事件组织器。weekly_items 同时包含每日事项和日程聚合项；只能基于这些完整输入组织跨日事项，不得补充新事实。每个输入项都有代码生成的 item_key 和 source_ids，模型只做主线归属。
 只输出 JSON：{"threads":[{"title":"...","domain_code":"WORK_CAREER|HEALTH_WELLBEING|RELATIONSHIPS_SOCIAL|LEARNING_GROWTH|LIFE_RESOURCES|LEISURE_EXPERIENCE","item_keys":["输入已有item_key"],"current_status":"OPEN|IN_PROGRESS|BLOCKED|COMPLETED|STOPPED|UNKNOWN","selection_reason_code":"EXPLICIT_RESULT_OR_CHANGE|CROSS_DATE_PROGRESS|UNRESOLVED_OR_CONSTRAINS_NEXT_PERIOD|USER_FAVORITE_OR_ANNOTATION|REPEATED_CURRENT_PERIOD_IMPACT|CONCRETE_CAPABILITY_EVIDENCE|EXPLICIT_VALUE_OR_BOUNDARY"}],"other_item_keys":[]}。同一 item_key 只能归属一个位置；不得生成 ID、节点、来源、关系或 Schema 外字段。"""
 
 
@@ -1026,7 +1052,7 @@ async def review_week_event_organize_from_digests(payload: dict[str, Any], *, re
     def validate_week_document(document: dict[str, Any], request_payload: dict[str, Any]) -> dict[str, Any]:
         errors: list[str] = []
         _exact_keys(document, {"threads", "other_item_keys"}, "week_event", errors)
-        item_keys = {str(item.get("item_key")) for item in request_payload.get("daily_items", []) if isinstance(item, dict)}
+        item_keys = {str(item.get("item_key")) for item in request_payload.get("weekly_items", []) if isinstance(item, dict)}
         assigned: set[str] = set()
         threads = _list(document.get("threads"), "week_event.threads", errors)
         if len(threads) > 7:

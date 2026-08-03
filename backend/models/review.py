@@ -77,8 +77,7 @@ class ReviewTaskStep(StringEnum):
 
 class ReviewDailyDigestStatus(StringEnum):
     EMPTY = "EMPTY"
-    EVENT_READY = "EVENT_READY"
-    ANALYSIS_READY = "ANALYSIS_READY"
+    READY = "READY"
     FAILED = "FAILED"
 
 
@@ -330,7 +329,7 @@ class ReviewDailyDigest(Base):
     __tablename__ = "review_daily_digests"
     __table_args__ = (
         UniqueConstraint("review_task_id", "digest_date", name="uq_review_daily_digests_task_date"),
-        CheckConstraint("status IN ('EMPTY','EVENT_READY','ANALYSIS_READY','FAILED')", name="ck_review_daily_digests_status"),
+        CheckConstraint("status IN ('EMPTY','READY','FAILED')", name="ck_review_daily_digests_status"),
         Index("ix_review_daily_digests_version", "review_version_id", "digest_date"),
     )
 
@@ -340,10 +339,8 @@ class ReviewDailyDigest(Base):
     source_set_id = Column(UUID(as_uuid=True), ForeignKey("review_source_sets.id"), nullable=False)
     digest_date = Column(Date, nullable=False)
     status = Column(String(24), nullable=False, default=ReviewDailyDigestStatus.EMPTY.value)
-    event_document = Column(JSONB, nullable=False, default=dict)
-    analysis_document = Column(JSONB, nullable=False, default=dict)
-    event_model_info = Column(JSONB, nullable=True)
-    analysis_model_info = Column(JSONB, nullable=True)
+    material_document = Column(JSONB, nullable=False, default=dict)
+    model_info = Column(JSONB, nullable=True)
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     updated_at = Column(DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
 
