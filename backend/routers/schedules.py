@@ -4,9 +4,11 @@ import logging
 from time import perf_counter
 from datetime import date, datetime, timedelta
 from uuid import UUID
+from zoneinfo import ZoneInfo
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.dialects.postgresql import insert
+from sqlalchemy import and_, func, or_
 from sqlalchemy.orm import Session
 
 from database import get_db
@@ -198,6 +200,42 @@ def list_schedules(start_date: date = Query(...), end_date: date = Query(...), d
         ScheduleOccurrence.status != "deleted",
         ScheduleOccurrence.scheduled_date >= start_date, ScheduleOccurrence.scheduled_date <= end_date).order_by(
         ScheduleOccurrence.scheduled_date, ScheduleOccurrence.is_all_day.desc(), ScheduleOccurrence.start_time, ScheduleOccurrence.created_at).all()
+
+@router.get("/overdue", response_model=list[ScheduleOccurrenceResponse])
+def list_overdue_schedules(db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    now = datetime.now(ZoneInfo("Asia/Shanghai"))
+    today = now.date()
+    current_time = now.time().replace(tzinfo=None)
+    overdue_filter = or_(
+        ScheduleOccurrence.scheduled_date < today,
+        and_(
+            ScheduleOccurrence.scheduled_date == today,
+            ScheduleOccurrence.is_all_day.is_(False),
+            ScheduleOccurrence.end_time < current_time,
+        ),
+    )
+    latest_dates = db.query(
+        ScheduleOccurrence.task_id,
+        func.max(ScheduleOccurrence.scheduled_date).label("latest_date"),
+    ).filter(
+        ScheduleOccurrence.user_id == current_user.id,
+        ScheduleOccurrence.status != "deleted",
+        overdue_filter,
+    ).group_by(ScheduleOccurrence.task_id).subquery()
+
+    return db.query(ScheduleOccurrence).join(
+        latest_dates,
+        (ScheduleOccurrence.task_id == latest_dates.c.task_id)
+        & (ScheduleOccurrence.scheduled_date == latest_dates.c.latest_date),
+    ).filter(
+        ScheduleOccurrence.user_id == current_user.id,
+        ScheduleOccurrence.status == "pending",
+    ).order_by(
+        ScheduleOccurrence.scheduled_date.desc(),
+        ScheduleOccurrence.is_all_day.desc(),
+        ScheduleOccurrence.start_time,
+        ScheduleOccurrence.created_at,
+    ).all()
 
 @router.put("/occurrences/{occurrence_id}/completion", response_model=ScheduleOccurrenceResponse)
 def complete_occurrence(occurrence_id: UUID, data: ScheduleOccurrenceComplete, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):

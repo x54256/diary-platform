@@ -142,6 +142,40 @@
       </div>
     </main>
     <button @click="goToday" class="fixed bottom-24 left-5 z-20 rounded-full bg-white px-4 py-2 text-sm font-medium text-neutral-700 shadow-lg ring-1 ring-neutral-200">今天</button>
+    <button type="button" @click="openOverdue" aria-label="查看过期未完成日程" class="fixed bottom-24 right-5 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-neutral-800 shadow-lg ring-1 ring-neutral-200">
+        <svg viewBox="0 0 24 24" class="h-6 w-6 fill-none stroke-current stroke-[2.2]" aria-hidden="true">
+          <path d="M4 10.5h16v7A2.5 2.5 0 0 1 17.5 20h-11A2.5 2.5 0 0 1 4 17.5z" />
+          <path d="M4 10.5 6.5 5h11l2.5 5.5" />
+          <path d="M9 10.5v1.25A1.25 1.25 0 0 0 10.25 13h3.5A1.25 1.25 0 0 0 15 11.75V10.5" />
+        </svg>
+    </button>
+    <div v-if="overdueOpen" class="fixed inset-0 z-[70] flex items-end bg-black/30" @click.self="closeOverdue">
+      <section class="w-full max-h-[82dvh] overflow-y-auto rounded-t-2xl bg-white p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">
+        <div class="flex items-center justify-between gap-4">
+          <h2 class="text-lg font-semibold text-neutral-900">过期未完成日程</h2>
+          <button type="button" class="shrink-0 text-sm text-neutral-500" @click="closeOverdue">关闭</button>
+        </div>
+        <div v-if="overdueLoading" class="py-12 text-center text-sm text-neutral-400">正在加载…</div>
+        <p v-else-if="overdueError" class="py-8 text-center text-sm text-red-600">{{ overdueError }}</p>
+        <p v-else-if="!overdueItems.length" class="py-12 text-center text-sm text-neutral-400">暂无过期未完成日程</p>
+        <div v-else class="mt-4 space-y-5">
+          <section v-for="group in overdueGroups" :key="group.date">
+            <h3 class="mb-2 text-sm font-medium text-neutral-500">{{ group.date }}</h3>
+            <div class="space-y-3">
+              <button v-for="item in group.items" :key="item.id" type="button" class="block w-full rounded-xl border border-neutral-200 border-l-4 border-l-[#ff9500] bg-[#f5f5f7] px-3 py-3 text-left shadow-sm" @click="openOverdueEdit(item)">
+                <span class="flex min-w-0 items-center gap-3">
+                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-[#ff9500] text-sm"></span>
+                  <span class="min-w-0 flex-1">
+                    <span class="block break-all text-base font-semibold leading-5 text-neutral-900">{{ item.title }}</span>
+                    <span class="mt-1 block text-sm text-neutral-500">{{ item.is_all_day ? '全天' : `${item.start_time?.slice(0, 5)}–${item.end_time?.slice(0, 5)}` }}</span>
+                  </span>
+                </span>
+              </button>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
     <div v-if="printOpen" class="fixed inset-0 z-[70] flex items-end bg-black/30" @click.self="closePrint">
 <form @submit.prevent="preparePrint" class="w-full max-h-[88dvh] overflow-y-auto rounded-t-2xl bg-white p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">
 <div class="flex items-center justify-between">
@@ -421,10 +455,12 @@ const weekdayOptions = [{value:1,label:'一'},{value:2,label:'二'},{value:3,lab
 const view = ref<'day'|'week'>('day'); const items = ref<ScheduleOccurrence[]>([]); const loading = ref(false); const formOpen = ref(false); const formError = ref(''); const pickerOpen = ref(false); const swipeStart = ref(0); const weekPicker = ref(''); const editingItem = ref<ScheduleOccurrence|null>(null); const deleteConfirm = ref(false); const confirmAction = ref<"save"|"delete"|"discard"|null>(null); const editSnapshot = ref(""); const deleteScope = ref<'single'|'following'>('single'); const editScope = ref<'single'|'following'>('single'); const editError = ref(''); const editForm = reactive({title:'',is_all_day:false,start_time:'09:00',end_time:'10:00',recurrence_type:'NONE',interval:1,weekdays:[] as number[],month_day:null as number|null,nth_week:1,nth_weekday:0,recurrence_until:'',recurrence_count:null as number|null,customConfigured:false}); const overdueItem = ref<ScheduleOccurrence|null>(null); const overdueReason = ref(''); const scheduleSwipe = reactive({startX:0,startY:0,offset:0,horizontal:false,animating:false,previewDate:selectedDate.value})
 const form = reactive({ title:'', is_all_day:false, start_date:selectedDate.value, start_time:'09:00', end_time:'10:00', recurrence_type:'NONE', interval:1, weekdays:[] as number[], month_day:null as number|null, nth_week:1, nth_weekday:0, recurrence_until:'', recurrence_count:null as number|null,customConfigured:false })
 const detailItem = ref<ScheduleOccurrence|null>(null); const noteDraft = ref(''); const noteSaving = ref(false); const noteError = ref('')
+const overdueOpen = ref(false); const overdueItems = ref<ScheduleOccurrence[]>([]); const overdueLoading = ref(false); const overdueError = ref('')
+const overdueGroups=computed(()=>{const grouped=new Map<string,ScheduleOccurrence[]>();for(const item of overdueItems.value){const group=grouped.get(item.scheduled_date)||[];group.push(item);grouped.set(item.scheduled_date,group)}return [...grouped.entries()].sort(([a],[b])=>b.localeCompare(a)).map(([date,items])=>({date,items}))})
 const printOpen = ref(false); const printLoading = ref(false); const printError = ref(''); const selectedPrintWeeks = ref<string[]>([]); const printItems = ref<ScheduleOccurrence[]>([])
 const swipeTrack = ref<HTMLElement|null>(null); const gestureAxis = ref<'none'|'horizontal'|'vertical'>('none')
 const customOpen = ref(false); const customTarget = ref<'create'|'edit'|null>(null); const customForm = reactive({recurrence_type:'DAILY',interval:1,weekdays:[] as number[],month_day:null as number|null,nth_week:1,nth_weekday:0,recurrence_until:'',recurrence_count:null as number|null,customConfigured:true})
-const modalOpen = computed(() => Boolean(formOpen.value || editingItem.value || detailItem.value || printOpen.value || customOpen.value || confirmAction.value))
+const modalOpen = computed(() => Boolean(formOpen.value || editingItem.value || detailItem.value || printOpen.value || customOpen.value || confirmAction.value || overdueOpen.value))
 function isCustomRecurrence(type:string){return ['DAILY','WEEKLY','MONTHLY_DATE','MONTHLY_NTH_WEEKDAY'].includes(type)}
 function isRecurrenceSelected(target:any, type:string){return type==='CUSTOM' ? target.customConfigured : !target.customConfigured && target.recurrence_type===type}
 function selectRecurrence(target:any, type:string){if(type==='CUSTOM'){openCustom(target===editForm?'edit':'create');return}target.customConfigured=false;target.recurrence_type=type;if(type==='NONE'){target.recurrence_until='';target.recurrence_count=null}}
@@ -450,7 +486,10 @@ async function completeSchedule(item:ScheduleOccurrence){const updated=await api
 async function toggleSchedule(item:ScheduleOccurrence){await completeSchedule(item)}
 function openDetail(item:ScheduleOccurrence){detailItem.value=item;noteDraft.value=item.execution_note || '';noteError.value=''}
 function closeDetail(){detailItem.value=null;noteDraft.value='';noteError.value=''}
-async function saveNote(){if(!detailItem.value)return;noteSaving.value=true;noteError.value='';try{const updated=await api<ScheduleOccurrence>(`/schedules/occurrences/${detailItem.value.id}/note`,{method:'PUT',body:{execution_note:noteDraft.value}});items.value=items.value.map(x=>x.id===updated.id?updated:x);closeDetail()}catch(error:any){noteError.value=error?.data?.detail || '保存失败，请重试'}finally{noteSaving.value=false}}
+async function openOverdue(){overdueOpen.value=true;overdueLoading.value=true;overdueError.value='';try{overdueItems.value=await api<ScheduleOccurrence[]>('/schedules/overdue')}catch(error:any){overdueError.value=error?.data?.detail || '加载失败，请重试'}finally{overdueLoading.value=false}}
+function closeOverdue(){if(overdueLoading.value)return;overdueOpen.value=false;overdueError.value=''}
+function openOverdueEdit(item:ScheduleOccurrence){closeOverdue();openEdit(item)}
+async function saveNote(){if(!detailItem.value)return;noteSaving.value=true;noteError.value='';try{const updated=await api<ScheduleOccurrence>(`/schedules/occurrences/${detailItem.value.id}/note`,{method:'PUT',body:{execution_note:noteDraft.value}});items.value=items.value.map(x=>x.id===updated.id?updated:x);listItems.value=listItems.value.map(x=>x.id===updated.id?updated:x);closeDetail()}catch(error:any){noteError.value=error?.data?.detail || '保存失败，请重试'}finally{noteSaving.value=false}}
 function printDays(week:{key:string}){return daysForWeek(new Date(`${week.key}T12:00:00`))}
 function printAllDayItems(day:string){return printItems.value.filter(item=>item.scheduled_date===day&&item.is_all_day)}
 function printTimeRows(week:{key:string}):PrintTimeRow[]{const days=printDays(week).map(day=>day.key);const timed=printItems.value.filter(item=>days.includes(item.scheduled_date)&&!item.is_all_day&&item.start_time&&item.end_time);if(!timed.length)return [];const boundaries=new Set<number>();timed.forEach(item=>{boundaries.add(timeToMinute(item.start_time));boundaries.add(timeToMinute(item.end_time))});const points=[...boundaries].sort((a,b)=>a-b);return points.flatMap((point,index)=>{const starting=timed.filter(item=>timeToMinute(item.start_time)===point);const rows:PrintTimeRow[]=[];if(starting.length){const grouped=Object.fromEntries(days.map(day=>[day,starting.filter(item=>item.scheduled_date===day)]));rows.push({type:'tasks',key:`tasks-${point}`,startLabel:minuteLabel(point),items:grouped})}const next=points[index+1];if(next&&!starting.length)rows.push({type:'empty',key:`empty-${point}-${next}`,startLabel:minuteLabel(point),endLabel:minuteLabel(next)});return rows})}
