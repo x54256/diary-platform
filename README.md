@@ -163,10 +163,10 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 cd frontend
 NUXT_APP_BASE_URL=/secret/ \
-NUXT_PUBLIC_API_BASE=http://192.168.31.79:8000/diary/api \
+NUXT_PUBLIC_API_BASE=http://192.168.0.65:8000/diary/api \
 npx nuxt dev --host 0.0.0.0 --port 3000
 
-http://192.168.31.79:3000/secret/
+http://192.168.0.65:3000/secret/
 ```
 
 前端 API 地址已在 `frontend/nuxt.config.ts` 的 `runtimeConfig.public.apiBase` 中配置，默认为 `http://localhost:8000/api`，与本地后端一致，开发环境无需额外配置。前端无需单独的 `.env` 文件。

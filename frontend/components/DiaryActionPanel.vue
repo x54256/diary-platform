@@ -19,43 +19,59 @@
       本篇日记没有可执行的行动项
     </div>
     <div v-else class="space-y-3">
-      <article
-        v-for="action in actions"
-        :key="action.id"
-        class="rounded-xl border border-neutral-200 bg-white p-3 shadow-sm"
-      >
-        <div class="flex items-start gap-3">
-          <input
-            type="checkbox"
-            class="mt-1 h-5 w-5 shrink-0 accent-primary-600"
-            :checked="action.status === 'completed'"
-            :disabled="savingId === action.id"
-            @change="toggleCompletion(action)"
-          />
-          <div class="min-w-0 flex-1">
-            <div class="flex items-start justify-between gap-2">
-              <input
-                v-model="action.title"
-                class="min-w-0 flex-1 border-0 bg-transparent p-0 text-[15px] font-medium text-neutral-800 focus:ring-0"
-                aria-label="行动名称"
-                @blur="saveTitle(action)"
-              />
-              <button type="button" class="shrink-0 text-xs text-red-500" @click="removeAction(action)">删除</button>
+      <div v-for="action in actions" :key="action.id" class="relative overflow-hidden rounded-xl">
+        <button
+          type="button"
+          class="absolute inset-y-0 right-0 flex w-[76px] items-center justify-center bg-red-500 text-sm font-medium text-white"
+          aria-label="删除行动"
+          @click="removeAction(action); swipeOpenId = null"
+        >删除</button>
+        <article
+          class="relative z-10 rounded-xl border border-neutral-200 bg-white p-3 shadow-sm transition-transform duration-200 touch-pan-y"
+          :class="action.status === 'completed' ? 'bg-neutral-50' : ''"
+          :style="{ transform: cardTransform(action.id) }"
+          @touchstart="startSwipe(action.id, $event)"
+          @touchmove="moveSwipe(action.id, $event)"
+          @touchend="endSwipe(action.id)"
+          @touchcancel="cancelSwipe"
+        >
+          <div class="flex items-start gap-3">
+            <div class="min-w-0 flex-1">
+              <div class="flex items-start gap-2">
+                <input
+                  v-model="action.title"
+                  class="min-w-0 flex-1 border-0 bg-transparent p-0 text-base font-medium text-neutral-800 focus:ring-0"
+                  :class="action.status === 'completed' ? 'line-through' : ''"
+                  aria-label="行动名称"
+                  @blur="saveTitle(action)"
+                />
+                <button
+                  type="button"
+                  class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 text-sm font-semibold"
+                  :class="action.status === 'completed' ? 'border-[#007aff] text-[#007aff]' : 'border-[#ff9500] text-[#ff9500]'"
+                  :disabled="savingId === action.id"
+                  :aria-label="action.status === 'completed' ? '取消完成' : '标记完成'"
+                  @touchstart.stop
+                  @touchmove.stop
+                  @touchend.stop
+                  @click.stop="completeAction(action)"
+                >{{ action.status === 'completed' ? '✓' : '' }}</button>
+              </div>
+              <div class="mt-1 text-xs text-neutral-500">
+                <span v-if="action.schedule.status === 'synced'">{{ scheduleSummary(action) }}</span>
+                <span class="ml-1 rounded-full px-1.5 py-0.5" :class="statusClass(action.schedule.status)">{{ statusLabel(action.schedule.status) }}</span>
+              </div>
+              <p v-if="action.recurrence_type !== 'NONE'" class="mt-1 text-xs text-neutral-400">循环行动：首次实例完成后视为已开始落实</p>
+              <details v-if="sourceExcerpts(action).length" class="mt-2 text-xs text-neutral-500">
+                <summary class="cursor-pointer select-none">查看原文摘录</summary>
+                <ul class="mt-1 space-y-1 pl-4 list-disc">
+                  <li v-for="(excerpt, index) in sourceExcerpts(action)" :key="`${action.id}-source-${index}`">{{ excerpt }}</li>
+                </ul>
+              </details>
             </div>
-            <div class="mt-1 text-xs text-neutral-500">
-              {{ scheduleSummary(action) }}
-              <span class="ml-1 rounded-full px-1.5 py-0.5" :class="statusClass(action.schedule.status)">{{ statusLabel(action.schedule.status) }}</span>
-            </div>
-            <p v-if="action.recurrence_type !== 'NONE'" class="mt-1 text-xs text-neutral-400">循环行动：首次实例完成后视为已开始落实</p>
-            <details v-if="sourceExcerpts(action).length" class="mt-2 text-xs text-neutral-500">
-              <summary class="cursor-pointer select-none">查看原文摘录</summary>
-              <ul class="mt-1 space-y-1 pl-4 list-disc">
-                <li v-for="(excerpt, index) in sourceExcerpts(action)" :key="`${action.id}-source-${index}`">{{ excerpt }}</li>
-              </ul>
-            </details>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
     </div>
 
     <div v-if="syncOpen" class="fixed inset-0 z-50 flex items-end justify-center bg-black/30 sm:items-center">
@@ -152,10 +168,67 @@ const syncOpen = ref(false)
 const syncing = ref(false)
 const syncError = ref('')
 const syncCandidates = ref<Array<{ action: DiaryActionItem; selected: boolean; form: any }>>([])
+const swipeOpenId = ref<string | null>(null)
+const swipeStart = ref({ id: '', x: 0, y: 0, offset: 0, horizontal: false })
+const swipeOffset = ref(0)
 const weekDays = [
   { value: 1, label: '一' }, { value: 2, label: '二' }, { value: 3, label: '三' },
   { value: 4, label: '四' }, { value: 5, label: '五' }, { value: 6, label: '六' }, { value: 0, label: '日' },
 ]
+
+const startSwipe = (id: string, event: TouchEvent) => {
+  const target = event.target as HTMLElement | null
+  if (target?.closest('button, input, select, textarea, summary')) {
+    resetSwipe()
+    return
+  }
+  const touch = event.touches[0]
+  swipeOffset.value = swipeOpenId.value === id ? -76 : 0
+  swipeStart.value = { id, x: touch.clientX, y: touch.clientY, offset: swipeOffset.value, horizontal: false }
+}
+
+const moveSwipe = (id: string, event: TouchEvent) => {
+  if (swipeStart.value.id !== id) return
+  const touch = event.touches[0]
+  const dx = touch.clientX - swipeStart.value.x
+  const dy = touch.clientY - swipeStart.value.y
+  if (!swipeStart.value.horizontal) {
+    if (Math.max(Math.abs(dx), Math.abs(dy)) < 10) return
+    if (Math.abs(dy) >= Math.abs(dx)) return
+    swipeStart.value.horizontal = true
+  }
+  if (event.cancelable) event.preventDefault()
+  swipeOffset.value = Math.max(-76, Math.min(0, swipeStart.value.offset + dx))
+}
+
+const endSwipe = (id: string) => {
+  if (swipeStart.value.id !== id) return
+  if (swipeStart.value.horizontal) {
+    swipeOpenId.value = swipeOffset.value < -38 ? id : null
+  }
+  swipeOffset.value = swipeOpenId.value === id ? -76 : 0
+  swipeStart.value = { id: '', x: 0, y: 0, offset: 0, horizontal: false }
+}
+
+const cancelSwipe = () => {
+  resetSwipe()
+}
+
+const cardTransform = (id: string) => {
+  if (swipeStart.value.id === id && swipeStart.value.horizontal) return `translateX(${swipeOffset.value}px)`
+  return `translateX(${swipeOpenId.value === id ? -76 : 0}px)`
+}
+
+const completeAction = async (action: DiaryActionItem) => {
+  resetSwipe()
+  await toggleCompletion(action)
+}
+
+const resetSwipe = () => {
+  swipeOpenId.value = null
+  swipeOffset.value = 0
+  swipeStart.value = { id: '', x: 0, y: 0, offset: 0, horizontal: false }
+}
 
 const load = async () => {
   loading.value = true

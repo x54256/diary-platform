@@ -404,10 +404,12 @@ ACTION_PLANNING_PROMPT = """你负责把一篇日记中的后续计划与 AI 分
 2. 不支持跨日。
 3. 循环类型只能使用 NONE、DAILY、WEEKLY、MONTHLY_DATE、MONTHLY_NTH_WEEKDAY、YEARLY、WORKDAY、REST_DAY。
 4. NONE 不填写循环字段；WEEKLY 必须填写 weekdays；MONTHLY_DATE 必须填写 month_day；MONTHLY_NTH_WEEKDAY 必须填写 nth_week 和 nth_weekday；YEARLY 必须填写 month 和 month_day。
-5. recurrence_until 与 recurrence_count 只能二选一；没有明确循环依据时使用 NONE。
-6. diary_date 用于解释“明天”“下周二”等相对日期；analysis_date 是本次分析日期，推荐日期不得早于 analysis_date；timezone 用于日期边界计算。
-7. 信息不足时给出保守、可编辑的推荐，不编造硬性截止要求。
-8. 每个行动项只能有一个推荐日程对象。
+5. recurrence_until 与 recurrence_count 只能二选一。
+6. 原文出现“定期”“经常”“坚持”等重复语义时，必须使用非 NONE 循环类型；未给出准确频率时，结合事项性质和上下文推断一个合理、保守且可执行的频率。
+7. 即使原文没有重复词，天然需要持续执行的事项也应根据其性质推断循环规则；NONE 只用于一次性事项或不具备持续执行特征的事项。
+8. diary_date 用于解释“明天”“下周二”等相对日期；analysis_date 是本次分析日期，推荐日期不得早于 analysis_date；timezone 用于日期边界计算。
+9. 信息不足时给出保守、可编辑的推荐，不编造硬性截止要求。
+10. 每个行动项只能有一个推荐日程对象。
 
 ## 日程字段填写说明
 - `interval`：循环间隔，正整数；例如 DAILY + 2 表示每 2 天一次，WEEKLY + 1 表示每周一次。
@@ -423,6 +425,7 @@ ACTION_PLANNING_PROMPT = """你负责把一篇日记中的后续计划与 AI 分
 
 ## 循环类型示例
 - 不循环：recurrence_type=NONE，interval=1，weekdays=[]，month=null，month_day=null，nth_week=null，nth_weekday=null，recurrence_until=null，recurrence_count=null。
+- “定期涂药”未给出频率时，根据事项性质保守推断为每天：recurrence_type=DAILY，interval=1。
 - 每周一和周三：recurrence_type=WEEKLY，interval=1，weekdays=[1,3]。
 - 每月 15 日：recurrence_type=MONTHLY_DATE，interval=1，month_day=15。
 - 每月第 2 个星期一：recurrence_type=MONTHLY_NTH_WEEKDAY，interval=1，nth_week=2，nth_weekday=1。

@@ -19,6 +19,13 @@ class ActionPlanningRuleTest(unittest.TestCase):
         self.assertIn("每年 8 月 4 日", ACTION_PLANNING_PROMPT)
         self.assertIn("recurrence_until", ACTION_PLANNING_PROMPT)
 
+    def test_prompt_infers_recurrence_for_repeated_or_continuous_actions(self):
+        self.assertIn("定期", ACTION_PLANNING_PROMPT)
+        self.assertIn("必须使用非 NONE 循环类型", ACTION_PLANNING_PROMPT)
+        self.assertIn("天然需要持续执行", ACTION_PLANNING_PROMPT)
+        self.assertIn("NONE 只用于一次性事项", ACTION_PLANNING_PROMPT)
+        self.assertIn("定期涂药", ACTION_PLANNING_PROMPT)
+
     def test_input_assigns_stable_source_keys(self):
         data = _action_planning_input({
             "structured_diary": {"diary_date": "2026-08-03", "plans": ["完成复盘"]},
