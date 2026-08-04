@@ -8,7 +8,7 @@ from zoneinfo import ZoneInfo
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.dialects.postgresql import insert
-from sqlalchemy import and_, func, or_
+from sqlalchemy import and_, or_
 from sqlalchemy.orm import Session
 
 from database import get_db
@@ -214,28 +214,35 @@ def list_overdue_schedules(db: Session = Depends(get_db), current_user: User = D
             ScheduleOccurrence.end_time < current_time,
         ),
     )
-    latest_dates = db.query(
-        ScheduleOccurrence.task_id,
-        func.max(ScheduleOccurrence.scheduled_date).label("latest_date"),
-    ).filter(
+    task_sources = dict(db.query(ScheduleTask.id, ScheduleTask.source_task_id).filter(
+        ScheduleTask.user_id == current_user.id,
+    ).all())
+
+    def root_task_id(task_id: UUID) -> UUID:
+        seen: set[UUID] = set()
+        current = task_id
+        while task_sources.get(current) and current not in seen:
+            seen.add(current)
+            current = task_sources[current]
+        return current
+
+    candidates = db.query(ScheduleOccurrence).filter(
         ScheduleOccurrence.user_id == current_user.id,
         ScheduleOccurrence.status != "deleted",
         overdue_filter,
-    ).group_by(ScheduleOccurrence.task_id).subquery()
-
-    return db.query(ScheduleOccurrence).join(
-        latest_dates,
-        (ScheduleOccurrence.task_id == latest_dates.c.task_id)
-        & (ScheduleOccurrence.scheduled_date == latest_dates.c.latest_date),
-    ).filter(
-        ScheduleOccurrence.user_id == current_user.id,
-        ScheduleOccurrence.status == "pending",
-    ).order_by(
-        ScheduleOccurrence.scheduled_date.desc(),
-        ScheduleOccurrence.is_all_day.desc(),
-        ScheduleOccurrence.start_time,
-        ScheduleOccurrence.created_at,
     ).all()
+    latest_by_root: dict[UUID, ScheduleOccurrence] = {}
+    for item in candidates:
+        root = root_task_id(item.task_id)
+        latest = latest_by_root.get(root)
+        if latest is None or (item.scheduled_date, item.created_at) > (latest.scheduled_date, latest.created_at):
+            latest_by_root[root] = item
+
+    return sorted(
+        (item for item in latest_by_root.values() if item.status == "pending"),
+        key=lambda item: (item.scheduled_date, item.is_all_day, item.start_time, item.created_at),
+        reverse=True,
+    )
 
 @router.put("/occurrences/{occurrence_id}/completion", response_model=ScheduleOccurrenceResponse)
 def complete_occurrence(occurrence_id: UUID, data: ScheduleOccurrenceComplete, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
