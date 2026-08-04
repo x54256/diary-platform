@@ -219,7 +219,7 @@ def list_overdue_schedules(db: Session = Depends(get_db), current_user: User = D
         func.max(ScheduleOccurrence.scheduled_date).label("latest_date"),
     ).filter(
         ScheduleOccurrence.user_id == current_user.id,
-        ScheduleOccurrence.status != "deleted",
+        ScheduleOccurrence.status == "pending",
         overdue_filter,
     ).group_by(ScheduleOccurrence.task_id).subquery()
 
@@ -229,7 +229,7 @@ def list_overdue_schedules(db: Session = Depends(get_db), current_user: User = D
         & (ScheduleOccurrence.scheduled_date == latest_dates.c.latest_date),
     ).filter(
         ScheduleOccurrence.user_id == current_user.id,
-        ScheduleOccurrence.status == "pending",
+        ScheduleOccurrence.status != "deleted",
     ).order_by(
         ScheduleOccurrence.scheduled_date.desc(),
         ScheduleOccurrence.is_all_day.desc(),
