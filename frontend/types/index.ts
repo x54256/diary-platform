@@ -508,7 +508,7 @@ export interface ReviewDailyDigest {
 
 export interface ReviewDailyMaterialDocument {
   digest_date?: string
-  day_overview: { main_changes: string[]; overall_state: string[]; open_loops: string[] }
+  day_overview: { main_changes: string[]; overall_state: string[] }
   matters: ReviewDailyMatter[]
 }
 
@@ -520,9 +520,8 @@ export interface ReviewDailyMatter {
   emotions_and_state: string[]
   actions_and_results: Array<{ action: string; result: string }>
   concerns_and_expectations: Array<{ kind: 'ATTENTION' | 'CONCERN' | 'EXPECTATION'; text: string }>
-  follow_ups: string[]
   reflections_and_learning: string[]
-  key_quotes: string[]
+  key_quotes?: unknown
   source_ids: string[]
 }
 

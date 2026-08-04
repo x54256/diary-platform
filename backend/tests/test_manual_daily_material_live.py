@@ -11,6 +11,8 @@
 from __future__ import annotations
 
 import json
+import logging
+import sys
 import unittest
 import uuid
 from typing import Any
@@ -22,8 +24,29 @@ from models.diary import Diary, DiaryAnnotation, DiaryOrganized
 from services.review_ai import review_daily_material
 
 
+def _configure_live_test_logging() -> None:
+    """为实时模型手工测试补充控制台日志处理器。"""
+    formatter = logging.Formatter(
+        "%(asctime)s [%(name)s] %(levelname)s: %(message)s"
+    )
+    root_logger = logging.getLogger()
+    root_logger.setLevel(logging.INFO)
+    if not any(getattr(handler, "_live_test_handler", False) for handler in root_logger.handlers):
+        handler = logging.StreamHandler(sys.stdout)
+        handler.setLevel(logging.INFO)
+        handler.setFormatter(formatter)
+        handler._live_test_handler = True
+        root_logger.addHandler(handler)
+
+    logging.getLogger("ai_pipeline").setLevel(logging.DEBUG)
+
+
+_configure_live_test_logging()
+
+
 # 手工填写后才会执行真实模型调用。
-DIARY_ID = ""
+DIARY_ID = "e36daa39-6373-4f2c-9250-1037c439a811"
+# DIARY_ID = "382c2bb8-1187-4f2b-9105-9e59e7b646ab"
 
 
 def _text_list(value: Any) -> list[str]:

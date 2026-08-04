@@ -67,16 +67,15 @@ def _document_source_ids(document: dict[str, Any]) -> set[str]:
     return ids
 
 
-def _daily_item_key(digest_date: date, source_ids: list[str]) -> str:
-    """由日期和已冻结来源确定性生成每日事项 ID。"""
-    seed = f"{digest_date.isoformat()}:{','.join(sorted(source_ids))}"
-    return f"day-{uuid.uuid5(uuid.NAMESPACE_URL, seed)}"
+def _daily_item_key() -> str:
+    """生成每日事项的随机唯一 ID。"""
+    return f"day-{uuid.uuid4()}"
 
 
 def _assemble_daily_material_document(
     model_result: dict[str, Any], digest_date: date, events: list[dict[str, Any]], annotation_source_ids: dict[str, list[str]],
 ) -> dict[str, Any]:
-    """将临时事件序号映射为事项级冻结来源，并生成稳定事项键。"""
+    """将临时事件序号映射为事项级冻结来源，并生成事项键。"""
     event_by_no = {int(event["event_no"]): event for event in events}
     matters: list[dict[str, Any]] = []
     for matter in model_result["matters"]:
@@ -86,7 +85,7 @@ def _assemble_daily_material_document(
         })
         material = {key: copy.deepcopy(value) for key, value in matter.items() if key != "source_event_nos"}
         material.update({
-            "item_key": _daily_item_key(digest_date, source_ids),
+            "item_key": _daily_item_key(),
             "source_ids": source_ids,
             "source_event_ids": [str(event["event_id"]) for event in source_events],
         })

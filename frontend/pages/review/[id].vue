@@ -45,10 +45,9 @@
         <details v-for="digest in dailyDigests" :key="digest.id" class="border-b border-neutral-100 py-3 last:border-b-0">
           <summary class="cursor-pointer list-none text-sm font-medium text-neutral-800">{{ shortDate(digest.digest_date) }} · {{ digestMatters(digest).length }} 条本日事项</summary>
           <div class="mt-3 space-y-3">
-            <div v-if="digest.material_document.day_overview.main_changes?.length || digest.material_document.day_overview.overall_state?.length || digest.material_document.day_overview.open_loops?.length" class="rounded-xl bg-primary-50 px-3 py-3 text-sm leading-6 text-neutral-700">
+            <div v-if="digest.material_document.day_overview.main_changes?.length || digest.material_document.day_overview.overall_state?.length" class="rounded-xl bg-primary-50 px-3 py-3 text-sm leading-6 text-neutral-700">
               <p v-if="digest.material_document.day_overview.main_changes?.length">{{ digest.material_document.day_overview.main_changes.join('；') }}</p>
               <p v-if="digest.material_document.day_overview.overall_state?.length" class="mt-1">状态：{{ digest.material_document.day_overview.overall_state.join('；') }}</p>
-              <p v-if="digest.material_document.day_overview.open_loops?.length" class="mt-1">待关注：{{ digest.material_document.day_overview.open_loops.join('；') }}</p>
             </div>
             <article v-for="item in digestMatters(digest)" :key="item.item_key" class="rounded-xl bg-neutral-50 px-3 py-3">
               <p class="text-sm font-semibold text-neutral-800">{{ item.title }}</p>
@@ -57,7 +56,6 @@
               <p v-if="item.emotions_and_state?.length" class="mt-2 text-sm leading-6 text-neutral-700">状态：{{ item.emotions_and_state.join('；') }}</p>
               <p v-if="item.actions_and_results?.length" class="mt-2 text-sm leading-6 text-neutral-700">行动与结果：{{ item.actions_and_results.map(value => `${value.action}：${value.result}`).join('；') }}</p>
               <p v-if="item.concerns_and_expectations?.length" class="mt-2 text-sm leading-6 text-neutral-700">关注：{{ item.concerns_and_expectations.map(value => value.text).join('；') }}</p>
-              <p v-if="item.follow_ups?.length" class="mt-2 text-sm leading-6 text-neutral-700">后续：{{ item.follow_ups.join('；') }}</p>
               <p v-if="item.reflections_and_learning?.length" class="mt-2 text-sm leading-6 text-neutral-700">感悟：{{ item.reflections_and_learning.join('；') }}</p>
               <p v-if="item.key_quotes?.length" class="mt-2 border-l-2 border-neutral-300 pl-2 text-sm leading-6 text-neutral-600">“{{ item.key_quotes.join('” “') }}”</p>
               <button v-if="item.source_ids?.length" type="button" class="mt-2 min-h-11 text-sm text-primary-700" @click="openSources(item.source_ids, `${item.title}依据`)">查看原始事件定位</button>
@@ -148,7 +146,8 @@
 </template>
 
 <script setup lang="ts">
-import type { ReviewAction, ReviewAnalysisDomain, ReviewDailyDigest, ReviewDomainCode, ReviewEventDomain, ReviewFeedback, ReviewTask, ReviewVersionDetail } from '~/types'
+import type { ReviewAction, ReviewAnalysisDomain, ReviewDailyDigest, ReviewDailyMatter, ReviewDomainCode, ReviewEventDomain, ReviewFeedback, ReviewTask, ReviewVersionDetail } from '~/types'
+import { normalizeKeyQuotes } from '~/utils/review-daily-material'
 
 definePageMeta({ layout: 'default', middleware: 'auth' })
 const route = useRoute()
@@ -231,7 +230,10 @@ const domainCodes = computed(() => {
   return [...values].filter(Boolean)
 })
 const threadCount = computed(() => eventDomains.value.reduce((sum, domain) => sum + (domain.event_threads?.length || 0), 0))
-const digestMatters = (digest: ReviewDailyDigest) => digest.material_document?.matters || []
+type DisplayDailyMatter = Omit<ReviewDailyMatter, 'key_quotes'> & { key_quotes: string[] }
+const digestMatters = (digest: ReviewDailyDigest): DisplayDailyMatter[] => (
+  digest.material_document?.matters || []
+).map(item => ({ ...item, key_quotes: normalizeKeyQuotes(item.key_quotes) }))
 const missingPeriodDescription = computed(() => {
   const periods = (detail.value?.version.missing_periods || []) as Array<{ period_start?: string; period_end?: string; status?: string }>
   if (!periods.length) return ''

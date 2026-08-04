@@ -1,26 +1,27 @@
 # 定期回顾 AI 流水线与提示词设计
 
-> 文档状态：现行设计；第一阶段周/月已实现，季/年暂未启用。分层每日提炼后的调用设计见《定期回顾分层提炼改造设计》。
+> 文档状态：现行设计；第一阶段周/月已实现，季/年暂未启用。
 > 设计基线：2026-08-01 需求与子代理交叉审查结论  
 > 对应需求：[定期回顾需求规格](../../需求规格/规划功能/定期回顾需求规格.md)  
 > 系统设计：[定期回顾系统设计](定期回顾系统设计.md)
-> 目标改造：[定期回顾分层提炼改造设计](定期回顾分层提炼改造设计.md)
+> 每日素材设计：[每日周回顾素材重新设计](每日周回顾素材重新设计.md)
 
 ## 1. 核心决策
 
-周级回顾定义两个核心 LLM 环节；完整周生成会先执行每日事件与每日分析提炼，再组织周事件和生成周分析：
+完整周回顾依次执行每日素材整理、周事件组织和周分析与行动三个 LLM 环节：
 
 ```text
 冻结来源
-  → review_daily_event_digest / review_daily_analysis_digest（逐日）
-  → review_week_event_organize_from_digests
+  → review_daily_material（逐日）
+  → review_event_organize
   → 程序结构检查
   → review_analysis_action
   → 程序结构检查
   → 保存版本
 ```
 
-- `review_week_event_organize_from_digests` 只组织周事实层。
+- `review_daily_material` 只整理每日中高重要事件及其关联用户批注。
+- `review_event_organize` 只组织周事实层。
 - `review_analysis_action` 只基于事实层分析并产生行动。
 - 用户编辑事件后的 `ANALYSIS_ONLY` 任务跳过 `review_event_organize`，直接把固定事件文档交给 `review_analysis_action`；事件层不得被返回或改写。
 - 不设计、不调用 `review_validation`，也不让第二个模型重写第一个环节的事件事实。
@@ -723,14 +724,14 @@ YEAR：
 
 ## 9. 模型调用与可观测性
 
-两个环节使用独立 `review` 模型用途：
+三个环节均使用 `review` 模型用途，并拥有独立环节配置：
 
 ```text
 setting_key = review
-step_key = review_event_organize | review_analysis_action
+step_key = review_daily_material | review_event_organize | review_analysis_action
 ```
 
-这不是只向 `model_settings` 插入一行。实现时必须同步扩展后端的 `SETTING_KEYS`、`SETTING_REQUIREMENTS`、`STEP_SETTING_KEYS`、`STEP_LABELS`，管理端用途标签、默认配置种子和数据库迁移，否则当前 `resolve_model_setting` 会拒绝 `review` 用途或两个环节。
+实现必须同步维护后端的 `SETTING_KEYS`、`SETTING_REQUIREMENTS`、`STEP_SETTING_KEYS`、`STEP_LABELS`，以及管理端用途和环节标签。环节未指定模型或思考模式时继承 `review` 默认配置。
 
 每次调用记录：
 
