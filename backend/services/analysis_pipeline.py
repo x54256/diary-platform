@@ -3,6 +3,7 @@
 import json
 import logging
 import uuid
+import hashlib
 from datetime import datetime
 from typing import Any, TypedDict
 
@@ -378,7 +379,7 @@ COGNITION_ANALYSIS_OUTPUT_SCHEMA = """## 输出要求
 COGNITION_ANALYSIS_PROMPT = COGNITION_ANALYSIS_RULES + "\n\n" + COGNITION_ANALYSIS_OUTPUT_SCHEMA
 
 
-ACTION_PLANNING_PROMPT = """你负责把一篇已整理、已分析的日记中的后续计划与可行动建议整理成独立行动项，并为每个行动项生成可编辑的推荐日程。
+ACTION_PLANNING_PROMPT = """你负责把一篇日记中的后续计划与 AI 分析得出的可行动建议整理成独立行动项，并为每个行动项生成可编辑的推荐日程。
 
 ## 事实边界
 1. 只能使用输入的后续计划和可行动建议，不得从其他分析类型、历史日记或长期画像扩展行动。
@@ -396,13 +397,38 @@ ACTION_PLANNING_PROMPT = """你负责把一篇已整理、已分析的日记中�
 1. 后续计划和可行动建议表达同一事项时合并成一个行动项，并保留全部来源键。
 2. 名称相近但完成标准不同的事项不能合并。
 3. 分析观点、愿望、抽象目标、情绪和解释不能直接作为行动项。
+4. 每个行动项必须返回 source 数组；每项包含 source_key 和来自输入原文的连续摘录 text。
 
 ## 推荐日程规则
 1. 推荐值必须符合日程字段：全天，或同时提供开始时间和结束时间；结束时间必须晚于开始时间。
 2. 不支持跨日。
 3. 循环类型只能使用 NONE、DAILY、WEEKLY、MONTHLY_DATE、MONTHLY_NTH_WEEKDAY、YEARLY、WORKDAY、REST_DAY。
-4. 信息不足时给出保守、可编辑的推荐，不编造硬性截止要求。
-5. 每个行动项只能有一个推荐日程对象。
+4. NONE 不填写循环字段；WEEKLY 必须填写 weekdays；MONTHLY_DATE 必须填写 month_day；MONTHLY_NTH_WEEKDAY 必须填写 nth_week 和 nth_weekday；YEARLY 必须填写 month 和 month_day。
+5. recurrence_until 与 recurrence_count 只能二选一；没有明确循环依据时使用 NONE。
+6. diary_date 用于解释“明天”“下周二”等相对日期；analysis_date 是本次分析日期，推荐日期不得早于 analysis_date；timezone 用于日期边界计算。
+7. 信息不足时给出保守、可编辑的推荐，不编造硬性截止要求。
+8. 每个行动项只能有一个推荐日程对象。
+
+## 日程字段填写说明
+- `interval`：循环间隔，正整数；例如 DAILY + 2 表示每 2 天一次，WEEKLY + 1 表示每周一次。
+- `weekdays`：每周重复的星期值数组，使用数字编码：0=周日、1=周一、2=周二、3=周三、4=周四、5=周五、6=周六。仅 WEEKLY 使用，其他类型填 []。
+- `month`：每年重复的月份，取值 1-12；仅 YEARLY 使用，例如每年 8 月 4 日填写 month=8、month_day=4。
+- `month_day`：月份中的日期，取值 1-31；MONTHLY_DATE 表示每月该日，YEARLY 与 month 配合表示每年该月该日。
+- `nth_week`：每月第几个星期，取值 1-5；例如每月第 2 个星期一填写 nth_week=2、nth_weekday=1。
+- `nth_weekday`：第几个星期几，使用与 weekdays 相同的 0-6 编码；仅 MONTHLY_NTH_WEEKDAY 使用。
+- `recurrence_until`：循环结束日期，格式 YYYY-MM-DD；与 recurrence_count 二选一，没有明确结束日期时填 null。
+- `recurrence_count`：最多执行次数，正整数；与 recurrence_until 二选一，没有明确次数时填 null。
+- `start_date`：第一次执行日期，格式 YYYY-MM-DD。日记中的“明天”“下周二”等先以 diary_date 推算，再确保不早于 analysis_date。
+- `start_time` / `end_time`：非全天日程的开始和结束时间，格式 HH:MM；全天日程必须都填 null。
+
+## 循环类型示例
+- 不循环：recurrence_type=NONE，interval=1，weekdays=[]，month=null，month_day=null，nth_week=null，nth_weekday=null，recurrence_until=null，recurrence_count=null。
+- 每周一和周三：recurrence_type=WEEKLY，interval=1，weekdays=[1,3]。
+- 每月 15 日：recurrence_type=MONTHLY_DATE，interval=1，month_day=15。
+- 每月第 2 个星期一：recurrence_type=MONTHLY_NTH_WEEKDAY，interval=1，nth_week=2，nth_weekday=1。
+- 每年 8 月 4 日：recurrence_type=YEARLY，interval=1，month=8，month_day=4。
+- 每 3 天一次：recurrence_type=DAILY，interval=3，其他循环定位字段全部为空。
+- 工作日/休息日：recurrence_type=WORKDAY 或 REST_DAY，interval=1，weekdays、month、month_day、nth_week、nth_weekday 全部为空。
 
 ## 输出格式
 严格输出 JSON，不要 markdown：
@@ -410,9 +436,7 @@ ACTION_PLANNING_PROMPT = """你负责把一篇已整理、已分析的日记中�
   "action_items": [
     {
       "title": "单一动作名称",
-      "source_kind": "PLAN|SUGGESTION|MERGED",
-      "plan_sources": [{"source_key": "plan:0", "text": "原计划文本"}],
-      "analysis_source_keys": ["event:0:suggestion:0"],
+      "source": [{"source_key": "plan:0", "text": "原计划文本"}],
       "schedule": {
         "is_all_day": true,
         "start_date": "YYYY-MM-DD",
@@ -421,6 +445,7 @@ ACTION_PLANNING_PROMPT = """你负责把一篇已整理、已分析的日记中�
         "recurrence_type": "NONE",
         "interval": 1,
         "weekdays": [],
+        "month": null,
         "month_day": null,
         "nth_week": null,
         "nth_weekday": null,
@@ -761,7 +786,7 @@ def _action_planning_input(state: AnalysisState | FeedbackAnalysisState) -> dict
     structured_diary = state.get("structured_diary") or {}
     plans = structured_diary.get("plans") or []
     plan_items = [
-        {"source_key": f"plan:{index}", "text": value}
+        {"source_key": f"plan:{index}:{hashlib.sha256(str(value).encode()).hexdigest()[:12]}", "source_type": "PLAN", "text": value}
         for index, value in enumerate(plans)
         if isinstance(value, str) and value.strip()
     ]
@@ -773,22 +798,26 @@ def _action_planning_input(state: AnalysisState | FeedbackAnalysisState) -> dict
         for suggestion_index, content in enumerate(event.get("action_suggestions") or []):
             if isinstance(content, str) and content.strip():
                 suggestions.append({
-                    "source_key": f"event:{event_index}:suggestion:{suggestion_index}",
+                    "source_key": f"suggestion:event:{event_index}:{hashlib.sha256(content.encode()).hexdigest()[:12]}",
+                    "source_type": "SUGGESTION",
                     "scope": "EVENT",
                     "event_index": event_index,
                     "event_title": event.get("title", ""),
-                    "content": content,
+                    "text": content,
                 })
     diary_analysis = analysis_state.get("diary_analysis") or {}
     for suggestion_index, content in enumerate(diary_analysis.get("action_suggestions") or []):
         if isinstance(content, str) and content.strip():
             suggestions.append({
-                "source_key": f"diary:suggestion:{suggestion_index}",
+                "source_key": f"suggestion:diary:{hashlib.sha256(content.encode()).hexdigest()[:12]}",
+                "source_type": "SUGGESTION",
                 "scope": "DIARY",
-                "content": content,
+                "text": content,
             })
     return {
         "diary_date": structured_diary.get("diary_date"),
+        "analysis_date": structured_diary.get("analysis_date") or datetime.utcnow().date().isoformat(),
+        "timezone": structured_diary.get("timezone") or "Asia/Shanghai",
         "plans": plan_items,
         "action_suggestions": suggestions,
     }
@@ -812,6 +841,11 @@ async def action_planning(state: AnalysisState | FeedbackAnalysisState) -> dict:
     )
     _log_llm_response("action_planning", result)
     normalized = []
+    source_text_by_key = {
+        item["source_key"]: item.get("text", "")
+        for item in input_data.get("plans", []) + input_data.get("action_suggestions", [])
+        if isinstance(item, dict) and item.get("source_key")
+    }
     for raw in result.get("action_items") if isinstance(result, dict) and isinstance(result.get("action_items"), list) else []:
         if not isinstance(raw, dict):
             continue
@@ -819,20 +853,48 @@ async def action_planning(state: AnalysisState | FeedbackAnalysisState) -> dict:
         if not title:
             continue
         schedule = raw.get("schedule") if isinstance(raw.get("schedule"), dict) else {}
+        analysis_date = input_data.get("analysis_date") or datetime.utcnow().date().isoformat()
         if not schedule.get("start_date"):
-            schedule["start_date"] = input_data.get("diary_date") or datetime.utcnow().date().isoformat()
+            schedule["start_date"] = analysis_date
+        if schedule.get("start_date") < analysis_date:
+            logger.warning("行动规划推荐日期早于分析日期，已调整: diary_id=%s start_date=%s analysis_date=%s", state.get("diary_id"), schedule.get("start_date"), analysis_date)
+            schedule["start_date"] = analysis_date
+        if "recurrence_month" not in schedule and "month" in schedule:
+            schedule["recurrence_month"] = schedule.pop("month")
         if schedule.get("is_all_day", True):
             schedule["is_all_day"] = True
             schedule["start_time"] = None
             schedule["end_time"] = None
-        source_kind = raw.get("source_kind") if raw.get("source_kind") in {"PLAN", "SUGGESTION", "MERGED"} else "SUGGESTION"
-        plan_sources = raw.get("plan_sources") if isinstance(raw.get("plan_sources"), list) else []
-        analysis_source_keys = raw.get("analysis_source_keys") if isinstance(raw.get("analysis_source_keys"), list) else []
+        raw_sources = raw.get("source") if isinstance(raw.get("source"), list) else []
+        source = []
+        unknown_keys = []
+        for source_item in raw_sources:
+            if not isinstance(source_item, dict):
+                continue
+            key = source_item.get("source_key")
+            if not isinstance(key, str) or key not in source_text_by_key:
+                unknown_keys.append(key)
+                continue
+            original_text = source_text_by_key[key]
+            excerpt = source_item.get("text")
+            if not isinstance(excerpt, str) or not excerpt.strip() or excerpt.strip() not in original_text:
+                logger.warning("行动规划来源摘录不是输入原文连续片段，已回填原文: diary_id=%s task_id=%s source_key=%s", state.get("diary_id"), task_id, key)
+                excerpt = original_text
+            source.append({"source_key": key, "text": excerpt.strip()})
+        source = list({item["source_key"]: item for item in source}.values())
+        source_keys = [item["source_key"] for item in source]
+        if unknown_keys:
+            logger.warning("行动规划返回未知来源键: diary_id=%s task_id=%s keys=%s", state.get("diary_id"), task_id, unknown_keys)
+        if not source_keys:
+            logger.warning("行动规划行动项没有合法来源: diary_id=%s task_id=%s", state.get("diary_id"), task_id)
+        plan_sources = [item for item in source if item["source_key"].startswith("plan:")]
+        analysis_sources = [item for item in source if item["source_key"].startswith("suggestion:")]
         normalized.append({
             "title": title[:200],
-            "source_kind": source_kind,
+            "source_keys": source_keys,
+            "source": source,
             "plan_sources": plan_sources,
-            "analysis_source_keys": analysis_source_keys,
+            "analysis_sources": analysis_sources,
             "schedule": schedule,
         })
     logger.info(
@@ -1118,6 +1180,23 @@ def _save_analysis_result(
             feedback_source_run_id=feedback_source_run_id,
             inherited_feedback_keys=inherited_feedback_keys,
         )
+        suggestion_items = (
+            db.query(AnalysisItem)
+            .filter(AnalysisItem.analysis_run_id == run.id, AnalysisItem.analysis_type == "ACTION_SUGGESTION")
+            .all()
+        )
+        suggestion_ids_by_hash = {}
+        for analysis_item in suggestion_items:
+            digest = hashlib.sha256(analysis_item.content.encode()).hexdigest()[:12]
+            suggestion_ids_by_hash.setdefault(digest, []).append(str(analysis_item.id))
+        for raw_action in state.get("action_items", []) or []:
+            if not isinstance(raw_action, dict):
+                continue
+            ids = []
+            for source_key in raw_action.get("source_keys", []) or []:
+                digest = source_key.rsplit(":", 1)[-1] if str(source_key).startswith("suggestion:") else ""
+                ids.extend(suggestion_ids_by_hash.get(digest, []))
+            raw_action["analysis_item_ids"] = list(dict.fromkeys(ids))
         apply_action_planning_result(
             db,
             diary_id=diary_uuid,

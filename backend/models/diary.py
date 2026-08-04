@@ -180,6 +180,7 @@ class DiaryActionItem(Base):
     interval = Column(Integer, nullable=False, default=1)
     weekdays = Column(JSONB, nullable=False, default=list)
     month_day = Column(Integer, nullable=True)
+    recurrence_month = Column(Integer, nullable=True)
     nth_week = Column(Integer, nullable=True)
     nth_weekday = Column(Integer, nullable=True)
     recurrence_until = Column(Date, nullable=True)

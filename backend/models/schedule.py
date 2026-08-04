@@ -26,6 +26,7 @@ class ScheduleTask(Base):
     interval = Column(String(10), nullable=False, default="1")
     weekdays = Column(String(32), nullable=True)  # 0=周日，逗号分隔
     month_day = Column(String(2), nullable=True)
+    recurrence_month = Column(String(2), nullable=True)
     nth_week = Column(String(1), nullable=True)
     nth_weekday = Column(String(1), nullable=True)
     recurrence_until = Column(Date, nullable=True)
@@ -91,6 +92,10 @@ class ScheduleOccurrence(Base):
     @property
     def nth_weekday(self):
         return int(self.task.nth_weekday) if self.task and self.task.nth_weekday else None
+
+    @property
+    def recurrence_month(self):
+        return int(self.task.recurrence_month) if self.task and self.task.recurrence_month else None
 
 
 class ScheduleHolidayYear(Base):

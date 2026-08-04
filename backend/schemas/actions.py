@@ -22,6 +22,7 @@ class ActionSchedulePayload(BaseModel):
     interval: int = Field(default=1, ge=1)
     weekdays: list[int] = Field(default_factory=list)
     month_day: int | None = None
+    recurrence_month: int | None = None
     nth_week: int | None = None
     nth_weekday: int | None = None
     recurrence_until: date | None = None
@@ -42,10 +43,23 @@ class ActionSchedulePayload(BaseModel):
             raise ValueError("不循环日程不能设置截止日期或次数")
         if self.recurrence_type == "WEEKLY" and any(value not in range(7) for value in self.weekdays):
             raise ValueError("每周重复日期无效")
+        if self.recurrence_type == "WEEKLY" and not self.weekdays:
+            raise ValueError("每周重复必须选择日期")
+        if self.recurrence_type == "MONTHLY_DATE" and self.month_day is None:
+            raise ValueError("每月指定日期必须填写日期")
         if self.recurrence_type == "MONTHLY_NTH_WEEKDAY" and (
             self.nth_week not in {1, 2, 3, 4, 5} or self.nth_weekday not in range(7)
         ):
             raise ValueError("每月第 N 个星期几规则不完整")
+        if self.recurrence_type == "YEARLY" and (self.recurrence_month not in range(1, 13) or self.month_day not in range(1, 32)):
+            raise ValueError("每年重复必须填写月份和日期")
+        if self.recurrence_type != "YEARLY":
+            self.recurrence_month = None
+        if self.recurrence_type == "NONE":
+            self.weekdays = []
+            self.month_day = None
+            self.nth_week = None
+            self.nth_weekday = None
         return self
 
 
@@ -98,6 +112,7 @@ class DiaryActionResponse(BaseModel):
     interval: int
     weekdays: list[int]
     month_day: int | None = None
+    recurrence_month: int | None = None
     nth_week: int | None = None
     nth_weekday: int | None = None
     recurrence_until: date | None = None

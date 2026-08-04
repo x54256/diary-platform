@@ -272,6 +272,7 @@ export interface DiaryActionItem {
   interval: number
   weekdays: number[]
   month_day: number | null
+  recurrence_month: number | null
   nth_week: number | null
   nth_weekday: number | null
   recurrence_until: string | null

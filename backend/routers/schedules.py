@@ -50,8 +50,10 @@ def _matches_rule(task: ScheduleTask, target: date, workdays: set[date], restday
         return (target.day - 1) // 7 + 1 == int(task.nth_week)
     if kind == "YEARLY":
         year_delta = target.year - task.start_date.year
-        if year_delta < 0 or year_delta % interval or target.month != task.start_date.month: return False
-        return target.day == min(task.start_date.day, calendar.monthrange(target.year, target.month)[1])
+        month = int(task.recurrence_month or task.start_date.month)
+        day = int(task.month_day or task.start_date.day)
+        if year_delta < 0 or year_delta % interval or target.month != month: return False
+        return target.day == min(day, calendar.monthrange(target.year, target.month)[1])
     if kind == "WORKDAY":
         return target in workdays or (target.weekday() < 5 and target not in restdays)
     if kind == "REST_DAY":
@@ -176,7 +178,7 @@ def create_schedule(data: ScheduleTaskCreate, db: Session = Depends(get_db), cur
     nth_week = data.nth_week or (((data.start_date.day - 1) // 7) + 1 if data.recurrence_type == "MONTHLY_NTH_WEEKDAY" else None)
     nth_weekday = data.nth_weekday if data.nth_weekday is not None else (sunday_weekday(data.start_date) if data.recurrence_type == "MONTHLY_NTH_WEEKDAY" else None)
     task = ScheduleTask(user_id=current_user.id, title=data.title, is_all_day=data.is_all_day, start_date=data.start_date,
-        start_time=data.start_time, end_time=data.end_time, recurrence_type=data.recurrence_type, interval=str(data.interval),
+        start_time=data.start_time, end_time=data.end_time, recurrence_type=data.recurrence_type, interval=str(data.interval), recurrence_month=str(data.recurrence_month) if data.recurrence_month else None,
         weekdays=",".join(map(str, weekdays)) or None, month_day=str(month_day) if month_day else None,
         nth_week=str(nth_week) if nth_week else None, nth_weekday=str(nth_weekday) if nth_weekday is not None else None,
         recurrence_until=data.recurrence_until, recurrence_count=str(data.recurrence_count) if data.recurrence_count else None)
@@ -246,7 +248,7 @@ def update_occurrence(occurrence_id: UUID, data: ScheduleOccurrenceUpdate, db: S
         nth_weekday = data.nth_weekday
         new_task = ScheduleTask(user_id=current_user.id, source_task_id=old_task.id, title=data.title,
             is_all_day=data.is_all_day, start_date=item.scheduled_date, start_time=data.start_time,
-            end_time=data.end_time, recurrence_type=data.recurrence_type, interval=str(data.interval),
+            end_time=data.end_time, recurrence_type=data.recurrence_type, interval=str(data.interval), recurrence_month=str(data.recurrence_month) if data.recurrence_month else None,
             weekdays=','.join(map(str, weekdays)) or None, month_day=str(month_day) if month_day else None,
             nth_week=str(nth_week) if nth_week else None,
             nth_weekday=str(nth_weekday) if nth_weekday is not None else None,

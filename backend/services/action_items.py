@@ -72,6 +72,7 @@ def serialize_action(db: Session, action: DiaryActionItem) -> dict[str, Any]:
         "interval": action.interval,
         "weekdays": action.weekdays or [],
         "month_day": action.month_day,
+        "recurrence_month": action.recurrence_month,
         "nth_week": action.nth_week,
         "nth_weekday": action.nth_weekday,
         "recurrence_until": action.recurrence_until,
@@ -129,6 +130,7 @@ def _copy_schedule_to_action(action: DiaryActionItem, schedule: Any, title: str 
     action.interval = int(schedule.interval or 1)
     action.weekdays = list(schedule.weekdays or [])
     action.month_day = schedule.month_day
+    action.recurrence_month = getattr(schedule, "recurrence_month", None)
     action.nth_week = schedule.nth_week
     action.nth_weekday = schedule.nth_weekday
     action.recurrence_until = schedule.recurrence_until
@@ -149,6 +151,7 @@ def _action_schedule_dict(item: dict[str, Any], title: str | None = None):
         "month_day": schedule.get("month_day", item.get("month_day")),
         "nth_week": schedule.get("nth_week", item.get("nth_week")),
         "nth_weekday": schedule.get("nth_weekday", item.get("nth_weekday")),
+        "recurrence_month": schedule.get("recurrence_month", item.get("recurrence_month")),
         "recurrence_until": schedule.get("recurrence_until", item.get("recurrence_until")),
         "recurrence_count": schedule.get("recurrence_count", item.get("recurrence_count")),
     }
@@ -205,7 +208,16 @@ def apply_action_planning_result(
         is_all_day = bool(schedule.get("is_all_day", True))
         if is_all_day:
             start_time = end_time = None
-        source_kind = raw.get("source_kind") if raw.get("source_kind") in {"PLAN", "SUGGESTION", "MERGED"} else "SUGGESTION"
+        source_entries = raw.get("source") if isinstance(raw.get("source"), list) else []
+        source_keys = [entry.get("source_key") for entry in source_entries if isinstance(entry, dict) and entry.get("source_key")]
+        plan_keys = [key for key in source_keys if key.startswith("plan:")]
+        suggestion_keys = [key for key in source_keys if key.startswith("suggestion:")]
+        if plan_keys and suggestion_keys:
+            source_kind = "MERGED"
+        elif plan_keys:
+            source_kind = "PLAN"
+        else:
+            source_kind = "SUGGESTION"
         recurrence_type = schedule.get("recurrence_type") or "NONE"
         if recurrence_type not in {"NONE", "DAILY", "WEEKLY", "MONTHLY_DATE", "MONTHLY_NTH_WEEKDAY", "YEARLY", "WORKDAY", "REST_DAY"}:
             recurrence_type = "NONE"
@@ -220,8 +232,11 @@ def apply_action_planning_result(
                 recurrence_count = None
         weekdays = schedule.get("weekdays") if isinstance(schedule.get("weekdays"), list) else []
         source_refs = {
-            "plans": raw.get("plan_sources") if isinstance(raw.get("plan_sources"), list) else [],
-            "analysis_source_keys": raw.get("analysis_source_keys") if isinstance(raw.get("analysis_source_keys"), list) else [],
+            "source_keys": source_keys,
+            "source": source_entries,
+            "plans": [entry for entry in source_entries if isinstance(entry, dict) and str(entry.get("source_key", "")).startswith("plan:")],
+            "analysis_source_keys": suggestion_keys,
+            "analysis_sources": [entry for entry in source_entries if isinstance(entry, dict) and str(entry.get("source_key", "")).startswith("suggestion:")],
             "analysis_item_ids": raw.get("analysis_item_ids") if isinstance(raw.get("analysis_item_ids"), list) else [],
         }
         item = DiaryActionItem(
@@ -239,6 +254,7 @@ def apply_action_planning_result(
             interval=int(schedule.get("interval") or 1),
             weekdays=weekdays,
             month_day=schedule.get("month_day"),
+            recurrence_month=schedule.get("recurrence_month"),
             nth_week=schedule.get("nth_week"),
             nth_weekday=schedule.get("nth_weekday"),
             recurrence_until=recurrence_until,
@@ -263,6 +279,7 @@ def update_action_fields(action: DiaryActionItem, title: str | None, schedule: A
         action.interval = schedule.interval
         action.weekdays = schedule.weekdays
         action.month_day = schedule.month_day
+        action.recurrence_month = schedule.recurrence_month
         action.nth_week = schedule.nth_week
         action.nth_weekday = schedule.nth_weekday
         action.recurrence_until = schedule.recurrence_until

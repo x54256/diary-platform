@@ -1542,6 +1542,8 @@ async def analyze_diary(
     diary_organized = diary.organized
     structured_diary = {
         "diary_date": diary.diary_date.isoformat(),
+        "analysis_date": date.today().isoformat(),
+        "timezone": "Asia/Shanghai",
         "introduction": diary_organized.introduction or "",
         "events": [
             {

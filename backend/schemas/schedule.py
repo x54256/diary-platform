@@ -15,8 +15,10 @@ class ScheduleTaskCreate(BaseModel):
     interval: int = 1
     weekdays: list[int] = []
     month_day: Optional[int] = None
+    recurrence_month: Optional[int] = None
     nth_week: Optional[int] = None
     nth_weekday: Optional[int] = None
+    recurrence_month: Optional[int] = None
     recurrence_until: Optional[date] = None
     recurrence_count: Optional[int] = None
 
@@ -40,8 +42,12 @@ class ScheduleTaskCreate(BaseModel):
             raise ValueError("不循环日程不能设置截止日期或重复次数")
         if self.recurrence_type == "WEEKLY" and any(value not in range(7) for value in self.weekdays):
             raise ValueError("每周重复日期无效")
+        if self.recurrence_type == "WEEKLY" and not self.weekdays: raise ValueError("每周重复必须选择日期")
+        if self.recurrence_type == "MONTHLY_DATE" and self.month_day is None: raise ValueError("每月重复必须填写日期")
         if self.recurrence_type == "MONTHLY_NTH_WEEKDAY" and (self.nth_week not in {1, 2, 3, 4, 5} or self.nth_weekday not in range(7)):
             raise ValueError("每月第 N 个星期几规则不完整")
+        if self.recurrence_type == "YEARLY" and (self.recurrence_month not in range(1, 13) or self.month_day not in range(1, 32)):
+            raise ValueError("每年重复必须填写月份和日期")
         return self
 
 class ScheduleOccurrenceResponse(BaseModel):
@@ -80,6 +86,7 @@ class ScheduleOccurrenceUpdate(BaseModel):
     interval: int = 1
     weekdays: list[int] = []
     month_day: Optional[int] = None
+    recurrence_month: Optional[int] = None
     nth_week: Optional[int] = None
     nth_weekday: Optional[int] = None
     recurrence_until: Optional[date] = None
@@ -106,6 +113,10 @@ class ScheduleOccurrenceUpdate(BaseModel):
         if self.recurrence_count is not None and self.recurrence_count < 1: raise ValueError("重复次数必须大于等于 1")
         if self.recurrence_type == "WEEKLY" and any(value not in range(7) for value in self.weekdays):
             raise ValueError("每周重复日期无效")
+        if self.recurrence_type == "WEEKLY" and not self.weekdays: raise ValueError("每周重复必须选择日期")
+        if self.recurrence_type == "MONTHLY_DATE" and self.month_day is None: raise ValueError("每月重复必须填写日期")
         if self.recurrence_type == "MONTHLY_NTH_WEEKDAY" and (self.nth_week not in {1, 2, 3, 4, 5} or self.nth_weekday not in range(7)):
             raise ValueError("每月第 N 个星期几规则不完整")
+        if self.recurrence_type == "YEARLY" and (self.recurrence_month not in range(1, 13) or self.month_day not in range(1, 32)):
+            raise ValueError("每年重复必须填写月份和日期")
         return self

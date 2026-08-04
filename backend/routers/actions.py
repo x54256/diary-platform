@@ -83,6 +83,7 @@ def _create_schedule_task(db: Session, user_id, payload, title: str) -> tuple[Sc
         month_day=str(month_day) if month_day else None,
         nth_week=str(nth_week) if nth_week else None,
         nth_weekday=str(nth_weekday) if nth_weekday is not None else None,
+        recurrence_month=str(payload.recurrence_month) if payload.recurrence_month else None,
         recurrence_until=payload.recurrence_until,
         recurrence_count=str(payload.recurrence_count) if payload.recurrence_count else None,
     )
@@ -162,6 +163,7 @@ def update_diary_action(
                 task.month_day = str(month_day) if month_day else None
                 task.nth_week = str(nth_week) if nth_week else None
                 task.nth_weekday = str(nth_weekday) if nth_weekday is not None else None
+                task.recurrence_month = str(data.schedule.recurrence_month) if data.schedule.recurrence_month else None
                 task.recurrence_until = data.schedule.recurrence_until
                 task.recurrence_count = str(data.schedule.recurrence_count) if data.schedule.recurrence_count else None
                 db.query(ScheduleOccurrence).filter(
@@ -178,6 +180,7 @@ def update_diary_action(
                 action.month_day = int(task.month_day) if task.month_day else None
                 action.nth_week = int(task.nth_week) if task.nth_week else None
                 action.nth_weekday = int(task.nth_weekday) if task.nth_weekday is not None else None
+                action.recurrence_month = int(task.recurrence_month) if task.recurrence_month else None
                 anchor_row = (
                     db.query(ScheduleOccurrence.id)
                     .filter(
@@ -254,6 +257,7 @@ def sync_diary_actions(
         action.month_day = int(task.month_day) if task.month_day else None
         action.nth_week = int(task.nth_week) if task.nth_week else None
         action.nth_weekday = int(task.nth_weekday) if task.nth_weekday is not None else None
+        action.recurrence_month = int(task.recurrence_month) if task.recurrence_month else None
         action.recurrence_until = payload.recurrence_until
         action.recurrence_count = payload.recurrence_count
         action.user_modified = True

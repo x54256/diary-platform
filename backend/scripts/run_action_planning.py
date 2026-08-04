@@ -24,9 +24,9 @@ if str(BACKEND_DIR) not in sys.path:
 os.chdir(BACKEND_DIR)
 
 # 手动修改这里，再运行脚本。
-DIARY_ID = "00000000-0000-0000-0000-000000000000"
+DIARY_ID = "382c2bb8-1187-4f2b-9105-9e59e7b646ab"
 # True 会把本次行动规划结果写入 diary_action_items；False 只调用模型并打印结果。
-PERSIST_ACTION_ITEMS = False
+PERSIST_ACTION_ITEMS = True
 
 from database import SessionLocal
 from models.diary import Diary, DiaryEvent

@@ -47,6 +47,12 @@
               <span class="ml-1 rounded-full px-1.5 py-0.5" :class="statusClass(action.schedule.status)">{{ statusLabel(action.schedule.status) }}</span>
             </div>
             <p v-if="action.recurrence_type !== 'NONE'" class="mt-1 text-xs text-neutral-400">循环行动：首次实例完成后视为已开始落实</p>
+            <details v-if="sourceExcerpts(action).length" class="mt-2 text-xs text-neutral-500">
+              <summary class="cursor-pointer select-none">查看原文摘录</summary>
+              <ul class="mt-1 space-y-1 pl-4 list-disc">
+                <li v-for="(excerpt, index) in sourceExcerpts(action)" :key="`${action.id}-source-${index}`">{{ excerpt }}</li>
+              </ul>
+            </details>
           </div>
         </div>
       </article>
@@ -104,6 +110,14 @@
               <label v-if="candidate.form.recurrence_type === 'MONTHLY_DATE'" class="col-span-2 text-xs text-neutral-500">每月日期
                 <input v-model.number="candidate.form.month_day" type="number" min="1" max="31" class="mt-1 w-full rounded-lg border border-neutral-300 px-2 py-2 text-sm" />
               </label>
+              <div v-if="candidate.form.recurrence_type === 'YEARLY'" class="col-span-2 grid grid-cols-2 gap-2">
+                <label class="text-xs text-neutral-500">月份
+                  <input v-model.number="candidate.form.recurrence_month" type="number" min="1" max="12" class="mt-1 w-full rounded-lg border border-neutral-300 px-2 py-2 text-sm" />
+                </label>
+                <label class="text-xs text-neutral-500">日期
+                  <input v-model.number="candidate.form.month_day" type="number" min="1" max="31" class="mt-1 w-full rounded-lg border border-neutral-300 px-2 py-2 text-sm" />
+                </label>
+              </div>
               <div v-if="candidate.form.recurrence_type === 'MONTHLY_NTH_WEEKDAY'" class="col-span-2 grid grid-cols-2 gap-2">
                 <label class="text-xs text-neutral-500">第几周
                   <input v-model.number="candidate.form.nth_week" type="number" min="1" max="5" class="mt-1 w-full rounded-lg border border-neutral-300 px-2 py-2 text-sm" />
@@ -208,6 +222,7 @@ const openSync = () => {
         interval: action.interval || 1,
         weekdays: action.weekdays || [],
         month_day: action.month_day,
+        recurrence_month: action.recurrence_month,
         nth_week: action.nth_week,
         nth_weekday: action.nth_weekday,
         recurrence_until: action.recurrence_until,
@@ -242,6 +257,16 @@ const submitSync = async () => {
 const scheduleSummary = (action: DiaryActionItem) => {
   const time = action.is_all_day ? '全天' : `${action.start_time || '--:--'}-${action.end_time || '--:--'}`
   return `${action.start_date} ${time}`
+}
+const sourceExcerpts = (action: DiaryActionItem) => {
+  const refs = action.source_refs || {}
+  const values = [
+    ...(Array.isArray(refs.plans) ? refs.plans : []),
+    ...(Array.isArray(refs.analysis_sources) ? refs.analysis_sources : []),
+  ]
+  return values
+    .map((item: any) => typeof item === 'string' ? item : item?.text)
+    .filter((text: any): text is string => typeof text === 'string' && text.trim())
 }
 const statusLabel = (status: DiaryActionItem['schedule']['status']) => ({ unsynced: '未同步', synced: '已同步', schedule_deleted: '日程已删除' }[status])
 const statusClass = (status: DiaryActionItem['schedule']['status']) => ({
