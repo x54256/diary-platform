@@ -45,6 +45,7 @@ FROM (
              ('mood_tag_extract', 'analysis', FALSE),
              ('core_analysis', 'analysis', TRUE),
              ('cognition_analysis', 'analysis', TRUE),
+             ('action_planning', 'analysis', TRUE),
              ('feedback_core_analysis', 'analysis', TRUE),
              ('feedback_cognition_analysis', 'analysis', TRUE)
      ) AS defaults(step_key, setting_key, default_value)

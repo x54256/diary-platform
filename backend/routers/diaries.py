@@ -1541,6 +1541,7 @@ async def analyze_diary(
     # 7. 组装 structured_diary，供分析流水线使用
     diary_organized = diary.organized
     structured_diary = {
+        "diary_date": diary.diary_date.isoformat(),
         "introduction": diary_organized.introduction or "",
         "events": [
             {

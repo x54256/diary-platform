@@ -253,6 +253,40 @@ export interface ScheduleOccurrence {
   nth_weekday: number | null
 }
 
+export type DiaryActionStatus = 'pending' | 'completed'
+export type DiaryActionSyncStatus = 'unsynced' | 'synced' | 'schedule_deleted'
+export type DiaryActionRecurrenceType = ScheduleOccurrence['recurrence_type']
+
+export interface DiaryActionItem {
+  id: string
+  diary_id: string
+  generation_run_id: string
+  source_kind: 'PLAN' | 'SUGGESTION' | 'MERGED'
+  source_refs: Record<string, unknown>
+  title: string
+  is_all_day: boolean
+  start_date: string
+  start_time: string | null
+  end_time: string | null
+  recurrence_type: DiaryActionRecurrenceType
+  interval: number
+  weekdays: number[]
+  month_day: number | null
+  nth_week: number | null
+  nth_weekday: number | null
+  recurrence_until: string | null
+  recurrence_count: number | null
+  status: DiaryActionStatus
+  completed_at: string | null
+  user_modified: boolean
+  sort_order: number
+  schedule: {
+    task_id: string | null
+    occurrence_id: string | null
+    status: DiaryActionSyncStatus
+  }
+}
+
 export type TranscriptionBatchStatus =
   | 'COLLECTING' | 'QUEUED' | 'PROCESSING' | 'PARTIAL_FAILED'
   | 'FINALIZING' | 'COMPLETED' | 'CANCELLED' | 'EXPIRED'

@@ -15,6 +15,13 @@ from models.user import User
 from schemas.schedule import ScheduleOccurrenceComplete, ScheduleOccurrenceNoteUpdate, ScheduleOccurrenceResponse, ScheduleOccurrenceUpdate, ScheduleTaskCreate
 from services.auth import get_current_user
 from services.schedule_holidays import ensure_holiday_years, holiday_sets
+from services.action_items import (
+    handle_schedule_occurrence_deleted,
+    sync_action_after_task_replaced,
+    sync_action_from_occurrence,
+    sync_action_from_schedule_task,
+    unlink_action_schedule,
+)
 
 router = APIRouter(prefix="/api/schedules", tags=["日程管理"])
 WINDOW_DAYS = 180
@@ -198,6 +205,7 @@ def complete_occurrence(occurrence_id: UUID, data: ScheduleOccurrenceComplete, d
         item.status, item.completed_at = "completed", datetime.utcnow()
     else:
         item.status, item.completed_at = "pending", None
+    sync_action_from_occurrence(db, item)
     db.commit(); db.refresh(item); return item
 
 @router.put("/occurrences/{occurrence_id}/note", response_model=ScheduleOccurrenceResponse)
@@ -225,6 +233,7 @@ def update_occurrence(occurrence_id: UUID, data: ScheduleOccurrenceUpdate, db: S
         (data.nth_weekday if data.nth_weekday is not None else None) != (int(old_task.nth_weekday) if old_task.nth_weekday else None),
     ])
     if repeat_changed:
+        old_task_for_sync = old_task
         old_task.recurrence_until = item.scheduled_date - timedelta(days=1)
         immediate_end = item.scheduled_date + timedelta(days=IMMEDIATE_WINDOW_DAYS - 1)
         db.query(ScheduleOccurrence).filter(ScheduleOccurrence.task_id == old_task.id,
@@ -260,10 +269,12 @@ def update_occurrence(occurrence_id: UUID, data: ScheduleOccurrenceUpdate, db: S
             updated.start_time, updated.end_time = data.start_time, data.end_time
             updated.status, updated.completed_at = item.status, item.completed_at
             updated.execution_note = item.execution_note
+        sync_action_after_task_replaced(db, old_task_for_sync, new_task, updated)
     else:
         item.title, item.is_all_day, item.start_time, item.end_time = data.title, data.is_all_day, data.start_time, data.end_time
         item.manually_modified = True
         updated = item
+        sync_action_from_schedule_task(db, old_task, updated, scope=data.scope)
     db.commit(); db.refresh(updated); return updated
 
 @router.delete("/occurrences/{occurrence_id}", status_code=status.HTTP_204_NO_CONTENT)
@@ -279,4 +290,5 @@ def delete_occurrence(occurrence_id: UUID, scope: str = Query("single", pattern=
         enqueue_maintenance_job(db, item.task_id, "DELETE", immediate_end + timedelta(days=1))
     else:
         item.status = "deleted"
+    handle_schedule_occurrence_deleted(db, item, scope)
     db.commit()

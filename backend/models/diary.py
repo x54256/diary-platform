@@ -4,8 +4,8 @@ import enum
 import uuid
 from datetime import datetime
 
-from sqlalchemy import Column, String, Text, Date, DateTime, Enum, ForeignKey, Integer, Boolean
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import Column, String, Text, Date, DateTime, Enum, ForeignKey, Integer, Boolean, Index, text, Time
+from sqlalchemy.dialects.postgresql import UUID, JSONB
 from sqlalchemy.orm import relationship
 
 from database import Base
@@ -50,6 +50,7 @@ class Diary(Base):
     tags = relationship("Tag", secondary="diary_tags", back_populates="diaries")
     # 历史分析轮次（1:N）
     analysis_runs = relationship("AnalysisRun", back_populates="diary", cascade="all, delete-orphan")
+    action_items = relationship("DiaryActionItem", back_populates="diary", cascade="all, delete-orphan")
     favorites = relationship("Favorite", back_populates="diary", cascade="all, delete-orphan")
 
 
@@ -153,6 +154,87 @@ class AnalysisFeedback(Base):
     user = relationship("User")
     event = relationship("DiaryEvent")
     source_feedback = relationship("AnalysisFeedback", remote_side=[id])
+
+
+class DiaryActionItem(Base):
+    """日记详情中的独立行动项。"""
+
+    __tablename__ = "diary_action_items"
+    __table_args__ = (
+        Index("ix_diary_action_items_diary_status", "diary_id", "status"),
+        Index("ix_diary_action_items_user_diary", "user_id", "diary_id"),
+    )
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
+    diary_id = Column(UUID(as_uuid=True), ForeignKey("diaries.id", ondelete="CASCADE"), nullable=False)
+    generation_run_id = Column(UUID(as_uuid=True), ForeignKey("analysis_runs.id"), nullable=False)
+    source_kind = Column(String(20), nullable=False)  # PLAN / SUGGESTION / MERGED
+    source_refs = Column(JSONB, nullable=False, default=dict)
+    title = Column(String(200), nullable=False)
+    is_all_day = Column(Boolean, nullable=False, default=True)
+    start_date = Column(Date, nullable=False)
+    start_time = Column(Time, nullable=True)
+    end_time = Column(Time, nullable=True)
+    recurrence_type = Column(String(32), nullable=False, default="NONE")
+    interval = Column(Integer, nullable=False, default=1)
+    weekdays = Column(JSONB, nullable=False, default=list)
+    month_day = Column(Integer, nullable=True)
+    nth_week = Column(Integer, nullable=True)
+    nth_weekday = Column(Integer, nullable=True)
+    recurrence_until = Column(Date, nullable=True)
+    recurrence_count = Column(Integer, nullable=True)
+    status = Column(String(20), nullable=False, default="pending")
+    completed_at = Column(DateTime, nullable=True)
+    user_modified = Column(Boolean, nullable=False, default=False)
+    sort_order = Column(Integer, nullable=False, default=0)
+    deleted_at = Column(DateTime, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    diary = relationship("Diary", back_populates="action_items")
+    generation_run = relationship("AnalysisRun")
+    schedule_links = relationship(
+        "DiaryActionScheduleLink",
+        back_populates="action_item",
+        cascade="all, delete-orphan",
+        order_by="DiaryActionScheduleLink.linked_at",
+    )
+
+
+class DiaryActionScheduleLink(Base):
+    """行动项与日程任务的当前及历史关联。"""
+
+    __tablename__ = "diary_action_schedule_links"
+    __table_args__ = (
+        Index(
+            "uq_diary_action_active_link",
+            "action_item_id",
+            unique=True,
+            postgresql_where=text("unlinked_at IS NULL"),
+        ),
+        Index(
+            "uq_schedule_active_action_link",
+            "schedule_task_id",
+            unique=True,
+            postgresql_where=text("unlinked_at IS NULL AND schedule_task_id IS NOT NULL"),
+        ),
+        Index("ix_diary_action_links_schedule_task", "schedule_task_id"),
+    )
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
+    action_item_id = Column(UUID(as_uuid=True), ForeignKey("diary_action_items.id", ondelete="CASCADE"), nullable=False)
+    schedule_task_id = Column(UUID(as_uuid=True), ForeignKey("schedule_tasks.id", ondelete="SET NULL"), nullable=True)
+    schedule_task_snapshot_id = Column(UUID(as_uuid=True), nullable=False)
+    completion_occurrence_id = Column(UUID(as_uuid=True), ForeignKey("schedule_occurrences.id", ondelete="SET NULL"), nullable=True)
+    linked_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    unlinked_at = Column(DateTime, nullable=True)
+    unlink_reason = Column(String(32), nullable=True)
+
+    action_item = relationship("DiaryActionItem", back_populates="schedule_links")
+    schedule_task = relationship("ScheduleTask", foreign_keys=[schedule_task_id])
+    completion_occurrence = relationship("ScheduleOccurrence", foreign_keys=[completion_occurrence_id])
 
 
 class DiaryEvent(Base):

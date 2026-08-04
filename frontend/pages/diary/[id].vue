@@ -106,7 +106,7 @@
 
     <!-- 已整理 / 已分析状态：显示内容 -->
     <template v-else-if="diary && isOrganizedOrAnalyzed">
-      <!-- 双 Tab 切换（仅 analyzed 状态显示） -->
+      <!-- 三 Tab 切换（仅 analyzed 状态显示） -->
       <div v-if="diary.status === 'analyzed'" class="border-b border-neutral-200 bg-white">
         <div class="flex max-w-md mx-auto">
           <button
@@ -128,6 +128,17 @@
             分析
             <span
               v-if="activeTab === 'analysis'"
+              class="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-primary-600 rounded-full"
+            />
+          </button>
+          <button
+            @click="activeTab = 'action'"
+            class="flex-1 py-2.5 text-sm font-medium text-center transition-colors relative"
+            :class="activeTab === 'action' ? 'text-primary-600' : 'text-neutral-500 hover:text-neutral-700'"
+          >
+            行动
+            <span
+              v-if="activeTab === 'action'"
               class="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-primary-600 rounded-full"
             />
           </button>
@@ -413,6 +424,14 @@
         </div>
       </div>
 
+      <!-- 行动 Tab 内容；日记与分析面板保持独立。 -->
+      <DiaryActionPanel
+        v-if="diary.status === 'analyzed'"
+        v-show="activeTab === 'action'"
+        :diary-id="diary.id"
+        :visible="activeTab === 'action'"
+      />
+
       <!-- 底部操作区（编辑模式下隐藏） -->
       <div v-if="!isEditingStructured" class="fixed bottom-0 left-0 right-0 px-4 py-2 border-t border-neutral-200 bg-white safe-area-bottom">
         <div class="max-w-md mx-auto">
@@ -638,7 +657,7 @@ const diaryId = computed(() => route.params.id as string)
 // ───────────────── 核心数据 ─────────────────
 const diary = ref<Diary | null>(null)
 const loading = ref(true)
-const activeTab = ref<'diary' | 'analysis'>('diary')
+const activeTab = ref<'diary' | 'analysis' | 'action'>('diary')
 const annotations = ref<DiaryAnnotation[]>([])
 const favoriteSaving = ref(false)
 const importanceSavingEventId = ref<string | null>(null)
@@ -1431,10 +1450,12 @@ const ANALYZE_STEP_LABELS: Record<'ordinary' | 'feedback', Record<string, string
     mood_tag_extract: '元数据、心情与标签提取',
     core_analysis: '核心分析与可行动建议',
     cognition_analysis: '认知校准、问题解答与认知完善',
+    action_planning: '行动项规划',
   },
   feedback: {
     feedback_core_analysis: '核心分析与可行动建议',
     feedback_cognition_analysis: '认知校准、问题解答与认知完善',
+    action_planning: '行动项规划',
   },
 }
 

@@ -30,6 +30,7 @@ from services.pipeline import (
     run_graph_with_checkpoint,
 )
 from services.person_relations import load_person_relation_context
+from services.action_items import apply_action_planning_result
 from utils.log_context import Stopwatch, log_extra
 from utils.llm_log import truncate_llm_log
 
@@ -72,6 +73,9 @@ class AnalysisState(TypedDict, total=False):
     event_cognitive_enhancements: list
     diary_cognitive_enhancements: list
 
+    # ── 新增环节：独立行动项规划 ──
+    action_items: list
+
     # ── 进度追踪 ──
     current_step: str
 
@@ -89,6 +93,7 @@ class FeedbackAnalysisState(TypedDict, total=False):
     merged_core: dict
     merged: dict
     current_step: str
+    action_items: list
 
 
 # ---------------------------------------------------------------------------
@@ -371,6 +376,61 @@ COGNITION_ANALYSIS_OUTPUT_SCHEMA = """## 输出要求
 }"""
 
 COGNITION_ANALYSIS_PROMPT = COGNITION_ANALYSIS_RULES + "\n\n" + COGNITION_ANALYSIS_OUTPUT_SCHEMA
+
+
+ACTION_PLANNING_PROMPT = """你负责把一篇已整理、已分析的日记中的后续计划与可行动建议整理成独立行动项，并为每个行动项生成可编辑的推荐日程。
+
+## 事实边界
+1. 只能使用输入的后续计划和可行动建议，不得从其他分析类型、历史日记或长期画像扩展行动。
+2. 后续计划和可行动建议只是行动项的来源，不能改写原日记或原分析内容。
+3. 行动项必须是用户可以单独安排、单独完成的一件具体事情。
+
+## 原子化规则
+1. 一条行动项只能包含一件可独立安排、独立完成的事情。
+2. 如果一句话包含两个可以设置不同时间、不同循环规则，或可以分别完成的事项，必须拆成两条行动项。
+3. 不拆分同一行动中无法单独完成的必要步骤。
+4. 每条行动项只使用一个清晰的主要动作命名，不使用“以及”“并且”等连接两个独立动作。
+5. 输出前逐项自检：是否可以拆成两个分别完成的事项；如果可以，先拆分再输出。
+
+## 去重规则
+1. 后续计划和可行动建议表达同一事项时合并成一个行动项，并保留全部来源键。
+2. 名称相近但完成标准不同的事项不能合并。
+3. 分析观点、愿望、抽象目标、情绪和解释不能直接作为行动项。
+
+## 推荐日程规则
+1. 推荐值必须符合日程字段：全天，或同时提供开始时间和结束时间；结束时间必须晚于开始时间。
+2. 不支持跨日。
+3. 循环类型只能使用 NONE、DAILY、WEEKLY、MONTHLY_DATE、MONTHLY_NTH_WEEKDAY、YEARLY、WORKDAY、REST_DAY。
+4. 信息不足时给出保守、可编辑的推荐，不编造硬性截止要求。
+5. 每个行动项只能有一个推荐日程对象。
+
+## 输出格式
+严格输出 JSON，不要 markdown：
+{
+  "action_items": [
+    {
+      "title": "单一动作名称",
+      "source_kind": "PLAN|SUGGESTION|MERGED",
+      "plan_sources": [{"source_key": "plan:0", "text": "原计划文本"}],
+      "analysis_source_keys": ["event:0:suggestion:0"],
+      "schedule": {
+        "is_all_day": true,
+        "start_date": "YYYY-MM-DD",
+        "start_time": null,
+        "end_time": null,
+        "recurrence_type": "NONE",
+        "interval": 1,
+        "weekdays": [],
+        "month_day": null,
+        "nth_week": null,
+        "nth_weekday": null,
+        "recurrence_until": null,
+        "recurrence_count": null
+      }
+    }
+  ]
+}
+"""
 
 
 # ---------------------------------------------------------------------------
@@ -692,6 +752,98 @@ async def cognition_analysis(state: AnalysisState) -> dict:
     return output
 
 
+def _action_planning_input(state: AnalysisState | FeedbackAnalysisState) -> dict:
+    """构造行动规划输入，并为分析建议分配稳定的本轮来源键。"""
+    if "merged" in state:
+        analysis_state = state.get("merged") or {}
+    else:
+        analysis_state = state
+    structured_diary = state.get("structured_diary") or {}
+    plans = structured_diary.get("plans") or []
+    plan_items = [
+        {"source_key": f"plan:{index}", "text": value}
+        for index, value in enumerate(plans)
+        if isinstance(value, str) and value.strip()
+    ]
+    suggestions = []
+    event_analyses = analysis_state.get("event_analyses") or []
+    for event_index, event in enumerate(event_analyses):
+        if not isinstance(event, dict):
+            continue
+        for suggestion_index, content in enumerate(event.get("action_suggestions") or []):
+            if isinstance(content, str) and content.strip():
+                suggestions.append({
+                    "source_key": f"event:{event_index}:suggestion:{suggestion_index}",
+                    "scope": "EVENT",
+                    "event_index": event_index,
+                    "event_title": event.get("title", ""),
+                    "content": content,
+                })
+    diary_analysis = analysis_state.get("diary_analysis") or {}
+    for suggestion_index, content in enumerate(diary_analysis.get("action_suggestions") or []):
+        if isinstance(content, str) and content.strip():
+            suggestions.append({
+                "source_key": f"diary:suggestion:{suggestion_index}",
+                "scope": "DIARY",
+                "content": content,
+            })
+    return {
+        "diary_date": structured_diary.get("diary_date"),
+        "plans": plan_items,
+        "action_suggestions": suggestions,
+    }
+
+
+async def action_planning(state: AnalysisState | FeedbackAnalysisState) -> dict:
+    """环节 10：将后续计划与可行动建议整理为独立行动项。"""
+    task_id = state["task_id"]
+    started = Stopwatch()
+    _update_step(task_id, "action_planning")
+    input_data = _action_planning_input(state)
+    if not input_data["plans"] and not input_data["action_suggestions"]:
+        logger.info("行动规划无输入，返回空行动项", extra=log_extra(event="analysis.action_planning.empty", task_id=task_id))
+        return {"action_items": []}
+    llm = _get_llm(0.2, "analysis", "action_planning")
+    result = await _invoke_llm(
+        llm,
+        ACTION_PLANNING_PROMPT,
+        _log_llm_request("action_planning", ACTION_PLANNING_PROMPT, input_data),
+        step_name="action_planning",
+    )
+    _log_llm_response("action_planning", result)
+    normalized = []
+    for raw in result.get("action_items") if isinstance(result, dict) and isinstance(result.get("action_items"), list) else []:
+        if not isinstance(raw, dict):
+            continue
+        title = str(raw.get("title") or "").strip()
+        if not title:
+            continue
+        schedule = raw.get("schedule") if isinstance(raw.get("schedule"), dict) else {}
+        if not schedule.get("start_date"):
+            schedule["start_date"] = input_data.get("diary_date") or datetime.utcnow().date().isoformat()
+        if schedule.get("is_all_day", True):
+            schedule["is_all_day"] = True
+            schedule["start_time"] = None
+            schedule["end_time"] = None
+        source_kind = raw.get("source_kind") if raw.get("source_kind") in {"PLAN", "SUGGESTION", "MERGED"} else "SUGGESTION"
+        plan_sources = raw.get("plan_sources") if isinstance(raw.get("plan_sources"), list) else []
+        analysis_source_keys = raw.get("analysis_source_keys") if isinstance(raw.get("analysis_source_keys"), list) else []
+        normalized.append({
+            "title": title[:200],
+            "source_kind": source_kind,
+            "plan_sources": plan_sources,
+            "analysis_source_keys": analysis_source_keys,
+            "schedule": schedule,
+        })
+    logger.info(
+        "行动规划完成: diary_id=%s, task_id=%s, action_count=%d",
+        state.get("diary_id"), task_id, len(normalized),
+        extra=log_extra(event="analysis.node.completed", step="action_planning", task_id=task_id,
+                        action_count=len(normalized), duration_ms=started.elapsed_ms()),
+    )
+    return {"action_items": normalized}
+
+
 async def feedback_core_analysis(state: FeedbackAnalysisState) -> dict:
     """反馈重分析节点 1：根据反馈重写核心分析。"""
     task_id = state["task_id"]
@@ -965,6 +1117,13 @@ def _save_analysis_result(
             diary_organized_id,
             feedback_source_run_id=feedback_source_run_id,
             inherited_feedback_keys=inherited_feedback_keys,
+        )
+        apply_action_planning_result(
+            db,
+            diary_id=diary_uuid,
+            user_id=state["user_id"],
+            generation_run_id=run.id,
+            action_items=state.get("action_items", []),
         )
 
         # 环节 7 同步生成的元数据写回整理结果。
@@ -1259,12 +1418,14 @@ async def run_analysis_pipeline(
     builder.add_node("mood_tag_extract", mood_tag_extract)
     builder.add_node("core_analysis", core_analysis)
     builder.add_node("cognition_analysis", cognition_analysis)
+    builder.add_node("action_planning", action_planning)
 
     # 串行执行：每个节点完成后保存一个 checkpoint，失败重试时从失败节点继续。
     builder.add_edge(START, "mood_tag_extract")
     builder.add_edge("mood_tag_extract", "core_analysis")
     builder.add_edge("core_analysis", "cognition_analysis")
-    builder.add_edge("cognition_analysis", END)
+    builder.add_edge("cognition_analysis", "action_planning")
+    builder.add_edge("action_planning", END)
 
     # 配置 checkpointer（支持断点续跑）
     async with get_checkpointer() as checkpointer:
@@ -1300,6 +1461,7 @@ async def run_analysis_pipeline(
         "event_question_answers": result.get("event_question_answers", []),
         "event_cognitive_enhancements": result.get("event_cognitive_enhancements", []),
         "diary_cognitive_enhancements": result.get("diary_cognitive_enhancements", []),
+        "action_items": result.get("action_items", []),
     }
 
     # 标签落库
@@ -1396,9 +1558,11 @@ async def run_feedback_reanalysis_pipeline(
     builder = StateGraph(FeedbackAnalysisState)
     builder.add_node("feedback_core_analysis", feedback_core_analysis)
     builder.add_node("feedback_cognition_analysis", feedback_cognition_analysis)
+    builder.add_node("action_planning", action_planning)
     builder.add_edge(START, "feedback_core_analysis")
     builder.add_edge("feedback_core_analysis", "feedback_cognition_analysis")
-    builder.add_edge("feedback_cognition_analysis", END)
+    builder.add_edge("feedback_cognition_analysis", "action_planning")
+    builder.add_edge("action_planning", END)
 
     async with get_checkpointer() as checkpointer:
         graph = builder.compile(checkpointer=checkpointer)
@@ -1420,6 +1584,7 @@ async def run_feedback_reanalysis_pipeline(
         )
 
     merged = result["merged"]
+    merged["action_items"] = result.get("action_items", [])
 
     merged.update(
         {

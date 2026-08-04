@@ -18,6 +18,7 @@ from routers.transcriptions import router as transcriptions_router
 from routers.schedules import router as schedules_router
 from routers.voice_profile import router as voice_profile_router
 from routers.reviews import router as reviews_router
+from routers.actions import router as actions_router
 from utils.log_context import ContextFormatter, LogContextFilter, log_extra, new_id, reset_request_context, set_request_context
 
 # ---------------------------------------------------------------------------
@@ -131,6 +132,7 @@ api_router.include_router(transcriptions_router)
 api_router.include_router(schedules_router)
 api_router.include_router(voice_profile_router)
 api_router.include_router(reviews_router)
+api_router.include_router(actions_router)
 app.include_router(api_router)
 
 

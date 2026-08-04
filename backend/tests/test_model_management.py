@@ -81,7 +81,7 @@ class ModelSettingRuleTest(unittest.TestCase):
 
     def test_all_steps_have_fixed_stage_ownership(self):
         self.assertEqual(sum(value == "organize" for value in STEP_SETTING_KEYS.values()), 5)
-        self.assertEqual(sum(value == "analysis" for value in STEP_SETTING_KEYS.values()), 5)
+        self.assertEqual(sum(value == "analysis" for value in STEP_SETTING_KEYS.values()), 6)
         self.assertEqual(sum(value == "review" for value in STEP_SETTING_KEYS.values()), 3)
 
 
