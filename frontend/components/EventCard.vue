@@ -54,7 +54,7 @@
             v-model="editBody"
             rows="4"
             data-auto-resize
-            class="w-full min-h-[6rem] p-2 text-sm border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-hidden"
+            class="w-full min-h-[6rem] p-2 text-base border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-hidden"
             @input="handleTextareaInput"
           />
         </template>
@@ -66,7 +66,7 @@
             :event-id="event.id"
             :annotations="annotations"
             container-class="space-y-2"
-            paragraph-class="analysis-markup text-sm text-neutral-600 leading-relaxed"
+            paragraph-class="analysis-markup text-base text-neutral-600 leading-relaxed"
             @select="emit('annotation-select', $event)"
             @annotation-clicked="emit('annotation-clicked', $event)"
           />
@@ -75,13 +75,13 @@
 
       <!-- 感受 -->
       <div v-if="editable || (event.feeling && event.feeling.length > 0)" class="mt-4">
-        <div class="text-[15px] font-medium text-neutral-800 mb-2">感受</div>
+        <div class="text-[17px] font-medium text-neutral-800 mb-2">感受</div>
         <template v-if="editable">
           <textarea
             v-model="editFeeling"
             rows="3"
             data-auto-resize
-            class="w-full min-h-[4.5rem] p-2 text-sm border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-hidden"
+            class="w-full min-h-[4.5rem] p-2 text-base border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-hidden"
             @input="handleTextareaInput"
           />
         </template>
@@ -92,7 +92,7 @@
             :event-id="event.id"
             :annotations="annotations"
             container-class="space-y-2"
-            paragraph-class="analysis-markup text-sm text-neutral-600 leading-relaxed"
+            paragraph-class="analysis-markup text-base text-neutral-600 leading-relaxed"
             :show-index="true"
             @select="emit('annotation-select', $event)"
             @annotation-clicked="emit('annotation-clicked', $event)"
@@ -102,13 +102,13 @@
 
       <!-- 反思与成长 -->
       <div v-if="editable || (event.reflection && event.reflection.length > 0)" class="mt-4">
-        <div class="text-[15px] font-medium text-neutral-800 mb-2">反思与成长</div>
+        <div class="text-[17px] font-medium text-neutral-800 mb-2">反思与成长</div>
         <template v-if="editable">
           <textarea
             v-model="editReflection"
             rows="3"
             data-auto-resize
-            class="w-full min-h-[4.5rem] p-2 text-sm border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-hidden"
+            class="w-full min-h-[4.5rem] p-2 text-base border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-hidden"
             @input="handleTextareaInput"
           />
         </template>
@@ -119,7 +119,7 @@
             :event-id="event.id"
             :annotations="annotations"
             container-class="space-y-2"
-            paragraph-class="analysis-markup text-sm text-neutral-600 leading-relaxed"
+            paragraph-class="analysis-markup text-base text-neutral-600 leading-relaxed"
             :show-index="true"
             @select="emit('annotation-select', $event)"
             @annotation-clicked="emit('annotation-clicked', $event)"

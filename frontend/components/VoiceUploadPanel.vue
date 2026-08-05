@@ -2,7 +2,7 @@
   <section class="voice-panel">
     <div class="flex items-center justify-between gap-3">
       <div>
-        <h2 class="text-sm font-semibold text-neutral-800">语音记录</h2>
+        <h2 class="text-base font-semibold text-neutral-800">语音记录</h2>
         <p class="mt-0.5 text-xs text-neutral-400">全部识别成功后，后台自动保存日记</p>
       </div>
       <label v-if="!locked" class="voice-add">

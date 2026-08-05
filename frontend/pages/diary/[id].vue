@@ -50,11 +50,11 @@
       <!-- 编辑模式 -->
       <template v-if="isEditing">
         <div class="flex-1 min-h-0 overflow-y-auto px-4 py-3">
-          <div class="text-sm text-neutral-500 mb-3">{{ diary.diary_date }}</div>
+          <div class="text-base text-neutral-500 mb-3">{{ diary.diary_date }}</div>
           <textarea
             v-model="editText"
             data-auto-resize
-            class="w-full min-h-[300px] text-sm text-neutral-800 leading-relaxed p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+            class="w-full min-h-[300px] text-base text-neutral-800 leading-relaxed p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
             @input="handleTextareaInput"
           />
           <p v-if="saveError" class="text-sm text-red-500 mt-2">{{ saveError }}</p>
@@ -81,8 +81,8 @@
       <!-- 查看模式 -->
       <template v-else>
         <div class="flex-1 min-h-0 overflow-y-auto px-4 py-3">
-          <div class="text-sm text-neutral-500 mb-3">{{ diary.diary_date }}</div>
-          <div class="text-sm text-neutral-800 whitespace-pre-wrap leading-relaxed">
+          <div class="text-base text-neutral-500 mb-3">{{ diary.diary_date }}</div>
+          <div class="text-base text-neutral-800 whitespace-pre-wrap leading-relaxed">
             {{ diary.original_text }}
           </div>
         </div>
@@ -190,7 +190,7 @@
               <label class="text-xs font-medium text-neutral-500 mb-1 block">标题</label>
               <input
                 v-model="editFormData.title"
-                class="w-full text-sm text-neutral-800 p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
+                class="w-full text-base text-neutral-800 p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
                 placeholder="日记标题"
               />
             </div>
@@ -201,7 +201,7 @@
                 v-model="editFormData.summary"
                 rows="3"
                 data-auto-resize
-                class="w-full min-h-[4.5rem] text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                class="w-full min-h-[4.5rem] text-base text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
                 @input="handleTextareaInput"
                 placeholder="日记摘要"
               />
@@ -213,7 +213,7 @@
                 v-model="editFormData.introduction"
                 rows="2"
                 data-auto-resize
-                class="w-full min-h-[3rem] text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                class="w-full min-h-[3rem] text-base text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
                 @input="handleTextareaInput"
                 placeholder="引入段"
               />
@@ -238,7 +238,7 @@
                 v-model="editFormData.trivia"
                 rows="3"
                 data-auto-resize
-                class="w-full min-h-[4.5rem] text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                class="w-full min-h-[4.5rem] text-base text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
                 @input="handleTextareaInput"
                 placeholder="每项琐事一行"
               />
@@ -250,7 +250,7 @@
                 v-model="editFormData.plans"
                 rows="3"
                 data-auto-resize
-                class="w-full min-h-[4.5rem] text-sm text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+                class="w-full min-h-[4.5rem] text-base text-neutral-800 leading-relaxed p-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
                 @input="handleTextareaInput"
                 placeholder="每项计划一行"
               />
@@ -279,11 +279,11 @@
         <!-- organized 状态编辑原文模式 -->
         <template v-else-if="isEditing && diary.status === 'organized'">
           <div class="mb-3">
-            <div class="text-sm text-neutral-500 mb-2">编辑原文</div>
+            <div class="text-base text-neutral-500 mb-2">编辑原文</div>
             <textarea
               v-model="editText"
               data-auto-resize
-              class="w-full min-h-[300px] text-sm text-neutral-800 leading-relaxed p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
+              class="w-full min-h-[300px] text-base text-neutral-800 leading-relaxed p-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none overflow-hidden"
               @input="handleTextareaInput"
             />
             <p v-if="saveError" class="text-sm text-red-500 mt-2">{{ saveError }}</p>
@@ -327,7 +327,7 @@
         <!-- 摘要 -->
         <div
           v-if="diary.organized?.summary"
-          class="text-[13px] italic text-neutral-600 leading-relaxed mb-4 pb-3 border-b border-neutral-100"
+          class="text-sm italic text-neutral-600 leading-relaxed mb-4 pb-3 border-b border-neutral-100"
         >
           {{ diary.organized.summary }}
         </div>
@@ -335,7 +335,7 @@
         <!-- 引入段 -->
         <div
           v-if="diary.organized?.introduction"
-          class="text-sm text-neutral-500 leading-relaxed mb-4"
+          class="text-base text-neutral-500 leading-relaxed mb-4"
         >
           {{ diary.organized.introduction }}
         </div>
@@ -362,18 +362,18 @@
 
         <!-- 琐事（平铺） -->
         <div v-if="diary.organized?.trivia && diary.organized.trivia.length > 0" class="mb-3">
-          <div class="text-base font-medium text-neutral-800 mb-2">琐事</div>
+          <div class="text-lg font-medium text-neutral-800 mb-2">琐事</div>
           <ol v-if="diary.organized.trivia.length > 1" class="list-decimal list-inside space-y-1.5">
             <li
               v-for="(item, idx) in diary.organized.trivia"
               :key="idx"
-              class="text-[14px] text-neutral-600 leading-relaxed"
+              class="text-base text-neutral-600 leading-relaxed"
             >
               {{ item }}
             </li>
           </ol>
           <ul v-else class="list-none space-y-1.5">
-            <li class="text-[14px] text-neutral-600 leading-relaxed">
+            <li class="text-base text-neutral-600 leading-relaxed">
               {{ diary.organized.trivia[0] }}
             </li>
           </ul>
@@ -381,18 +381,18 @@
 
         <!-- 后续计划（平铺） -->
         <div v-if="diary.organized?.plans && diary.organized.plans.length > 0" class="mb-3">
-          <div class="text-base font-medium text-neutral-800 mb-2">后续计划</div>
+          <div class="text-lg font-medium text-neutral-800 mb-2">后续计划</div>
           <ol v-if="diary.organized.plans.length > 1" class="list-decimal list-inside space-y-1.5">
             <li
               v-for="(item, idx) in diary.organized.plans"
               :key="idx"
-              class="text-[14px] text-neutral-600 leading-relaxed"
+              class="text-base text-neutral-600 leading-relaxed"
             >
               {{ item }}
             </li>
           </ol>
           <ul v-else class="list-none space-y-1.5">
-            <li class="text-[14px] text-neutral-600 leading-relaxed">
+            <li class="text-base text-neutral-600 leading-relaxed">
               {{ diary.organized.plans[0] }}
             </li>
           </ul>
@@ -577,7 +577,7 @@
           </div>
 
           <div class="min-h-0 flex-1 overflow-y-auto px-4 pb-3">
-            <blockquote class="border-l-2 border-primary-500 pl-3 text-sm leading-relaxed text-neutral-700">
+            <blockquote class="border-l-2 border-primary-500 pl-3 text-base leading-relaxed text-neutral-700">
               {{ annotationPanelQuote }}
             </blockquote>
 
@@ -602,7 +602,7 @@
                       删除
                     </button>
                   </div>
-                  <p class="whitespace-pre-wrap text-sm leading-relaxed text-neutral-700">{{ item.comment.content }}</p>
+                  <p class="whitespace-pre-wrap text-base leading-relaxed text-neutral-700">{{ item.comment.content }}</p>
                 </div>
               </div>
               <p v-else class="py-4 text-center text-sm text-neutral-400">暂无评论</p>

@@ -15,7 +15,7 @@
       </div>
 
       <!-- 中间：标题 -->
-      <h1 class="text-base font-medium text-neutral-800">{{ title }}</h1>
+      <h1 class="text-lg font-medium text-neutral-800">{{ title }}</h1>
 
       <!-- 右侧：操作区（通过 slot 插入） -->
       <div class="flex items-center gap-2">

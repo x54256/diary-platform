@@ -2,7 +2,7 @@
   <section class="flex-1 min-h-0 overflow-y-auto px-4 py-3 pb-24">
     <div class="flex items-center justify-between mb-3">
       <div>
-        <h2 class="text-base font-semibold text-neutral-800">行动</h2>
+        <h2 class="text-lg font-semibold text-neutral-800">行动</h2>
         <p class="mt-0.5 text-xs text-neutral-400">后续计划与可行动建议整理后的独立行动项</p>
       </div>
       <button
@@ -40,7 +40,7 @@
               <div class="flex items-start gap-2">
                 <input
                   v-model="action.title"
-                  class="min-w-0 flex-1 border-0 bg-transparent p-0 text-base font-medium text-neutral-800 focus:ring-0"
+                  class="min-w-0 flex-1 border-0 bg-transparent p-0 text-lg font-medium text-neutral-800 focus:ring-0"
                   :class="action.status === 'completed' ? 'line-through' : ''"
                   aria-label="行动名称"
                   @blur="saveTitle(action)"
@@ -77,7 +77,7 @@
     <div v-if="syncOpen" class="fixed inset-0 z-50 flex items-end justify-center bg-black/30 sm:items-center">
       <section class="flex max-h-[92dvh] w-full max-w-lg flex-col overflow-hidden rounded-t-2xl bg-white sm:rounded-2xl">
         <div class="flex shrink-0 items-center justify-between border-b border-neutral-200 px-5 py-4">
-          <h3 class="text-base font-semibold text-neutral-800">同步到日程</h3>
+          <h3 class="text-lg font-semibold text-neutral-800">同步到日程</h3>
           <button type="button" class="text-sm text-neutral-500" @click="syncOpen = false">关闭</button>
         </div>
         <div class="min-h-0 flex-1 overflow-y-auto px-5 py-4">

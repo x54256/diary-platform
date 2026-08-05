@@ -28,7 +28,7 @@
         <div class="grid grid-cols-2 rounded-lg bg-neutral-100 p-1">
           <button
             type="button"
-            class="min-h-[36px] rounded-md text-sm font-medium transition-colors"
+            class="min-h-[36px] rounded-md text-base font-medium transition-colors"
             :class="activeGroup === 'understanding' ? 'bg-white text-primary-600 shadow-sm' : 'text-neutral-500'"
             @click="activeGroup = 'understanding'"
           >
@@ -36,7 +36,7 @@
           </button>
           <button
             type="button"
-            class="min-h-[36px] rounded-md text-sm font-medium transition-colors"
+            class="min-h-[36px] rounded-md text-base font-medium transition-colors"
             :class="activeGroup === 'cognition' ? 'bg-white text-primary-600 shadow-sm' : 'text-neutral-500'"
             @click="activeGroup = 'cognition'"
           >

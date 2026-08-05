@@ -27,12 +27,12 @@
         </div>
         <!-- 已整理/已分析：显示标题+摘要 -->
         <template v-if="item.organized">
-          <div class="text-sm font-medium text-neutral-800">{{ item.organized.title || '无标题' }}</div>
+          <div class="text-base font-medium text-neutral-800">{{ item.organized.title || '无标题' }}</div>
           <div v-if="item.organized.summary" class="text-xs text-neutral-500 mt-1 line-clamp-2">{{ item.organized.summary }}</div>
         </template>
         <!-- 已保存：显示原文预览 -->
         <template v-else>
-          <p class="text-sm text-neutral-600 line-clamp-2">{{ item.original_text }}</p>
+          <p class="text-base text-neutral-600 line-clamp-2">{{ item.original_text }}</p>
         </template>
         <!-- 状态标签 -->
         <div class="flex items-center gap-2 mt-2">

@@ -6,12 +6,12 @@
     <!-- 日期选择 -->
     <div class="px-4 py-3 border-b border-neutral-100">
       <div class="flex items-center gap-2">
-        <span class="text-sm text-neutral-500">日期</span>
+        <span class="text-base text-neutral-500">日期</span>
         <input
           v-model="diaryDate"
           type="date"
           :disabled="voice.locked.value"
-          class="text-sm text-neutral-800 px-2 py-1 rounded border border-neutral-200"
+          class="text-base text-neutral-800 px-2 py-1 rounded border border-neutral-200"
         />
       </div>
     </div>
@@ -22,7 +22,7 @@
         v-model="content"
         :readonly="voice.locked.value"
         placeholder="今天发生了什么？写下你的日记..."
-        class="w-full h-full min-h-0 text-sm text-neutral-800 placeholder-neutral-400 resize-none overflow-y-auto"
+        class="w-full h-full min-h-0 text-base text-neutral-800 placeholder-neutral-400 resize-none overflow-y-auto"
       />
     </div>
 
