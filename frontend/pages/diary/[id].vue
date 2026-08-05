@@ -476,21 +476,21 @@
       <!-- 底部操作区（编辑模式下隐藏） -->
       <div v-if="!isEditingStructured" class="fixed bottom-0 left-0 right-0 px-4 py-2 border-t border-neutral-200 bg-white safe-area-bottom">
         <div class="max-w-md mx-auto">
-          <!-- 分析中状态：与整理阶段保持一致的全宽主按钮 -->
+          <!-- 整理或分析中状态：统一显示全宽进度按钮 -->
           <button
-            v-if="analyzing"
+            v-if="organizing || analyzing"
             disabled
             class="w-full py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium disabled:opacity-50"
           >
             <span class="inline-flex items-center gap-2">
               <Spinner />
-              {{ analyzeStep + '...' }}
+              {{ (organizing ? organizeStep : analyzeStep) + '...' }}
             </span>
           </button>
           <!-- 操作按钮 -->
           <div v-else class="flex items-center gap-2">
             <!-- 对话输入（日记 Tab 时显示） -->
-            <template v-if="activeTab === 'diary' || diary.status !== 'analyzed'">
+            <template v-if="diary.status === 'analyzed'">
               <input
                 v-model="dialogInput"
                 type="text"
@@ -501,11 +501,20 @@
                 →
               </button>
             </template>
+            <!-- 重新整理按钮（organized 状态） -->
+            <button
+              v-if="diary.status === 'organized'"
+              @click="handleOrganize"
+              :disabled="organizing"
+              class="flex-1 py-2.5 rounded-lg border border-neutral-300 bg-white text-sm font-medium text-neutral-700 hover:bg-neutral-50 disabled:opacity-50 shrink-0"
+            >
+              {{ organizing ? '整理中...' : '重新整理' }}
+            </button>
             <!-- AI 分析按钮（organized 状态） -->
             <button
               v-if="diary.status === 'organized'"
               @click="handleAnalyze"
-              class="px-4 py-2 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-700 shrink-0"
+              class="flex-1 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-700 shrink-0"
             >
               AI 分析
             </button>
@@ -518,6 +527,7 @@
               重新分析
             </button>
           </div>
+          <p v-if="organizeError" class="text-xs text-red-500 text-center mt-1">{{ organizeError }}</p>
           <p v-if="analyzeError" class="text-xs text-red-500 text-center mt-1">{{ analyzeError }}</p>
         </div>
       </div>
@@ -1713,7 +1723,7 @@ const Spinner = defineComponent({
 onMounted(async () => {
   await loadDiary()
   if (diary.value) {
-    if (diary.value.status === 'saved') {
+    if (diary.value.status === 'saved' || diary.value.status === 'organized') {
       checkOrganizeStatus()
     }
     if (diary.value.status === 'organized' || diary.value.status === 'analyzed') {
