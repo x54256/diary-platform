@@ -1199,7 +1199,7 @@ async def organize_diary(
 
     # 6. 启动后台异步任务
     asyncio.create_task(
-        _run_organize(str(task.id), str(diary_id), diary.original_text, str(current_user.id))
+        _run_organize(str(task.id), str(diary_id), diary.original_text, str(current_user.id), diary.diary_date.isoformat())
     )
 
     # 7. 立即返回任务状态
@@ -1212,13 +1212,13 @@ async def organize_diary(
     )
 
 
-async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id: str):
+async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id: str, diary_date: str):
     """后台执行 AI 整理（独立 DB session）"""
     db = SessionLocal()
     try:
         # 调用 AI 服务（LangGraph 流水线，进度由 Node 内部更新）
         result = await ai_service.organize_diary(
-            original_text, task_id=task_id, diary_id=diary_id, user_id=user_id
+            original_text, task_id=task_id, diary_id=diary_id, user_id=user_id, diary_date=diary_date
         )
 
         # 生成 content markdown

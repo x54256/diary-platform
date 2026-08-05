@@ -48,7 +48,23 @@ TEXT_MARKUP_RULES = """## 重点标记规则
 2. 同一句识别出多个短语时，分别标记，不允许标记整句话。
 3. 同一短语既是重点又是风险时，只使用 <red>...</red>。
 4. 不标记普通背景、流水经过、情绪铺垫、弱推断和空泛鼓励。
-5. <red> 是自定义文本标记，不是 HTML；除 **...** 和 <red>...</red> 外，不要输出其他 Markdown 或 HTML。
+5. <red> 是自定义文本标记，不是 HTML；除 **...**、<red>...</red> 和时间规则规定的 <time>...</time> 外，不要输出其他 Markdown 或 HTML。
+"""
+
+TIME_MARKUP_RULES = """## 相对时间标记规则
+输入中会额外提供 diary_date，表示这篇日记所属日期。请结合 diary_date、上下文、事件先后和动词时态，将能够确定的相对日期或时间点包裹为 time 标签。
+
+标签格式必须是：
+- 只有日期：<time value=\"YYYY-MM-DD 星期几\">原文短语</time>
+- 有具体时刻：<time value=\"YYYY-MM-DD 星期几 HH:MM\">原文短语</time>
+
+规则：
+1. 标签内的原文短语必须保持原样。
+2. value 必须包含完整年月日和星期几；能确定时刻时还要包含 24 小时制 HH:MM。
+3. 时间点必须结合上下文解析。例如前文确定叙述的是“昨天”，后文单独出现“晚上八点”，应标记为昨天 20:00；“昨天晚上八点”应整体标记为昨天 20:00。
+4. 星期表达必须结合语义和时态判断方向。“周一又要开会”表示未来最近的周一；“周一也开会了”表示过去最近的周一。明确的“上周一”“下周一”“本周一”优先按其字面含义。
+5. “今天、昨天、明天、前天、后天”等相对日期按 diary_date 计算。
+6. 无法确定具体日期或时间时，保留原文，不添加标签，不猜测。
 """
 
 CLEAN_PROMPT = """你是一个日记文本清洗助手。请对用户提供的日记原文（语音转文字）进行清洗整理，生成一份可读的基准文本，供后续事件整理使用。
@@ -79,6 +95,8 @@ CLEAN_PROMPT = """你是一个日记文本清洗助手。请对用户提供的�
 1. name 是人物主名；common_names 是用户确认过的有效称呼，不得统一替换为 name。
 2. 原文出现未登记的近音、错写人名时，或结合上下文能够明确判断为该人物的识别错误，才修正为切近的名字；无法明确判断时保留原文。
 3. gender 为 male 或 female 时，可在指代明确且原文确有指代错误时分别修正为“他”或“她”；unknown 时不得强行改为“它”，应保留原文指代。
+
+""" + TIME_MARKUP_RULES + """
 
 ## 输出要求
 请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：
@@ -142,7 +160,7 @@ checked_text 应以 cleaned_text 为基础，只修正审核发现的实质问�
       "reason": "修正原因"
     }
   ]
-}"""
+}""" + TIME_MARKUP_RULES
 
 EVENT_ORGANIZE_PROMPT = """你是一个日记事件整理助手。请对日记文本进行事件识别、归类和汇聚。
 
@@ -183,6 +201,8 @@ EVENT_ORGANIZE_PROMPT = """你是一个日记事件整理助手。请对日记�
   "plans": ["下周跟田总要活"]
 }
 
+""" + TEXT_MARKUP_RULES + """ 
+
 ## 输出要求
 请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：
 
@@ -196,7 +216,7 @@ EVENT_ORGANIZE_PROMPT = """你是一个日记事件整理助手。请对日记�
   ],
   "trivia": [],
   "plans": []
-}""" + TEXT_MARKUP_RULES
+}"""
 
 TEMPLATE_FILL_PROMPT = """你是一个结构化整理助手。请将用户提供的事件列表转换为三字段结构。
 
@@ -324,7 +344,7 @@ structured_events、organized_result 是待审核结果。
 
 check_log 必须包含全部 10 个检查项。
 通过的检查项：status 为"通过"，target/issue/before/after/reason 为空字符串。
-已修正的检查项：status 为"已修正"，填写 target/issue/before/after/reason。"""
+已修正的检查项：status 为"已修正"，填写 target/issue/before/after/reason。""" + TIME_MARKUP_RULES
 
 class AIService:
     """DeepSeek AI 服务封装"""
@@ -396,20 +416,26 @@ class AIService:
             )
             _ai_logger.info(
                 "LLM 调用统计",
-                extra=log_extra(event="llm.call.metrics", step="chat", model=runtime_config.model_name, prompt_tokens=prompt_tokens, prompt_tokens_source=prompt_tokens_source, duration_ms=duration_ms, status="success"),
+                extra=log_extra(event="llm.call.metrics", step="chat", model=runtime_config.model_name,
+                                prompt_tokens=prompt_tokens, prompt_tokens_source=prompt_tokens_source,
+                                duration_ms=duration_ms, status="success"),
             )
             return response_data["choices"][0]["message"]["content"]
         except httpx.HTTPStatusError as e:
-            self._record_chat_failure(runtime_config.model_name, prompt_tokens, prompt_tokens_source, started, type(e).__name__)
-            logger.error("对话模型返回错误状态码: %s, 响应: %s", e.response.status_code, truncate_llm_log(e.response.text))
+            self._record_chat_failure(runtime_config.model_name, prompt_tokens, prompt_tokens_source, started,
+                                      type(e).__name__)
+            logger.error("对话模型返回错误状态码: %s, 响应: %s", e.response.status_code,
+                         truncate_llm_log(e.response.text))
             return "抱歉，AI 服务暂时不可用，请稍后再试。"
         except Exception as e:
-            self._record_chat_failure(runtime_config.model_name, prompt_tokens, prompt_tokens_source, started, type(e).__name__)
+            self._record_chat_failure(runtime_config.model_name, prompt_tokens, prompt_tokens_source, started,
+                                      type(e).__name__)
             logger.error("调用 DeepSeek 对话接口失败: %s", e)
             return "抱歉，AI 服务出现异常，请稍后再试。"
 
     @staticmethod
-    def _record_chat_failure(model_name: str, prompt_tokens: int, prompt_tokens_source: str, started: Stopwatch, error_type: str) -> None:
+    def _record_chat_failure(model_name: str, prompt_tokens: int, prompt_tokens_source: str, started: Stopwatch,
+                             error_type: str) -> None:
         duration_ms = started.elapsed_ms()
         record_llm_call(
             step_name="chat",
@@ -422,7 +448,9 @@ class AIService:
         )
         _ai_logger.info(
             "LLM 调用统计",
-            extra=log_extra(event="llm.call.metrics", step="chat", model=model_name, prompt_tokens=prompt_tokens, prompt_tokens_source=prompt_tokens_source, duration_ms=duration_ms, status="failed", error_type=error_type),
+            extra=log_extra(event="llm.call.metrics", step="chat", model=model_name, prompt_tokens=prompt_tokens,
+                            prompt_tokens_source=prompt_tokens_source, duration_ms=duration_ms, status="failed",
+                            error_type=error_type),
         )
 
     async def _call_ai(self, system_prompt: str, user_message: str, temperature: float = 0.3) -> dict:
@@ -474,7 +502,7 @@ class AIService:
                 # 记录响应日志
                 _ai_logger.info(
                     f"[Response]\n{truncate_llm_log(json.dumps(result, ensure_ascii=False, indent=2))}\n"
-                    f"{'='*60}\n"
+                    f"{'=' * 60}\n"
                 )
 
                 return result
@@ -510,7 +538,8 @@ class AIService:
             validated.append(validated_event)
         return validated
 
-    async def organize_diary(self, original_text: str, task_id: str, diary_id: str, user_id: str) -> dict:
+    async def organize_diary(self, original_text: str, task_id: str, diary_id: str, user_id: str,
+                             diary_date: str) -> dict:
         """6次AI调用完成结构化日记整理（委托给 LangGraph 流水线）
 
         Args:
@@ -518,6 +547,7 @@ class AIService:
             task_id: 整理任务 ID（用于 checkpoint）
             diary_id: 日记 ID
             user_id: 用户 ID
+            diary_date: 日记所属日期（用于解析相对时间）
 
         Returns:
             包含 title/summary/events/check_log/clean_check_log/location/introduction/trivia/plans 的 dict
@@ -531,17 +561,17 @@ class AIService:
             person_relations = load_person_name_gender_context(db, user_id)
         finally:
             db.close()
-        return await run_pipeline(original_text, task_id, diary_id, user_id, person_relations)
+        return await run_pipeline(original_text, task_id, diary_id, user_id, diary_date, person_relations)
 
     async def analyze_diary(
-        self,
-        original_text: str,
-        structured_diary: dict,
-        task_id: str,
-        diary_id: str,
-        user_id: str,
-        diary_organized_id: str,
-        feedback_source_run_id: str | None = None,
+            self,
+            original_text: str,
+            structured_diary: dict,
+            task_id: str,
+            diary_id: str,
+            user_id: str,
+            diary_organized_id: str,
+            feedback_source_run_id: str | None = None,
     ) -> dict:
         """触发分析流水线（3 环节 + 独立检查 + 标签落库）
 

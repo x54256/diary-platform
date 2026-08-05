@@ -25,6 +25,12 @@ class OrganizePromptRulesTest(unittest.TestCase):
         self.assertNotIn("例如计划放入正文", PROMPT_SOURCE)
         self.assertNotIn("与事件正文重复表达过多", PROMPT_SOURCE)
 
+    def test_time_markup_rules_preserve_source_text_and_use_context(self):
+        self.assertIn("diary_date", PROMPT_SOURCE)
+        self.assertIn("结合上下文解析", PROMPT_SOURCE)
+        self.assertIn("周一又要开会", PROMPT_SOURCE)
+        self.assertIn("无法确定具体日期或时间时，保留原文", PROMPT_SOURCE)
+
 
 if __name__ == "__main__":
     unittest.main()

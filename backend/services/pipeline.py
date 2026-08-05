@@ -59,6 +59,7 @@ class PipelineState(TypedDict, total=False):
     task_id: str
     diary_id: str
     user_id: str
+    diary_date: str
     person_relations: list[dict]
 
     # 中间产物
@@ -312,7 +313,7 @@ async def text_clean(state: PipelineState) -> dict:
         llm,
         CLEAN_PROMPT,
         json.dumps(
-            {"original_text": original_text, "person_relations": person_relations},
+            {"original_text": original_text, "diary_date": state["diary_date"], "person_relations": person_relations},
             ensure_ascii=False,
         ),
         step_name="text_clean",
@@ -334,7 +335,7 @@ async def clean_check(state: PipelineState) -> dict:
         llm,
         CLEAN_CHECK_PROMPT,
         json.dumps(
-            {"original_text": original_text, "cleaned_text": cleaned_text},
+            {"original_text": original_text, "diary_date": state["diary_date"], "cleaned_text": cleaned_text},
             ensure_ascii=False,
         ),
         step_name="clean_check",
@@ -355,7 +356,7 @@ async def event_organize(state: PipelineState) -> dict:
     result = await _invoke_llm(
         llm,
         EVENT_ORGANIZE_PROMPT,
-        json.dumps({"checked_text": checked_text}, ensure_ascii=False),
+        json.dumps({"diary_date": state["diary_date"], "checked_text": checked_text}, ensure_ascii=False),
         step_name="event_organize",
     )
 
@@ -387,7 +388,7 @@ async def template_fill(state: PipelineState) -> dict:
     result = await _invoke_llm(
         llm,
         TEMPLATE_FILL_PROMPT,
-        json.dumps({"events": events_raw}, ensure_ascii=False),
+        json.dumps({"diary_date": state["diary_date"], "events": events_raw}, ensure_ascii=False),
         step_name="template_fill",
     )
     structured_events = ai_service._validate_events(result.get("events", []))
@@ -418,6 +419,7 @@ async def content_check(state: PipelineState) -> dict:
     check_input = json.dumps(
         {
             "original_text": original_text,
+            "diary_date": state["diary_date"],
             "organized_result": {
                 "introduction": introduction,
                 "trivia": trivia,
@@ -458,6 +460,7 @@ async def run_pipeline(
     task_id: str,
     diary_id: str,
     user_id: str,
+    diary_date: str,
     person_relations: list[dict] | None = None,
 ) -> dict:
     """构建并执行 LangGraph 5 阶段整理流水线"""
@@ -488,6 +491,7 @@ async def run_pipeline(
                 "task_id": task_id,
                 "diary_id": diary_id,
                 "user_id": user_id,
+                "diary_date": diary_date,
                 "person_relations": person_relations or [],
             },
         )

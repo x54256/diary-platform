@@ -6,6 +6,7 @@
     @mouseup="handleSelection"
     @touchend="handleSelection"
     @click="handleClick"
+    @keydown="handleKeydown"
   >
     <p
       v-for="(paragraph, index) in paragraphs"
@@ -228,6 +229,14 @@ const handleSelection = () => {
 
 const handleClick = (event: MouseEvent) => {
   const target = event.target as HTMLElement
+  const timeMark = target.closest<HTMLElement>('[data-relative-time]')
+  if (timeMark) {
+    rootRef.value?.querySelectorAll<HTMLElement>('.diary-time-mark.is-open').forEach((item) => {
+      if (item !== timeMark) item.classList.remove('is-open')
+    })
+    timeMark.classList.toggle('is-open')
+    return
+  }
   const mark = target.closest<HTMLElement>('[data-annotation-id]')
   if (!mark?.dataset.annotationId) return
   const annotation = matchingAnnotations().find(item => item.id === mark.dataset.annotationId)
@@ -243,6 +252,47 @@ const handleClick = (event: MouseEvent) => {
   })
 }
 
+const handleKeydown = (event: KeyboardEvent) => {
+  if (event.key !== 'Enter' && event.key !== ' ') return
+  const target = event.target as HTMLElement
+  if (!target.closest('[data-relative-time]')) return
+  event.preventDefault()
+  target.classList.toggle('is-open')
+}
+
 watch(() => [props.paragraphs, props.annotations], applyMarks, { deep: true })
 onMounted(applyMarks)
 </script>
+
+<style>
+.diary-time-mark {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dotted currentColor;
+}
+
+.diary-time-mark::after {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  bottom: calc(100% + 0.45rem);
+  display: none;
+  width: max-content;
+  max-width: min(18rem, 80vw);
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.375rem;
+  background: #1f2937;
+  color: white;
+  content: attr(data-time-value);
+  font-size: 0.75rem;
+  line-height: 1.25;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.diary-time-mark:hover::after,
+.diary-time-mark:focus-visible::after,
+.diary-time-mark.is-open::after {
+  display: block;
+}
+</style>

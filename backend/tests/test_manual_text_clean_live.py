@@ -30,7 +30,7 @@ DIARY_ID = "abbe7b04-098a-4256-8396-2884284de7fd"
 OUTPUT_DIR = Path(__file__).parent / "output"
 
 
-def _load_diary_payload(diary_id: str) -> tuple[str, list[dict]]:
+def _load_diary_payload(diary_id: str) -> tuple[str, str, list[dict]]:
     """读取日记原文和整理环节使用的人物关系上下文。"""
     try:
         diary_uuid = uuid.UUID(diary_id)
@@ -47,7 +47,7 @@ def _load_diary_payload(diary_id: str) -> tuple[str, list[dict]]:
         if diary is None:
             raise AssertionError(f"日记不存在或已删除：{diary_id}")
         person_relations = load_person_name_gender_context(db, diary.user_id)
-        return diary.original_text, person_relations
+        return diary.original_text, diary.diary_date.isoformat(), person_relations
     finally:
         db.close()
 
@@ -76,7 +76,7 @@ import asyncio
 
 class TestManualTextCleanLive:
     def test_text_clean_only(self) -> None:
-        original_text, person_relations = _load_diary_payload(DIARY_ID)
+        original_text, diary_date, person_relations = _load_diary_payload(DIARY_ID)
         llm = _get_llm(0.3, step_name="text_clean")
 
         # 使用 asyncio.run 执行协程，拿到真实返回字典
@@ -86,6 +86,7 @@ class TestManualTextCleanLive:
             json.dumps(
                 {
                     "original_text": original_text,
+                    "diary_date": diary_date,
                     "person_relations": person_relations,
                 },
                 ensure_ascii=False,
