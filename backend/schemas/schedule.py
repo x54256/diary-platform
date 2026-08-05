@@ -79,6 +79,7 @@ class ScheduleOccurrenceNoteUpdate(BaseModel):
 
 class ScheduleOccurrenceUpdate(BaseModel):
     title: str
+    start_date: date
     is_all_day: bool = False
     start_time: Optional[time] = None
     end_time: Optional[time] = None

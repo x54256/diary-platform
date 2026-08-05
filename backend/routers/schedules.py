@@ -226,9 +226,12 @@ def list_overdue_schedules(db: Session = Depends(get_db), current_user: User = D
             current = task_sources[current]
         return current
 
-    candidates = db.query(ScheduleOccurrence).filter(
+    candidates = db.query(ScheduleOccurrence).join(
+        ScheduleTask, ScheduleTask.id == ScheduleOccurrence.task_id,
+    ).filter(
         ScheduleOccurrence.user_id == current_user.id,
         ScheduleOccurrence.status != "deleted",
+        or_(ScheduleTask.recurrence_type != "DAILY", ScheduleTask.interval != "1"),
         overdue_filter,
     ).all()
     latest_by_root: dict[UUID, ScheduleOccurrence] = {}
@@ -266,10 +269,12 @@ def update_occurrence_note(occurrence_id: UUID, data: ScheduleOccurrenceNoteUpda
 def update_occurrence(occurrence_id: UUID, data: ScheduleOccurrenceUpdate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     item = db.query(ScheduleOccurrence).filter_by(id=occurrence_id, user_id=current_user.id).first()
     if not item: raise HTTPException(404, "日程实例不存在")
-    if data.recurrence_until and data.recurrence_until < item.scheduled_date:
+    if data.recurrence_until and data.recurrence_until < data.start_date:
         raise HTTPException(400, "截止日期不能早于当前日程日期")
+    target_date = data.start_date
     old_task = item.task
     repeat_changed = any([
+        target_date != item.scheduled_date,
         data.recurrence_type != old_task.recurrence_type,
         data.recurrence_until != old_task.recurrence_until,
         (data.recurrence_count or None) != (int(old_task.recurrence_count) if old_task.recurrence_count else None),
@@ -281,18 +286,18 @@ def update_occurrence(occurrence_id: UUID, data: ScheduleOccurrenceUpdate, db: S
     ])
     if repeat_changed:
         old_task_for_sync = old_task
-        old_task.recurrence_until = item.scheduled_date - timedelta(days=1)
-        immediate_end = item.scheduled_date + timedelta(days=IMMEDIATE_WINDOW_DAYS - 1)
+        old_task.recurrence_until = target_date - timedelta(days=1)
+        immediate_end = target_date + timedelta(days=IMMEDIATE_WINDOW_DAYS - 1)
         db.query(ScheduleOccurrence).filter(ScheduleOccurrence.task_id == old_task.id,
             ScheduleOccurrence.scheduled_date >= item.scheduled_date,
             ScheduleOccurrence.scheduled_date <= immediate_end).delete(synchronize_session=False)
         enqueue_maintenance_job(db, old_task.id, "DELETE", immediate_end + timedelta(days=1))
-        weekdays = data.weekdays or ([sunday_weekday(item.scheduled_date)] if data.recurrence_type == "WEEKLY" else [])
-        month_day = data.month_day or (item.scheduled_date.day if data.recurrence_type == "MONTHLY_DATE" else None)
+        weekdays = data.weekdays or ([sunday_weekday(target_date)] if data.recurrence_type == "WEEKLY" else [])
+        month_day = data.month_day or (target_date.day if data.recurrence_type == "MONTHLY_DATE" else None)
         nth_week = data.nth_week
         nth_weekday = data.nth_weekday
         new_task = ScheduleTask(user_id=current_user.id, source_task_id=old_task.id, title=data.title,
-            is_all_day=data.is_all_day, start_date=item.scheduled_date, start_time=data.start_time,
+            is_all_day=data.is_all_day, start_date=target_date, start_time=data.start_time,
             end_time=data.end_time, recurrence_type=data.recurrence_type, interval=str(data.interval), recurrence_month=str(data.recurrence_month) if data.recurrence_month else None,
             weekdays=','.join(map(str, weekdays)) or None, month_day=str(month_day) if month_day else None,
             nth_week=str(nth_week) if nth_week else None,
@@ -304,10 +309,10 @@ def update_occurrence(occurrence_id: UUID, data: ScheduleOccurrenceUpdate, db: S
         ensure_occurrences_for_task(db, new_task, immediate_end, workdays, restdays, IMMEDIATE_WINDOW_DAYS)
         if new_task.recurrence_type != "NONE":
             enqueue_maintenance_job(db, new_task.id, "ENSURE", immediate_end + timedelta(days=1))
-        updated = db.query(ScheduleOccurrence).filter_by(task_id=new_task.id, scheduled_date=item.scheduled_date).first()
+        updated = db.query(ScheduleOccurrence).filter_by(task_id=new_task.id, scheduled_date=target_date).first()
         if not updated:
             updated = ScheduleOccurrence(user_id=current_user.id, task_id=new_task.id,
-                scheduled_date=item.scheduled_date, title=data.title, is_all_day=data.is_all_day,
+                scheduled_date=target_date, title=data.title, is_all_day=data.is_all_day,
                 start_time=data.start_time, end_time=data.end_time, status=item.status,
                 completed_at=item.completed_at, execution_note=item.execution_note)
             db.add(updated)
@@ -318,6 +323,7 @@ def update_occurrence(occurrence_id: UUID, data: ScheduleOccurrenceUpdate, db: S
             updated.execution_note = item.execution_note
         sync_action_after_task_replaced(db, old_task_for_sync, new_task, updated)
     else:
+        item.scheduled_date = target_date
         item.title, item.is_all_day, item.start_time, item.end_time = data.title, data.is_all_day, data.start_time, data.end_time
         item.manually_modified = True
         updated = item
