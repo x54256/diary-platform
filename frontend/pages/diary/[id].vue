@@ -2,9 +2,33 @@
   <div class="relative h-dvh flex flex-col overflow-hidden">
     <!-- 顶部导航栏 -->
     <NavBar :title="diaryTitle" :show-back="true">
+      <template #title>
+        <input
+          v-if="inlineEditingField === 'title'"
+          :value="inlineDraft"
+          class="min-w-0 w-full truncate whitespace-nowrap rounded border border-primary-300 px-2 py-1 text-base font-medium text-neutral-800 outline-none focus:ring-2 focus:ring-primary-500"
+          aria-label="编辑日记标题"
+          @input="updateInlineDraft"
+          @keyup.enter="saveInlineOrganizedField('title')"
+          @keyup.esc="cancelInlineEdit"
+        />
+        <h1
+          v-else
+          class="block cursor-text truncate whitespace-nowrap text-lg font-medium text-neutral-800"
+          @dblclick="diary?.organized && startInlineEdit('title', diary.organized.title || '')"
+        >
+          {{ diaryTitle }}
+        </h1>
+      </template>
       <template #right>
+        <template v-if="inlineEditingField === 'title'">
+          <button type="button" class="text-sm text-neutral-500" @click="cancelInlineEdit">取消</button>
+          <button type="button" class="text-primary-600 text-sm font-medium" :disabled="inlineSaving" @click="saveInlineOrganizedField('title')">
+            {{ inlineSaving ? '保存中' : '保存' }}
+          </button>
+        </template>
         <button
-          v-if="diary && !isEditing && !isEditingStructured"
+          v-if="diary && !inlineEditingField && !isEditing && !isEditingStructured"
           type="button"
           :disabled="favoriteSaving"
           :aria-label="diary.is_favorite ? '取消收藏日记' : '收藏日记'"
@@ -14,28 +38,12 @@
           {{ diary.is_favorite ? '★' : '☆' }}
         </button>
         <button
-          v-if="diary && !isEditing && !isEditingStructured"
+          v-if="diary && !inlineEditingField && !isEditing && !isEditingStructured"
           @click="handleDelete"
           :disabled="deleting || organizing || analyzing"
           class="text-red-500 text-sm font-medium disabled:opacity-50"
         >
           {{ deleting ? '删除中' : '删除' }}
-        </button>
-        <!-- 结构化编辑按钮：organized/analyzed 且非编辑模式时显示 -->
-        <button
-          v-if="isStructuredEditable && !isEditingStructured && !isEditing"
-          @click="startEditStructured"
-          class="text-primary-600 text-sm font-medium"
-        >
-          编辑
-        </button>
-        <!-- 编辑原文按钮：saved/organized 且非编辑模式时显示 -->
-        <button
-          v-if="isEditable && !isEditing && !isEditingStructured"
-          @click="startEdit"
-          class="text-primary-600 text-sm font-medium"
-        >
-          {{ diary?.status === 'organized' ? '编辑原文' : '编辑' }}
         </button>
       </template>
     </NavBar>
@@ -82,7 +90,7 @@
       <template v-else>
         <div class="flex-1 min-h-0 overflow-y-auto px-4 py-3">
           <div class="text-base text-neutral-500 mb-3">{{ diary.diary_date }}</div>
-          <div class="text-base text-neutral-800 whitespace-pre-wrap leading-relaxed">
+          <div class="text-base text-neutral-800 whitespace-pre-wrap leading-relaxed" @dblclick="isEditable && startEdit()">
             {{ diary.original_text }}
           </div>
         </div>
@@ -181,6 +189,12 @@
           class="mb-3 px-3 py-2 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-700"
         >
           {{ editSaveMessage }}
+        </div>
+        <div
+          v-if="inlineSaveError"
+          class="mb-3 px-3 py-2 bg-red-50 border border-red-200 rounded-lg text-sm text-red-600"
+        >
+          {{ inlineSaveError }}
         </div>
         <!-- 结构化编辑模式 -->
         <template v-if="isEditingStructured">
@@ -325,19 +339,41 @@
         </div>
 
         <!-- 摘要 -->
-        <div
-          v-if="diary.organized?.summary"
-          class="text-sm italic text-neutral-600 leading-relaxed mb-4 pb-3 border-b border-neutral-100"
-        >
-          {{ diary.organized.summary }}
+        <div v-if="diary.organized?.summary" class="mb-4 pb-3 border-b border-neutral-100">
+          <template v-if="inlineEditingField === 'summary'">
+            <textarea
+              :value="inlineDraft"
+              class="w-full text-base italic text-neutral-600 leading-relaxed p-2 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-primary-500 outline-none resize-none"
+              rows="3"
+              @input="updateInlineDraft"
+            />
+            <div class="mt-2 flex justify-end gap-2">
+              <button type="button" class="px-3 py-1.5 rounded-lg border border-neutral-200 text-sm text-neutral-600" @click="cancelInlineEdit">取消</button>
+              <button type="button" class="px-3 py-1.5 rounded-lg bg-primary-600 text-sm text-white" @click="saveInlineOrganizedField('summary')">保存</button>
+            </div>
+          </template>
+          <div v-else class="cursor-text text-sm italic text-neutral-600 leading-relaxed" @dblclick="startInlineEdit('summary', diary.organized.summary)">
+            {{ diary.organized.summary }}
+          </div>
         </div>
 
         <!-- 引入段 -->
-        <div
-          v-if="diary.organized?.introduction"
-          class="text-base text-neutral-500 leading-relaxed mb-4"
-        >
-          {{ diary.organized.introduction }}
+        <div v-if="diary.organized?.introduction" class="mb-4">
+          <template v-if="inlineEditingField === 'introduction'">
+            <textarea
+              :value="inlineDraft"
+              class="w-full text-base text-neutral-500 leading-relaxed p-2 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-primary-500 outline-none resize-none"
+              rows="3"
+              @input="updateInlineDraft"
+            />
+            <div class="mt-2 flex justify-end gap-2">
+              <button type="button" class="px-3 py-1.5 rounded-lg border border-neutral-200 text-sm text-neutral-600" @click="cancelInlineEdit">取消</button>
+              <button type="button" class="px-3 py-1.5 rounded-lg bg-primary-600 text-sm text-white" @click="saveInlineOrganizedField('introduction')">保存</button>
+            </div>
+          </template>
+          <div v-else class="cursor-text text-base text-neutral-500 leading-relaxed" @dblclick="startInlineEdit('introduction', diary.organized.introduction)">
+            {{ diary.organized.introduction }}
+          </div>
         </div>
 
         <!-- 事件卡片列表 -->
@@ -347,9 +383,9 @@
             :key="event.id"
             :event="event"
             :id="`event-${event.id}`"
-            :editable="isEditingStructured"
             :analysis-run-id="diary.organized?.analysis?.id"
             :annotations="annotations"
+            :inline-edit-field="inlineEditingEvent?.eventId === event.id ? inlineEditingEvent.field : null"
             :favorite-saving="favoriteSaving"
             :importance-saving="importanceSavingEventId === event.id"
             @update="onEventUpdate"
@@ -357,51 +393,56 @@
             @annotation-select="openAnnotationSelection"
             @annotation-clicked="openAnnotationById"
             @favorite-toggle="toggleEventFavorite"
+            @inline-edit-start="field => startInlineEventEdit(event.id, field)"
+            @inline-edit-save="(field, value) => saveInlineEventEdit(event.id, field, value)"
+            @inline-edit-cancel="cancelInlineEdit"
           />
         </div>
 
         <!-- 琐事（平铺） -->
         <div v-if="diary.organized?.trivia && diary.organized.trivia.length > 0" class="mb-3">
           <div class="text-lg font-medium text-neutral-800 mb-2">琐事</div>
-          <ol v-if="diary.organized.trivia.length > 1" class="list-decimal list-inside space-y-1.5">
-            <li
-              v-for="(item, idx) in diary.organized.trivia"
-              :key="idx"
-              class="text-base text-neutral-600 leading-relaxed"
-            >
-              {{ item }}
-            </li>
-          </ol>
-          <ul v-else class="list-none space-y-1.5">
-            <li class="text-base text-neutral-600 leading-relaxed">
-              {{ diary.organized.trivia[0] }}
-            </li>
-          </ul>
+          <template v-if="inlineEditingField === 'trivia'">
+            <textarea :value="inlineDraft" rows="3" class="w-full text-base text-neutral-600 leading-relaxed p-2 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-primary-500 outline-none resize-none" @input="updateInlineDraft" />
+            <div class="mt-2 flex justify-end gap-2">
+              <button type="button" class="px-3 py-1.5 rounded-lg border border-neutral-200 text-sm text-neutral-600" @click="cancelInlineEdit">取消</button>
+              <button type="button" class="px-3 py-1.5 rounded-lg bg-primary-600 text-sm text-white" @click="saveInlineOrganizedField('trivia')">保存</button>
+            </div>
+          </template>
+          <div v-else class="cursor-text" @dblclick="startInlineEdit('trivia', diary.organized.trivia.join('\n'))">
+            <ol v-if="diary.organized.trivia.length > 1" class="list-decimal list-inside space-y-1.5">
+              <li v-for="(item, idx) in diary.organized.trivia" :key="idx" class="text-base text-neutral-600 leading-relaxed">{{ item }}</li>
+            </ol>
+            <ul v-else class="list-none space-y-1.5">
+              <li class="text-base text-neutral-600 leading-relaxed">{{ diary.organized.trivia[0] }}</li>
+            </ul>
+          </div>
         </div>
 
         <!-- 后续计划（平铺） -->
         <div v-if="diary.organized?.plans && diary.organized.plans.length > 0" class="mb-3">
           <div class="text-lg font-medium text-neutral-800 mb-2">后续计划</div>
-          <ol v-if="diary.organized.plans.length > 1" class="list-decimal list-inside space-y-1.5">
-            <li
-              v-for="(item, idx) in diary.organized.plans"
-              :key="idx"
-              class="text-base text-neutral-600 leading-relaxed"
-            >
-              {{ item }}
-            </li>
-          </ol>
-          <ul v-else class="list-none space-y-1.5">
-            <li class="text-base text-neutral-600 leading-relaxed">
-              {{ diary.organized.plans[0] }}
-            </li>
-          </ul>
+          <template v-if="inlineEditingField === 'plans'">
+            <textarea :value="inlineDraft" rows="3" class="w-full text-base text-neutral-600 leading-relaxed p-2 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-primary-500 outline-none resize-none" @input="updateInlineDraft" />
+            <div class="mt-2 flex justify-end gap-2">
+              <button type="button" class="px-3 py-1.5 rounded-lg border border-neutral-200 text-sm text-neutral-600" @click="cancelInlineEdit">取消</button>
+              <button type="button" class="px-3 py-1.5 rounded-lg bg-primary-600 text-sm text-white" @click="saveInlineOrganizedField('plans')">保存</button>
+            </div>
+          </template>
+          <div v-else class="cursor-text" @dblclick="startInlineEdit('plans', diary.organized.plans.join('\n'))">
+            <ol v-if="diary.organized.plans.length > 1" class="list-decimal list-inside space-y-1.5">
+              <li v-for="(item, idx) in diary.organized.plans" :key="idx" class="text-base text-neutral-600 leading-relaxed">{{ item }}</li>
+            </ol>
+            <ul v-else class="list-none space-y-1.5">
+              <li class="text-base text-neutral-600 leading-relaxed">{{ diary.organized.plans[0] }}</li>
+            </ul>
+          </div>
         </div>
 
         <!-- 原始文本（折叠，默认收起） -->
         <details class="border-t border-neutral-100 pt-3">
           <summary class="text-xs text-neutral-400 cursor-pointer">查看原始文本</summary>
-          <div class="mt-2 text-xs text-neutral-500 whitespace-pre-wrap leading-relaxed font-mono">
+          <div class="mt-2 text-xs text-neutral-500 whitespace-pre-wrap leading-relaxed font-mono" @dblclick="isEditable && startEdit()">
             {{ diary.original_text }}
           </div>
         </details>
@@ -1259,6 +1300,96 @@ const structuredSaving = ref(false)
 const structuredSaveError = ref('')
 const editedEvents = ref<Map<string, any>>(new Map())
 
+type InlineEventField = 'title' | 'body' | 'feeling' | 'reflection'
+const inlineEditingField = ref<string | null>(null)
+const inlineDraft = ref('')
+const inlineSaving = ref(false)
+const inlineSaveError = ref('')
+
+const inlineEditingEvent = computed<{ eventId: string; field: InlineEventField } | null>(() => {
+  const value = inlineEditingField.value
+  if (!value?.startsWith('event:')) return null
+  const [, eventId, field] = value.split(':')
+  if (!eventId || !['title', 'body', 'feeling', 'reflection'].includes(field)) return null
+  return { eventId, field: field as InlineEventField }
+})
+
+const updateInlineDraft = (event: Event) => {
+  inlineDraft.value = (event.target as HTMLTextAreaElement).value
+}
+
+const startInlineEdit = (field: string, value: string) => {
+  if (inlineSaving.value || structuredSaving.value) return
+  const selection = window.getSelection()
+  if (selection && !selection.isCollapsed) return
+  inlineEditingField.value = field
+  inlineDraft.value = value
+  inlineSaveError.value = ''
+  nextTick(() => resizeTextareas())
+}
+
+const startInlineEventEdit = (eventId: string, field: InlineEventField) => {
+  const event = diary.value?.organized?.events.find(item => item.id === eventId)
+  if (!event) return
+  startInlineEdit(`event:${eventId}:${field}`, (event[field] || []).join('\n'))
+}
+
+const cancelInlineEdit = () => {
+  inlineEditingField.value = null
+  inlineDraft.value = ''
+  inlineSaveError.value = ''
+}
+
+const saveInlineOrganizedField = async (field: 'title' | 'summary' | 'introduction' | 'trivia' | 'plans') => {
+  if (!diary.value || inlineSaving.value) return
+  inlineSaving.value = true
+  inlineSaveError.value = ''
+  try {
+    const body: Record<string, unknown> = {}
+    if (field === 'trivia' || field === 'plans') {
+      body[field] = inlineDraft.value.split('\n').filter(item => item.trim())
+    } else {
+      body[field] = inlineDraft.value
+    }
+    const updatedOrganized = await api(`/diaries/${diaryId.value}/organized`, { method: 'PUT', body })
+    cancelInlineEdit()
+    if (diary.value) diary.value.organized = updatedOrganized
+    await loadAnnotations()
+  } catch (err: any) {
+    inlineSaveError.value = err?.data?.detail || '保存失败，请稍后重试'
+  } finally {
+    inlineSaving.value = false
+  }
+}
+
+const saveInlineEventEdit = async (eventId: string, field: InlineEventField, value: string) => {
+  if (!diary.value || inlineSaving.value) return
+  const event = diary.value.organized?.events.find(item => item.id === eventId)
+  if (!event) return
+  inlineSaving.value = true
+  inlineSaveError.value = ''
+  try {
+    const updatedEvent = await api(`/diaries/${diaryId.value}/events/${eventId}`, {
+      method: 'PUT',
+      body: {
+        id: event.id,
+        event_title: field === 'title' ? value : event.event_title,
+        body: field === 'body' ? value.split('\n').filter(item => item.trim()) : event.body,
+        feeling: field === 'feeling' ? value.split('\n').filter(item => item.trim()) : event.feeling,
+        reflection: field === 'reflection' ? value.split('\n').filter(item => item.trim()) : event.reflection,
+      },
+    })
+    cancelInlineEdit()
+    const localEvent = diary.value?.organized?.events.find(item => item.id === eventId)
+    if (localEvent) Object.assign(localEvent, updatedEvent)
+    await loadAnnotations()
+  } catch (err: any) {
+    inlineSaveError.value = err?.data?.detail || '保存失败，请稍后重试'
+  } finally {
+    inlineSaving.value = false
+  }
+}
+
 watch([activeTab, isEditing, isEditingStructured], () => {
   nextTick(updateStickyEventTitle)
 })
@@ -1286,12 +1417,12 @@ const handleSaveEdit = async () => {
   saveError.value = ''
   const wasOrganized = diary.value?.status === 'organized'
   try {
-    await api<Diary>(`/diaries/${diaryId.value}`, {
+    const updatedDiary = await api<Diary>(`/diaries/${diaryId.value}`, {
       method: 'PUT',
       body: { original_text: editText.value },
     })
     isEditing.value = false
-    await loadDiary()
+    if (diary.value) Object.assign(diary.value, updatedDiary)
     if (wasOrganized) {
       editSaveMessage.value = '原文已修改，如需同步结构化内容请重新整理'
       setTimeout(() => { editSaveMessage.value = '' }, 5000)
@@ -1354,14 +1485,15 @@ const handleSaveStructured = async () => {
     if (editedEvents.value.size > 0) {
       body.events = Array.from(editedEvents.value.values())
     }
-    await api(`/diaries/${diaryId.value}/organized`, {
+    const updatedOrganized = await api(`/diaries/${diaryId.value}/organized`, {
       method: 'PUT',
       body: body,
     })
     isEditingStructured.value = false
     editFormData.value = null
     editedEvents.value.clear()
-    await loadDiary()
+    if (diary.value) diary.value.organized = updatedOrganized
+    await loadAnnotations()
   } catch (err: any) {
     structuredSaveError.value = err?.data?.detail || '保存失败，请稍后重试'
   } finally {

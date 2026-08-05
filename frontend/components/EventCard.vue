@@ -11,7 +11,22 @@
       <!-- 查看模式：始终展开，不可折叠 -->
       <div class="px-4 py-3">
         <div class="flex items-start justify-between gap-3">
-          <div class="text-base font-medium text-neutral-800">
+          <template v-if="inlineEditField === 'title'">
+            <input
+              :value="inlineDraft"
+              class="w-full p-1 text-base font-semibold border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none"
+              aria-label="编辑事件标题"
+              @input="updateField($event, 'title')"
+              @click.stop
+              @keyup.enter="saveInlineEdit('title')"
+              @keyup.esc="emit('inline-edit-cancel')"
+            />
+            <div class="mt-2 flex justify-end gap-2">
+              <button type="button" class="px-3 py-1.5 rounded-lg border border-neutral-200 text-sm text-neutral-600" @click.stop="emit('inline-edit-cancel')">取消</button>
+              <button type="button" class="px-3 py-1.5 rounded-lg bg-primary-600 text-sm text-white" @click.stop="saveInlineEdit('title')">保存</button>
+            </div>
+          </template>
+          <div v-else class="cursor-text text-base font-medium text-neutral-800" @dblclick="handleInlineDoubleClick($event, 'title')">
               {{ event.event_title || '未命名事件' }}
           </div>
           <select
@@ -49,81 +64,99 @@
     <div class="px-4 pb-4">
       <!-- 正文 -->
       <div class="mt-3">
-        <template v-if="editable">
+        <template v-if="editable || inlineEditField === 'body'">
           <textarea
-            v-model="editBody"
+            :value="editable ? editBody : inlineDraft"
             rows="4"
             data-auto-resize
             class="w-full min-h-[6rem] p-2 text-base border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-hidden"
-            @input="handleTextareaInput"
+            @input="updateField($event, 'body'); handleTextareaInput($event)"
           />
+          <div v-if="!editable" class="mt-2 flex justify-end gap-2">
+            <button type="button" class="px-3 py-1.5 rounded-lg border border-neutral-200 text-sm text-neutral-600" @click.stop="emit('inline-edit-cancel')">取消</button>
+            <button type="button" class="px-3 py-1.5 rounded-lg bg-primary-600 text-sm text-white" @click.stop="saveInlineEdit('body')">保存</button>
+          </div>
         </template>
         <template v-else>
-          <DiaryAnnotationText
-            v-if="event.body && event.body.length > 0"
-            :paragraphs="event.body"
-            target-type="EVENT_BODY"
-            :event-id="event.id"
-            :annotations="annotations"
-            container-class="space-y-2"
-            paragraph-class="analysis-markup text-base text-neutral-600 leading-relaxed"
-            @select="emit('annotation-select', $event)"
-            @annotation-clicked="emit('annotation-clicked', $event)"
-          />
+          <div class="cursor-text" @dblclick="handleInlineDoubleClick($event, 'body')">
+            <DiaryAnnotationText
+              v-if="event.body && event.body.length > 0"
+              :paragraphs="event.body"
+              target-type="EVENT_BODY"
+              :event-id="event.id"
+              :annotations="annotations"
+              container-class="space-y-2"
+              paragraph-class="analysis-markup text-base text-neutral-600 leading-relaxed"
+              @select="emit('annotation-select', $event)"
+              @annotation-clicked="emit('annotation-clicked', $event)"
+            />
+          </div>
         </template>
       </div>
 
       <!-- 感受 -->
-      <div v-if="editable || (event.feeling && event.feeling.length > 0)" class="mt-4">
+      <div v-if="editable || inlineEditField === 'feeling' || (event.feeling && event.feeling.length > 0)" class="mt-4">
         <div class="text-[17px] font-medium text-neutral-800 mb-2">感受</div>
-        <template v-if="editable">
+        <template v-if="editable || inlineEditField === 'feeling'">
           <textarea
-            v-model="editFeeling"
+            :value="editable ? editFeeling : inlineDraft"
             rows="3"
             data-auto-resize
             class="w-full min-h-[4.5rem] p-2 text-base border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-hidden"
-            @input="handleTextareaInput"
+            @input="updateField($event, 'feeling'); handleTextareaInput($event)"
           />
+          <div v-if="!editable" class="mt-2 flex justify-end gap-2">
+            <button type="button" class="px-3 py-1.5 rounded-lg border border-neutral-200 text-sm text-neutral-600" @click.stop="emit('inline-edit-cancel')">取消</button>
+            <button type="button" class="px-3 py-1.5 rounded-lg bg-primary-600 text-sm text-white" @click.stop="saveInlineEdit('feeling')">保存</button>
+          </div>
         </template>
         <template v-else>
-          <DiaryAnnotationText
-            :paragraphs="event.feeling || []"
-            target-type="EVENT_FEELING"
-            :event-id="event.id"
-            :annotations="annotations"
-            container-class="space-y-2"
-            paragraph-class="analysis-markup text-base text-neutral-600 leading-relaxed"
-            :show-index="true"
-            @select="emit('annotation-select', $event)"
-            @annotation-clicked="emit('annotation-clicked', $event)"
-          />
+          <div class="cursor-text" @dblclick="handleInlineDoubleClick($event, 'feeling')">
+            <DiaryAnnotationText
+              :paragraphs="event.feeling || []"
+              target-type="EVENT_FEELING"
+              :event-id="event.id"
+              :annotations="annotations"
+              container-class="space-y-2"
+              paragraph-class="analysis-markup text-base text-neutral-600 leading-relaxed"
+              :show-index="true"
+              @select="emit('annotation-select', $event)"
+              @annotation-clicked="emit('annotation-clicked', $event)"
+            />
+          </div>
         </template>
       </div>
 
       <!-- 反思与成长 -->
-      <div v-if="editable || (event.reflection && event.reflection.length > 0)" class="mt-4">
+      <div v-if="editable || inlineEditField === 'reflection' || (event.reflection && event.reflection.length > 0)" class="mt-4">
         <div class="text-[17px] font-medium text-neutral-800 mb-2">反思与成长</div>
-        <template v-if="editable">
+        <template v-if="editable || inlineEditField === 'reflection'">
           <textarea
-            v-model="editReflection"
+            :value="editable ? editReflection : inlineDraft"
             rows="3"
             data-auto-resize
             class="w-full min-h-[4.5rem] p-2 text-base border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none resize-none overflow-hidden"
-            @input="handleTextareaInput"
+            @input="updateField($event, 'reflection'); handleTextareaInput($event)"
           />
+          <div v-if="!editable" class="mt-2 flex justify-end gap-2">
+            <button type="button" class="px-3 py-1.5 rounded-lg border border-neutral-200 text-sm text-neutral-600" @click.stop="emit('inline-edit-cancel')">取消</button>
+            <button type="button" class="px-3 py-1.5 rounded-lg bg-primary-600 text-sm text-white" @click.stop="saveInlineEdit('reflection')">保存</button>
+          </div>
         </template>
         <template v-else>
-          <DiaryAnnotationText
-            :paragraphs="event.reflection || []"
-            target-type="EVENT_REFLECTION"
-            :event-id="event.id"
-            :annotations="annotations"
-            container-class="space-y-2"
-            paragraph-class="analysis-markup text-base text-neutral-600 leading-relaxed"
-            :show-index="true"
-            @select="emit('annotation-select', $event)"
-            @annotation-clicked="emit('annotation-clicked', $event)"
-          />
+          <div class="cursor-text" @dblclick="handleInlineDoubleClick($event, 'reflection')">
+            <DiaryAnnotationText
+              :paragraphs="event.reflection || []"
+              target-type="EVENT_REFLECTION"
+              :event-id="event.id"
+              :annotations="annotations"
+              container-class="space-y-2"
+              paragraph-class="analysis-markup text-base text-neutral-600 leading-relaxed"
+              :show-index="true"
+              @select="emit('annotation-select', $event)"
+              @annotation-clicked="emit('annotation-clicked', $event)"
+            />
+          </div>
         </template>
       </div>
 
@@ -157,6 +190,7 @@ const props = defineProps<{
   editable?: boolean
   analysisRunId?: string
   annotations?: DiaryAnnotation[]
+  inlineEditField?: 'title' | 'body' | 'feeling' | 'reflection' | null
   favoriteSaving?: boolean
   importanceSaving?: boolean
 }>()
@@ -167,6 +201,9 @@ const emit = defineEmits<{
   (e: 'annotation-select', selection: DiaryAnnotationSelection): void
   (e: 'annotation-clicked', payload: DiaryAnnotationClick): void
   (e: 'favorite-toggle', eventId: string): void
+  (e: 'inline-edit-start', field: 'title' | 'body' | 'feeling' | 'reflection'): void
+  (e: 'inline-edit-save', field: 'title' | 'body' | 'feeling' | 'reflection', value: string): void
+  (e: 'inline-edit-cancel'): void
 }>()
 
 const annotations = computed(() => props.annotations || [])
@@ -175,6 +212,37 @@ const editTitle = ref('')
 const editBody = ref('')
 const editFeeling = ref('')
 const editReflection = ref('')
+const inlineDraft = ref('')
+
+const inlineFieldValue = (field: 'title' | 'body' | 'feeling' | 'reflection') =>
+  field === 'title' ? (props.event?.event_title || '') : (props.event?.[field] || []).join('\n')
+
+watch(() => [props.inlineEditField, props.event], () => {
+  if (props.inlineEditField) inlineDraft.value = inlineFieldValue(props.inlineEditField)
+}, { deep: true })
+
+const handleInlineDoubleClick = (event: MouseEvent, field: 'title' | 'body' | 'feeling' | 'reflection') => {
+  const target = event.target as HTMLElement
+  if (target.closest('[data-annotation-id]')) return
+  if (!window.getSelection()?.isCollapsed) return
+  emit('inline-edit-start', field)
+}
+
+const saveInlineEdit = (field: 'title' | 'body' | 'feeling' | 'reflection') => {
+  emit('inline-edit-save', field, inlineDraft.value)
+}
+
+const updateField = (event: Event, field: 'title' | 'body' | 'feeling' | 'reflection') => {
+  const value = (event.target as HTMLTextAreaElement).value
+  if (props.inlineEditField === field) {
+    inlineDraft.value = value
+    return
+  }
+  if (field === 'title') editTitle.value = value
+  if (field === 'body') editBody.value = value
+  if (field === 'feeling') editFeeling.value = value
+  if (field === 'reflection') editReflection.value = value
+}
 
 const handleTextareaInput = (event: Event) => {
   resizeTextarea(event.target as HTMLTextAreaElement)

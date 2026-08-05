@@ -1,13 +1,13 @@
 <template>
   <!-- 顶部导航栏：高度 44px -->
   <header class="sticky top-0 z-40 h-nav bg-white border-b border-neutral-200">
-    <div class="flex items-center justify-between h-full px-4 max-w-md mx-auto">
+    <div class="flex items-center h-full px-2 max-w-md mx-auto">
       <!-- 左侧：返回按钮 -->
-      <div class="flex w-11 items-center">
+      <div class="flex w-10 shrink-0 items-center">
         <button
           v-if="showBack"
           @click="goBack"
-          class="flex h-11 w-11 items-center justify-center text-lg text-neutral-600"
+          class="flex h-11 w-10 items-center justify-start pl-1 text-lg text-neutral-600"
           aria-label="返回"
         >
           ←
@@ -15,10 +15,14 @@
       </div>
 
       <!-- 中间：标题 -->
-      <h1 class="text-lg font-medium text-neutral-800">{{ title }}</h1>
+      <div class="min-w-0 flex-1 px-2 text-center">
+        <slot name="title">
+          <h1 class="truncate whitespace-nowrap text-lg font-medium text-neutral-800">{{ title }}</h1>
+        </slot>
+      </div>
 
       <!-- 右侧：操作区（通过 slot 插入） -->
-      <div class="flex items-center gap-2">
+      <div class="flex shrink-0 items-center gap-2">
         <slot name="right" />
       </div>
     </div>
