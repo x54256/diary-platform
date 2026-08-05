@@ -1,13 +1,13 @@
 <template>
   <Teleport to="body">
     <div v-if="open" class="fixed inset-0 z-[80] flex items-end justify-center bg-black/35" role="dialog" aria-modal="true" aria-label="分析依据" @click.self="$emit('close')" @keydown.esc="$emit('close')">
-      <section ref="dialogRef" tabindex="-1" class="max-h-[82dvh] w-full max-w-2xl overflow-y-auto rounded-t-3xl bg-[#fffdf8] pb-[calc(1.25rem+env(safe-area-inset-bottom))] focus:outline-none">
-        <div class="sticky top-0 z-10 border-b border-[#e8e1d5] bg-[#fffdf8] px-5 pb-3 pt-2">
+      <section ref="dialogRef" tabindex="-1" class="max-h-[82dvh] w-full max-w-md overflow-y-auto rounded-t-2xl bg-white pb-[calc(1.25rem+env(safe-area-inset-bottom))] focus:outline-none">
+        <div class="sticky top-0 z-10 border-b border-neutral-200 bg-white px-5 pb-3 pt-2">
           <div class="mx-auto mb-3 h-1 w-10 rounded-full bg-neutral-300" />
           <div class="flex items-center justify-between gap-3">
             <div>
-              <button v-if="frames.length > 1" type="button" class="mb-1 min-h-11 text-sm font-medium text-primary-700" @click="goBack">‹ 返回上一级</button>
-              <h2 class="font-semibold text-neutral-900">分析依据</h2>
+              <button v-if="frames.length > 1" type="button" class="mb-1 min-h-11 text-sm font-medium text-primary-600" @click="goBack">‹ 返回上一级</button>
+              <h2 class="font-medium text-neutral-900">分析依据</h2>
               <p class="mt-0.5 text-xs text-neutral-500">{{ breadcrumb }}</p>
             </div>
             <button type="button" class="min-h-11 min-w-11 text-xl text-neutral-500" aria-label="关闭" @click="$emit('close')">×</button>
@@ -16,7 +16,7 @@
         <div class="space-y-3 p-5">
           <p v-if="loading" class="py-8 text-center text-sm text-neutral-400">正在读取依据…</p>
           <ReviewStatusBanner v-else-if="error" :title="error" tone="error" />
-          <article v-for="source in sources" :key="source.id" class="rounded-2xl border border-[#e8e1d5] bg-white p-4">
+          <article v-for="source in sources" :key="source.id" class="rounded-lg border border-neutral-200 bg-white p-4">
             <p class="text-xs font-medium text-primary-700">{{ sourceTypeLabel(source.source_type || source.type || '') }}<span v-if="source.source_date || source.date"> · {{ source.source_date || source.date }}</span></p>
             <template v-if="source.source_type === 'USER_FACT_CORRECTION' && correctionOriginal(source)">
               <p class="mt-2 text-xs font-medium text-neutral-400">修正后内容</p>
@@ -25,9 +25,9 @@
               <p class="mt-1 whitespace-pre-wrap rounded-lg bg-neutral-50 p-3 text-sm leading-6 text-neutral-600">{{ correctionOriginal(source) }}</p>
             </template>
             <p v-else class="mt-2 whitespace-pre-wrap text-sm leading-6 text-neutral-700">{{ source.content }}</p>
-            <button v-if="canDrill(source)" type="button" class="mt-2 flex min-h-11 items-center text-sm font-medium text-primary-700" @click="drill(source)">沿来源链查看下一级 ›</button>
-            <NuxtLink v-else-if="source.origin_review_id" :to="`/review/${source.origin_review_id}?version=${source.origin_review_version_id || ''}`" class="mt-2 flex min-h-11 items-center text-sm font-medium text-primary-700">查看下级回顾 ›</NuxtLink>
-            <NuxtLink v-if="originUrl(source)" :to="originUrl(source)!" class="mt-2 flex min-h-11 items-center text-sm font-medium text-primary-700">查看原记录 ›</NuxtLink>
+            <button v-if="canDrill(source)" type="button" class="mt-2 flex min-h-11 items-center text-sm font-medium text-primary-600" @click="drill(source)">沿来源链查看下一级 ›</button>
+            <NuxtLink v-else-if="source.origin_review_id" :to="`/review/${source.origin_review_id}?version=${source.origin_review_version_id || ''}`" class="mt-2 flex min-h-11 items-center text-sm font-medium text-primary-600">查看下级回顾 ›</NuxtLink>
+            <NuxtLink v-if="originUrl(source)" :to="originUrl(source)!" class="mt-2 flex min-h-11 items-center text-sm font-medium text-primary-600">查看原记录 ›</NuxtLink>
           </article>
           <p v-if="!loading && !error && !sources.length" class="py-8 text-center text-sm text-neutral-400">没有可展示的依据</p>
         </div>

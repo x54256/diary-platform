@@ -10,7 +10,7 @@ from typing import Any, Iterable
 
 from sqlalchemy.orm import Session, joinedload
 
-from models.diary import AnalysisRun, Diary, DiaryAnnotation, DiaryEvent, DiaryOrganized, DiaryStatus
+from models.diary import AnalysisRun, Diary, DiaryActionScheduleLink, DiaryAnnotation, DiaryEvent, DiaryOrganized, DiaryStatus
 from models.favorite import Favorite
 from models.review import (
     Review,
@@ -385,6 +385,22 @@ class ReviewSourceFreezer:
             .order_by(ScheduleOccurrence.scheduled_date, ScheduleOccurrence.start_time)
             .all()
         )
+        task_ids = [occurrence.task_id for occurrence in occurrences if occurrence.task_id]
+        linked_actions: dict[str, DiaryActionScheduleLink] = {}
+        if task_ids:
+            links = (
+                self.db.query(DiaryActionScheduleLink)
+                .options(joinedload(DiaryActionScheduleLink.action_item))
+                .filter(
+                    DiaryActionScheduleLink.user_id == self.user_id,
+                    DiaryActionScheduleLink.schedule_task_id.in_(task_ids),
+                    DiaryActionScheduleLink.unlinked_at.is_(None),
+                )
+                .order_by(DiaryActionScheduleLink.linked_at)
+                .all()
+            )
+            for link in links:
+                linked_actions[str(link.schedule_task_id)] = link
         for occurrence in occurrences:
             state = "已标记完成" if occurrence.status == "completed" else "截至回顾生成时未标记完成"
             note = f"；执行备注：{occurrence.execution_note}" if occurrence.execution_note else ""
@@ -392,6 +408,7 @@ class ReviewSourceFreezer:
                 value.strftime("%H:%M") for value in (occurrence.start_time, occurrence.end_time) if value
             )
             recurrence_type = occurrence.task.recurrence_type if occurrence.task else "NONE"
+            action_link = linked_actions.get(str(occurrence.task_id)) if occurrence.task_id else None
             self.add_source(
                 root_fact_id=f"schedule-occurrence:{occurrence.id}",
                 source_type=ReviewSourceType.SCHEDULE_OCCURRENCE.value,
@@ -415,6 +432,8 @@ class ReviewSourceFreezer:
                     "status": occurrence.status,
                     "completed_at": occurrence.completed_at.isoformat() if occurrence.completed_at else None,
                     "execution_note": occurrence.execution_note,
+                    "linked_action_item_id": str(action_link.action_item_id) if action_link else None,
+                    "linked_action_title": action_link.action_item.title if action_link and action_link.action_item else None,
                 },
             )
         return candidates

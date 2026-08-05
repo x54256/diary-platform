@@ -4,7 +4,7 @@ import enum
 import uuid
 from datetime import datetime
 
-from sqlalchemy import Column, String, Text, Date, DateTime, Enum, ForeignKey, Integer, Boolean, Index, text, Time
+from sqlalchemy import Column, String, Text, Date, DateTime, Enum, ForeignKey, Integer, Boolean, Index, UniqueConstraint, text, Time
 from sqlalchemy.dialects.postgresql import UUID, JSONB
 from sqlalchemy.orm import relationship
 
@@ -201,6 +201,11 @@ class DiaryActionItem(Base):
         cascade="all, delete-orphan",
         order_by="DiaryActionScheduleLink.linked_at",
     )
+    event_links = relationship(
+        "DiaryActionEventLink",
+        back_populates="action_item",
+        cascade="all, delete-orphan",
+    )
 
 
 class DiaryActionScheduleLink(Base):
@@ -236,6 +241,25 @@ class DiaryActionScheduleLink(Base):
     action_item = relationship("DiaryActionItem", back_populates="schedule_links")
     schedule_task = relationship("ScheduleTask", foreign_keys=[schedule_task_id])
     completion_occurrence = relationship("ScheduleOccurrence", foreign_keys=[completion_occurrence_id])
+
+
+class DiaryActionEventLink(Base):
+    """行动项与其来源日记事件的关联，行动项生成时固化。"""
+
+    __tablename__ = "diary_action_event_links"
+    __table_args__ = (
+        UniqueConstraint("action_item_id", "diary_event_id", name="uq_diary_action_event_links_pair"),
+        Index("ix_diary_action_event_links_event", "diary_event_id"),
+    )
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    action_item_id = Column(UUID(as_uuid=True), ForeignKey("diary_action_items.id", ondelete="CASCADE"), nullable=False)
+    diary_event_id = Column(UUID(as_uuid=True), ForeignKey("diary_events.id", ondelete="CASCADE"), nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    action_item = relationship("DiaryActionItem", back_populates="event_links")
+    diary_event = relationship("DiaryEvent")
 
 
 class DiaryEvent(Base):

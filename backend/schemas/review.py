@@ -19,13 +19,14 @@ ReviewTaskStepValue = Literal[
     "ANALYSIS_ACTION",
     "PERSIST_VERSION",
 ]
+# 新五领域码；写入校验走 review_ai 的 ALL_DOMAIN_CODES。
+# 响应侧领域字段用 str 放宽：历史版本的旧六码行动可安全透传展示（前端有未知码回退）。
 ReviewDomainValue = Literal[
-    "WORK_CAREER",
+    "WORK_OUTPUT",
+    "PERSONAL_GROWTH",
     "HEALTH_WELLBEING",
-    "RELATIONSHIPS_SOCIAL",
-    "LEARNING_GROWTH",
-    "LIFE_RESOURCES",
-    "LEISURE_EXPERIENCE",
+    "RELATIONSHIPS",
+    "LIFE_AFFAIRS",
 ]
 ReviewAngleValue = Literal[
     "EMOTION_REGULATION",
@@ -204,8 +205,8 @@ class ReviewFeedbackResponse(BaseModel):
 class ReviewActionResponse(BaseModel):
     id: UUID
     version_id: UUID
-    primary_domain: ReviewDomainValue
-    related_domains: list[ReviewDomainValue] = Field(default_factory=list)
+    primary_domain: str
+    related_domains: list[str] = Field(default_factory=list)
     content: str
     edited_content: Optional[str] = None
     rationale: Optional[str] = None
@@ -225,7 +226,7 @@ class ReviewActionCheckResponse(BaseModel):
     id: UUID
     version_id: UUID
     previous_action_id: UUID
-    primary_domain: ReviewDomainValue
+    primary_domain: str
     previous_action_content: str
     check_status: ReviewActionCheckStatusValue
     explanation: str

@@ -1041,6 +1041,22 @@ def update_diary(
     if not diary:
         raise HTTPException(status_code=404, detail="日记不存在")
 
+    running_organize_task = (
+        db.query(OrganizeTask)
+        .filter(
+            OrganizeTask.diary_id == diary_id,
+            OrganizeTask.user_id == current_user.id,
+            OrganizeTask.task_type == "organize",
+            OrganizeTask.status == "running",
+        )
+        .first()
+    )
+    if running_organize_task:
+        raise HTTPException(
+            status_code=400,
+            detail="当前正在整理，暂不能修改原文",
+        )
+
     # 状态守卫：仅 saved、organized 可编辑原文
     if diary.status not in (DiaryStatus.saved, DiaryStatus.organized):
         raise HTTPException(
@@ -1058,8 +1074,9 @@ def update_diary(
         source_changed = True
     if source_changed:
         diary.content_revision += 1
+        diary.is_dirty = True
 
-    # 脏标记：前端传 is_dirty=True 时置位（仅已整理/已分析状态有意义）
+    # 兼容调用方显式设置脏标记
     if update_data.is_dirty is True:
         diary.is_dirty = True
 
@@ -1180,7 +1197,6 @@ async def organize_diary(
     if failed_task:
         failed_task.status = "running"
         failed_task.error_message = None
-        failed_task.current_step = "feedback_core_analysis" if analysis_mode == "feedback" else "mood_tag_extract"
         db.commit()
         db.refresh(failed_task)
         task = failed_task

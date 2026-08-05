@@ -1,29 +1,29 @@
 <template>
-  <div class="min-h-dvh bg-[#f6f4ee]">
-    <ReviewTopBar title="编辑我的回顾" eyebrow="生活编年" show-back>
+  <div class="min-h-dvh">
+    <ReviewTopBar title="编辑我的回顾" show-back>
       <template #right>
-        <button type="button" class="min-h-11 rounded-full px-3 text-sm font-semibold text-primary-700 disabled:text-neutral-300" :disabled="saving || !dirty" @click="save">保存</button>
+        <button type="button" class="px-2 text-sm font-medium text-primary-600 disabled:text-neutral-300" :disabled="saving || !dirty" @click="save">保存</button>
       </template>
     </ReviewTopBar>
-    <main class="mx-auto w-full max-w-3xl px-4 py-6 sm:px-6">
-      <div v-if="loading" class="h-64 animate-pulse rounded-3xl bg-white" />
+    <main class="mx-auto w-full max-w-md px-4 py-4">
+      <div v-if="loading" class="flex justify-center py-24"><span class="text-sm text-neutral-400">加载中...</span></div>
       <ReviewStatusBanner v-else-if="error" :title="error" tone="error" action-label="重新加载" @action="load" />
-      <section v-else-if="thread" class="rounded-3xl border border-[#e8e1d5] bg-[#fffdf8] p-5 sm:p-6">
+      <section v-else-if="thread" class="rounded-lg border border-neutral-200 bg-white p-4">
         <p class="text-xs font-medium text-primary-700">{{ domainLabel }}</p>
-        <h1 class="mt-2 text-lg font-semibold text-neutral-900">{{ thread.title }}</h1>
-        <textarea ref="narrativeRef" v-model="narrative" rows="1" data-auto-resize class="mt-5 min-h-64 w-full resize-none overflow-hidden rounded-xl border border-neutral-200 p-3 text-base leading-7 text-neutral-800 focus:border-primary-400 focus:outline-none" aria-label="事件主线叙事" @input="resizeNarrative" />
+        <h1 class="mt-2 text-lg font-medium text-neutral-900">{{ thread.title }}</h1>
+        <textarea ref="narrativeRef" v-model="narrative" rows="1" data-auto-resize class="mt-4 min-h-64 w-full resize-none overflow-hidden rounded-lg border border-neutral-200 p-3 text-base leading-7 text-neutral-800 focus:border-primary-400 focus:outline-none" aria-label="事件主线叙事" @input="resizeNarrative" />
         <p class="mt-3 text-sm leading-6 text-neutral-500">保存后会创建新版本，不会修改原日记。当前分析会标记为“可能已过期”，需要你主动更新分析和行动。</p>
         <p v-if="saveError" class="mt-3 text-sm text-red-600">{{ saveError }}</p>
       </section>
     </main>
     <Teleport to="body">
       <div v-if="leaveConfirmOpen" class="fixed inset-0 z-[90] flex items-end justify-center bg-black/35" role="dialog" aria-modal="true" aria-label="放弃未保存修改" @click.self="leaveConfirmOpen = false" @keydown.esc="leaveConfirmOpen = false">
-        <section class="w-full max-w-md rounded-t-3xl bg-white p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">
-          <h2 class="font-semibold text-neutral-900">放弃未保存的修改？</h2>
+        <section class="w-full max-w-md rounded-t-2xl bg-white p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">
+          <h2 class="font-medium text-neutral-900">放弃未保存的修改？</h2>
           <p class="mt-2 text-sm leading-6 text-neutral-600">离开后，本次事件叙事修改不会保留。</p>
           <div class="mt-5 grid grid-cols-2 gap-3">
-            <button type="button" autofocus class="min-h-12 rounded-xl bg-neutral-100 text-sm text-neutral-700" @click="leaveConfirmOpen = false">继续编辑</button>
-            <button type="button" class="min-h-12 rounded-xl bg-red-600 text-sm font-semibold text-white" @click="discardAndLeave">放弃修改</button>
+            <button type="button" autofocus class="min-h-12 rounded-lg border border-neutral-300 text-sm text-neutral-700" @click="leaveConfirmOpen = false">继续编辑</button>
+            <button type="button" class="min-h-12 rounded-lg bg-red-600 text-sm font-medium text-white" @click="discardAndLeave">放弃修改</button>
           </div>
         </section>
       </div>
@@ -32,8 +32,9 @@
 </template>
 
 <script setup lang="ts">
-import type { ReviewDomainCode, ReviewEventThread, ReviewVersionDetail } from '~/types'
+import type { ReviewEventThread, ReviewVersionDetail } from '~/types'
 import { resizeTextarea } from '~/composables/useAutoResizeTextarea'
+import { reviewDomainLabel } from '~/utils/reviewLabels'
 
 definePageMeta({ layout: 'auth', middleware: 'auth' })
 const route = useRoute()
@@ -55,13 +56,7 @@ const leaveConfirmOpen = ref(false)
 const pendingRoute = ref('')
 const allowLeave = ref(false)
 const dirty = computed(() => narrative.value.trim() !== original.value.trim())
-const domainLabel = computed(() => {
-  const labels: Record<ReviewDomainCode, string> = {
-    WORK_CAREER: '工作与事业', HEALTH_WELLBEING: '身心健康', RELATIONSHIPS_SOCIAL: '关系与社交',
-    LEARNING_GROWTH: '学习与个人成长', LIFE_RESOURCES: '生活管理与资源', LEISURE_EXPERIENCE: '休闲与体验',
-  }
-  return thread.value ? labels[thread.value.primary_domain] : ''
-})
+const domainLabel = computed(() => (thread.value ? reviewDomainLabel(thread.value.primary_domain) : ''))
 const load = async () => {
   loading.value = true; error.value = ''
   try {

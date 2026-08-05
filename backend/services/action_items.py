@@ -15,6 +15,7 @@ from models.diary import (
     AnalysisItem,
     AnalysisRun,
     Diary,
+    DiaryActionEventLink,
     DiaryActionItem,
     DiaryActionScheduleLink,
     DiaryStatus,
@@ -264,7 +265,47 @@ def apply_action_planning_result(
         sort_order += 1
         db.add(item)
         created.append(item)
+    _freeze_event_links(db, user_id, created)
     return protected + created
+
+
+def _freeze_event_links(db: Session, user_id, created: list[DiaryActionItem]) -> None:
+    """行动项落库时固化其与来源日记事件的关联；PLAN 来源无事件关联，存量不回填。"""
+    targets: list[tuple[DiaryActionItem, list[UUID]]] = []
+    for item in created:
+        if item.source_kind == "PLAN":
+            continue
+        analysis_ids: list[UUID] = []
+        for raw_id in (item.source_refs or {}).get("analysis_item_ids") or []:
+            try:
+                analysis_ids.append(_as_uuid(raw_id))
+            except (TypeError, ValueError):
+                continue
+        if analysis_ids:
+            targets.append((item, analysis_ids))
+    if not targets:
+        return
+    db.flush()
+    all_ids = [analysis_id for _, analysis_ids in targets for analysis_id in analysis_ids]
+    event_by_analysis_id = {
+        row.id: row.event_id
+        for row in db.query(AnalysisItem)
+        .filter(AnalysisItem.id.in_(all_ids), AnalysisItem.event_id.isnot(None))
+        .all()
+    }
+    for item, analysis_ids in targets:
+        linked_event_ids: set[UUID] = set()
+        for analysis_id in analysis_ids:
+            # 映射未命中（无 event_id 的分析项或不存在的 ID）直接跳过，不得写入空外键。
+            event_id = event_by_analysis_id.get(analysis_id)
+            if not event_id or event_id in linked_event_ids:
+                continue
+            linked_event_ids.add(event_id)
+            db.add(DiaryActionEventLink(
+                user_id=user_id,
+                action_item_id=item.id,
+                diary_event_id=event_id,
+            ))
 
 
 def update_action_fields(action: DiaryActionItem, title: str | None, schedule: Any | None):

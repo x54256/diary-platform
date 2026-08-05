@@ -184,24 +184,24 @@ EVENT_ORGANIZE_PROMPT = """你是一个日记事件整理助手。请对日记�
 - 时间、地点、人物、场景、主题作为辅助判断维度。
 - 同一件事即使在原文中分散出现，也要汇聚到一起。
 
+""" + TEXT_MARKUP_RULES + """ 
+
 ## 整理样例
 
 输入：
-今天把软件过程文档基本上写完了，就差 Scrum 和 Kanban 两个没写。东莞的项目也收尾了，我这边没啥活了。昨天给自己找了个活，去干前端的 DUS 工作。下周估计要跟田总要活。
+今天把软件过程文档基本上写完了，就差 Scrum 和 Kanban 两个没写。东莞的项目也收尾了，我这边没啥活了，要是在继续歇下去年终总结的时候没啥东西可说，可能明年就要被优化了。昨天给自己找了个活，去干前端的 DUS 工作。下周估计要跟田总要活。
 
 输出：
 {
   "introduction": "",
   "events": [
-    {"event_title": "完成软件过程文档", "organized_text": "今天把软件过程文档基本上写完了，就差 Scrum 和 Kanban 两个没写。"},
-    {"event_title": "东莞项目收尾", "organized_text": "东莞的项目也收尾了，我这边没啥活了。"},
+    {"event_title": "完成软件过程文档", "organized_text": "今天把**软件过程文档基本上写完了**，就差 Scrum 和 Kanban 两个没写。"},
+    {"event_title": "东莞项目收尾", "organized_text": "东莞的项目也收尾了，我这边没啥活了，要是在继续歇下去年终总结的时候<red>没啥东西可说</red>，可能明年就要<red>被优化了</red>。"},
     {"event_title": "接手前端 DUS 工作", "organized_text": "昨天给自己找了个活，去干前端的 DUS 工作。"}
   ],
   "trivia": [],
   "plans": ["下周跟田总要活"]
 }
-
-""" + TEXT_MARKUP_RULES + """ 
 
 ## 输出要求
 请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：

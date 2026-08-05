@@ -137,12 +137,11 @@ class ReviewActionCheckStatus(StringEnum):
 
 
 class ReviewDomain(StringEnum):
-    WORK_CAREER = "WORK_CAREER"
+    WORK_OUTPUT = "WORK_OUTPUT"
+    PERSONAL_GROWTH = "PERSONAL_GROWTH"
     HEALTH_WELLBEING = "HEALTH_WELLBEING"
-    RELATIONSHIPS_SOCIAL = "RELATIONSHIPS_SOCIAL"
-    LEARNING_GROWTH = "LEARNING_GROWTH"
-    LIFE_RESOURCES = "LIFE_RESOURCES"
-    LEISURE_EXPERIENCE = "LEISURE_EXPERIENCE"
+    RELATIONSHIPS = "RELATIONSHIPS"
+    LIFE_AFFAIRS = "LIFE_AFFAIRS"
 
 
 class ReviewAnalysisAngle(StringEnum):
@@ -497,8 +496,8 @@ class ReviewAction(Base):
     __table_args__ = (
         CheckConstraint("status IN ('CANDIDATE','CONFIRMED','IGNORED')", name="ck_review_actions_status"),
         CheckConstraint(
-            "primary_domain IN ('WORK_CAREER','HEALTH_WELLBEING','RELATIONSHIPS_SOCIAL',"
-            "'LEARNING_GROWTH','LIFE_RESOURCES','LEISURE_EXPERIENCE')",
+            "primary_domain IN ('WORK_OUTPUT','PERSONAL_GROWTH','HEALTH_WELLBEING',"
+            "'RELATIONSHIPS','LIFE_AFFAIRS')",
             name="ck_review_actions_domain",
         ),
         Index("ix_review_actions_version_domain", "version_id", "primary_domain"),

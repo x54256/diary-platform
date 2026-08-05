@@ -1,10 +1,10 @@
 <template>
-  <article class="rounded-2xl border border-[#ebe6ed] bg-[#faf9fb] px-4 py-4">
+  <article class="rounded-lg border border-neutral-200 bg-white px-4 py-4">
     <div class="flex items-start justify-between gap-3">
-      <h4 class="text-sm font-semibold text-neutral-800">{{ angleLabel }}</h4>
+      <h4 class="text-sm font-medium text-neutral-800">{{ angleLabel }}</h4>
       <span v-if="savedMessage" class="shrink-0 text-xs text-emerald-600">{{ savedMessage }}</span>
     </div>
-    <p class="mt-2 text-[15px] leading-7 text-neutral-700">{{ item.claim }}</p>
+    <p class="mt-2 text-sm leading-6 text-neutral-700">{{ item.claim }}</p>
     <div class="mt-2 flex items-center justify-between gap-2">
       <button type="button" class="min-h-11 text-sm text-neutral-500" @click="$emit('sources', sourceIds, angleLabel)">查看依据</button>
       <div class="flex" :aria-label="`对${angleLabel}评分`">
@@ -21,7 +21,7 @@
       </div>
     </div>
     <p v-if="feedback?.is_inherited" class="text-xs text-amber-700">来自上一版本，请重新确认</p>
-    <div v-if="expanded" class="mt-3 rounded-xl border border-[#e8e1d5] bg-white p-3">
+    <div v-if="expanded" class="mt-3 rounded-lg border border-neutral-200 bg-neutral-50 p-3">
       <textarea
         v-model="comment"
         rows="3"

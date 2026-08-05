@@ -235,6 +235,16 @@ async def run_graph_with_checkpoint(graph, task_id: str, initial_state: dict) ->
         )
         return dict(snapshot.values)
     if snapshot.next:
+        # 兼容旧 checkpoint：新增输入字段时，只补齐 checkpoint 中尚不存在的字段，
+        # 保留已有中间结果并继续从原失败节点恢复。
+        checkpoint_values = snapshot.values or {}
+        missing_state = {
+            key: value
+            for key, value in initial_state.items()
+            if key not in checkpoint_values
+        }
+        if missing_state:
+            await graph.aupdate_state(config, missing_state)
         logger.info(
             "从 checkpoint 恢复分析",
             extra=log_extra(event="analysis.checkpoint.resumed", task_id=task_id, checkpoint_action="resume", resume_nodes=tuple(snapshot.next)),

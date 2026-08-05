@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import copy
 import logging
+import re
 import uuid
+from collections import defaultdict
 from datetime import date, datetime, timedelta
 from typing import Any
 
@@ -13,6 +15,7 @@ from sqlalchemy.orm import Session
 
 from config import settings
 from database import SessionLocal
+from models.diary import DiaryActionEventLink, DiaryActionScheduleLink
 from models.review import (
     Review,
     ReviewAction,
@@ -99,32 +102,65 @@ def _weekly_fact(item: dict[str, Any]) -> str:
 
 
 def _assemble_week_event_document(model_result: dict[str, Any], weekly_items: list[dict[str, Any]]) -> dict[str, Any]:
-    """由模型的事项归属生成稳定的周级主线、节点与关注点。"""
+    """主线与单日事项统一生成为领域内 thread；全部键由代码确定性生成。"""
     items = {str(item["item_key"]): item for item in weekly_items}
     domains: dict[str, dict[str, Any]] = {}
-    for position, semantic in enumerate(model_result.get("threads", []), start=1):
-        item_keys = semantic["item_keys"]
+
+    def _node_source_ids(item: dict[str, Any]) -> list[str]:
+        # 含 schedule_facts 的项，其日程来源 source_id 并入节点来源，使日程事实可进入分析证据白名单。
+        ids = {str(source_id) for source_id in item.get("source_ids") or []}
+        ids.update(
+            str(fact["source_id"]) for fact in item.get("schedule_facts") or []
+            if isinstance(fact, dict) and fact.get("source_id")
+        )
+        return sorted(ids)
+
+    def _node_quotes(item: dict[str, Any]) -> list[str]:
+        """提取事项中的原文引用（key_quotes）。"""
+        quotes = item.get("key_quotes") or []
+        return [str(q) for q in quotes if isinstance(q, str) and q.strip()]
+
+    for thread in model_result.get("threads", []):
+        item_keys = [str(key) for key in thread.get("member_item_keys", [])]
+        span_type = "CROSS_DAY" if len(item_keys) >= 2 else "SINGLE_DAY"
         thread_key = f"thread-{uuid.uuid5(uuid.NAMESPACE_URL, '|'.join(sorted(item_keys)))}"
+        narrative = thread["narrative"]
         nodes = []
         source_ids: list[str] = []
         for item_key in item_keys:
             item = items[item_key]
-            node_key = f"node-{uuid.uuid5(uuid.NAMESPACE_URL, item_key)}"
-            ids = list(item["source_ids"])
-            source_ids.extend(ids)
-            nodes.append({"node_key": node_key, "source_date": item["digest_date"], "change_type": "CURRENT_STATE", "fact": _weekly_fact(item), "source_ids": ids})
-        domain_code = semantic["domain_code"]
+            node_source_ids = _node_source_ids(item)
+            source_ids.extend(node_source_ids)
+            nodes.append({
+                "node_key": f"node-{uuid.uuid5(uuid.NAMESPACE_URL, item_key)}",
+                "source_date": item["digest_date"], "change_type": "CURRENT_STATE",
+                "fact": _weekly_fact(item), "source_ids": node_source_ids,
+                "quotes": _node_quotes(item),
+            })
+        domain_code = thread["domain_code"]
         domain = domains.setdefault(domain_code, {"domain_code": domain_code, "core_focus": [], "event_threads": []})
         domain["event_threads"].append({
-            "thread_key": thread_key, "title": semantic["title"], "primary_domain": domain_code,
-            "related_domains": [], "narrative": "；".join(_weekly_fact(item) for item in (items[key] for key in item_keys)),
+            "thread_key": thread_key, "title": thread["title"], "primary_domain": domain_code,
+            "related_domains": [], "span_type": span_type, "narrative": narrative,
             "narrative_node_keys": [node["node_key"] for node in nodes], "continuity_status": "NEW",
-            "current_status": semantic["current_status"], "previous_thread_key": None,
-            "prior_context_source_ids": [], "selection_reason_codes": [semantic["selection_reason_code"]], "nodes": nodes, "links": [],
+            "current_status": thread["current_status"], "previous_thread_key": None,
+            "prior_context_source_ids": [], "nodes": nodes, "links": [],
         })
-        domain["core_focus"].append({"focus_key": f"focus-{thread_key}", "label": semantic["title"], "thread_keys": [thread_key], "source_ids": sorted(set(source_ids))})
-    other_matters = [{"title": items[key]["title"], "narrative": _weekly_fact(items[key]), "source_ids": items[key]["source_ids"]} for key in model_result.get("other_item_keys", [])]
-    return {"domains": list(domains.values()), "other_matters": other_matters}
+        domain["core_focus"].append({"focus_key": f"focus-{thread_key}", "label": thread["title"], "thread_keys": [thread_key], "source_ids": sorted(set(source_ids))})
+    return {"domains": list(domains.values())}
+
+
+def _replay_stored_schedule_facts(daily_items: list[dict[str, Any]], event_result: dict[str, Any]) -> None:
+    """resume 时原样重放事件环节落库的日程事实；旧结构无该键则保留实时重算结果。"""
+    stored = event_result.get("schedule_facts_by_item") if isinstance(event_result, dict) else None
+    if not isinstance(stored, dict):
+        return
+    for item in daily_items:
+        facts = stored.get(str(item.get("item_key")))
+        if facts:
+            item["schedule_facts"] = copy.deepcopy(facts)
+        else:
+            item.pop("schedule_facts", None)
 
 
 def _stable_key(kind: str, *parts: object) -> str:
@@ -275,33 +311,120 @@ def _compact_week_catalog(source_catalog: list[dict[str, Any]], source_ids: set[
     return result
 
 
-def _schedule_aggregates(source_catalog: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    groups: dict[str, dict[str, Any]] = {}
+_UUID_TEXT = re.compile(r"^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
+# 发给模型的事项保留键；其余 UUID 字段一律剥离，组装时用内存中的完整 items 映射。
+_MODEL_ITEM_UUID_KEYS = {"item_key", "source_ids", "source_event_ids"}
+
+
+def _model_ready_item(item: dict[str, Any]) -> dict[str, Any]:
+    def _slim_dict(mapping: dict[str, Any]) -> dict[str, Any]:
+        return {
+            inner_key: copy.deepcopy(inner_value)
+            for inner_key, inner_value in mapping.items()
+            if not (isinstance(inner_value, str) and _UUID_TEXT.match(inner_value))
+        }
+
+    slim: dict[str, Any] = {}
+    for key, value in item.items():
+        if key in _MODEL_ITEM_UUID_KEYS:
+            slim[key] = copy.deepcopy(value)
+            continue
+        if isinstance(value, str) and _UUID_TEXT.match(value):
+            continue
+        if isinstance(value, list):
+            if value and all(isinstance(entry, str) and _UUID_TEXT.match(entry) for entry in value):
+                continue
+            slim[key] = [
+                _slim_dict(entry) if isinstance(entry, dict) else copy.deepcopy(entry)
+                for entry in value
+            ]
+            continue
+        if isinstance(value, dict):
+            slim[key] = _slim_dict(value)
+            continue
+        slim[key] = copy.deepcopy(value)
+    return slim
+
+
+def _item_schedule_facts(
+    source_catalog: list[dict[str, Any]],
+    db: Session,
+    user_id,
+    event_id_to_items: dict[str, list[dict[str, Any]]],
+) -> dict[str, list[dict[str, Any]]]:
+    """经事件→行动项→有效日程关联，把快照中的日程执行事实精确挂到每日事项。"""
+    event_ids: list[uuid.UUID] = []
+    for event_id in event_id_to_items:
+        try:
+            event_ids.append(uuid.UUID(str(event_id)))
+        except (TypeError, ValueError):
+            continue
+    if not event_ids:
+        return {}
+    event_links = (
+        db.query(DiaryActionEventLink)
+        .filter(
+            DiaryActionEventLink.user_id == user_id,
+            DiaryActionEventLink.diary_event_id.in_(event_ids),
+        )
+        .all()
+    )
+    if not event_links:
+        return {}
+    actions_by_event: dict[str, set[uuid.UUID]] = defaultdict(set)
+    for link in event_links:
+        actions_by_event[str(link.diary_event_id)].add(link.action_item_id)
+    schedule_links = (
+        db.query(DiaryActionScheduleLink)
+        .filter(
+            DiaryActionScheduleLink.user_id == user_id,
+            DiaryActionScheduleLink.action_item_id.in_({action_id for ids in actions_by_event.values() for action_id in ids}),
+            DiaryActionScheduleLink.unlinked_at.is_(None),
+            DiaryActionScheduleLink.schedule_task_id.isnot(None),
+        )
+        .all()
+    )
+    tasks_by_action: dict[uuid.UUID, set[str]] = defaultdict(set)
+    for link in schedule_links:
+        tasks_by_action[link.action_item_id].add(str(link.schedule_task_id))
+    occurrences_by_task: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for source in source_catalog:
         if source.get("source_type") != "SCHEDULE_OCCURRENCE" or source.get("period_role") != "CURRENT":
             continue
         metadata = source.get("metadata") or {}
-        title = str(metadata.get("title") or source.get("content") or "日程")
-        group = groups.setdefault(title, {"title": title, "planned_count": 0, "completed_count": 0, "dates": [], "details": [], "source_ids": []})
-        group["planned_count"] += 1
-        group["dates"].append(source.get("source_date"))
-        group["source_ids"].append(str(source["source_id"]))
-        if metadata.get("status") == "completed":
-            group["completed_count"] += 1
-        if metadata.get("execution_note"):
-            group["details"].append({"source_id": source.get("source_id"), "note": metadata["execution_note"]})
-    result = []
-    for group in groups.values():
-        source_ids = sorted(set(group["source_ids"]))
-        dates = sorted(value for value in group["dates"] if isinstance(value, str))
-        result.append({
-            **group,
-            "item_key": _stable_key("schedule", group["title"], *source_ids),
-            "item_type": "SCHEDULE",
-            "digest_date": dates[0] if dates else None,
-            "facts_and_progress": [f"计划 {group['planned_count']} 次，已完成 {group['completed_count']} 次"],
-        })
-    return result
+        if metadata.get("status") == "deleted" or not metadata.get("task_id"):
+            continue
+        occurrences_by_task[str(metadata["task_id"])].append(source)
+    facts_by_item: dict[str, list[dict[str, Any]]] = {}
+    for items in event_id_to_items.values():
+        for item in items:
+            item_key = str(item.get("item_key") or "")
+            if not item_key or item_key in facts_by_item:
+                continue
+            task_ids: set[str] = set()
+            for event_id in item.get("source_event_ids") or []:
+                for action_id in actions_by_event.get(str(event_id), ()):
+                    task_ids.update(tasks_by_action.get(action_id, ()))
+            seen: set[str] = set()
+            facts: list[dict[str, Any]] = []
+            for task_id in task_ids:
+                for occurrence in occurrences_by_task.get(task_id, []):
+                    source_id = str(occurrence.get("source_id"))
+                    if source_id in seen:
+                        continue
+                    seen.add(source_id)
+                    metadata = occurrence.get("metadata") or {}
+                    facts.append({
+                        "date": metadata.get("scheduled_date") or occurrence.get("source_date"),
+                        "task_title": str(metadata.get("title") or "").strip(),
+                        "status_text": "已标记完成" if metadata.get("status") == "completed" else "截至回顾生成时未标记完成",
+                        "execution_note": str(metadata.get("execution_note") or "")[:200],
+                        "source_id": source_id,
+                    })
+            if facts:
+                facts.sort(key=lambda fact: (fact["date"] or "", fact["task_title"]))
+                facts_by_item[item_key] = facts
+    return facts_by_item
 
 
 class ReviewGenerationError(RuntimeError):
@@ -731,36 +854,62 @@ async def execute_review_task(
                 for row in daily_rows if row.status == ReviewDailyDigestStatus.READY.value
                 for item in (row.material_document or {}).get("matters", [])
             ]
-            schedule_items = _schedule_aggregates(source_catalog)
-            weekly_items = daily_items + schedule_items
-            if not weekly_items:
+            if not daily_items:
                 task = _task_owned(db, task_id, run_token)
                 task.status = ReviewTaskStatus.SKIPPED_NO_DATA.value
                 task.completed_at = datetime.utcnow()
                 db.commit()
                 return
+            event_id_to_items: dict[str, list[dict[str, Any]]] = {}
+            for item in daily_items:
+                for event_id in item.get("source_event_ids") or []:
+                    event_id_to_items.setdefault(str(event_id), []).append(item)
+            facts_by_item = _item_schedule_facts(source_catalog, db, task.user_id, event_id_to_items)
+            for item in daily_items:
+                facts = facts_by_item.get(str(item.get("item_key")))
+                if facts:
+                    item["schedule_facts"] = facts
+            weekly_items = daily_items
             week_catalog = _compact_week_catalog(source_catalog, all_daily_source_ids)
+            # day_summaries = 每个 READY 每日素材的 day_overview，仅帮模型把握全周基调；叙事内容仍以 weekly_items 为准。
+            day_summaries = [
+                {
+                    "digest_date": row.digest_date.isoformat(),
+                    "main_changes": list(((row.material_document or {}).get("day_overview") or {}).get("main_changes") or []),
+                    "overall_state": list(((row.material_document or {}).get("day_overview") or {}).get("overall_state") or []),
+                }
+                for row in daily_rows if row.status == ReviewDailyDigestStatus.READY.value
+            ]
             event_payload = {
                 "review": {"generation_mode": "FULL", "review_type": review.review_type, "period_start": review.period_start.isoformat(), "period_end": review.period_end.isoformat()},
-                "source_catalog": week_catalog,
-                "daily_digests": [{"digest_date": row.digest_date.isoformat(), "material_document": row.material_document} for row in daily_rows if row.status == ReviewDailyDigestStatus.READY.value],
-                "weekly_items": weekly_items,
-                "missing_periods": [],
+                "day_summaries": day_summaries,
+                "weekly_items": [_model_ready_item(item) for item in weekly_items],
             }
             if isinstance(task.event_result, dict) and "domains" in task.event_result:
                 # 业务表中的周事件已通过组装与校验；恢复时绝不再次调用周模型。
-                event_document = copy.deepcopy(task.event_result)
+                stored_result = copy.deepcopy(task.event_result)
+                # 重放事件环节落库的日程事实，避免重试前日程状态变化导致素材与叙事矛盾；旧结构无该键则保留实时重算。
+                _replay_stored_schedule_facts(daily_items, stored_result)
+                stored_result.pop("schedule_facts_by_item", None)
+                event_document = stored_result
             else:
                 weekly_semantics = await review_week_event_organize_from_digests(event_payload, review_task_id=str(task_id), max_attempts=settings.LLM_MAX_ATTEMPTS)
                 event_document = _assemble_week_event_document(weekly_semantics, weekly_items)
                 event_model_info = actual_review_model_info()
                 task = _task_owned(db, task_id, run_token)
-                task.event_result = event_document
+                task.event_result = {**event_document, "schedule_facts_by_item": facts_by_item}
                 db.commit()
             source_catalog = week_catalog
             weekly_materials = _weekly_materials_for_analysis(weekly_items, event_document)
             if stop_after == ReviewTaskStep.EVENT_ORGANIZE.value:
                 return
+            # 分析环节已关闭，直接使用空分析结果
+            analysis_result = {"domains": []}
+            missing_periods = []
+            dependencies = []
+            analysis_model_info = None
+            task = _advance(db, task_id, run_token, ReviewTaskStep.PERSIST_VERSION.value)
+            db.commit()
         else:
             if not base_version or not base_version.analysis_stale:
                 raise ReviewGenerationError("只能基于分析已过期的事件编辑版本更新分析", "INVALID_BASE_VERSION")

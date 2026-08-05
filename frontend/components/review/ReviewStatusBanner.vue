@@ -1,13 +1,13 @@
 <template>
-  <div class="rounded-xl border px-4 py-3" :class="toneClass">
+  <div class="rounded-lg border px-4 py-3" :class="toneClass">
     <div class="flex items-start justify-between gap-3">
       <div>
-        <p class="text-sm font-semibold">{{ title }}</p>
+        <p class="text-sm font-medium">{{ title }}</p>
         <p v-if="description" class="mt-1 text-sm leading-5 opacity-80">{{ description }}</p>
       </div>
       <button v-if="dismissible" type="button" class="min-h-11 min-w-11 -mr-3 -mt-2 text-lg opacity-60" aria-label="关闭提示" @click="$emit('dismiss')">×</button>
     </div>
-    <button v-if="actionLabel" type="button" class="mt-2 min-h-11 text-sm font-semibold underline underline-offset-4" @click="$emit('action')">
+    <button v-if="actionLabel" type="button" class="mt-2 min-h-11 text-sm font-medium underline underline-offset-4" @click="$emit('action')">
       {{ actionLabel }}
     </button>
   </div>

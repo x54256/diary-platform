@@ -353,12 +353,11 @@ export interface Dialog {
 // 定期回顾
 export type ReviewType = 'WEEK' | 'MONTH'
 export type ReviewDomainCode =
-  | 'WORK_CAREER'
+  | 'WORK_OUTPUT'
+  | 'PERSONAL_GROWTH'
   | 'HEALTH_WELLBEING'
-  | 'RELATIONSHIPS_SOCIAL'
-  | 'LEARNING_GROWTH'
-  | 'LIFE_RESOURCES'
-  | 'LEISURE_EXPERIENCE'
+  | 'RELATIONSHIPS'
+  | 'LIFE_AFFAIRS'
 
 export interface ReviewSummary {
   id: string
@@ -384,7 +383,8 @@ export interface ReviewEventThread {
   related_domains?: ReviewDomainCode[]
   continuity_status?: string
   current_status?: string
-  nodes?: Array<{ node_key: string; source_date: string; fact: string; source_ids: string[] }>
+  span_type?: 'CROSS_DAY' | 'SINGLE_DAY'
+  nodes?: Array<{ node_key: string; source_date: string; fact: string; source_ids: string[]; quotes?: string[] }>
   prior_context_source_ids?: string[]
   user_overridden?: boolean
   narrative_correction_source_id?: string | null
@@ -423,7 +423,6 @@ export interface ReviewAnalysisDomain {
 
 export interface ReviewEventDocument {
   domains: ReviewEventDomain[]
-  other_matters?: Array<{ title: string; narrative: string; source_ids: string[] }>
 }
 
 export interface ReviewAnalysisDocument {
