@@ -306,16 +306,18 @@
 <span class="mb-2 block text-sm font-medium text-neutral-700">名称</span>
 <input v-model="form.title" required maxlength="200" placeholder="输入日程名称" class="w-full rounded-xl bg-neutral-100 px-4 py-3 text-base outline-none ring-[#007aff] focus:ring-2">
 </label>
-<label class="block">
-<span class="mb-2 block text-sm font-medium text-neutral-700">日期</span>
-<input v-model="form.start_date" :min="todayKey" type="date" class="w-full rounded-xl bg-neutral-100 px-4 py-3 text-base text-neutral-800 outline-none ring-[#007aff] focus:ring-2">
+<div class="flex min-w-0 items-center gap-3">
+<label class="flex min-w-0 flex-1 items-center gap-3">
+<span class="w-16 shrink-0 text-base font-medium text-neutral-700">日期：</span>
+<input v-model="form.start_date" :min="todayKey" type="date" class="box-border min-w-0 w-0 max-w-full flex-1 rounded-xl bg-neutral-100 px-3 py-2.5 text-base text-neutral-800 outline-none ring-[#007aff] focus:ring-2">
 </label>
-<div class="flex items-center justify-between rounded-xl bg-neutral-100 px-4 py-3">
-<span class="text-sm font-medium text-neutral-700">全天</span>
-<button type="button" role="switch" :aria-checked="form.is_all_day" @click="form.is_all_day=!form.is_all_day" class="relative h-7 w-12 rounded-full transition-colors" :class="form.is_all_day ? 'bg-[#007aff]' : 'bg-neutral-300'">
-<span class="absolute top-1 h-5 w-5 rounded-full bg-white shadow transition-transform" :class="form.is_all_day ? 'translate-x-6' : 'translate-x-1'">
+<div class="flex shrink-0 items-center gap-2">
+<span class="text-base font-medium text-neutral-700">全天</span>
+<button type="button" role="switch" :aria-checked="form.is_all_day" @click="form.is_all_day=!form.is_all_day" class="relative h-7 w-12 shrink-0 rounded-full transition-colors" :class="form.is_all_day ? 'bg-[#007aff]' : 'bg-neutral-300'">
+<span class="absolute left-1 top-1 h-5 w-5 rounded-full bg-white shadow transition-transform" :class="form.is_all_day ? 'translate-x-5' : 'translate-x-0'">
 </span>
 </button>
+</div>
 </div>
 <div v-if="!form.is_all_day" class="grid grid-cols-2 gap-3">
 <label>
