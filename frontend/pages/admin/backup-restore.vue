@@ -159,6 +159,7 @@
 </template>
 
 <script setup lang="ts">
+import { formatDateTimeInAppTimeZone } from '~/utils/datetime'
 definePageMeta({
   layout: 'admin',
   middleware: 'admin',
@@ -257,7 +258,8 @@ const downloadExport = async (id: string, fileName?: string) => {
 
 const formatTime = (value?: string) => {
   if (!value) return '-'
-  return new Date(value).toLocaleString()
+  const parts = formatDateTimeInAppTimeZone(value)
+  return parts || '-'
 }
 
 const summaryText = (value?: string) => {

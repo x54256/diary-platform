@@ -1,6 +1,6 @@
 <template>
-  <section class="flex-1 min-h-0 overflow-y-auto px-4 py-3 pb-24">
-    <div class="flex items-center justify-between mb-3">
+  <section class="flex-1 min-h-0 overflow-y-auto px-4 pb-[calc(12rem+env(safe-area-inset-bottom))]">
+    <div class="sticky top-0 z-20 -mx-4 mb-3 flex items-center justify-between border-b border-neutral-100 bg-white px-4 py-3">
       <div>
         <h2 class="text-lg font-semibold text-neutral-800">行动</h2>
         <p class="mt-0.5 text-xs text-neutral-400">后续计划与可行动建议整理后的独立行动项</p>
@@ -38,9 +38,10 @@
           <div class="flex items-start gap-3">
             <div class="min-w-0 flex-1">
               <div class="flex items-start gap-2">
-                <input
+                <textarea
                   v-model="action.title"
-                  class="min-w-0 flex-1 border-0 bg-transparent p-0 text-lg font-medium text-neutral-800 focus:ring-0"
+                  rows="2"
+                  class="min-w-0 flex-1 resize-none overflow-hidden break-words border-0 bg-transparent p-0 text-lg font-medium leading-7 text-neutral-800 focus:ring-0"
                   :class="action.status === 'completed' ? 'line-through' : ''"
                   aria-label="行动名称"
                   @blur="saveTitle(action)"
@@ -170,6 +171,7 @@
 </template>
 
 <script setup lang="ts">
+import { addDaysToDateKey, dateKeyInAppTimeZone } from '~/utils/datetime'
 import { computed, onMounted, ref, watch } from 'vue'
 import type { DiaryActionItem } from '~/types'
 
@@ -358,13 +360,17 @@ const setCustomFrequency = (value: string) => { customForm.value.recurrence_type
 const toggleWeekday = (form: any, value: number) => { form.weekdays = form.weekdays.includes(value) ? form.weekdays.filter((item: number) => item !== value) : [...form.weekdays, value].sort((a: number, b: number) => a - b) }
 const confirmCustom = () => {
   if (customForm.value.interval < 1 || !customTargetId.value) return
-  if (customForm.value.recurrence_type === 'WEEKLY' && !customForm.value.weekdays.length) customForm.value.weekdays = [new Date(`${syncCandidates.value.find(item => item.action.id === customTargetId.value)?.form.start_date || new Date().toISOString().slice(0, 10)}T12:00:00`).getDay()]
-  if (customForm.value.recurrence_type === 'MONTHLY_DATE' && !customForm.value.month_day) customForm.value.month_day = Number((syncCandidates.value.find(item => item.action.id === customTargetId.value)?.form.start_date || new Date().toISOString().slice(0, 10)).slice(8, 10))
+  if (customForm.value.recurrence_type === 'WEEKLY' && !customForm.value.weekdays.length) {
+    const date = syncCandidates.value.find(item => item.action.id === customTargetId.value)?.form.start_date || dateKeyInAppTimeZone()
+    const [year, month, day] = date.split('-').map(Number)
+    customForm.value.weekdays = [new Date(Date.UTC(year, month - 1, day, 12)).getUTCDay()]
+  }
+  if (customForm.value.recurrence_type === 'MONTHLY_DATE' && !customForm.value.month_day) customForm.value.month_day = Number((syncCandidates.value.find(item => item.action.id === customTargetId.value)?.form.start_date || dateKeyInAppTimeZone()).slice(8, 10))
   const target = syncCandidates.value.find(item => item.action.id === customTargetId.value)
   if (target) Object.assign(target.form, customForm.value, { customConfigured: true })
   cancelCustom()
 }
-const dateAfter = (value: string, days: number) => { const date = new Date(`${value}T12:00:00`); date.setDate(date.getDate() + days); return date.toISOString().slice(0, 10) }
+const dateAfter = (value: string, days: number) => addDaysToDateKey(value, days)
 const recurrenceDescription = (form: any) => {
   const count = Number(form.interval || 1); const number = count === 1 ? '一' : count === 2 ? '两' : String(count)
   if (form.recurrence_type === 'DAILY') return `每${number}天重复一次。`

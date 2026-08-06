@@ -445,6 +445,13 @@ async def content_check(state: PipelineState) -> dict:
     final_events = ai_service._validate_events(
         result.get("events", structured_events)
     )
+    # 内容审核不重新判断重要性；沿用三字段结构化阶段的结果。
+    for index, event in enumerate(final_events):
+        if index < len(structured_events):
+            event["importance"] = structured_events[index].get("importance", "LOW")
+            event["importance_reason"] = structured_events[index].get(
+                "importance_reason", "未识别到明确的用户影响"
+            )
     final_trivia = result.get("trivia", trivia)
     if not isinstance(final_trivia, list):
         final_trivia = trivia

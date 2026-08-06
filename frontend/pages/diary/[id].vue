@@ -541,7 +541,7 @@
     <NuxtLink
       v-if="diary?.diary_date && !isEditing && !isEditingStructured"
       :to="`/diary/new?date=${diary.diary_date}`"
-      class="fixed bottom-20 right-4 w-12 h-12 rounded-full bg-primary-600 text-white text-2xl flex items-center justify-center shadow-lg hover:bg-primary-700 transition-colors"
+      class="fixed bottom-20 right-4 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-primary-600 text-2xl text-white shadow-lg transition-colors hover:bg-primary-700"
     >
       +
     </NuxtLink>
@@ -692,6 +692,7 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { resizeTextarea, resizeTextareas } from '~/composables/useAutoResizeTextarea'
 import type { DiaryAnnotation, DiaryAnnotationClick, DiaryAnnotationSelection } from '~/types'
+import { formatDateTimeInAppTimeZone } from '~/utils/datetime'
 
 definePageMeta({
   layout: 'auth',
@@ -872,15 +873,7 @@ const annotationViewerSheetStyle = computed(() => ({
 }))
 
 const formatAnnotationTime = (value: string) => {
-  const time = new Date(value)
-  if (Number.isNaN(time.getTime())) return value
-  return time.toLocaleString('zh-CN', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-  })
+  return formatDateTimeInAppTimeZone(value) || value
 }
 
 const startAnnotationViewerDrag = (event: PointerEvent) => {

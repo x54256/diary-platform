@@ -31,6 +31,14 @@ class OrganizePromptRulesTest(unittest.TestCase):
         self.assertIn("周一又要开会", PROMPT_SOURCE)
         self.assertIn("无法确定具体日期或时间时，保留原文", PROMPT_SOURCE)
 
+    def test_template_fill_outputs_event_importance(self):
+        self.assertIn('"importance": "HIGH|MEDIUM|LOW"', PROMPT_SOURCE)
+        self.assertIn('"importance_reason"', PROMPT_SOURCE)
+
+    def test_analysis_prompt_no_longer_generates_importance(self):
+        analysis_source = (Path(__file__).parents[1] / "services" / "analysis_pipeline.py").read_text(encoding="utf-8")
+        self.assertNotIn('"event_importances"', analysis_source)
+
 
 if __name__ == "__main__":
     unittest.main()

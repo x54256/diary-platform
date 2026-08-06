@@ -3,10 +3,10 @@
     <!-- 顶部月份导航 -->
     <div class="sticky top-0 z-30 bg-white border-b border-neutral-200">
       <div class="flex items-center justify-between px-4 h-nav">
-        <button v-if="viewMode !== 'favorites'" @click="changeMonth(-1)" class="text-neutral-400 text-lg w-8 h-8 flex items-center justify-center">‹</button>
+        <button v-if="viewMode === 'calendar'" @click="changeMonth(-1)" class="text-neutral-400 text-lg w-8 h-8 flex items-center justify-center">‹</button>
         <span v-else class="w-8 h-8" aria-hidden="true" />
-        <span class="text-base font-medium text-neutral-800">{{ viewMode === 'favorites' ? '我的收藏' : `${currentYear}年${currentMonth}月` }}</span>
-        <button v-if="viewMode !== 'favorites'" @click="changeMonth(1)" class="text-neutral-400 text-lg w-8 h-8 flex items-center justify-center">›</button>
+        <span class="text-base font-medium text-neutral-800">{{ viewMode === 'favorites' ? '我的收藏' : viewMode === 'timeline' ? '全部日记' : `${currentYear}年${currentMonth}月` }}</span>
+        <button v-if="viewMode === 'calendar'" @click="changeMonth(1)" class="text-neutral-400 text-lg w-8 h-8 flex items-center justify-center">›</button>
         <span v-else class="w-8 h-8" aria-hidden="true" />
       </div>
     </div>
@@ -162,15 +162,18 @@
         加载中...
       </div>
       <div v-else-if="diaries.length === 0" class="text-center text-sm text-neutral-400 py-6">
-        本月暂无日记
+        暂无日记
       </div>
       <div v-else class="space-y-3">
         <NuxtLink
-          v-for="item in diaries"
+          v-for="(item, index) in diaries"
           :key="item.id"
           :to="`/diary/${item.id}`"
           class="block bg-white rounded-lg p-3 active:bg-neutral-50"
         >
+          <div v-if="index === 0 || diaries[index - 1].diary_date !== item.diary_date" class="-mt-1 mb-2 border-b border-neutral-100 pb-2 text-sm font-medium text-neutral-700">
+            {{ formatDiaryDate(item.diary_date) }}
+          </div>
           <!-- 创建时间 YYYY-MM-DD HH:mm -->
           <div class="flex items-center gap-2 mb-1">
             <span class="text-xs text-neutral-400">{{ formatTime(item.created_at) }}</span>
@@ -205,6 +208,9 @@
             <span v-if="topicDiaryTags(item.tags).length > 5" class="text-xs text-neutral-400 ml-1">+{{ topicDiaryTags(item.tags).length - 5 }}</span>
           </div>
         </NuxtLink>
+        <div ref="timelineSentinel" class="h-8 text-center text-xs text-neutral-400">
+          {{ timelineLoadingMore ? '加载中...' : timelineHasMore ? '继续下滑加载更多' : '已显示全部日记' }}
+        </div>
       </div>
     </div>
 
@@ -220,17 +226,19 @@
 
 <script setup lang="ts">
 // 日记浏览页（主页）：使用 default 布局（带 Tab 栏）
+import { addDaysToDateKey, dateKeyInAppTimeZone, formatDateTimeInAppTimeZone } from '~/utils/datetime'
 definePageMeta({
   layout: 'default',
   middleware: 'auth',
+  keepalive: true,
 })
 
 const { api } = useApi()
 
 // 当前年月
-const now = new Date()
-const currentYear = ref(now.getFullYear())
-const currentMonth = ref(now.getMonth() + 1)
+const todayParts = dateKeyInAppTimeZone().split('-').map(Number)
+const currentYear = ref(todayParts[0])
+const currentMonth = ref(todayParts[1])
 
 // 搜索关键词
 const searchQuery = ref('')
@@ -262,6 +270,30 @@ const totalMonthCount = computed(() => {
 // 时间线日记列表
 const diaries = ref<Diary[]>([])
 const timelineLoading = ref(false)
+const timelineLoadingMore = ref(false)
+const timelineHasMore = ref(true)
+const timelineOffset = ref(0)
+const timelinePageSize = 20
+const timelineSentinel = ref<HTMLElement | null>(null)
+let timelineObserver: IntersectionObserver | null = null
+const pageStateKey = 'diary-platform:diary-index-state'
+const browseCache = useState<{
+  calendarKey: string | null
+  calendarItems: Diary[]
+  calendarLoaded: boolean
+  timelineItems: Diary[]
+  timelineLoaded: boolean
+  timelineHasMore: boolean
+  timelineOffset: number
+}>('diary-browse-cache', () => ({
+  calendarKey: null,
+  calendarItems: [],
+  calendarLoaded: false,
+  timelineItems: [],
+  timelineLoaded: false,
+  timelineHasMore: true,
+  timelineOffset: 0,
+}))
 const favorites = ref<FavoriteItem[]>([])
 const favoritesLoading = ref(false)
 const favoriteFilter = ref<'all' | 'diary' | 'event'>('all')
@@ -314,9 +346,6 @@ const changeMonth = (delta: number) => {
   currentMonth.value = m
   currentYear.value = y
   loadCalendar()
-  if (viewMode.value === 'timeline') {
-    loadTimeline()
-  }
 }
 
 // 加载日历数据（获取完整 Diary 对象以显示标题/摘要）
@@ -326,21 +355,21 @@ const loadCalendar = async () => {
   const startDate = `${year}-${String(month).padStart(2, '0')}-01`
   const lastDay = new Date(year, month, 0).getDate()
   const endDate = `${year}-${String(month).padStart(2, '0')}-${String(lastDay).padStart(2, '0')}`
+  const cacheKey = `${startDate}:${endDate}`
+
+  if (browseCache.value.calendarLoaded && browseCache.value.calendarKey === cacheKey) {
+    calendarData.value = groupDiariesByDate(browseCache.value.calendarItems)
+    return
+  }
 
   try {
     const items = await api<Diary[]>('/diaries', {
       params: { start_date: startDate, end_date: endDate },
     })
-    const map = new Map<string, Diary[]>()
-    for (const item of items) {
-      const list = map.get(item.diary_date)
-      if (list) {
-        list.push(item)
-      } else {
-        map.set(item.diary_date, [item])
-      }
-    }
-    calendarData.value = map
+    browseCache.value.calendarKey = cacheKey
+    browseCache.value.calendarItems = items
+    browseCache.value.calendarLoaded = true
+    calendarData.value = groupDiariesByDate(items)
   } catch (err) {
     console.error('加载日历失败', err)
     calendarData.value = new Map()
@@ -349,23 +378,50 @@ const loadCalendar = async () => {
 
 // 加载时间线数据
 const loadTimeline = async () => {
-  const year = currentYear.value
-  const month = currentMonth.value
-  // 构造当月起止日期
-  const startDate = `${year}-${String(month).padStart(2, '0')}-01`
-  const lastDay = new Date(year, month, 0).getDate()
-  const endDate = `${year}-${String(month).padStart(2, '0')}-${String(lastDay).padStart(2, '0')}`
-
+  if (browseCache.value.timelineLoaded) {
+    diaries.value = [...browseCache.value.timelineItems]
+    timelineOffset.value = browseCache.value.timelineOffset
+    timelineHasMore.value = browseCache.value.timelineHasMore
+    return
+  }
   timelineLoading.value = true
+  timelineOffset.value = 0
+  timelineHasMore.value = true
   try {
     diaries.value = await api<Diary[]>('/diaries', {
-      params: { start_date: startDate, end_date: endDate },
+      params: { limit: timelinePageSize, offset: 0 },
     })
+    timelineOffset.value = diaries.value.length
+    timelineHasMore.value = diaries.value.length === timelinePageSize
+    browseCache.value.timelineItems = [...diaries.value]
+    browseCache.value.timelineOffset = timelineOffset.value
+    browseCache.value.timelineHasMore = timelineHasMore.value
+    browseCache.value.timelineLoaded = true
   } catch (err) {
     console.error('加载日记列表失败', err)
     diaries.value = []
   } finally {
     timelineLoading.value = false
+  }
+}
+
+const loadMoreTimeline = async () => {
+  if (timelineLoading.value || timelineLoadingMore.value || !timelineHasMore.value) return
+  timelineLoadingMore.value = true
+  try {
+    const items = await api<Diary[]>('/diaries', {
+      params: { limit: timelinePageSize, offset: timelineOffset.value },
+    })
+    diaries.value.push(...items)
+    timelineOffset.value += items.length
+    timelineHasMore.value = items.length === timelinePageSize
+    browseCache.value.timelineItems = [...diaries.value]
+    browseCache.value.timelineOffset = timelineOffset.value
+    browseCache.value.timelineHasMore = timelineHasMore.value
+  } catch (err) {
+    console.error('加载更多日记失败', err)
+  } finally {
+    timelineLoadingMore.value = false
   }
 }
 
@@ -382,6 +438,16 @@ const loadFavorites = async () => {
 }
 
 const eventPreview = (event: DiaryEvent) => event.body?.join(' ') || event.feeling?.join(' ') || '暂无事件正文'
+
+const groupDiariesByDate = (items: Diary[]) => {
+  const map = new Map<string, Diary[]>()
+  for (const item of items) {
+    const list = map.get(item.diary_date)
+    if (list) list.push(item)
+    else map.set(item.diary_date, [item])
+  }
+  return map
+}
 
 const favoriteLink = (item: FavoriteItem) => item.favorite_type === 'event' && item.event
   ? `/diary/${item.diary.id}?event=${item.event.id}`
@@ -448,32 +514,26 @@ const activeFilterLabel = computed(() => {
 
 // 根据 filterKey 计算起止日期
 const getFilterRange = (key: FilterKey): { start: string; end: string } => {
-  const today = new Date()
-  const fmt = (d: Date) =>
-    `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+  const today = dateKeyInAppTimeZone()
 
   switch (key) {
     case 'today':
-      return { start: fmt(today), end: fmt(today) }
+      return { start: today, end: today }
     case 'yesterday': {
-      const yd = new Date(today)
-      yd.setDate(yd.getDate() - 1)
-      return { start: fmt(yd), end: fmt(yd) }
+      const yesterday = addDaysToDateKey(today, -1)
+      return { start: yesterday, end: yesterday }
     }
     case 'week': {
-      const day = today.getDay() // 0=Sun
-      const mon = new Date(today)
-      mon.setDate(mon.getDate() - (day === 0 ? 6 : day - 1))
-      return { start: fmt(mon), end: fmt(today) }
+      const [year, month, day] = today.split('-').map(Number)
+      const weekday = new Date(Date.UTC(year, month - 1, day, 12)).getUTCDay()
+      const monday = addDaysToDateKey(today, -(weekday === 0 ? 6 : weekday - 1))
+      return { start: monday, end: today }
     }
     case 'last7': {
-      const d7 = new Date(today)
-      d7.setDate(d7.getDate() - 6)
-      return { start: fmt(d7), end: fmt(today) }
+      return { start: addDaysToDateKey(today, -6), end: today }
     }
     case 'month': {
-      const first = new Date(today.getFullYear(), today.getMonth(), 1)
-      return { start: fmt(first), end: fmt(today) }
+      return { start: `${today.slice(0, 7)}-01`, end: today }
     }
   }
 }
@@ -517,16 +577,14 @@ const formatDateShort = (dateStr: string) => {
   return `${parseInt(m)}月${parseInt(d)}日`
 }
 
+const formatDiaryDate = (dateStr: string) => {
+  const [year, month, day] = dateStr.split('-')
+  return `${year}年${parseInt(month)}月${parseInt(day)}日`
+}
+
 // 时间格式化（YYYY-MM-DD HH:mm）
 const formatTime = (dateStr?: string) => {
-  if (!dateStr) return ''
-  const d = new Date(dateStr)
-  const year = d.getFullYear()
-  const month = String(d.getMonth() + 1).padStart(2, '0')
-  const day = String(d.getDate()).padStart(2, '0')
-  const hour = String(d.getHours()).padStart(2, '0')
-  const minute = String(d.getMinutes()).padStart(2, '0')
-  return `${year}-${month}-${day} ${hour}:${minute}`
+  return formatDateTimeInAppTimeZone(dateStr)
 }
 
 // 标签按类别排序：领域 → 主题 → 人物/对象 → 心理 → 知识点
@@ -570,8 +628,47 @@ watch(viewMode, (newMode) => {
   }
 })
 
+const savePageState = () => {
+  if (!import.meta.client) return
+  sessionStorage.setItem(pageStateKey, JSON.stringify({
+    viewMode: viewMode.value,
+    year: currentYear.value,
+    month: currentMonth.value,
+    scrollY: window.scrollY,
+  }))
+}
+
 // 初始化加载日历
 onMounted(() => {
+  const saved = sessionStorage.getItem(pageStateKey)
+  if (saved) {
+    try {
+      const state = JSON.parse(saved)
+      if (['calendar', 'timeline', 'favorites'].includes(state.viewMode)) viewMode.value = state.viewMode
+      if (Number.isInteger(state.year) && Number.isInteger(state.month)) {
+        currentYear.value = state.year
+        currentMonth.value = state.month
+      }
+      nextTick(() => window.scrollTo(0, Number(state.scrollY) || 0))
+    } catch {
+      sessionStorage.removeItem(pageStateKey)
+    }
+  }
   loadCalendar()
+  timelineObserver = new IntersectionObserver(entries => {
+    if (entries.some(entry => entry.isIntersecting)) loadMoreTimeline()
+  })
+  if (timelineSentinel.value) timelineObserver.observe(timelineSentinel.value)
+  window.addEventListener('scroll', savePageState, { passive: true })
+})
+
+watch(timelineSentinel, element => {
+  if (element && timelineObserver) timelineObserver.observe(element)
+})
+
+onBeforeUnmount(() => {
+  savePageState()
+  timelineObserver?.disconnect()
+  window.removeEventListener('scroll', savePageState)
 })
 </script>

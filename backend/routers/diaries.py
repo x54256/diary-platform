@@ -483,6 +483,8 @@ def list_diaries(
     end_date: Optional[date] = None,
     tag_id: Optional[UUID] = None,
     view_type: Optional[str] = None,
+    limit: Optional[int] = Query(None, ge=1, le=100),
+    offset: int = Query(0, ge=0),
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
@@ -498,6 +500,8 @@ def list_diaries(
         query = query.filter(Diary.tags.any(Tag.id == tag_id))
 
     query = query.order_by(Diary.diary_date.desc(), Diary.created_at.desc())
+    if limit is not None:
+        query = query.offset(offset).limit(limit)
     return [serialize_diary(diary, db, current_user.id) for diary in query.all()]
 
 
@@ -1303,7 +1307,7 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
             db.add(organized)
             db.flush()
 
-        # 创建 DiaryEvent 记录（event_tags 留空，由分析阶段产出）
+        # 创建 DiaryEvent 记录（事件标签由分析阶段产出，重要性由整理阶段产出）
         for i, event in enumerate(result["events"]):
             event_title = event.get("title", "未命名事件")
             db.add(DiaryEvent(
@@ -1314,6 +1318,10 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
                 reflection=json.dumps(event.get("reflection", []), ensure_ascii=False),
                 event_tags=json.dumps({}, ensure_ascii=False),
                 sort_order=i,
+                ai_importance=event.get("importance", "LOW"),
+                ai_importance_reason=event.get("importance_reason", "未识别到明确的用户影响"),
+                importance_origin="DIARY_ORGANIZE",
+                importance_updated_at=datetime.utcnow(),
             ))
 
         # 创建 DiaryCheckLog 记录

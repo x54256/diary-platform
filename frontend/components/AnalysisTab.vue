@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 pb-24">
+  <div class="px-0 pb-24">
     <!-- 今日心情 -->
     <div v-if="analysis?.mood" class="text-center mb-5">
       <span class="text-2xl font-bold text-neutral-800">{{ analysis.mood }}</span>

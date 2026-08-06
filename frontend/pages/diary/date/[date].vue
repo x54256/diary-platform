@@ -67,6 +67,7 @@
 </template>
 
 <script setup lang="ts">
+import { formatDateTimeInAppTimeZone } from '~/utils/datetime'
 definePageMeta({
   layout: 'default',
   middleware: 'auth',
@@ -114,14 +115,7 @@ const loadDiaries = async () => {
 
 // 时间格式化（YYYY-MM-DD HH:mm）
 const formatTime = (dateStr?: string) => {
-  if (!dateStr) return ''
-  const d = new Date(dateStr)
-  const year = d.getFullYear()
-  const month = String(d.getMonth() + 1).padStart(2, '0')
-  const day = String(d.getDate()).padStart(2, '0')
-  const hour = String(d.getHours()).padStart(2, '0')
-  const minute = String(d.getMinutes()).padStart(2, '0')
-  return `${year}-${month}-${day} ${hour}:${minute}`
+  return formatDateTimeInAppTimeZone(dateStr)
 }
 
 // 标签按类别排序：领域 → 主题 → 人物/对象 → 心理 → 知识点

@@ -36,6 +36,7 @@
 <script setup lang="ts">
 import type { ReviewEventThread } from '~/types'
 import { SINGLE_DAY_BADGE_CLASS, reviewStatusBadgeClass, reviewStatusLabel } from '~/utils/reviewLabels'
+import { weekDayInAppTimeZone } from '~/utils/datetime'
 
 const props = defineProps<{ reviewId: string; versionId: string; thread: ReviewEventThread }>()
 const nodesOpen = ref(false)
@@ -46,10 +47,7 @@ const statusLabel = computed(() => reviewStatusLabel(props.thread.current_status
 const statusBadgeClass = computed(() => reviewStatusBadgeClass(props.thread.current_status))
 const shortDate = (value: string) => (value && value.length >= 10 ? `${Number(value.slice(5, 7))}月${Number(value.slice(8, 10))}日` : '')
 const weekDay = (value: string) => {
-  if (!value || value.length < 10) return ''
-  const days = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
-  const d = new Date(value)
-  return days[d.getDay()] || ''
+  return weekDayInAppTimeZone(value)
 }
 const toggleQuotes = (nodeKey: string) => {
   const newSet = new Set(quotesOpen.value)

@@ -63,6 +63,7 @@
 </template>
 
 <script setup lang="ts">
+import { dateKeyInAppTimeZone } from '~/utils/datetime'
 // 日记录入页：使用 auth 布局（无 Tab 栏，有返回按钮）
 definePageMeta({
   layout: 'auth',
@@ -73,8 +74,7 @@ const { api } = useApi()
 const route = useRoute()
 
 const todayLocalDate = () => {
-  const now = new Date()
-  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
+  return dateKeyInAppTimeZone()
 }
 
 // 日记数据

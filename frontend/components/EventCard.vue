@@ -4,44 +4,92 @@
     <template v-if="editable">
       <!-- 编辑模式：直接展示 -->
       <div class="px-4 pt-3">
-        <input v-model="editTitle" class="w-full p-1 text-base font-semibold border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none" @click.stop />
+        <div class="flex items-start gap-2">
+          <input v-model="editTitle" class="min-w-0 flex-1 p-1 text-base font-semibold border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none" @click.stop />
+          <div class="flex shrink-0 items-center gap-0.5" role="radiogroup" aria-label="修改事件重要性">
+            <button
+              v-for="option in importanceOptions"
+              :key="option.code"
+              type="button"
+              class="h-6 w-6 rounded-full border text-[10px] font-medium leading-none transition-colors disabled:opacity-50"
+              :class="importanceButtonClass(option.code)"
+              :aria-label="`重要性：${option.label}`"
+              :aria-pressed="effectiveImportanceCode === option.code"
+              :disabled="importanceSaving"
+              @click.stop="handleImportanceClick(option.code)"
+            >
+              {{ option.label }}
+            </button>
+          </div>
+          <button
+            type="button"
+            class="shrink-0 -mr-1 -mt-1 w-8 h-8 text-lg leading-none text-amber-500 disabled:opacity-50"
+            :aria-label="event.is_favorite ? '取消收藏事件' : '收藏事件'"
+            :title="event.is_favorite ? '取消收藏' : '收藏'"
+            :disabled="favoriteSaving"
+            @click.stop="emit('favorite-toggle', event.id)"
+          >
+            {{ event.is_favorite ? '★' : '☆' }}
+          </button>
+        </div>
       </div>
     </template>
     <template v-else>
       <!-- 查看模式：始终展开，不可折叠 -->
       <div class="px-4 py-3">
-        <div class="flex items-start justify-between gap-3">
+        <div class="flex items-start gap-2">
           <template v-if="inlineEditField === 'title'">
-            <input
-              :value="inlineDraft"
-              class="w-full p-1 text-base font-semibold border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none"
-              aria-label="编辑事件标题"
-              @input="updateField($event, 'title')"
-              @click.stop
-              @keyup.enter="saveInlineEdit('title')"
-              @keyup.esc="emit('inline-edit-cancel')"
-            />
+            <div class="min-w-0 flex-1">
+              <input
+                :value="inlineDraft"
+                class="w-full p-1 text-base font-semibold border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none"
+                aria-label="编辑事件标题"
+                @input="updateField($event, 'title')"
+                @click.stop
+                @keyup.enter="saveInlineEdit('title')"
+                @keyup.esc="emit('inline-edit-cancel')"
+              />
+            </div>
             <div class="mt-2 flex justify-end gap-2">
               <button type="button" class="px-3 py-1.5 rounded-lg border border-neutral-200 text-sm text-neutral-600" @click.stop="emit('inline-edit-cancel')">取消</button>
               <button type="button" class="px-3 py-1.5 rounded-lg bg-primary-600 text-sm text-white" @click.stop="saveInlineEdit('title')">保存</button>
             </div>
+            <div class="flex shrink-0 items-center gap-0.5" role="radiogroup" aria-label="修改事件重要性">
+              <button
+                v-for="option in importanceOptions"
+                :key="option.code"
+                type="button"
+                class="h-6 w-6 rounded-full border text-[10px] font-medium leading-none transition-colors disabled:opacity-50"
+                :class="importanceButtonClass(option.code)"
+                :aria-label="`重要性：${option.label}`"
+                :aria-pressed="effectiveImportanceCode === option.code"
+                :disabled="importanceSaving"
+                @click.stop="handleImportanceClick(option.code)"
+              >
+                {{ option.label }}
+              </button>
+            </div>
           </template>
-          <div v-else class="cursor-text text-base font-medium text-neutral-800" @dblclick="handleInlineDoubleClick($event, 'title')">
+          <template v-else>
+            <div class="min-w-0 flex-1 cursor-text text-base font-medium text-neutral-800" @dblclick="handleInlineDoubleClick($event, 'title')">
               {{ event.event_title || '未命名事件' }}
-          </div>
-          <select
-            v-if="effectiveImportance"
-            :value="effectiveImportanceCode"
-            class="min-h-7 rounded bg-primary-50 px-1.5 text-[11px] text-primary-700 outline-none"
-            aria-label="修改事件重要性"
-            :disabled="importanceSaving"
-            @click.stop
-            @change="handleImportanceChange"
-          >
-            <option value="HIGH">高</option>
-            <option value="MEDIUM">中</option>
-            <option value="LOW">低</option>
-          </select>
+            </div>
+            <div class="flex shrink-0 items-center gap-0.5" role="radiogroup" aria-label="修改事件重要性">
+              <button
+                v-for="option in importanceOptions"
+                :key="option.code"
+                type="button"
+                class="h-6 w-6 rounded-full border text-[10px] font-medium leading-none transition-colors disabled:opacity-50"
+                :class="importanceButtonClass(option.code)"
+                :aria-label="`重要性：${option.label}`"
+                :aria-pressed="effectiveImportanceCode === option.code"
+                :disabled="importanceSaving"
+                @click.stop="handleImportanceClick(option.code)"
+              >
+                {{ option.label }}
+              </button>
+            </div>
+          </template>
           <button
             type="button"
             class="shrink-0 -mr-1 -mt-1 w-8 h-8 text-lg leading-none text-amber-500 disabled:opacity-50"
@@ -309,19 +357,32 @@ const sortedAnalysisSections = computed(() => {
 
 const analysisRunId = computed(() => props.analysisRunId || '')
 const hasEventAnalysis = computed(() => sortedAnalysisSections.value.length > 0 && !!analysisRunId.value)
-const importanceLabels: Record<'HIGH' | 'MEDIUM' | 'LOW', string> = {
-  HIGH: '高',
-  MEDIUM: '中',
-  LOW: '低',
-}
+const importanceOptions = [
+  { code: 'HIGH' as const, label: '高' },
+  { code: 'MEDIUM' as const, label: '中' },
+  { code: 'LOW' as const, label: '低' },
+]
 const effectiveImportanceCode = computed<'HIGH' | 'MEDIUM' | 'LOW' | ''>(() => {
   const value = props.event.user_importance || props.event.ai_importance
   return value === 'HIGH' || value === 'MEDIUM' || value === 'LOW' ? value : ''
 })
-const effectiveImportance = computed(() => importanceLabels[effectiveImportanceCode.value as keyof typeof importanceLabels] || '')
 
-const handleImportanceChange = (event: Event) => {
-  const importance = (event.target as HTMLSelectElement).value as 'HIGH' | 'MEDIUM' | 'LOW'
+const importanceButtonClass = (importance: 'HIGH' | 'MEDIUM' | 'LOW') => {
+  if (effectiveImportanceCode.value === importance) {
+    return importance === 'HIGH'
+      ? 'border-red-500 bg-red-500 text-white'
+      : importance === 'MEDIUM'
+        ? 'border-orange-500 bg-orange-500 text-white'
+        : 'border-neutral-500 bg-neutral-500 text-white'
+  }
+  return importance === 'HIGH'
+    ? 'border-red-200 text-red-500 hover:bg-red-50'
+    : importance === 'MEDIUM'
+      ? 'border-orange-200 text-orange-500 hover:bg-orange-50'
+      : 'border-neutral-300 text-neutral-500 hover:bg-neutral-50'
+}
+
+const handleImportanceClick = (importance: 'HIGH' | 'MEDIUM' | 'LOW') => {
   emit('importance-change', props.event.id, importance)
 }
 </script>

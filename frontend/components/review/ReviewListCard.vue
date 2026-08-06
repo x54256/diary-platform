@@ -25,15 +25,15 @@
 
 <script setup lang="ts">
 import type { ReviewSummary } from '~/types'
+import { formatDateTimeInAppTimeZone, formatDateInAppTimeZone } from '~/utils/datetime'
 
 const props = defineProps<{ review: ReviewSummary }>()
 
 const formatDate = (value: string) => {
-  const date = new Date(`${value}T00:00:00`)
-  return `${date.getMonth() + 1}月${date.getDate()}日`
+  return formatDateInAppTimeZone(value)
 }
 const periodLabel = computed(() => props.review.review_type === 'WEEK'
   ? `${formatDate(props.review.period_start)}－${formatDate(props.review.period_end)}`
   : `${props.review.period_start.slice(0, 4)} 年 ${Number(props.review.period_start.slice(5, 7))} 月`)
-const dateLabel = (value: string | null) => value ? `${new Date(value).toLocaleDateString('zh-CN')} 生成` : '已生成'
+const dateLabel = (value: string | null) => value ? `${formatDateTimeInAppTimeZone(value)} 生成` : '已生成'
 </script>

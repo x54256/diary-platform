@@ -32,6 +32,7 @@
 
 <script setup lang="ts">
 import type { ReviewSummary, ReviewTask, ReviewType } from '~/types'
+import { addDaysToDateKey, dateKeyInAppTimeZone, formatDateInAppTimeZone } from '~/utils/datetime'
 
 const props = withDefaults(defineProps<{ reviews?: ReviewSummary[]; tasks?: ReviewTask[]; submitting?: boolean; error?: string }>(), { reviews: () => [], tasks: () => [], submitting: false, error: '' })
 const emit = defineEmits<{ (event: 'submit', payload: { review_type: ReviewType; period_start: string }): void }>()
@@ -39,18 +40,15 @@ const type = ref<ReviewType>('WEEK')
 const periodStart = ref('')
 const typeOptions: Array<{ label: string; value: ReviewType }> = [{ label: '周回顾', value: 'WEEK' }, { label: '月回顾', value: 'MONTH' }]
 
-const dateKey = (date: Date) => {
-  const year = date.getFullYear()
-  return `${year}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
+const dateKey = (date: Date | string) => typeof date === 'string' ? date : dateKeyInAppTimeZone(date)
+const weekStart = (value: Date | string) => {
+  const key = dateKey(value)
+  const [year, month, day] = key.split('-').map(Number)
+  const weekday = new Date(Date.UTC(year, month - 1, day, 12)).getUTCDay() || 7
+  return addDaysToDateKey(key, -weekday + 1)
 }
-const weekStart = (date: Date) => {
-  const copy = new Date(date.getFullYear(), date.getMonth(), date.getDate())
-  const day = copy.getDay() || 7
-  copy.setDate(copy.getDate() - day + 1)
-  return copy
-}
-const addDays = (date: Date, days: number) => new Date(date.getFullYear(), date.getMonth(), date.getDate() + days)
-const shortDate = (date: Date) => `${date.getMonth() + 1}月${date.getDate()}日`
+const addDays = (value: string, days: number) => addDaysToDateKey(value, days)
+const shortDate = (value: string) => formatDateInAppTimeZone(value)
 
 const statusFor = (start: string) => {
   if (props.reviews.some(item => item.review_type === type.value && item.period_start === start)) return { disabled: true, reason: '已有回顾' }
@@ -59,7 +57,7 @@ const statusFor = (start: string) => {
 }
 const options = computed(() => {
   if (type.value === 'WEEK') {
-    const current = weekStart(new Date())
+    const current = weekStart(dateKeyInAppTimeZone())
     return Array.from({ length: 16 }, (_, index) => {
       const start = addDays(current, -7 * (index + 1))
       const end = addDays(start, 6)
@@ -67,11 +65,13 @@ const options = computed(() => {
       return { start: dateKey(start), label: `${shortDate(start)}－${shortDate(end)}`, ...state }
     })
   }
-  const now = new Date()
+  const now = dateKeyInAppTimeZone()
   return Array.from({ length: 12 }, (_, index) => {
-    const start = new Date(now.getFullYear(), now.getMonth() - index - 1, 1)
-    const state = statusFor(dateKey(start))
-    return { start: dateKey(start), label: `${start.getFullYear()} 年 ${start.getMonth() + 1} 月`, ...state }
+    const [year, month] = now.split('-').map(Number)
+    const start = new Date(Date.UTC(year, month - index - 2, 1, 12))
+    const startKey = `${start.getUTCFullYear()}-${String(start.getUTCMonth() + 1).padStart(2, '0')}-01`
+    const state = statusFor(startKey)
+    return { start: startKey, label: `${start.getUTCFullYear()} 年 ${start.getUTCMonth() + 1} 月`, ...state }
   })
 })
 const selectedOption = computed(() => options.value.find(option => option.start === periodStart.value))

@@ -225,6 +225,7 @@ TEMPLATE_FILL_PROMPT = """你是一个结构化整理助手。请将用户提供
 1. 事件正文 body
 2. 感受 feeling
 3. 反思与成长 reflection
+4. 重要性 importance 及判断依据 importance_reason
 
 body 是事件的完整信息源；feeling 和 reflection 是从 body 中提取的结构化信息，不是将内容从 body 中拆走。
 
@@ -264,6 +265,14 @@ body 是事件的完整信息源；feeling 和 reflection 是从 body 中提取�
 - 不允许写原文没有支撑的反思。
 - 如果没有明确表达或明显判断，填空数组 []。
 
+### importance：事件重要性
+根据事件正文、感受和反思判断这件事对用户本人的影响程度，不评价事件规模，也不评价分析质量。
+- HIGH：对目标、情绪、行为、关系、认知/价值观或后续安排产生明显影响；包括明确结果、关键决定、明显转折、重要关系互动、重大困难或强约束。
+- MEDIUM：对以上任一方面有明确影响或推进，但不足以成为当天主线。
+- LOW：日常记录、零散琐事，或重复且没有新进展的信息。
+- importance 必须是 HIGH、MEDIUM、LOW 之一。
+- importance_reason 是一句能直接从事件内容验证的影响依据；无法识别明确影响时填 LOW，并填写“未识别到明确的用户影响”。
+
 ## 输出要求
 请严格按以下 JSON 格式返回，不要包含 markdown 代码块标记：
 
@@ -273,7 +282,9 @@ body 是事件的完整信息源；feeling 和 reflection 是从 body 中提取�
       "title": "事件标题",
       "body": ["段落1", "段落2"],
       "feeling": ["感受1"],
-      "reflection": ["反思1", "反思2"]
+      "reflection": ["反思1", "反思2"],
+      "importance": "HIGH|MEDIUM|LOW",
+      "importance_reason": "一句基于事件事实的影响依据"
     }
   ]
 }"""
@@ -535,6 +546,13 @@ class AIService:
                     if not isinstance(val, list):
                         val = [val] if val else []
                     validated_event[field] = val
+            importance = event.get("importance")
+            validated_event["importance"] = importance if importance in {"HIGH", "MEDIUM", "LOW"} else "LOW"
+            reason = event.get("importance_reason")
+            validated_event["importance_reason"] = (
+                reason.strip() if isinstance(reason, str) and reason.strip()
+                else "未识别到明确的用户影响"
+            )
             validated.append(validated_event)
         return validated
 

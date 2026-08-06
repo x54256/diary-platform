@@ -97,6 +97,7 @@
 </template>
 
 <script setup lang="ts">
+import { formatDateTimeInAppTimeZone } from '~/utils/datetime'
 import type { ReviewDailyDigest, ReviewDailyMatter, ReviewDomainCode, ReviewEventDomain, ReviewTask, ReviewVersionDetail } from '~/types'
 import { normalizeKeyQuotes } from '~/utils/review-daily-material'
 
@@ -154,7 +155,7 @@ const periodLabel = computed(() => {
   const review = detail.value.review
   return review.review_type === 'MONTH' ? `${review.period_start.slice(0, 4)} 年 ${Number(review.period_start.slice(5, 7))} 月` : `${shortDate(review.period_start)}－${shortDate(review.period_end)}`
 })
-const formatDateTime = (value: string) => new Date(value).toLocaleString('zh-CN', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+const formatDateTime = (value: string) => formatDateTimeInAppTimeZone(value)
 const eventDomains = computed(() => detail.value?.version.event_document?.domains || [])
 const domainCodes = computed(() => {
   const values = new Set<ReviewDomainCode>()
