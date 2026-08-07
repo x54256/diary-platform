@@ -47,6 +47,7 @@ from schemas.review import (
     ReviewTaskListResponse,
     ReviewTaskResponse,
     ReviewDailyDigestResponse,
+    ReviewDailyDigestListResponse,
     ReviewVersionResponse,
 )
 from services.auth import get_current_user
@@ -840,13 +841,63 @@ def get_task(task_id: UUID, db: Session = Depends(get_db), user: User = Depends(
     return _task_response(task)
 
 
-@router.get("/api/review-versions/{version_id}/daily-digests", response_model=list[ReviewDailyDigestResponse])
-def list_daily_digests(version_id: UUID, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
-    version = _version(db, version_id, user)
-    return db.query(ReviewDailyDigest).filter(
-        ReviewDailyDigest.review_version_id == version.id,
-        ReviewDailyDigest.status == "READY",
-    ).order_by(ReviewDailyDigest.digest_date).all()
+@router.get("/api/daily-digests", response_model=ReviewDailyDigestListResponse)
+def list_current_daily_digests(
+    limit: int = Query(default=10, ge=1, le=50),
+    cursor: str | None = Query(default=None),
+    db: Session = Depends(get_db),
+    user: User = Depends(get_current_user),
+):
+    """按日期倒序返回当前回顾版本中已有的每日凝练。"""
+    query = (
+        db.query(ReviewDailyDigest)
+        .join(ReviewVersion, ReviewVersion.id == ReviewDailyDigest.review_version_id)
+        .join(Review, Review.id == ReviewVersion.review_id)
+        .filter(
+            Review.user_id == user.id,
+            Review.current_version_id == ReviewVersion.id,
+            ReviewDailyDigest.status == "READY",
+        )
+    )
+    if cursor:
+        try:
+            raw = base64.urlsafe_b64decode(cursor.encode()).decode()
+            date_text = raw
+            cursor_date = datetime.fromisoformat(date_text).date()
+        except (ValueError, UnicodeDecodeError):
+            raise HTTPException(status_code=400, detail="分页游标无效")
+        query = query.filter(ReviewDailyDigest.digest_date < cursor_date)
+    rows = query.order_by(
+        ReviewDailyDigest.digest_date.desc(), ReviewVersion.created_at.desc(), ReviewVersion.id.desc(),
+    ).distinct(ReviewDailyDigest.digest_date).limit(limit + 1).all()
+    has_more = len(rows) > limit
+    rows = rows[:limit]
+    next_cursor = None
+    if has_more and rows:
+        last = rows[-1]
+        next_cursor = base64.urlsafe_b64encode(
+            last.digest_date.isoformat().encode()
+        ).decode()
+    return {"items": rows, "next_cursor": next_cursor}
+
+
+@router.get("/api/daily-digests/{digest_id}", response_model=ReviewDailyDigestResponse)
+def get_current_daily_digest(digest_id: UUID, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
+    digest = (
+        db.query(ReviewDailyDigest)
+        .join(ReviewVersion, ReviewVersion.id == ReviewDailyDigest.review_version_id)
+        .join(Review, Review.id == ReviewVersion.review_id)
+        .filter(
+            ReviewDailyDigest.id == digest_id,
+            Review.user_id == user.id,
+            Review.current_version_id == ReviewVersion.id,
+            ReviewDailyDigest.status == "READY",
+        )
+        .first()
+    )
+    if not digest:
+        raise HTTPException(status_code=404, detail="每日凝练不存在")
+    return digest
 
 
 @router.post("/api/review-tasks/{task_id}/retry", response_model=ReviewTaskResponse)

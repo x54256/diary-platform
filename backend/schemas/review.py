@@ -306,6 +306,11 @@ class ReviewDailyDigestResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
 
+class ReviewDailyDigestListResponse(BaseModel):
+    items: list[ReviewDailyDigestResponse] = Field(default_factory=list)
+    next_cursor: Optional[str] = None
+
+
 class ReviewSourceResponse(BaseModel):
     id: UUID
     root_fact_id: str

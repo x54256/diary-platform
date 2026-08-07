@@ -98,8 +98,7 @@
 
 <script setup lang="ts">
 import { formatDateTimeInAppTimeZone } from '~/utils/datetime'
-import type { ReviewDailyDigest, ReviewDailyMatter, ReviewDomainCode, ReviewEventDomain, ReviewTask, ReviewVersionDetail } from '~/types'
-import { normalizeKeyQuotes } from '~/utils/review-daily-material'
+import type { ReviewDomainCode, ReviewEventDomain, ReviewTask, ReviewVersionDetail } from '~/types'
 
 definePageMeta({ layout: 'default', middleware: 'auth' })
 const route = useRoute()
@@ -107,7 +106,6 @@ const router = useRouter()
 const { api } = useApi()
 const reviewId = route.params.id as string
 const detail = ref<ReviewVersionDetail | null>(null)
-const dailyDigests = ref<ReviewDailyDigest[]>([])
 const loading = ref(true)
 const error = ref('')
 const menuOpen = ref(false)
@@ -127,10 +125,9 @@ const load = async (versionId?: string) => {
   try {
     const url = versionId ? `/reviews/${reviewId}/versions/${versionId}` : `/reviews/${reviewId}`
     detail.value = await api<ReviewVersionDetail>(url)
-    dailyDigests.value = await api<ReviewDailyDigest[]>(`/review-versions/${detail.value.version.id}/daily-digests`).catch(() => [])
     if (!versionId) void api(`/reviews/${reviewId}/read`, { method: 'POST' }).catch(() => undefined)
     await nextTick(); observeDomains()
-  } catch (cause: any) { detail.value = null; dailyDigests.value = []; error.value = cause?.data?.detail || '回顾加载失败' } finally { loading.value = false }
+  } catch (cause: any) { detail.value = null; error.value = cause?.data?.detail || '回顾加载失败' } finally { loading.value = false }
 }
 onMounted(() => { void load(typeof route.query.version === 'string' ? route.query.version : undefined) })
 onBeforeUnmount(() => {
@@ -166,10 +163,6 @@ const domainCodes = computed(() => {
   return [...values].filter(Boolean)
 })
 const threadCount = computed(() => eventDomains.value.reduce((sum, domain) => sum + (domain.event_threads?.length || 0), 0))
-type DisplayDailyMatter = Omit<ReviewDailyMatter, 'key_quotes'> & { key_quotes: string[] }
-const digestMatters = (digest: ReviewDailyDigest): DisplayDailyMatter[] => (
-  digest.material_document?.matters || []
-).map(item => ({ ...item, key_quotes: normalizeKeyQuotes(item.key_quotes) }))
 const missingPeriodDescription = computed(() => {
   const periods = (detail.value?.version.missing_periods || []) as Array<{ period_start?: string; period_end?: string; status?: string }>
   if (!periods.length) return ''
