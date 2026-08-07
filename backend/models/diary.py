@@ -8,7 +8,14 @@ from sqlalchemy import Column, String, Text, Date, DateTime, Enum, ForeignKey, I
 from sqlalchemy.dialects.postgresql import UUID, JSONB
 from sqlalchemy.orm import relationship
 
+# pgvector 由 requirements.txt 引入，运行环境必须安装。
+from pgvector.sqlalchemy import Vector
+
 from database import Base
+
+
+# 语义分块 chunk_type 枚举值（全局一致：迁移 038 CHECK 约束 / builder / matched_chunk_types / 前端映射）。
+CHUNK_TYPES = ("fact", "self_understanding", "cognition")
 
 
 class DiaryStatus(enum.Enum):
@@ -274,6 +281,9 @@ class DiaryEvent(Base):
     feeling = Column(Text, nullable=True)
     reflection = Column(Text, nullable=True)
     event_tags = Column(Text)        # JSON: {"domain":[], "topic":[], "person_object":[], "psychological":[], "knowledge":[]}
+    # 触发器维护的检索文本：聚合「事件自身字段 + 关联 CURRENT 轮次 EVENT 作用域分析内容」。
+    # 供 pg_trgm 子串匹配（ILIKE）与相关度排序（similarity）使用（方案 B，不采用 tsvector）。
+    search_text = Column(Text, nullable=True)
     sort_order = Column(Integer, default=0)
     ai_importance = Column(String(8), nullable=True)
     ai_importance_reason = Column(Text, nullable=True)
@@ -288,6 +298,47 @@ class DiaryEvent(Base):
     # M:N 关系，事件标签
     tags = relationship("Tag", secondary="event_tags", back_populates="events")
     favorites = relationship("Favorite", back_populates="event", cascade="all, delete-orphan")
+    # 语义分块向量（1 事件 : 0..3 分块），删除事件时级联删除。
+    # lazy="select"：延迟加载——正常读取事件（关键词检索 / 序列化）不触碰该表，
+    # 避免关键词分支与 pgvector/event_embedding_chunks 耦合，也减少一次无谓查询。
+    embedding_chunks = relationship(
+        "EventEmbeddingChunk",
+        back_populates="event",
+        cascade="all, delete-orphan",
+        lazy="select",
+    )
+
+
+class EventEmbeddingChunk(Base):
+    """事件语义分块向量：一个事件的某一语义层（fact/self_understanding/cognition）一行。
+
+    与关键词分支的 search_text（pg_trgm）并行不冲突；结果单位=事件，命中层经
+    matched_chunk_types 回传前端做高亮。
+    """
+
+    __tablename__ = "event_embedding_chunks"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    event_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("diary_events.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+    # fact / self_understanding / cognition（与迁移 038 CHECK 约束一致）
+    chunk_type = Column(String(20), nullable=False)
+    content = Column(Text, nullable=False)
+    # 向量维度固定 1024（与 EMBEDDING 模型及迁移 038 一致）；换模型需全量重算。
+    embedding = Column(Vector(1024), nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    __table_args__ = (
+        UniqueConstraint("event_id", "chunk_type", name="uq_event_embedding_chunks_event_chunk"),
+        Index("ix_event_embedding_chunks_event_id", "event_id"),
+    )
+
+    # 关系映射
+    event = relationship("DiaryEvent", back_populates="embedding_chunks")
 
 
 class DiaryAnnotation(Base):

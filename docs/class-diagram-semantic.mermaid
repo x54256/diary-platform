@@ -1,0 +1,76 @@
+classDiagram
+    %% ── 新增语义分块表（ORM）──
+    class EventEmbeddingChunk {
+        +UUID id
+        +UUID event_id          %% FK → diary_events(id) ON DELETE CASCADE
+        +str chunk_type         %% fact / self_understanding / cognition
+        +Text content
+        +Vector embedding       %% vector(1024) pgvector
+        +DateTime created_at
+        +DateTime updated_at
+    }
+    class DiaryEvent {
+        +UUID id
+        +str event_title
+        +Text body              %% JSON 数组
+        +Text feeling           %% JSON 数组
+        +Text reflection        %% JSON 数组
+        +Text search_text       %% 触发器维护（关键词分支，不变）
+        +embedding_chunks       %% 反向关系（0..3）
+    }
+    DiaryEvent "1" --> "0..3" EventEmbeddingChunk : embedding_chunks
+
+    %% ── 语义层服务组件 ──
+    class EmbeddingClient {
+        +embed_texts(texts: list~str~, dimensions=1024) list~list~float~~
+    }
+    class EventChunkBuilder {
+        +build_event_chunk_contents(db, event_id) dict~str,str~
+    }
+    class EmbeddingCache {
+        +get(q: str) list~float~ | None
+        +set(q: str, vec: list~float~) void
+    }
+    class EmbeddingSync {
+        +enqueue_event_embedding_sync(event_id, user_id) void
+        +sync_event_embeddings(event_id, user_id) void   %% upsert chunk
+    }
+    class SearchService {
+        +search_events(db, user_id, q, start, end, limit, offset, mode) Tuple[list, int]
+        +semantic_search(db, user_id, q_vec, ...) Tuple[list, int, dict]
+        +hybrid_search(db, user_id, q_vec, ...) Tuple[list, int, dict]
+    }
+
+    EventChunkBuilder ..> DiaryEvent : 读事件+分析
+    EmbeddingClient ..> EventChunkBuilder : 三层文本→向量
+    EmbeddingSync ..> EventChunkBuilder : 聚合
+    EmbeddingSync ..> EmbeddingClient : 调用
+    EmbeddingSync ..> EventEmbeddingChunk : upsert
+    SearchService ..> EmbeddingClient : query 向量(经缓存)
+    SearchService ..> EventEmbeddingChunk : 余弦召回
+    EmbeddingCache ..> SearchService : 命中跳过 API
+
+    %% ── 响应契约（扩展）──
+    class SearchMode {
+        <<enumeration>>
+        keyword
+        semantic
+        hybrid
+    }
+    class EventSearchResultResponse {
+        +UUID id
+        +str event_title
+        +list body / feeling / reflection
+        +list analysis
+        +UUID diary_id
+        +date diary_date
+        +float rank             %% hybrid=RRF分 / semantic=1-dist / keyword=similarity
+        +UUID analysis_run_id
+        +list~str~ matched_chunk_types   %% 新增：["fact","self_understanding","cognition"]
+    }
+    class SearchListResponse {
+        +list~EventSearchResultResponse~ items
+        +int total
+    }
+    SearchListResponse o-- EventSearchResultResponse : items
+    SearchMode ..> SearchService : mode 入参

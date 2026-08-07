@@ -150,6 +150,17 @@ export interface FavoriteItem {
   event: DiaryEvent | null
 }
 
+// 统一搜索命中的事件结果：复用 DiaryEvent 字段 + 检索附加字段
+export interface SearchEventResult extends DiaryEvent {
+  diary_id: string
+  diary_date: string
+  rank: number
+  analysis_run_id?: string | null
+  // 命中语义层（fact / self_understanding / cognition）；纯关键词命中或语义不可用时为空。
+  // 仅作层高亮徽标，不注入 HTML（复用现有防 XSS 机制）。
+  matched_chunk_types?: string[]
+}
+
 export type DiaryAnnotationTargetType =
   | 'EVENT_BODY'
   | 'EVENT_FEELING'
@@ -503,6 +514,11 @@ export interface ReviewDailyDigest {
   material_document: ReviewDailyMaterialDocument
   created_at: string
   updated_at: string
+}
+
+export interface ReviewDailyDigestList {
+  items: ReviewDailyDigest[]
+  next_cursor: string | null
 }
 
 export interface ReviewDailyMaterialDocument {

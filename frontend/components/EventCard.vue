@@ -1,10 +1,10 @@
 <template>
-  <div class="border border-neutral-200 rounded-lg mb-3 overflow-hidden">
+  <div class="border border-neutral-200 rounded-lg mb-3 bg-white">
     <!-- 标题头区域 -->
     <template v-if="editable">
       <!-- 编辑模式：直接展示 -->
       <div class="px-4 pt-3">
-        <div class="flex items-start gap-2">
+        <div class="sticky top-0 z-20 -mx-4 flex items-start gap-2 border-b border-neutral-100 bg-white px-4 pb-2 pt-3">
           <input v-model="editTitle" class="min-w-0 flex-1 p-1 text-base font-semibold border border-neutral-300 rounded focus:ring-2 focus:ring-primary-500 outline-none" @click.stop />
           <div class="flex shrink-0 items-center gap-0.5" role="radiogroup" aria-label="修改事件重要性">
             <button
@@ -37,7 +37,7 @@
     <template v-else>
       <!-- 查看模式：始终展开，不可折叠 -->
       <div class="px-4 py-3">
-        <div class="flex items-start gap-2">
+        <div class="sticky top-0 z-20 -mx-4 flex items-start gap-2 border-b border-neutral-100 bg-white px-4 py-3">
           <template v-if="inlineEditField === 'title'">
             <div class="min-w-0 flex-1">
               <input
@@ -72,7 +72,8 @@
           </template>
           <template v-else>
             <div class="min-w-0 flex-1 cursor-text text-base font-medium text-neutral-800" @dblclick="handleInlineDoubleClick($event, 'title')">
-              {{ event.event_title || '未命名事件' }}
+              <span v-if="keyword" v-html="highlight(event.event_title || '未命名事件', keyword)"></span>
+              <span v-else>{{ event.event_title || '未命名事件' }}</span>
             </div>
             <div class="flex shrink-0 items-center gap-0.5" role="radiogroup" aria-label="修改事件重要性">
               <button
@@ -101,6 +102,14 @@
             {{ event.is_favorite ? '★' : '☆' }}
           </button>
         </div>
+        <!-- 命中语义层徽标（纯文本，防 XSS） -->
+        <div v-if="matchedChunkLabels.length > 0" class="flex flex-wrap gap-1 mt-1">
+          <span
+            v-for="label in matchedChunkLabels"
+            :key="label"
+            class="rounded-full bg-primary-50 px-2 py-0.5 text-[10px] text-primary-700"
+          >{{ label }}</span>
+        </div>
         <!-- 事件标签（按类别排序） -->
         <div v-if="sortedTags.length > 0" class="flex flex-wrap mt-1.5">
           <TagBadge v-for="tag in sortedTags" :key="tag.id" :tag="tag" />
@@ -127,17 +136,18 @@
         </template>
         <template v-else>
           <div class="cursor-text" @dblclick="handleInlineDoubleClick($event, 'body')">
-            <DiaryAnnotationText
-              v-if="event.body && event.body.length > 0"
-              :paragraphs="event.body"
-              target-type="EVENT_BODY"
-              :event-id="event.id"
-              :annotations="annotations"
-              container-class="space-y-2"
-              paragraph-class="analysis-markup text-base text-neutral-600 leading-relaxed"
-              @select="emit('annotation-select', $event)"
-              @annotation-clicked="emit('annotation-clicked', $event)"
-            />
+              <DiaryAnnotationText
+                v-if="event.body && event.body.length > 0"
+                :paragraphs="event.body"
+                target-type="EVENT_BODY"
+                :event-id="event.id"
+                :annotations="annotations"
+                :keyword="keyword"
+                container-class="space-y-2"
+                paragraph-class="analysis-markup text-base text-neutral-600 leading-relaxed"
+                @select="emit('annotation-select', $event)"
+                @annotation-clicked="emit('annotation-clicked', $event)"
+              />
           </div>
         </template>
       </div>
@@ -160,17 +170,18 @@
         </template>
         <template v-else>
           <div class="cursor-text" @dblclick="handleInlineDoubleClick($event, 'feeling')">
-            <DiaryAnnotationText
-              :paragraphs="event.feeling || []"
-              target-type="EVENT_FEELING"
-              :event-id="event.id"
-              :annotations="annotations"
-              container-class="space-y-2"
-              paragraph-class="analysis-markup text-base text-neutral-600 leading-relaxed"
-              :show-index="true"
-              @select="emit('annotation-select', $event)"
-              @annotation-clicked="emit('annotation-clicked', $event)"
-            />
+              <DiaryAnnotationText
+                :paragraphs="event.feeling || []"
+                target-type="EVENT_FEELING"
+                :event-id="event.id"
+                :annotations="annotations"
+                :keyword="keyword"
+                container-class="space-y-2"
+                paragraph-class="analysis-markup text-base text-neutral-600 leading-relaxed"
+                :show-index="true"
+                @select="emit('annotation-select', $event)"
+                @annotation-clicked="emit('annotation-clicked', $event)"
+              />
           </div>
         </template>
       </div>
@@ -193,17 +204,18 @@
         </template>
         <template v-else>
           <div class="cursor-text" @dblclick="handleInlineDoubleClick($event, 'reflection')">
-            <DiaryAnnotationText
-              :paragraphs="event.reflection || []"
-              target-type="EVENT_REFLECTION"
-              :event-id="event.id"
-              :annotations="annotations"
-              container-class="space-y-2"
-              paragraph-class="analysis-markup text-base text-neutral-600 leading-relaxed"
-              :show-index="true"
-              @select="emit('annotation-select', $event)"
-              @annotation-clicked="emit('annotation-clicked', $event)"
-            />
+              <DiaryAnnotationText
+                :paragraphs="event.reflection || []"
+                target-type="EVENT_REFLECTION"
+                :event-id="event.id"
+                :annotations="annotations"
+                :keyword="keyword"
+                container-class="space-y-2"
+                paragraph-class="analysis-markup text-base text-neutral-600 leading-relaxed"
+                :show-index="true"
+                @select="emit('annotation-select', $event)"
+                @annotation-clicked="emit('annotation-clicked', $event)"
+              />
           </div>
         </template>
       </div>
@@ -211,16 +223,17 @@
       <!-- 事件级分析 -->
       <template v-if="!editable && event.analysis">
         <div v-if="hasEventAnalysis" class="mt-3 pt-2 border-t border-neutral-100">
-          <AnalysisSection
-            v-for="section in sortedAnalysisSections"
-            :key="section.analysis_type"
-            :analysis-run-id="analysisRunId"
-            :section="section"
-            compact
-            :annotations="annotations"
-            @annotation-select="emit('annotation-select', $event)"
-            @annotation-clicked="emit('annotation-clicked', $event)"
-          />
+            <AnalysisSection
+              v-for="section in sortedAnalysisSections"
+              :key="section.analysis_type"
+              :analysis-run-id="analysisRunId"
+              :section="section"
+              compact
+              :annotations="annotations"
+              :keyword="keyword"
+              @annotation-select="emit('annotation-select', $event)"
+              @annotation-clicked="emit('annotation-clicked', $event)"
+            />
         </div>
       </template>
 
@@ -231,6 +244,7 @@
 <script setup lang="ts">
 import { nextTick, ref, computed, watch } from 'vue'
 import { resizeTextarea } from '~/composables/useAutoResizeTextarea'
+import { highlight } from '~/utils/highlight'
 import type { DiaryAnnotation, DiaryAnnotationClick, DiaryAnnotationSelection } from '~/types'
 
 const props = defineProps<{
@@ -241,6 +255,9 @@ const props = defineProps<{
   inlineEditField?: 'title' | 'body' | 'feeling' | 'reflection' | null
   favoriteSaving?: boolean
   importanceSaving?: boolean
+  keyword?: string
+  // 命中语义层（fact / self_understanding / cognition）；仅作层高亮徽标，不注入 HTML。
+  matchedChunkTypes?: string[]
 }>()
 
 const emit = defineEmits<{
@@ -255,6 +272,18 @@ const emit = defineEmits<{
 }>()
 
 const annotations = computed(() => props.annotations || [])
+
+// 命中语义层徽标：仅展示层名称，纯文本渲染（绝不注入 HTML，复用现有防 XSS 约定）。
+const CHUNK_TYPE_LABELS: Record<string, string> = {
+  fact: '事实',
+  self_understanding: '自我理解',
+  cognition: '认知',
+}
+const matchedChunkLabels = computed(() =>
+  (props.matchedChunkTypes || [])
+    .filter((t: string) => CHUNK_TYPE_LABELS[t])
+    .map((t: string) => CHUNK_TYPE_LABELS[t]),
+)
 
 const editTitle = ref('')
 const editBody = ref('')
@@ -386,3 +415,12 @@ const handleImportanceClick = (importance: 'HIGH' | 'MEDIUM' | 'LOW') => {
   emit('importance-change', props.event.id, importance)
 }
 </script>
+
+<style>
+.search-keyword {
+  background-color: #fef08a;
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+</style>

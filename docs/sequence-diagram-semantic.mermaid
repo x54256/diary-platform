@@ -1,0 +1,61 @@
+%% (a) hybrid 搜索流程
+sequenceDiagram
+    actor User
+    participant UI as index.vue (始终 mode=hybrid)
+    participant API as GET /diaries/search?q=&mode=hybrid
+    participant Auth as get_current_user
+    participant Svc as search_service
+    participant Cache as embedding_cache
+    participant EC as embedding_client(百炼)
+    participant DB as PostgreSQL
+
+    User->>UI: 输入关键词 + 日期范围
+    UI->>API: GET /diaries/search?q=&mode=hybrid&...
+    API->>Auth: 鉴权 → user_id
+    Auth-->>API: current_user
+    API->>Svc: search_events(user_id, q, dates, limit, offset, mode=hybrid)
+    Svc->>Cache: get(trim(q))
+    alt 缓存命中
+        Cache-->>Svc: q_vec
+    else 缓存未命中
+        Svc->>EC: embed_texts([q], dimensions=1024)
+        EC-->>Svc: q_vec
+        Svc->>Cache: set(trim(q), q_vec)
+    end
+    par 关键词分支（不变）
+        Svc->>DB: search_text ILIKE + 过滤 + similarity 排名 → k_ranked / k_total
+        DB-->>Svc: 事件有序(id, rank)
+    and 语义分支（新增）
+        Svc->>DB: chunk 表 JOIN 父表(user_id/软删除/状态/日期) ORDER BY embedding <=> q_vec LIMIT candidate_k
+        DB-->>Svc: (event_id, chunk_type, dist) → 聚合 s_ranked + matched_chunk_types
+    end
+    Svc->>Svc: RRF 融合 score=Σ1/(60+rank) → 全局有序 → 分页切片
+    Svc->>DB: 批量取事件 + serialize_event(复用)
+    DB-->>Svc: 完整事件内容
+    Svc-->>API: items(含 matched_chunk_types, rank=RRF) + total
+    API-->>UI: SearchListResponse
+    UI->>UI: EventCard 渲染(keyword 高亮 + matched_chunk_types 层标记)
+
+%% (b) 增量同步流程
+sequenceDiagram
+    participant Req as 主请求(POST organize/analyze 或 PUT 事件)
+    participant API as routers/diaries.py
+    participant Loop as asyncio 事件循环
+    participant Sync as embedding_sync.sync_event_embeddings
+    participant Builder as event_chunk_builder
+    participant EC as embedding_client(百炼)
+    participant DB as PostgreSQL
+
+    Req->>API: organize/analyze 完成 或 事件字段变更
+    API->>DB: 提交事务(已写入事件/分析)
+    API->>Loop: enqueue_event_embedding_sync(event_id, user_id) → asyncio.create_task
+    API-->>Req: 立即返回(不阻塞)
+    Loop->>Sync: 后台执行 sync_event_embeddings
+    Sync->>DB: 取事件 + CURRENT 轮次 EVENT 分析
+    Sync->>Builder: build_event_chunk_contents(event_id)
+    Builder-->>Sync: {fact, self_understanding, cognition} 文本
+    Sync->>EC: embed_texts([3 层文本], dimensions=1024)  %% 空层跳过
+    EC-->>Sync: 3 个向量
+    Sync->>DB: upsert event_embedding_chunks (ON CONFLICT(event_id,chunk_type) DO UPDATE)
+    DB-->>Sync: 写入完成
+    Note over Sync: 失败静默；chunk 缺失→该事件仅由关键词召回

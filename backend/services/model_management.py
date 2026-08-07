@@ -1,5 +1,6 @@
 """管理端模型配置服务。"""
 
+from dataclasses import dataclass
 from datetime import datetime
 from typing import Any
 from uuid import UUID
@@ -12,9 +13,13 @@ from utils.crypto import decrypt_text, encrypt_text
 
 MODEL_TYPES = ["language", "asr"]
 REASONING_MODES = ["unsupported", "switchable", "always_on"]
-SETTING_KEYS = ["organize", "analysis", "review", "chat", "transcription"]
+SETTING_KEYS = ["organize", "analysis", "review", "chat", "transcription", "embedding"]
 LANGUAGE_CATEGORIES = ["通用对话", "深度推理", "长上下文", "代码能力", "轻量高速"]
 ASR_CATEGORIES = ["实时语音识别", "录音文件识别"]
+
+# 语义检索 embedding 向量维度（与 qwen3.7-text-embedding 默认维、迁移 038 一致）。
+# 换模型需全量重算向量。
+EMBEDDING_DIMENSIONS = 1024
 ABILITY_TIER_ORDER = {
     "T0 旗舰全能": 1,
     "T0 全能旗舰": 1,
@@ -35,6 +40,7 @@ SETTING_REQUIREMENTS = {
     "review": ("language", "openai_chat"),
     "chat": ("language", "openai_chat"),
     "transcription": ("asr", "dashscope_asr"),
+    "embedding": ("language", "openai_chat"),
 }
 STEP_SETTING_KEYS = {
     "text_clean": "organize",
@@ -596,3 +602,38 @@ def decrypt_channel_key(channel: ApiChannel) -> str:
     if not channel.api_key_encrypted:
         raise ModelConfigError("渠道未配置密钥")
     return decrypt_text(channel.api_key_encrypted)
+
+
+@dataclass(frozen=True)
+class EmbeddingConfig:
+    """语义检索 embedding 模型配置（来自管理端 DB 托管的 EMBEDDING 用途设置）。"""
+
+    api_key: str
+    api_base_url: str
+    model_name: str
+    dimensions: int = EMBEDDING_DIMENSIONS
+
+
+def get_embedding_config() -> EmbeddingConfig:
+    """返回语义检索 embedding 模型配置。
+
+    配置来源：管理端 DB 托管的 EMBEDDING setting_key（与 chat/organize 等一致，
+    由 ModelSetting + ChannelModel + ApiChannel 解析）。embedding 模型需在模型目录中
+    注册为 language 类型、reasoning_mode=unsupported，并在模型设置中 thinking_enabled=False。
+
+    Returns:
+        EmbeddingConfig：含 api_key / api_base_url / model_name / dimensions。
+
+    Raises:
+        ModelRuntimeError: EMBEDDING 用途未配置可用模型（请在管理端模型设置中配置）。
+    """
+    # 延迟导入避免与 model_runtime 形成循环依赖（model_runtime 已导入本模块）。
+    from services.model_runtime import resolve_model_setting
+
+    runtime = resolve_model_setting("embedding")
+    return EmbeddingConfig(
+        api_key=runtime.api_key,
+        api_base_url=runtime.api_base_url,
+        model_name=runtime.model_name,
+        dimensions=EMBEDDING_DIMENSIONS,
+    )

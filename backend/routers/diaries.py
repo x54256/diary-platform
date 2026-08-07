@@ -40,6 +40,7 @@ from schemas.diary import (
     DiaryAnnotationCreate,
     DiaryAnnotationResponse,
 )
+from schemas.search import SEARCH_MODE_VALUES, SearchListResponse, SearchMode
 from services.ai import ai_service
 from services.analysis_history import (
     ALL_ANALYSIS_TYPES,
@@ -48,7 +49,9 @@ from services.analysis_history import (
     effective_feedback,
     get_current_analysis_run,
 )
+from services.search_service import search_events
 from services.auth import get_current_user
+from services.embedding_sync import enqueue_event_embedding_sync
 
 import asyncio
 from database import SessionLocal
@@ -549,31 +552,56 @@ def get_calendar(
     return result
 
 
-@router.get("/search", response_model=list[DiaryResponse])
+@router.get("/search", response_model=SearchListResponse)
 def search_diaries(
-    q: str = Query(..., min_length=1, description="搜索关键词"),
+    q: str = Query(..., min_length=1, description="搜索关键词（必填，至少 1 个字符）"),
+    start_date: Optional[date] = Query(None, description="起始日期 YYYY-MM-DD（基于 diary.diary_date）"),
+    end_date: Optional[date] = Query(None, description="结束日期 YYYY-MM-DD（基于 diary.diary_date）"),
+    limit: int = Query(20, ge=1, le=100, description="每页数量"),
+    offset: int = Query(0, ge=0, description="偏移量"),
+    mode: SearchMode = Query("hybrid", description="检索模式：keyword / semantic / hybrid（默认 hybrid）"),
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    """全文搜索已整理的日记（搜索 title、summary、content 字段）"""
-    search_term = f"%{q}%"
-    diaries = (
-        db.query(Diary)
-        .join(DiaryOrganized, Diary.id == DiaryOrganized.diary_id)
-        .filter(
-            Diary.user_id == current_user.id,
-            Diary.deleted_at.is_(None),
-            Diary.status == DiaryStatus.organized,
-            or_(
-                DiaryOrganized.title.ilike(search_term),
-                DiaryOrganized.summary.ilike(search_term),
-                DiaryOrganized.content.ilike(search_term),
-            ),
+    """统一搜索：仅检索事件内容（含关联分析），按相关度排序、分页返回事件卡。
+
+    检索范围：DiaryEvent 的 event_title/body/feeling/reflection + 关联 EVENT 作用域
+    analysis_items 的 content/question。按 user_id 隔离、过滤 status∈(organized,analyzed)、
+    过滤软删除、按所属 diary.diary_date 做日期范围筛选。
+
+    模式（决策 9：前端始终 hybrid，不暴露切换 UI）：
+    - keyword：仅 pg_trgm 关键词分支
+    - semantic：仅 embedding 语义分支
+    - hybrid：RRF k=60 融合两分支（语义不可用时自动降级关键词，fail-open）
+
+    查询参数采用显式 Query(...) 声明：空关键词 / 非法日期类型 / 非法 mode 由 FastAPI 直接
+    校验返回 422，避免出现 500（原 Depends 模型校验失败路径不稳定）。
+    """
+    # 日期范围校验（start_date 不能晚于 end_date）
+    if start_date and end_date and start_date > end_date:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="start_date 不能晚于 end_date",
         )
-        .order_by(Diary.diary_date.desc())
-        .all()
+
+    # 模式白名单校验：非法 mode 直接 422。
+    if mode not in SEARCH_MODE_VALUES:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"mode 必须为 {SEARCH_MODE_VALUES} 之一",
+        )
+
+    items, total = search_events(
+        db=db,
+        user_id=current_user.id,
+        q=q,
+        start_date=start_date,
+        end_date=end_date,
+        limit=limit,
+        offset=offset,
+        mode=mode,
     )
-    return [serialize_diary(diary, db, current_user.id) for diary in diaries]
+    return SearchListResponse(items=items, total=total)
 
 
 def serialize_favorite(favorite: Favorite, db: Session, user_id: UUID) -> dict:
@@ -1308,9 +1336,10 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
             db.flush()
 
         # 创建 DiaryEvent 记录（事件标签由分析阶段产出，重要性由整理阶段产出）
+        new_events: list[DiaryEvent] = []
         for i, event in enumerate(result["events"]):
             event_title = event.get("title", "未命名事件")
-            db.add(DiaryEvent(
+            diary_event = DiaryEvent(
                 diary_organized_id=organized.id,
                 event_title=event_title,
                 body=json.dumps(event.get("body", []), ensure_ascii=False),
@@ -1322,7 +1351,9 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
                 ai_importance_reason=event.get("importance_reason", "未识别到明确的用户影响"),
                 importance_origin="DIARY_ORGANIZE",
                 importance_updated_at=datetime.utcnow(),
-            ))
+            )
+            db.add(diary_event)
+            new_events.append(diary_event)
 
         # 创建 DiaryCheckLog 记录
         for i, log in enumerate(result["check_log"]):
@@ -1360,6 +1391,10 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
             task.current_step = None
 
         db.commit()
+
+        # 增量同步新事件的语义向量（embedding），失败不影响业务结果（fail-open）。
+        for diary_event in new_events:
+            enqueue_event_embedding_sync(diary_event.id)
 
         # 清理 checkpoint 数据不应影响已提交的业务结果
         from services.pipeline import cleanup_checkpoint
@@ -1662,6 +1697,16 @@ async def _run_analyze(
             task.status = "completed"
             task.current_step = None
         db.commit()
+
+        # 分析产出认知 / 理解层，增量重算该日记全部事件的语义向量（fail-open）。
+        sync_events = (
+            db.query(DiaryEvent.id)
+            .filter(DiaryEvent.diary_organized_id == diary_organized_id)
+            .all()
+        )
+        for (event_id,) in sync_events:
+            enqueue_event_embedding_sync(event_id)
+
         logger.info(
             "后台分析任务完成",
             extra=log_extra(event="analysis.task.completed", diary_id=diary_id, task_id=task_id, analysis_mode=analysis_mode, old_status="running", new_status="completed", duration_ms=task_started.elapsed_ms()),
@@ -1825,6 +1870,12 @@ def update_organized(
         )
 
     db.commit()
+
+    # 整理内容（结构化事件）变更后，增量重算语义向量（fail-open）。
+    if structured_changed:
+        for ev in organized.events:
+            enqueue_event_embedding_sync(ev.id)
+
     db.refresh(organized)
     return serialize_organized(organized, get_current_analysis_run(db, diary.id), current_user.id, db)
 
@@ -1907,6 +1958,11 @@ def update_diary_event(
         )
 
     db.commit()
+
+    # 事件内容变更后，增量重算该事件的语义向量（fail-open）。
+    if structured_changed:
+        enqueue_event_embedding_sync(event.id)
+
     db.refresh(event)
     return serialize_event(event, get_current_analysis_run(db, diary.id), current_user.id, db)
 

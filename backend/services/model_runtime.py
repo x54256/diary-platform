@@ -37,6 +37,12 @@ class RuntimeModelConfig:
     thinkmode: dict[str, Any] | None = None
 
 
+# 语义检索 embedding 默认模型名（决策 12）：未配置 EMBEDDING 用途时的回退值。
+# 维度与迁移 038、embedding_client 一致（1024）。仅作模型名回退；api_key /
+# api_base_url 仍须来自管理端 DB 配置，否则上层 fail-open 降级为关键词召回。
+EMBEDDING_MODEL_DEFAULT = "qwen3.7-text-embedding"
+
+
 def resolve_model_setting(setting_key: str, step_key: str | None = None) -> RuntimeModelConfig:
     """解析业务用途对应的可调用模型配置。"""
     if setting_key not in SETTING_REQUIREMENTS:
@@ -46,6 +52,10 @@ def resolve_model_setting(setting_key: str, step_key: str | None = None) -> Runt
         raise ModelRuntimeError("环节与模型用途不匹配")
     if setting_key == "transcription" and step_key is not None:
         raise ModelRuntimeError("语音转文字不支持环节配置")
+
+    # embedding 用途：复用管理端 DB 托管配置；未配置时回退默认模型名（决策 12）。
+    if setting_key == "embedding":
+        return _resolve_embedding_setting()
 
     db = SessionLocal()
     try:
@@ -102,6 +112,63 @@ def resolve_model_setting(setting_key: str, step_key: str | None = None) -> Runt
             model_name=channel_model.model.model_name,
             reasoning_mode=channel_model.model.reasoning_mode,
             thinking_enabled=thinking_enabled,
+            thinkmode=channel_model.channel.thinkmode or {},
+        )
+    finally:
+        db.close()
+
+
+def _resolve_embedding_setting() -> RuntimeModelConfig:
+    """解析 EMBEDDING 用途模型配置（语义检索向量化）。
+
+    与 chat/organize 等一致走管理端 DB 托管配置（ModelSetting + ChannelModel +
+    ApiChannel）。未配置 EMBEDDING 用途时回退为默认模型名 qwen3.7-text-embedding，
+    api_key / api_base_url 留空，由上层（hybrid 模式语义分支）fail-open 降级为关键词
+    召回，避免未配置即抛错中断搜索（决策 12）。
+    """
+    db = SessionLocal()
+    try:
+        setting = (
+            db.query(ModelSetting)
+            .options(
+                joinedload(ModelSetting.channel_model).joinedload(ChannelModel.model),
+                joinedload(ModelSetting.channel_model).joinedload(ChannelModel.channel),
+            )
+            .filter(ModelSetting.setting_key == "embedding")
+            .first()
+        )
+        if not setting or not setting.channel_model:
+            # 未配置：返回默认模型名，供后续 fail-open 降级（不抛错）。
+            return RuntimeModelConfig(
+                setting_key="embedding",
+                model_type="language",
+                protocol="openai_chat",
+                api_base_url="",
+                api_key="",
+                model_name=EMBEDDING_MODEL_DEFAULT,
+                reasoning_mode="unsupported",
+                thinking_enabled=False,
+                thinkmode={},
+            )
+        channel_model = setting.channel_model
+        try:
+            validate_setting_choice("embedding", channel_model)
+            validate_thinking_choice(
+                channel_model, bool(setting.thinking_enabled), "embedding"
+            )
+            api_key = decrypt_channel_key(channel_model.channel)
+        except ModelConfigError as exc:
+            raise ModelRuntimeError(str(exc)) from exc
+        return RuntimeModelConfig(
+            setting_key="embedding",
+            step_key=None,
+            model_type=channel_model.model.model_type,
+            protocol=protocol_for_model_type(channel_model.model.model_type),
+            api_base_url=channel_model.channel.api_base_url.rstrip("/"),
+            api_key=api_key,
+            model_name=channel_model.model.model_name,
+            reasoning_mode=channel_model.model.reasoning_mode,
+            thinking_enabled=setting.thinking_enabled,
             thinkmode=channel_model.channel.thinkmode or {},
         )
     finally:
