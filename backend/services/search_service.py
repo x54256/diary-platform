@@ -35,9 +35,11 @@ from services.analysis_history import get_current_analysis_run
 # RRF 融合常数 k（决策 12：锁死为 60）。
 RRF_K = 60
 
-# 搜索服务默认模式：keyword（保证直接调用 / 既有单测行为稳定）。
-# API 层（routers.diaries.search_diaries）以 hybrid 为默认，符合决策 9。
-DEFAULT_SEARCH_MODE = "keyword"
+# 搜索服务默认模式：hybrid（RRF k=60 融合关键词 + 语义；决策 9 锁死）。
+# 与 API 层（routers.diaries.search_diaries）默认 hybrid 保持一致，避免任何不带
+# mode 直接调用 search_events 的代码静默退化为纯关键词。语义分支不可用时由
+# _hybrid_mode 自动 fail-open 降级关键词，因此 hybrid 默认值对关键词场景安全。
+DEFAULT_SEARCH_MODE = "hybrid"
 
 # 单次语义召回考虑的最大候选事件数（性能上限保护）。
 SEMANTIC_CANDIDATE_CAP = 200

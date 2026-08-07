@@ -17,6 +17,7 @@ import threading
 from datetime import datetime
 from typing import Iterable, List, Optional
 
+from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.orm import Session
 
 from database import SessionLocal
@@ -46,28 +47,31 @@ def _upsert_chunk(
     text: str,
     vec: List[float],
 ) -> None:
-    """对单个 (event_id, chunk_type) 做 upsert（存在则更新 content/embedding，否则插入）。"""
-    existing = (
-        db.query(EventEmbeddingChunk)
-        .filter(
-            EventEmbeddingChunk.event_id == event_id,
-            EventEmbeddingChunk.chunk_type == chunk_type,
-        )
-        .first()
+    """对单个 (event_id, chunk_type) 做 upsert。
+
+    采用 PostgreSQL ``INSERT ... ON CONFLICT (event_id, chunk_type) DO UPDATE``
+    （设计 §3.5/§3.7 要求），相较 select-then-upsert：
+    - 省去命中时的额外 SELECT（单事件最多 3 次）；
+    - 消除并发同步同一事件时的唯一约束竞态（原实现在并发下可能抛 IntegrityError
+      被吞、导致分块漏写，需对账兜底）；冲突时仅更新 content/embedding/updated_at，
+    created_at 由服务端默认值保留。
+    """
+    now = datetime.utcnow()
+    stmt = pg_insert(EventEmbeddingChunk).values(
+        event_id=event_id,
+        chunk_type=chunk_type,
+        content=text,
+        embedding=vec,
+        updated_at=now,
+    ).on_conflict_do_update(
+        index_elements=["event_id", "chunk_type"],
+        set_={
+            "content": text,
+            "embedding": vec,
+            "updated_at": now,
+        },
     )
-    if existing is not None:
-        existing.content = text
-        existing.embedding = vec
-        existing.updated_at = datetime.utcnow()
-    else:
-        db.add(
-            EventEmbeddingChunk(
-                event_id=event_id,
-                chunk_type=chunk_type,
-                content=text,
-                embedding=vec,
-            )
-        )
+    db.execute(stmt)
 
 
 def sync_event_embeddings(db: Session, event_id: object) -> int:

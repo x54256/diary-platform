@@ -95,10 +95,10 @@ class SearchQATest(unittest.TestCase):
         self._make_event(o, "English Mix", ["Hello World 跑步"], "Hello World 跑步")
 
         # 小写查询应命中含大写的文本
-        items, total = search_events(self.db, self.user.id, "hello", None, None, 20, 0)
+        items, total = search_events(self.db, self.user.id, "hello", None, None, 20, 0, mode="keyword")
         self.assertEqual(total, 1)
         # 大写查询也应命中
-        items2, total2 = search_events(self.db, self.user.id, "WORLD", None, None, 20, 0)
+        items2, total2 = search_events(self.db, self.user.id, "WORLD", None, None, 20, 0, mode="keyword")
         self.assertEqual(total2, 1)
 
     # ---- 2. 分页边界：offset 超过 total ----
@@ -107,7 +107,7 @@ class SearchQATest(unittest.TestCase):
         for i in range(3):
             self._make_event(o, f"关键词Z{i}", [f"包含关键词Z的第{i}条"], f"关键词Z 包含关键词Z的第{i}条")
 
-        items, total = search_events(self.db, self.user.id, "关键词Z", None, None, 20, 100)
+        items, total = search_events(self.db, self.user.id, "关键词Z", None, None, 20, 100, mode="keyword")
         self.assertEqual(total, 3)          # total 不变（与 items 去重口径一致）
         self.assertEqual(items, [])         # 越界 offset 返回空
 
@@ -164,7 +164,7 @@ class SearchQATest(unittest.TestCase):
             "<script>alert(1)</script> 跑步健身",
         )
 
-        items, total = search_events(self.db, self.user.id, "跑步健身", None, None, 20, 0)
+        items, total = search_events(self.db, self.user.id, "跑步健身", None, None, 20, 0, mode="keyword")
         self.assertEqual(total, 1)
         item = items[0]
         # 序列化结果仅含事件字段，不含 search_text 中的脚本。
@@ -182,7 +182,7 @@ class SearchQATest(unittest.TestCase):
         # B：含 “50%”
         b = self._make_event(o, "比例事件", ["完成率增长50% 很好"], "完成率增长50% 很好")
 
-        items, total = search_events(self.db, self.user.id, "50%", None, None, 20, 0)
+        items, total = search_events(self.db, self.user.id, "50%", None, None, 20, 0, mode="keyword")
         # 正确行为：仅匹配字面 “50%”（事件 B），不应把 “50分” 当作 “50”+任意字符 命中。
         self.assertEqual(total, 1)
         self.assertEqual(items[0]["id"], b.id)

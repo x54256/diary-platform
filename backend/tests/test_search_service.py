@@ -150,7 +150,7 @@ class SearchServiceTest(unittest.TestCase):
         # 之前写成“今天去跑步了”缺“健身”会导致仅命中 1 条，断言 total==2 失败。
         e2 = self._make_event(o2, "读书笔记", ["今天去跑步健身顺便买了书"], "读书笔记 今天去跑步健身顺便买了书")
 
-        items, total = search_events(self.db, self.user.id, "跑步健身", None, None, 20, 0)
+        items, total = search_events(self.db, self.user.id, "跑步健身", None, None, 20, 0, mode="keyword")
         self.assertEqual(total, 2)
         # 标题精确包含关键词，相关度应高于仅正文命中的事件
         self.assertEqual(items[0]["id"], e1.id)
@@ -164,7 +164,7 @@ class SearchServiceTest(unittest.TestCase):
         self._make_event(o_anl, "关键词A事件2", ["包含关键词A"], "关键词A 包含关键词A")
         self._make_event(o_saved, "关键词A事件3", ["包含关键词A"], "关键词A 包含关键词A")
 
-        items, total = search_events(self.db, self.user.id, "关键词A", None, None, 20, 0)
+        items, total = search_events(self.db, self.user.id, "关键词A", None, None, 20, 0, mode="keyword")
         self.assertEqual(total, 2)
         returned_ids = {it["id"] for it in items}
         self.assertNotIn(self._event_id_for(o_saved), returned_ids)
@@ -173,7 +173,7 @@ class SearchServiceTest(unittest.TestCase):
         d_del, o_del = self._make_diary(DiaryStatus.organized, date(2026, 3, 1), deleted=True)
         self._make_event(o_del, "关键词B", ["包含关键词B"], "关键词B 包含关键词B")
 
-        items, total = search_events(self.db, self.user.id, "关键词B", None, None, 20, 0)
+        items, total = search_events(self.db, self.user.id, "关键词B", None, None, 20, 0, mode="keyword")
         self.assertEqual(total, 0)
         self.assertEqual(items, [])
 
@@ -183,7 +183,7 @@ class SearchServiceTest(unittest.TestCase):
         self._make_event(o_early, "关键词C", ["包含关键词C"], "关键词C 包含关键词C")
         self._make_event(o_late, "关键词C", ["包含关键词C"], "关键词C 包含关键词C")
 
-        items, total = search_events(self.db, self.user.id, "关键词C", date(2026, 3, 1), date(2026, 3, 31), 20, 0)
+        items, total = search_events(self.db, self.user.id, "关键词C", date(2026, 3, 1), date(2026, 3, 31), 20, 0, mode="keyword")
         self.assertEqual(total, 1)
         self.assertEqual(items[0]["diary_date"], date(2026, 3, 10))
 
@@ -195,7 +195,7 @@ class SearchServiceTest(unittest.TestCase):
         e.search_text = "关键词D 正文包含关键词D 分析也提到关键词D"
         self.db.flush()
 
-        items, total = search_events(self.db, self.user.id, "关键词D", None, None, 20, 0)
+        items, total = search_events(self.db, self.user.id, "关键词D", None, None, 20, 0, mode="keyword")
         self.assertEqual(total, 1)
         self.assertEqual(len(items), 1)
         self.assertEqual(items[0]["id"], e.id)
@@ -207,11 +207,11 @@ class SearchServiceTest(unittest.TestCase):
         for i in range(3):
             self._make_event(o, f"关键词E{i}", [f"包含关键词E的第{i}条"], f"关键词E 包含关键词E的第{i}条")
 
-        items, total = search_events(self.db, self.user.id, "关键词E", None, None, 2, 0)
+        items, total = search_events(self.db, self.user.id, "关键词E", None, None, 2, 0, mode="keyword")
         self.assertEqual(total, 3)
         self.assertEqual(len(items), 2)
 
-        items2, _ = search_events(self.db, self.user.id, "关键词E", None, None, 2, 2)
+        items2, _ = search_events(self.db, self.user.id, "关键词E", None, None, 2, 2, mode="keyword")
         self.assertEqual(len(items2), 1)
 
     def test_user_isolation(self):
@@ -224,7 +224,7 @@ class SearchServiceTest(unittest.TestCase):
         d_me, o_me = self._make_diary(DiaryStatus.organized, date(2026, 6, 2))
         self._make_event(o_me, "关键词F", ["包含关键词F"], "关键词F 包含关键词F")
 
-        items, total = search_events(self.db, self.user.id, "关键词F", None, None, 20, 0)
+        items, total = search_events(self.db, self.user.id, "关键词F", None, None, 20, 0, mode="keyword")
         self.assertEqual(total, 1)
         self.assertEqual(items[0]["diary_id"], d_me.id)
 

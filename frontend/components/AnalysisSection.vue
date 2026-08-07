@@ -21,13 +21,15 @@
         :class="compact ? '' : 'rounded-md bg-neutral-50 px-3 py-2.5'"
       >
         <div v-if="item.question" class="mb-1 text-base font-medium text-neutral-700">
-          {{ item.question }}
+          <span v-if="keyword" v-html="highlight(item.question, keyword)"></span>
+          <span v-else>{{ item.question }}</span>
         </div>
         <DiaryAnnotationText
           :paragraphs="[item.content]"
           target-type="ANALYSIS_ITEM"
           :analysis-item-id="item.id"
           :annotations="annotations"
+          :keyword="keyword"
           :paragraph-class="compact ? 'analysis-markup text-base text-neutral-600 leading-relaxed' : 'analysis-markup text-base leading-relaxed text-neutral-700'"
           @select="emit('annotation-select', $event)"
           @annotation-clicked="emit('annotation-clicked', $event)"
@@ -39,12 +41,14 @@
 
 <script setup lang="ts">
 import type { AnalysisFeedback as Feedback, AnalysisSection, DiaryAnnotation, DiaryAnnotationClick, DiaryAnnotationSelection } from '~/types'
+import { highlight } from '~/utils/highlight'
 
 const props = defineProps<{
   analysisRunId: string
   section: AnalysisSection
   compact?: boolean
   annotations?: DiaryAnnotation[]
+  keyword?: string
 }>()
 
 const emit = defineEmits<{
@@ -62,3 +66,12 @@ const handleSaved = (feedback: Feedback) => {
   emit('feedback-saved', props.section)
 }
 </script>
+
+<style>
+.search-keyword {
+  background-color: #fef08a;
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+</style>

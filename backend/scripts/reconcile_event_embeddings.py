@@ -60,14 +60,19 @@ def reconcile(min_layers: int = 3) -> dict:
                 .scalar()
                 or 0
             )
+            if cnt < min_layers:
+                reconciled += 1
+                try:
+                    # 注意签名：sync_event_embeddings(db, event_id)。
+                    # db2 必须在此同步 + 提交期间保持打开（原实现提前 close 且未 commit，
+                    # 导致脚本静默空转、什么都不补算）。
+                    sync_event_embeddings(db2, eid)
+                    db2.commit()
+                except Exception as exc:  # noqa: BLE001
+                    db2.rollback()
+                    logger.warning("事件 %s 对账补算失败: %s", eid, exc)
         finally:
             db2.close()
-        if cnt < min_layers:
-            reconciled += 1
-            try:
-                sync_event_embeddings(eid, None)
-            except Exception as exc:  # noqa: BLE001
-                logger.warning("事件 %s 对账补算失败: %s", eid, exc)
     logger.info("对账完成：扫描 %d，需补算 %d", scanned, reconciled)
     return {"scanned": scanned, "reconciled": reconciled}
 

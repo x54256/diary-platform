@@ -38,11 +38,13 @@ const props = withDefaults(defineProps<{
   containerClass?: string
   paragraphClass?: string
   showIndex?: boolean
+  keyword?: string
 }>(), {
   annotations: () => [],
   containerClass: '',
   paragraphClass: '',
   showIndex: false,
+  keyword: '',
 })
 
 const emit = defineEmits<{
@@ -122,6 +124,57 @@ const applyMarks = async () => {
         wrapTextRange(content, start, end, annotation)
       }
     }
+  }
+
+  // 关键词高亮（搜索场景）：在标注渲染之后，对剩余文本节点做安全包裹，
+  // 跳过已处于批注标记 / 搜索高亮标记内部的文本，避免嵌套。
+  if (props.keyword) {
+    for (const paragraph of paragraphs) {
+      const content = paragraph.querySelector<HTMLElement>('[data-paragraph-content]')
+      if (content) wrapKeywordInTextNodes(content, props.keyword)
+    }
+  }
+}
+
+const wrapKeywordInTextNodes = (container: HTMLElement, keyword: string) => {
+  const kw = (keyword || '').trim()
+  if (!kw) return
+  const lowerKw = kw.toLowerCase()
+  const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT)
+  const textNodes: Text[] = []
+  let node = walker.nextNode()
+  while (node) {
+    const parent = (node as Text).parentElement
+    // 跳过已处于批注标记或搜索高亮标记内部的文本，避免嵌套 <mark>
+    if (parent && (parent.closest('[data-annotation-id]') || parent.closest('.search-keyword'))) {
+      node = walker.nextNode()
+      continue
+    }
+    textNodes.push(node as Text)
+    node = walker.nextNode()
+  }
+  for (const textNode of textNodes) {
+    const text = textNode.nodeValue || ''
+    const lower = text.toLowerCase()
+    const positions: number[] = []
+    let idx = lower.indexOf(lowerKw)
+    while (idx !== -1) {
+      positions.push(idx)
+      idx = lower.indexOf(lowerKw, idx + lowerKw.length)
+    }
+    if (positions.length === 0) continue
+    const frag = document.createDocumentFragment()
+    let cursor = 0
+    for (const pos of positions) {
+      if (pos > cursor) frag.appendChild(document.createTextNode(text.slice(cursor, pos)))
+      const mark = document.createElement('mark')
+      mark.className = 'search-keyword'
+      mark.textContent = text.slice(pos, pos + kw.length)
+      frag.appendChild(mark)
+      cursor = pos + kw.length
+    }
+    frag.appendChild(document.createTextNode(text.slice(cursor)))
+    textNode.parentNode?.replaceChild(frag, textNode)
   }
 }
 
@@ -260,7 +313,7 @@ const handleKeydown = (event: KeyboardEvent) => {
   target.classList.toggle('is-open')
 }
 
-watch(() => [props.paragraphs, props.annotations], applyMarks, { deep: true })
+watch(() => [props.paragraphs, props.annotations, props.keyword], applyMarks, { deep: true })
 onMounted(applyMarks)
 </script>
 

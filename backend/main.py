@@ -157,6 +157,8 @@ async def startup():
     await transcription_task_manager.start()
     from services.review_tasks import review_task_manager
     await review_task_manager.start()
+    from services.embedding_reconcile import embedding_reconcile_scheduler
+    await embedding_reconcile_scheduler.start()
 
 
 @app.on_event("shutdown")
@@ -169,6 +171,8 @@ async def shutdown():
     await transcription_task_manager.stop()
     from services.review_tasks import review_task_manager
     await review_task_manager.stop()
+    from services.embedding_reconcile import embedding_reconcile_scheduler
+    await embedding_reconcile_scheduler.stop()
 
 
 def _recover_stuck_tasks():

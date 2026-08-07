@@ -32,7 +32,7 @@ from models.diary import (
 )
 from models.user import User
 from routers.diaries import router as diaries_router
-from services.auth import create_access_token
+from services.auth import create_access_token, get_current_user
 
 
 SEARCH_PATH = "/diary/api/diaries/search"
@@ -323,12 +323,19 @@ class SearchAPIModeValidationTest(unittest.TestCase):
         # raise_server_exceptions=False：让校验失败（如 422）以状态码形式返回。
         self.client = TestClient(self.app, raise_server_exceptions=False)
 
-        # 真实用户（写入当前事务，对端点可见）；鉴权通过后才会校验 mode。
+        # 真实用户（写入当前事务，对端点可见）。
         self.user = User(username=f"mode_valid_{uuid4().hex[:8]}", password_encrypted="x")
         self.session.add(self.user)
         self.session.flush()
         self.token = create_access_token({"sub": self.user.username})
         self.auth_headers = {"Authorization": f"Bearer {self.token}"}
+
+        # FastAPI 实际会先执行 security 依赖（get_current_user）再校验 query 参数；
+        # 为避免鉴权（或 DB 可用性）干扰对 mode 白名单校验本身的断言，覆盖鉴权依赖。
+        def _override_current_user():
+            return self.user
+
+        self.app.dependency_overrides[get_current_user] = _override_current_user
 
     def tearDown(self):
         self.app.dependency_overrides.clear()
