@@ -159,9 +159,24 @@
         class="absolute inset-x-0 z-30 border-b border-neutral-200 bg-white"
         :style="{ top: `${diaryContentTop}px` }"
       >
-        <div class="flex items-start justify-between gap-3 px-4 py-3">
-          <div class="text-base font-medium text-neutral-800">
+        <div class="flex items-start gap-2 px-4 py-3">
+          <div class="min-w-0 flex-1 text-base font-medium text-neutral-800">
             {{ stickyEvent.event_title || '未命名事件' }}
+          </div>
+          <div class="flex shrink-0 items-center gap-0.5" role="radiogroup" aria-label="修改事件重要性">
+            <button
+              v-for="option in importanceOptions"
+              :key="option.code"
+              type="button"
+              class="h-6 w-6 rounded-full border text-[10px] font-medium leading-none transition-colors disabled:opacity-50"
+              :class="importanceButtonClass(option.code, stickyImportanceCode === option.code)"
+              :aria-label="`重要性：${option.label}`"
+              :aria-pressed="stickyImportanceCode === option.code"
+              :disabled="importanceSavingEventId === stickyEvent.id"
+              @click.stop="updateEventImportance(stickyEvent.id, option.code)"
+            >
+              {{ option.label }}
+            </button>
           </div>
           <button
             type="button"
@@ -716,6 +731,29 @@ const importanceSavingEventId = ref<string | null>(null)
 const diaryContentRef = ref<HTMLElement | null>(null)
 const diaryContentTop = ref(44)
 const stickyEvent = ref<DiaryEvent | null>(null)
+const importanceOptions = [
+  { code: 'HIGH' as const, label: '高' },
+  { code: 'MEDIUM' as const, label: '中' },
+  { code: 'LOW' as const, label: '低' },
+]
+const stickyImportanceCode = computed<'HIGH' | 'MEDIUM' | 'LOW' | ''>(() => {
+  const value = stickyEvent.value?.user_importance || stickyEvent.value?.ai_importance
+  return value === 'HIGH' || value === 'MEDIUM' || value === 'LOW' ? value : ''
+})
+const importanceButtonClass = (importance: 'HIGH' | 'MEDIUM' | 'LOW', selected: boolean) => {
+  if (selected) {
+    return importance === 'HIGH'
+      ? 'border-red-500 bg-red-500 text-white'
+      : importance === 'MEDIUM'
+        ? 'border-orange-500 bg-orange-500 text-white'
+        : 'border-neutral-500 bg-neutral-500 text-white'
+  }
+  return importance === 'HIGH'
+    ? 'border-red-200 text-red-500 hover:bg-red-50'
+    : importance === 'MEDIUM'
+      ? 'border-orange-200 text-orange-500 hover:bg-orange-50'
+      : 'border-neutral-300 text-neutral-500 hover:bg-neutral-50'
+}
 
 const annotationPanelOpen = ref(false)
 const selectionToolbarOpen = ref(false)
