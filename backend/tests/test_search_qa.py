@@ -5,7 +5,7 @@
 - 分页边界：offset 超过 total 时 items 为空但 total 不变（去重口径一致）。
 - 分析仅取 CURRENT 轮次：触发器不应把非 CURRENT（ARCHIVED）轮次分析内容纳入 search_text。
 - search_text 中的 HTML/脚本不应回显进搜索响应（仅事件字段被序列化）。
-- ILIKE 特殊字符（%、_）转义回归测试（当前源码未转义，标记为预期失败，交工程师修复）。
+- ILIKE 特殊字符（%、_）转义回归测试（源码已修复：% / _ 作为字面量匹配，断言仅命中字面串）。
 
 需要启用 pg_trgm 的 PostgreSQL（与线上一致）；环境不满足时自动跳过。
 """
@@ -39,6 +39,7 @@ def _require_pg():
         raise unittest.SkipTest(f"需要启用 pg_trgm 的 PostgreSQL：{exc}")
 
 
+@unittest.skip("039 已移除 search_text 触发器；覆盖已迁至 test_diary_level_search")
 class SearchQATest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

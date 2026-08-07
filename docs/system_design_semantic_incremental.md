@@ -77,9 +77,9 @@
 
 聚合口径与现有触发器 `compute_event_search_vector` / 卡片 `build_sections(current_run, ..., "EVENT", event.id)` **完全一致**：分析取 **CURRENT 轮次 EVENT 作用域** `analysis_items`。
 
-- **fact（事实层）** = `event_title` + `body`
-- **self_understanding（自我理解分析）** = `feeling` + `reflection` + 分析的 `EMOTION` + `SELF_UNDERSTANDING` + `BEHAVIOR_DECISION` + `ACTION_SUGGESTION`（content/question）
-- **cognition（认知整理分析）** = 分析的 `COGNITIVE_CALIBRATION` + `COGNITION_ENHANCEMENT` + `QUESTION_ANSWER`（content/question）
+- **fact（事实层）** = `event_title` + `body` + `feeling` + `reflection`
+- **self_understanding（自我理解分析）** = 分析的 `EMOTION` + `SELF_UNDERSTANDING` + `BEHAVIOR_DECISION` + `ACTION_SUGGESTION`（content/question；注意 `feeling`/`reflection` 已并入 fact 层，不在此层）
+- **cognition（认知整理分析）** = 分析的 `COGNITIVE_CALIBRATION` + `COGNITION_ENHANCEMENT` + `QUESTION_ANSWER`（content/question，不变）
 
 > `body/feeling/reflection` 以 JSON 数组存储，按现有口径 `json.loads` 后 `" ".join` 为纯文本（不把 JSON 括号/引号写进向量文本）。
 
@@ -132,7 +132,7 @@
 - 调用点（均在写入提交后）：
   - `_run_organize` 提交后：对本日记所有新建/更新事件 enqueue（fact 层 + 若有分析的层）。
   - `_run_analyze` 提交后：对本日记所有事件 enqueue（self_understanding / cognition 层随分析变化重算）。
-  - `update_diary_event`：若 `changed_fields` 含 `body/feeling/reflection` → enqueue 该事件（fact/self_understanding 层重算）。
+  - `update_diary_event`：若 `changed_fields` 含 `body/feeling/reflection` → enqueue 该事件（fact 层重算，因 feeling/reflection 已并入 fact）。
   - `update_organized`：对变更事件 enqueue。
 - **定时对账任务（【已确认】用户选定时对账，比默认更强）**：在 best-effort enqueue 之上，新增 `scripts/reconcile_event_embeddings.py` —— 周期性扫描「chunk 行缺失 / 不足 3 层（fact/self_understanding/cognition 不全）或疑似过期」的事件，调用 `sync_event_embeddings` 补算，覆盖 enqueue 因进程重启等未完成的遗漏。由运维以 cron（或同等调度）按固定间隔（如每日）触发；**不引入 Celery 等新框架**，复用现有脚本执行机制。
 - 健壮性：失败静默（chunk 缺失 → 该事件仅由关键词召回）；提供 `scripts/backfill_event_embeddings.py`（全量重算，换模型用）与 `scripts/reconcile_event_embeddings.py`（增量对账，日常用）两类补偿脚本。
@@ -414,6 +414,7 @@ graph TD
 ## 九、共享知识（跨文件约定）
 
 - **chunk_type 枚举值（全局一致）**：`'fact'` / `'self_understanding'` / `'cognition'`。出现在 `event_embedding_chunks.chunk_type`、builder 返回 dict 键、`matched_chunk_types`、前端 `chunk_type→label` 映射，必须完全一致。
+- **三层分块映射（全局一致）**：`fact` = `event_title` + `body` + `feeling` + `reflection`；`self_understanding` = 分析的 `EMOTION` + `SELF_UNDERSTANDING` + `BEHAVIOR_DECISION` + `ACTION_SUGGESTION`（content/question，`feeling`/`reflection` 已并入 fact 层、不在此层）；`cognition` = 分析的 `COGNITIVE_CALIBRATION` + `COGNITION_ENHANCEMENT` + `QUESTION_ANSWER`（content/question）。聚合口径与卡片 `build_sections` 的 CURRENT 轮次 EVENT 作用域一致；`event_chunk_builder`、语义检索与前端层高亮均须遵循此映射。
 - **向量维度约定**：`N = 1024` → `vector(1024)`；embedding 调用统一 `dimensions=1024`、`encoding_format="float"`。模型名 = `qwen3.7-text-embedding`（用户指定，使用默认 1024 维），由管理端 DB 托管 `EMBEDDING` 配置设定，不写死在代码。
 - **embedding API 调用约定（出网隐私最小化）**：仅发送 `content`（分块文本或查询文本），**绝不**发送 `user_id` / 用户名 / 任何用户标识；`api_base_url` / `api_key` / `model_name` 来自 `model_management` 的 DB 托管 `EMBEDDING` setting_key（解密 channel key），与管理端 chat 模型配置一致、可运行时切换；不写死在代码、不通过硬编码 env。
 - **user_id 隔离 / 软删除 / 状态过滤（语义分支落实）**：语义召回必须 `JOIN diary_events→diary_organized→diaries`，施加 `diaries.user_id = current_user.id`、`diaries.deleted_at IS NULL`、`diaries.status IN ('organized','analyzed')`、日期基于 `diary.diary_date` —— 与关键词分支口径**完全一致**（主理人/用户_id 一律取 `get_current_user`，不用客户端传入）。

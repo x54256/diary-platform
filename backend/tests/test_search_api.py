@@ -54,6 +54,7 @@ _sub.include_router(diaries_router)
 _test_app.include_router(_sub)
 
 
+@unittest.skip("039 已替换事件级 search_text API；覆盖已迁至日记级搜索测试")
 class SearchAPITest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -288,6 +289,7 @@ class SearchAPITest(unittest.TestCase):
         self.assertEqual(len(item["analysis"]) >= 1, True)
 
 
+@unittest.skip("039 固定混合搜索，不再提供 mode 参数")
 class SearchAPIModeValidationTest(unittest.TestCase):
     """模式参数校验：需 PG（鉴权需查 users 表），但不需要 pgvector / event_embedding_chunks。
 

@@ -55,6 +55,14 @@
           备份与恢复
         </NuxtLink>
         <NuxtLink
+          to="/admin/search-index"
+          class="mt-1 flex items-center px-3 py-2 rounded text-sm"
+          :class="$route.path.startsWith('/admin/search-index') ? 'bg-neutral-900 text-white' : 'text-neutral-700 hover:bg-neutral-100'"
+          @click="mobileMenuOpen = false"
+        >
+          搜索索引
+        </NuxtLink>
+        <NuxtLink
           to="/admin/models"
           class="mt-1 flex items-center px-3 py-2 rounded text-sm"
           :class="$route.path.startsWith('/admin/models') ? 'bg-neutral-900 text-white' : 'text-neutral-700 hover:bg-neutral-100'"

@@ -14,6 +14,7 @@ from routers.tags import router as tags_router
 from routers.dialogs import router as dialogs_router
 from routers.admin_backup import router as admin_backup_router
 from routers.admin_models import router as admin_models_router
+from routers.admin_search import router as admin_search_router
 from routers.transcriptions import router as transcriptions_router
 from routers.schedules import router as schedules_router
 from routers.voice_profile import router as voice_profile_router
@@ -128,6 +129,7 @@ api_router.include_router(tags_router)
 api_router.include_router(dialogs_router)
 api_router.include_router(admin_backup_router)
 api_router.include_router(admin_models_router)
+api_router.include_router(admin_search_router)
 api_router.include_router(transcriptions_router)
 api_router.include_router(schedules_router)
 api_router.include_router(voice_profile_router)
@@ -157,8 +159,8 @@ async def startup():
     await transcription_task_manager.start()
     from services.review_tasks import review_task_manager
     await review_task_manager.start()
-    from services.embedding_reconcile import embedding_reconcile_scheduler
-    await embedding_reconcile_scheduler.start()
+    from services.search_rebuild_jobs import search_index_rebuild_scheduler
+    await search_index_rebuild_scheduler.start()
 
 
 @app.on_event("shutdown")
@@ -171,8 +173,8 @@ async def shutdown():
     await transcription_task_manager.stop()
     from services.review_tasks import review_task_manager
     await review_task_manager.stop()
-    from services.embedding_reconcile import embedding_reconcile_scheduler
-    await embedding_reconcile_scheduler.stop()
+    from services.search_rebuild_jobs import search_index_rebuild_scheduler
+    await search_index_rebuild_scheduler.stop()
 
 
 def _recover_stuck_tasks():

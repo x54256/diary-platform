@@ -14,6 +14,7 @@ from models.user import User
 from routers.admin_backup import require_admin
 from services.model_management import (
     ASR_CATEGORIES,
+    EMBEDDING_CATEGORIES,
     LANGUAGE_CATEGORIES,
     MODEL_TYPES,
     REASONING_MODES,
@@ -134,6 +135,7 @@ def get_model_options(current_user: User = Depends(require_admin)):
         "setting_keys": SETTING_KEYS,
         "language_categories": LANGUAGE_CATEGORIES,
         "asr_categories": ASR_CATEGORIES,
+        "embedding_categories": EMBEDDING_CATEGORIES,
         "reasoning_modes": REASONING_MODES,
         "usage_labels": {
             "organize": "整理",
@@ -141,6 +143,7 @@ def get_model_options(current_user: User = Depends(require_admin)):
             "review": "回顾",
             "chat": "对话",
             "transcription": "语音转文字",
+            "embedding": "向量化",
         },
     }
 
@@ -494,7 +497,7 @@ async def test_model_setting(
             raise HTTPException(status_code=400, detail="渠道模型不存在")
         try:
             validate_setting_choice(request.setting_key, channel_model)
-            if request.setting_key != "transcription":
+            if request.setting_key not in {"transcription", "embedding"}:
                 if request.thinking_enabled is None:
                     raise ModelConfigError("测试语言模型时必须指定思考状态")
                 validate_thinking_choice(channel_model, request.thinking_enabled, request.step_key or request.setting_key)
@@ -505,7 +508,7 @@ async def test_model_setting(
         api_base_url = channel_model.channel.api_base_url.rstrip("/")
         model_name = channel_model.model.model_name
         thinking_payload = {}
-        if request.setting_key != "transcription":
+        if request.setting_key not in {"transcription", "embedding"}:
             from services.model_runtime import RuntimeModelConfig
             thinking_payload = resolve_thinking_payload(RuntimeModelConfig(
                 setting_key=request.setting_key,
@@ -529,6 +532,18 @@ async def test_model_setting(
         api_key = config.api_key
         model_name = config.model_name
         thinking_payload = resolve_thinking_payload(config) if protocol == "openai_chat" else {}
+    if protocol == "openai_embeddings":
+        async with httpx.AsyncClient(timeout=30) as client:
+            response = await client.post(
+                f"{api_base_url}/embeddings",
+                headers={"Authorization": f"Bearer {api_key}"},
+                json={"model": model_name, "input": ["向量化配置测试"], "dimensions": 1024},
+            )
+            response.raise_for_status()
+            data = response.json().get("data") or []
+            if not data or not data[0].get("embedding"):
+                raise HTTPException(status_code=502, detail="embedding 接口未返回向量")
+        return {"status": "ok", "message": "向量化测试通过"}
     if protocol != "openai_chat":
         return {"status": "skipped", "message": "ASR 首版不执行真实音频测试"}
     async with httpx.AsyncClient(timeout=30) as client:

@@ -19,7 +19,7 @@
           type="text"
           placeholder="搜索日记事件..."
           @keyup.enter="handleSearch"
-          class="w-full pl-10 pr-4 py-2 rounded-lg bg-neutral-100 text-sm text-neutral-800 placeholder-neutral-400"
+          class="w-full pl-10 pr-4 py-2 rounded-lg bg-neutral-100 text-base sm:text-sm text-neutral-800 placeholder-neutral-400"
         />
         <span class="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 text-sm">🔍</span>
       </div>
@@ -28,36 +28,53 @@
           v-model="searchStartDate"
           type="date"
           aria-label="起始日期"
-          class="min-w-0 flex-1 rounded-lg bg-neutral-100 px-2 py-1.5 text-xs text-neutral-700"
+          class="min-w-0 flex-1 rounded-lg bg-neutral-100 px-2 py-1.5 text-base sm:text-xs text-neutral-700"
         />
         <span class="text-xs text-neutral-400">至</span>
         <input
           v-model="searchEndDate"
           type="date"
           aria-label="结束日期"
-          class="min-w-0 flex-1 rounded-lg bg-neutral-100 px-2 py-1.5 text-xs text-neutral-700"
+          class="min-w-0 flex-1 rounded-lg bg-neutral-100 px-2 py-1.5 text-base sm:text-xs text-neutral-700"
         />
       </div>
     </div>
 
-    <!-- 搜索结果（事件卡 feed，无限滚动） -->
+    <!-- 搜索结果（日记卡，无限滚动） -->
     <div v-if="searchActive" class="px-4 pb-4">
       <div class="flex items-center justify-between mb-2">
-        <span class="text-xs text-neutral-500">搜索结果（{{ searchResults.length }} / {{ searchTotal }} 条）</span>
+        <span class="text-xs text-neutral-500">搜索结果（{{ searchResults.length }} / {{ searchTotal }} 篇）</span>
         <button @click="clearSearch" class="text-xs text-primary-600">清除</button>
       </div>
+      <div v-if="semanticStatus === 'PARTIAL'" class="mb-2 rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-700">部分语义索引仍在生成中，当前结果已基于可用内容返回。</div>
+      <div v-else-if="semanticStatus === 'UNAVAILABLE'" class="mb-2 rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-700">语义搜索暂不可用，当前结果仅基于关键词。</div>
       <div v-if="searchLoading && searchResults.length === 0" class="text-center text-sm text-neutral-400 py-6">搜索中...</div>
-      <div v-else-if="searchResults.length === 0" class="text-center text-sm text-neutral-400 py-6">未找到相关事件</div>
+      <div v-else-if="searchResults.length === 0" class="text-center text-sm text-neutral-400 py-6">未找到相关日记</div>
       <div v-else class="space-y-2">
-        <EventCard
+        <div
           v-for="item in searchResults"
-          :key="item.id"
-          :event="item"
-          :keyword="searchQuery"
-          :analysis-run-id="item.analysis_run_id || undefined"
-          :matched-chunk-types="item.matched_chunk_types || []"
-          @favorite-toggle="handleSearchFavoriteToggle"
-        />
+          :key="item.diary_id"
+          class="rounded-xl border border-neutral-100 bg-white p-4 shadow-sm"
+        >
+          <NuxtLink :to="`/diary/${item.diary_id}`" class="block active:bg-neutral-50">
+            <div class="flex items-center justify-between gap-3">
+              <h2 class="min-w-0 truncate text-sm font-medium text-neutral-800">{{ item.title || '未命名日记' }}</h2>
+              <time class="shrink-0 text-xs text-neutral-400">{{ formatDateInAppTimeZone(item.diary_date) }}</time>
+            </div>
+            <div class="mt-3 space-y-2">
+              <div v-for="(match, index) in visibleSearchMatches(item)" :key="`${match.event_id}-${match.kind}-${index}`" class="text-sm leading-6 text-neutral-600 line-clamp-2">
+                <span v-if="match.semantic_layer" class="mr-1 rounded bg-primary-50 px-1.5 py-0.5 text-[10px] text-primary-700">{{ semanticLayerLabel(match.semantic_layer) }}</span>
+                <template v-for="(part, partIndex) in highlightSearchSnippet(match.snippet, match.keyword_matched)" :key="partIndex">
+                  <mark v-if="match.keyword_matched && partIndex % 2 === 1" class="bg-transparent text-red-600">{{ part }}</mark>
+                  <template v-else>{{ part }}</template>
+                </template>
+              </div>
+            </div>
+          </NuxtLink>
+          <button v-if="item.matches.length > 3" type="button" class="mt-2 text-xs text-primary-600" @click.prevent="toggleSearchMatches(item.diary_id)">
+            {{ searchMatchesExpanded(item.diary_id) ? '收起命中' : `展开全部命中（${item.matches.length}）` }}
+          </button>
+        </div>
         <div ref="searchSentinel" class="h-8 text-center text-xs text-neutral-400">
           {{ searchLoading ? '加载中...' : searchHasMore ? '继续下滑加载更多' : '已显示全部结果' }}
         </div>
@@ -283,6 +300,7 @@
 import { addDaysToDateKey, dateKeyInAppTimeZone, formatDateInAppTimeZone, formatDateTimeInAppTimeZone, weekDayInAppTimeZone } from '~/utils/datetime'
 import type { ReviewDailyDigest, ReviewDailyDigestList } from '~/types'
 import { useSearch } from '~/composables/useSearch'
+import { splitSearchSnippet } from '~/utils/search-highlight'
 definePageMeta({
   layout: 'default',
   middleware: 'auth',
@@ -305,12 +323,29 @@ const {
   total: searchTotal,
   loading: searchLoading,
   hasMore: searchHasMore,
+  semanticStatus,
   search: doSearch,
   reset: resetSearch,
 } = useSearch()
 const searchActive = ref(false)
 const searchSentinel = ref<HTMLElement | null>(null)
 let searchObserver: IntersectionObserver | null = null
+const expandedSearchMatchDiaryIds = ref<string[]>([])
+
+const searchMatchesExpanded = (diaryId: string) => expandedSearchMatchDiaryIds.value.includes(diaryId)
+const toggleSearchMatches = (diaryId: string) => {
+  expandedSearchMatchDiaryIds.value = searchMatchesExpanded(diaryId)
+    ? expandedSearchMatchDiaryIds.value.filter(id => id !== diaryId)
+    : [...expandedSearchMatchDiaryIds.value, diaryId]
+}
+const visibleSearchMatches = (item: typeof searchResults.value[number]) =>
+  searchMatchesExpanded(item.diary_id) ? item.matches : item.matches.slice(0, 3)
+const semanticLayerLabel = (layer: string) => ({
+  event_content: '事件内容', self_understanding: '自我理解', cognition: '认知整理',
+}[layer] || '语义匹配')
+const highlightSearchSnippet = (text: string, matched: boolean) => {
+  return splitSearchSnippet(text, searchQuery.value.trim(), matched)
+}
 
 const handleSearch = async () => {
   if (!searchQuery.value.trim()) return
@@ -320,6 +355,7 @@ const handleSearch = async () => {
 
 const clearSearch = () => {
   resetSearch()
+  expandedSearchMatchDiaryIds.value = []
   searchActive.value = false
 }
 

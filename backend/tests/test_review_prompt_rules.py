@@ -370,7 +370,8 @@ class ReviewPromptRuleTest(unittest.TestCase):
         self.assertIn("所有自然语言内容使用用户第一人称语义", DAILY_MATERIAL_PROMPT)
         self.assertIn("中文应自然省略主语", DAILY_MATERIAL_PROMPT)
         self.assertIn("不得使用“用户”“该用户”或第二人称“你”描述用户", DAILY_MATERIAL_PROMPT)
-        self.assertIn("key_quotes 必须保持来源原句的人称和文字", DAILY_MATERIAL_PROMPT)
+        self.assertIn("matter.key_quotes：可选保留", DAILY_MATERIAL_PROMPT)
+        self.assertNotIn("key_quotes 必须保持来源原句的人称和文字", DAILY_MATERIAL_PROMPT)
         self.assertIn("没有周回顾价值的输入事件可以不归入任何 matter", DAILY_MATERIAL_PROMPT)
         self.assertIn("同一个 event_no 可以支持多个不同 matter", DAILY_MATERIAL_PROMPT)
         self.assertNotIn("follow_ups", DAILY_MATERIAL_PROMPT)
@@ -408,20 +409,17 @@ class ReviewJsonAndStructureTest(unittest.TestCase):
         with self.assertRaisesRegex(ReviewStructureError, "不存在的主线内来源下标"):
             validate_analysis_action_semantics(document, payload)
 
-    def test_analysis_semantics_warns_but_accepts_signal_without_two_dates(self):
+    def test_analysis_semantics_accepts_signal_without_two_dates(self):
         document = analysis_semantics()
         document["domains"][0]["signals"] = [{
             "signal_type": "EMOTION_TRIGGER", "intended_scope": "REPEATED_CURRENT_PERIOD",
             "description": "出现重复情绪触发。", "thread_keys": ["thread-1"], "source_indexes": [0, 0],
         }]
-        with self.assertLogs("services.review_ai", level="WARNING") as logs:
-            result = validate_analysis_action_semantics(document, analysis_payload())
+        result = validate_analysis_action_semantics(document, analysis_payload())
         self.assertEqual(result, document)
-        self.assertIn("保留结果并记录警告", logs.output[0])
         assembled = _assemble_analysis_action_document(document, analysis_payload())
         self.assertEqual(assembled["domains"][0]["signals"][0]["source_ids"], ["source-1"])
-        with self.assertLogs("services.review_ai", level="WARNING"):
-            validate_analysis_action_document(assembled, analysis_payload())
+        validate_analysis_action_document(assembled, analysis_payload())
 
     def test_analysis_semantics_rejects_reused_analysis_without_shared_root_fact(self):
         payload = analysis_payload()
@@ -553,7 +551,7 @@ class ReviewPipelineBranchTest(unittest.IsolatedAsyncioTestCase):
                 with self.assertRaisesRegex(ReviewStructureError, "Schema 外字段"):
                     validate_daily_material_document(invalid, payload)
 
-    def test_daily_material_allows_shared_sources_and_warns_for_unassigned_events(self):
+    def test_daily_material_allows_shared_sources_and_unassigned_events(self):
         payload = {"date": "2026-07-29", "events": [{
             "event_no": 1, "title": "复合记录", "body": ["完成了原型，也感到放松。"],
             "feeling": [], "reflection": [], "related_user_notes": [],
@@ -573,13 +571,9 @@ class ReviewPipelineBranchTest(unittest.IsolatedAsyncioTestCase):
             "reflections_and_learning": [], "key_quotes": [],
         }]}
 
-        with patch("services.review_ai.logger.warning") as warning:
-            result = validate_daily_material_document(document, payload)
+        result = validate_daily_material_document(document, payload)
 
         self.assertEqual(result, document)
-        warning.assert_called_once()
-        self.assertIn("未归入事项", warning.call_args.args[0])
-        self.assertEqual(warning.call_args.kwargs["extra"]["unassigned_event_nos"], [2])
 
     def test_daily_material_rejects_duplicate_or_unknown_source_within_matter(self):
         payload = {"date": "2026-07-29", "events": [{
@@ -620,7 +614,7 @@ class ReviewPipelineBranchTest(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(len(set(item_keys)), 2)
         self.assertTrue(all(key.startswith("day-") for key in item_keys))
 
-    def test_daily_material_warns_but_accepts_rewritten_quote(self):
+    def test_daily_material_accepts_arbitrary_key_quotes(self):
         payload = {"date": "2026-07-29", "events": [{
             "event_no": 1, "title": "原型验证", "body": ["我完成了原型验证。"],
             "feeling": [], "reflection": [], "related_user_notes": [],
@@ -631,13 +625,11 @@ class ReviewPipelineBranchTest(unittest.IsolatedAsyncioTestCase):
             "actions_and_results": [], "concerns_and_expectations": [],
             "reflections_and_learning": [], "key_quotes": ["完成了原型验证"],
         }]}
-        with self.assertLogs("services.review_ai", level="WARNING") as logs:
-            result = validate_daily_material_document(document, payload)
+        result = validate_daily_material_document(document, payload)
         self.assertEqual(result, document)
         self.assertEqual(result["matters"][0]["key_quotes"], ["完成了原型验证"])
-        self.assertIn("保留模型结果并继续流程", logs.output[0])
 
-    def test_daily_material_warns_but_accepts_invalid_key_quotes_structure(self):
+    def test_daily_material_accepts_any_key_quotes_shape(self):
         payload = {"date": "2026-07-29", "events": [{
             "event_no": 1, "title": "原型验证", "body": ["我完成了原型验证。"],
             "feeling": [], "reflection": [], "related_user_notes": [],
@@ -652,14 +644,26 @@ class ReviewPipelineBranchTest(unittest.IsolatedAsyncioTestCase):
             with self.subTest(key_quotes=key_quotes):
                 document = copy.deepcopy(base_document)
                 document["matters"][0]["key_quotes"] = key_quotes
-                with self.assertLogs("services.review_ai", level="WARNING"):
-                    result = validate_daily_material_document(document, payload)
+                result = validate_daily_material_document(document, payload)
                 self.assertEqual(result, document)
 
         document = copy.deepcopy(base_document)
-        with self.assertLogs("services.review_ai", level="WARNING"):
-            result = validate_daily_material_document(document, payload)
+        result = validate_daily_material_document(document, payload)
         self.assertNotIn("key_quotes", result["matters"][0])
+
+    def test_daily_material_allows_duplicate_natural_language(self):
+        payload = {"date": "2026-07-29", "events": [{
+            "event_no": 1, "title": "原型验证", "body": ["完成了原型。", "完成了原型。"],
+            "feeling": [], "reflection": [], "related_user_notes": [],
+        }]}
+        document = {"day_overview": {"main_changes": ["完成原型", "完成原型"], "overall_state": []}, "matters": [{
+            "title": "原型验证", "source_event_nos": [1], "core_changes": ["完成原型", "完成原型"],
+            "facts_and_progress": ["完成了原型。", "完成了原型。"], "emotions_and_state": [],
+            "actions_and_results": [], "concerns_and_expectations": [],
+            "reflections_and_learning": [], "key_quotes": ["完成了原型。", "完成了原型。"],
+        }]}
+
+        self.assertEqual(validate_daily_material_document(document, payload), document)
 
     def test_daily_item_with_schedule_facts_assembles_into_domain_thread(self):
         schedule_fact = {

@@ -2,7 +2,7 @@
   <div class="space-y-5">
     <div>
       <h1 class="text-xl font-semibold text-neutral-900 sm:text-2xl">模型设置</h1>
-      <p class="mt-1 text-sm leading-5 text-neutral-500">配置整理、分析、对话和语音转文字当前使用的可调用模型。</p>
+      <p class="mt-1 text-sm leading-5 text-neutral-500">配置整理、分析、对话、语音转文字和语义向量化当前使用的可调用模型。</p>
     </div>
 
     <section class="bg-white border border-neutral-200 rounded p-4">
@@ -78,7 +78,7 @@
             </div>
           </div>
 
-          <label v-if="usage.key !== 'transcription'" class="flex items-center gap-3 text-sm text-neutral-700">
+          <label v-if="usage.key !== 'transcription' && usage.key !== 'embedding'" class="flex items-center gap-3 text-sm text-neutral-700">
             <input v-model="draft[usage.key].thinking_enabled" type="checkbox" class="h-4 w-4">
             启用思考
           </label>
@@ -205,6 +205,7 @@ const usages = [
   { key: 'review', label: '回顾', modelType: 'language' },
   { key: 'chat', label: '对话', modelType: 'language' },
   { key: 'transcription', label: '语音转文字', modelType: 'asr' },
+  { key: 'embedding', label: '向量化', modelType: 'embedding' },
 ]
 
 const channels = ref<any[]>([])
@@ -355,7 +356,7 @@ const saveSettings = async () => {
     if (draft[usage.key].channel_model_id) {
       body[usage.key] = {
         channel_model_id: draft[usage.key].channel_model_id,
-        thinking_enabled: usage.key === 'transcription' ? null : draft[usage.key].thinking_enabled,
+        thinking_enabled: ['transcription', 'embedding'].includes(usage.key) ? null : draft[usage.key].thinking_enabled,
       }
     }
   }
@@ -389,7 +390,7 @@ const testUsage = async (key: string) => {
       body: {
         setting_key: key,
         channel_model_id: draft[key].channel_model_id,
-        thinking_enabled: key === 'transcription' ? null : draft[key].thinking_enabled,
+        thinking_enabled: ['transcription', 'embedding'].includes(key) ? null : draft[key].thinking_enabled,
       },
     })
     testResults[key] = {
@@ -417,7 +418,7 @@ const testSelectedSettings = async () => {
     const groups = new Map<string, any[]>()
     for (const usage of selectedUsages) {
       const channelModelId = draft[usage.key].channel_model_id
-      const thinkingEnabled = usage.key === 'transcription' ? 'none' : String(draft[usage.key].thinking_enabled)
+      const thinkingEnabled = ['transcription', 'embedding'].includes(usage.key) ? 'none' : String(draft[usage.key].thinking_enabled)
       const groupKey = `${channelModelId}:${thinkingEnabled}`
       groups.set(groupKey, [...(groups.get(groupKey) || []), usage])
     }
@@ -429,7 +430,7 @@ const testSelectedSettings = async () => {
           body: {
             setting_key: usage.key,
             channel_model_id: draft[usage.key].channel_model_id,
-            thinking_enabled: usage.key === 'transcription' ? null : draft[usage.key].thinking_enabled,
+            thinking_enabled: ['transcription', 'embedding'].includes(usage.key) ? null : draft[usage.key].thinking_enabled,
           },
         })
         const payload = {

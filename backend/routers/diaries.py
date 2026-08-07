@@ -40,7 +40,7 @@ from schemas.diary import (
     DiaryAnnotationCreate,
     DiaryAnnotationResponse,
 )
-from schemas.search import SEARCH_MODE_VALUES, SearchListResponse, SearchMode
+from schemas.search import SearchListResponse
 from services.ai import ai_service
 from services.analysis_history import (
     ALL_ANALYSIS_TYPES,
@@ -49,7 +49,7 @@ from services.analysis_history import (
     effective_feedback,
     get_current_analysis_run,
 )
-from services.search_service import search_events
+from services.search_service import search_diaries as search_diaries_service
 from services.auth import get_current_user
 from services.embedding_sync import enqueue_event_embedding_sync
 
@@ -559,23 +559,16 @@ def search_diaries(
     end_date: Optional[date] = Query(None, description="结束日期 YYYY-MM-DD（基于 diary.diary_date）"),
     limit: int = Query(20, ge=1, le=100, description="每页数量"),
     offset: int = Query(0, ge=0, description="偏移量"),
-    mode: SearchMode = Query("hybrid", description="检索模式：keyword / semantic / hybrid（默认 hybrid）"),
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    """统一搜索：仅检索事件内容（含关联分析），按相关度排序、分页返回事件卡。
+    """统一搜索：按日记聚合关键词与语义命中，分页返回日记结果卡。
 
     检索范围：DiaryEvent 的 event_title/body/feeling/reflection + 关联 EVENT 作用域
     analysis_items 的 content/question。按 user_id 隔离、过滤 status∈(organized,analyzed)、
     过滤软删除、按所属 diary.diary_date 做日期范围筛选。
 
-    模式（决策 9：前端始终 hybrid，不暴露切换 UI）：
-    - keyword：仅 pg_trgm 关键词分支
-    - semantic：仅 embedding 语义分支
-    - hybrid：RRF k=60 融合两分支（语义不可用时自动降级关键词，fail-open）
-
-    查询参数采用显式 Query(...) 声明：空关键词 / 非法日期类型 / 非法 mode 由 FastAPI 直接
-    校验返回 422，避免出现 500（原 Depends 模型校验失败路径不稳定）。
+    关键词严格大小写不敏感子串匹配；语义服务不可用时仍返回关键词结果。
     """
     # 日期范围校验（start_date 不能晚于 end_date）
     if start_date and end_date and start_date > end_date:
@@ -584,14 +577,7 @@ def search_diaries(
             detail="start_date 不能晚于 end_date",
         )
 
-    # 模式白名单校验：非法 mode 直接 422。
-    if mode not in SEARCH_MODE_VALUES:
-        raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail=f"mode 必须为 {SEARCH_MODE_VALUES} 之一",
-        )
-
-    items, total = search_events(
+    items, total, semantic_status = search_diaries_service(
         db=db,
         user_id=current_user.id,
         q=q,
@@ -599,9 +585,8 @@ def search_diaries(
         end_date=end_date,
         limit=limit,
         offset=offset,
-        mode=mode,
     )
-    return SearchListResponse(items=items, total=total)
+    return SearchListResponse(items=items, total=total, semantic_status=semantic_status)
 
 
 def serialize_favorite(favorite: Favorite, db: Session, user_id: UUID) -> dict:

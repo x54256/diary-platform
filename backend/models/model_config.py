@@ -16,7 +16,7 @@ class ModelCatalog(Base):
     __tablename__ = "model_catalog"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    model_type = Column(String(20), nullable=False)  # language / asr
+    model_type = Column(String(20), nullable=False)  # language / asr / embedding
     provider_name = Column(String(100), nullable=False)
     model_name = Column(String(200), nullable=False, unique=True)
     reasoning_mode = Column(String(20), nullable=False, default="unsupported")

@@ -141,8 +141,8 @@ def _resolve_embedding_setting() -> RuntimeModelConfig:
             # 未配置：返回默认模型名，供后续 fail-open 降级（不抛错）。
             return RuntimeModelConfig(
                 setting_key="embedding",
-                model_type="language",
-                protocol="openai_chat",
+                model_type="embedding",
+                protocol="openai_embeddings",
                 api_base_url="",
                 api_key="",
                 model_name=EMBEDDING_MODEL_DEFAULT,
@@ -153,9 +153,6 @@ def _resolve_embedding_setting() -> RuntimeModelConfig:
         channel_model = setting.channel_model
         try:
             validate_setting_choice("embedding", channel_model)
-            validate_thinking_choice(
-                channel_model, bool(setting.thinking_enabled), "embedding"
-            )
             api_key = decrypt_channel_key(channel_model.channel)
         except ModelConfigError as exc:
             raise ModelRuntimeError(str(exc)) from exc

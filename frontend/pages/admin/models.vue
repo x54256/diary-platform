@@ -16,6 +16,7 @@
           <option value="">全部类型</option>
           <option value="language">language</option>
           <option value="asr">asr</option>
+          <option value="embedding">embedding</option>
         </select>
         <select v-model="filters.ability_tier" class="h-9 px-2 border border-neutral-300 rounded text-sm" @change="reloadModels">
           <option value="">全部梯队</option>
@@ -96,6 +97,7 @@
             <select v-model="form.model_type" class="w-full h-10 px-3 border border-neutral-300 rounded text-sm" :disabled="!!editingId">
               <option value="language">language</option>
               <option value="asr">asr</option>
+              <option value="embedding">embedding</option>
             </select>
           </label>
           <label class="block">
@@ -120,10 +122,10 @@
           </label>
           <label class="block">
             <span class="block mb-1 text-sm text-neutral-700">推理模式</span>
-            <select v-model="form.reasoning_mode" class="w-full h-10 px-3 border border-neutral-300 rounded text-sm">
+            <select v-model="form.reasoning_mode" class="w-full h-10 px-3 border border-neutral-300 rounded text-sm" :disabled="form.model_type === 'embedding'">
               <option value="unsupported">不支持</option>
-              <option value="switchable">可开关</option>
-              <option value="always_on">固定推理</option>
+              <option v-if="form.model_type !== 'embedding'" value="switchable">可开关</option>
+              <option v-if="form.model_type !== 'embedding'" value="always_on">固定推理</option>
             </select>
           </label>
           <label class="block">
@@ -176,13 +178,18 @@ const form = reactive<any>({
 })
 
 const tierOptions = ['T0 旗舰全能', 'T0.5 推理专项天花板', 'T1 次旗舰均衡', 'T1 专项顶级', 'T2 企业主力', 'T2 通用商用', 'T2.5 中端推理特化', 'T3 轻量通用', 'T3 轻量专项', 'T4 极速轻量']
-const formCategories = computed(() => form.model_type === 'asr' ? (options.value.asr_categories || []) : (options.value.language_categories || []))
-const categories = computed(() => [...(options.value.language_categories || []), ...(options.value.asr_categories || [])])
+const formCategories = computed(() => {
+  if (form.model_type === 'asr') return options.value.asr_categories || []
+  if (form.model_type === 'embedding') return options.value.embedding_categories || []
+  return options.value.language_categories || []
+})
+const categories = computed(() => [...(options.value.language_categories || []), ...(options.value.asr_categories || []), ...(options.value.embedding_categories || [])])
 const tiers = computed(() => tierOptions)
 const totalPages = computed(() => Math.max(1, Math.ceil(total.value / pageSize.value)))
 
 watch(() => form.model_type, () => {
-  form.ability_category = form.model_type === 'asr' ? '录音文件识别' : '通用对话'
+  form.ability_category = form.model_type === 'asr' ? '录音文件识别' : (form.model_type === 'embedding' ? '文本向量化' : '通用对话')
+  if (form.model_type === 'embedding') form.reasoning_mode = 'unsupported'
 })
 
 const loadOptions = async () => {

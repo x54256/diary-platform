@@ -27,6 +27,7 @@ from models.schedule import ScheduleTask, ScheduleOccurrence, ScheduleHolidayYea
 from models.voice_profile import AsrVocabulary, HotWord, PersonRelation
 from models.llm_call import LlmCallLog
 from models.favorite import Favorite
+from models.search_rebuild import SearchIndexRebuildJob
 from models.review import (
     Review,
     ReviewDailyDigest,
@@ -100,6 +101,7 @@ __all__ = [
     "AsrVocabulary",
     "LlmCallLog",
     "Favorite",
+    "SearchIndexRebuildJob",
     "Review",
     "ReviewDailyDigest",
     "ReviewDailyDigestStatus",

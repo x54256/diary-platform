@@ -126,6 +126,7 @@
             <option value="">全部类型</option>
             <option value="language">language</option>
             <option value="asr">asr</option>
+            <option value="embedding">embedding</option>
           </select>
           <select v-model="bulkFilters.ability_tier" class="h-9 px-2 border border-neutral-300 rounded text-sm" @change="reloadBulkModels">
             <option value="">全部梯队</option>
@@ -221,8 +222,9 @@ const bulkFilters = reactive({ model_type: '', ability_tier: '', ability_categor
 const tierOptions = ['T0 旗舰全能', 'T0.5 推理专项天花板', 'T1 次旗舰均衡', 'T1 专项顶级', 'T2 企业主力', 'T2 通用商用', 'T2.5 中端推理特化', 'T3 轻量通用', 'T3 轻量专项', 'T4 极速轻量']
 const bulkCategories = computed(() => {
   if (bulkFilters.model_type === 'asr') return options.value.asr_categories || []
+  if (bulkFilters.model_type === 'embedding') return options.value.embedding_categories || []
   if (bulkFilters.model_type === 'language') return options.value.language_categories || []
-  return [...(options.value.language_categories || []), ...(options.value.asr_categories || [])]
+  return [...(options.value.language_categories || []), ...(options.value.asr_categories || []), ...(options.value.embedding_categories || [])]
 })
 const bulkTotalPages = computed(() => Math.max(1, Math.ceil(bulkTotal.value / bulkPageSize.value)))
 const bulkSelectedIds = computed(() => new Set(Object.keys(bulkSelectedModels.value)))
@@ -230,9 +232,12 @@ const bulkSelectedIds = computed(() => new Set(Object.keys(bulkSelectedModels.va
 watch(() => bulkFilters.model_type, () => {
   const asrCategories = options.value.asr_categories || []
   const languageCategories = options.value.language_categories || []
+  const embeddingCategories = options.value.embedding_categories || []
   if (bulkFilters.model_type === 'asr' && !asrCategories.includes(bulkFilters.ability_category)) {
     bulkFilters.ability_category = ''
   } else if (bulkFilters.model_type === 'language' && !languageCategories.includes(bulkFilters.ability_category)) {
+    bulkFilters.ability_category = ''
+  } else if (bulkFilters.model_type === 'embedding' && !embeddingCategories.includes(bulkFilters.ability_category)) {
     bulkFilters.ability_category = ''
   }
 })

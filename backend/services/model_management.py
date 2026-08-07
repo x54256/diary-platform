@@ -11,11 +11,12 @@ from sqlalchemy.orm import Session, joinedload
 from models.model_config import ApiChannel, ChannelModel, ModelCatalog, ModelSetting, ModelStepSetting
 from utils.crypto import decrypt_text, encrypt_text
 
-MODEL_TYPES = ["language", "asr"]
+MODEL_TYPES = ["language", "asr", "embedding"]
 REASONING_MODES = ["unsupported", "switchable", "always_on"]
 SETTING_KEYS = ["organize", "analysis", "review", "chat", "transcription", "embedding"]
 LANGUAGE_CATEGORIES = ["通用对话", "深度推理", "长上下文", "代码能力", "轻量高速"]
 ASR_CATEGORIES = ["实时语音识别", "录音文件识别"]
+EMBEDDING_CATEGORIES = ["文本向量化"]
 
 # 语义检索 embedding 向量维度（与 qwen3.7-text-embedding 默认维、迁移 038 一致）。
 # 换模型需全量重算向量。
@@ -40,7 +41,7 @@ SETTING_REQUIREMENTS = {
     "review": ("language", "openai_chat"),
     "chat": ("language", "openai_chat"),
     "transcription": ("asr", "dashscope_asr"),
-    "embedding": ("language", "openai_chat"),
+    "embedding": ("embedding", "openai_embeddings"),
 }
 STEP_SETTING_KEYS = {
     "text_clean": "organize",
@@ -331,8 +332,12 @@ def validate_model_payload(data: dict[str, Any]) -> None:
         raise ModelConfigError("语言模型能力分类不合法")
     if model_type == "asr" and category not in ASR_CATEGORIES:
         raise ModelConfigError("ASR 模型能力分类不合法")
+    if model_type == "embedding" and category not in EMBEDDING_CATEGORIES:
+        raise ModelConfigError("向量模型能力分类不合法")
     if data.get("reasoning_mode", "unsupported") not in REASONING_MODES:
         raise ModelConfigError("模型推理模式不合法")
+    if model_type == "embedding" and data.get("reasoning_mode", "unsupported") != "unsupported":
+        raise ModelConfigError("向量模型不支持思考模式")
 
 
 def validate_thinkmode(value: Any) -> dict[str, Any]:
@@ -435,6 +440,8 @@ def protocol_for_model_type(model_type: str) -> str:
         return "openai_chat"
     if model_type == "asr":
         return "dashscope_asr"
+    if model_type == "embedding":
+        return "openai_embeddings"
     raise ModelConfigError("模型类型不合法")
 
 
@@ -481,9 +488,9 @@ def save_model_settings(
         channel_model = _load_channel_model(db, data.get("channel_model_id"))
         validate_setting_choice(setting_key, channel_model)
         thinking_enabled = data.get("thinking_enabled")
-        if setting_key == "transcription":
+        if setting_key in {"transcription", "embedding"}:
             if thinking_enabled is not None:
-                raise ModelConfigError("语音转文字不能配置思考模式")
+                raise ModelConfigError(f"{setting_key} 不能配置思考模式")
         elif not isinstance(thinking_enabled, bool):
             raise ModelConfigError(f"{setting_key} 必须配置默认思考状态")
         setting = db.query(ModelSetting).filter(ModelSetting.setting_key == setting_key).first()
@@ -522,7 +529,7 @@ def save_model_settings(
         step_map = {item.step_key: item for item in db.query(ModelStepSetting).all()}
         for key, setting in setting_map.items():
             validate_setting_choice(key, setting.channel_model)
-            if key != "transcription":
+            if key not in {"transcription", "embedding"}:
                 validate_thinking_choice(setting.channel_model, bool(setting.thinking_enabled), key)
         for step_key, setting_key in STEP_SETTING_KEYS.items():
             default = setting_map.get(setting_key)
@@ -619,7 +626,7 @@ def get_embedding_config() -> EmbeddingConfig:
 
     配置来源：管理端 DB 托管的 EMBEDDING setting_key（与 chat/organize 等一致，
     由 ModelSetting + ChannelModel + ApiChannel 解析）。embedding 模型需在模型目录中
-    注册为 language 类型、reasoning_mode=unsupported，并在模型设置中 thinking_enabled=False。
+    注册为 embedding 类型、reasoning_mode=unsupported；向量化用途不配置思考模式。
 
     Returns:
         EmbeddingConfig：含 api_key / api_base_url / model_name / dimensions。

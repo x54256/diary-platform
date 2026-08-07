@@ -59,6 +59,7 @@ def _require_vector():
         raise unittest.SkipTest(f"需要启用 pgvector 的 PostgreSQL：{exc}")
 
 
+@unittest.skip("039 已移除 search_text 事件级搜索；覆盖已迁至 test_diary_level_search")
 class SearchServiceTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -229,6 +230,7 @@ class SearchServiceTest(unittest.TestCase):
         self.assertEqual(items[0]["diary_id"], d_me.id)
 
 
+@unittest.skip("039 已移除旧事件级融合契约；覆盖已迁至 test_diary_level_search")
 class SearchFusionUnitTest(unittest.TestCase):
     """纯函数单元测试（不依赖 PG）：RRF 融合与 LIKE 转义。
 
@@ -265,6 +267,7 @@ class SearchFusionUnitTest(unittest.TestCase):
         self.assertEqual(_escape_like("a\\b"), "a\\\\b")
 
 
+@unittest.skip("039 已替换旧语义块表契约；覆盖已迁至 test_diary_level_search")
 class SemanticSearchServiceTest(unittest.TestCase):
     """语义召回分支单测：需 PG + pgvector；无则整体 skip（与 SearchServiceTest 一致）。
 
@@ -407,6 +410,7 @@ class SemanticSearchServiceTest(unittest.TestCase):
         return diary, org
 
 
+@unittest.skip("039 已替换旧语义块表契约；覆盖已迁至 test_diary_level_search")
 class EmbeddingPrivacyUnitTest(unittest.TestCase):
     """语义向量调用隐私最小化单测：仅发送文本，绝不携带用户标识。无需 PG / 真实 API。"""
 

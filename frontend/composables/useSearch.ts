@@ -1,18 +1,19 @@
 import { ref, computed } from 'vue'
-import type { SearchEventResult } from '~/types'
+import type { DiarySearchResult } from '~/types'
 import { useApi } from '~/composables/useApi'
 
 const PAGE_SIZE = 20
 
 /**
  * 统一搜索状态封装：关键词 / 日期范围 / 分页 offset / 加载态 / 无限滚动回调。
- * 复用现有 /diaries/search 端点，结果以事件卡形式累积渲染。
+ * 复用 /diaries/search，结果以日记为单位累积渲染。
  */
 export function useSearch() {
   const query = ref('')
   const startDate = ref<string | null>(null)
   const endDate = ref<string | null>(null)
-  const results = ref<SearchEventResult[]>([])
+  const results = ref<DiarySearchResult[]>([])
+  const semanticStatus = ref<'READY' | 'PARTIAL' | 'UNAVAILABLE'>('READY')
   const total = ref(0)
   const offset = ref(0)
   const loading = ref(false)
@@ -26,8 +27,6 @@ export function useSearch() {
       q: query.value.trim(),
       limit: PAGE_SIZE,
       offset: offset.value,
-      // 决策 9：前端始终请求 hybrid（关键词 + 语义 RRF 融合），不暴露模式切换 UI。
-      mode: 'hybrid',
     }
     if (startDate.value) params.start_date = startDate.value
     if (endDate.value) params.end_date = endDate.value
@@ -48,11 +47,12 @@ export function useSearch() {
         ...buildParams(),
         offset: replace ? 0 : offset.value,
       }
-      const data = await api<{ items: SearchEventResult[]; total: number }>('/diaries/search', { params })
+      const data = await api<{ items: DiarySearchResult[]; total: number; semantic_status: 'READY' | 'PARTIAL' | 'UNAVAILABLE' }>('/diaries/search', { params })
       if (replace) {
         results.value = data.items
         offset.value = data.items.length
         total.value = data.total
+        semanticStatus.value = data.semantic_status
       } else {
         results.value.push(...data.items)
         offset.value += data.items.length
@@ -77,6 +77,7 @@ export function useSearch() {
     offset.value = 0
     loading.value = false
     error.value = null
+    semanticStatus.value = 'READY'
   }
 
   return {
@@ -87,6 +88,7 @@ export function useSearch() {
     total,
     loading,
     error,
+    semanticStatus,
     hasMore,
     search,
     reset,

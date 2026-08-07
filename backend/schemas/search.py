@@ -1,39 +1,41 @@
-"""统一搜索响应契约。
-
-搜索响应复用 DiaryEventResponse 字段，并追加检索附加字段：
-- diary_id: 事件所属日记 ID（点击跳转用）
-- diary_date: 事件日期（取自所属 diary.diary_date）
-- rank: 相关度分（RRF 融合分 / similarity 值，前端仅排序用）
-- analysis_run_id: 当前分析轮次 ID（供事件卡渲染分析区块与反馈）
-- matched_chunk_types: 命中语义层（fact / self_understanding / cognition），前端层高亮用；
-  纯关键词命中或语义分支不可用时为空列表（决策 3：结果单位=事件，命中层高亮）。
-"""
+"""日记级混合搜索响应契约。"""
 
 from datetime import date
 from typing import Literal, Optional
 from uuid import UUID
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
-from schemas.diary import DiaryEventResponse
-
-# 检索模式：关键词 / 语义 / 混合（RRF 融合）。决策 9：前端始终 hybrid。
-SearchMode = Literal["keyword", "semantic", "hybrid"]
-SEARCH_MODE_VALUES = ("keyword", "semantic", "hybrid")
+SemanticStatus = Literal["READY", "PARTIAL", "UNAVAILABLE"]
 
 
-class EventSearchResultResponse(DiaryEventResponse):
-    """搜索命中的事件卡响应：复用 DiaryEventResponse + 检索附加字段。"""
+class SearchRanking(BaseModel):
+    keyword_score: Optional[float] = None
+    keyword_rank: Optional[int] = None
+    semantic_score: Optional[float] = None
+    semantic_rank: Optional[int] = None
+    rrf_score: float
+    rrf_rank: int
 
-    diary_id: UUID
-    diary_date: date
-    rank: float = 0.0
+
+class DiarySearchMatch(BaseModel):
+    event_id: UUID
     analysis_run_id: Optional[UUID] = None
-    matched_chunk_types: list[str] = []
+    kind: str
+    semantic_layer: Optional[str] = None
+    snippet: str
+    keyword_matched: bool = False
+
+
+class DiarySearchResultResponse(BaseModel):
+    diary_id: UUID
+    title: Optional[str] = None
+    diary_date: date
+    ranking: SearchRanking
+    matches: list[DiarySearchMatch] = Field(default_factory=list)
 
 
 class SearchListResponse(BaseModel):
-    """搜索结果列表响应。"""
-
-    items: list[EventSearchResultResponse] = []
+    items: list[DiarySearchResultResponse] = Field(default_factory=list)
     total: int = 0
+    semantic_status: SemanticStatus = "READY"

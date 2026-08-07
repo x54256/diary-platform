@@ -14,8 +14,9 @@ from pgvector.sqlalchemy import Vector
 from database import Base
 
 
-# 语义分块 chunk_type 枚举值（全局一致：迁移 038 CHECK 约束 / builder / matched_chunk_types / 前端映射）。
-CHUNK_TYPES = ("fact", "self_understanding", "cognition")
+# 日记级混合检索的三层语义块。event_content 是原始事件内容，不把主观感受
+# 误称为“事实”；另两层只来自当前分析轮次。
+CHUNK_TYPES = ("event_content", "self_understanding", "cognition")
 
 
 class DiaryStatus(enum.Enum):
@@ -281,9 +282,6 @@ class DiaryEvent(Base):
     feeling = Column(Text, nullable=True)
     reflection = Column(Text, nullable=True)
     event_tags = Column(Text)        # JSON: {"domain":[], "topic":[], "person_object":[], "psychological":[], "knowledge":[]}
-    # 触发器维护的检索文本：聚合「事件自身字段 + 关联 CURRENT 轮次 EVENT 作用域分析内容」。
-    # 供 pg_trgm 子串匹配（ILIKE）与相关度排序（similarity）使用（方案 B，不采用 tsvector）。
-    search_text = Column(Text, nullable=True)
     sort_order = Column(Integer, default=0)
     ai_importance = Column(String(8), nullable=True)
     ai_importance_reason = Column(Text, nullable=True)
@@ -310,10 +308,10 @@ class DiaryEvent(Base):
 
 
 class EventEmbeddingChunk(Base):
-    """事件语义分块向量：一个事件的某一语义层（fact/self_understanding/cognition）一行。
+    """当前可用的事件语义块。
 
-    与关键词分支的 search_text（pg_trgm）并行不冲突；结果单位=事件，命中层经
-    matched_chunk_types 回传前端做高亮。
+    分析层记录所属分析轮次；查询只能使用仍为 CURRENT 的轮次。更新时由
+    SearchSemanticIndexState 先标记 PENDING，再异步覆盖本行，避免旧向量短暂参与召回。
     """
 
     __tablename__ = "event_embedding_chunks"
@@ -324,7 +322,8 @@ class EventEmbeddingChunk(Base):
         ForeignKey("diary_events.id", ondelete="CASCADE"),
         nullable=False,
     )
-    # fact / self_understanding / cognition（与迁移 038 CHECK 约束一致）
+    analysis_run_id = Column(UUID(as_uuid=True), ForeignKey("analysis_runs.id", ondelete="CASCADE"), nullable=True)
+    # event_content / self_understanding / cognition
     chunk_type = Column(String(20), nullable=False)
     content = Column(Text, nullable=False)
     # 向量维度固定 1024（与 EMBEDDING 模型及迁移 038 一致）；换模型需全量重算。
@@ -339,6 +338,50 @@ class EventEmbeddingChunk(Base):
 
     # 关系映射
     event = relationship("DiaryEvent", back_populates="embedding_chunks")
+    analysis_run = relationship("AnalysisRun")
+
+
+class SearchKeywordSegment(Base):
+    """可展示、可精确子串匹配的搜索片段。
+
+    一行即一条结果摘要的来源。分析片段带 analysis_run_id，SQL 查询通过 CURRENT
+    轮次约束过滤失效内容，而不是依赖异步清理时序。
+    """
+
+    __tablename__ = "search_keyword_segments"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    diary_id = Column(UUID(as_uuid=True), ForeignKey("diaries.id", ondelete="CASCADE"), nullable=False)
+    event_id = Column(UUID(as_uuid=True), ForeignKey("diary_events.id", ondelete="CASCADE"), nullable=False)
+    analysis_run_id = Column(UUID(as_uuid=True), ForeignKey("analysis_runs.id", ondelete="CASCADE"), nullable=True)
+    kind = Column(String(32), nullable=False)
+    content = Column(Text, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    __table_args__ = (
+        Index("ix_search_keyword_segments_diary", "diary_id"),
+        Index("ix_search_keyword_segments_event", "event_id"),
+    )
+
+
+class SearchSemanticIndexState(Base):
+    """语义块的异步索引状态，用于排除过期向量并反馈 PARTIAL。"""
+
+    __tablename__ = "search_semantic_index_states"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    event_id = Column(UUID(as_uuid=True), ForeignKey("diary_events.id", ondelete="CASCADE"), nullable=False)
+    analysis_run_id = Column(UUID(as_uuid=True), ForeignKey("analysis_runs.id", ondelete="CASCADE"), nullable=True)
+    chunk_type = Column(String(20), nullable=False)
+    content_hash = Column(String(64), nullable=False)
+    status = Column(String(16), nullable=False, default="PENDING")
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    __table_args__ = (
+        UniqueConstraint("event_id", "chunk_type", name="uq_search_semantic_state_event_chunk"),
+        Index("ix_search_semantic_states_status", "status"),
+    )
 
 
 class DiaryAnnotation(Base):
