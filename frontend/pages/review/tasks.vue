@@ -42,76 +42,32 @@
 </template>
 
 <script setup lang="ts">
-import type { ReviewSummary, ReviewTask, ReviewType } from '~/types'
+import type { ReviewTask, ReviewType } from '~/types'
 
 definePageMeta({ layout: 'default', middleware: 'auth' })
 const route = useRoute()
 const { api } = useApi()
+const {
+  tasks, reviews, loading, loadError, nextCursor, loadingMore,
+  activeTasks, activeTaskCount, pendingStartTasks, failedTasks, completedTasks,
+  load, refreshTasks, loadMoreTasks: loadMore,
+} = useReviewTasks()
 const creating = ref(route.query.create === '1')
-const loading = ref(true)
-const loadError = ref('')
 const createError = ref('')
 const submitting = ref(false)
 const retryingId = ref('')
 const startingId = ref('')
 const completedOpen = ref(false)
-const nextCursor = ref<string | null>(null)
-const loadingMore = ref(false)
-const tasks = ref<ReviewTask[]>([])
-const reviews = ref<ReviewSummary[]>([])
-let timer: ReturnType<typeof setInterval> | null = null
-const unwrap = <T,>(response: T[] | { items: T[] }) => Array.isArray(response) ? response : response.items
-type TaskListResponse = ReviewTask[] | { items: ReviewTask[]; next_cursor?: string | null }
 
-const mergeTasks = (response: TaskListResponse) => {
-  const incoming = unwrap(response)
-  const existingById = new Map(tasks.value.map((task, index) => [task.id, index]))
-  for (const task of incoming) {
-    const index = existingById.get(task.id)
-    if (index === undefined) tasks.value.unshift(task)
-    else Object.assign(tasks.value[index], task)
-  }
-  nextCursor.value = Array.isArray(response) ? null : response.next_cursor || null
-}
+let pollTimer: ReturnType<typeof setInterval> | null = null
+const hasNonTerminal = computed(() => activeTasks.value.length + pendingStartTasks.value.length > 0)
 
-const load = async () => {
-  loading.value = true; loadError.value = ''
-  try {
-    const [taskResponse, reviewResponse] = await Promise.all([
-      api<TaskListResponse>('/review-tasks?limit=100'), api<ReviewSummary[] | { items: ReviewSummary[] }>('/reviews'),
-    ])
-    tasks.value = unwrap(taskResponse)
-    nextCursor.value = Array.isArray(taskResponse) ? null : taskResponse.next_cursor || null
-    reviews.value = unwrap(reviewResponse)
-  } catch (cause: any) { loadError.value = cause?.data?.detail || '任务加载失败' } finally { loading.value = false }
-}
-const refreshTasks = async () => {
-  try {
-    mergeTasks(await api<TaskListResponse>('/review-tasks?limit=100'))
-  } catch {
-    // 保留已展示的任务，下一次轮询会自动重试。
-  }
-}
-const loadMore = async () => {
-  if (!nextCursor.value || loadingMore.value) return
-  loadingMore.value = true
-  try {
-    const response = await api<{ items: ReviewTask[]; next_cursor?: string | null }>(`/review-tasks?limit=100&cursor=${encodeURIComponent(nextCursor.value)}`)
-    const known = new Set(tasks.value.map(item => item.id))
-    tasks.value.push(...response.items.filter(item => !known.has(item.id)))
-    nextCursor.value = response.next_cursor || null
-  } catch (cause: any) { loadError.value = cause?.data?.detail || '更多任务加载失败' } finally { loadingMore.value = false }
-}
 onMounted(() => {
   void load()
-  timer = window.setInterval(() => { if (activeTasks.value.length) void refreshTasks() }, 7000)
+  pollTimer = window.setInterval(() => { if (hasNonTerminal.value) void refreshTasks() }, 15000)
 })
-onBeforeUnmount(() => { if (timer) clearInterval(timer) })
+onBeforeUnmount(() => { if (pollTimer) clearInterval(pollTimer) })
 
-const pendingStartTasks = computed(() => tasks.value.filter(task => ['PENDING', 'PENDING_START'].includes(task.status)))
-const activeTasks = computed(() => tasks.value.filter(task => ['QUEUED', 'RUNNING'].includes(task.status)))
-const failedTasks = computed(() => tasks.value.filter(task => task.status === 'FAILED'))
-const completedTasks = computed(() => tasks.value.filter(task => ['SUCCEEDED', 'COMPLETED', 'SKIPPED_NO_DATA'].includes(task.status)).sort((a, b) => (b.completed_at || b.created_at).localeCompare(a.completed_at || a.created_at)))
 const createTask = async (payload: { review_type: ReviewType; period_start: string }) => {
   submitting.value = true; createError.value = ''
   try {

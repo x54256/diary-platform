@@ -177,7 +177,7 @@ export function useVoiceTranscription() {
   const refresh = async () => {
     if (!batch.value || ['COLLECTING', 'CANCELLED', 'EXPIRED'].includes(batch.value.status)) return
     batch.value = await api<TranscriptionBatch>(`/transcription-batches/${batch.value.id}`)
-    if (['QUEUED', 'PROCESSING', 'FINALIZING'].includes(batch.value.status)) schedulePoll(2000)
+    if (['QUEUED', 'PROCESSING', 'FINALIZING'].includes(batch.value.status)) schedulePoll(20000)
   }
 
   const schedulePoll = (delay: number) => {

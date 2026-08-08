@@ -3,16 +3,19 @@
 import asyncio
 import json
 import logging
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from typing import Optional
+from zoneinfo import ZoneInfo
 
+from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from database import SessionLocal
-from models.diary import Diary, DiaryEvent, DiaryOrganized, DiaryStatus
+from models.diary import AnalysisItem, Diary, DiaryEvent, DiaryOrganized, DiaryStatus
 from models.search_rebuild import SearchIndexRebuildJob
+from services.analysis_history import get_current_analysis_run
 from services.embedding_sync import sync_event_embeddings
-from services.search_indexing import refresh_event_search_indexes
+from services.search_indexing import refresh_changed_event_search_indexes
 
 logger = logging.getLogger("app.search_rebuild")
 BATCH_SIZE = 10
@@ -98,8 +101,11 @@ def process_next_search_index_rebuild_batch() -> bool:
             if job is None or job.status != "running":
                 return True
             try:
-                refresh_event_search_indexes(db, event_id)
-                sync_event_embeddings(db, event_id)
+                pending = refresh_changed_event_search_indexes(
+                    db, event_id, include_event_content=True, include_analysis=True,
+                )
+                if pending:
+                    sync_event_embeddings(db, event_id)
                 job.processed_events += 1
                 job.succeeded_events += 1
                 job.last_event_id = event_id
@@ -120,6 +126,58 @@ def process_next_search_index_rebuild_batch() -> bool:
         db.rollback()
         logger.exception("搜索索引重建批处理失败 job_id=%s", job_id)
         return True
+    finally:
+        db.close()
+
+
+def _analysis_is_stable(db: Session, event: DiaryEvent, cutoff: datetime) -> bool:
+    if event.organized is None:
+        return False
+    run = get_current_analysis_run(db, event.organized.diary_id)
+    if run is None:
+        return True
+    latest_item_update = db.query(func.max(AnalysisItem.updated_at)).filter(
+        AnalysisItem.analysis_run_id == run.id,
+        AnalysisItem.event_id == event.id,
+    ).scalar()
+    latest_update = latest_item_update or run.created_at
+    return latest_update <= cutoff
+
+
+def process_stable_search_indexes() -> int:
+    """为内容已静默 24 小时的事件层与分析层分别执行增量索引。"""
+    db = SessionLocal()
+    processed = 0
+    cutoff = datetime.utcnow() - timedelta(hours=24)
+    try:
+        event_ids = [
+            row[0] for row in eligible_events_query(db, date.min, date.max)
+            .order_by(DiaryEvent.id)
+            .all()
+        ]
+        for event_id in event_ids:
+            event = db.get(DiaryEvent, event_id)
+            if event is None:
+                continue
+            include_event_content = event.updated_at <= cutoff
+            include_analysis = _analysis_is_stable(db, event, cutoff)
+            if not include_event_content and not include_analysis:
+                continue
+            try:
+                pending = refresh_changed_event_search_indexes(
+                    db,
+                    event_id,
+                    include_event_content=include_event_content,
+                    include_analysis=include_analysis,
+                )
+                if pending:
+                    sync_event_embeddings(db, event_id)
+                db.commit()
+                processed += 1
+            except Exception:
+                db.rollback()
+                logger.exception("定时搜索索引事件失败 event_id=%s", event_id)
+        return processed
     finally:
         db.close()
 
@@ -149,3 +207,38 @@ class SearchIndexRebuildScheduler:
 
 
 search_index_rebuild_scheduler = SearchIndexRebuildScheduler()
+
+
+class SearchIndexMaintenanceScheduler:
+    """每天 06:00（中国时区）执行内容静默窗口后的增量索引。"""
+
+    def __init__(self) -> None:
+        self._runner: Optional[asyncio.Task] = None
+        self._stopping = False
+
+    async def start(self) -> None:
+        if self._runner and not self._runner.done():
+            return
+        self._stopping = False
+        self._runner = asyncio.create_task(self._run(), name="search-index-maintenance-scheduler")
+
+    async def stop(self) -> None:
+        self._stopping = True
+        if self._runner:
+            self._runner.cancel()
+            await asyncio.gather(self._runner, return_exceptions=True)
+        self._runner = None
+
+    async def _run(self) -> None:
+        timezone = ZoneInfo("Asia/Shanghai")
+        while not self._stopping:
+            now = datetime.now(timezone)
+            next_run = now.replace(hour=6, minute=0, second=0, microsecond=0)
+            if next_run <= now:
+                next_run += timedelta(days=1)
+            await asyncio.sleep((next_run - now).total_seconds())
+            if not self._stopping:
+                await asyncio.to_thread(process_stable_search_indexes)
+
+
+search_index_maintenance_scheduler = SearchIndexMaintenanceScheduler()

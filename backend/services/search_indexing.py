@@ -78,30 +78,56 @@ def rebuild_event_keyword_segments(db: Session, event_id: object) -> int:
     return len(rows)
 
 
-def mark_event_semantic_pending(db: Session, event_id: object) -> set[str]:
-    """标记当前应有语义层为 PENDING；旧 READY 块立即失去查询资格。"""
+def refresh_changed_event_search_indexes(
+    db: Session, event_id: object, *, include_event_content: bool, include_analysis: bool,
+) -> set[str]:
+    """仅将内容变化的指定索引层置为 PENDING，并按需重建关键词片段。"""
     event = db.get(DiaryEvent, event_id)
     if event is None or event.organized is None:
         return set()
     run = get_current_analysis_run(db, event.organized.diary_id)
     contents = build_event_chunk_contents(db, event.id, run.id if run else None)
-    expected = set(contents)
-    db.query(SearchSemanticIndexState).filter(SearchSemanticIndexState.event_id == event.id).delete(
-        synchronize_session=False
-    )
-    for chunk_type in expected:
-        db.add(SearchSemanticIndexState(
-            event_id=event.id,
-            analysis_run_id=None if chunk_type == "event_content" else (run.id if run else None),
-            chunk_type=chunk_type,
-            content_hash=hashlib.sha256(contents[chunk_type].encode("utf-8")).hexdigest(),
-            status="PENDING",
-        ))
+    selected_types = {
+        chunk_type for chunk_type in contents
+        if (chunk_type == "event_content" and include_event_content)
+        or (chunk_type != "event_content" and include_analysis)
+    }
+    states = {
+        state.chunk_type: state for state in db.query(SearchSemanticIndexState)
+        .filter(SearchSemanticIndexState.event_id == event.id)
+        .all()
+    }
+    if include_analysis:
+        selected_types.update(
+            chunk_type for chunk_type in states
+            if chunk_type != "event_content" and chunk_type not in contents
+        )
+    pending: set[str] = set()
+    keyword_changed = False
+    for chunk_type in selected_types:
+        state = states.get(chunk_type)
+        content = contents.get(chunk_type)
+        if content is None:
+            if state is not None:
+                db.delete(state)
+                keyword_changed = True
+            continue
+        analysis_run_id = None if chunk_type == "event_content" else (run.id if run else None)
+        content_hash = hashlib.sha256(content.encode("utf-8")).hexdigest()
+        if state is not None and state.analysis_run_id == analysis_run_id and state.content_hash == content_hash:
+            if state.status != "READY":
+                state.status = "PENDING"
+                pending.add(chunk_type)
+            continue
+        if state is None:
+            state = SearchSemanticIndexState(event_id=event.id, chunk_type=chunk_type)
+            db.add(state)
+        state.analysis_run_id = analysis_run_id
+        state.content_hash = content_hash
+        state.status = "PENDING"
+        pending.add(chunk_type)
+        keyword_changed = True
+    if keyword_changed:
+        rebuild_event_keyword_segments(db, event_id)
     db.flush()
-    return expected
-
-
-def refresh_event_search_indexes(db: Session, event_id: object) -> set[str]:
-    """业务提交后的同步部分：关键词立即可用，语义层进入异步队列。"""
-    rebuild_event_keyword_segments(db, event_id)
-    return mark_event_semantic_pending(db, event_id)
+    return pending

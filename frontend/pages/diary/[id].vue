@@ -1580,7 +1580,7 @@ const pollOrganizeStatus = async () => {
   const maxAttempts = 200
   let consecutiveErrors = 0
   for (let i = 0; i < maxAttempts; i++) {
-    await new Promise(resolve => setTimeout(resolve, 3000))
+    await new Promise(resolve => setTimeout(resolve, 20000))
     try {
       const task = await api<{ status: string; current_step?: string; error_message?: string }>(
         `/diaries/${diaryId.value}/organize/status`
@@ -1668,7 +1668,7 @@ const pollAnalyzeStatus = async () => {
   const maxAttempts = 200
   let consecutiveErrors = 0
   for (let i = 0; i < maxAttempts; i++) {
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    await new Promise(resolve => setTimeout(resolve, 20000))
     try {
       const task = await api<{ status: string; analysis_mode?: 'ordinary' | 'feedback'; current_step?: string; error_message?: string }>(
         `/diaries/${diaryId.value}/analyze/status`

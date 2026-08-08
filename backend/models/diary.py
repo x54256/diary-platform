@@ -135,6 +135,7 @@ class AnalysisItem(Base):
     question = Column(Text, nullable=True)
     sort_order = Column(Integer, default=0, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
     analysis_run = relationship("AnalysisRun", back_populates="items")
     event = relationship("DiaryEvent")
@@ -290,6 +291,7 @@ class DiaryEvent(Base):
     importance_origin = Column(String(24), nullable=True)
     importance_updated_at = Column(DateTime, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
     # 关系映射
     organized = relationship("DiaryOrganized", back_populates="events")

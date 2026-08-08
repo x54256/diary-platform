@@ -239,7 +239,7 @@ class ReviewTaskManager:
     async def start(self) -> None:
         if self._runner and not self._runner.done():
             return
-        await asyncio.to_thread(self._recover_running)
+        await asyncio.to_thread(self._fail_interrupted_tasks_on_start)
         self._stopping = False
         self._runner = asyncio.create_task(self._run(), name="review-task-manager")
 
@@ -255,16 +255,21 @@ class ReviewTaskManager:
     def wake(self) -> None:
         self._wake.set()
 
-    def _recover_running(self) -> None:
+    def _fail_interrupted_tasks_on_start(self) -> None:
         db = SessionLocal()
         try:
             db.query(ReviewTask).filter(
-                ReviewTask.status == ReviewTaskStatus.RUNNING.value
+                ReviewTask.status.in_([
+                    ReviewTaskStatus.QUEUED.value,
+                    ReviewTaskStatus.RUNNING.value,
+                ])
             ).update({
-                ReviewTask.status: ReviewTaskStatus.QUEUED.value,
+                ReviewTask.status: ReviewTaskStatus.FAILED.value,
                 ReviewTask.lease_until: None,
                 ReviewTask.run_token: None,
-                ReviewTask.available_at: datetime.utcnow(),
+                ReviewTask.completed_at: datetime.utcnow(),
+                ReviewTask.error_code: "APP_RESTARTED",
+                ReviewTask.error_message: "应用重启导致任务中断，请重试。",
             }, synchronize_session=False)
             db.commit()
         finally:

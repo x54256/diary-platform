@@ -9,6 +9,7 @@ from types import SimpleNamespace
 from unittest.mock import AsyncMock, Mock, patch
 
 from services.review_ai import (
+    DAILY_MATERIAL_CONTINUATION_PROMPT,
     DAILY_MATERIAL_PROMPT,
     WEEK_EVENT_FROM_DIGESTS_PROMPT,
     ReviewAIError,
@@ -28,13 +29,14 @@ from services.review_generation import (
     _assemble_analysis_action_document,
     _assemble_daily_material_document,
     _assemble_week_event_document,
+    _next_daily_material_batch,
     _item_schedule_facts,
     _replay_stored_schedule_facts,
     _weekly_fact,
     _weekly_materials_for_analysis,
 )
 from services.review_workflow import _after_freeze, _next_or_end
-from services.review_tasks import create_retry_task
+from services.review_tasks import ReviewTaskManager, create_retry_task
 from services.action_items import apply_action_planning_result
 from models.diary import (
     AnalysisItem,
@@ -495,6 +497,21 @@ class ReviewJsonAndStructureTest(unittest.TestCase):
 
 
 class ReviewPipelineBranchTest(unittest.IsolatedAsyncioTestCase):
+    def test_application_restart_marks_queued_and_running_tasks_failed(self):
+        db = Mock()
+        update = db.query.return_value.filter.return_value.update
+        with patch("services.review_tasks.SessionLocal", return_value=db):
+            ReviewTaskManager()._fail_interrupted_tasks_on_start()
+
+        values = update.call_args.args[0]
+        self.assertEqual(values[ReviewTask.status], ReviewTaskStatus.FAILED.value)
+        self.assertEqual(values[ReviewTask.error_code], "APP_RESTARTED")
+        self.assertEqual(values[ReviewTask.error_message], "应用重启导致任务中断，请重试。")
+        self.assertIsNone(values[ReviewTask.lease_until])
+        self.assertIsNone(values[ReviewTask.run_token])
+        db.commit.assert_called_once()
+        db.close.assert_called_once()
+
     async def test_analysis_step_provides_reference_catalog_on_unified_retry(self):
         invalid = analysis_semantics()
         invalid["domains"][0]["signals"] = [{
@@ -531,6 +548,72 @@ class ReviewPipelineBranchTest(unittest.IsolatedAsyncioTestCase):
 
         self.assertEqual(result["matters"][0]["source_event_nos"], [1])
         self.assertEqual(invoke.await_count, 1)
+        self.assertEqual(invoke.await_args.kwargs["system_prompt"], DAILY_MATERIAL_PROMPT)
+        self.assertNotIn("previous_daily_material", json.loads(invoke.await_args.kwargs["user_message"]))
+
+    async def test_daily_material_continuation_uses_prior_document_and_keeps_referenced_events(self):
+        first_event = {
+            "event_no": 1, "title": "原型验证", "body": ["完成了原型验证。"],
+            "feeling": [], "reflection": [], "related_user_notes": [],
+        }
+        second_event = {
+            "event_no": 2, "title": "联调", "body": ["完成了联调。"],
+            "feeling": [], "reflection": [], "related_user_notes": [],
+        }
+        previous = {"day_overview": {"main_changes": ["完成原型验证"], "overall_state": []}, "matters": [{
+            "title": "原型验证", "source_event_nos": [1], "core_changes": ["完成原型验证"],
+            "facts_and_progress": ["完成了原型验证。"], "emotions_and_state": [],
+            "actions_and_results": [], "concerns_and_expectations": [],
+            "reflections_and_learning": [], "key_quotes": [],
+        }]}
+        continued = {"day_overview": {"main_changes": ["完成原型验证并联调"], "overall_state": []}, "matters": [{
+            "title": "原型推进", "source_event_nos": [1, 2], "core_changes": ["完成原型验证并联调"],
+            "facts_and_progress": ["完成了原型验证。", "完成了联调。"], "emotions_and_state": [],
+            "actions_and_results": [], "concerns_and_expectations": [],
+            "reflections_and_learning": [], "key_quotes": [],
+        }]}
+        invoke = AsyncMock(return_value=json.dumps(continued, ensure_ascii=False))
+        with patch("services.review_ai._invoke_review_model", invoke):
+            result = await review_daily_material(
+                {"date": "2026-07-29", "events": [second_event]},
+                previous_daily_material=previous,
+                validation_payload={
+                    "date": "2026-07-29", "events": [first_event, second_event],
+                    "required_source_event_nos": [1],
+                },
+                max_attempts=1,
+            )
+
+        self.assertEqual(result, continued)
+        self.assertEqual(invoke.await_args.kwargs["system_prompt"], DAILY_MATERIAL_CONTINUATION_PROMPT)
+        self.assertEqual(json.loads(invoke.await_args.kwargs["user_message"])["previous_daily_material"], previous)
+
+    def test_daily_material_continuation_rejects_lost_prior_event_reference(self):
+        payload = {"date": "2026-07-29", "events": [{
+            "event_no": 1, "title": "原型验证", "body": ["完成了原型验证。"],
+            "feeling": [], "reflection": [], "related_user_notes": [],
+        }, {
+            "event_no": 2, "title": "联调", "body": ["完成了联调。"],
+            "feeling": [], "reflection": [], "related_user_notes": [],
+        }], "required_source_event_nos": [1]}
+        document = {"day_overview": {"main_changes": [], "overall_state": []}, "matters": [{
+            "title": "联调", "source_event_nos": [2], "core_changes": [],
+            "facts_and_progress": ["完成了联调。"], "emotions_and_state": [],
+            "actions_and_results": [], "concerns_and_expectations": [],
+            "reflections_and_learning": [], "key_quotes": [],
+        }]}
+
+        with self.assertRaisesRegex(ReviewStructureError, "丢失上一轮已引用事件: 1"):
+            validate_daily_material_document(document, payload)
+
+    def test_daily_material_batch_keeps_events_whole(self):
+        events = [{"event_no": 1}, {"event_no": 2}]
+        with patch("services.review_generation.estimate_prompt_tokens", side_effect=[1, 10]):
+            with patch("services.review_generation.settings.REVIEW_DAILY_MATERIAL_INPUT_TOKEN_BUDGET", 5):
+                batch, next_start = _next_daily_material_batch(date(2026, 7, 29), events, 0, None)
+
+        self.assertEqual(batch, [events[0]])
+        self.assertEqual(next_start, 1)
 
     def test_daily_material_rejects_removed_follow_up_fields(self):
         payload = {"date": "2026-07-29", "events": [{

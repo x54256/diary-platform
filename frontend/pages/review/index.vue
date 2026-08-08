@@ -13,7 +13,7 @@
       <p class="text-sm leading-6 text-neutral-500">把已经发生的事，连成下一段更清楚的生活线索。</p>
       <ReviewPeriodFilter v-model="filter" class="mt-3" />
       <NuxtLink v-if="activeTaskCount || failedTaskCount" to="/review/tasks" class="mt-3 flex min-h-12 items-center justify-between rounded-lg border border-primary-200 bg-primary-50 px-4 text-sm text-primary-800">
-        <span>{{ activeTaskCount ? `${activeTaskCount} 项任务进行中` : '' }}{{ activeTaskCount && failedTaskCount ? '，' : '' }}{{ failedTaskCount ? `${failedTaskCount} 项需要处理` : '' }}</span><span>›</span>
+        <span>{{ activeTaskCount ? `${activeTaskCount} 项任务进行中` : '' }}{{ activeTaskCount && failedTaskCount ? '，' : '' }}{{ failedTaskCount ? `${failedTaskCount} 项需要处理` : '' }}</span><span>&rsaquo;</span>
       </NuxtLink>
 
       <div v-if="loading" class="flex justify-center py-24"><span class="text-sm text-neutral-400">加载中...</span></div>
@@ -23,7 +23,7 @@
           <h2 class="mb-3 text-sm font-medium text-neutral-500">{{ group.label }}</h2>
           <div class="space-y-3"><ReviewListCard v-for="review in group.items" :key="review.id" :review="review" /></div>
         </section>
-        <button v-if="nextCursor" type="button" class="min-h-12 w-full rounded-lg border border-neutral-300 bg-white text-sm font-medium text-neutral-700 disabled:opacity-50" :disabled="loadingMore" @click="loadMore">{{ loadingMore ? '正在加载…' : '加载更多' }}</button>
+        <button v-if="nextCursor" type="button" class="min-h-12 w-full rounded-lg border border-neutral-300 bg-white text-sm font-medium text-neutral-700 disabled:opacity-50" :disabled="loadingMore" @click="loadMoreReviews">{{ loadingMore ? '正在加载…' : '加载更多' }}</button>
       </div>
       <section v-else class="py-16 text-center">
         <p class="text-sm text-neutral-400">还没有可以查看的回顾</p>
@@ -35,48 +35,16 @@
 </template>
 
 <script setup lang="ts">
-import type { ReviewSummary, ReviewTask, ReviewType } from '~/types'
+import type { ReviewSummary, ReviewType } from '~/types'
 
 definePageMeta({ layout: 'default', middleware: 'auth' })
 const { api } = useApi()
-const reviews = ref<ReviewSummary[]>([])
-const tasks = ref<ReviewTask[]>([])
-const loading = ref(true)
-const error = ref('')
-const nextCursor = ref<string | null>(null)
-const loadingMore = ref(false)
+const {
+  tasks, reviews, loading, loadError: error, nextCursor, loadingMore,
+  load,
+} = useReviewTasks()
+
 const filter = ref<'ALL' | ReviewType>('ALL')
-let pollTimer: ReturnType<typeof setInterval> | null = null
-
-onMounted(() => {
-  const saved = localStorage.getItem('review-period-filter')
-  if (saved === 'ALL' || saved === 'WEEK' || saved === 'MONTH') filter.value = saved
-  void load()
-  pollTimer = window.setInterval(() => { if (activeTaskCount.value) void loadTasks() }, 8000)
-})
-onBeforeUnmount(() => { if (pollTimer) clearInterval(pollTimer) })
-watch(filter, value => { if (import.meta.client) localStorage.setItem('review-period-filter', value) })
-
-const unwrap = <T,>(response: T[] | { items: T[] }) => Array.isArray(response) ? response : response.items
-const loadTasks = async () => { tasks.value = unwrap(await api<ReviewTask[] | { items: ReviewTask[] }>('/review-tasks?limit=100')) }
-const load = async () => {
-  loading.value = true; error.value = ''
-  try {
-    const [reviewResponse] = await Promise.all([api<ReviewSummary[] | { items: ReviewSummary[]; next_cursor?: string | null }>('/reviews'), loadTasks()])
-    reviews.value = unwrap(reviewResponse)
-    nextCursor.value = Array.isArray(reviewResponse) ? null : reviewResponse.next_cursor || null
-  } catch (cause: any) { error.value = cause?.data?.detail || '回顾加载失败，请重试' } finally { loading.value = false }
-}
-const loadMore = async () => {
-  if (!nextCursor.value || loadingMore.value) return
-  loadingMore.value = true
-  try {
-    const response = await api<{ items: ReviewSummary[]; next_cursor?: string | null }>(`/reviews?cursor=${encodeURIComponent(nextCursor.value)}`)
-    const known = new Set(reviews.value.map(item => item.id))
-    reviews.value.push(...response.items.filter(item => !known.has(item.id)))
-    nextCursor.value = response.next_cursor || null
-  } catch (cause: any) { error.value = cause?.data?.detail || '更多回顾加载失败' } finally { loadingMore.value = false }
-}
 const activeStatuses = ['PENDING', 'QUEUED', 'RUNNING']
 const activeTaskCount = computed(() => tasks.value.filter(task => activeStatuses.includes(task.status)).length)
 const failedTaskCount = computed(() => tasks.value.filter(task => task.status === 'FAILED').length)
@@ -92,4 +60,23 @@ const groupedReviews = computed(() => {
   }
   return [...groups.entries()].map(([key, items]) => ({ key, label: `${key.slice(0, 4)} 年 ${Number(key.slice(5, 7))} 月`, items }))
 })
+
+onMounted(() => {
+  const saved = localStorage.getItem('review-period-filter')
+  if (saved === 'ALL' || saved === 'WEEK' || saved === 'MONTH') filter.value = saved
+  void load()
+})
+
+watch(filter, value => { if (import.meta.client) localStorage.setItem('review-period-filter', value) })
+
+const loadMoreReviews = async () => {
+  if (!nextCursor.value || loadingMore.value) return
+  loadingMore.value = true
+  try {
+    const response = await api<{ items: ReviewSummary[]; next_cursor?: string | null }>(`/reviews?cursor=${encodeURIComponent(nextCursor.value)}`)
+    const known = new Set(reviews.value.map(item => item.id))
+    reviews.value.push(...response.items.filter(item => !known.has(item.id)))
+    nextCursor.value = response.next_cursor || null
+  } catch (cause: any) { error.value = cause?.data?.detail || '更多回顾加载失败' } finally { loadingMore.value = false }
+}
 </script>

@@ -230,7 +230,7 @@ const startTaskPolling = () => {
       if (taskPollTimer) clearInterval(taskPollTimer)
       taskPollTimer = null
     } catch { /* 保留当前提示，下一轮继续轮询 */ }
-  }, 5000)
+  }, 15000)
 }
 const handleGenerationAction = () => generationVersionId.value ? selectVersion(generationVersionId.value) : navigateTo('/review/tasks')
 </script>

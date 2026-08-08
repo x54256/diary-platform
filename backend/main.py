@@ -161,6 +161,8 @@ async def startup():
     await review_task_manager.start()
     from services.search_rebuild_jobs import search_index_rebuild_scheduler
     await search_index_rebuild_scheduler.start()
+    from services.search_rebuild_jobs import search_index_maintenance_scheduler
+    await search_index_maintenance_scheduler.start()
 
 
 @app.on_event("shutdown")
@@ -175,6 +177,8 @@ async def shutdown():
     await review_task_manager.stop()
     from services.search_rebuild_jobs import search_index_rebuild_scheduler
     await search_index_rebuild_scheduler.stop()
+    from services.search_rebuild_jobs import search_index_maintenance_scheduler
+    await search_index_maintenance_scheduler.stop()
 
 
 def _recover_stuck_tasks():

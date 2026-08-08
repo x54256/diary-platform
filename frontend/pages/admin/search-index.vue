@@ -7,7 +7,7 @@
 
     <section class="max-w-2xl rounded border border-neutral-200 bg-white p-5">
       <div class="rounded border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-900">
-        重建会调用 embedding 模型并产生费用。任务期间该日期范围内的语义结果会显示“部分索引仍在生成中”。
+        重建仅补齐或更新内容变化的索引；需要生成向量时会调用 embedding 模型并产生费用。
       </div>
       <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label class="block">
@@ -105,6 +105,6 @@ const formatTime = (value?: string) => value ? formatDateTimeInAppTimeZone(value
 const statusLabel = (value: RebuildJob['status']) => ({ queued: '等待中', running: '执行中', completed: '已完成', cancelled: '已取消' }[value])
 
 let poller: ReturnType<typeof setInterval> | undefined
-onMounted(async () => { await loadJobs(); poller = setInterval(loadJobs, 3000) })
+onMounted(async () => { await loadJobs(); poller = window.setInterval(() => { if (hasActiveJob.value) void loadJobs() }, 60000) })
 onBeforeUnmount(() => { if (poller) clearInterval(poller) })
 </script>

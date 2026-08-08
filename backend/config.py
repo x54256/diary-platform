@@ -25,6 +25,8 @@ class Settings(BaseSettings):
 
     # 大模型单个业务步骤的最大总调用次数；1 表示失败后不自动重试。
     LLM_MAX_ATTEMPTS: int = Field(default=1, ge=1)
+    # 每日回顾素材单批请求的输入 token 上限；完整事件不可拆分。
+    REVIEW_DAILY_MATERIAL_INPUT_TOKEN_BUDGET: int = Field(default=24000, ge=1024)
 
     # Fun-ASR 录音文件识别运行参数。模型、API 地址和密钥由管理端模型配置维护。
     TRANSCRIPTION_PUBLIC_BASE_URL: str = "http://localhost"

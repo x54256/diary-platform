@@ -51,7 +51,6 @@ from services.analysis_history import (
 )
 from services.search_service import search_diaries as search_diaries_service
 from services.auth import get_current_user
-from services.embedding_sync import enqueue_event_embedding_sync
 
 import asyncio
 from database import SessionLocal
@@ -1377,10 +1376,6 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
 
         db.commit()
 
-        # 增量同步新事件的语义向量（embedding），失败不影响业务结果（fail-open）。
-        for diary_event in new_events:
-            enqueue_event_embedding_sync(diary_event.id)
-
         # 清理 checkpoint 数据不应影响已提交的业务结果
         from services.pipeline import cleanup_checkpoint
         try:
@@ -1689,9 +1684,6 @@ async def _run_analyze(
             .filter(DiaryEvent.diary_organized_id == diary_organized_id)
             .all()
         )
-        for (event_id,) in sync_events:
-            enqueue_event_embedding_sync(event_id)
-
         logger.info(
             "后台分析任务完成",
             extra=log_extra(event="analysis.task.completed", diary_id=diary_id, task_id=task_id, analysis_mode=analysis_mode, old_status="running", new_status="completed", duration_ms=task_started.elapsed_ms()),
@@ -1856,11 +1848,6 @@ def update_organized(
 
     db.commit()
 
-    # 整理内容（结构化事件）变更后，增量重算语义向量（fail-open）。
-    if structured_changed:
-        for ev in organized.events:
-            enqueue_event_embedding_sync(ev.id)
-
     db.refresh(organized)
     return serialize_organized(organized, get_current_analysis_run(db, diary.id), current_user.id, db)
 
@@ -1943,10 +1930,6 @@ def update_diary_event(
         )
 
     db.commit()
-
-    # 事件内容变更后，增量重算该事件的语义向量（fail-open）。
-    if structured_changed:
-        enqueue_event_embedding_sync(event.id)
 
     db.refresh(event)
     return serialize_event(event, get_current_analysis_run(db, diary.id), current_user.id, db)

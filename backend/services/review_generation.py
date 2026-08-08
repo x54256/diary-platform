@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import json
 import logging
 import re
 import uuid
@@ -34,9 +35,11 @@ from models.review import (
     ReviewSourceSet,
 )
 from services.review_ai import (
+    DAILY_MATERIAL_CONTINUATION_PROMPT, DAILY_MATERIAL_PROMPT,
     ReviewAIError, actual_review_model_info, review_analysis_action, review_daily_material,
     review_week_event_organize_from_digests, validate_analysis_action_document,
 )
+from services.llm_metrics import estimate_prompt_tokens
 from services.review_periods import ReviewPeriod
 from services.review_sources import (
     ReviewSourceFreezer,
@@ -294,6 +297,41 @@ def _daily_material_input(day_sources: list[dict[str, Any]]) -> tuple[list[dict[
         ],
     } for index, source in enumerate(event_sources, start=1)]
     return events, annotations
+
+
+def _daily_material_model_events(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [{key: value for key, value in event.items() if key not in {"source_id", "event_id"}} for event in events]
+
+
+def _daily_material_source_event_nos(document: dict[str, Any] | None) -> set[int]:
+    if not isinstance(document, dict):
+        return set()
+    return {
+        value for matter in document.get("matters", []) if isinstance(matter, dict)
+        for value in matter.get("source_event_nos", []) if isinstance(value, int)
+    }
+
+
+def _next_daily_material_batch(
+    digest_date: date, events: list[dict[str, Any]], start: int, previous_daily_material: dict[str, Any] | None,
+) -> tuple[list[dict[str, Any]], int]:
+    """在输入 token 预算内装入尽可能多的完整事件。"""
+    batch: list[dict[str, Any]] = []
+    prompt = DAILY_MATERIAL_CONTINUATION_PROMPT if previous_daily_material is not None else DAILY_MATERIAL_PROMPT
+    while start + len(batch) < len(events):
+        candidate = [*batch, events[start + len(batch)]]
+        payload: dict[str, Any] = {"date": digest_date.isoformat(), "events": candidate}
+        if previous_daily_material is not None:
+            payload["previous_daily_material"] = previous_daily_material
+        token_count = estimate_prompt_tokens(None, prompt, json.dumps(payload, ensure_ascii=False, separators=(",", ":")))
+        if token_count > settings.REVIEW_DAILY_MATERIAL_INPUT_TOKEN_BUDGET:
+            if not batch:
+                raise ReviewAIError(
+                    f"单个事件超过每日素材输入 token 预算: event_no={events[start].get('event_no')}"
+                )
+            break
+        batch = candidate
+    return batch, start + len(batch)
 
 
 def _compact_week_catalog(source_catalog: list[dict[str, Any]], source_ids: set[str]) -> list[dict[str, Any]]:
@@ -833,15 +871,34 @@ async def execute_review_task(
                     row.status = ReviewDailyDigestStatus.EMPTY.value
                     daily_rows.append(row)
                     continue
+                model_events = _daily_material_model_events(daily_events)
+                # 模型调用期间不持有数据库事务，避免长请求占满连接池。
+                db.commit()
+                daily_result: dict[str, Any] | None = None
+                batch_start = 0
+                required_source_event_nos: set[int] = set()
                 try:
-                    daily_result = await review_daily_material(
-                        {"date": digest_date.isoformat(), "events": [{key: value for key, value in event.items() if key not in {"source_id", "event_id"}} for event in daily_events]},
-                        review_task_id=str(task_id), max_attempts=settings.LLM_MAX_ATTEMPTS,
-                    )
+                    while batch_start < len(model_events):
+                        batch, next_start = _next_daily_material_batch(
+                            digest_date, model_events, batch_start, daily_result,
+                        )
+                        daily_result = await review_daily_material(
+                            {"date": digest_date.isoformat(), "events": batch},
+                            previous_daily_material=daily_result,
+                            validation_payload={
+                                "date": digest_date.isoformat(),
+                                "events": model_events,
+                                "required_source_event_nos": sorted(required_source_event_nos),
+                            },
+                            review_task_id=str(task_id), max_attempts=settings.LLM_MAX_ATTEMPTS,
+                        )
+                        required_source_event_nos.update(_daily_material_source_event_nos(daily_result))
+                        batch_start = next_start
                 except ReviewAIError:
                     row.status = ReviewDailyDigestStatus.FAILED.value
                     db.commit()
                     raise
+                assert daily_result is not None
                 row.material_document = _assemble_daily_material_document(daily_result, digest_date, daily_events, annotation_source_ids)
                 row.model_info = actual_review_model_info()
                 row.status = ReviewDailyDigestStatus.READY.value

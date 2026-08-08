@@ -11,7 +11,6 @@
       >
         <span class="relative text-xl leading-none">
           {{ tab.icon }}
-          <i v-if="tab.key === 'review' && reviewUnread" class="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white" aria-label="有新回顾" />
         </span>
         <span class="text-xs leading-none">{{ tab.label }}</span>
       </NuxtLink>
@@ -34,21 +33,6 @@ interface TabItem {
 const props = defineProps<{
   active?: string
 }>()
-const { api } = useApi()
-const reviewUnread = ref(false)
-let unreadTimer: ReturnType<typeof setInterval> | null = null
-const loadReviewUnread = async () => {
-  try {
-    const result = await api<{ has_unread: boolean }>('/reviews-unread-status')
-    reviewUnread.value = result.has_unread
-  } catch { reviewUnread.value = false }
-}
-onMounted(() => {
-  void loadReviewUnread()
-  unreadTimer = window.setInterval(loadReviewUnread, 30000)
-})
-onBeforeUnmount(() => { if (unreadTimer) clearInterval(unreadTimer) })
-
 // Tab 配置
 const tabs: TabItem[] = [
   { key: 'diary', label: '日记', icon: '📓', path: '/' },
