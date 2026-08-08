@@ -7,7 +7,8 @@ import logging
 import uuid
 from datetime import date, datetime, timedelta
 
-from sqlalchemy.exc import IntegrityError
+from sqlalchemy import text
+from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from sqlalchemy.orm import Session
 
 from database import SessionLocal
@@ -235,13 +236,18 @@ class ReviewTaskManager:
         self._wake = asyncio.Event()
         self._stopping = False
         self._last_auto_scan: datetime | None = None
+        self._startup_recovery_cutoff: datetime | None = None
 
     async def start(self) -> None:
         if self._runner and not self._runner.done():
             return
-        await asyncio.to_thread(self._fail_interrupted_tasks_on_start)
         self._stopping = False
+        self._startup_recovery_cutoff = datetime.utcnow()
         self._runner = asyncio.create_task(self._run(), name="review-task-manager")
+        asyncio.create_task(
+            self._recover_interrupted_tasks_after_start(self._startup_recovery_cutoff),
+            name="review-task-startup-recovery",
+        )
 
     async def stop(self) -> None:
         self._stopping = True
@@ -255,23 +261,44 @@ class ReviewTaskManager:
     def wake(self) -> None:
         self._wake.set()
 
-    def _fail_interrupted_tasks_on_start(self) -> None:
+    def start_claimed_task(self, task_id: uuid.UUID, token: uuid.UUID) -> None:
+        """启动已在当前事务中认领的任务。"""
+        self._active[task_id] = asyncio.create_task(
+            self._run_task(task_id, token),
+            name=f"review-task-{task_id}",
+        )
+
+    async def _recover_interrupted_tasks_after_start(self, cutoff: datetime) -> None:
+        try:
+            await asyncio.to_thread(self._fail_interrupted_tasks_on_start, cutoff)
+        finally:
+            self._startup_recovery_cutoff = None
+            self.wake()
+
+    def _fail_interrupted_tasks_on_start(self, interrupted_before: datetime | None = None) -> None:
         db = SessionLocal()
         try:
-            db.query(ReviewTask).filter(
+            db.execute(text("SET LOCAL lock_timeout = '1s'"))
+            query = db.query(ReviewTask).filter(
                 ReviewTask.status.in_([
                     ReviewTaskStatus.QUEUED.value,
                     ReviewTaskStatus.RUNNING.value,
                 ])
-            ).update({
-                ReviewTask.status: ReviewTaskStatus.FAILED.value,
-                ReviewTask.lease_until: None,
-                ReviewTask.run_token: None,
-                ReviewTask.completed_at: datetime.utcnow(),
-                ReviewTask.error_code: "APP_RESTARTED",
-                ReviewTask.error_message: "应用重启导致任务中断，请重试。",
-            }, synchronize_session=False)
+            )
+            if interrupted_before is not None:
+                query = query.filter(ReviewTask.updated_at < interrupted_before)
+            interrupted = query.with_for_update(skip_locked=True).all()
+            for task in interrupted:
+                task.status = ReviewTaskStatus.FAILED.value
+                task.lease_until = None
+                task.run_token = None
+                task.completed_at = datetime.utcnow()
+                task.error_code = "APP_RESTARTED"
+                task.error_message = "应用重启导致任务中断，请重试。"
             db.commit()
+        except SQLAlchemyError:
+            db.rollback()
+            logger.exception("应用启动时标记中断回顾任务失败")
         finally:
             db.close()
 
@@ -306,6 +333,8 @@ class ReviewTaskManager:
             task = db.query(ReviewTask).filter(
                 ReviewTask.status == ReviewTaskStatus.QUEUED.value,
                 ReviewTask.available_at <= now,
+                ReviewTask.updated_at >= self._startup_recovery_cutoff
+                if self._startup_recovery_cutoff else True,
             ).order_by(ReviewTask.created_at).with_for_update(skip_locked=True).first()
             if not task:
                 db.rollback()

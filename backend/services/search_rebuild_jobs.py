@@ -190,9 +190,12 @@ class SearchIndexRebuildScheduler:
     async def start(self) -> None:
         if self._runner and not self._runner.done():
             return
-        await asyncio.to_thread(recover_search_index_rebuild_jobs)
         self._stopping = False
         self._runner = asyncio.create_task(self._run(), name="search-index-rebuild-scheduler")
+        asyncio.create_task(
+            asyncio.to_thread(recover_search_index_rebuild_jobs),
+            name="search-index-rebuild-startup-recovery",
+        )
 
     async def stop(self) -> None:
         self._stopping = True

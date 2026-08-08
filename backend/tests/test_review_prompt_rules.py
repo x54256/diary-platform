@@ -1,5 +1,6 @@
 """定期回顾 AI 提示词、流程分支和结构规则测试。"""
 
+import asyncio
 import copy
 import json
 import unittest
@@ -35,7 +36,7 @@ from services.review_generation import (
     _weekly_fact,
     _weekly_materials_for_analysis,
 )
-from services.review_workflow import _after_freeze, _next_or_end
+from services.review_workflow import execute_review_graph
 from services.review_tasks import ReviewTaskManager, create_retry_task
 from services.action_items import apply_action_planning_result
 from models.diary import (
@@ -440,11 +441,14 @@ class ReviewJsonAndStructureTest(unittest.TestCase):
         self.assertTrue(assembled["domains"][0]["action_candidates"][0]["action_key"].startswith("action-"))
         validate_analysis_action_document(assembled, analysis_payload())
 
-    def test_review_workflow_routes_analysis_only_without_event_node(self):
-        self.assertEqual(_after_freeze({"analysis_only": True}), "analyze_actions")
-        self.assertEqual(_after_freeze({"analysis_only": False}), "organize_events")
-        self.assertEqual(_after_freeze({"terminal": True}), "__end__")
-        self.assertEqual(_next_or_end({"terminal": True}), "__end__")
+    def test_review_workflow_uses_persisted_task_state_directly(self):
+        task_id = uuid.uuid4()
+        run_token = uuid.uuid4()
+        execute = AsyncMock()
+        with patch("services.review_workflow.execute_review_task", execute):
+            asyncio.run(execute_review_graph(task_id, run_token))
+
+        execute.assert_awaited_once_with(task_id, run_token)
 
     def test_retry_requeues_same_task_to_preserve_daily_checkpoint(self):
         failed = ReviewTask(
@@ -499,18 +503,36 @@ class ReviewJsonAndStructureTest(unittest.TestCase):
 class ReviewPipelineBranchTest(unittest.IsolatedAsyncioTestCase):
     def test_application_restart_marks_queued_and_running_tasks_failed(self):
         db = Mock()
-        update = db.query.return_value.filter.return_value.update
+        query = db.query.return_value.filter.return_value.with_for_update.return_value
+        queued = ReviewTask(status=ReviewTaskStatus.QUEUED.value)
+        running = ReviewTask(status=ReviewTaskStatus.RUNNING.value)
+        query.all.return_value = [queued, running]
         with patch("services.review_tasks.SessionLocal", return_value=db):
             ReviewTaskManager()._fail_interrupted_tasks_on_start()
 
-        values = update.call_args.args[0]
-        self.assertEqual(values[ReviewTask.status], ReviewTaskStatus.FAILED.value)
-        self.assertEqual(values[ReviewTask.error_code], "APP_RESTARTED")
-        self.assertEqual(values[ReviewTask.error_message], "应用重启导致任务中断，请重试。")
-        self.assertIsNone(values[ReviewTask.lease_until])
-        self.assertIsNone(values[ReviewTask.run_token])
+        for task in (queued, running):
+            self.assertEqual(task.status, ReviewTaskStatus.FAILED.value)
+            self.assertEqual(task.error_code, "APP_RESTARTED")
+            self.assertEqual(task.error_message, "应用重启导致任务中断，请重试。")
+            self.assertIsNone(task.lease_until)
+            self.assertIsNone(task.run_token)
+        db.execute.assert_called_once()
         db.commit.assert_called_once()
         db.close.assert_called_once()
+
+    async def test_retry_starts_an_already_claimed_task_immediately(self):
+        manager = ReviewTaskManager()
+        task_id = uuid.uuid4()
+        token = uuid.uuid4()
+        background_task = Mock()
+        def create_background_task(coroutine, **_kwargs):
+            coroutine.close()
+            return background_task
+        with patch("services.review_tasks.asyncio.create_task", side_effect=create_background_task) as create_task:
+            manager.start_claimed_task(task_id, token)
+
+        create_task.assert_called_once()
+        self.assertIs(manager._active[task_id], background_task)
 
     async def test_analysis_step_provides_reference_catalog_on_unified_retry(self):
         invalid = analysis_semantics()

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import copy
 import base64
-from datetime import datetime
+from datetime import datetime, timedelta
 from uuid import UUID, uuid4
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
@@ -901,7 +901,7 @@ def get_current_daily_digest(digest_id: UUID, db: Session = Depends(get_db), use
 
 
 @router.post("/api/review-tasks/{task_id}/retry", response_model=ReviewTaskResponse)
-def retry_task(task_id: UUID, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
+async def retry_task(task_id: UUID, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
     task = db.query(ReviewTask).filter(ReviewTask.id == task_id, ReviewTask.user_id == user.id).first()
     if not task:
         raise HTTPException(status_code=404, detail="回顾任务不存在")
@@ -910,5 +910,11 @@ def retry_task(task_id: UUID, db: Session = Depends(get_db), user: User = Depend
         retry = create_retry_task(db, task)
     except (ReviewTaskError, ModelRuntimeError) as exc:
         raise HTTPException(status_code=400, detail=str(exc))
-    review_task_manager.wake()
+    retry.status = ReviewTaskStatus.RUNNING.value
+    retry.run_token = uuid4()
+    retry.started_at = retry.started_at or datetime.utcnow()
+    retry.lease_until = datetime.utcnow() + timedelta(minutes=10)
+    db.commit()
+    db.refresh(retry)
+    review_task_manager.start_claimed_task(retry.id, retry.run_token)
     return _task_response(retry)

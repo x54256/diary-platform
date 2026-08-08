@@ -986,46 +986,45 @@ async def execute_review_task(
                 return
 
         base_actions = list(base_version.actions) if base_version else []
-        task = _advance(db, task_id, run_token, ReviewTaskStep.ANALYSIS_ACTION.value)
-        if not (isinstance(task.analysis_result, dict) and "domains" in task.analysis_result):
-            task.analysis_attempts += 1
-        db.commit()
-        analysis_payload = {
-            "review": {
-                "generation_mode": task.generation_mode,
-                "review_type": review.review_type,
-                "period_start": review.period_start.isoformat(),
-                "period_end": review.period_end.isoformat(),
-            },
-            "source_catalog": source_catalog,
-            "event_document": event_document,
-            "weekly_materials": weekly_materials,
-            "existing_analysis_candidates": existing_candidates,
-            "base_version_actions": _actions_payload(base_actions),
-            "previous_confirmed_actions": previous_actions,
-            "lower_review_actions": lower_review_actions,
-            "derived_metrics": _derived_metrics(event_document, source_catalog, review.review_type),
-            "missing_periods": missing_periods,
-        }
-        if isinstance(task.analysis_result, dict) and "domains" in task.analysis_result:
-            # 已落库的任务中间产物是恢复依据，先重新校验再复用。
-            analysis_result = copy.deepcopy(task.analysis_result)
-            validate_analysis_action_document(analysis_result, analysis_payload)
-        else:
-            analysis_semantics = await review_analysis_action(
-                analysis_payload,
-                review_task_id=str(task_id),
-                max_attempts=settings.LLM_MAX_ATTEMPTS,
-            )
-            analysis_result = _assemble_analysis_action_document(analysis_semantics, analysis_payload)
-            # 模型输出先经最小语义校验，再由代码组装并复用完整持久化校验。
-            validate_analysis_action_document(analysis_result, analysis_payload)
-            analysis_model_info = actual_review_model_info()
-            task = _task_owned(db, task_id, run_token)
-            task.analysis_result = analysis_result
+        if task.generation_mode == ReviewGenerationMode.ANALYSIS_ONLY.value:
+            task = _advance(db, task_id, run_token, ReviewTaskStep.ANALYSIS_ACTION.value)
+            if not (isinstance(task.analysis_result, dict) and "domains" in task.analysis_result):
+                task.analysis_attempts += 1
             db.commit()
-        if stop_after == ReviewTaskStep.ANALYSIS_ACTION.value:
-            return
+            analysis_payload = {
+                "review": {
+                    "generation_mode": task.generation_mode,
+                    "review_type": review.review_type,
+                    "period_start": review.period_start.isoformat(),
+                    "period_end": review.period_end.isoformat(),
+                },
+                "source_catalog": source_catalog,
+                "event_document": event_document,
+                "weekly_materials": weekly_materials,
+                "existing_analysis_candidates": existing_candidates,
+                "base_version_actions": _actions_payload(base_actions),
+                "previous_confirmed_actions": previous_actions,
+                "lower_review_actions": lower_review_actions,
+                "derived_metrics": _derived_metrics(event_document, source_catalog, review.review_type),
+                "missing_periods": missing_periods,
+            }
+            if isinstance(task.analysis_result, dict) and "domains" in task.analysis_result:
+                analysis_result = copy.deepcopy(task.analysis_result)
+                validate_analysis_action_document(analysis_result, analysis_payload)
+            else:
+                analysis_semantics = await review_analysis_action(
+                    analysis_payload,
+                    review_task_id=str(task_id),
+                    max_attempts=settings.LLM_MAX_ATTEMPTS,
+                )
+                analysis_result = _assemble_analysis_action_document(analysis_semantics, analysis_payload)
+                validate_analysis_action_document(analysis_result, analysis_payload)
+                analysis_model_info = actual_review_model_info()
+                task = _task_owned(db, task_id, run_token)
+                task.analysis_result = analysis_result
+                db.commit()
+            if stop_after == ReviewTaskStep.ANALYSIS_ACTION.value:
+                return
 
         _advance(db, task_id, run_token, ReviewTaskStep.PERSIST_VERSION.value)
         review = db.query(Review).filter(Review.id == task.review_id).with_for_update().one()

@@ -80,7 +80,9 @@ const retryTask = async (task: ReviewTask) => {
   retryingId.value = task.id
   try {
     const created = await api<ReviewTask>(`/review-tasks/${task.id}/retry`, { method: 'POST' })
-    tasks.value.unshift(created)
+    const index = tasks.value.findIndex(item => item.id === created.id)
+    if (index >= 0) tasks.value[index] = created
+    else tasks.value.unshift(created)
   } catch (cause: any) { loadError.value = cause?.data?.detail || '重试任务创建失败' } finally { retryingId.value = '' }
 }
 const startTask = async (task: ReviewTask) => {
