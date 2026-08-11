@@ -59,6 +59,7 @@
       <template v-if="isEditing">
         <div class="flex-1 min-h-0 overflow-y-auto px-4 py-3">
           <div class="text-base text-neutral-500 mb-3">{{ diary.diary_date }}</div>
+          <p v-if="isVoicePending" class="mb-3 text-sm text-amber-700">{{ transcriptionStatusLabel }}</p>
           <textarea
             v-model="editText"
             data-auto-resize
@@ -90,6 +91,7 @@
       <template v-else>
         <div class="flex-1 min-h-0 overflow-y-auto px-4 py-3">
           <div class="text-base text-neutral-500 mb-3">{{ diary.diary_date }}</div>
+          <p v-if="isVoicePending" class="mb-3 text-sm text-amber-700">{{ transcriptionStatusLabel }}</p>
           <div class="text-base text-neutral-800 whitespace-pre-wrap leading-relaxed" @dblclick="isEditable && startEdit()">
             {{ diary.original_text }}
           </div>
@@ -98,14 +100,14 @@
         <div class="px-4 py-3 border-t border-neutral-200 bg-white safe-area-bottom">
           <button
             @click="handleOrganize"
-            :disabled="organizing"
+            :disabled="organizing || isVoicePending"
             class="w-full py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-700 disabled:opacity-50"
           >
             <span v-if="organizing" class="inline-flex items-center gap-2">
               <Spinner />
               {{ organizeStep + '...' }}
             </span>
-            <span v-else>AI 整理</span>
+            <span v-else>{{ isVoicePending ? transcriptionStatusLabel : 'AI 整理' }}</span>
           </button>
           <p v-if="organizeError" class="text-sm text-red-500 text-center mt-2">{{ organizeError }}</p>
         </div>
@@ -780,9 +782,16 @@ const isOrganizedOrAnalyzed = computed(() =>
   diary.value?.status === 'organized' || diary.value?.status === 'analyzed'
 )
 
+const isVoicePending = computed(() => !!diary.value?.transcription_status)
+const transcriptionStatusLabel = computed(() => ({
+  audio_uploaded: '已上传录音',
+  transcribing: '录音转写中',
+  partial_failed: '部分录音转写失败',
+}[diary.value?.transcription_status || ''] || ''))
+
 // 可编辑判断：仅 saved / organized 可编辑
 const isEditable = computed(() =>
-  diary.value?.status === 'saved' || diary.value?.status === 'organized'
+  !isVoicePending.value && (diary.value?.status === 'saved' || diary.value?.status === 'organized')
 )
 
 // 标题

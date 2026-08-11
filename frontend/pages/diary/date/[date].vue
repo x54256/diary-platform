@@ -32,19 +32,20 @@
         </template>
         <!-- 已保存：显示原文预览 -->
         <template v-else>
-          <p class="text-base text-neutral-600 line-clamp-2">{{ item.original_text }}</p>
+          <p class="text-base text-neutral-600 line-clamp-2">{{ item.original_text || '录音已上传，等待转写内容' }}</p>
         </template>
         <!-- 状态标签 -->
         <div class="flex items-center gap-2 mt-2">
           <span
             :class="[
               'text-xs px-2 py-0.5 rounded',
+              item.transcription_status ? 'bg-amber-50 text-amber-700' :
               item.status === 'saved' ? 'bg-blue-50 text-blue-500' :
               item.status === 'analyzed' ? 'bg-purple-50 text-purple-600' :
               'bg-green-50 text-green-600'
             ]"
           >
-            {{ statusLabel(item.status) }}
+            {{ statusLabel(item.transcription_status || item.status) }}
           </span>
           <span v-if="item.organized?.mood" class="text-xs text-primary-600">{{ item.organized.mood }}</span>
           <span v-if="item.organized?.location" class="text-xs text-neutral-400">{{ item.organized.location }}</span>
@@ -143,6 +144,9 @@ const topicDiaryTags = (tags?: any[]) => {
 const statusLabel = (status: string) => {
   switch (status) {
     case 'saved': return '已保存'
+    case 'audio_uploaded': return '已上传录音'
+    case 'transcribing': return '录音转写中'
+    case 'partial_failed': return '部分录音转写失败'
     case 'organized': return '已整理'
     case 'analyzed': return '已分析'
     default: return status

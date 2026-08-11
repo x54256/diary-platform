@@ -16,6 +16,7 @@ class TranscriptionStart(BaseModel):
 
 class TranscriptionBatchCreate(BaseModel):
     diary_date: date
+    base_text: str = ""
 
 
 class TranscriptionItemOrderUpdate(BaseModel):

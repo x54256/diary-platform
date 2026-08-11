@@ -43,6 +43,7 @@ export interface DiaryOrganized {
 
 // 日记状态：已保存 → 已整理 → 已分析
 export type DiaryStatus = 'saved' | 'organized' | 'analyzed'
+export type DiaryTranscriptionStatus = 'audio_uploaded' | 'transcribing' | 'partial_failed'
 
 // 日记
 export interface Diary {
@@ -50,6 +51,7 @@ export interface Diary {
   user_id?: string
   diary_date: string
   status: DiaryStatus
+  transcription_status?: DiaryTranscriptionStatus | null
   original_text: string
   created_at?: string
   updated_at?: string

@@ -39,7 +39,7 @@
       :can-start="voice.canStart.value"
       :locked="voice.locked.value"
       :busy="voice.actionLoading.value"
-      @add="files => voice.addFiles(files, diaryDate)"
+      @add="files => voice.addFiles(files, diaryDate, content)"
       @reorder="voice.reorder"
       @remove="voice.removeItem"
       @retry="voice.retry"
@@ -129,8 +129,8 @@ watch(diaryDate, date => voice.loadActive(date).catch((err: any) => {
   voice.error.value = err?.data?.detail || '任务状态读取失败'
 }), { immediate: true })
 
-watch(() => voice.batch.value?.diary_id, async (diaryId) => {
-  if (!diaryId) return
+watch(() => [voice.batch.value?.status, voice.batch.value?.diary_id] as const, async ([batchStatus, diaryId]) => {
+  if (batchStatus !== 'COMPLETED' || !diaryId) return
   try {
     const diary = await api<Diary>(`/diaries/${diaryId}`)
     content.value = diary.original_text

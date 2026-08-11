@@ -3,7 +3,7 @@
     <div class="flex items-center justify-between gap-3">
       <div>
         <h2 class="text-base font-semibold text-neutral-800">语音记录</h2>
-        <p class="mt-0.5 text-xs text-neutral-400">全部识别成功后，后台自动保存日记</p>
+        <p class="mt-0.5 text-xs text-neutral-400">首个录音上传成功后即创建日记</p>
       </div>
       <label v-if="!locked" class="voice-add">
         <input type="file" multiple accept="audio/*,video/*,.aac,.amr,.avi,.flac,.flv,.m4a,.mkv,.mov,.mp3,.mp4,.mpeg,.ogg,.opus,.wav,.webm,.wma,.wmv" class="hidden" @change="selectFiles" />

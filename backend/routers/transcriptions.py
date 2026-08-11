@@ -15,6 +15,7 @@ from sqlalchemy.orm import Session
 
 from config import settings
 from database import get_db
+from models.diary import Diary, DiaryStatus
 from models.transcription import TranscriptionBatch, TranscriptionItem
 from models.user import User
 from schemas.transcription import (
@@ -90,7 +91,12 @@ def create_batch(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    batch = TranscriptionBatch(user_id=current_user.id, diary_date=payload.diary_date, status="COLLECTING")
+    batch = TranscriptionBatch(
+        user_id=current_user.id,
+        diary_date=payload.diary_date,
+        base_text=payload.base_text,
+        status="COLLECTING",
+    )
     db.add(batch)
     db.commit()
     db.refresh(batch)
@@ -173,6 +179,10 @@ async def upload_item(
             size,
             content_type,
         )
+        # 上传成功即创建并绑定日记。重新加锁避免并发上传重复创建日记。
+        batch = get_batch(db, batch_id, current_user.id, lock=True)
+        if batch.status != "COLLECTING":
+            raise HTTPException(status_code=409, detail="任务已经开始处理")
         item = TranscriptionItem(
             batch_id=batch.id,
             sort_order=sort_order,
@@ -183,6 +193,16 @@ async def upload_item(
             status="UPLOADED",
         )
         db.add(item)
+        if not batch.diary_id:
+            diary = Diary(
+                user_id=current_user.id,
+                original_text=batch.base_text or "",
+                diary_date=batch.diary_date,
+                status=DiaryStatus.saved,
+            )
+            db.add(diary)
+            db.flush()
+            batch.diary_id = diary.id
         db.commit()
         db.refresh(item)
         logger.info(
@@ -239,6 +259,25 @@ def start_batch(
         raise HTTPException(status_code=409, detail="请等待全部音频上传完成")
     batch.diary_date = payload.diary_date
     batch.base_text = payload.base_text
+    # 兼容历史批次，并以点击转写时的文本和日期作为最终日记基础内容。
+    diary = None
+    if batch.diary_id:
+        diary = db.query(Diary).filter(Diary.id == batch.diary_id, Diary.user_id == current_user.id).first()
+    if diary is None:
+        diary = Diary(
+            user_id=current_user.id,
+            original_text=payload.base_text,
+            diary_date=payload.diary_date,
+            status=DiaryStatus.saved,
+        )
+        db.add(diary)
+        db.flush()
+        batch.diary_id = diary.id
+    elif diary.deleted_at is None:
+        if diary.original_text != payload.base_text or diary.diary_date != payload.diary_date:
+            diary.original_text = payload.base_text
+            diary.diary_date = payload.diary_date
+            diary.content_revision += 1
     batch.status = "QUEUED"
     batch.started_at = datetime.utcnow()
     for item in items:

@@ -49,10 +49,10 @@ export function useVoiceTranscription() {
   )
   const locked = computed(() => !!batch.value && !['COLLECTING', 'CANCELLED', 'EXPIRED'].includes(batch.value.status))
 
-  const createBatch = async (diaryDate: string) => {
+  const createBatch = async (diaryDate: string, baseText: string) => {
     if (batch.value?.status !== 'COLLECTING') {
       batch.value = await api<TranscriptionBatch>('/transcription-batches', {
-        method: 'POST', body: { diary_date: diaryDate },
+        method: 'POST', body: { diary_date: diaryDate, base_text: baseText },
       })
       localItems.value = []
     }
@@ -90,7 +90,7 @@ export function useVoiceTranscription() {
     xhr.send(form)
   })
 
-  const addFiles = async (files: File[], diaryDate: string) => {
+  const addFiles = async (files: File[], diaryDate: string, baseText: string) => {
     error.value = ''
     const valid: File[] = []
     for (const file of files) {
@@ -109,7 +109,7 @@ export function useVoiceTranscription() {
     }
     if (!valid.length) return
     const orderedFiles = orderAudioFiles(valid)
-    const currentBatch = await createBatch(diaryDate)
+    const currentBatch = await createBatch(diaryDate, baseText)
     let nextOrder = Math.max(-1, ...items.value.map(item => item.sort_order)) + 1
     let cursor = 0
     const uploadNext = async () => {

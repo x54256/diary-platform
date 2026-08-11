@@ -476,16 +476,24 @@ class TranscriptionTaskManager:
                 return
             original_text = compose_transcription_text(batch.base_text, items)
             logger.info("开始最终化语音批次 batch_id=%s user_id=%s item_count=%s diary_date=%s", batch.id, batch.user_id, len(items), batch.diary_date)
-            diary = Diary(
-                user_id=batch.user_id,
-                original_text=original_text,
-                diary_date=batch.diary_date,
-                status=DiaryStatus.saved,
-            )
-            db.add(diary)
-            db.flush()
+            diary = batch.diary
+            if diary is None:
+                # 兼容新逻辑上线前已启动的批次。
+                diary = Diary(
+                    user_id=batch.user_id,
+                    original_text=original_text,
+                    diary_date=batch.diary_date,
+                    status=DiaryStatus.saved,
+                )
+                db.add(diary)
+                db.flush()
+                batch.diary_id = diary.id
+            elif diary.deleted_at is None:
+                diary.original_text = original_text
+                diary.diary_date = batch.diary_date
+                diary.content_revision += 1
+                diary.is_dirty = False
             batch.status = "COMPLETED"
-            batch.diary_id = diary.id
             batch.completed_at = datetime.utcnow()
             batch.expires_at = None
             batch.base_text = None

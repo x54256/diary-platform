@@ -185,6 +185,7 @@ class DiaryResponse(BaseModel):
     original_text: str
     diary_date: date
     status: str
+    transcription_status: Optional[str] = None
     is_dirty: bool = False
     deleted_at: Optional[datetime] = None
     deleted_by: Optional[UUID] = None

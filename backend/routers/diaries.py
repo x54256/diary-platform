@@ -24,6 +24,7 @@ from models.diary import (
 )
 from models.favorite import Favorite
 from models.tag import EventTag, Tag, diary_tags
+from models.transcription import TranscriptionBatch
 from models.user import User
 from schemas.diary import (
     DiaryCalendarItem,
@@ -135,12 +136,23 @@ def serialize_organized(organized: DiaryOrganized | None, current_run: AnalysisR
 def serialize_diary(diary: Diary, db: Session, user_id: UUID) -> dict:
     current_run = get_current_analysis_run(db, diary.id)
     status_value = diary.status.value if hasattr(diary.status, "value") else str(diary.status)
+    transcription_batch = db.query(TranscriptionBatch.status).filter(
+        TranscriptionBatch.diary_id == diary.id,
+    ).order_by(TranscriptionBatch.created_at.desc()).first()
+    transcription_status = {
+        "COLLECTING": "audio_uploaded",
+        "QUEUED": "transcribing",
+        "PROCESSING": "transcribing",
+        "FINALIZING": "transcribing",
+        "PARTIAL_FAILED": "partial_failed",
+    }.get(transcription_batch[0]) if transcription_batch else None
     return {
         "id": diary.id,
         "user_id": diary.user_id,
         "original_text": diary.original_text,
         "diary_date": diary.diary_date,
         "status": status_value,
+        "transcription_status": transcription_status,
         "is_dirty": diary.is_dirty,
         "deleted_at": diary.deleted_at,
         "deleted_by": diary.deleted_by,
