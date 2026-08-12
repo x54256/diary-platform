@@ -13,7 +13,7 @@ from utils.crypto import decrypt_text, encrypt_text
 
 MODEL_TYPES = ["language", "asr", "embedding"]
 REASONING_MODES = ["unsupported", "switchable", "always_on"]
-SETTING_KEYS = ["organize", "analysis", "review", "chat", "transcription", "embedding"]
+SETTING_KEYS = ["organize", "analysis", "review", "knowledge", "chat", "transcription", "embedding"]
 LANGUAGE_CATEGORIES = ["通用对话", "深度推理", "长上下文", "代码能力", "轻量高速"]
 ASR_CATEGORIES = ["实时语音识别", "录音文件识别"]
 EMBEDDING_CATEGORIES = ["文本向量化"]
@@ -39,6 +39,7 @@ SETTING_REQUIREMENTS = {
     "organize": ("language", "openai_chat"),
     "analysis": ("language", "openai_chat"),
     "review": ("language", "openai_chat"),
+    "knowledge": ("language", "openai_chat"),
     "chat": ("language", "openai_chat"),
     "transcription": ("asr", "dashscope_asr"),
     "embedding": ("embedding", "openai_embeddings"),
@@ -58,6 +59,7 @@ STEP_SETTING_KEYS = {
     "review_daily_material": "review",
     "review_event_organize": "review",
     "review_analysis_action": "review",
+    "knowledge_event_extract": "knowledge",
 }
 STEP_LABELS = {
     "text_clean": "文本清洗",
@@ -74,6 +76,7 @@ STEP_LABELS = {
     "review_daily_material": "每日周回顾素材",
     "review_event_organize": "回顾事件组织",
     "review_analysis_action": "回顾分析与行动",
+    "knowledge_event_extract": "原子事件提取",
 }
 
 

@@ -58,6 +58,13 @@ from models.review import (
     ReviewVersionDependency,
     ReviewVersionType,
 )
+from models.knowledge import (
+    KnowledgeAtomicEvent,
+    KnowledgeDeposit,
+    KnowledgeTask,
+    KnowledgeTaskStatus,
+    KnowledgeTaskStep,
+)
 
 __all__ = [
     "User",
@@ -130,4 +137,9 @@ __all__ = [
     "ReviewActionCheckStatus",
     "ReviewDomain",
     "ReviewAnalysisAngle",
+    "KnowledgeAtomicEvent",
+    "KnowledgeDeposit",
+    "KnowledgeTask",
+    "KnowledgeTaskStatus",
+    "KnowledgeTaskStep",
 ]

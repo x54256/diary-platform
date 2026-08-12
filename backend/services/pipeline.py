@@ -28,7 +28,6 @@ from services.model_runtime import resolve_model_setting, resolve_thinking_paylo
 from services.organize_settings import get_organize_pipeline_options
 from services.llm_metrics import prompt_token_count, record_llm_call
 from utils.log_context import ContextFormatter, LogContextFilter, Stopwatch, log_extra
-from utils.llm_log import truncate_llm_log
 
 logger = logging.getLogger(__name__)
 
@@ -148,10 +147,10 @@ async def _invoke_llm(llm: ChatOpenAI, system_prompt: str, user_message: str, st
         extra=log_extra(event="analysis.llm.started", step=step_name, model=model_name),
     )
     _ai_logger.info(
-        "[%s] 请求（正文最多 2000 字符）: system=%s, user=%s",
+        "[%s] 完整请求: system=%s, user=%s",
         step_name,
-        truncate_llm_log(system_prompt),
-        truncate_llm_log(user_message),
+        system_prompt,
+        user_message,
         extra=log_extra(event="analysis.llm.request_payload", step=step_name),
     )
     try:
@@ -161,9 +160,9 @@ async def _invoke_llm(llm: ChatOpenAI, system_prompt: str, user_message: str, st
         )
         raw_content = response.content
         _ai_logger.info(
-            "[%s] 响应（正文最多 2000 字符）: %s",
+            "[%s] 完整响应: %s",
             step_name,
-            truncate_llm_log(raw_content),
+            raw_content,
             extra=log_extra(event="analysis.llm.response_payload", step=step_name),
         )
         try:

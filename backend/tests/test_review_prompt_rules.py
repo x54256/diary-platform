@@ -1368,11 +1368,11 @@ class ReviewModelLoggingTest(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(result, '{"domains": []}')
         self.assertEqual(log_info.call_count, 2)
         request_call, response_call = log_info.call_args_list
-        self.assertIn("LLM 请求", request_call.args[0])
-        self.assertIn("完整系统提示词", request_call.args[2])
-        self.assertIn("完整日记内容", request_call.args[2])
-        self.assertNotIn("secret-key", request_call.args[2])
-        self.assertIn("LLM 原始响应", response_call.args[0])
+        self.assertIn("LLM 完整请求", request_call.args[0])
+        self.assertIn("完整系统提示词", request_call.args[4])
+        self.assertIn("完整日记内容", request_call.args[4])
+        self.assertIn("secret-key", request_call.args[3])
+        self.assertIn("LLM 完整原始响应", response_call.args[0])
         self.assertIn("chatcmpl-test", response_call.args[2])
 
     async def test_empty_content_is_recorded_as_failed_llm_call(self):

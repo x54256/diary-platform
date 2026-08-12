@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 from typing import Any
+from uuid import UUID
 
 from sqlalchemy.orm import joinedload
 
@@ -31,6 +32,7 @@ class RuntimeModelConfig:
     api_base_url: str
     api_key: str
     model_name: str
+    channel_model_id: UUID | None = None
     step_key: str | None = None
     reasoning_mode: str = "unsupported"
     thinking_enabled: bool | None = None
@@ -110,6 +112,7 @@ def resolve_model_setting(setting_key: str, step_key: str | None = None) -> Runt
             api_base_url=channel_model.channel.api_base_url.rstrip("/"),
             api_key=api_key,
             model_name=channel_model.model.model_name,
+            channel_model_id=channel_model.id,
             reasoning_mode=channel_model.model.reasoning_mode,
             thinking_enabled=thinking_enabled,
             thinkmode=channel_model.channel.thinkmode or {},
@@ -146,6 +149,7 @@ def _resolve_embedding_setting() -> RuntimeModelConfig:
                 api_base_url="",
                 api_key="",
                 model_name=EMBEDDING_MODEL_DEFAULT,
+                channel_model_id=None,
                 reasoning_mode="unsupported",
                 thinking_enabled=False,
                 thinkmode={},
@@ -164,6 +168,7 @@ def _resolve_embedding_setting() -> RuntimeModelConfig:
             api_base_url=channel_model.channel.api_base_url.rstrip("/"),
             api_key=api_key,
             model_name=channel_model.model.model_name,
+            channel_model_id=channel_model.id,
             reasoning_mode=channel_model.model.reasoning_mode,
             thinking_enabled=setting.thinking_enabled,
             thinkmode=channel_model.channel.thinkmode or {},

@@ -33,7 +33,6 @@ from services.pipeline import (
 from services.person_relations import load_person_relation_context
 from services.action_items import apply_action_planning_result
 from utils.log_context import Stopwatch, log_extra
-from utils.llm_log import truncate_llm_log
 
 logger = logging.getLogger(__name__)
 
@@ -456,24 +455,24 @@ def _json_dumps(value: Any) -> str:
 
 
 def _log_llm_request(step_name: str, system_prompt: str, input_data: dict) -> str:
-    """记录分析流水线 LLM 请求摘要，并返回未截断的 user message。"""
+    """记录分析流水线完整 LLM 请求，并返回 user message。"""
     user_message = _json_dumps(input_data)
     _ai_logger.info(
-        "[%s] LLM 请求（正文最多 2000 字符）: system=%s\nuser=%s",
+        "[%s] LLM 完整请求: system=%s\nuser=%s",
         step_name,
-        truncate_llm_log(system_prompt),
-        truncate_llm_log(user_message),
+        system_prompt,
+        user_message,
         extra=log_extra(event="analysis.llm.request_payload", step=step_name),
     )
     return user_message
 
 
 def _log_llm_response(step_name: str, result: dict) -> None:
-    """记录分析流水线 LLM JSON 响应摘要。"""
+    """记录分析流水线完整 LLM JSON 响应。"""
     _ai_logger.info(
-        "[%s] LLM 响应（正文最多 2000 字符）: %s",
+        "[%s] LLM 完整响应: %s",
         step_name,
-        truncate_llm_log(_json_dumps(result)),
+        _json_dumps(result),
         extra=log_extra(event="analysis.llm.response_payload", step=step_name),
     )
 
@@ -1143,6 +1142,12 @@ def _save_analysis_result(
         diary_id = state["diary_id"]
         task_id = state["task_id"]
         diary_uuid = uuid.UUID(diary_id) if isinstance(diary_id, str) else diary_id
+        # 与知识发布使用相同的日记锁，避免分析结果在沉淀过程中切换来源。
+        diary = db.query(Diary).filter(Diary.id == diary_uuid).with_for_update().first()
+        if not diary:
+            raise RuntimeError("日记不存在")
+        from services.knowledge_guards import assert_knowledge_source_writable
+        assert_knowledge_source_writable(db, diary_uuid)
         if feedback_source_run_id and inherited_feedback_keys is None:
             inherited_feedback_keys = feedback_keys_for_run(db, feedback_source_run_id)
         run = create_analysis_run_from_state(
@@ -1193,7 +1198,6 @@ def _save_analysis_result(
                 organized.location = state.get("location", "")
 
         # 更新日记状态为 analyzed
-        diary = db.query(Diary).filter(Diary.id == diary_uuid).first()
         old_status = diary.status.value if diary and hasattr(diary.status, "value") else str(
             diary.status) if diary else None
         if diary:

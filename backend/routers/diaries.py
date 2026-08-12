@@ -52,6 +52,7 @@ from services.analysis_history import (
 )
 from services.search_service import search_diaries as search_diaries_service
 from services.auth import get_current_user
+from services.knowledge_guards import KnowledgeSourceLockedError, assert_knowledge_source_writable
 
 import asyncio
 from database import SessionLocal
@@ -62,6 +63,13 @@ from utils.log_context import Stopwatch, log_extra
 
 router = APIRouter(prefix="/api/diaries", tags=["日记管理"])
 logger = logging.getLogger(__name__)
+
+
+def ensure_knowledge_source_writable(db: Session, diary_id: UUID) -> None:
+    try:
+        assert_knowledge_source_writable(db, diary_id)
+    except KnowledgeSourceLockedError as exc:
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=str(exc)) from exc
 
 
 def parse_json_value(value, default):
@@ -1123,10 +1131,14 @@ def delete_diary(
     diary = (
         db.query(Diary)
         .filter(Diary.id == diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None))
+        .with_for_update()
         .first()
     )
     if not diary:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="日记不存在")
+    if diary.status == DiaryStatus.analyzed:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="已分析的日记不可删除")
+    ensure_knowledge_source_writable(db, diary.id)
 
     running_task = (
         db.query(OrganizeTask)
@@ -1165,10 +1177,12 @@ async def organize_diary(
     diary = (
         db.query(Diary)
         .filter(Diary.id == diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None))
+        .with_for_update()
         .first()
     )
     if not diary:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="日记不存在")
+    ensure_knowledge_source_writable(db, diary.id)
 
     # 2. 状态守卫：仅 saved、organized 可整理；analyzed 不可
     if diary.status not in (DiaryStatus.saved, DiaryStatus.organized):
@@ -1276,9 +1290,10 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
         diary = db.query(Diary).filter(
             Diary.id == diary_id,
             Diary.deleted_at.is_(None),
-        ).first()
+        ).with_for_update().first()
         if not diary:
             raise RuntimeError("日记不存在或已删除")
+        assert_knowledge_source_writable(db, diary.id)
 
         # 已整理日记再次整理时复用一对一的整理记录，并清除会被替换的旧事件。
         organized = db.query(DiaryOrganized).filter(DiaryOrganized.diary_id == diary_id).first()
@@ -1454,6 +1469,7 @@ async def analyze_diary(
     diary = (
         db.query(Diary)
         .filter(Diary.id == diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None))
+        .with_for_update()
         .first()
     )
     if not diary:
@@ -1462,6 +1478,7 @@ async def analyze_diary(
             extra=log_extra(event="analysis.request.rejected", diary_id=str(diary_id), user_id=str(current_user.id), reason="diary_not_found"),
         )
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="日记不存在")
+    ensure_knowledge_source_writable(db, diary.id)
 
     # 2. 状态守卫：仅 organized、analyzed 可触发分析
     if diary.status not in (DiaryStatus.organized, DiaryStatus.analyzed):
@@ -1761,10 +1778,12 @@ def update_organized(
     diary = (
         db.query(Diary)
         .filter(Diary.id == diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None))
+        .with_for_update()
         .first()
     )
     if not diary:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="日记不存在")
+    ensure_knowledge_source_writable(db, diary.id)
     if not diary.organized:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -1876,10 +1895,12 @@ def update_diary_event(
     diary = (
         db.query(Diary)
         .filter(Diary.id == diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None))
+        .with_for_update()
         .first()
     )
     if not diary:
         raise HTTPException(status_code=404, detail="日记不存在")
+    ensure_knowledge_source_writable(db, diary.id)
 
     # 状态守卫：仅 organized 和 analyzed
     if diary.status not in (DiaryStatus.organized, DiaryStatus.analyzed):

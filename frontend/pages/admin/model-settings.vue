@@ -2,7 +2,7 @@
   <div class="space-y-5">
     <div>
       <h1 class="text-xl font-semibold text-neutral-900 sm:text-2xl">模型设置</h1>
-      <p class="mt-1 text-sm leading-5 text-neutral-500">配置整理、分析、对话、语音转文字和语义向量化当前使用的可调用模型。</p>
+      <p class="mt-1 text-sm leading-5 text-neutral-500">配置整理、分析、回顾、知识沉淀、对话、语音转文字和语义向量化当前使用的可调用模型。</p>
     </div>
 
     <section class="bg-white border border-neutral-200 rounded p-4">
@@ -39,12 +39,12 @@
         </div>
 
         <div class="mt-4 space-y-3">
-          <select v-model="draft[usage.key].channel_id" class="w-full h-9 px-2 border border-neutral-300 rounded text-sm" @change="handleChannelChange(usage.key)">
+          <select v-model="draft[usage.key].channel_id" class="w-full h-10 px-2 border border-neutral-300 rounded text-base sm:h-9 sm:text-sm" @change="handleChannelChange(usage.key)">
             <option value="">选择渠道</option>
             <option v-for="channel in channels" :key="channel.id" :value="channel.id">{{ channel.name }}</option>
           </select>
 
-          <select v-model="draft[usage.key].ability_category" class="w-full h-9 px-2 border border-neutral-300 rounded text-sm" @change="clearAfterCategory(usage.key)">
+          <select v-model="draft[usage.key].ability_category" class="w-full h-10 px-2 border border-neutral-300 rounded text-base sm:h-9 sm:text-sm" @change="clearAfterCategory(usage.key)">
             <option value="">选择分类</option>
             <option v-for="category in categoriesFor(usage)" :key="category" :value="category">{{ category }}</option>
           </select>
@@ -52,7 +52,7 @@
           <div class="relative">
             <input
               v-model="draft[usage.key].model_keyword"
-              class="w-full h-9 px-3 border border-neutral-300 rounded text-sm"
+              class="w-full h-10 px-3 border border-neutral-300 rounded text-base sm:h-9 sm:text-sm"
               placeholder="输入并选择模型"
               @focus="openModelPickerFor(usage.key)"
               @input="handleModelKeywordInput(usage.key)"
@@ -93,7 +93,7 @@
             {{ testResults[usage.key].message }}
           </span>
           <button
-            v-if="usage.key === 'organize' || usage.key === 'analysis' || usage.key === 'review'"
+            v-if="usage.key === 'organize' || usage.key === 'analysis' || usage.key === 'review' || usage.key === 'knowledge'"
             class="h-8 px-3 border border-neutral-300 rounded text-sm"
             @click="openStepSettings(usage)"
           >
@@ -203,6 +203,7 @@ const usages = [
   { key: 'organize', label: '整理', modelType: 'language' },
   { key: 'analysis', label: '分析', modelType: 'language' },
   { key: 'review', label: '回顾', modelType: 'language' },
+  { key: 'knowledge', label: '知识沉淀', modelType: 'language' },
   { key: 'chat', label: '对话', modelType: 'language' },
   { key: 'transcription', label: '语音转文字', modelType: 'asr' },
   { key: 'embedding', label: '向量化', modelType: 'embedding' },

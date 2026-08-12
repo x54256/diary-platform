@@ -456,6 +456,8 @@
           </div>
         </div>
 
+        <KnowledgeDepositCard v-if="diary.status === 'analyzed'" :diary-id="diary.id" />
+
         <!-- 原始文本（折叠，默认收起） -->
         <details class="border-t border-neutral-100 pt-3">
           <summary class="text-xs text-neutral-400 cursor-pointer">查看原始文本</summary>

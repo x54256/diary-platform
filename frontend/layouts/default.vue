@@ -23,6 +23,7 @@ const tabActive = computed(() => {
   if (path.startsWith('/schedule')) return 'schedule'
   if (path.startsWith('/review')) return 'review'
   if (path.startsWith('/ai')) return 'ai'
+  if (path.startsWith('/knowledge')) return 'knowledge'
   if (path.startsWith('/profile')) return 'profile'
   return ''
 })

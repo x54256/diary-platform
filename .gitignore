@@ -42,3 +42,4 @@ backend/logs/
 deploy.server
 docker-compose.**.yml**
 **/*.zip
+.workbuddy

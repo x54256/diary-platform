@@ -20,7 +20,6 @@ from config import settings
 from services.llm_metrics import prompt_token_count, record_llm_call
 from services.model_runtime import resolve_model_setting, resolve_thinking_payload
 from utils.log_context import Stopwatch, log_extra
-from utils.llm_log import truncate_llm_log
 
 logger = logging.getLogger(__name__)
 # 回顾模型的完整请求和原始响应日志。仅写应用日志，不写入数据库。
@@ -950,10 +949,13 @@ async def _invoke_review_model(
     thinking_payload = resolve_thinking_payload(config)
     if thinking_payload:
         request_body.update(thinking_payload)
+    request_headers = {"Authorization": f"Bearer {config.api_key}"}
     _ai_logger.info(
-        "[%s] LLM 请求（正文最多 2000 字符）: %s",
+        "[%s] LLM 完整请求: url=%s headers=%s body=%s",
         step_key,
-        truncate_llm_log(request_body),
+        f"{config.api_base_url}/chat/completions",
+        request_headers,
+        request_body,
         extra=log_extra(
             event="review.ai.request_payload",
             review_task_id=review_task_id,
@@ -969,14 +971,14 @@ async def _invoke_review_model(
         async with httpx.AsyncClient(timeout=1200.0) as client:
             response = await client.post(
                 f"{config.api_base_url}/chat/completions",
-                headers={"Authorization": f"Bearer {config.api_key}"},
+                headers=request_headers,
                 json=request_body,
             )
         response_data = response.json()
         _ai_logger.info(
-            "[%s] LLM 原始响应（正文最多 2000 字符）: %s",
+            "[%s] LLM 完整原始响应: %s",
             step_key,
-            truncate_llm_log(response_data),
+            response_data,
             extra=log_extra(
                 event="review.ai.response_payload",
                 review_task_id=review_task_id,

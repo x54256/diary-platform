@@ -1,0 +1,292 @@
+import asyncio
+import json
+from pathlib import Path
+from types import SimpleNamespace
+
+import pytest
+from fastapi import HTTPException
+
+from models.diary import DiaryEvent, DiaryOrganized, DiaryStatus
+from routers.knowledge import _source
+from services.knowledge_ai import SYSTEM_PROMPT, _invoke, freeze_model_config, parse_and_validate
+from services.knowledge_workflow import KnowledgeState, plan_event_batches
+from services.model_runtime import RuntimeModelConfig
+from services.model_management import SETTING_KEYS, STEP_SETTING_KEYS
+from utils.llm_log import LLM_LOG_BODY_LIMIT
+from uuid import uuid4
+
+
+class FakeSourceQuery:
+    def __init__(self, *, first_value=None, all_value=None):
+        self.first_value = first_value
+        self.all_value = all_value or []
+
+    def filter(self, *_args):
+        return self
+
+    def order_by(self, *_args):
+        return self
+
+    def first(self):
+        return self.first_value
+
+    def all(self):
+        return self.all_value
+
+
+class FakeSourceDb:
+    def __init__(self, organized, events):
+        self.organized = organized
+        self.events = events
+
+    def query(self, model):
+        if model is DiaryOrganized:
+            return FakeSourceQuery(first_value=self.organized)
+        if model is DiaryEvent:
+            return FakeSourceQuery(all_value=self.events)
+        raise AssertionError(f"unexpected model: {model}")
+
+
+def valid_payload(event_no=1):
+    return {
+        "results": [{
+            "event_no": event_no,
+            "atomic_events": [{
+                "title": "买酱油",
+                "source_fragments": ["我去买酱油"],
+                "content": "我去商店买了酱油。",
+                "occurred_on": "2026-08-11",
+                "occurred_time": None,
+            }],
+        }],
+    }
+
+
+def test_atomic_event_output_accepts_exact_contract():
+    result = parse_and_validate(json.dumps(valid_payload(), ensure_ascii=False), [1], "2026-08-11")
+    assert result[0]["event_no"] == 1
+
+
+@pytest.mark.parametrize("mutation", [
+    lambda value: value["results"][0]["atomic_events"][0].pop("occurred_time"),
+    lambda value: value["results"][0]["atomic_events"][0].update(source_fragments=[]),
+])
+def test_atomic_event_output_rejects_invalid_structure(mutation):
+    payload = valid_payload()
+    mutation(payload)
+    with pytest.raises(ValueError):
+        parse_and_validate(json.dumps(payload, ensure_ascii=False), [1], "2026-08-11")
+
+
+def test_atomic_event_output_rejects_missing_fields():
+    payload = valid_payload()
+    payload["results"][0]["atomic_events"][0].pop("occurred_time")
+    with pytest.raises(ValueError, match="缺少字段: occurred_time"):
+        parse_and_validate(json.dumps(payload, ensure_ascii=False), [1], "2026-08-11")
+
+
+def test_atomic_event_output_normalizes_relaxed_fields(caplog):
+    payload = valid_payload()
+    payload["extra"] = True
+    atom = payload["results"][0]["atomic_events"][0]
+    atom.update(
+        title="123456789012345678901",
+        occurred_on="明天",
+        occurred_time="下午",
+        unexpected=True,
+    )
+
+    result = parse_and_validate(json.dumps(payload, ensure_ascii=False), [1], "2026-08-11")
+
+    assert result[0]["atomic_events"][0]["title"] == "12345678901234567890"
+    assert result[0]["atomic_events"][0]["occurred_on"] == "2026-08-11"
+    assert result[0]["atomic_events"][0]["occurred_time"] is None
+    assert "忽略模型多余字段" in caplog.text
+    assert "标题已截断" in caplog.text
+    assert "日期已回退" in caplog.text
+    assert "时间已置空" in caplog.text
+
+
+def test_batching_preserves_every_complete_event(monkeypatch):
+    monkeypatch.setattr("services.knowledge_workflow.estimate_prompt_tokens", lambda _m, _s, user: len(user))
+    events = [
+        {"event_no": 1, "title": "A", "body": ["x" * 80]},
+        {"event_no": 2, "title": "B", "body": ["y" * 80]},
+        {"event_no": 3, "title": "C", "body": ["z" * 400]},
+    ]
+    batches = plan_event_batches(events, "2026-08-11", "test", 260)
+    assert [event_no for batch in batches for event_no in batch] == [1, 2, 3]
+    assert batches[-1] == [3]
+
+
+def test_checkpoint_state_has_no_run_token_or_api_key():
+    assert "run_token" not in KnowledgeState.__annotations__
+    assert "api_key" not in KnowledgeState.__annotations__
+    source = (Path(__file__).parents[1] / "services" / "knowledge_tasks.py").read_text()
+    assert 'KnowledgeTask.run_token == run_token' in source
+    assert 'KnowledgeTask.status == "RUNNING"' in source
+
+
+def test_analysis_run_is_not_a_knowledge_source_dependency():
+    backend = Path(__file__).parents[1]
+    runtime_sources = "\n".join(
+        (backend / path).read_text()
+        for path in (
+            "models/knowledge.py",
+            "routers/knowledge.py",
+            "services/knowledge_workflow.py",
+        )
+    )
+    assert "source_analysis_run_id" not in runtime_sources
+    assert "source_structured_revision" in runtime_sources
+
+
+def test_knowledge_model_input_only_uses_title_and_body():
+    backend = Path(__file__).parents[1]
+    workflow = (backend / "services" / "knowledge_workflow.py").read_text()
+    router = (backend / "routers" / "knowledge.py").read_text()
+    assert '"title": event.event_title or ""' in workflow
+    assert '"body": _json_list(event.body)' in workflow
+    assert '"feeling": _json_list(event.feeling)' not in workflow
+    assert '"reflection": _json_list(event.reflection)' not in workflow
+    assert "values = (event.event_title, event.body)" in router
+
+
+def test_analyzed_diary_accepts_current_structured_events_without_analysis_run():
+    organized = SimpleNamespace(id=uuid4(), structured_revision=17)
+    event = SimpleNamespace(event_title="当前事件", body=[], feeling=[], reflection=[])
+    diary = SimpleNamespace(id=uuid4(), status=DiaryStatus.analyzed)
+    assert _source(FakeSourceDb(organized, [event]), diary) is organized
+
+
+def test_non_analyzed_diary_is_rejected():
+    diary = SimpleNamespace(id=uuid4(), status=DiaryStatus.organized)
+    with pytest.raises(HTTPException) as error:
+        _source(FakeSourceDb(None, []), diary)
+    assert error.value.detail["code"] == "DIARY_NOT_ANALYZED"
+
+
+@pytest.mark.parametrize(("organized", "events", "code", "message"), [
+    (None, [], "STRUCTURED_SOURCE_MISSING", "当前日记没有结构化内容"),
+    (SimpleNamespace(id=uuid4()), [], "EMPTY_STRUCTURED_DIARY", "结构化日记没有事件"),
+    (
+        SimpleNamespace(id=uuid4()),
+        [SimpleNamespace(event_title="", body=[], feeling=[], reflection=[])],
+        "EMPTY_STRUCTURED_EVENT",
+        "第 1 个结构化事件为空",
+    ),
+])
+def test_invalid_structured_source_returns_specific_reason(organized, events, code, message):
+    diary = SimpleNamespace(id=uuid4(), status=DiaryStatus.analyzed)
+    with pytest.raises(HTTPException) as error:
+        _source(FakeSourceDb(organized, events), diary)
+    assert error.value.detail == {"code": code, "message": message}
+
+
+def test_knowledge_status_exposes_specific_unavailable_reason():
+    backend = Path(__file__).parents[1]
+    schema = (backend / "schemas" / "knowledge.py").read_text()
+    router = (backend / "routers" / "knowledge.py").read_text()
+    assert "unavailable_reason: str | None" in schema
+    assert '"unavailable_reason": unavailable_reason' in router
+
+
+def test_knowledge_event_response_includes_source_context():
+    backend = Path(__file__).parents[1]
+    schema = (backend / "schemas" / "knowledge.py").read_text()
+    router = (backend / "routers" / "knowledge.py").read_text()
+    assert "source_diary_date: date" in schema
+    assert "source_event_title: str | None" in schema
+    assert "Diary.diary_date" in router
+    assert "DiaryEvent.event_title" in router
+
+
+def test_drop_analysis_source_migration_rebuilds_current_source_index():
+    migration = (Path(__file__).parents[1] / "migrations" / "043_drop_knowledge_analysis_source.sql").read_text()
+    assert migration.count("DROP COLUMN source_analysis_run_id") == 2
+    assert "ON knowledge_tasks(diary_id, source_structured_revision)" in migration
+
+
+def test_frozen_model_config_excludes_decrypted_key():
+    snapshot = freeze_model_config(RuntimeModelConfig(
+        setting_key="knowledge", step_key="knowledge_event_extract", model_type="language",
+        protocol="openai_chat", api_base_url="https://example.test", api_key="secret-value",
+        model_name="example", channel_model_id=uuid4(),
+    ))
+    assert "api_key" not in snapshot
+    assert "secret-value" not in json.dumps(snapshot)
+
+
+def test_knowledge_model_request_and_response_are_logged_in_full(monkeypatch):
+    runtime = RuntimeModelConfig(
+        setting_key="knowledge", step_key="knowledge_event_extract", model_type="language",
+        protocol="openai_chat", api_base_url="https://example.test", api_key="secret-value",
+        model_name="example", channel_model_id=uuid4(),
+    )
+    response_payload = {
+        "choices": [{"message": {"content": "ok"}}],
+        "usage": {},
+        "padding": "乙" * (LLM_LOG_BODY_LIMIT + 100),
+    }
+
+    class FakeResponse:
+        def json(self):
+            return response_payload
+
+        def raise_for_status(self):
+            return None
+
+    class FakeClient:
+        def __init__(self, **_kwargs):
+            pass
+
+        async def __aenter__(self):
+            return self
+
+        async def __aexit__(self, *_args):
+            return None
+
+        async def post(self, *_args, **_kwargs):
+            return FakeResponse()
+
+    monkeypatch.setattr("services.knowledge_ai._load_runtime_config", lambda _snapshot: runtime)
+    monkeypatch.setattr("services.knowledge_ai.httpx.AsyncClient", FakeClient)
+    monkeypatch.setattr("services.knowledge_ai.record_llm_call", lambda **_kwargs: None)
+    logged_messages = []
+    monkeypatch.setattr(
+        "services.knowledge_ai._ai_logger.info",
+        lambda message, *args, **_kwargs: logged_messages.append(message % args),
+    )
+
+    user_message = "甲" * (LLM_LOG_BODY_LIMIT + 100)
+    assert asyncio.run(_invoke({}, "system", user_message)) == "ok"
+    messages = "\n".join(logged_messages)
+    assert "LLM 完整请求" in messages
+    assert "LLM 完整原始响应" in messages
+    assert "已截断，原始长度" not in messages
+    assert user_message in messages
+    assert response_payload["padding"] in messages
+    assert "secret-value" in messages
+
+
+def test_prompt_and_model_usage_match_current_contract():
+    assert "source_fragments" in SYSTEM_PROMPT
+    assert "content" in SYSTEM_PROMPT
+    assert "summary" not in SYSTEM_PROMPT
+    assert "摘要" not in SYSTEM_PROMPT
+    assert "只使用该事件的 `title` 和完整 `body`" in SYSTEM_PROMPT
+    assert "语言可以重写，事实及事实关系不得重写" in SYSTEM_PROMPT
+    assert "识别事实要素与关系" in SYSTEM_PROMPT
+    assert "主体、行为或判断、对象、状态、说话者" in SYSTEM_PROMPT
+    assert "删除后会改变对事件过程、决定、结论、结果或当前状态的理解" in SYSTEM_PROMPT
+    assert "用户特别强调的动机、意图、判断、担忧、限制或下一步行动" in SYSTEM_PROMPT
+    assert "不属于核心事情的背景、过程、条件、转折、决定、结果、反思或后续安排" in SYSTEM_PROMPT
+    assert "共同人物、项目或宽泛主题不能单独作为合并依据" in SYSTEM_PROMPT
+    assert "出现不同子话题也不能单独作为拆分依据" in SYSTEM_PROMPT
+    assert "逐项核对" in SYSTEM_PROMPT
+    assert "不使用官样总结语言，不主动评价、解释或拔高" in SYSTEM_PROMPT
+    assert "每个片段必须是当前事件 `body` 的某一个字符串中连续出现的逐字原文" in SYSTEM_PROMPT
+    assert "禁止使用 `...`、`……` 或其他省略符" in SYSTEM_PROMPT
+    assert "full_content" not in SYSTEM_PROMPT
+    assert "knowledge" in SETTING_KEYS
+    assert STEP_SETTING_KEYS["knowledge_event_extract"] == "knowledge"

@@ -12,7 +12,6 @@ from config import settings
 from services.model_runtime import ModelRuntimeError, resolve_model_setting, resolve_thinking_payload
 from services.llm_metrics import prompt_token_count, record_llm_call
 from utils.log_context import Stopwatch, log_extra
-from utils.llm_log import truncate_llm_log
 
 logger = logging.getLogger(__name__)
 
@@ -396,21 +395,22 @@ class AIService:
                 "messages": api_messages,
             }
             request_body.update(resolve_thinking_payload(runtime_config))
+            request_headers = {"Authorization": f"Bearer {runtime_config.api_key}"}
             _ai_logger.info(
-                "[chat] LLM 请求（正文最多 2000 字符）: %s",
-                truncate_llm_log(request_body),
+                "[chat] LLM 完整请求: url=%s headers=%s body=%s",
+                f"{runtime_config.api_base_url}/chat/completions", request_headers, request_body,
                 extra=log_extra(event="chat.llm.request_payload", model=runtime_config.model_name),
             )
             response = await self.client.post(
                 f"{runtime_config.api_base_url}/chat/completions",
-                headers={"Authorization": f"Bearer {runtime_config.api_key}"},
+                headers=request_headers,
                 json=request_body,
             )
             response.raise_for_status()
             response_data = response.json()
             _ai_logger.info(
-                "[chat] LLM 原始响应（正文最多 2000 字符）: %s",
-                truncate_llm_log(response_data),
+                "[chat] LLM 完整原始响应: %s",
+                response_data,
                 extra=log_extra(event="chat.llm.response_payload", model=runtime_config.model_name),
             )
             prompt_tokens, prompt_tokens_source = prompt_token_count(
@@ -436,7 +436,7 @@ class AIService:
             self._record_chat_failure(runtime_config.model_name, prompt_tokens, prompt_tokens_source, started,
                                       type(e).__name__)
             logger.error("对话模型返回错误状态码: %s, 响应: %s", e.response.status_code,
-                         truncate_llm_log(e.response.text))
+                         e.response.text)
             return "抱歉，AI 服务暂时不可用，请稍后再试。"
         except Exception as e:
             self._record_chat_failure(runtime_config.model_name, prompt_tokens, prompt_tokens_source, started,
@@ -486,11 +486,20 @@ class AIService:
         ]
 
         # 记录请求日志
+        request_body = {
+            "model": runtime_config.model_name,
+            "messages": messages,
+            "temperature": temperature,
+            "response_format": {"type": "json_object"},
+        }
+        request_headers = {"Authorization": f"Bearer {runtime_config.api_key}"}
         _ai_logger.info(
-            f"=== AI Call: {truncate_llm_log(system_prompt, 50)} ===\n"
+            f"=== AI Call: {system_prompt[:50]} ===\n"
+            f"[URL]\n{runtime_config.api_base_url}/chat/completions\n"
+            f"[Headers]\n{request_headers}\n"
             f"[Temperature] {temperature}\n"
-            f"[System Prompt]\n{truncate_llm_log(system_prompt)}\n"
-            f"[User Message]\n{truncate_llm_log(user_message)}"
+            f"[System Prompt]\n{system_prompt}\n"
+            f"[User Message]\n{user_message}"
         )
 
         last_error = None
@@ -498,21 +507,17 @@ class AIService:
             try:
                 response = await self.client.post(
                     f"{runtime_config.api_base_url}/chat/completions",
-                    headers={"Authorization": f"Bearer {runtime_config.api_key}"},
-                    json={
-                        "model": runtime_config.model_name,
-                        "messages": messages,
-                        "temperature": temperature,
-                        "response_format": {"type": "json_object"},
-                    },
+                    headers=request_headers,
+                    json=request_body,
                 )
                 response.raise_for_status()
-                raw_content = response.json()["choices"][0]["message"]["content"]
+                response_data = response.json()
+                raw_content = response_data["choices"][0]["message"]["content"]
                 result = json.loads(raw_content)
 
                 # 记录响应日志
                 _ai_logger.info(
-                    f"[Response]\n{truncate_llm_log(json.dumps(result, ensure_ascii=False, indent=2))}\n"
+                    f"[Raw Response]\n{json.dumps(response_data, ensure_ascii=False, indent=2)}\n"
                     f"{'=' * 60}\n"
                 )
 

@@ -20,6 +20,7 @@ from routers.schedules import router as schedules_router
 from routers.voice_profile import router as voice_profile_router
 from routers.reviews import router as reviews_router
 from routers.actions import router as actions_router
+from routers.knowledge import router as knowledge_router
 from utils.log_context import ContextFormatter, LogContextFilter, log_extra, new_id, reset_request_context, set_request_context
 
 # ---------------------------------------------------------------------------
@@ -135,6 +136,7 @@ api_router.include_router(schedules_router)
 api_router.include_router(voice_profile_router)
 api_router.include_router(reviews_router)
 api_router.include_router(actions_router)
+api_router.include_router(knowledge_router)
 app.include_router(api_router)
 
 
@@ -163,10 +165,14 @@ async def startup():
     await search_index_rebuild_scheduler.start()
     from services.search_rebuild_jobs import search_index_maintenance_scheduler
     await search_index_maintenance_scheduler.start()
+    from services.knowledge_tasks import knowledge_task_manager
+    await knowledge_task_manager.start()
 
 
 @app.on_event("shutdown")
 async def shutdown():
+    from services.knowledge_tasks import knowledge_task_manager
+    await knowledge_task_manager.stop()
     from services.backup_scheduler import backup_scheduler
     await backup_scheduler.stop()
     from services.schedule_occurrence_scheduler import schedule_occurrence_scheduler

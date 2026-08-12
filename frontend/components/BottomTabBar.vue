@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 // 底部 Tab 栏组件
-// 五个 Tab：日记、日程、回顾、AI伙伴、我的
+// 六个 Tab：日记、日程、回顾、AI伙伴、知识、我的
 
 interface TabItem {
   key: string
@@ -39,6 +39,7 @@ const tabs: TabItem[] = [
   { key: 'schedule', label: '日程', icon: '🗓️', path: '/schedule' },
   { key: 'review', label: '回顾', icon: '🔄', path: '/review' },
   { key: 'ai', label: 'AI伙伴', icon: '💬', path: '/ai' },
+  { key: 'knowledge', label: '知识', icon: '📚', path: '/knowledge' },
   { key: 'profile', label: '我的', icon: '👤', path: '/profile' },
 ]
 </script>
