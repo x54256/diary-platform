@@ -461,7 +461,7 @@ class TranscriptionTaskManager:
         db = SessionLocal()
         try:
             batch = db.query(TranscriptionBatch).filter_by(id=batch_id).with_for_update().first()
-            if not batch or batch.diary_id or batch.status not in {"QUEUED", "PROCESSING", "PARTIAL_FAILED", "FINALIZING"}:
+            if not batch or batch.status not in {"QUEUED", "PROCESSING", "PARTIAL_FAILED", "FINALIZING"}:
                 logger.info(
                     "跳过语音批次最终化 batch_id=%s exists=%s status=%s diary_id=%s",
                     batch_id,
