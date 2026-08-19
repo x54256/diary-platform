@@ -10,7 +10,7 @@
       <div v-if="loading && events.length === 0" class="py-16 text-center text-sm text-neutral-400">加载中...</div>
       <div v-else-if="events.length === 0 && !error" class="py-20 text-center">
         <div class="text-4xl">📚</div>
-        <h2 class="mt-4 text-base font-medium text-neutral-700">还没有原子事件</h2>
+        <h2 class="mt-4 text-base font-medium text-neutral-700">还没有事件知识</h2>
         <p class="mt-2 text-sm text-neutral-400">从已分析日记开始沉淀</p>
       </div>
       <div v-else class="space-y-6">

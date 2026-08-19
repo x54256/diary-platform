@@ -27,14 +27,13 @@ export interface KnowledgeEvent {
   source_event_order: number
   source_order: number
   title: string
-  content: string
+  content: string[]
   occurred_on: string
   occurred_time?: string | null
   source_diary_date: string
   source_diary_title?: string | null
   source_event_title?: string | null
   source_diary_summary?: string | null
-  source_fragments?: string[]
   created_at: string
 }
 

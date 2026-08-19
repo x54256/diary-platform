@@ -13,11 +13,20 @@ test('知识页使用默认布局并保持全宽响应式内容区', () => {
   assert.doesNotMatch(detail, /layout:\s*'auth'/)
 })
 
-test('知识事件内容与片段不使用 v-html', () => {
+test('知识事件内容不使用 v-html，且不再展示来源片段', () => {
   const list = read('pages/knowledge/index.vue')
   const detail = read('pages/knowledge/events/[id].vue')
   assert.doesNotMatch(list + detail, /v-html/)
   assert.match(list + detail, /knowledgePlainText/)
+  assert.doesNotMatch(detail, /source_fragments|来源片段/)
+})
+
+test('知识事件内容使用段落数组', () => {
+  const types = read('types/knowledge.ts')
+  const utility = read('utils/knowledgeText.ts')
+  assert.match(types, /content: string\[\]/)
+  assert.match(utility, /Array\.isArray\(value\)/)
+  assert.match(utility, /join\('\\n\\n'\)/)
 })
 
 test('知识列表和详情展示来源日记日期与事件标题', () => {

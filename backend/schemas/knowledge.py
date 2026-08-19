@@ -38,7 +38,7 @@ class KnowledgeEventListItem(BaseModel):
     source_event_order: int
     source_order: int
     title: str
-    content: str
+    content: list[str]
     occurred_on: date
     occurred_time: time | None = None
     source_diary_date: date
@@ -53,5 +53,4 @@ class KnowledgeEventListResponse(BaseModel):
 
 
 class KnowledgeEventDetail(KnowledgeEventListItem):
-    source_fragments: list[str]
     source_diary_summary: str | None = None

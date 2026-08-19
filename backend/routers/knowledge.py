@@ -334,8 +334,7 @@ def get_knowledge_event(
     return KnowledgeEventDetail(
         id=event.id, diary_id=event.diary_id, source_diary_event_id=event.source_diary_event_id,
         source_event_order=source_event.sort_order, source_order=event.source_order, title=event.title, content=event.content,
-        source_fragments=event.source_fragments, occurred_on=event.occurred_on,
-        occurred_time=event.occurred_time, source_diary_date=diary_date,
+        occurred_on=event.occurred_on, occurred_time=event.occurred_time, source_diary_date=diary_date,
         source_diary_title=diary_title, source_event_title=source_event.event_title,
         source_diary_summary=diary_summary, created_at=event.created_at,
     )

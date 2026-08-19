@@ -51,13 +51,10 @@ def valid_payload(event_no=1):
     return {
         "results": [{
             "event_no": event_no,
-            "atomic_events": [{
-                "title": "买酱油",
-                "source_fragments": ["我去买酱油"],
-                "content": "我去商店买了酱油。",
-                "occurred_on": "2026-08-11",
-                "occurred_time": None,
-            }],
+            "title": "买酱油",
+            "content": ["我去商店买了酱油。"],
+            "occurred_on": "2026-08-11",
+            "occurred_time": None,
         }],
     }
 
@@ -68,8 +65,10 @@ def test_atomic_event_output_accepts_exact_contract():
 
 
 @pytest.mark.parametrize("mutation", [
-    lambda value: value["results"][0]["atomic_events"][0].pop("occurred_time"),
-    lambda value: value["results"][0]["atomic_events"][0].update(source_fragments=[]),
+    lambda value: value["results"][0].pop("occurred_time"),
+    lambda value: value["results"][0].update(content=[]),
+    lambda value: value["results"][0].update(content=[""]),
+    lambda value: value["results"][0].update(content="我去商店买了酱油。"),
 ])
 def test_atomic_event_output_rejects_invalid_structure(mutation):
     payload = valid_payload()
@@ -80,7 +79,7 @@ def test_atomic_event_output_rejects_invalid_structure(mutation):
 
 def test_atomic_event_output_rejects_missing_fields():
     payload = valid_payload()
-    payload["results"][0]["atomic_events"][0].pop("occurred_time")
+    payload["results"][0].pop("occurred_time")
     with pytest.raises(ValueError, match="缺少字段: occurred_time"):
         parse_and_validate(json.dumps(payload, ensure_ascii=False), [1], "2026-08-11")
 
@@ -88,9 +87,10 @@ def test_atomic_event_output_rejects_missing_fields():
 def test_atomic_event_output_normalizes_relaxed_fields(caplog):
     payload = valid_payload()
     payload["extra"] = True
-    atom = payload["results"][0]["atomic_events"][0]
-    atom.update(
+    result_item = payload["results"][0]
+    result_item.update(
         title="123456789012345678901",
+        content=["  第一段。  ", "第二段。"],
         occurred_on="明天",
         occurred_time="下午",
         unexpected=True,
@@ -98,9 +98,10 @@ def test_atomic_event_output_normalizes_relaxed_fields(caplog):
 
     result = parse_and_validate(json.dumps(payload, ensure_ascii=False), [1], "2026-08-11")
 
-    assert result[0]["atomic_events"][0]["title"] == "12345678901234567890"
-    assert result[0]["atomic_events"][0]["occurred_on"] == "2026-08-11"
-    assert result[0]["atomic_events"][0]["occurred_time"] is None
+    assert result[0]["title"] == "12345678901234567890"
+    assert result[0]["content"] == ["第一段。", "第二段。"]
+    assert result[0]["occurred_on"] == "2026-08-11"
+    assert result[0]["occurred_time"] is None
     assert "忽略模型多余字段" in caplog.text
     assert "标题已截断" in caplog.text
     assert "日期已回退" in caplog.text
@@ -198,13 +199,28 @@ def test_knowledge_event_response_includes_source_context():
     assert "source_diary_date: date" in schema
     assert "source_event_title: str | None" in schema
     assert "Diary.diary_date" in router
-    assert "DiaryEvent.event_title" in router
+    assert "source_event.event_title" in router
+
+
+def test_knowledge_publish_uses_one_result_per_source_event():
+    workflow = (Path(__file__).parents[1] / "services" / "knowledge_workflow.py").read_text()
+    assert 'result_by_event[event_no] = result' in workflow
+    assert 'result["atomic_events"]' not in workflow
+    assert "source_order=0" in workflow
+    assert "source_fragments=" not in workflow
 
 
 def test_drop_analysis_source_migration_rebuilds_current_source_index():
     migration = (Path(__file__).parents[1] / "migrations" / "043_drop_knowledge_analysis_source.sql").read_text()
     assert migration.count("DROP COLUMN source_analysis_run_id") == 2
     assert "ON knowledge_tasks(diary_id, source_structured_revision)" in migration
+
+
+def test_knowledge_content_array_migration_removes_source_fragments():
+    migration = (Path(__file__).parents[1] / "migrations" / "045_knowledge_event_content_array.sql").read_text()
+    assert "DROP COLUMN source_fragments" in migration
+    assert "ALTER COLUMN content TYPE JSONB" in migration
+    assert "to_jsonb(ARRAY[content])" in migration
 
 
 def test_frozen_model_config_excludes_decrypted_key():
@@ -270,23 +286,27 @@ def test_knowledge_model_request_and_response_are_logged_in_full(monkeypatch):
 
 
 def test_prompt_and_model_usage_match_current_contract():
-    assert "source_fragments" in SYSTEM_PROMPT
+    assert "source_fragments" not in SYSTEM_PROMPT
+    assert "atomic_events" not in SYSTEM_PROMPT
     assert "content" in SYSTEM_PROMPT
     assert "summary" not in SYSTEM_PROMPT
     assert "摘要" not in SYSTEM_PROMPT
-    assert "只使用该事件的 `title` 和完整 `body`" in SYSTEM_PROMPT
-    assert "语言可以重写，事实及事实关系不得重写" in SYSTEM_PROMPT
-    assert "识别事实要素与关系" in SYSTEM_PROMPT
-    assert "主体、行为或判断、对象、状态、说话者" in SYSTEM_PROMPT
-    assert "删除后会改变对事件过程、决定、结论、结果或当前状态的理解" in SYSTEM_PROMPT
-    assert "用户特别强调的动机、意图、判断、担忧、限制或下一步行动" in SYSTEM_PROMPT
-    assert "不属于核心事情的背景、过程、条件、转折、决定、结果、反思或后续安排" in SYSTEM_PROMPT
-    assert "共同人物、项目或宽泛主题不能单独作为合并依据" in SYSTEM_PROMPT
-    assert "出现不同子话题也不能单独作为拆分依据" in SYSTEM_PROMPT
-    assert "逐项核对" in SYSTEM_PROMPT
-    assert "不使用官样总结语言，不主动评价、解释或拔高" in SYSTEM_PROMPT
-    assert "每个片段必须是当前事件 `body` 的某一个字符串中连续出现的逐字原文" in SYSTEM_PROMPT
-    assert "禁止使用 `...`、`……` 或其他省略符" in SYSTEM_PROMPT
-    assert "full_content" not in SYSTEM_PROMPT
+    assert "完整阅读当前事件的 title 和全部 body" in SYSTEM_PROMPT
+    assert "只生成一个结果" in SYSTEM_PROMPT
+    assert "保留原文明示的每项独立语义" in SYSTEM_PROMPT
+    assert "无法判断是否增加新语义时保留" in SYSTEM_PROMPT
+    assert "主体、陈述内容、确定程度和完成状态共同组成一项完整语义" in SYSTEM_PROMPT
+    assert "状态词所表达的确定程度必须保留" in SYSTEM_PROMPT
+    assert "从原文到结果逐项检查" in SYSTEM_PROMPT
+    assert "从结果到原文逐项检查" in SYSTEM_PROMPT
+    assert "不追求压缩比例" in SYSTEM_PROMPT
+    assert "分段只用于提高可读性" in SYSTEM_PROMPT
+    assert "压缩表达" not in SYSTEM_PROMPT
+    assert "事件主干" not in SYSTEM_PROMPT
+    assert "必要背景" not in SYSTEM_PROMPT
+    assert "关键过程" not in SYSTEM_PROMPT
+    assert "回顾价值" not in SYSTEM_PROMPT
+    assert "表达简洁" not in SYSTEM_PROMPT
+    assert '"content": [' in SYSTEM_PROMPT
     assert "knowledge" in SETTING_KEYS
     assert STEP_SETTING_KEYS["knowledge_event_extract"] == "knowledge"

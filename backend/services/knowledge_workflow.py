@@ -212,13 +212,13 @@ async def publish(state: KnowledgeState) -> dict[str, Any]:
         diary, organized = _validate_source_rows(db, task, lock=True)
         if db.query(KnowledgeDeposit.diary_id).filter(KnowledgeDeposit.diary_id == diary.id).first():
             raise KnowledgeWorkflowError("ALREADY_DEPOSITED", "该日记已完成知识沉淀")
-        result_by_event: dict[int, list[dict[str, Any]]] = {}
+        result_by_event: dict[int, dict[str, Any]] = {}
         for batch in sorted(state["batch_results"], key=lambda item: item["batch_index"]):
             for result in batch["results"]:
                 event_no = result["event_no"]
                 if event_no in result_by_event:
                     raise KnowledgeWorkflowError("MODEL_OUTPUT_INVALID", "原子事件结果重复")
-                result_by_event[event_no] = result["atomic_events"]
+                result_by_event[event_no] = result
         expected = list(range(1, len(state["frozen_events"]) + 1))
         source_events = db.query(DiaryEvent).filter(
             DiaryEvent.diary_organized_id == organized.id,
@@ -234,15 +234,15 @@ async def publish(state: KnowledgeState) -> dict[str, Any]:
         db.flush()
         for event_no in expected:
             source_id = source_events[event_no - 1].id
-            for source_order, atom in enumerate(result_by_event[event_no]):
-                occurred_time = datetime.strptime(atom["occurred_time"], "%H:%M").time() if atom["occurred_time"] else None
-                db.add(KnowledgeAtomicEvent(
-                    id=uuid4(), user_id=task.user_id, diary_id=diary.id,
-                    source_diary_event_id=source_id, source_order=source_order,
-                    title=atom["title"], source_fragments=atom["source_fragments"],
-                    content=atom["content"], occurred_on=datetime.strptime(atom["occurred_on"], "%Y-%m-%d").date(),
-                    occurred_time=occurred_time, created_at=now,
-                ))
+            result = result_by_event[event_no]
+            occurred_time = datetime.strptime(result["occurred_time"], "%H:%M").time() if result["occurred_time"] else None
+            db.add(KnowledgeAtomicEvent(
+                id=uuid4(), user_id=task.user_id, diary_id=diary.id,
+                source_diary_event_id=source_id, source_order=0,
+                title=result["title"], content=result["content"],
+                occurred_on=datetime.strptime(result["occurred_on"], "%Y-%m-%d").date(),
+                occurred_time=occurred_time, created_at=now,
+            ))
         task.status = "SUCCEEDED"
         task.lease_until = None
         task.completed_at = now

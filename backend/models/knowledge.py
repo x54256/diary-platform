@@ -91,7 +91,10 @@ class KnowledgeAtomicEvent(Base):
     __table_args__ = (
         CheckConstraint("source_order >= 0", name="ck_knowledge_atomic_events_source_order"),
         CheckConstraint("char_length(title) BETWEEN 1 AND 20", name="ck_knowledge_atomic_events_title"),
-        CheckConstraint("jsonb_typeof(source_fragments) = 'array'", name="ck_knowledge_atomic_events_fragments"),
+        CheckConstraint(
+            "jsonb_typeof(content) = 'array' AND jsonb_array_length(content) > 0",
+            name="ck_knowledge_atomic_events_content",
+        ),
         UniqueConstraint("user_id", "diary_id", "source_diary_event_id", "source_order", name="uq_knowledge_atomic_events_source_order"),
         Index(
             "ix_knowledge_atomic_events_user_time", "user_id", text("occurred_on DESC"),
@@ -105,8 +108,7 @@ class KnowledgeAtomicEvent(Base):
     source_diary_event_id = Column(UUID(as_uuid=True), ForeignKey("diary_events.id", ondelete="RESTRICT"), nullable=False)
     source_order = Column(Integer, nullable=False)
     title = Column(String(20), nullable=False)
-    source_fragments = Column(JSONB, nullable=False)
-    content = Column(Text, nullable=False)
+    content = Column(JSONB, nullable=False)
     occurred_on = Column(Date, nullable=False)
     occurred_time = Column(Time, nullable=True)
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow)

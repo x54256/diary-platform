@@ -65,49 +65,47 @@ def parse_and_validate(raw: str, event_nos: list[int], fallback_occurred_on: str
         raise ValueError(f"results 数量与输入事件不一致（期望 {len(event_nos)}，实际 {len(data['results'])}）")
     output: list[dict[str, Any]] = []
     for index, item in enumerate(data["results"]):
-        item = validate_fields(item, {"event_no", "atomic_events"}, f"results[{index}]")
+        path = f"results[{index}]"
+        item = validate_fields(
+            item,
+            {"event_no", "title", "content", "occurred_on", "occurred_time"},
+            path,
+        )
         if type(item["event_no"]) is not int or item["event_no"] != event_nos[index]:
             raise ValueError(f"results[{index}].event_no 顺序不合法")
-        atoms = item["atomic_events"]
-        if not isinstance(atoms, list) or not atoms:
-            raise ValueError(f"results[{index}].atomic_events 必须是非空数组")
-        for atom_index, atom in enumerate(atoms):
-            path = f"results[{index}].atomic_events[{atom_index}]"
-            atom = validate_fields(
-                atom,
-                {"title", "source_fragments", "content", "occurred_on", "occurred_time"},
-                path,
-            )
-            title, content, fragments = atom["title"], atom["content"], atom["source_fragments"]
-            if not isinstance(title, str) or not title.strip():
-                raise ValueError(f"{path}.title 不合法")
-            title = title.strip()
-            if len(title) > 20:
-                _ai_logger.warning("[knowledge_event_extract] 原子事件标题已截断: path=%s original_length=%d", path, len(title))
-                title = title[:20]
-            atom["title"] = title
-            if not isinstance(content, str) or not content.strip():
-                raise ValueError(f"{path}.content 不合法")
-            if not isinstance(fragments, list) or not fragments or any(not isinstance(v, str) or not v.strip() for v in fragments):
-                raise ValueError(f"{path}.source_fragments 不合法")
-            occurred_on = atom["occurred_on"]
+        title, content = item["title"], item["content"]
+        if not isinstance(title, str) or not title.strip():
+            raise ValueError(f"{path}.title 不合法")
+        title = title.strip()
+        if len(title) > 20:
+            _ai_logger.warning("[knowledge_event_extract] 知识事件标题已截断: path=%s original_length=%d", path, len(title))
+            title = title[:20]
+        item["title"] = title
+        if (
+            not isinstance(content, list)
+            or not content
+            or any(not isinstance(paragraph, str) or not paragraph.strip() for paragraph in content)
+        ):
+            raise ValueError(f"{path}.content 必须是非空字符串数组")
+        item["content"] = [paragraph.strip() for paragraph in content]
+        occurred_on = item["occurred_on"]
+        try:
+            normalized_date = date.fromisoformat(occurred_on) if isinstance(occurred_on, str) else None
+        except ValueError:
+            normalized_date = None
+        if normalized_date is None:
+            _ai_logger.warning("[knowledge_event_extract] 知识事件日期已回退为日记日期: path=%s invalid_value=%r fallback=%s", path, occurred_on, fallback_date.isoformat())
+            normalized_date = fallback_date
+        item["occurred_on"] = normalized_date.isoformat()
+        occurred_time = item["occurred_time"]
+        if occurred_time is not None:
             try:
-                normalized_date = date.fromisoformat(occurred_on) if isinstance(occurred_on, str) else None
+                normalized_time = datetime.strptime(occurred_time, "%H:%M").strftime("%H:%M") if isinstance(occurred_time, str) else None
             except ValueError:
-                normalized_date = None
-            if normalized_date is None:
-                _ai_logger.warning("[knowledge_event_extract] 原子事件日期已回退为日记日期: path=%s invalid_value=%r fallback=%s", path, occurred_on, fallback_date.isoformat())
-                normalized_date = fallback_date
-            atom["occurred_on"] = normalized_date.isoformat()
-            occurred_time = atom["occurred_time"]
-            if occurred_time is not None:
-                try:
-                    normalized_time = datetime.strptime(occurred_time, "%H:%M").strftime("%H:%M") if isinstance(occurred_time, str) else None
-                except ValueError:
-                    normalized_time = None
-                if normalized_time is None:
-                    _ai_logger.warning("[knowledge_event_extract] 原子事件时间已置空: path=%s invalid_value=%r", path, occurred_time)
-                atom["occurred_time"] = normalized_time
+                normalized_time = None
+            if normalized_time is None:
+                _ai_logger.warning("[knowledge_event_extract] 知识事件时间已置空: path=%s invalid_value=%r", path, occurred_time)
+            item["occurred_time"] = normalized_time
         output.append(item)
     return output
 
