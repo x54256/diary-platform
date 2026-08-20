@@ -1,4 +1,4 @@
-"""知识沉淀任务与原子事件 API。"""
+"""知识沉淀任务与知识事件 API。"""
 
 import base64
 import json
@@ -332,7 +332,7 @@ def get_knowledge_event(
         DiaryEvent, DiaryEvent.id == KnowledgeAtomicEvent.source_diary_event_id,
     ).filter(KnowledgeAtomicEvent.id == event_id, KnowledgeAtomicEvent.user_id == current_user.id).first()
     if not row:
-        raise HTTPException(status_code=404, detail="原子事件不存在")
+        raise HTTPException(status_code=404, detail="知识事件不存在")
     event, diary_title, diary_summary, diary_date, source_event = row
     return KnowledgeEventDetail(
         id=event.id, diary_id=event.diary_id, source_diary_event_id=event.source_diary_event_id,

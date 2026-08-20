@@ -1,4 +1,4 @@
-"""知识库原子事件提取模型调用与确定性结构校验。"""
+"""知识库知识事件提取模型调用与确定性结构校验。"""
 
 import json
 import logging
@@ -67,7 +67,7 @@ def parse_and_validate(raw: str, event_nos: list[int], fallback_occurred_on: str
     try:
         fallback_date = date.fromisoformat(fallback_occurred_on)
     except (TypeError, ValueError) as exc:
-        raise ValueError("日记日期不合法，无法作为原子事件日期回退值") from exc
+        raise ValueError("日记日期不合法，无法作为知识事件日期回退值") from exc
 
     if raw.lstrip().startswith("```"):
         raise ValueError("不能包含 Markdown 代码块")

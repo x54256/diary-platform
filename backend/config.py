@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     LLM_MAX_ATTEMPTS: int = Field(default=1, ge=1)
     # 每日回顾素材单批请求的输入 token 上限；完整事件不可拆分。
     REVIEW_DAILY_MATERIAL_INPUT_TOKEN_BUDGET: int = Field(default=24000, ge=1024)
-    # 单次原子事件提取请求的输入 token 上限；完整结构化事件不可拆分。
+    # 单次知识事件提取请求的输入 token 上限；完整结构化事件不可拆分。
     KNOWLEDGE_EVENT_INPUT_TOKEN_BUDGET: int = Field(default=12000, ge=1024)
 
     # Fun-ASR 录音文件识别运行参数。模型、API 地址和密钥由管理端模型配置维护。

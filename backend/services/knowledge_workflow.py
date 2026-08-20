@@ -311,7 +311,7 @@ async def publish(state: KnowledgeState) -> dict[str, Any]:
             DiaryEvent.diary_organized_id == organized.id,
         ).order_by(DiaryEvent.sort_order, DiaryEvent.id).all()
         if sorted(result_by_event) != expected or len(source_events) != len(expected):
-            raise KnowledgeWorkflowError("MODEL_OUTPUT_INVALID", "原子事件结果未完整覆盖来源")
+            raise KnowledgeWorkflowError("MODEL_OUTPUT_INVALID", "知识事件结果未完整覆盖来源")
         now = datetime.utcnow()
         db.add(KnowledgeDeposit(
             diary_id=diary.id, user_id=task.user_id, task_id=task.id,
@@ -354,7 +354,7 @@ async def publish(state: KnowledgeState) -> dict[str, Any]:
         raise
     except Exception as exc:
         db.rollback()
-        raise KnowledgeWorkflowError("PUBLISH_FAILED", "原子事件发布失败") from exc
+        raise KnowledgeWorkflowError("PUBLISH_FAILED", "知识事件发布失败") from exc
     finally:
         db.close()
 
