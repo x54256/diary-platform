@@ -8,8 +8,16 @@ from fastapi import HTTPException
 
 from models.diary import DiaryEvent, DiaryOrganized, DiaryStatus
 from routers.knowledge import _source
-from services.knowledge_ai import SYSTEM_PROMPT, _invoke, freeze_model_config, parse_and_validate
-from services.knowledge_workflow import KnowledgeState, plan_event_batches
+from services.knowledge_ai import (
+    REVIEW_SYSTEM_PROMPT,
+    SYSTEM_PROMPT,
+    _invoke,
+    freeze_model_config,
+    parse_and_validate,
+    parse_and_validate_review,
+    review_knowledge_events,
+)
+from services.knowledge_workflow import KnowledgeState, plan_event_batches, plan_review_batches, review_batch
 from services.model_runtime import RuntimeModelConfig
 from services.model_management import SETTING_KEYS, STEP_SETTING_KEYS
 from utils.llm_log import LLM_LOG_BODY_LIMIT
@@ -57,6 +65,23 @@ def valid_payload(event_no=1):
             "occurred_time": None,
         }],
     }
+
+
+def review_input():
+    candidate = valid_payload()["results"][0]
+    return {
+        "diary_date": "2026-08-11",
+        "items": [{
+            "event": {"event_no": 1, "title": "买酱油", "body": ["我可能下午去商店买酱油。"]},
+            "candidate": candidate,
+        }],
+    }
+
+
+def review_output(*, issues=None, **changes):
+    result = {"issues": issues or [], **valid_payload()["results"][0]}
+    result.update(changes)
+    return {"results": [result]}
 
 
 def test_atomic_event_output_accepts_exact_contract():
@@ -118,6 +143,112 @@ def test_batching_preserves_every_complete_event(monkeypatch):
     batches = plan_event_batches(events, "2026-08-11", "test", 260)
     assert [event_no for batch in batches for event_no in batch] == [1, 2, 3]
     assert batches[-1] == [3]
+
+
+def test_review_output_accepts_unchanged_candidate_without_issues():
+    payload = review_input()
+    result = parse_and_validate_review(
+        json.dumps(review_output(), ensure_ascii=False),
+        payload["items"],
+        payload["diary_date"],
+    )
+    assert result[0]["issues"] == []
+
+
+def test_review_output_accepts_reported_field_change():
+    payload = review_input()
+    issues = [{"type": "STATUS_CHANGED", "field": "content", "description": "遗漏了可能状态"}]
+    result = parse_and_validate_review(
+        json.dumps(review_output(issues=issues, content=["我可能下午去商店买酱油。"]), ensure_ascii=False),
+        payload["items"],
+        payload["diary_date"],
+    )
+    assert result[0]["content"] == ["我可能下午去商店买酱油。"]
+
+
+@pytest.mark.parametrize("output", [
+    review_output(content=["我下午去商店买酱油。"]),
+    review_output(
+        issues=[{"type": "STATUS_CHANGED", "field": "content", "description": "遗漏了可能状态"}],
+    ),
+])
+def test_review_output_rejects_issue_change_inconsistency(output):
+    payload = review_input()
+    with pytest.raises(ValueError):
+        parse_and_validate_review(json.dumps(output, ensure_ascii=False), payload["items"], payload["diary_date"])
+
+
+def test_review_batching_keeps_source_and_candidate_together(monkeypatch):
+    monkeypatch.setattr("services.knowledge_workflow.estimate_prompt_tokens", lambda _m, _s, user: len(user))
+    events = [
+        {"event_no": 1, "title": "A", "body": ["x" * 80]},
+        {"event_no": 2, "title": "B", "body": ["y" * 80]},
+    ]
+    candidates = {
+        event["event_no"]: {
+            "event_no": event["event_no"], "title": event["title"], "content": ["结果"],
+            "occurred_on": "2026-08-11", "occurred_time": None,
+        }
+        for event in events
+    }
+    batches = plan_review_batches(events, candidates, "2026-08-11", "test", 350)
+    assert [event_no for batch in batches for event_no in batch] == [1, 2]
+
+
+def test_review_consistency_failure_retries_full_review_call(monkeypatch):
+    payload = review_input()
+    invalid = json.dumps(review_output(content=["我下午去商店买酱油。"]), ensure_ascii=False)
+    valid = json.dumps(review_output(), ensure_ascii=False)
+    responses = iter([invalid, valid])
+
+    async def invoke(*_args, **_kwargs):
+        return next(responses)
+
+    monkeypatch.setattr("services.knowledge_ai._invoke", invoke)
+    monkeypatch.setattr("services.knowledge_ai.settings.LLM_MAX_ATTEMPTS", 2)
+    result = asyncio.run(review_knowledge_events(payload, {}))
+    assert result[0]["issues"] == []
+
+
+def test_review_structure_error_uses_one_json_repair(monkeypatch):
+    payload = review_input()
+    responses = iter(["not-json", json.dumps(review_output(), ensure_ascii=False)])
+
+    async def invoke(*_args, **_kwargs):
+        return next(responses)
+
+    monkeypatch.setattr("services.knowledge_ai._invoke", invoke)
+    monkeypatch.setattr("services.knowledge_ai.settings.LLM_MAX_ATTEMPTS", 1)
+    result = asyncio.run(review_knowledge_events(payload, {}))
+    assert result[0]["content"] == payload["items"][0]["candidate"]["content"]
+
+
+def test_review_workflow_passes_full_event_and_candidate(monkeypatch):
+    payload = review_input()
+    captured = {}
+
+    async def review(call_payload, snapshot):
+        captured["payload"] = call_payload
+        captured["snapshot"] = snapshot
+        return [{"issues": [], **call_payload["items"][0]["candidate"]}]
+
+    monkeypatch.setattr("services.knowledge_workflow._set_step", lambda *_args: None)
+    monkeypatch.setattr("services.knowledge_workflow._renew_ownership", lambda *_args: None)
+    monkeypatch.setattr("services.knowledge_workflow.review_knowledge_events", review)
+    state = {
+        "task_id": str(uuid4()),
+        "frozen_diary_date": payload["diary_date"],
+        "frozen_events": [payload["items"][0]["event"]],
+        "batch_results": [{"batch_index": 0, "results": [payload["items"][0]["candidate"]]}],
+        "review_batches": [[1]],
+        "next_review_batch_index": 0,
+        "review_batch_results": [],
+        "frozen_review_model_config": {"model_name": "review-model"},
+    }
+    result = asyncio.run(review_batch(state))
+    assert captured["payload"]["items"] == payload["items"]
+    assert captured["snapshot"] == state["frozen_review_model_config"]
+    assert result["next_review_batch_index"] == 1
 
 
 def test_checkpoint_state_has_no_run_token_or_api_key():
@@ -265,7 +396,7 @@ def test_knowledge_model_request_and_response_are_logged_in_full(monkeypatch):
         async def post(self, *_args, **_kwargs):
             return FakeResponse()
 
-    monkeypatch.setattr("services.knowledge_ai._load_runtime_config", lambda _snapshot: runtime)
+    monkeypatch.setattr("services.knowledge_ai._load_runtime_config", lambda _snapshot, _step_key: runtime)
     monkeypatch.setattr("services.knowledge_ai.httpx.AsyncClient", FakeClient)
     monkeypatch.setattr("services.knowledge_ai.record_llm_call", lambda **_kwargs: None)
     logged_messages = []
@@ -310,3 +441,25 @@ def test_prompt_and_model_usage_match_current_contract():
     assert '"content": [' in SYSTEM_PROMPT
     assert "knowledge" in SETTING_KEYS
     assert STEP_SETTING_KEYS["knowledge_event_extract"] == "knowledge"
+
+
+def test_review_prompt_and_workflow_match_review_contract():
+    assert "event 是判断正确与否的唯一事实依据" in REVIEW_SYSTEM_PROMPT
+    assert "从 event 到 candidate 逐项检查" in REVIEW_SYSTEM_PROMPT
+    assert "从 candidate 到 event 逐项检查" in REVIEW_SYSTEM_PROMPT
+    assert "无法判断某项信息是否可以省略时，判定为遗漏并补回" in REVIEW_SYSTEM_PROMPT
+    assert "最小修改不能阻止补回遗漏信息" in REVIEW_SYSTEM_PROMPT
+    assert "没有 issue 时，最终字段必须与 candidate 完全一致" in REVIEW_SYSTEM_PROMPT
+    assert STEP_SETTING_KEYS["knowledge_event_review"] == "knowledge"
+    workflow = (Path(__file__).parents[1] / "services" / "knowledge_workflow.py").read_text()
+    assert 'builder.add_node("PREPARE_REVIEW_BATCHES"' in workflow
+    assert 'builder.add_node("REVIEW_BATCH"' in workflow
+    assert "KnowledgeEventReview(" in workflow
+
+
+def test_knowledge_review_migration_updates_step_constraint_and_creates_review_table():
+    migration = (Path(__file__).parents[1] / "migrations" / "046_knowledge_event_review.sql").read_text()
+    assert "PREPARE_REVIEW_BATCHES" in migration
+    assert "REVIEW_BATCH" in migration
+    assert "CREATE TABLE IF NOT EXISTS knowledge_event_reviews" in migration
+    assert "ON DELETE CASCADE" in migration

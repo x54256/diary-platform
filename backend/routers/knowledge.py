@@ -37,6 +37,7 @@ def _task_response(task: KnowledgeTask) -> KnowledgeTaskResponse:
 def _model_configured() -> bool:
     try:
         resolve_model_setting("knowledge", "knowledge_event_extract")
+        resolve_model_setting("knowledge", "knowledge_event_review")
         return True
     except ModelRuntimeError:
         return False
@@ -158,6 +159,7 @@ def create_knowledge_deposit(
         raise _error("ACTIVE_TASK_EXISTS", "当前已有其他知识沉淀任务")
     try:
         resolve_model_setting("knowledge", "knowledge_event_extract")
+        resolve_model_setting("knowledge", "knowledge_event_review")
     except ModelRuntimeError as exc:
         raise _error("KNOWLEDGE_MODEL_NOT_CONFIGURED", str(exc), 400) from exc
     organized = _source(db, diary)
@@ -231,6 +233,7 @@ async def retry_knowledge_task(
         raise _error("ACTIVE_TASK_EXISTS", "当前已有其他知识沉淀任务")
     try:
         resolve_model_setting("knowledge", "knowledge_event_extract")
+        resolve_model_setting("knowledge", "knowledge_event_review")
     except ModelRuntimeError as exc:
         raise _error("KNOWLEDGE_MODEL_NOT_CONFIGURED", str(exc), 400) from exc
     task.status = "QUEUED"

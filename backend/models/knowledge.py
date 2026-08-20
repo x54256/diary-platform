@@ -4,7 +4,7 @@ import enum
 import uuid
 from datetime import datetime
 
-from sqlalchemy import CheckConstraint, Column, Date, DateTime, ForeignKey, Index, Integer, String, Text, Time, UniqueConstraint, text
+from sqlalchemy import Boolean, CheckConstraint, Column, Date, DateTime, ForeignKey, Index, Integer, String, Text, Time, UniqueConstraint, text
 from sqlalchemy.dialects.postgresql import JSONB, UUID
 
 from database import Base
@@ -25,6 +25,8 @@ class KnowledgeTaskStep(StringEnum):
     VALIDATE_SOURCE = "VALIDATE_SOURCE"
     PREPARE_BATCHES = "PREPARE_BATCHES"
     EXTRACT_BATCH = "EXTRACT_BATCH"
+    PREPARE_REVIEW_BATCHES = "PREPARE_REVIEW_BATCHES"
+    REVIEW_BATCH = "REVIEW_BATCH"
     PUBLISH = "PUBLISH"
 
 
@@ -33,7 +35,7 @@ class KnowledgeTask(Base):
     __table_args__ = (
         CheckConstraint("status IN ('QUEUED','RUNNING','SUCCEEDED','FAILED')", name="ck_knowledge_tasks_status"),
         CheckConstraint(
-            "current_step IS NULL OR current_step IN ('VALIDATE_SOURCE','PREPARE_BATCHES','EXTRACT_BATCH','PUBLISH')",
+            "current_step IS NULL OR current_step IN ('VALIDATE_SOURCE','PREPARE_BATCHES','EXTRACT_BATCH','PREPARE_REVIEW_BATCHES','REVIEW_BATCH','PUBLISH')",
             name="ck_knowledge_tasks_step",
         ),
         CheckConstraint("retry_count >= 0", name="ck_knowledge_tasks_retry_count"),
@@ -111,4 +113,23 @@ class KnowledgeAtomicEvent(Base):
     content = Column(JSONB, nullable=False)
     occurred_on = Column(Date, nullable=False)
     occurred_time = Column(Time, nullable=True)
+    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+
+
+class KnowledgeEventReview(Base):
+    __tablename__ = "knowledge_event_reviews"
+    __table_args__ = (
+        CheckConstraint("jsonb_typeof(issues) = 'array'", name="ck_knowledge_event_reviews_issues"),
+        UniqueConstraint("knowledge_event_id", name="uq_knowledge_event_reviews_event"),
+    )
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    knowledge_event_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("knowledge_atomic_events.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+    task_id = Column(UUID(as_uuid=True), ForeignKey("knowledge_tasks.id", ondelete="RESTRICT"), nullable=False)
+    issues = Column(JSONB, nullable=False, default=list)
+    content_changed = Column(Boolean, nullable=False, default=False)
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow)

@@ -22,11 +22,27 @@ from utils.log_context import log_extra
 logger = logging.getLogger(__name__)
 _ai_logger = logging.getLogger("ai_pipeline")
 SYSTEM_PROMPT = (Path(__file__).resolve().parents[1] / "prompts" / "knowledge_atomic_event.txt").read_text(encoding="utf-8")
+REVIEW_SYSTEM_PROMPT = (Path(__file__).resolve().parents[1] / "prompts" / "knowledge_event_review.txt").read_text(encoding="utf-8")
+REVIEW_ISSUE_TYPES = {
+    "MISSING_INFORMATION",
+    "UNSUPPORTED_INFORMATION",
+    "ATTRIBUTION_CHANGED",
+    "STATUS_CHANGED",
+    "RELATION_CHANGED",
+    "ORDER_CHANGED",
+    "TITLE_MISMATCH",
+    "TIME_MISMATCH",
+}
+REVIEW_FIELDS = {"title", "content", "occurred_on", "occurred_time"}
 
 class KnowledgeAIError(RuntimeError):
     def __init__(self, code: str, message: str):
         super().__init__(message)
         self.code = code
+
+
+class ReviewConsistencyError(ValueError):
+    """复核问题列表与最终字段修改不一致。"""
 
 
 def parse_and_validate(raw: str, event_nos: list[int], fallback_occurred_on: str) -> list[dict[str, Any]]:
@@ -110,6 +126,90 @@ def parse_and_validate(raw: str, event_nos: list[int], fallback_occurred_on: str
     return output
 
 
+def parse_and_validate_review(
+    raw: str,
+    items: list[dict[str, Any]],
+    fallback_occurred_on: str,
+) -> list[dict[str, Any]]:
+    def reject_duplicate(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+        result: dict[str, Any] = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError(f"字段重复: {key}")
+            result[key] = value
+        return result
+
+    def exact_fields(value: Any, expected: set[str], path: str) -> dict[str, Any]:
+        if not isinstance(value, dict):
+            raise ValueError(f"{path} 必须是对象")
+        if set(value) != expected:
+            raise ValueError(f"{path} 字段不匹配")
+        return value
+
+    if raw.lstrip().startswith("```"):
+        raise ValueError("不能包含 Markdown 代码块")
+    data = json.loads(raw, object_pairs_hook=reject_duplicate)
+    data = exact_fields(data, {"results"}, "顶层")
+    if not isinstance(data["results"], list) or len(data["results"]) != len(items):
+        raise ValueError("results 数量与复核输入不一致")
+
+    event_nos = [item["event"]["event_no"] for item in items]
+    for index, item in enumerate(items):
+        if item["candidate"].get("event_no") != event_nos[index]:
+            raise ValueError(f"items[{index}] 的 event_no 不一致")
+    final_payload = {"results": []}
+    issues_by_index: list[list[dict[str, str]]] = []
+    for index, result in enumerate(data["results"]):
+        path = f"results[{index}]"
+        result = exact_fields(
+            result,
+            {"event_no", "issues", "title", "content", "occurred_on", "occurred_time"},
+            path,
+        )
+        if type(result["event_no"]) is not int or result["event_no"] != event_nos[index]:
+            raise ValueError(f"{path}.event_no 顺序不合法")
+        if not isinstance(result["issues"], list):
+            raise ValueError(f"{path}.issues 必须是数组")
+        normalized_issues: list[dict[str, str]] = []
+        for issue_index, issue in enumerate(result["issues"]):
+            issue_path = f"{path}.issues[{issue_index}]"
+            issue = exact_fields(issue, {"type", "field", "description"}, issue_path)
+            if not isinstance(issue["type"], str) or issue["type"] not in REVIEW_ISSUE_TYPES:
+                raise ValueError(f"{issue_path}.type 不合法")
+            if not isinstance(issue["field"], str) or issue["field"] not in REVIEW_FIELDS:
+                raise ValueError(f"{issue_path}.field 不合法")
+            if not isinstance(issue["description"], str) or not issue["description"].strip():
+                raise ValueError(f"{issue_path}.description 不合法")
+            normalized_issues.append({
+                "type": issue["type"],
+                "field": issue["field"],
+                "description": issue["description"].strip(),
+            })
+        issues_by_index.append(normalized_issues)
+        final_payload["results"].append({key: result[key] for key in ("event_no", "title", "content", "occurred_on", "occurred_time")})
+
+    normalized_finals = parse_and_validate(
+        json.dumps(final_payload, ensure_ascii=False),
+        event_nos,
+        fallback_occurred_on,
+    )
+    output: list[dict[str, Any]] = []
+    ordered_fields = ("title", "content", "occurred_on", "occurred_time")
+    for index, final in enumerate(normalized_finals):
+        candidate = items[index]["candidate"]
+        issues = issues_by_index[index]
+        changed_fields = {field for field in ordered_fields if final[field] != candidate[field]}
+        issue_fields = {issue["field"] for issue in issues}
+        if not issues and changed_fields:
+            raise ReviewConsistencyError(f"results[{index}] 无问题但修改了字段")
+        if issues and not issue_fields.issubset(changed_fields):
+            raise ReviewConsistencyError(f"results[{index}] 报告问题但对应字段未修改")
+        if not changed_fields.issubset(issue_fields):
+            raise ReviewConsistencyError(f"results[{index}] 修改字段但未报告对应问题")
+        output.append({"event_no": final["event_no"], "issues": issues, **{field: final[field] for field in ordered_fields}})
+    return output
+
+
 def freeze_model_config(config: RuntimeModelConfig) -> dict[str, Any]:
     if not config.channel_model_id:
         raise KnowledgeAIError("KNOWLEDGE_MODEL_NOT_CONFIGURED", "知识沉淀模型未配置")
@@ -125,7 +225,7 @@ def freeze_model_config(config: RuntimeModelConfig) -> dict[str, Any]:
     }
 
 
-def _load_runtime_config(snapshot: dict[str, Any]) -> RuntimeModelConfig:
+def _load_runtime_config(snapshot: dict[str, Any], step_key: str = "knowledge_event_extract") -> RuntimeModelConfig:
     db = SessionLocal()
     try:
         channel_model = (
@@ -137,7 +237,7 @@ def _load_runtime_config(snapshot: dict[str, Any]) -> RuntimeModelConfig:
         if not channel_model or not channel_model.enabled or not channel_model.channel.enabled:
             raise KnowledgeAIError("LLM_CALL_FAILED", "冻结的知识沉淀模型不可用")
         return RuntimeModelConfig(
-            setting_key="knowledge", step_key="knowledge_event_extract",
+            setting_key="knowledge", step_key=step_key,
             model_type=snapshot["model_type"], protocol=snapshot["protocol"],
             api_base_url=snapshot["api_base_url"], api_key=decrypt_channel_key(channel_model.channel),
             model_name=snapshot["model_name"], channel_model_id=channel_model.id,
@@ -148,8 +248,13 @@ def _load_runtime_config(snapshot: dict[str, Any]) -> RuntimeModelConfig:
         db.close()
 
 
-async def _invoke(snapshot: dict[str, Any], system_prompt: str, user_message: str) -> str:
-    config = _load_runtime_config(snapshot)
+async def _invoke(
+    snapshot: dict[str, Any],
+    system_prompt: str,
+    user_message: str,
+    step_key: str = "knowledge_event_extract",
+) -> str:
+    config = _load_runtime_config(snapshot, step_key)
     body: dict[str, Any] = {
         "model": config.model_name,
         "messages": [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_message}],
@@ -161,11 +266,12 @@ async def _invoke(snapshot: dict[str, Any], system_prompt: str, user_message: st
         body.update(thinking)
     request_headers = {"Authorization": f"Bearer {config.api_key}"}
     _ai_logger.info(
-        "[knowledge_event_extract] LLM 完整请求: url=%s headers=%s body=%s",
+        "[%s] LLM 完整请求: url=%s headers=%s body=%s",
+        step_key,
         f"{config.api_base_url}/chat/completions", request_headers, body,
         extra=log_extra(
             event="knowledge.llm.request_payload",
-            step="knowledge_event_extract",
+            step=step_key,
             model=config.model_name,
         ),
     )
@@ -183,21 +289,23 @@ async def _invoke(snapshot: dict[str, Any], system_prompt: str, user_message: st
             response_data = response.json()
         except Exception:
             _ai_logger.info(
-                "[knowledge_event_extract] LLM 完整原始响应: %s",
+                "[%s] LLM 完整原始响应: %s",
+                step_key,
                 response.text,
                 extra=log_extra(
                     event="knowledge.llm.response_payload",
-                    step="knowledge_event_extract",
+                    step=step_key,
                     model=config.model_name,
                 ),
             )
             raise
         _ai_logger.info(
-            "[knowledge_event_extract] LLM 完整原始响应: %s",
+            "[%s] LLM 完整原始响应: %s",
+            step_key,
             response_data,
             extra=log_extra(
                 event="knowledge.llm.response_payload",
-                step="knowledge_event_extract",
+                step=step_key,
                 model=config.model_name,
             ),
         )
@@ -215,7 +323,7 @@ async def _invoke(snapshot: dict[str, Any], system_prompt: str, user_message: st
         usage = response_data.get("usage", {}) if isinstance(response_data, dict) else {}
         completion = usage.get("completion_tokens") or usage.get("output_tokens")
         record_llm_call(
-            step_name="knowledge_event_extract", model_name=config.model_name,
+            step_name=step_key, model_name=config.model_name,
             prompt_tokens=prompt_tokens, prompt_tokens_source=source,
             duration_ms=int((time.monotonic() - started) * 1000), status=status,
             error_type=error_type, completion_tokens=completion if isinstance(completion, int) else None,
@@ -275,3 +383,58 @@ async def extract_atomic_events(payload: dict[str, Any], snapshot: dict[str, Any
             if attempt < settings.LLM_MAX_ATTEMPTS:
                 logger.warning("知识提取模型调用失败并重试", extra={"attempt": attempt, "error_type": type(exc).__name__})
     raise KnowledgeAIError("LLM_CALL_FAILED", "知识提取模型调用失败") from last_error
+
+
+async def review_knowledge_events(payload: dict[str, Any], snapshot: dict[str, Any]) -> list[dict[str, Any]]:
+    items = payload["items"]
+    event_nos = [item["event"]["event_no"] for item in items]
+    user_message = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+    last_error: Exception | None = None
+    repair_used = False
+    for attempt in range(1, settings.LLM_MAX_ATTEMPTS + 1):
+        try:
+            raw = await _invoke(snapshot, REVIEW_SYSTEM_PROMPT, user_message, "knowledge_event_review")
+            try:
+                return parse_and_validate_review(raw, items, payload["diary_date"])
+            except ReviewConsistencyError as exc:
+                last_error = exc
+                _ai_logger.error(
+                    "[knowledge_event_review] 复核结果一致性校验失败: error=%s",
+                    str(exc),
+                    extra=log_extra(
+                        event="knowledge.llm.validation_failed",
+                        step="knowledge_event_review",
+                        phase="consistency",
+                        error_type=type(exc).__name__,
+                    ),
+                )
+                if attempt < settings.LLM_MAX_ATTEMPTS:
+                    continue
+                raise KnowledgeAIError("MODEL_OUTPUT_INVALID", f"复核结果不一致: {exc}") from exc
+            except (json.JSONDecodeError, ValueError) as validation_error:
+                if repair_used:
+                    raise KnowledgeAIError("MODEL_OUTPUT_INVALID", f"复核输出结构不合法: {validation_error}") from validation_error
+                repair_used = True
+                repair_prompt = "你是 JSON 结构修复器。只修复给定响应的 JSON 和字段结构，不改变内容语义；严格输出符合目标结构的 JSON。"
+                repair_message = json.dumps({
+                    "target": {"event_nos": event_nos},
+                    "invalid_response": raw,
+                    "validation_error": str(validation_error),
+                }, ensure_ascii=False, separators=(",", ":"))
+                repaired = await _invoke(snapshot, repair_prompt, repair_message, "knowledge_event_review")
+                try:
+                    return parse_and_validate_review(repaired, items, payload["diary_date"])
+                except ReviewConsistencyError as exc:
+                    last_error = exc
+                    if attempt < settings.LLM_MAX_ATTEMPTS:
+                        continue
+                    raise KnowledgeAIError("MODEL_OUTPUT_INVALID", f"复核结果不一致: {exc}") from exc
+                except (json.JSONDecodeError, ValueError) as exc:
+                    raise KnowledgeAIError("MODEL_OUTPUT_INVALID", f"复核输出结构修复后仍不合法: {exc}") from exc
+        except KnowledgeAIError:
+            raise
+        except (httpx.TimeoutException, httpx.NetworkError, httpx.HTTPStatusError, KeyError, TypeError, ValueError) as exc:
+            last_error = exc
+            if attempt < settings.LLM_MAX_ATTEMPTS:
+                logger.warning("知识复核模型调用失败并重试", extra={"attempt": attempt, "error_type": type(exc).__name__})
+    raise KnowledgeAIError("LLM_CALL_FAILED", "知识复核模型调用失败") from last_error

@@ -61,6 +61,7 @@ from models.review import (
 from models.knowledge import (
     KnowledgeAtomicEvent,
     KnowledgeDeposit,
+    KnowledgeEventReview,
     KnowledgeTask,
     KnowledgeTaskStatus,
     KnowledgeTaskStep,
@@ -139,6 +140,7 @@ __all__ = [
     "ReviewAnalysisAngle",
     "KnowledgeAtomicEvent",
     "KnowledgeDeposit",
+    "KnowledgeEventReview",
     "KnowledgeTask",
     "KnowledgeTaskStatus",
     "KnowledgeTaskStep",
