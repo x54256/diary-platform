@@ -1,5 +1,6 @@
 import asyncio
 import json
+import logging
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -166,16 +167,106 @@ def test_review_output_accepts_reported_field_change():
     assert result[0]["content"] == ["我可能下午去商店买酱油。"]
 
 
-@pytest.mark.parametrize("output", [
-    review_output(content=["我下午去商店买酱油。"]),
-    review_output(
-        issues=[{"type": "STATUS_CHANGED", "field": "content", "description": "遗漏了可能状态"}],
+def test_review_output_accepts_issue_without_quote_fields():
+    payload = review_input()
+    issues = [{"type": "STATUS_CHANGED", "field": "content", "description": "遗漏了可能状态"}]
+    result = parse_and_validate_review(
+        json.dumps(review_output(issues=issues, content=["我可能下午去商店买酱油。"]), ensure_ascii=False),
+        payload["items"],
+        payload["diary_date"],
+    )
+    assert result[0]["issues"][0] == issues[0]
+
+
+def test_review_quote_missing_only_warns(caplog):
+    payload = review_input()
+    issues = [{
+        "type": "STATUS_CHANGED", "field": "content", "description": "遗漏了可能状态",
+        "source_quote": "原文里不存在的引用", "candidate_quote": "我下午去商店买酱油。",
+    }]
+    with caplog.at_level(logging.WARNING, logger="ai_pipeline"):
+        result = parse_and_validate_review(
+            json.dumps(review_output(issues=issues, content=["我可能下午去商店买酱油。"]), ensure_ascii=False),
+            payload["items"],
+            payload["diary_date"],
+        )
+    assert result[0]["issues"][0]["source_quote"] == "原文里不存在的引用"
+    assert "source_quote 不在 event 原文中" in caplog.text
+
+
+def test_review_invalid_quote_value_only_warns_and_drops_field(caplog):
+    payload = review_input()
+    issues = [{
+        "type": "STATUS_CHANGED", "field": "content", "description": "遗漏了可能状态",
+        "source_quote": "", "candidate_quote": 123,
+    }]
+    with caplog.at_level(logging.WARNING, logger="ai_pipeline"):
+        result = parse_and_validate_review(
+            json.dumps(review_output(issues=issues, content=["我可能下午去商店买酱油。"]), ensure_ascii=False),
+            payload["items"],
+            payload["diary_date"],
+        )
+    issue = result[0]["issues"][0]
+    assert "source_quote" not in issue
+    assert issue["candidate_quote"] is None
+    assert "issue 证据字段不合法" in caplog.text
+
+
+def test_review_valid_quote_passes_without_warning(caplog):
+    payload = review_input()
+    issues = [{
+        "type": "STATUS_CHANGED", "field": "content", "description": "遗漏了可能状态",
+        "source_quote": "可能下午去商店", "candidate_quote": "我下午去商店买酱油。",
+    }]
+    with caplog.at_level(logging.WARNING, logger="ai_pipeline"):
+        result = parse_and_validate_review(
+            json.dumps(review_output(issues=issues, content=["我可能下午去商店买酱油。"]), ensure_ascii=False),
+            payload["items"],
+            payload["diary_date"],
+        )
+    assert result[0]["issues"][0]["source_quote"] == "可能下午去商店"
+    assert "source_quote" not in caplog.text
+
+
+def test_atomic_event_coverage_field_is_warned_and_dropped(caplog):
+    payload = valid_payload()
+    payload["results"][0]["coverage"] = [{"source": "我去商店", "kept": "我去商店买了酱油。"}]
+    with caplog.at_level(logging.WARNING, logger="ai_pipeline"):
+        result = parse_and_validate(json.dumps(payload, ensure_ascii=False), [1], "2026-08-11")
+    assert "coverage" not in result[0]
+    assert "忽略模型多余字段" in caplog.text
+
+
+@pytest.mark.parametrize(("output", "expected_content", "expected_issues"), [
+    (
+        review_output(content=["我下午去商店买酱油。"]),
+        ["我下午去商店买酱油。"],
+        [],
+    ),
+    (
+        review_output(
+            issues=[{"type": "STATUS_CHANGED", "field": "content", "description": "遗漏了可能状态"}],
+        ),
+        ["我去商店买了酱油。"],
+        [{"type": "STATUS_CHANGED", "field": "content", "description": "遗漏了可能状态"}],
+    ),
+    (
+        review_output(
+            issues=[{"type": "TITLE_MISMATCH", "field": "title", "description": "标题与事件状态不符"}],
+            title="买酱油计划",
+            content=["我下午去商店买酱油。"],
+        ),
+        ["我下午去商店买酱油。"],
+        [{"type": "TITLE_MISMATCH", "field": "title", "description": "标题与事件状态不符"}],
     ),
 ])
-def test_review_output_rejects_issue_change_inconsistency(output):
+def test_review_output_warns_on_issue_change_inconsistency(output, expected_content, expected_issues, caplog):
     payload = review_input()
-    with pytest.raises(ValueError):
-        parse_and_validate_review(json.dumps(output, ensure_ascii=False), payload["items"], payload["diary_date"])
+    with caplog.at_level(logging.WARNING, logger="ai_pipeline"):
+        result = parse_and_validate_review(json.dumps(output, ensure_ascii=False), payload["items"], payload["diary_date"])
+    assert "一致性违规" in caplog.text
+    assert result[0]["content"] == expected_content
+    assert result[0]["issues"] == expected_issues
 
 
 def test_review_batching_keeps_source_and_candidate_together(monkeypatch):
@@ -195,19 +286,23 @@ def test_review_batching_keeps_source_and_candidate_together(monkeypatch):
     assert [event_no for batch in batches for event_no in batch] == [1, 2]
 
 
-def test_review_consistency_failure_retries_full_review_call(monkeypatch):
+def test_review_consistency_violation_is_warned_without_retry(monkeypatch, caplog):
     payload = review_input()
-    invalid = json.dumps(review_output(content=["我下午去商店买酱油。"]), ensure_ascii=False)
-    valid = json.dumps(review_output(), ensure_ascii=False)
-    responses = iter([invalid, valid])
+    inconsistent = json.dumps(review_output(content=["我下午去商店买酱油。"]), ensure_ascii=False)
+    responses = iter([inconsistent, json.dumps(review_output(), ensure_ascii=False)])
+    calls = []
 
     async def invoke(*_args, **_kwargs):
+        calls.append(1)
         return next(responses)
 
     monkeypatch.setattr("services.knowledge_ai._invoke", invoke)
     monkeypatch.setattr("services.knowledge_ai.settings.LLM_MAX_ATTEMPTS", 2)
-    result = asyncio.run(review_knowledge_events(payload, {}))
-    assert result[0]["issues"] == []
+    with caplog.at_level(logging.WARNING, logger="ai_pipeline"):
+        result = asyncio.run(review_knowledge_events(payload, {}))
+    assert len(calls) == 1
+    assert "一致性违规" in caplog.text
+    assert result[0]["content"] == ["我下午去商店买酱油。"]
 
 
 def test_review_structure_error_uses_one_json_repair(monkeypatch):

@@ -41,10 +41,6 @@ class KnowledgeAIError(RuntimeError):
         self.code = code
 
 
-class ReviewConsistencyError(ValueError):
-    """复核问题列表与最终字段修改不一致。"""
-
-
 def parse_and_validate(raw: str, event_nos: list[int], fallback_occurred_on: str) -> list[dict[str, Any]]:
     def reject_duplicate(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
         result: dict[str, Any] = {}
@@ -64,6 +60,8 @@ def parse_and_validate(raw: str, event_nos: list[int], fallback_occurred_on: str
             raise ValueError(f"{path} 字段不匹配（缺少字段: {', '.join(missing)}）")
         if extra:
             _ai_logger.warning("[knowledge_event_extract] 忽略模型多余字段: path=%s fields=%s", path, extra)
+            for field in extra:
+                del value[field]
         return value
 
     try:
@@ -158,7 +156,11 @@ def parse_and_validate_review(
         if item["candidate"].get("event_no") != event_nos[index]:
             raise ValueError(f"items[{index}] 的 event_no 不一致")
     final_payload = {"results": []}
-    issues_by_index: list[list[dict[str, str]]] = []
+    issues_by_index: list[list[dict[str, Any]]] = []
+
+    def normalize_whitespace(value: str) -> str:
+        return "".join(value.split())
+
     for index, result in enumerate(data["results"]):
         path = f"results[{index}]"
         result = exact_fields(
@@ -170,21 +172,52 @@ def parse_and_validate_review(
             raise ValueError(f"{path}.event_no 顺序不合法")
         if not isinstance(result["issues"], list):
             raise ValueError(f"{path}.issues 必须是数组")
-        normalized_issues: list[dict[str, str]] = []
+        normalized_issues: list[dict[str, Any]] = []
         for issue_index, issue in enumerate(result["issues"]):
             issue_path = f"{path}.issues[{issue_index}]"
-            issue = exact_fields(issue, {"type", "field", "description"}, issue_path)
+            if not isinstance(issue, dict):
+                raise ValueError(f"{issue_path} 必须是对象")
+            unknown_fields = sorted(set(issue) - {"type", "field", "description", "source_quote", "candidate_quote"})
+            if unknown_fields or {"type", "field", "description"} - set(issue):
+                raise ValueError(f"{issue_path} 字段不匹配")
             if not isinstance(issue["type"], str) or issue["type"] not in REVIEW_ISSUE_TYPES:
                 raise ValueError(f"{issue_path}.type 不合法")
             if not isinstance(issue["field"], str) or issue["field"] not in REVIEW_FIELDS:
                 raise ValueError(f"{issue_path}.field 不合法")
             if not isinstance(issue["description"], str) or not issue["description"].strip():
                 raise ValueError(f"{issue_path}.description 不合法")
-            normalized_issues.append({
+            normalized_issue: dict[str, Any] = {
                 "type": issue["type"],
                 "field": issue["field"],
                 "description": issue["description"].strip(),
-            })
+            }
+            source_quote: str | None = None
+            if "source_quote" in issue:
+                raw_source_quote = issue["source_quote"]
+                if isinstance(raw_source_quote, str) and raw_source_quote.strip():
+                    source_quote = raw_source_quote.strip()
+                    normalized_issue["source_quote"] = source_quote
+                else:
+                    _ai_logger.warning("[knowledge_event_review] issue 证据字段不合法，已忽略: path=%s field=source_quote", issue_path)
+            if "candidate_quote" in issue:
+                raw_candidate_quote = issue["candidate_quote"]
+                if raw_candidate_quote is None:
+                    normalized_issue["candidate_quote"] = None
+                elif isinstance(raw_candidate_quote, str) and raw_candidate_quote.strip():
+                    normalized_issue["candidate_quote"] = raw_candidate_quote.strip()
+                else:
+                    _ai_logger.warning("[knowledge_event_review] issue 证据字段不合法，已忽略: path=%s field=candidate_quote", issue_path)
+                    normalized_issue["candidate_quote"] = None
+            if source_quote:
+                event = items[index]["event"]
+                segments = [str(event.get("title") or "")] + [str(paragraph) for paragraph in (event.get("body") or [])]
+                normalized_quote = normalize_whitespace(source_quote)
+                if not any(normalized_quote in normalize_whitespace(segment) for segment in segments):
+                    _ai_logger.warning(
+                        "[knowledge_event_review] source_quote 不在 event 原文中: path=%s event_no=%s source_quote=%s",
+                        issue_path, event_nos[index], source_quote,
+                    )
+            normalized_issues.append(normalized_issue)
         issues_by_index.append(normalized_issues)
         final_payload["results"].append({key: result[key] for key in ("event_no", "title", "content", "occurred_on", "occurred_time")})
 
@@ -201,11 +234,20 @@ def parse_and_validate_review(
         changed_fields = {field for field in ordered_fields if final[field] != candidate[field]}
         issue_fields = {issue["field"] for issue in issues}
         if not issues and changed_fields:
-            raise ReviewConsistencyError(f"results[{index}] 无问题但修改了字段")
+            _ai_logger.warning(
+                "[knowledge_event_review] 一致性违规（无 issue 但修改了字段），采纳模型修改后的最终结果: event_no=%s changed_fields=%s",
+                final["event_no"], sorted(changed_fields),
+            )
         if issues and not issue_fields.issubset(changed_fields):
-            raise ReviewConsistencyError(f"results[{index}] 报告问题但对应字段未修改")
-        if not changed_fields.issubset(issue_fields):
-            raise ReviewConsistencyError(f"results[{index}] 修改字段但未报告对应问题")
+            _ai_logger.warning(
+                "[knowledge_event_review] 一致性违规（报告 issue 但对应字段未修改）: event_no=%s issue_fields=%s changed_fields=%s",
+                final["event_no"], sorted(issue_fields), sorted(changed_fields),
+            )
+        if issues and not changed_fields.issubset(issue_fields):
+            _ai_logger.warning(
+                "[knowledge_event_review] 一致性违规（修改字段但未报告对应 issue），采纳模型修改后的最终结果: event_no=%s changed_fields=%s issue_fields=%s",
+                final["event_no"], sorted(changed_fields), sorted(issue_fields),
+            )
         output.append({"event_no": final["event_no"], "issues": issues, **{field: final[field] for field in ordered_fields}})
     return output
 
@@ -396,21 +438,6 @@ async def review_knowledge_events(payload: dict[str, Any], snapshot: dict[str, A
             raw = await _invoke(snapshot, REVIEW_SYSTEM_PROMPT, user_message, "knowledge_event_review")
             try:
                 return parse_and_validate_review(raw, items, payload["diary_date"])
-            except ReviewConsistencyError as exc:
-                last_error = exc
-                _ai_logger.error(
-                    "[knowledge_event_review] 复核结果一致性校验失败: error=%s",
-                    str(exc),
-                    extra=log_extra(
-                        event="knowledge.llm.validation_failed",
-                        step="knowledge_event_review",
-                        phase="consistency",
-                        error_type=type(exc).__name__,
-                    ),
-                )
-                if attempt < settings.LLM_MAX_ATTEMPTS:
-                    continue
-                raise KnowledgeAIError("MODEL_OUTPUT_INVALID", f"复核结果不一致: {exc}") from exc
             except (json.JSONDecodeError, ValueError) as validation_error:
                 if repair_used:
                     raise KnowledgeAIError("MODEL_OUTPUT_INVALID", f"复核输出结构不合法: {validation_error}") from validation_error
@@ -424,11 +451,6 @@ async def review_knowledge_events(payload: dict[str, Any], snapshot: dict[str, A
                 repaired = await _invoke(snapshot, repair_prompt, repair_message, "knowledge_event_review")
                 try:
                     return parse_and_validate_review(repaired, items, payload["diary_date"])
-                except ReviewConsistencyError as exc:
-                    last_error = exc
-                    if attempt < settings.LLM_MAX_ATTEMPTS:
-                        continue
-                    raise KnowledgeAIError("MODEL_OUTPUT_INVALID", f"复核结果不一致: {exc}") from exc
                 except (json.JSONDecodeError, ValueError) as exc:
                     raise KnowledgeAIError("MODEL_OUTPUT_INVALID", f"复核输出结构修复后仍不合法: {exc}") from exc
         except KnowledgeAIError:

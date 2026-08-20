@@ -245,13 +245,11 @@ VALIDATE_SOURCE
 - 每个结果必须只包含 `event_no`、`issues`、`title`、`content`、`occurred_on` 和 `occurred_time`；
 - `event_no` 必须与对应复核输入一致；
 - `issues` 必须是数组；
-- 每个问题必须只包含合法的 `type`、`field` 和非空 `description`；
+- 每个问题必须包含合法的 `type`、`field` 和非空 `description`，可选携带证据字段 `source_quote` 与 `candidate_quote`（见 9.2）；
 - 最终 `title`、`content`、`occurred_on` 和 `occurred_time` 继续执行第一次调用的字段校验；
-- `issues` 为空时，最终四个字段必须与待复核结果完全一致；
-- `issues` 非空时，每个问题指向的字段必须发生变化；
-- 最终结果中每个发生变化的字段，必须至少有一个对应字段的 `issue`；
-- 以上一致性校验失败时，当前复核批次结果无效，不得进入发布；
-- 程序在一致性校验通过后比较待复核结果和最终结果的全部字段，计算 `content_changed`；
+- 一致性规则（`issues` 为空时不得修改字段；`issues` 非空时每个问题指向的字段必须发生变化；最终结果中每个发生变化的字段必须至少有一个对应字段的 `issue`）由程序核对；
+- 一致性违规时记录 warning（含 `event_no` 与相关字段集合）并采纳模型修改后的最终结果继续发布，不再阻断当前复核批次；
+- 程序在一致性核对后比较待复核结果和最终结果的全部字段，计算 `content_changed`；
 - 全部复核批次结果必须完整覆盖冻结的结构化事件，且 `event_no` 不重复。
 
 ### 7.3 重试和 JSON 修复
@@ -260,7 +258,7 @@ VALIDATE_SOURCE
 - JSON 解析失败、字段缺失、字段类型错误或结果数量与顺序不一致时，最多执行一次 JSON 修复调用；
 - JSON 修复只处理 JSON 和字段结构，不改变内容语义；
 - 修复后仍不合法时，当前任务失败；
-- 问题与字段修改不一致属于复核结果不合法，不使用 JSON 修复；在 `LLM_MAX_ATTEMPTS` 范围内重新执行当前复核批次，耗尽后任务失败；
+- 一致性违规不属于复核结果不合法，不触发重试，也不会导致任务失败；`LLM_MAX_ATTEMPTS` 重试仅作用于传输类临时错误，结构错误走一次性 JSON 修复；
 - 两个阶段的每批合法结果分别写入 LangGraph checkpoint；
 - 全部复核批次通过校验后，在同一事务中发布正式知识事件、复核记录、沉淀成功记录和任务成功状态。
 
@@ -433,7 +431,9 @@ results 必须与输入事件顺序一致，每个 event_no 原样返回且只�
         {
           "type": "MISSING_INFORMATION",
           "field": "content",
-          "description": "遗漏了影响当前决定的前置条件"
+          "description": "遗漏了影响当前决定的前置条件",
+          "source_quote": "event 中的原句或短语",
+          "candidate_quote": null
         }
       ],
       "title": "最终标题",
@@ -461,7 +461,7 @@ results 必须与输入事件顺序一致，每个 event_no 原样返回且只�
 - `results` 与当前复核批次的 `items` 数量和顺序一致；
 - 每个 `event_no` 原样返回且只出现一次；
 - `issues` 必须为数组，没有发现问题时返回空数组；
-- 每个问题只包含 `type`、`field` 和非空 `description`；
+- 每个问题包含必需三字段 `type`、`field` 和非空 `description`，可选证据字段 `source_quote`（`event` 原文逐字引用）与 `candidate_quote`（`candidate` 对应句，`MISSING_INFORMATION` 无对应句时可为 `null`）；证据字段由程序做非致命核验（引用缺失或不在原文中仅记录 warning，不阻断流程）；
 - `field` 只能是 `title`、`content`、`occurred_on` 或 `occurred_time`；
 - `description` 只描述 `candidate` 已经存在的问题，不描述修正动作；
 - 最终 `title`、`content`、`occurred_on` 和 `occurred_time` 遵循第一次调用的字段规则。
