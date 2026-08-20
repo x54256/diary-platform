@@ -14,6 +14,7 @@ from models.user import User
 from routers.admin_backup import require_admin
 from schemas.common import serialize_utc_datetime
 from services.search_rebuild_jobs import count_eligible_events
+from services.task_environment import TASK_ENVIRONMENT
 
 router = APIRouter(prefix="/api/admin/search-index", tags=["管理端-搜索索引"])
 
@@ -53,6 +54,7 @@ def create_rebuild_job(
     if request.start_date > request.end_date:
         raise HTTPException(status_code=422, detail="start_date 不能晚于 end_date")
     active = db.query(SearchIndexRebuildJob.id).filter(
+        SearchIndexRebuildJob.environment == TASK_ENVIRONMENT,
         SearchIndexRebuildJob.status.in_(["queued", "running"])
     ).first()
     if active:
@@ -78,7 +80,9 @@ def list_rebuild_jobs(
     db: Session = Depends(get_db),
     current_user: User = Depends(require_admin),
 ):
-    jobs = db.query(SearchIndexRebuildJob).order_by(SearchIndexRebuildJob.created_at.desc()).limit(100).all()
+    jobs = db.query(SearchIndexRebuildJob).filter(
+        SearchIndexRebuildJob.environment == TASK_ENVIRONMENT,
+    ).order_by(SearchIndexRebuildJob.created_at.desc()).limit(100).all()
     return [job_to_dict(job) for job in jobs]
 
 

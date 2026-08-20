@@ -22,6 +22,7 @@ from services.auth import get_current_user
 from services.knowledge_tasks import knowledge_task_manager
 from services.model_runtime import ModelRuntimeError, resolve_model_setting
 from services.pipeline import cleanup_checkpoint
+from services.task_environment import TASK_ENVIRONMENT
 
 router = APIRouter(prefix="/api", tags=["知识库"])
 
@@ -100,6 +101,7 @@ def diary_knowledge_status(
         count = db.query(func.count(KnowledgeAtomicEvent.id)).filter(KnowledgeAtomicEvent.diary_id == diary.id).scalar() or 0
         return {"state": "DEPOSITED", "model_configured": configured, "available": True, "atomic_event_count": count}
     active = db.query(KnowledgeTask).filter(
+        KnowledgeTask.environment == TASK_ENVIRONMENT,
         KnowledgeTask.user_id == current_user.id, KnowledgeTask.status.in_(("QUEUED", "RUNNING")),
     ).order_by(KnowledgeTask.created_at.desc()).first()
     unavailable_reason = None
@@ -114,6 +116,7 @@ def diary_knowledge_status(
     failed = None
     if diary.organized:
         failed = db.query(KnowledgeTask).filter(
+            KnowledgeTask.environment == TASK_ENVIRONMENT,
             KnowledgeTask.diary_id == diary.id, KnowledgeTask.user_id == current_user.id,
             KnowledgeTask.source_structured_revision == diary.organized.structured_revision,
             KnowledgeTask.status == "FAILED",
@@ -145,6 +148,7 @@ def create_knowledge_deposit(
     if db.query(KnowledgeDeposit.diary_id).filter(KnowledgeDeposit.diary_id == diary.id).first():
         raise _error("ALREADY_DEPOSITED", "该日记已完成知识沉淀")
     same_active = db.query(KnowledgeTask).filter(
+        KnowledgeTask.environment == TASK_ENVIRONMENT,
         KnowledgeTask.diary_id == diary.id, KnowledgeTask.user_id == current_user.id,
         KnowledgeTask.status.in_(("QUEUED", "RUNNING")),
     ).first()
@@ -153,6 +157,7 @@ def create_knowledge_deposit(
     if db.query(OrganizeTask.id).filter(OrganizeTask.diary_id == diary.id, OrganizeTask.status == "running").first():
         raise _error("SOURCE_BUSY", "日记正在整理或分析，请等待任务完成")
     other_active = db.query(KnowledgeTask.id).filter(
+        KnowledgeTask.environment == TASK_ENVIRONMENT,
         KnowledgeTask.user_id == current_user.id, KnowledgeTask.status.in_(("QUEUED", "RUNNING")),
     ).first()
     if other_active:
@@ -174,6 +179,7 @@ def create_knowledge_deposit(
     except IntegrityError as exc:
         db.rollback()
         existing = db.query(KnowledgeTask).filter(
+            KnowledgeTask.environment == TASK_ENVIRONMENT,
             KnowledgeTask.user_id == current_user.id, KnowledgeTask.status.in_(("QUEUED", "RUNNING")),
         ).first()
         if existing and existing.diary_id == diary.id:
@@ -186,7 +192,10 @@ def create_knowledge_deposit(
 
 @router.get("/knowledge-tasks/{task_id}", response_model=KnowledgeTaskResponse)
 def get_knowledge_task(task_id: UUID, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
-    task = db.query(KnowledgeTask).filter(KnowledgeTask.id == task_id, KnowledgeTask.user_id == current_user.id).first()
+    task = db.query(KnowledgeTask).filter(
+        KnowledgeTask.id == task_id, KnowledgeTask.environment == TASK_ENVIRONMENT,
+        KnowledgeTask.user_id == current_user.id,
+    ).first()
     if not task:
         raise HTTPException(status_code=404, detail="知识任务不存在")
     return _task_response(task)
@@ -196,7 +205,10 @@ def get_knowledge_task(task_id: UUID, db: Session = Depends(get_db), current_use
 async def retry_knowledge_task(
     task_id: UUID, db: Session = Depends(get_db), current_user: User = Depends(get_current_user),
 ):
-    task = db.query(KnowledgeTask).filter(KnowledgeTask.id == task_id, KnowledgeTask.user_id == current_user.id).with_for_update().first()
+    task = db.query(KnowledgeTask).filter(
+        KnowledgeTask.id == task_id, KnowledgeTask.environment == TASK_ENVIRONMENT,
+        KnowledgeTask.user_id == current_user.id,
+    ).with_for_update().first()
     if not task:
         raise HTTPException(status_code=404, detail="知识任务不存在")
     if task.status in ("QUEUED", "RUNNING"):

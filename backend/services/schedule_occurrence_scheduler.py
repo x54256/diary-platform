@@ -12,6 +12,7 @@ from database import SessionLocal
 from models.schedule import ScheduleMaintenanceJob, ScheduleOccurrence, ScheduleTask
 from models.user import User
 from routers.schedules import WINDOW_DAYS, ensure_occurrences
+from services.task_environment import TASK_ENVIRONMENT
 
 logger = logging.getLogger("app.schedule_occurrence_scheduler")
 TIMEZONE = ZoneInfo("Asia/Shanghai")
@@ -43,6 +44,7 @@ def recover_maintenance_jobs() -> None:
     db = SessionLocal()
     try:
         db.query(ScheduleMaintenanceJob).filter(
+            ScheduleMaintenanceJob.environment == TASK_ENVIRONMENT,
             ScheduleMaintenanceJob.status == "running"
         ).update({ScheduleMaintenanceJob.status: "queued"}, synchronize_session=False)
         db.commit()
@@ -59,6 +61,7 @@ def process_next_maintenance_job() -> bool:
     try:
         now = datetime.utcnow()
         job = db.query(ScheduleMaintenanceJob).filter(
+            ScheduleMaintenanceJob.environment == TASK_ENVIRONMENT,
             ScheduleMaintenanceJob.status == "queued",
             ScheduleMaintenanceJob.available_at <= now,
         ).order_by(ScheduleMaintenanceJob.created_at).first()
@@ -92,7 +95,10 @@ def process_next_maintenance_job() -> bool:
     except Exception as exc:
         db.rollback()
         if job_id:
-            failed_job = db.query(ScheduleMaintenanceJob).filter_by(id=job_id).first()
+            failed_job = db.query(ScheduleMaintenanceJob).filter(
+                ScheduleMaintenanceJob.id == job_id,
+                ScheduleMaintenanceJob.environment == TASK_ENVIRONMENT,
+            ).first()
             if failed_job:
                 failed_job.status = "queued" if failed_job.attempts < 3 else "failed"
                 failed_job.available_at = datetime.utcnow() + timedelta(minutes=5)

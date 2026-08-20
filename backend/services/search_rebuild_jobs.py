@@ -16,6 +16,7 @@ from models.search_rebuild import SearchIndexRebuildJob
 from services.analysis_history import get_current_analysis_run
 from services.embedding_sync import sync_event_embeddings
 from services.search_indexing import refresh_changed_event_search_indexes
+from services.task_environment import TASK_ENVIRONMENT
 
 logger = logging.getLogger("app.search_rebuild")
 BATCH_SIZE = 10
@@ -54,7 +55,10 @@ def recover_search_index_rebuild_jobs() -> None:
     """服务重启后从已保存游标继续未完成任务。"""
     db = SessionLocal()
     try:
-        db.query(SearchIndexRebuildJob).filter(SearchIndexRebuildJob.status == "running").update(
+        db.query(SearchIndexRebuildJob).filter(
+            SearchIndexRebuildJob.environment == TASK_ENVIRONMENT,
+            SearchIndexRebuildJob.status == "running",
+        ).update(
             {SearchIndexRebuildJob.status: "queued"}, synchronize_session=False
         )
         db.commit()
@@ -72,7 +76,10 @@ def process_next_search_index_rebuild_batch() -> bool:
     try:
         job = (
             db.query(SearchIndexRebuildJob)
-            .filter(SearchIndexRebuildJob.status.in_(["queued", "running"]))
+            .filter(
+                SearchIndexRebuildJob.environment == TASK_ENVIRONMENT,
+                SearchIndexRebuildJob.status.in_(["queued", "running"]),
+            )
             .order_by(SearchIndexRebuildJob.created_at)
             .with_for_update(skip_locked=True)
             .first()

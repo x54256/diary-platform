@@ -22,6 +22,7 @@ from services.knowledge_ai import (
 from services.llm_metrics import estimate_prompt_tokens
 from services.model_runtime import ModelRuntimeError, resolve_model_setting
 from services.pipeline import get_checkpointer
+from services.task_environment import TASK_ENVIRONMENT
 
 
 class KnowledgeWorkflowError(RuntimeError):
@@ -75,7 +76,8 @@ def _owned_task(db, task_id: str, *, lock: bool = False) -> KnowledgeTask:
     if token is None:
         raise KnowledgeOwnershipLost()
     query = db.query(KnowledgeTask).filter(
-        KnowledgeTask.id == UUID(task_id), KnowledgeTask.status == "RUNNING",
+        KnowledgeTask.id == UUID(task_id), KnowledgeTask.environment == TASK_ENVIRONMENT,
+        KnowledgeTask.status == "RUNNING",
         KnowledgeTask.run_token == token, KnowledgeTask.lease_until > datetime.utcnow(),
     )
     task = (query.with_for_update().first() if lock else query.first())
@@ -104,7 +106,8 @@ def _renew_ownership(task_id: str) -> None:
     try:
         now = datetime.utcnow()
         updated = db.query(KnowledgeTask).filter(
-            KnowledgeTask.id == UUID(task_id), KnowledgeTask.status == "RUNNING",
+            KnowledgeTask.id == UUID(task_id), KnowledgeTask.environment == TASK_ENVIRONMENT,
+            KnowledgeTask.status == "RUNNING",
             KnowledgeTask.run_token == token, KnowledgeTask.lease_until > now,
         ).update({
             "lease_until": now + timedelta(seconds=WORKFLOW_LEASE_SECONDS),

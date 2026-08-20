@@ -9,6 +9,8 @@ class Settings(BaseSettings):
 
     # 数据库连接
     DATABASE_URL: str = "postgresql+psycopg://postgres:postgres@localhost:5432/diary_platform"
+    # 任务队列环境标识。共享数据库时必须为本地、测试、生产设置不同值。
+    APP_ENV: str = "local"
 
     # JWT 密钥
     SECRET_KEY: str = "L8qA6Gzbc1zb1iGw3CCgrTmzOyAWJR235dUOiQ0C7zk"

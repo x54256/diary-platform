@@ -51,6 +51,7 @@ from schemas.review import (
     ReviewVersionResponse,
 )
 from services.auth import get_current_user
+from services.task_environment import TASK_ENVIRONMENT
 from services.model_runtime import ModelRuntimeError, resolve_model_setting
 from services.review_periods import ReviewPeriodError, period_bounds
 from services.review_tasks import (
@@ -776,7 +777,10 @@ def list_tasks(
     db: Session = Depends(get_db),
     user: User = Depends(get_current_user),
 ):
-    query = db.query(ReviewTask).filter(ReviewTask.user_id == user.id)
+    query = db.query(ReviewTask).filter(
+        ReviewTask.environment == TASK_ENVIRONMENT,
+        ReviewTask.user_id == user.id,
+    )
     if status_filter:
         query = query.filter(ReviewTask.status == status_filter.upper())
     decoded = _cursor_decode(cursor)

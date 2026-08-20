@@ -34,6 +34,7 @@ from models.review import (
     ReviewVersionType,
     ReviewSourceSet,
 )
+from services.task_environment import TASK_ENVIRONMENT
 from services.review_ai import (
     DAILY_MATERIAL_CONTINUATION_PROMPT, DAILY_MATERIAL_PROMPT,
     ReviewAIError, actual_review_model_info, review_analysis_action, review_daily_material,
@@ -481,7 +482,7 @@ def _safe_task_error(exc: Exception) -> str:
 
 def _task_owned(db: Session, task_id: uuid.UUID, run_token: uuid.UUID) -> ReviewTask:
     task = db.query(ReviewTask).filter(
-        ReviewTask.id == task_id,
+        ReviewTask.id == task_id, ReviewTask.environment == TASK_ENVIRONMENT,
         ReviewTask.run_token == run_token,
         ReviewTask.status == ReviewTaskStatus.RUNNING.value,
     ).first()
@@ -1080,7 +1081,7 @@ async def execute_review_task(
         db.rollback()
         try:
             task = db.query(ReviewTask).filter(
-                ReviewTask.id == task_id,
+                ReviewTask.id == task_id, ReviewTask.environment == TASK_ENVIRONMENT,
                 ReviewTask.run_token == run_token,
             ).first()
             if task:

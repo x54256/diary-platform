@@ -26,6 +26,7 @@ from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy.orm import relationship
 
 from database import Base
+from services.task_environment import TASK_ENVIRONMENT
 
 
 class StringEnum(str, enum.Enum):
@@ -280,7 +281,7 @@ class ReviewTask(Base):
         ),
         Index(
             "uq_review_tasks_active_review",
-            "review_id",
+            "environment", "review_id",
             unique=True,
             postgresql_where=text("status IN ('PENDING_START','QUEUED','RUNNING')"),
         ),
@@ -289,6 +290,7 @@ class ReviewTask(Base):
     )
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    environment = Column(String(32), nullable=False, default=TASK_ENVIRONMENT)
     review_id = Column(UUID(as_uuid=True), ForeignKey("reviews.id", ondelete="CASCADE"), nullable=False)
     user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
     trigger_type = Column(String(16), nullable=False)

@@ -24,6 +24,7 @@ from models.review import (
 from models.user import User
 from services.review_generation import LEASE_DURATION
 from services.review_workflow import execute_review_graph
+from services.task_environment import TASK_ENVIRONMENT
 from services.model_runtime import ModelRuntimeError, resolve_model_setting
 from services.review_periods import (
     ReviewPeriod,
@@ -83,7 +84,10 @@ def month_dependencies_terminal(db: Session, user_id: uuid.UUID, period: ReviewP
             # 可披露的缺失依赖，不能永久阻塞上级回顾。
             cursor += timedelta(days=7)
             continue
-        latest = db.query(ReviewTask).filter(ReviewTask.review_id == review.id).order_by(
+        latest = db.query(ReviewTask).filter(
+            ReviewTask.environment == TASK_ENVIRONMENT,
+            ReviewTask.review_id == review.id,
+        ).order_by(
             ReviewTask.created_at.desc()
         ).first()
         if not latest or latest.status not in TERMINAL_STATUSES:
@@ -107,7 +111,10 @@ def start_blocking_dependencies(db: Session, user_id: uuid.UUID, period: ReviewP
             Review.period_end == end,
         ).first()
         latest = (
-            db.query(ReviewTask).filter(ReviewTask.review_id == review.id).order_by(ReviewTask.created_at.desc()).first()
+            db.query(ReviewTask).filter(
+                ReviewTask.environment == TASK_ENVIRONMENT,
+                ReviewTask.review_id == review.id,
+            ).order_by(ReviewTask.created_at.desc()).first()
             if review else None
         )
         if not review or not (
@@ -134,6 +141,7 @@ def create_first_generation_task(
     if review.current_version_id:
         raise ReviewTaskError("这个周期已有回顾")
     active = db.query(ReviewTask).filter(
+        ReviewTask.environment == TASK_ENVIRONMENT,
         ReviewTask.review_id == review.id,
         ReviewTask.status.in_(ACTIVE_STATUSES),
     ).first()
@@ -153,6 +161,7 @@ def create_first_generation_task(
     except IntegrityError:
         db.rollback()
         existing = db.query(ReviewTask).filter(
+            ReviewTask.environment == TASK_ENVIRONMENT,
             ReviewTask.review_id == review.id,
             ReviewTask.status.in_(ACTIVE_STATUSES),
         ).first()
@@ -171,6 +180,7 @@ def create_regeneration_task(
     generation_mode: str,
 ) -> ReviewTask:
     active = db.query(ReviewTask).filter(
+        ReviewTask.environment == TASK_ENVIRONMENT,
         ReviewTask.review_id == review.id,
         ReviewTask.status.in_(ACTIVE_STATUSES),
     ).first()
@@ -200,6 +210,7 @@ def create_retry_task(db: Session, failed: ReviewTask) -> ReviewTask:
     if failed.status != ReviewTaskStatus.FAILED.value:
         raise ReviewTaskError("只能重试失败的回顾任务")
     active = db.query(ReviewTask).filter(
+        ReviewTask.environment == TASK_ENVIRONMENT,
         ReviewTask.review_id == failed.review_id,
         ReviewTask.status.in_(ACTIVE_STATUSES),
     ).first()
@@ -280,6 +291,7 @@ class ReviewTaskManager:
         try:
             db.execute(text("SET LOCAL lock_timeout = '1s'"))
             query = db.query(ReviewTask).filter(
+                ReviewTask.environment == TASK_ENVIRONMENT,
                 ReviewTask.status.in_([
                     ReviewTaskStatus.QUEUED.value,
                     ReviewTaskStatus.RUNNING.value,
@@ -307,6 +319,7 @@ class ReviewTaskManager:
         try:
             now = datetime.utcnow()
             expired = db.query(ReviewTask).filter(
+                ReviewTask.environment == TASK_ENVIRONMENT,
                 ReviewTask.status == ReviewTaskStatus.RUNNING.value,
                 ReviewTask.lease_until.isnot(None),
                 ReviewTask.lease_until < now,
@@ -331,6 +344,7 @@ class ReviewTaskManager:
             if expired:
                 db.flush()
             task = db.query(ReviewTask).filter(
+                ReviewTask.environment == TASK_ENVIRONMENT,
                 ReviewTask.status == ReviewTaskStatus.QUEUED.value,
                 ReviewTask.available_at <= now,
                 ReviewTask.updated_at >= self._startup_recovery_cutoff

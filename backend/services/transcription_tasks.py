@@ -20,6 +20,7 @@ from services.asr_vocabulary import (
 )
 from services.fun_asr import FunAsrError, HotwordUnsupported, fun_asr_service
 from services.minio_storage import MinioStorageError, minio_storage_service
+from services.task_environment import TASK_ENVIRONMENT
 
 logger = logging.getLogger("transcription.tasks")
 
@@ -108,6 +109,7 @@ class TranscriptionTaskManager:
         db = SessionLocal()
         try:
             batches = db.query(TranscriptionBatch).filter(
+                TranscriptionBatch.environment == TASK_ENVIRONMENT,
                 TranscriptionBatch.status.in_(("QUEUED", "PROCESSING", "FINALIZING")),
             ).all()
             return [
@@ -127,6 +129,7 @@ class TranscriptionTaskManager:
                 db.query(TranscriptionItem)
                 .join(TranscriptionBatch)
                 .filter(
+                    TranscriptionBatch.environment == TASK_ENVIRONMENT,
                     TranscriptionBatch.status.in_(ACTIVE_BATCH_STATUSES),
                     TranscriptionItem.status.in_(("QUEUED", "SUBMITTED", "RUNNING")),
                 )

@@ -7,6 +7,7 @@ from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Text
 from sqlalchemy.dialects.postgresql import UUID
 
 from database import Base
+from services.task_environment import TASK_ENVIRONMENT
 
 
 class BackupRestoreRecord(Base):
@@ -15,6 +16,7 @@ class BackupRestoreRecord(Base):
     __tablename__ = "backup_restore_records"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    environment = Column(String(32), nullable=False, default=TASK_ENVIRONMENT)
     operation_type = Column(String(30), nullable=False)
     status = Column(String(30), nullable=False, default="pending")
     scope_type = Column(String(30), nullable=True)

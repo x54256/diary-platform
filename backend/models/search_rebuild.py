@@ -7,6 +7,7 @@ from sqlalchemy import Column, Date, DateTime, ForeignKey, Integer, String, Text
 from sqlalchemy.dialects.postgresql import UUID
 
 from database import Base
+from services.task_environment import TASK_ENVIRONMENT
 
 
 class SearchIndexRebuildJob(Base):
@@ -15,6 +16,7 @@ class SearchIndexRebuildJob(Base):
     __tablename__ = "search_index_rebuild_jobs"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    environment = Column(String(32), nullable=False, default=TASK_ENVIRONMENT)
     operator_user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
     start_date = Column(Date, nullable=False)
     end_date = Column(Date, nullable=False)

@@ -8,6 +8,7 @@ from sqlalchemy import Boolean, CheckConstraint, Column, Date, DateTime, Foreign
 from sqlalchemy.dialects.postgresql import JSONB, UUID
 
 from database import Base
+from services.task_environment import TASK_ENVIRONMENT
 
 
 class StringEnum(str, enum.Enum):
@@ -40,17 +41,18 @@ class KnowledgeTask(Base):
         ),
         CheckConstraint("retry_count >= 0", name="ck_knowledge_tasks_retry_count"),
         Index(
-            "uq_knowledge_tasks_user_active", "user_id", unique=True,
+            "uq_knowledge_tasks_user_active", "environment", "user_id", unique=True,
             postgresql_where=text("status IN ('QUEUED','RUNNING')"),
         ),
         Index(
-            "uq_knowledge_tasks_source_active", "diary_id", "source_structured_revision",
+            "uq_knowledge_tasks_source_active", "environment", "diary_id", "source_structured_revision",
             unique=True, postgresql_where=text("status IN ('QUEUED','RUNNING')"),
         ),
         Index("ix_knowledge_tasks_queue", "status", "available_at", "created_at"),
     )
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    environment = Column(String(32), nullable=False, default=TASK_ENVIRONMENT)
     user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
     diary_id = Column(UUID(as_uuid=True), ForeignKey("diaries.id", ondelete="RESTRICT"), nullable=False)
     source_diary_organized_id = Column(UUID(as_uuid=True), ForeignKey("diary_organized.id", ondelete="RESTRICT"), nullable=False)

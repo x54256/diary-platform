@@ -27,6 +27,7 @@ from schemas.transcription import (
     TranscriptionStart,
 )
 from services.auth import get_current_user
+from services.task_environment import TASK_ENVIRONMENT
 from services.minio_storage import MinioStorageError, minio_storage_service
 from services.transcription_tasks import remove_file, transcription_task_manager
 
@@ -48,6 +49,7 @@ def get_upload_file_size(upload_file: UploadFile) -> int:
 
 def get_batch(db: Session, batch_id: UUID, user_id: UUID, lock: bool = False) -> TranscriptionBatch:
     query = db.query(TranscriptionBatch).filter(
+        TranscriptionBatch.environment == TASK_ENVIRONMENT,
         TranscriptionBatch.id == batch_id,
         TranscriptionBatch.user_id == user_id,
     )
@@ -111,6 +113,7 @@ def active_batch(
     current_user: User = Depends(get_current_user),
 ):
     batch = db.query(TranscriptionBatch).filter(
+        TranscriptionBatch.environment == TASK_ENVIRONMENT,
         TranscriptionBatch.user_id == current_user.id,
         TranscriptionBatch.diary_date == diary_date,
         TranscriptionBatch.status.in_(("COLLECTING", "QUEUED", "PROCESSING", "PARTIAL_FAILED", "FINALIZING")),

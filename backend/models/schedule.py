@@ -8,6 +8,7 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
 from database import Base
+from services.task_environment import TASK_ENVIRONMENT
 
 
 class ScheduleTask(Base):
@@ -112,6 +113,7 @@ class ScheduleMaintenanceJob(Base):
     __tablename__ = "schedule_maintenance_jobs"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    environment = Column(String(32), nullable=False, default=TASK_ENVIRONMENT)
     task_id = Column(UUID(as_uuid=True), ForeignKey("schedule_tasks.id", ondelete="CASCADE"), nullable=False)
     operation = Column(String(20), nullable=False)  # ENSURE / DELETE
     scheduled_from = Column(Date, nullable=False)

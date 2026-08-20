@@ -12,6 +12,7 @@ from models.knowledge import KnowledgeTask
 from services.knowledge_ai import KnowledgeAIError
 from services.knowledge_workflow import KnowledgeOwnershipLost, KnowledgeWorkflowError, run_knowledge_graph
 from services.pipeline import cleanup_checkpoint
+from services.task_environment import TASK_ENVIRONMENT
 
 logger = logging.getLogger(__name__)
 LEASE_SECONDS = 180
@@ -80,6 +81,7 @@ class KnowledgeTaskManager:
         try:
             now = datetime.utcnow()
             db.query(KnowledgeTask).filter(
+                KnowledgeTask.environment == TASK_ENVIRONMENT,
                 KnowledgeTask.status == "RUNNING", KnowledgeTask.lease_until <= now,
             ).update({
                 "status": "QUEUED", "run_token": None, "lease_until": None,
@@ -97,6 +99,7 @@ class KnowledgeTaskManager:
         try:
             now = datetime.utcnow()
             task = db.query(KnowledgeTask).filter(
+                KnowledgeTask.environment == TASK_ENVIRONMENT,
                 KnowledgeTask.status == "QUEUED", KnowledgeTask.available_at <= now,
             ).order_by(KnowledgeTask.created_at).with_for_update(skip_locked=True).first()
             if not task:
@@ -156,13 +159,14 @@ class KnowledgeTaskManager:
             try:
                 now = datetime.utcnow()
                 updated = db.query(KnowledgeTask).filter(
-                    KnowledgeTask.id == task_id, KnowledgeTask.status == "RUNNING",
+                    KnowledgeTask.id == task_id, KnowledgeTask.environment == TASK_ENVIRONMENT,
+                    KnowledgeTask.status == "RUNNING",
                     KnowledgeTask.run_token == run_token, KnowledgeTask.lease_until > now,
                 ).update({"lease_until": now + timedelta(seconds=LEASE_SECONDS), "updated_at": now}, synchronize_session=False)
                 db.commit()
                 if updated != 1:
                     row = db.query(KnowledgeTask.status, KnowledgeTask.run_token).filter(
-                        KnowledgeTask.id == task_id,
+                        KnowledgeTask.id == task_id, KnowledgeTask.environment == TASK_ENVIRONMENT,
                     ).first()
                     own_publish_completed = bool(
                         row and row.status == "SUCCEEDED" and row.run_token == run_token
@@ -180,7 +184,8 @@ class KnowledgeTaskManager:
         try:
             now = datetime.utcnow()
             updated = db.query(KnowledgeTask).filter(
-                KnowledgeTask.id == task_id, KnowledgeTask.status == "RUNNING",
+                KnowledgeTask.id == task_id, KnowledgeTask.environment == TASK_ENVIRONMENT,
+                KnowledgeTask.status == "RUNNING",
                 KnowledgeTask.run_token == run_token, KnowledgeTask.lease_until > now,
             ).update({
                 "status": "FAILED", "error_code": code, "error_message": message[:1000],
@@ -198,7 +203,9 @@ class KnowledgeTaskManager:
     def _terminal_status(self, task_id: UUID) -> tuple[str | None, str | None]:
         db = SessionLocal()
         try:
-            task = db.query(KnowledgeTask.status, KnowledgeTask.error_code).filter(KnowledgeTask.id == task_id).first()
+            task = db.query(KnowledgeTask.status, KnowledgeTask.error_code).filter(
+                KnowledgeTask.id == task_id, KnowledgeTask.environment == TASK_ENVIRONMENT,
+            ).first()
             return (task[0], task[1]) if task else (None, None)
         finally:
             db.close()
@@ -212,7 +219,7 @@ class KnowledgeTaskManager:
         db = SessionLocal()
         try:
             db.query(KnowledgeTask).filter(
-                KnowledgeTask.id == task_id,
+                KnowledgeTask.id == task_id, KnowledgeTask.environment == TASK_ENVIRONMENT,
                 or_(
                     KnowledgeTask.status == "SUCCEEDED",
                     and_(KnowledgeTask.status == "FAILED", KnowledgeTask.error_code == "SOURCE_CHANGED"),
@@ -226,6 +233,7 @@ class KnowledgeTaskManager:
         db = SessionLocal()
         try:
             ids = [row[0] for row in db.query(KnowledgeTask.id).filter(
+                KnowledgeTask.environment == TASK_ENVIRONMENT,
                 KnowledgeTask.checkpoint_cleaned_at.is_(None),
                 or_(
                     KnowledgeTask.status == "SUCCEEDED",

@@ -10,6 +10,7 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
 from database import Base
+from services.task_environment import TASK_ENVIRONMENT
 
 
 class TranscriptionBatch(Base):
@@ -17,7 +18,7 @@ class TranscriptionBatch(Base):
     __table_args__ = (
         Index(
             "uq_transcription_active_user_date",
-            "user_id",
+            "environment", "user_id",
             "diary_date",
             unique=True,
             postgresql_where=text("status IN ('QUEUED', 'PROCESSING', 'PARTIAL_FAILED', 'FINALIZING')"),
@@ -26,6 +27,7 @@ class TranscriptionBatch(Base):
     )
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    environment = Column(String(32), nullable=False, default=TASK_ENVIRONMENT)
     user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
     diary_date = Column(Date, nullable=True)
     base_text = Column(Text, nullable=True)
