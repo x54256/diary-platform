@@ -41,7 +41,13 @@ class KnowledgeAIError(RuntimeError):
         self.code = code
 
 
-def parse_and_validate(raw: str, event_nos: list[int], fallback_occurred_on: str) -> list[dict[str, Any]]:
+def parse_and_validate(
+    raw: str,
+    event_nos: list[int],
+    fallback_occurred_on: str,
+    *,
+    require_coverage: bool = True,
+) -> list[dict[str, Any]]:
     def reject_duplicate(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
         result: dict[str, Any] = {}
         for key, value in pairs:
@@ -80,9 +86,12 @@ def parse_and_validate(raw: str, event_nos: list[int], fallback_occurred_on: str
     output: list[dict[str, Any]] = []
     for index, item in enumerate(data["results"]):
         path = f"results[{index}]"
+        expected_fields = {"event_no", "title", "content", "occurred_on", "occurred_time"}
+        if require_coverage:
+            expected_fields.add("coverage")
         item = validate_fields(
             item,
-            {"event_no", "title", "content", "occurred_on", "occurred_time"},
+            expected_fields,
             path,
         )
         if type(item["event_no"]) is not int or item["event_no"] != event_nos[index]:
@@ -102,6 +111,22 @@ def parse_and_validate(raw: str, event_nos: list[int], fallback_occurred_on: str
         ):
             raise ValueError(f"{path}.content 必须是非空字符串数组")
         item["content"] = [paragraph.strip() for paragraph in content]
+        if require_coverage:
+            coverage = item["coverage"]
+            if not isinstance(coverage, list):
+                raise ValueError(f"{path}.coverage 必须是数组")
+            normalized_coverage: list[dict[str, str]] = []
+            for coverage_index, entry in enumerate(coverage):
+                coverage_path = f"{path}.coverage[{coverage_index}]"
+                if not isinstance(entry, dict) or set(entry) != {"source", "kept"}:
+                    raise ValueError(f"{coverage_path} 字段不匹配")
+                source, kept = entry["source"], entry["kept"]
+                if not isinstance(source, str) or not source.strip():
+                    raise ValueError(f"{coverage_path}.source 不合法")
+                if not isinstance(kept, str) or not kept.strip() or kept == "null":
+                    raise ValueError(f"{coverage_path}.kept 不合法")
+                normalized_coverage.append({"source": source.strip(), "kept": kept.strip()})
+            item["coverage"] = normalized_coverage
         occurred_on = item["occurred_on"]
         try:
             normalized_date = date.fromisoformat(occurred_on) if isinstance(occurred_on, str) else None
@@ -225,6 +250,7 @@ def parse_and_validate_review(
         json.dumps(final_payload, ensure_ascii=False),
         event_nos,
         fallback_occurred_on,
+        require_coverage=False,
     )
     output: list[dict[str, Any]] = []
     ordered_fields = ("title", "content", "occurred_on", "occurred_time")

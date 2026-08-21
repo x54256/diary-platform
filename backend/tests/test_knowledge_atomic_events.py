@@ -64,6 +64,7 @@ def valid_payload(event_no=1):
             "content": ["我去商店买了酱油。"],
             "occurred_on": "2026-08-11",
             "occurred_time": None,
+            "coverage": [{"source": "我去商店买酱油", "kept": "我去商店买了酱油。"}],
         }],
     }
 
@@ -80,7 +81,14 @@ def review_input():
 
 
 def review_output(*, issues=None, **changes):
-    result = {"issues": issues or [], **valid_payload()["results"][0]}
+    result = {
+        "issues": issues or [],
+        **{
+            key: value
+            for key, value in valid_payload()["results"][0].items()
+            if key != "coverage"
+        },
+    }
     result.update(changes)
     return {"results": [result]}
 
@@ -228,13 +236,22 @@ def test_review_valid_quote_passes_without_warning(caplog):
     assert "source_quote" not in caplog.text
 
 
-def test_atomic_event_coverage_field_is_warned_and_dropped(caplog):
+def test_atomic_event_coverage_field_is_preserved():
     payload = valid_payload()
-    payload["results"][0]["coverage"] = [{"source": "我去商店", "kept": "我去商店买了酱油。"}]
-    with caplog.at_level(logging.WARNING, logger="ai_pipeline"):
-        result = parse_and_validate(json.dumps(payload, ensure_ascii=False), [1], "2026-08-11")
-    assert "coverage" not in result[0]
-    assert "忽略模型多余字段" in caplog.text
+    result = parse_and_validate(json.dumps(payload, ensure_ascii=False), [1], "2026-08-11")
+    assert result[0]["coverage"] == payload["results"][0]["coverage"]
+
+
+@pytest.mark.parametrize("coverage", [
+    [{"source": "我去商店", "kept": None}],
+    [{"source": "", "kept": "我去商店买了酱油。"}],
+    [{"source": "我去商店"}],
+])
+def test_atomic_event_coverage_rejects_invalid_structure(coverage):
+    payload = valid_payload()
+    payload["results"][0]["coverage"] = coverage
+    with pytest.raises(ValueError):
+        parse_and_validate(json.dumps(payload, ensure_ascii=False), [1], "2026-08-11")
 
 
 @pytest.mark.parametrize(("output", "expected_content", "expected_issues"), [

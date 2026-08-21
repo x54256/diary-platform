@@ -1064,16 +1064,6 @@ const loadDiary = async () => {
   try {
     diary.value = await api<Diary>(`/diaries/${diaryId.value}`)
     await loadAnnotations()
-    const eventId = route.query.event as string | undefined
-    if (eventId) {
-      await nextTick()
-      const target = document.getElementById(`event-${eventId}`)
-      target?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-      if (target) {
-        target.classList.add('favorite-event-highlight')
-        window.setTimeout(() => target.classList.remove('favorite-event-highlight'), 1600)
-      }
-    }
   } catch (err) {
     console.error('加载日记失败', err)
     diary.value = null
@@ -1081,8 +1071,19 @@ const loadDiary = async () => {
   } finally {
     loading.value = false
     await nextTick()
+    await scrollToEventAnchor()
     updateStickyEventTitle()
   }
+}
+
+const scrollToEventAnchor = async () => {
+  if (!route.hash.startsWith('#event-')) return
+  await nextTick()
+  const target = document.getElementById(route.hash.slice(1))
+  if (!target) return
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  target.classList.add('favorite-event-highlight')
+  window.setTimeout(() => target.classList.remove('favorite-event-highlight'), 1600)
 }
 
 const toggleDiaryFavorite = async () => {

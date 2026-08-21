@@ -19,15 +19,14 @@
             {{ formatDateInAppTimeZone(diaryGroup.diaryDate) }} ·《{{ diaryGroup.diaryTitle || '未命名日记' }}》
           </h2>
           <section v-for="eventGroup in diaryGroup.eventGroups" :key="eventGroup.sourceEventId" class="space-y-3">
-            <h3 class="text-sm font-medium text-neutral-500">{{ eventGroup.sourceEventTitle || '未命名事件' }}</h3>
             <NuxtLink
               v-for="event in eventGroup.items"
               :key="event.id"
               :to="`/knowledge/events/${event.id}`"
               class="block rounded-xl border border-neutral-100 bg-white p-4 shadow-sm active:bg-neutral-50"
             >
-              <div class="flex items-start justify-between gap-4">
-                <h4 class="min-w-0 text-sm font-medium text-neutral-800">{{ event.title }}</h4>
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="min-w-0 truncate text-sm font-medium text-neutral-500">{{ eventGroup.sourceEventTitle || '未命名事件' }}</h3>
                 <time class="shrink-0 text-xs text-neutral-400">{{ formatKnowledgeDateTime(event.occurred_on, event.occurred_time) }}</time>
               </div>
               <p class="mt-2 line-clamp-3 whitespace-pre-wrap text-sm leading-6 text-neutral-600">{{ knowledgePlainText(event.content) }}</p>

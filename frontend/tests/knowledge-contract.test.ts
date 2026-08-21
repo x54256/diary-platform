@@ -38,6 +38,11 @@ test('知识列表和详情展示来源日记日期与事件标题', () => {
   assert.match(types, /source_event_title\?: string \| null/)
 })
 
+test('知识事件来源链接携带原日记事件 ID', () => {
+  const detail = read('pages/knowledge/events/[id].vue')
+  assert.match(detail, /`\/diary\/\$\{event\.diary_id\}#event-\$\{event\.source_diary_event_id\}`/)
+})
+
 test('知识列表按日记和原结构化事件分组展示', () => {
   const list = read('pages/knowledge/index.vue')
   const types = read('types/knowledge.ts')
