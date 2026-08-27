@@ -13,6 +13,13 @@
           <h2 class="text-sm font-medium text-neutral-500">事件内容</h2>
           <p class="mt-2 whitespace-pre-wrap rounded-xl bg-white p-4 text-base leading-7 text-neutral-700 shadow-sm">{{ knowledgePlainText(event.content) }}</p>
         </section>
+        <NuxtLink v-if="event.matter" :to="`/knowledge/matters/${event.matter.id}`" class="flex items-center justify-between rounded-xl bg-white p-4 shadow-sm active:bg-neutral-50">
+          <div class="min-w-0">
+            <div class="text-xs text-neutral-400">所属事项</div>
+            <div class="mt-1 break-words text-sm leading-6 text-neutral-700">{{ event.matter.name }}</div>
+          </div>
+          <span class="text-neutral-400">›</span>
+        </NuxtLink>
         <NuxtLink :to="`/diary/${event.diary_id}#event-${event.source_diary_event_id}`" class="flex items-center justify-between rounded-xl bg-white p-4 shadow-sm active:bg-neutral-50">
           <div class="min-w-0">
             <div class="text-xs text-neutral-400">来源</div>

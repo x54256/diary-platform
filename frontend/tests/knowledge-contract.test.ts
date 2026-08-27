@@ -71,3 +71,13 @@ test('知识沉淀入口展示后端返回的具体不可用原因', () => {
   assert.doesNotMatch(card, /当前结构化来源不满足沉淀条件/)
   assert.match(types, /unavailable_reason\?: string \| null/)
 })
+
+test('知识事件日记分组提供事项整理入口并轮询升级任务', () => {
+  const list = read('pages/knowledge/index.vue')
+  assert.match(list, /\/knowledge\/matters\/upgrade-status/)
+  assert.match(list, /\/knowledge\/matters\/upgrade'/)
+  assert.match(list, /\/knowledge-tasks\/\$\{task\.id\}/)
+  assert.match(list, /upgradePendingDiaryIds\.has\(diaryGroup\.diaryId\)/)
+  assert.match(list, /整理事项/)
+  assert.match(list, /setInterval\(\(\) => \{ void pollMatterUpgrade\(\) \}, 2000\)/)
+})

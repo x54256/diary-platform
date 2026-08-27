@@ -12,14 +12,18 @@ from sqlalchemy.orm import Session
 
 from database import get_db
 from models.diary import Diary, DiaryEvent, DiaryOrganized, DiaryStatus, OrganizeTask
-from models.knowledge import KnowledgeAtomicEvent, KnowledgeDeposit, KnowledgeTask
+from models.knowledge import KnowledgeAtomicEvent, KnowledgeDeposit, KnowledgeMatter, KnowledgeTask
 from models.user import User
 from schemas.knowledge import (
     DiaryKnowledgeStatusResponse, KnowledgeEventDetail, KnowledgeEventListItem,
-    KnowledgeEventListResponse, KnowledgeTaskResponse,
+    KnowledgeEventListResponse, KnowledgeMatterDetail, KnowledgeMatterEventItem,
+    KnowledgeMatterListItem, KnowledgeMatterListResponse, KnowledgeMatterRef,
+    KnowledgeMatterUpgradeRequest, KnowledgeTaskResponse, KnowledgeUpgradePendingDiary,
+    KnowledgeUpgradeStatusResponse,
 )
 from services.auth import get_current_user
 from services.knowledge_tasks import knowledge_task_manager
+from services.model_management import get_embedding_config
 from services.model_runtime import ModelRuntimeError, resolve_model_setting
 from services.pipeline import cleanup_checkpoint
 from services.task_environment import TASK_ENVIRONMENT
@@ -39,6 +43,9 @@ def _model_configured() -> bool:
     try:
         resolve_model_setting("knowledge", "knowledge_event_extract")
         resolve_model_setting("knowledge", "knowledge_event_review")
+        resolve_model_setting("knowledge", "knowledge_matter_assign")
+        resolve_model_setting("knowledge", "knowledge_matter_overview")
+        get_embedding_config()
         return True
     except ModelRuntimeError:
         return False
@@ -165,8 +172,14 @@ def create_knowledge_deposit(
     try:
         resolve_model_setting("knowledge", "knowledge_event_extract")
         resolve_model_setting("knowledge", "knowledge_event_review")
+        resolve_model_setting("knowledge", "knowledge_matter_assign")
+        resolve_model_setting("knowledge", "knowledge_matter_overview")
     except ModelRuntimeError as exc:
         raise _error("KNOWLEDGE_MODEL_NOT_CONFIGURED", str(exc), 400) from exc
+    try:
+        get_embedding_config()
+    except ModelRuntimeError as exc:
+        raise _error("EMBEDDING_MODEL_NOT_CONFIGURED", "管理员尚未配置向量模型，请先完成配置", 400) from exc
     organized = _source(db, diary)
     task = KnowledgeTask(
         user_id=current_user.id, diary_id=diary.id, source_diary_organized_id=organized.id,
@@ -215,6 +228,10 @@ async def retry_knowledge_task(
         return _task_response(task)
     if task.status != "FAILED":
         raise _error("TASK_NOT_RETRYABLE", "当前任务不能重试", 400)
+    # 事项阶段：PUBLISH 已成功（存在成功记录）的任务失败于事项匹配，首版不提供重试，
+    # 避免重跑发布产生重复知识事件。
+    if db.query(KnowledgeDeposit.diary_id).filter(KnowledgeDeposit.diary_id == task.diary_id).first():
+        raise _error("TASK_NOT_RETRYABLE", "知识事件已发布，事项匹配失败暂不支持重试", 400)
     diary = db.query(Diary).filter(Diary.id == task.diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None)).with_for_update().first()
     if diary and db.query(OrganizeTask.id).filter(
         OrganizeTask.diary_id == diary.id, OrganizeTask.status == "running",
@@ -346,10 +363,175 @@ def get_knowledge_event(
     if not row:
         raise HTTPException(status_code=404, detail="知识事件不存在")
     event, diary_title, diary_summary, diary_date, source_event = row
+    matter_ref = None
+    if event.matter_id:
+        matter = db.query(KnowledgeMatter).filter(
+            KnowledgeMatter.id == event.matter_id, KnowledgeMatter.user_id == current_user.id,
+        ).first()
+        if matter:
+            matter_ref = KnowledgeMatterRef(id=matter.id, name=matter.name)
     return KnowledgeEventDetail(
         id=event.id, diary_id=event.diary_id, source_diary_event_id=event.source_diary_event_id,
         source_event_order=source_event.sort_order, source_order=event.source_order, title=event.title, content=event.content,
         occurred_on=event.occurred_on, occurred_time=event.occurred_time, source_diary_date=diary_date,
         source_diary_title=diary_title, source_event_title=source_event.event_title,
-        source_diary_summary=diary_summary, created_at=event.created_at,
+        source_diary_summary=diary_summary, created_at=event.created_at, matter=matter_ref,
+    )
+
+
+def _encode_matter_cursor(matter: KnowledgeMatter) -> str:
+    raw = json.dumps({
+        "last_event_on": matter.last_event_on.isoformat(),
+        "updated_at": matter.updated_at.isoformat(),
+        "id": str(matter.id),
+    }, separators=(",", ":")).encode()
+    return base64.urlsafe_b64encode(raw).decode().rstrip("=")
+
+
+def _decode_matter_cursor(value: str) -> tuple[date, datetime, UUID]:
+    try:
+        data = json.loads(base64.urlsafe_b64decode(value + "=" * (-len(value) % 4)))
+        return date.fromisoformat(data["last_event_on"]), datetime.fromisoformat(data["updated_at"]), UUID(data["id"])
+    except Exception as exc:
+        raise _error("INVALID_CURSOR", "分页游标不合法", 400) from exc
+
+
+@router.get("/knowledge/matters", response_model=KnowledgeMatterListResponse)
+def list_knowledge_matters(
+    limit: int = Query(20, ge=1, le=50), cursor: str | None = None,
+    db: Session = Depends(get_db), current_user: User = Depends(get_current_user),
+):
+    query = db.query(KnowledgeMatter).filter(KnowledgeMatter.user_id == current_user.id)
+    if cursor:
+        cursor_on, cursor_updated, cursor_id = _decode_matter_cursor(cursor)
+        query = query.filter(or_(
+            KnowledgeMatter.last_event_on < cursor_on,
+            and_(KnowledgeMatter.last_event_on == cursor_on, KnowledgeMatter.updated_at < cursor_updated),
+            and_(
+                KnowledgeMatter.last_event_on == cursor_on,
+                KnowledgeMatter.updated_at == cursor_updated,
+                KnowledgeMatter.id < cursor_id,
+            ),
+        ))
+    rows = query.order_by(
+        KnowledgeMatter.last_event_on.desc(), KnowledgeMatter.updated_at.desc(), KnowledgeMatter.id.desc(),
+    ).limit(limit + 1).all()
+    has_more = len(rows) > limit
+    rows = rows[:limit]
+    items = [KnowledgeMatterListItem(
+        id=matter.id, name=matter.name, status=matter.status, overview=matter.overview,
+        event_count=matter.event_count, last_event_on=matter.last_event_on,
+    ) for matter in rows]
+    return {"items": items, "next_cursor": _encode_matter_cursor(rows[-1]) if has_more and rows else None}
+
+
+@router.post("/knowledge/matters/upgrade", response_model=KnowledgeTaskResponse, status_code=status.HTTP_202_ACCEPTED)
+def create_matter_upgrade(
+    payload: KnowledgeMatterUpgradeRequest,
+    db: Session = Depends(get_db), current_user: User = Depends(get_current_user),
+):
+    """对已完成 ATOMIC_EVENTS 的单篇日记创建事项升级任务（5.4）。"""
+    diary = db.query(Diary).filter(
+        Diary.id == payload.diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None),
+    ).with_for_update().first()
+    if not diary:
+        raise HTTPException(status_code=404, detail="日记不存在")
+    deposit = db.query(KnowledgeDeposit).filter(
+        KnowledgeDeposit.diary_id == diary.id, KnowledgeDeposit.user_id == current_user.id,
+    ).first()
+    if not deposit:
+        raise _error("NOT_DEPOSITED", "该日记尚未沉淀知识事件", 400)
+    if deposit.completed_stage == "MATTERS":
+        raise _error("ALREADY_UPGRADED", "该日记已完成事项整理")
+    active = db.query(KnowledgeTask).filter(
+        KnowledgeTask.environment == TASK_ENVIRONMENT,
+        KnowledgeTask.user_id == current_user.id, KnowledgeTask.status.in_(("QUEUED", "RUNNING")),
+    ).order_by(KnowledgeTask.created_at.desc()).first()
+    if active:
+        if active.task_type == "UPGRADE" and active.diary_id == diary.id:
+            return _task_response(active)
+        raise _error("ACTIVE_TASK_EXISTS", "当前已有其他知识任务正在执行")
+    try:
+        resolve_model_setting("knowledge", "knowledge_matter_assign")
+        resolve_model_setting("knowledge", "knowledge_matter_overview")
+    except ModelRuntimeError as exc:
+        raise _error("KNOWLEDGE_MODEL_NOT_CONFIGURED", str(exc), 400) from exc
+    try:
+        get_embedding_config()
+    except ModelRuntimeError as exc:
+        raise _error("EMBEDDING_MODEL_NOT_CONFIGURED", "管理员尚未配置向量模型，请先完成配置", 400) from exc
+    task = KnowledgeTask(
+        user_id=current_user.id, diary_id=diary.id,
+        source_diary_organized_id=deposit.source_diary_organized_id,
+        source_structured_revision=deposit.source_structured_revision,
+        task_type="UPGRADE", status="QUEUED", available_at=datetime.utcnow(),
+    )
+    db.add(task)
+    try:
+        db.commit()
+    except IntegrityError as exc:
+        db.rollback()
+        existing = db.query(KnowledgeTask).filter(
+            KnowledgeTask.environment == TASK_ENVIRONMENT,
+            KnowledgeTask.user_id == current_user.id, KnowledgeTask.status.in_(("QUEUED", "RUNNING")),
+        ).first()
+        if existing and existing.task_type == "UPGRADE" and existing.diary_id == diary.id:
+            return _task_response(existing)
+        raise _error("ACTIVE_TASK_EXISTS", "当前已有其他知识任务正在执行") from exc
+    db.refresh(task)
+    knowledge_task_manager.wake()
+    return _task_response(task)
+
+
+@router.get("/knowledge/matters/upgrade-status", response_model=KnowledgeUpgradeStatusResponse)
+def get_matter_upgrade_status(
+    db: Session = Depends(get_db), current_user: User = Depends(get_current_user),
+):
+    """待升级日记列表与当前活动任务，驱动事件页的"整理事项"入口。"""
+    rows = db.query(KnowledgeDeposit, Diary, DiaryOrganized.title).join(
+        Diary, Diary.id == KnowledgeDeposit.diary_id,
+    ).join(
+        DiaryOrganized, DiaryOrganized.id == KnowledgeDeposit.source_diary_organized_id,
+    ).filter(
+        KnowledgeDeposit.user_id == current_user.id,
+        KnowledgeDeposit.completed_stage == "ATOMIC_EVENTS",
+        Diary.deleted_at.is_(None),
+    ).order_by(KnowledgeDeposit.deposited_at.asc()).all()
+    pending = [KnowledgeUpgradePendingDiary(
+        diary_id=deposit.diary_id, diary_date=diary.diary_date, diary_title=diary_title,
+    ) for deposit, diary, diary_title in rows]
+    active = db.query(KnowledgeTask).filter(
+        KnowledgeTask.environment == TASK_ENVIRONMENT,
+        KnowledgeTask.user_id == current_user.id, KnowledgeTask.status.in_(("QUEUED", "RUNNING")),
+    ).order_by(KnowledgeTask.created_at.desc()).first()
+    return {
+        "pending_diaries": pending,
+        "active_task": _task_response(active) if active else None,
+    }
+
+
+@router.get("/knowledge/matters/{matter_id}", response_model=KnowledgeMatterDetail)
+def get_knowledge_matter(
+    matter_id: UUID, db: Session = Depends(get_db), current_user: User = Depends(get_current_user),
+):
+    matter = db.query(KnowledgeMatter).filter(
+        KnowledgeMatter.id == matter_id, KnowledgeMatter.user_id == current_user.id,
+    ).first()
+    if not matter:
+        raise HTTPException(status_code=404, detail="事项不存在")
+    event_rows = db.query(KnowledgeAtomicEvent).filter(
+        KnowledgeAtomicEvent.matter_id == matter.id, KnowledgeAtomicEvent.user_id == current_user.id,
+    ).order_by(
+        KnowledgeAtomicEvent.occurred_on.desc(),
+        KnowledgeAtomicEvent.occurred_time.desc().nullslast(),
+        KnowledgeAtomicEvent.id.desc(),
+    ).all()
+    events = [KnowledgeMatterEventItem(
+        id=event.id, title=event.title, occurred_on=event.occurred_on, occurred_time=event.occurred_time,
+        first_paragraph=(event.content[0] if event.content else ""),
+    ) for event in event_rows]
+    return KnowledgeMatterDetail(
+        id=matter.id, name=matter.name, status=matter.status, overview=matter.overview,
+        started_on=matter.started_on, last_event_on=matter.last_event_on,
+        event_count=matter.event_count, created_at=matter.created_at, events=events,
     )

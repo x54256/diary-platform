@@ -61,6 +61,8 @@ STEP_SETTING_KEYS = {
     "review_analysis_action": "review",
     "knowledge_event_extract": "knowledge",
     "knowledge_event_review": "knowledge",
+    "knowledge_matter_assign": "knowledge",
+    "knowledge_matter_overview": "knowledge",
 }
 STEP_LABELS = {
     "text_clean": "文本清洗",
@@ -79,6 +81,8 @@ STEP_LABELS = {
     "review_analysis_action": "回顾分析与行动",
     "knowledge_event_extract": "原子事件提取",
     "knowledge_event_review": "知识事件复核",
+    "knowledge_matter_assign": "事项匹配判定",
+    "knowledge_matter_overview": "事项全览生成",
 }
 
 

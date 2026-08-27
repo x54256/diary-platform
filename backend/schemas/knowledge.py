@@ -11,6 +11,7 @@ class KnowledgeTaskResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     id: UUID
     diary_id: UUID
+    task_type: Literal["DEPOSIT", "UPGRADE"] = "DEPOSIT"
     status: Literal["QUEUED", "RUNNING", "SUCCEEDED", "FAILED"]
     current_step: str | None = None
     retry_count: int
@@ -54,3 +55,58 @@ class KnowledgeEventListResponse(BaseModel):
 
 class KnowledgeEventDetail(KnowledgeEventListItem):
     source_diary_summary: str | None = None
+    matter: "KnowledgeMatterRef | None" = None
+
+
+class KnowledgeMatterRef(BaseModel):
+    id: UUID
+    name: str
+
+
+class KnowledgeMatterListItem(BaseModel):
+    id: UUID
+    name: str
+    status: Literal["ONGOING", "ENDED", "PAUSED"]
+    overview: str
+    event_count: int
+    last_event_on: date
+
+
+class KnowledgeMatterListResponse(BaseModel):
+    items: list[KnowledgeMatterListItem]
+    next_cursor: str | None = None
+
+
+class KnowledgeMatterEventItem(BaseModel):
+    id: UUID
+    title: str
+    occurred_on: date
+    occurred_time: time | None = None
+    first_paragraph: str
+
+
+class KnowledgeMatterDetail(BaseModel):
+    id: UUID
+    name: str
+    status: Literal["ONGOING", "ENDED", "PAUSED"]
+    overview: str
+    started_on: date
+    last_event_on: date
+    event_count: int
+    created_at: datetime
+    events: list[KnowledgeMatterEventItem]
+
+
+class KnowledgeMatterUpgradeRequest(BaseModel):
+    diary_id: UUID
+
+
+class KnowledgeUpgradePendingDiary(BaseModel):
+    diary_id: UUID
+    diary_date: date
+    diary_title: str | None = None
+
+
+class KnowledgeUpgradeStatusResponse(BaseModel):
+    pending_diaries: list[KnowledgeUpgradePendingDiary]
+    active_task: KnowledgeTaskResponse | None = None

@@ -3,6 +3,7 @@ export type KnowledgeTaskStatus = 'QUEUED' | 'RUNNING' | 'SUCCEEDED' | 'FAILED'
 export interface KnowledgeTask {
   id: string
   diary_id: string
+  task_type: 'DEPOSIT' | 'UPGRADE'
   status: KnowledgeTaskStatus
   current_step?: string | null
   retry_count: number
@@ -34,10 +35,66 @@ export interface KnowledgeEvent {
   source_diary_title?: string | null
   source_event_title?: string | null
   source_diary_summary?: string | null
+  matter?: KnowledgeMatterRef | null
   created_at: string
+}
+
+export type KnowledgeMatterStatus = 'ONGOING' | 'ENDED' | 'PAUSED'
+
+export interface KnowledgeMatterRef {
+  id: string
+  name: string
+}
+
+export interface KnowledgeMatter {
+  id: string
+  name: string
+  status: KnowledgeMatterStatus
+  overview: string
+  started_on: string
+  last_event_on: string
+  event_count: number
+  created_at: string
+}
+
+export interface KnowledgeMatterListItem {
+  id: string
+  name: string
+  status: KnowledgeMatterStatus
+  overview: string
+  event_count: number
+  last_event_on: string
+}
+
+export interface KnowledgeMatterListResponse {
+  items: KnowledgeMatterListItem[]
+  next_cursor?: string | null
+}
+
+export interface KnowledgeMatterEventItem {
+  id: string
+  title: string
+  occurred_on: string
+  occurred_time?: string | null
+  first_paragraph: string
+}
+
+export interface KnowledgeMatterDetail extends KnowledgeMatter {
+  events: KnowledgeMatterEventItem[]
 }
 
 export interface KnowledgeEventListResponse {
   items: KnowledgeEvent[]
   next_cursor?: string | null
+}
+
+export interface KnowledgeUpgradePendingDiary {
+  diary_id: string
+  diary_date: string
+  diary_title?: string | null
+}
+
+export interface KnowledgeUpgradeStatusResponse {
+  pending_diaries: KnowledgeUpgradePendingDiary[]
+  active_task?: KnowledgeTask | null
 }

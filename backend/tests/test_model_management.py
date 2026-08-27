@@ -83,7 +83,7 @@ class ModelSettingRuleTest(unittest.TestCase):
         self.assertEqual(sum(value == "organize" for value in STEP_SETTING_KEYS.values()), 5)
         self.assertEqual(sum(value == "analysis" for value in STEP_SETTING_KEYS.values()), 6)
         self.assertEqual(sum(value == "review" for value in STEP_SETTING_KEYS.values()), 3)
-        self.assertEqual(sum(value == "knowledge" for value in STEP_SETTING_KEYS.values()), 2)
+        self.assertEqual(sum(value == "knowledge" for value in STEP_SETTING_KEYS.values()), 4)
 
 
 class ModelListQueryRuleTest(unittest.TestCase):

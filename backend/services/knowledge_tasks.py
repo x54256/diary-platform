@@ -10,7 +10,9 @@ from sqlalchemy import and_, or_
 from database import SessionLocal
 from models.knowledge import KnowledgeTask
 from services.knowledge_ai import KnowledgeAIError
-from services.knowledge_workflow import KnowledgeOwnershipLost, KnowledgeWorkflowError, run_knowledge_graph
+from services.knowledge_workflow import (
+    KnowledgeOwnershipLost, KnowledgeWorkflowError, run_knowledge_graph, run_upgrade_matching,
+)
 from services.pipeline import cleanup_checkpoint
 from services.task_environment import TASK_ENVIRONMENT
 
@@ -122,7 +124,13 @@ class KnowledgeTaskManager:
 
     async def _run_one(self, task_id: UUID, run_token: UUID) -> None:
         heartbeat = asyncio.create_task(self._heartbeat(task_id, run_token))
-        graph = asyncio.create_task(run_knowledge_graph(task_id, run_token))
+        # 按任务类型分流：DEPOSIT 走完整 LangGraph 图；UPGRADE 直接执行事项匹配。
+        work_coro = (
+            run_upgrade_matching(task_id, run_token)
+            if self._task_type(task_id) == "UPGRADE"
+            else run_knowledge_graph(task_id, run_token)
+        )
+        graph = asyncio.create_task(work_coro)
         try:
             done, _pending = await asyncio.wait(
                 {graph, heartbeat}, return_when=asyncio.FIRST_COMPLETED,
@@ -197,6 +205,16 @@ class KnowledgeTaskManager:
             db.rollback()
             logger.exception("更新知识任务失败状态失败", extra={"task_id": str(task_id)})
             return False
+        finally:
+            db.close()
+
+    def _task_type(self, task_id: UUID) -> str:
+        db = SessionLocal()
+        try:
+            row = db.query(KnowledgeTask.task_type).filter(
+                KnowledgeTask.id == task_id, KnowledgeTask.environment == TASK_ENVIRONMENT,
+            ).first()
+            return row[0] if row and row[0] else "DEPOSIT"
         finally:
             db.close()
 

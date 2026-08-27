@@ -15,11 +15,14 @@ from models.knowledge import KnowledgeAtomicEvent, KnowledgeDeposit, KnowledgeEv
 from services.knowledge_ai import (
     REVIEW_SYSTEM_PROMPT,
     SYSTEM_PROMPT,
+    KnowledgeAIError,
     extract_atomic_events,
     freeze_model_config,
     review_knowledge_events,
 )
+from services.knowledge_matters import compute_event_embeddings, match_task_matters
 from services.llm_metrics import estimate_prompt_tokens
+from services.model_management import get_embedding_config
 from services.model_runtime import ModelRuntimeError, resolve_model_setting
 from services.pipeline import get_checkpointer
 from services.task_environment import TASK_ENVIRONMENT
@@ -43,6 +46,8 @@ class KnowledgeState(TypedDict, total=False):
     source_structured_revision: int
     frozen_model_config: dict[str, Any]
     frozen_review_model_config: dict[str, Any]
+    frozen_assign_model_config: dict[str, Any]
+    frozen_overview_model_config: dict[str, Any]
     frozen_diary_date: str
     frozen_events: list[dict[str, Any]]
     batches: list[list[int]]
@@ -157,14 +162,22 @@ async def validate_source(state: KnowledgeState) -> dict[str, Any]:
         try:
             model = resolve_model_setting("knowledge", "knowledge_event_extract")
             review_model = resolve_model_setting("knowledge", "knowledge_event_review")
+            assign_model = resolve_model_setting("knowledge", "knowledge_matter_assign")
+            overview_model = resolve_model_setting("knowledge", "knowledge_matter_overview")
         except ModelRuntimeError as exc:
             raise KnowledgeWorkflowError("KNOWLEDGE_MODEL_NOT_CONFIGURED", str(exc)) from exc
+        try:
+            get_embedding_config()
+        except ModelRuntimeError as exc:
+            raise KnowledgeWorkflowError("EMBEDDING_MODEL_NOT_CONFIGURED", str(exc)) from exc
         return {
             "user_id": str(task.user_id),
             "diary_id": str(task.diary_id),
             "source_structured_revision": task.source_structured_revision,
             "frozen_model_config": freeze_model_config(model),
             "frozen_review_model_config": freeze_model_config(review_model),
+            "frozen_assign_model_config": freeze_model_config(assign_model),
+            "frozen_overview_model_config": freeze_model_config(overview_model),
             "frozen_diary_date": diary.diary_date.isoformat(),
             "frozen_events": frozen,
             "next_batch_index": 0,
@@ -315,6 +328,11 @@ async def publish(state: KnowledgeState) -> dict[str, Any]:
         ).order_by(DiaryEvent.sort_order, DiaryEvent.id).all()
         if sorted(result_by_event) != expected or len(source_events) != len(expected):
             raise KnowledgeWorkflowError("MODEL_OUTPUT_INVALID", "知识事件结果未完整覆盖来源")
+        embedding_items = [
+            {"title": result_by_event[event_no]["title"], "content": result_by_event[event_no]["content"]}
+            for event_no in expected
+        ]
+        embeddings = compute_event_embeddings(embedding_items)
         now = datetime.utcnow()
         db.add(KnowledgeDeposit(
             diary_id=diary.id, user_id=task.user_id, task_id=task.id,
@@ -333,7 +351,7 @@ async def publish(state: KnowledgeState) -> dict[str, Any]:
                 source_diary_event_id=source_id, source_order=0,
                 title=result["title"], content=result["content"],
                 occurred_on=datetime.strptime(result["occurred_on"], "%Y-%m-%d").date(),
-                occurred_time=occurred_time, created_at=now,
+                occurred_time=occurred_time, embedding=embeddings[event_no - 1], created_at=now,
             ))
             db.add(KnowledgeEventReview(
                 id=uuid4(), knowledge_event_id=knowledge_event_id, task_id=task.id,
@@ -344,11 +362,8 @@ async def publish(state: KnowledgeState) -> dict[str, Any]:
                 ),
                 created_at=now,
             ))
-        task.status = "SUCCEEDED"
-        task.lease_until = None
-        task.completed_at = now
-        task.error_code = None
-        task.error_message = None
+        # 事项阶段：PUBLISH 不再置任务成功，任务保持 RUNNING 并推进到 MATCH_MATTERS，
+        # 成功状态由 MATCH_MATTERS 提交时设置。
         task.updated_at = now
         db.commit()
         return {}
@@ -362,6 +377,59 @@ async def publish(state: KnowledgeState) -> dict[str, Any]:
         db.close()
 
 
+async def match_matters(state: KnowledgeState) -> dict[str, Any]:
+    _set_step(state["task_id"], "MATCH_MATTERS")
+    run_token = _runtime_token.get()
+    if run_token is None:
+        raise KnowledgeOwnershipLost()
+    try:
+        await match_task_matters(
+            state["task_id"],
+            run_token,
+            state["frozen_assign_model_config"],
+            state["frozen_overview_model_config"],
+        )
+    except KnowledgeAIError as exc:
+        if exc.code == "OWNERSHIP_LOST":
+            raise KnowledgeOwnershipLost() from exc
+        code = "MATTER_MATCH_FAILED" if exc.code == "LLM_CALL_FAILED" else exc.code
+        raise KnowledgeWorkflowError(code, str(exc)) from exc
+    return {}
+
+
+async def run_upgrade_matching(task_id: UUID, run_token: UUID) -> None:
+    """UPGRADE 任务执行入口：不走 LangGraph 图，直接对目标日记执行事项匹配。
+
+    模型配置在执行时现场解析（升级任务不经过 VALIDATE_SOURCE 冻结）。
+    """
+    token = _runtime_token.set(run_token)
+    try:
+        _set_step(str(task_id), "MATCH_MATTERS")
+        try:
+            assign_model = resolve_model_setting("knowledge", "knowledge_matter_assign")
+            overview_model = resolve_model_setting("knowledge", "knowledge_matter_overview")
+        except ModelRuntimeError as exc:
+            raise KnowledgeWorkflowError("KNOWLEDGE_MODEL_NOT_CONFIGURED", str(exc)) from exc
+        try:
+            get_embedding_config()
+        except ModelRuntimeError as exc:
+            raise KnowledgeWorkflowError("EMBEDDING_MODEL_NOT_CONFIGURED", str(exc)) from exc
+        try:
+            await match_task_matters(
+                str(task_id),
+                run_token,
+                freeze_model_config(assign_model),
+                freeze_model_config(overview_model),
+            )
+        except KnowledgeAIError as exc:
+            if exc.code == "OWNERSHIP_LOST":
+                raise KnowledgeOwnershipLost() from exc
+            code = "MATTER_MATCH_FAILED" if exc.code == "LLM_CALL_FAILED" else exc.code
+            raise KnowledgeWorkflowError(code, str(exc)) from exc
+    finally:
+        _runtime_token.reset(token)
+
+
 def _builder() -> StateGraph:
     builder = StateGraph(KnowledgeState)
     builder.add_node("VALIDATE_SOURCE", validate_source)
@@ -370,6 +438,7 @@ def _builder() -> StateGraph:
     builder.add_node("PREPARE_REVIEW_BATCHES", prepare_review_batches)
     builder.add_node("REVIEW_BATCH", review_batch)
     builder.add_node("PUBLISH", publish)
+    builder.add_node("MATCH_MATTERS", match_matters)
     builder.add_edge(START, "VALIDATE_SOURCE")
     builder.add_edge("VALIDATE_SOURCE", "PREPARE_BATCHES")
     builder.add_edge("PREPARE_BATCHES", "EXTRACT_BATCH")
@@ -384,7 +453,8 @@ def _builder() -> StateGraph:
         _after_review,
         {"REVIEW_BATCH": "REVIEW_BATCH", "PUBLISH": "PUBLISH"},
     )
-    builder.add_edge("PUBLISH", END)
+    builder.add_edge("PUBLISH", "MATCH_MATTERS")
+    builder.add_edge("MATCH_MATTERS", END)
     return builder
 
 
