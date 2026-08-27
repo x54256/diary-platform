@@ -403,6 +403,20 @@ async def match_task_matters(
             .order_by(KnowledgeAtomicEvent.occurred_on, KnowledgeAtomicEvent.id)
             .all()
         )
+        if not rows:
+            if not deposit:
+                raise KnowledgeAIError("MATTER_MATCH_FAILED", "成功沉淀记录不存在")
+            now = datetime.utcnow()
+            deposit.completed_stage = "MATTERS"
+            deposit.updated_at = now
+            task.status = "SUCCEEDED"
+            task.lease_until = None
+            task.completed_at = now
+            task.error_code = None
+            task.error_message = None
+            task.updated_at = now
+            db.commit()
+            return
         batch: list[dict[str, Any]] = [
             {
                 "id": row.id,
@@ -417,9 +431,6 @@ async def match_task_matters(
         ]
     finally:
         db.close()
-    if not batch:
-        return
-
     matters: dict[str, _MatterState] = {}
     new_counter = 0
     by_event_no = {item["event_no"]: item for item in batch}

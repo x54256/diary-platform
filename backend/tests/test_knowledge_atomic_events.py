@@ -18,7 +18,15 @@ from services.knowledge_ai import (
     parse_and_validate_review,
     review_knowledge_events,
 )
-from services.knowledge_workflow import KnowledgeState, plan_event_batches, plan_review_batches, review_batch
+from services.knowledge_workflow import (
+    KnowledgeState,
+    _after_prepare,
+    _eligible_source_events,
+    _model_event,
+    plan_event_batches,
+    plan_review_batches,
+    review_batch,
+)
 from services.model_runtime import RuntimeModelConfig
 from services.model_management import SETTING_KEYS, STEP_SETTING_KEYS
 from utils.llm_log import LLM_LOG_BODY_LIMIT
@@ -152,6 +160,38 @@ def test_batching_preserves_every_complete_event(monkeypatch):
     batches = plan_event_batches(events, "2026-08-11", "test", 260)
     assert [event_no for batch in batches for event_no in batch] == [1, 2, 3]
     assert batches[-1] == [3]
+
+
+def test_knowledge_deposit_only_keeps_effective_high_and_medium_events():
+    ai_high = SimpleNamespace(user_importance=None, ai_importance="HIGH")
+    ai_medium = SimpleNamespace(user_importance=None, ai_importance="MEDIUM")
+    ai_low = SimpleNamespace(user_importance=None, ai_importance="LOW")
+    user_lowers_ai_high = SimpleNamespace(user_importance="LOW", ai_importance="HIGH")
+    user_raises_ai_low = SimpleNamespace(user_importance="HIGH", ai_importance="LOW")
+    missing = SimpleNamespace(user_importance=None, ai_importance=None)
+
+    assert _eligible_source_events([
+        ai_high, ai_medium, ai_low, user_lowers_ai_high, user_raises_ai_low, missing,
+    ]) == [ai_high, ai_medium, user_raises_ai_low]
+
+
+def test_zero_eligible_events_skip_model_stages_and_route_to_publish():
+    assert _after_prepare({"batches": []}) == "PUBLISH"
+    assert _after_prepare({"batches": [[1]]}) == "EXTRACT_BATCH"
+
+
+def test_model_event_excludes_internal_source_id():
+    event = {
+        "event_no": 1,
+        "source_diary_event_id": str(uuid4()),
+        "title": "完成验证",
+        "body": ["已完成验证。"],
+    }
+    assert _model_event(event) == {
+        "event_no": 1,
+        "title": "完成验证",
+        "body": ["已完成验证。"],
+    }
 
 
 def test_review_output_accepts_unchanged_candidate_without_issues():

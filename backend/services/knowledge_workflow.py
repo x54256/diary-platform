@@ -62,6 +62,21 @@ _runtime_token: ContextVar[UUID | None] = ContextVar("knowledge_run_token", defa
 WORKFLOW_LEASE_SECONDS = 180
 
 
+def _effective_importance(event: DiaryEvent) -> str | None:
+    """用户设置优先于 AI 初始等级。"""
+    return event.user_importance or event.ai_importance
+
+
+def _eligible_source_events(events: list[DiaryEvent]) -> list[DiaryEvent]:
+    """知识沉淀只处理中、高重要性事件。"""
+    return [event for event in events if _effective_importance(event) in {"HIGH", "MEDIUM"}]
+
+
+def _model_event(event: dict[str, Any]) -> dict[str, Any]:
+    """模型仅接收事件编号、标题和正文。"""
+    return {key: event[key] for key in ("event_no", "title", "body")}
+
+
 def _json_list(value: Any) -> list[Any]:
     if isinstance(value, list):
         return value
@@ -150,9 +165,10 @@ async def validate_source(state: KnowledgeState) -> dict[str, Any]:
         if not events:
             raise KnowledgeWorkflowError("EMPTY_STRUCTURED_DIARY", "结构化日记没有事件")
         frozen: list[dict[str, Any]] = []
-        for event_no, event in enumerate(events, start=1):
+        for event_no, event in enumerate(_eligible_source_events(events), start=1):
             item = {
                 "event_no": event_no,
+                "source_diary_event_id": str(event.id),
                 "title": event.event_title or "",
                 "body": _json_list(event.body),
             }
@@ -220,7 +236,7 @@ async def extract_batch(state: KnowledgeState) -> dict[str, Any]:
     batch_index = state["next_batch_index"]
     event_numbers = state["batches"][batch_index]
     wanted = set(event_numbers)
-    events = [event for event in state["frozen_events"] if event["event_no"] in wanted]
+    events = [_model_event(event) for event in state["frozen_events"] if event["event_no"] in wanted]
     payload = {"diary_date": state["frozen_diary_date"], "events": events}
     results = await extract_atomic_events(payload, state["frozen_model_config"])
     _renew_ownership(state["task_id"])
@@ -293,7 +309,7 @@ async def review_batch(state: KnowledgeState) -> dict[str, Any]:
     batch_index = state["next_review_batch_index"]
     event_numbers = state["review_batches"][batch_index]
     wanted = set(event_numbers)
-    events = [event for event in state["frozen_events"] if event["event_no"] in wanted]
+    events = [_model_event(event) for event in state["frozen_events"] if event["event_no"] in wanted]
     candidates = _results_by_event(state["batch_results"], len(state["frozen_events"]))
     items = [{"event": event, "candidate": candidates[event["event_no"]]} for event in events]
     payload = {"diary_date": state["frozen_diary_date"], "items": items}
@@ -312,6 +328,10 @@ def _after_review(state: KnowledgeState) -> str:
     return "REVIEW_BATCH" if state["next_review_batch_index"] < len(state["review_batches"]) else "PUBLISH"
 
 
+def _after_prepare(state: KnowledgeState) -> str:
+    return "EXTRACT_BATCH" if state["batches"] else "PUBLISH"
+
+
 async def publish(state: KnowledgeState) -> dict[str, Any]:
     _set_step(state["task_id"], "PUBLISH")
     db = SessionLocal()
@@ -323,16 +343,18 @@ async def publish(state: KnowledgeState) -> dict[str, Any]:
         candidate_by_event = _results_by_event(state["batch_results"], len(state["frozen_events"]))
         result_by_event = _results_by_event(state["review_batch_results"], len(state["frozen_events"]))
         expected = list(range(1, len(state["frozen_events"]) + 1))
-        source_events = db.query(DiaryEvent).filter(
+        source_rows = db.query(DiaryEvent).filter(
             DiaryEvent.diary_organized_id == organized.id,
         ).order_by(DiaryEvent.sort_order, DiaryEvent.id).all()
-        if sorted(result_by_event) != expected or len(source_events) != len(expected):
+        source_by_id = {str(event.id): event for event in source_rows}
+        source_events = [source_by_id.get(event["source_diary_event_id"]) for event in state["frozen_events"]]
+        if sorted(result_by_event) != expected or any(event is None for event in source_events):
             raise KnowledgeWorkflowError("MODEL_OUTPUT_INVALID", "知识事件结果未完整覆盖来源")
         embedding_items = [
             {"title": result_by_event[event_no]["title"], "content": result_by_event[event_no]["content"]}
             for event_no in expected
         ]
-        embeddings = compute_event_embeddings(embedding_items)
+        embeddings = compute_event_embeddings(embedding_items) if embedding_items else []
         now = datetime.utcnow()
         db.add(KnowledgeDeposit(
             diary_id=diary.id, user_id=task.user_id, task_id=task.id,
@@ -441,7 +463,11 @@ def _builder() -> StateGraph:
     builder.add_node("MATCH_MATTERS", match_matters)
     builder.add_edge(START, "VALIDATE_SOURCE")
     builder.add_edge("VALIDATE_SOURCE", "PREPARE_BATCHES")
-    builder.add_edge("PREPARE_BATCHES", "EXTRACT_BATCH")
+    builder.add_conditional_edges(
+        "PREPARE_BATCHES",
+        _after_prepare,
+        {"EXTRACT_BATCH": "EXTRACT_BATCH", "PUBLISH": "PUBLISH"},
+    )
     builder.add_conditional_edges(
         "EXTRACT_BATCH",
         _after_extract,

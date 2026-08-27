@@ -239,6 +239,28 @@ def test_none_subject_creates_no_matter(monkeypatch):
     assert task.status == "SUCCEEDED" and fake_db.committed
 
 
+def test_empty_knowledge_event_batch_completes_without_model_calls(monkeypatch):
+    task = _make_task()
+    deposit = SimpleNamespace(completed_stage="ATOMIC_EVENTS", updated_at=None)
+    fake_db = FakeDb(
+        task=task,
+        diary=SimpleNamespace(diary_date=date(2026, 8, 21)),
+        event_rows=[],
+        deposit=deposit,
+    )
+    monkeypatch.setattr(km, "SessionLocal", lambda: fake_db)
+    monkeypatch.setattr(km, "embed_texts", lambda _texts: pytest.fail("零事件不应调用向量模型"))
+
+    asyncio.run(km.match_task_matters(
+        str(task.id), task.run_token, {"assign": 1}, {"overview": 1},
+    ))
+
+    assert deposit.completed_stage == "MATTERS"
+    assert task.status == "SUCCEEDED"
+    assert task.completed_at is not None
+    assert fake_db.committed
+
+
 def test_embedding_temporary_failure_retries(monkeypatch):
     monkeypatch.setattr(km.settings, "LLM_MAX_ATTEMPTS", 2)
     task = _make_task()
