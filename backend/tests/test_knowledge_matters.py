@@ -1,6 +1,7 @@
 """知识库事项匹配：输出校验、串行循环语义与单事务发布的单元测试。"""
 
 import asyncio
+import inspect
 import json
 from datetime import date, datetime, timedelta
 from types import SimpleNamespace
@@ -141,6 +142,7 @@ class FakeDb:
         self.orphan_row = orphan_row
         self.added = []
         self.committed = False
+        self.flush_count = 0
 
     def query(self, model):
         return FakeQuery(self, model)
@@ -150,6 +152,9 @@ class FakeDb:
 
     def commit(self):
         self.committed = True
+
+    def flush(self):
+        self.flush_count += 1
 
     def rollback(self):
         pass
@@ -184,7 +189,10 @@ def _run_loop(
         km, "embed_texts",
         embed_fn or (lambda texts: [_vec(i + 1.0) for i in range(len(texts))]),
     )
-    monkeypatch.setattr(km, "_recall_history", lambda user_id, vector, limit: history or [])
+    monkeypatch.setattr(
+        km, "_recall_history",
+        lambda user_id, vector, limit, *, exclude_diary_id: history or [],
+    )
     monkeypatch.setattr(km, "_load_matter", lambda matter_id, user_id: existing_matter)
     monkeypatch.setattr(km, "_load_recent_events", lambda matter: [
         {"title": item["title"], "content": item["content"], "occurred_on": item["occurred_on"]}
@@ -308,6 +316,20 @@ def test_create_matter_with_follower_skips_follower(monkeypatch):
     assert matter.name == "装修新房" and matter.event_count == 2
     assert matter.started_on == date(2026, 8, 20) and matter.last_event_on == date(2026, 8, 20)
     assert row_a.matter_id == matter.id and row_b.matter_id == matter.id
+    assert fake_db.flush_count == 1
+
+
+def test_new_matters_flush_before_event_foreign_keys():
+    source = inspect.getsource(km.match_task_matters)
+    publish = source[source.index("# 7. 单事务提交"):]
+
+    assert publish.index("db.flush()") < publish.index("event_rows =")
+
+
+def test_history_recall_excludes_current_diary():
+    source = inspect.getsource(km._recall_history)
+
+    assert "KnowledgeAtomicEvent.diary_id != exclude_diary_id" in source
 
 
 def test_attach_revives_ended_matter_before_overview(monkeypatch):

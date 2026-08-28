@@ -284,14 +284,21 @@ class _MatterState:
         return not self.initialized
 
 
-def _recall_history(user_id: UUID, vector: list[float], limit: int) -> list[KnowledgeAtomicEvent]:
-    """历史事件库 pgvector 余弦近邻召回；无向量（存量/匹配失败）的事件不参与。"""
+def _recall_history(
+    user_id: UUID,
+    vector: list[float],
+    limit: int,
+    *,
+    exclude_diary_id: UUID,
+) -> list[KnowledgeAtomicEvent]:
+    """召回其他日记的历史事件；当前日记由批内召回处理，不能再次作为 orphan 召回。"""
     db = SessionLocal()
     try:
         return (
             db.query(KnowledgeAtomicEvent)
             .filter(
                 KnowledgeAtomicEvent.user_id == user_id,
+                KnowledgeAtomicEvent.diary_id != exclude_diary_id,
                 KnowledgeAtomicEvent.embedding.isnot(None),
                 KnowledgeAtomicEvent.embedding.cosine_distance(vector) <= (1 - MATTER_SIMILARITY_THRESHOLD),
             )
@@ -471,7 +478,12 @@ async def match_task_matters(
         ][:RECALL_TOP_K]
 
         # 2. 历史召回（pgvector）。
-        history_neighbors = _recall_history(user_id, subject["embedding"], RECALL_TOP_K)
+        history_neighbors = _recall_history(
+            user_id,
+            subject["embedding"],
+            RECALL_TOP_K,
+            exclude_diary_id=diary_id,
+        )
 
         # 3. 候选整理。
         candidate_matters: list[dict[str, Any]] = []
@@ -628,6 +640,10 @@ async def match_task_matters(
                 record.updated_at = now
             matter_ids[matter.key] = matter.id
 
+        # SQLAlchemy 可能先刷新事件 UPDATE，再刷新新事项 INSERT。先显式落下事项，
+        # 保证随后写 knowledge_atomic_events.matter_id 时外键目标已经存在。
+        db.flush()
+
         event_rows = (
             db.query(KnowledgeAtomicEvent)
             .filter(KnowledgeAtomicEvent.diary_id == diary_id)
@@ -679,6 +695,7 @@ async def match_task_matters(
         raise
     except Exception as exc:
         db.rollback()
+        logger.exception("事项匹配事务提交失败", extra={"task_id": task_id})
         raise KnowledgeAIError("MATTER_MATCH_FAILED", "事项匹配发布失败") from exc
     finally:
         db.close()
