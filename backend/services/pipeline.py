@@ -173,6 +173,22 @@ async def _invoke_llm(llm: ChatOpenAI, system_prompt: str, user_message: str, st
                 extra=log_extra(event="analysis.llm.json_parse_failed", step=step_name, model=model_name, error_type=type(exc).__name__, response_length=len(raw_content), duration_ms=started.elapsed_ms()),
             )
             raise
+        if not isinstance(result, dict):
+            exc = TypeError(
+                f"LLM 响应顶层必须是 JSON 对象，step={step_name}，"
+                f"实际类型={type(result).__name__}"
+            )
+            logger.error(
+                "LLM 响应 JSON 顶层类型错误",
+                extra=log_extra(
+                    event="analysis.llm.invalid_payload_type",
+                    step=step_name,
+                    model=model_name,
+                    response_type=type(result).__name__,
+                    duration_ms=started.elapsed_ms(),
+                ),
+            )
+            raise exc
         logger.info(
             "LLM 调用完成",
             extra=log_extra(event="analysis.llm.completed", step=step_name, model=model_name, response_length=len(raw_content), duration_ms=started.elapsed_ms(), prompt_tokens=prompt_tokens, prompt_tokens_source=prompt_tokens_source),

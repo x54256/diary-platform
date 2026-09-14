@@ -1279,6 +1279,27 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
             original_text, task_id=task_id, diary_id=diary_id, user_id=user_id, diary_date=diary_date
         )
 
+        # LLM 或旧 checkpoint 可能残留非对象元素；落库和渲染都依赖 dict.get，
+        # 在边界统一过滤，避免单个脏元素导致整篇日记整理失败。
+        for field in ("events", "check_log", "clean_check_log"):
+            value = result.get(field, [])
+            if not isinstance(value, list):
+                result[field] = []
+                logging.getLogger(__name__).warning(
+                    "整理结果字段类型异常，已按空列表处理: field=%s type=%s",
+                    field,
+                    type(value).__name__,
+                )
+                continue
+            invalid_count = sum(not isinstance(item, dict) for item in value)
+            if invalid_count:
+                result[field] = [item for item in value if isinstance(item, dict)]
+                logging.getLogger(__name__).warning(
+                    "整理结果包含非法元素，已过滤: field=%s count=%d",
+                    field,
+                    invalid_count,
+                )
+
         # 生成 content markdown
         content = render_diary_to_markdown(
             events=result["events"],
