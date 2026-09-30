@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "title": "个人知识图谱",
+    "updatedAt": "2026-09-28",
+    "sourceDates": ["2026-08-26"],
+    "description": "基于用户确认后的日记事件整理。当前内容均为候选模型，等待持续验证。"
+  },
+  "schema": {
+    "nodes": [
+      {"id": "type-event", "label": "事件", "type": "事件", "status": "candidate", "description": "知识的证据入口，记录发生了什么。"},
+      {"id": "type-person", "label": "人物", "type": "人物", "status": "candidate", "description": "日记中可稳定识别的人。"},
+      {"id": "type-organization", "label": "组织", "type": "组织", "status": "candidate", "description": "公司、团队及其他组织。"},
+      {"id": "type-place", "label": "地点", "type": "地点", "status": "candidate", "description": "事件发生或目标指向的空间位置。"},
+      {"id": "type-project", "label": "项目", "type": "项目", "status": "candidate", "description": "持续推进、有明确目标的工作或个人项目。"},
+      {"id": "type-assertion", "label": "个人陈述", "type": "个人陈述", "status": "candidate", "description": "承载情绪、偏好、判断、目标、计划和决策，并保留来源与时间。"}
+    ],
+    "edges": [
+      {"id": "se-1", "source": "type-person", "target": "type-event", "type": "参与事件", "label": "参与事件"},
+      {"id": "se-2", "source": "type-event", "target": "type-place", "type": "发生于", "label": "发生于"},
+      {"id": "se-3", "source": "type-event", "target": "type-person", "type": "涉及对象", "label": "涉及人物"},
+      {"id": "se-4", "source": "type-event", "target": "type-organization", "type": "涉及对象", "label": "涉及组织"},
+      {"id": "se-5", "source": "type-event", "target": "type-project", "type": "涉及对象", "label": "涉及项目"},
+      {"id": "se-6", "source": "type-person", "target": "type-person", "type": "人物关系", "label": "人物关系"},
+      {"id": "se-7", "source": "type-person", "target": "type-organization", "type": "隶属于", "label": "隶属于"},
+      {"id": "se-8", "source": "type-person", "target": "type-assertion", "type": "表达", "label": "表达"},
+      {"id": "se-9", "source": "type-assertion", "target": "type-event", "type": "来源于", "label": "来源于"}
+    ]
+  },
+  "instances": {
+    "nodes": [
+      {"id": "person-self", "label": "我", "type": "人物", "status": "confirmed", "description": "日记记录者。"},
+      {"id": "person-tongjie", "label": "童姐", "type": "人物", "status": "candidate", "description": "江西项目需求沟通者。"},
+      {"id": "person-tianzong", "label": "田总", "type": "人物", "status": "candidate", "description": "日记记录者的领导。"},
+      {"id": "person-yuhx", "label": "于海昕", "type": "人物", "status": "candidate", "description": "田总的领导。"},
+      {"id": "person-xuyilong", "label": "许益龙", "type": "人物", "status": "candidate"},
+      {"id": "person-yanglong", "label": "杨龙", "type": "人物", "status": "candidate", "description": "记录者认同的一位过往领导。"},
+      {"id": "person-laolu", "label": "老陆", "type": "人物", "status": "candidate"},
+      {"id": "person-tongcx", "label": "童春秀", "type": "人物", "status": "candidate", "description": "饭局中被谈及的人。与“童姐”是否为同一人，证据不足。"},
+      {"id": "person-dehua", "label": "德华", "type": "人物", "status": "candidate"},
+      {"id": "person-yufuhao", "label": "于福豪", "type": "人物", "status": "candidate"},
+      {"id": "person-wanshiwei", "label": "万世威", "type": "人物", "status": "candidate"},
+      {"id": "person-yinxiaopeng", "label": "殷萧鹏", "type": "人物", "status": "candidate"},
+      {"id": "person-jiangyijuan", "label": "蒋一娟", "type": "人物", "status": "candidate", "description": "政务方向产品经理。"},
+      {"id": "person-songmei", "label": "颂梅", "type": "人物", "status": "candidate", "description": "记录者的妻子。"},
+
+      {"id": "org-supermap", "label": "超图", "type": "组织", "status": "candidate"},
+      {"id": "org-shuhui", "label": "数慧／淑慧", "type": "组织", "status": "unresolved", "description": "同一篇日记出现两种写法，暂不判定是否为同一组织。"},
+
+      {"id": "place-guangzhou", "label": "广州", "type": "地点", "status": "candidate"},
+      {"id": "place-yongwang", "label": "永旺", "type": "地点", "status": "candidate"},
+      {"id": "place-icc", "label": "ICC", "type": "地点", "status": "candidate"},
+      {"id": "place-nantong", "label": "南通", "type": "地点", "status": "candidate"},
+      {"id": "place-shanghai", "label": "上海", "type": "地点", "status": "candidate"},
+      {"id": "place-hongkong", "label": "香港", "type": "地点", "status": "candidate"},
+
+      {"id": "project-jiangxi", "label": "江西项目", "type": "项目", "status": "candidate"},
+      {"id": "project-diary", "label": "日记管理平台", "type": "项目", "status": "candidate"},
+
+      {"id": "event-01", "label": "江西项目需求讨论", "type": "事件", "status": "confirmed", "date": "2026-08-26", "description": "梳理江西项目数据，并与童姐、田总讨论需求。", "evidence": "下午接着处理数据，大体已经捋顺，准备次日开始做接口。"},
+      {"id": "event-02", "label": "衣服两次被弄脏", "type": "事件", "status": "confirmed", "date": "2026-08-26", "description": "衣服先后被果子和饭汤弄脏。", "evidence": "在永旺吃饭时，饭汤又流到衣服上。"},
+      {"id": "event-03", "label": "与于海昕等人聚餐", "type": "事件", "status": "confirmed", "date": "2026-08-26", "description": "参加工作饭局，并听到招聘、绩效、降薪和经营情况等信息。", "evidence": "于海昕来到广州，邀请记录者与许益龙等人吃饭。"},
+      {"id": "event-04", "label": "利用信息差选择住宿", "type": "事件", "status": "confirmed", "date": "2026-08-26", "description": "回顾南通出差时通过不完整信息影响同事住宿选择。", "evidence": "只说明直线距离，没有说明实际步行需要绕路。"},
+      {"id": "event-05", "label": "讨论第二职业", "type": "事件", "status": "confirmed", "date": "2026-08-26", "description": "与德华讨论程序员职业周期及AI影响。", "evidence": "开始考虑是否需要寻找第二职业。"},
+      {"id": "event-06", "label": "按摩未成功", "type": "事件", "status": "confirmed", "date": "2026-08-26", "description": "前往ICC准备按摩，因按摩椅被占而返回公司。"},
+      {"id": "event-07", "label": "整理心理学课程笔记", "type": "事件", "status": "confirmed", "date": "2026-08-26", "description": "在公司整理普通心理学课程笔记。"},
+      {"id": "event-08", "label": "怀念过去的工作生活", "type": "事件", "status": "confirmed", "date": "2026-08-26", "description": "比较过去与现在的同事关系、工作乐趣和创造性体验。", "evidence": "现在缺少熟悉的同事和创造性工作的快乐。"},
+      {"id": "event-09", "label": "了解香港教育与身份路径", "type": "事件", "status": "confirmed", "date": "2026-08-26", "description": "从同事经历引出对香港身份和未来孩子教育路径的了解。", "evidence": "与颂梅讨论求职时关注香港机会。"},
+      {"id": "event-10", "label": "买水果", "type": "事件", "status": "confirmed", "date": "2026-08-26", "description": "购买水果并认为味道不错。"},
+
+      {"id": "assert-authority", "label": "面对权威时提问焦虑", "type": "个人陈述", "subtype": "情绪", "status": "candidate", "statementKind": "亲历", "date": "2026-08-26", "description": "领导在场时担心被认为能力不足，因此提问更加谨慎。"},
+      {"id": "assert-social-dinner", "label": "排斥工作应酬侵占生活", "type": "个人陈述", "subtype": "偏好", "status": "candidate", "statementKind": "亲历", "date": "2026-08-26", "description": "不喜欢应酬打破原有安排并占用私人时间。"},
+      {"id": "assert-sh-hukou", "label": "保住上海户口", "type": "个人陈述", "subtype": "目标", "status": "candidate", "statementKind": "条件假设", "date": "2026-08-26", "description": "若进入辞退名单，将优先保障上海户口并争取应有补偿。"},
+      {"id": "assert-second-career", "label": "探索第二职业", "type": "个人陈述", "subtype": "计划", "status": "candidate", "statementKind": "计划", "date": "2026-08-26", "description": "评估程序员职业周期后，开始考虑适合自己的第二职业。"},
+      {"id": "assert-social-value", "label": "重视熟悉的工作伙伴", "type": "个人陈述", "subtype": "偏好", "status": "candidate", "statementKind": "个人判断", "date": "2026-08-26", "description": "熟悉且认同的同事关系会明显提升工作体验。"},
+      {"id": "assert-creative-value", "label": "重视创造性工作", "type": "个人陈述", "subtype": "偏好", "status": "candidate", "statementKind": "个人判断", "date": "2026-08-26", "description": "解决问题、设计系统和完成个人项目能够带来快乐。"},
+      {"id": "assert-ai-career", "label": "AI会缩短程序员职业周期", "type": "个人陈述", "subtype": "判断", "status": "candidate", "statementKind": "个人判断", "date": "2026-08-26", "description": "这是记录者对职业风险的判断，不作为外部客观事实。"},
+      {"id": "assert-nostalgia", "label": "当下乐趣减少引发怀旧", "type": "个人陈述", "subtype": "判断", "status": "candidate", "statementKind": "个人判断", "date": "2026-08-26"},
+      {"id": "assert-information-gap", "label": "利用信息差达成目的", "type": "个人陈述", "subtype": "行为总结", "status": "candidate", "statementKind": "亲历", "date": "2026-08-26", "description": "一次具体行为总结，不能直接定义为永久人格。"},
+      {"id": "assert-child-education", "label": "为孩子寻找更多教育机会", "type": "个人陈述", "subtype": "目标", "status": "candidate", "statementKind": "计划", "date": "2026-08-26", "description": "关注香港工作与身份路径，但相关政策信息尚未核验。"}
+    ],
+    "edges": [
+      {"id": "ie-001", "source": "person-self", "target": "event-01", "type": "参与事件", "label": "参与"},
+      {"id": "ie-002", "source": "person-tongjie", "target": "event-01", "type": "参与事件", "label": "沟通需求"},
+      {"id": "ie-003", "source": "person-tianzong", "target": "event-01", "type": "参与事件", "label": "参与讨论"},
+      {"id": "ie-004", "source": "event-01", "target": "project-jiangxi", "type": "涉及对象", "label": "涉及"},
+      {"id": "ie-005", "source": "person-tianzong", "target": "person-self", "type": "人物关系", "label": "上级"},
+      {"id": "ie-006", "source": "person-yuhx", "target": "person-tianzong", "type": "人物关系", "label": "上级"},
+
+      {"id": "ie-010", "source": "person-self", "target": "event-02", "type": "参与事件", "label": "亲历"},
+      {"id": "ie-011", "source": "event-02", "target": "place-yongwang", "type": "发生于", "label": "部分发生于"},
+
+      {"id": "ie-020", "source": "person-self", "target": "event-03", "type": "参与事件", "label": "参加"},
+      {"id": "ie-021", "source": "person-yuhx", "target": "event-03", "type": "参与事件", "label": "参加"},
+      {"id": "ie-022", "source": "person-xuyilong", "target": "event-03", "type": "参与事件", "label": "参加"},
+      {"id": "ie-023", "source": "event-03", "target": "place-guangzhou", "type": "发生于", "label": "发生于"},
+      {"id": "ie-024", "source": "event-03", "target": "org-supermap", "type": "涉及对象", "label": "谈及"},
+      {"id": "ie-025", "source": "event-03", "target": "person-tongcx", "type": "涉及对象", "label": "谈及"},
+      {"id": "ie-026", "source": "event-03", "target": "person-yanglong", "type": "涉及对象", "label": "对比提及"},
+      {"id": "ie-027", "source": "event-03", "target": "person-laolu", "type": "涉及对象", "label": "提及"},
+
+      {"id": "ie-030", "source": "person-self", "target": "event-04", "type": "参与事件", "label": "亲历"},
+      {"id": "ie-031", "source": "event-04", "target": "person-dehua", "type": "涉及对象", "label": "讲述给"},
+      {"id": "ie-032", "source": "event-04", "target": "person-yufuhao", "type": "涉及对象", "label": "同行住宿"},
+      {"id": "ie-033", "source": "event-04", "target": "place-nantong", "type": "发生于", "label": "发生于"},
+
+      {"id": "ie-040", "source": "person-self", "target": "event-05", "type": "参与事件", "label": "讨论"},
+      {"id": "ie-041", "source": "person-dehua", "target": "event-05", "type": "参与事件", "label": "讨论"},
+
+      {"id": "ie-050", "source": "person-self", "target": "event-06", "type": "参与事件", "label": "亲历"},
+      {"id": "ie-051", "source": "event-06", "target": "place-icc", "type": "发生于", "label": "发生于"},
+
+      {"id": "ie-060", "source": "person-self", "target": "event-07", "type": "参与事件", "label": "亲历"},
+
+      {"id": "ie-070", "source": "person-self", "target": "event-08", "type": "参与事件", "label": "亲历"},
+      {"id": "ie-071", "source": "event-08", "target": "person-yanglong", "type": "涉及对象", "label": "怀念"},
+      {"id": "ie-072", "source": "event-08", "target": "person-dehua", "type": "涉及对象", "label": "怀念共事"},
+      {"id": "ie-073", "source": "event-08", "target": "person-laolu", "type": "涉及对象", "label": "怀念共事"},
+      {"id": "ie-074", "source": "event-08", "target": "person-yufuhao", "type": "涉及对象", "label": "怀念共事"},
+      {"id": "ie-075", "source": "event-08", "target": "person-wanshiwei", "type": "涉及对象", "label": "怀念共事"},
+      {"id": "ie-076", "source": "event-08", "target": "person-yinxiaopeng", "type": "涉及对象", "label": "怀念共事"},
+      {"id": "ie-077", "source": "event-08", "target": "org-shuhui", "type": "涉及对象", "label": "过去任职环境"},
+      {"id": "ie-078", "source": "event-08", "target": "project-diary", "type": "涉及对象", "label": "完成后带来快乐"},
+
+      {"id": "ie-080", "source": "person-self", "target": "event-09", "type": "参与事件", "label": "了解"},
+      {"id": "ie-081", "source": "event-09", "target": "person-jiangyijuan", "type": "涉及对象", "label": "经历来源"},
+      {"id": "ie-082", "source": "event-09", "target": "person-songmei", "type": "涉及对象", "label": "讨论"},
+      {"id": "ie-083", "source": "event-09", "target": "place-hongkong", "type": "涉及对象", "label": "目标地点"},
+      {"id": "ie-084", "source": "person-songmei", "target": "person-self", "type": "人物关系", "label": "配偶"},
+
+      {"id": "ie-090", "source": "person-self", "target": "event-10", "type": "参与事件", "label": "亲历"},
+
+      {"id": "ia-001", "source": "person-self", "target": "assert-authority", "type": "表达", "label": "表达"},
+      {"id": "ia-002", "source": "assert-authority", "target": "event-01", "type": "来源于", "label": "来源于"},
+      {"id": "ia-003", "source": "person-self", "target": "assert-social-dinner", "type": "表达", "label": "表达"},
+      {"id": "ia-004", "source": "assert-social-dinner", "target": "event-03", "type": "来源于", "label": "来源于"},
+      {"id": "ia-005", "source": "person-self", "target": "assert-sh-hukou", "type": "表达", "label": "表达"},
+      {"id": "ia-006", "source": "assert-sh-hukou", "target": "event-03", "type": "来源于", "label": "来源于"},
+      {"id": "ia-007", "source": "assert-sh-hukou", "target": "place-shanghai", "type": "涉及对象", "label": "目标地点"},
+      {"id": "ia-008", "source": "person-self", "target": "assert-information-gap", "type": "表达", "label": "总结"},
+      {"id": "ia-009", "source": "assert-information-gap", "target": "event-04", "type": "来源于", "label": "来源于"},
+      {"id": "ia-010", "source": "person-self", "target": "assert-second-career", "type": "表达", "label": "计划"},
+      {"id": "ia-011", "source": "assert-second-career", "target": "event-05", "type": "来源于", "label": "来源于"},
+      {"id": "ia-012", "source": "person-self", "target": "assert-ai-career", "type": "表达", "label": "判断"},
+      {"id": "ia-013", "source": "assert-ai-career", "target": "event-05", "type": "来源于", "label": "来源于"},
+      {"id": "ia-014", "source": "person-self", "target": "assert-social-value", "type": "表达", "label": "偏好"},
+      {"id": "ia-015", "source": "assert-social-value", "target": "event-08", "type": "来源于", "label": "来源于"},
+      {"id": "ia-016", "source": "person-self", "target": "assert-creative-value", "type": "表达", "label": "偏好"},
+      {"id": "ia-017", "source": "assert-creative-value", "target": "event-08", "type": "来源于", "label": "来源于"},
+      {"id": "ia-018", "source": "person-self", "target": "assert-nostalgia", "type": "表达", "label": "判断"},
+      {"id": "ia-019", "source": "assert-nostalgia", "target": "event-08", "type": "来源于", "label": "来源于"},
+      {"id": "ia-020", "source": "person-self", "target": "assert-child-education", "type": "表达", "label": "目标"},
+      {"id": "ia-021", "source": "assert-child-education", "target": "event-09", "type": "来源于", "label": "来源于"},
+      {"id": "ia-022", "source": "assert-child-education", "target": "place-hongkong", "type": "涉及对象", "label": "关注地点"}
+    ]
+  }
+}

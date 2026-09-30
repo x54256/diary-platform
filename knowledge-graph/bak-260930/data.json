@@ -1,0 +1,210 @@
+{
+  "meta": {
+    "title": "个人知识图谱",
+    "updatedAt": "2026-09-29",
+    "sourceDates": ["2026-08-26"],
+    "description": "第一层事实层，仅包含人物、已完成分析的中高重要性事件及其明确关系。"
+  },
+  "schema": {
+    "nodes": [
+      {
+        "id": "type-person",
+        "label": "人物",
+        "type": "人物",
+        "properties": {
+          "定义": "日记事件中能够被明确识别的人",
+          "业务属性": "名称"
+        }
+      },
+      {
+        "id": "type-event",
+        "label": "事件",
+        "type": "事件",
+        "properties": {
+          "定义": "从日记中整理出来，并经过用户修改、补全和分析的结构化记录",
+          "业务属性": "标题、发生日期、日记日期、事件要点",
+          "准入条件": "重要性为中或高"
+        }
+      }
+    ],
+    "edges": [
+      {"id": "schema-person-relation", "source": "type-person", "target": "type-person", "type": "人物关系", "properties": {"关系": "上级、配偶或同事"}},
+      {"id": "schema-participates", "source": "type-person", "target": "type-event", "type": "参与事件", "properties": {"描述": "人物实际参与事件"}},
+      {"id": "schema-involves", "source": "type-event", "target": "type-person", "type": "涉及人物", "properties": {"描述": "人物未直接参与，但事件要点涉及该人物"}},
+      {"id": "schema-followup", "source": "type-event", "target": "type-event", "type": "后续事件", "properties": {"源要点序号": "非空整数数组，定位起点事件中的关系依据", "目标要点序号": "非空整数数组，定位终点事件中的关系依据", "描述": "终点事件继续推进起点事件所描述的同一事项"}},
+      {"id": "schema-mentions", "source": "type-event", "target": "type-event", "type": "提及事件", "properties": {"源要点序号": "非空整数数组，定位起点事件中的关系依据", "目标要点序号": "非空整数数组，定位终点事件中的关系依据", "描述": "起点事件引用、回忆或联想到终点事件"}},
+      {"id": "schema-triggers", "source": "type-event", "target": "type-event", "type": "引发事件", "properties": {"源要点序号": "非空整数数组，定位起点事件中的关系依据", "目标要点序号": "非空整数数组，定位终点事件中的关系依据", "描述": "起点事件中的信息、体验或结果促使终点事件发生"}}
+    ]
+  },
+  "instances": {
+    "nodes": [
+      {"id": "person-self", "label": "我", "type": "人物", "properties": {"名称": "我"}},
+      {"id": "person-tongjie", "label": "童姐", "type": "人物", "properties": {"名称": "童姐"}},
+      {"id": "person-tianzong", "label": "田总", "type": "人物", "properties": {"名称": "田总"}},
+      {"id": "person-yuhx", "label": "于海昕", "type": "人物", "properties": {"名称": "于海昕"}},
+      {"id": "person-xuyilong", "label": "许益龙", "type": "人物", "properties": {"名称": "许益龙"}},
+      {"id": "person-yanglong", "label": "杨龙", "type": "人物", "properties": {"名称": "杨龙"}},
+      {"id": "person-laolu", "label": "老陆", "type": "人物", "properties": {"名称": "老陆"}},
+      {"id": "person-tongcx", "label": "童春秀", "type": "人物", "properties": {"名称": "童春秀"}},
+      {"id": "person-dehua", "label": "德华", "type": "人物", "properties": {"名称": "德华"}},
+      {"id": "person-yufuhao", "label": "于福豪", "type": "人物", "properties": {"名称": "于福豪"}},
+      {"id": "person-wanshiwei", "label": "万世威", "type": "人物", "properties": {"名称": "万世威"}},
+      {"id": "person-yinxiaopeng", "label": "殷萧鹏", "type": "人物", "properties": {"名称": "殷萧鹏"}},
+      {"id": "person-jiangyijuan", "label": "蒋一娟", "type": "人物", "properties": {"名称": "蒋一娟"}},
+      {"id": "person-songmei", "label": "颂梅", "type": "人物", "properties": {"名称": "颂梅"}},
+
+      {
+        "id": "event-jiangxi",
+        "label": "江西项目数据梳理与需求讨论",
+        "type": "事件",
+        "properties": {
+          "标题": "江西项目数据梳理与需求讨论",
+          "发生日期": "2026-08-26",
+          "日记日期": "2026-08-26",
+          "事件要点": [
+            {"序号": 1, "要点": "继续查看江西数据并发现多个问题", "详细内容": "今天早晨到公司后，我继续查看江西提供的数据，想根据数据确定应该怎样设计数据库，才能更方便地实现需求。查看过程中，我越来越觉得这些数据很乱，也很难理解，存在很多需要确认的问题。"},
+            {"序号": 2, "要点": "与童姐语音讨论数据和需求问题", "详细内容": "我一开始在群里向童姐提问，但她回复得比较慢，于是询问她是否方便通过语音沟通。之后我们语音讨论了较长时间。沟通过程中，我认为童姐自己也没有把数据整理清楚，对数据中的一些内容也不完全清楚，但相关需求已经设计出来了。"},
+            {"序号": 3, "要点": "田总加入前端相关问题的讨论", "详细内容": "由于部分问题涉及前端，我将领导田总也拉进了讨论，三个人一起沟通了一些需要改动的内容。前端相关问题讨论结束后，因为此前的问题还没有全部问完，我继续向童姐询问其他问题。"},
+            {"序号": 4, "要点": "田总在场时提问变得小心", "详细内容": "继续询问问题时，我变得非常小心。我担心田总认为我能力太差，觉得我连这么简单的问题都听不明白，还需要继续询问，因此提问时特别小心翼翼。我认为自己可能已经在潜意识中真正把田总当成了领导。"},
+            {"序号": 5, "要点": "推测此前的讨论经历影响了本次反应", "详细内容": "此前讨论江西需求时，童姐讲解过一个地方的需求，但她的讲解没有让我听懂。我当时认为问题出在童姐没有讲清楚。讨论持续了一段时间后，田总以比较强势的方式加入，表示自己已经听懂了，并直接向我进行解释。我推测这次经历可能给自己留下了心理影响，从而使我在本次讨论中表现得格外小心，但不能确定这就是本次反应的原因。"},
+            {"序号": 6, "要点": "反思自己为什么会畏惧田总", "详细内容": "我认为这种小心和畏惧不是很好的反应，觉得该怎样沟通就应该怎样沟通，没有必要畏惧田总。我认为田总的资历不如我，能力也不如我，只是因为讨领导喜欢才成为领导，但他成为领导后仍然会让我产生畏惧。我由此想到，这可能就是权力带来的影响，有权力的人会让下面的人产生畏惧心理。不过，我也不能确定自己的反应是否就是由这个原因造成的。"},
+            {"序号": 7, "要点": "基本完成数据梳理并准备开发接口", "详细内容": "下午我继续处理江西数据，大体上已经将数据梳理清楚。按照当前进度，第二天可以开始对照需求文档开发接口。"}
+          ]
+        }
+      },
+      {
+        "id": "event-dinner",
+        "label": "晚上与于海昕等人的聚餐应酬",
+        "type": "事件",
+        "properties": {
+          "标题": "晚上与于海昕等人的聚餐应酬",
+          "发生日期": "2026-08-26",
+          "日记日期": "2026-08-26",
+          "事件要点": [
+            {"序号": 1, "要点": "于海昕来广州并邀请多人聚餐", "详细内容": "于海昕是田总的领导，也是我的上级领导。他当天来到广州，邀请我、许益龙和一位政务开发同事一起吃饭。聚餐前，我心里很排斥参加这次饭局。"},
+            {"序号": 2, "要点": "认为交际应酬会侵占个人生活", "详细内容": "我认为自己不太适合从事需要交际应酬的工作，因为应酬会占用个人生活时间、打破原有安排并使人疲惫，遛狗等原本需要完成的事情也会被耽误。"},
+            {"序号": 3, "要点": "实际参加饭局后抗拒感有所减弱", "详细内容": "晚上实际吃饭时，我已经没有聚餐前那么抗拒。我主要听于海昕和其他人聊天，自己基本没有说什么，心里仍然想尽快吃完回家。以前和杨龙一起吃饭时，我反而愿意多聊一会儿。我认为这种差别可能是因为自己相对更认同杨龙这位领导。"},
+            {"序号": 4, "要点": "参加工作饭局的态度经历多次变化", "详细内容": "我对工作饭局的态度经历了三个阶段：起初非常抗拒，后来接受了老陆所说的把饭局当成别人请吃饭的机会，现在又重新产生了一些抗拒。我认为这可能与当前的超图已经不同于过去的数慧、熟悉的人也已经不在有关，因此饭局对我没有以前那么有意思。"},
+            {"序号": 5, "要点": "饭局中听说公司提高了A编招聘条件", "详细内容": "饭局中有人提到，公司当前招聘A编要求应聘者来自985或211院校，不接受30岁以下的应聘者，并要求具有两三年工作经验。我认为这些条件设置得很严格，目的是让岗位难以招到合适的人，从而控制成本。"},
+            {"序号": 6, "要点": "饭局中谈到童春秀的绩效与离职纠纷", "详细内容": "饭局中有人提到，公司要求P5及以上人员中必须有一定比例被评为D，绩效为D意味着会被辞退。公司又不愿意支付辞退补偿，因此不少被评为D的人与公司发生了不愉快。童春秀找了律师并坚持不同意离职，就这样与公司耗了下来。"},
+            {"序号": 7, "要点": "饭局中听说蒋一娟准备赴港生育二胎", "详细内容": "饭局中有人提到蒋一娟准备去香港生育二胎，这条信息后来促使我了解香港生育和户口路径。"},
+            {"序号": 8, "要点": "设想自己进入辞退名单后的应对方式", "详细内容": "我想到，如果明年自己也被放进辞退名额，就同样坚持不主动离职并与公司耗下去，因为我需要把上海户口办下来并保住。"},
+            {"序号": 9, "要点": "饭局中听说部分员工年初被降薪", "详细内容": "饭局中还提到，年初有一些员工被降薪，最高降幅约为30%，并且需要倒扣此前几个月的部分工资。很多人因此不愿意接受，并与公司发生了不愉快。"},
+            {"序号": 10, "要点": "产品线回款排名与实际项目投入不一致", "详细内容": "我认为饭局中唯一可能好一点的消息是，我们上半年的收款和合同金额在整个产品线中排名第一，但下半年没有多少合同和回款。我认为一个奇怪的情况是，回款较多的项目并没有投入本产品线的人力，而本产品线投入较多的项目回款反而较少。我觉得这种绩效考评机制会让实际出力的大区人员感到不公平。"},
+            {"序号": 11, "要点": "根据公司亏损和AI投入推测明年可能继续裁员", "详细内容": "饭局中还提到，公司上半年财报显示亏损较多。我推测明年公司可能继续裁员，并认为公司购买大量Qoder额度、举办多次AI大赛，是为了寻找可以通过AI提高效率并进一步裁员的环节。我觉得这种情况很没意思。如果公司要辞退我，我不会主动离职，会坚持要求公司主动辞退并支付应有补偿，必要时会找律师。"},
+            {"序号": 12, "要点": "裁员降薪信息使我联想到第二职业讨论", "详细内容": "饭局中关于裁员和降薪的信息，使我联想到前一天与德华视频时讨论程序员职业周期和第二职业。"}
+          ]
+        }
+      },
+      {
+        "id": "event-information-gap",
+        "label": "出差时利用信息差让同事同住",
+        "type": "事件",
+        "properties": {
+          "标题": "出差时利用信息差让同事同住",
+          "发生日期": "具体日期未知（此前南通出差）",
+          "日记日期": "2026-08-26",
+          "事件要点": [
+            {"序号": 1, "要点": "向德华讲述此前在南通出差时的住宿经历", "详细内容": "昨天与德华视频时，我讲起此前去南通出差的住宿经历。当时我找了一家距离办公地点300米的旅店，但300米只是直线距离，实际步行需要过河并绕很远。"},
+            {"序号": 2, "要点": "隐瞒实际路程使于福豪选择同住", "详细内容": "于福豪到达后询问我住在哪里，我告诉他旅店距离办公地点只有300米，也说他可以选择另一家旅店，但没有告诉他这是直线距离、实际步行需要绕远。于福豪因此选择与我住在一起，上下班时也能陪我一起走。"},
+            {"序号": 3, "要点": "将这次经历概括为利用信息差达成目的", "详细内容": "我认为这是一次利用信息差达成目的的案例。我说出的信息都是真的，没有直接欺骗于福豪，但隐瞒了一部分信息，并借此实现了让他与我同住的目的。"}
+          ]
+        }
+      },
+      {
+        "id": "event-second-career",
+        "label": "与德华讨论程序员职业与第二职业",
+        "type": "事件",
+        "properties": {
+          "标题": "与德华讨论程序员职业与第二职业",
+          "发生日期": "2026-08-25",
+          "日记日期": "2026-08-26",
+          "事件要点": [
+            {"序号": 1, "要点": "德华提出开始准备寻找第二职业", "详细内容": "昨天与德华聊天时，他说自己要开始准备寻找第二职业，因为程序员能够持续从业的时间有限，尤其是在已经出现AI影响的情况下。"},
+            {"序号": 2, "要点": "认为普通业务程序员的职业周期有限", "详细内容": "我思考后认为，即使没有AI，不掌握核心技术、主要编写业务代码的普通程序员，职业可能最多持续到三四十岁。到了四十多岁，思维状态和接受新事物的能力可能不如应届毕业生。"},
+            {"序号": 3, "要点": "认为AI可能进一步缩短职业周期并考虑第二职业", "详细内容": "我认为AI可能会让程序员职业周期结束得更早，因此也开始考虑自己是否应该寻找第二职业，以及自己适合从事什么工作。"}
+          ]
+        }
+      },
+      {
+        "id": "event-nostalgia",
+        "label": "怀念过去的日子",
+        "type": "事件",
+        "properties": {
+          "标题": "怀念过去的日子",
+          "发生日期": "2026-08-26",
+          "日记日期": "2026-08-26",
+          "事件要点": [
+            {"序号": 1, "要点": "于海昕要来使我再次怀念过去", "详细内容": "今天可能因为于海昕要来，我再次怀念以前在数慧工作、杨龙还在时的日子。下午我思考自己为什么会怀念过去，认为很大原因是现在过得没有以前好。与外部的生活环境相比，当前工作压力仍然不算大，但工作中的乐趣减少了。"},
+            {"序号": 2, "要点": "怀念过去与熟悉同事一起工作的状态", "详细内容": "以前我可以和德华、老陆、于福豪、万世威、殷萧鹏等同事一起说笑，工作至少还有一些意思。现在没有了熟悉的搭子，很多事情都是自己一个人完成，还有一位自己不太喜欢的同事。我认为过去那种上班的快乐可能已经不存在了。"},
+            {"序号": 3, "要点": "认为AI减少了工作中的创造性快乐", "详细内容": "以前解决一个问题、设计一个系统或完成一个工具时，我会感到开心。现在许多工作基本由AI完成，因此这种创造性的快乐减少了。不过，日记管理平台跑通时，我仍然感到很开心。"},
+            {"序号": 4, "要点": "认为当前工作内容本身缺少乐趣", "详细内容": "我认为当前工作缺少乐趣，除了AI带来的影响，也因为所做的项目比较普通，主要是增删改查。很多精力花在梳理产品经理和项目经理没有理清的需求上。"}
+          ]
+        }
+      },
+      {
+        "id": "event-hongkong",
+        "label": "了解香港生育与户口相关信息",
+        "type": "事件",
+        "properties": {
+          "标题": "了解香港生育与户口相关信息",
+          "发生日期": "2026-08-26",
+          "日记日期": "2026-08-26",
+          "事件要点": [
+            {"序号": 1, "要点": "饭局中听说蒋一娟准备赴港生育二胎", "详细内容": "饭局中有人谈到，政务方向的产品经理蒋一娟已经怀上二胎，准备到香港生产，据说孩子出生后可以获得香港户籍。我询问他们是否本身具有香港户口，得到的回答是没有，而是通过其他渠道办理，可能与人才引进有关，并且蒋一娟每年还需要到香港居住一段时间才能维持相关资格。"},
+            {"序号": 2, "要点": "听说香港户籍能够增加升学和海外发展机会", "详细内容": "饭局中还听说，拥有香港户籍后，报考清华、北大等大陆高校所需分数会更低，未来到国外发展也会有更多机会。这些内容来自饭局中的他人讲述。"},
+            {"序号": 3, "要点": "蒋一娟的经历引发我了解香港路径", "详细内容": "前一段时间我已经想到，自己可能无法承担孩子出国留学的费用，同时又不太希望孩子接受大陆的教育，因此认为香港可能是一个较好的机会。蒋一娟的情况再次勾起了这个想法，于是我开始查询可以采用的方法。"},
+            {"序号": 4, "要点": "向ChatGPT查询赴港工作的工签路径", "详细内容": "我向ChatGPT查询后得知，一种方案是到香港工作，由香港公司提供工作签证。我认为这种方式不太容易实现。"},
+            {"序号": 5, "要点": "认为高才通路径不符合自己的条件", "详细内容": "ChatGPT还提到可以通过高才通等人才引进方案申请，但其中一个要求是上一年度年薪达到150万港币。我确定自己不符合这一条件，因此基本放弃了这条路线。"},
+            {"序号": 6, "要点": "建议颂梅求职时关注香港工作机会", "详细内容": "回家后我将这件事告诉了颂梅，建议她在这次找工作时留意是否存在香港的工作机会，同时告诉她不要有太大压力，知道这条路径后尝试一下即可。"}
+          ]
+        }
+      }
+    ],
+    "edges": [
+      {"id": "relation-self-tianzong", "source": "person-self", "target": "person-tianzong", "type": "人物关系", "properties": {"关系": "上级"}},
+      {"id": "relation-tianzong-yuhx", "source": "person-tianzong", "target": "person-yuhx", "type": "人物关系", "properties": {"关系": "上级"}},
+      {"id": "relation-self-yanglong", "source": "person-self", "target": "person-yanglong", "type": "人物关系", "properties": {"关系": "上级"}},
+      {"id": "relation-self-songmei", "source": "person-self", "target": "person-songmei", "type": "人物关系", "properties": {"关系": "配偶"}},
+      {"id": "relation-self-dehua", "source": "person-self", "target": "person-dehua", "type": "人物关系", "properties": {"关系": "同事"}},
+      {"id": "relation-self-laolu", "source": "person-self", "target": "person-laolu", "type": "人物关系", "properties": {"关系": "同事"}},
+      {"id": "relation-self-yufuhao", "source": "person-self", "target": "person-yufuhao", "type": "人物关系", "properties": {"关系": "同事"}},
+      {"id": "relation-self-wanshiwei", "source": "person-self", "target": "person-wanshiwei", "type": "人物关系", "properties": {"关系": "同事"}},
+      {"id": "relation-self-yinxiaopeng", "source": "person-self", "target": "person-yinxiaopeng", "type": "人物关系", "properties": {"关系": "同事"}},
+
+      {"id": "participates-self-jiangxi", "source": "person-self", "target": "event-jiangxi", "type": "参与事件", "properties": {"描述": "梳理数据并提出问题"}},
+      {"id": "participates-tongjie-jiangxi", "source": "person-tongjie", "target": "event-jiangxi", "type": "参与事件", "properties": {"描述": "沟通并解释需求"}},
+      {"id": "participates-tianzong-jiangxi", "source": "person-tianzong", "target": "event-jiangxi", "type": "参与事件", "properties": {"描述": "参与前端相关问题讨论"}},
+
+      {"id": "participates-self-dinner", "source": "person-self", "target": "event-dinner", "type": "参与事件", "properties": {"描述": "参加饭局"}},
+      {"id": "participates-yuhx-dinner", "source": "person-yuhx", "target": "event-dinner", "type": "参与事件", "properties": {"描述": "邀请并参加饭局"}},
+      {"id": "participates-xuyilong-dinner", "source": "person-xuyilong", "target": "event-dinner", "type": "参与事件", "properties": {"描述": "参加饭局"}},
+      {"id": "involves-dinner-yanglong", "source": "event-dinner", "target": "person-yanglong", "type": "涉及人物", "properties": {"描述": "对比过去与杨龙吃饭时的感受"}},
+      {"id": "involves-dinner-laolu", "source": "event-dinner", "target": "person-laolu", "type": "涉及人物", "properties": {"描述": "引用老陆对饭局的看法"}},
+      {"id": "involves-dinner-tongcx", "source": "event-dinner", "target": "person-tongcx", "type": "涉及人物", "properties": {"描述": "饭局中谈到其绩效与离职纠纷"}},
+
+      {"id": "participates-self-information-gap", "source": "person-self", "target": "event-information-gap", "type": "参与事件", "properties": {"描述": "利用距离信息影响住宿选择"}},
+      {"id": "participates-yufuhao-information-gap", "source": "person-yufuhao", "target": "event-information-gap", "type": "参与事件", "properties": {"描述": "根据提供的信息选择同住"}},
+      {"id": "involves-information-gap-dehua", "source": "event-information-gap", "target": "person-dehua", "type": "涉及人物", "properties": {"描述": "后来向德华讲述这段经历"}},
+
+      {"id": "participates-self-second-career", "source": "person-self", "target": "event-second-career", "type": "参与事件", "properties": {"描述": "讨论职业风险并考虑第二职业"}},
+      {"id": "participates-dehua-second-career", "source": "person-dehua", "target": "event-second-career", "type": "参与事件", "properties": {"描述": "提出准备寻找第二职业"}},
+
+      {"id": "participates-self-nostalgia", "source": "person-self", "target": "event-nostalgia", "type": "参与事件", "properties": {"描述": "回顾并反思过去与现在的工作体验"}},
+      {"id": "involves-nostalgia-yanglong", "source": "event-nostalgia", "target": "person-yanglong", "type": "涉及人物", "properties": {"描述": "怀念的过往领导"}},
+      {"id": "involves-nostalgia-dehua", "source": "event-nostalgia", "target": "person-dehua", "type": "涉及人物", "properties": {"描述": "怀念过去一起工作的同事"}},
+      {"id": "involves-nostalgia-laolu", "source": "event-nostalgia", "target": "person-laolu", "type": "涉及人物", "properties": {"描述": "怀念过去一起工作的同事"}},
+      {"id": "involves-nostalgia-yufuhao", "source": "event-nostalgia", "target": "person-yufuhao", "type": "涉及人物", "properties": {"描述": "怀念过去一起工作的同事"}},
+      {"id": "involves-nostalgia-wanshiwei", "source": "event-nostalgia", "target": "person-wanshiwei", "type": "涉及人物", "properties": {"描述": "怀念过去一起工作的同事"}},
+      {"id": "involves-nostalgia-yinxiaopeng", "source": "event-nostalgia", "target": "person-yinxiaopeng", "type": "涉及人物", "properties": {"描述": "怀念过去一起工作的同事"}},
+
+      {"id": "participates-self-hongkong", "source": "person-self", "target": "event-hongkong", "type": "参与事件", "properties": {"描述": "查询政策并评估可行路径"}},
+      {"id": "participates-songmei-hongkong", "source": "person-songmei", "target": "event-hongkong", "type": "参与事件", "properties": {"描述": "共同讨论香港工作机会"}},
+      {"id": "involves-hongkong-jiangyijuan", "source": "event-hongkong", "target": "person-jiangyijuan", "type": "涉及人物", "properties": {"描述": "其赴港生育计划是被讨论和了解的信息来源"}},
+
+      {"id": "triggers-dinner-nostalgia", "source": "event-dinner", "target": "event-nostalgia", "type": "引发事件", "properties": {"源要点序号": [1], "目标要点序号": [1], "描述": "于海昕要来广州并约饭，引发了对过去工作生活的怀念"}},
+      {"id": "triggers-dinner-hongkong", "source": "event-dinner", "target": "event-hongkong", "type": "引发事件", "properties": {"源要点序号": [7], "目标要点序号": [3, 4, 5, 6], "描述": "饭局中听说蒋一娟准备去香港生孩子，促使我查询香港生育与户口政策"}},
+      {"id": "mentions-dinner-second-career", "source": "event-dinner", "target": "event-second-career", "type": "提及事件", "properties": {"源要点序号": [12], "目标要点序号": [1, 2, 3], "描述": "饭局中的裁员降薪信息使我联想到前一天与德华讨论第二职业"}}
+    ]
+  }
+}
