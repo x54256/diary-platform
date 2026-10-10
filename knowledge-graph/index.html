@@ -212,7 +212,7 @@
         <button type="button" data-view="instances" class="active">实例图</button>
       </div>
       <label class="search-wrap">
-        <input id="search" type="search" placeholder="查找人物或事件…" aria-label="查找节点" />
+        <input id="search" type="search" placeholder="查找人物、事件或心理过程…" aria-label="查找节点" />
       </label>
       <div class="source-controls" aria-label="数据源操作">
         <button id="switchData" class="ghost-button" type="button">切换数据</button>
@@ -220,6 +220,7 @@
         <input id="fileInput" type="file" accept="application/json,.json" hidden />
       </div>
       <button id="resetView" class="ghost-button" type="button">重置视图</button>
+      <button id="restoreFocus" class="ghost-button" type="button" hidden>恢复原范围</button>
       <div id="stats" class="stats">—</div>
     </header>
 
@@ -227,7 +228,7 @@
       <aside class="panel filters">
         <div>
           <h2 class="panel-title">显示范围</h2>
-          <p class="panel-intro">第一层事实层仅展示人物、事件及其明确关系。点击类别可隐藏或显示。</p>
+          <p class="panel-intro">展示第一层人物、事件及其关系，以及第二层认知与情感过程。点击类别可隐藏或显示。</p>
         </div>
         <div id="nodeFilters" class="filter-group"></div>
         <div id="edgeFilters" class="filter-group"></div>
@@ -235,7 +236,7 @@
 
       <section class="panel canvas-panel">
         <svg id="graph" role="img" aria-label="知识图谱"></svg>
-        <div class="canvas-note">滚轮缩放 · 拖动画布 · 拖动节点 · 点击查看详情</div>
+        <div class="canvas-note">滚轮缩放 · 拖动画布 · 拖动节点 · 点击查看详情 · 双击只看关联</div>
         <div id="loadError" class="load-error" hidden>
           <div class="load-card">
             <h2>请选择数据文件</h2>
@@ -253,25 +254,29 @@
 
   <script>
     const COLORS = {
-      "事件": "#df724c", "人物": "#246b61"
+      "事件": "#df724c", "人物": "#246b61", "认知过程": "#536eb3", "情感过程": "#b55e86"
     };
     const EDGE_COLORS = {
       "人物关系": "#7b5c96", "参与事件": "#59736c", "涉及人物": "#8b8374",
-      "后续事件": "#3977a8", "提及事件": "#b1802f", "引发事件": "#c65345"
+      "后续事件": "#3977a8", "提及事件": "#b1802f", "引发事件": "#c65345",
+      "包含认知过程": "#536eb3", "包含情感过程": "#b55e86",
+      "引发情感": "#b8674f", "调节情感": "#6a8b4e", "影响认知": "#8270ac", "反思情感": "#4c8b98"
     };
     const EDGE_TYPE_LABELS = {
       "后续事件": "后续", "提及事件": "提及", "引发事件": "引发"
     };
 
     const state = {
-      data: null, view: "instances", hiddenNodeTypes: new Set(), hiddenEdgeTypes: new Set(),
+      data: null, view: "instances", hiddenNodeTypes: new Set(["人物"]), hiddenEdgeTypes: new Set(),
       query: "", positions: { schema: {}, instances: {} }, transform: { x: 0, y: 0, k: 1 },
-      selected: null, simulationFrame: null, sourceName: "data.json", isDefaultSource: true
+      selected: null, simulationFrame: null, sourceName: "data.json", isDefaultSource: true,
+      focusId: null, focusReturnState: null, hoveredEdgeId: null
     };
 
     const svg = document.querySelector("#graph");
     const details = document.querySelector("#details");
     const escapeHtml = value => String(value ?? "").replace(/[&<>'"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
+    const renderProcessContent = value => escapeHtml(value).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
 
     async function loadDefaultData(showFailureOverlay = true) {
       try {
@@ -290,8 +295,11 @@
       state.sourceName = sourceName;
       state.isDefaultSource = isDefaultSource;
       state.positions = { schema: {}, instances: {} };
-      state.hiddenNodeTypes.clear();
+      state.hiddenNodeTypes = new Set(state.view === "instances" ? ["人物"] : []);
       state.hiddenEdgeTypes.clear();
+      state.focusId = null;
+      state.focusReturnState = null;
+      document.querySelector("#restoreFocus").hidden = true;
       document.querySelector("#loadError").hidden = true;
       document.querySelector("#updatedAt").textContent = `${sourceName} · 数据日期 ${data.meta.sourceDates.join("、")} · 更新于 ${data.meta.updatedAt}`;
       document.querySelector("#restoreDefault").disabled = isDefaultSource;
@@ -330,8 +338,9 @@
       if (controlsBound) return;
       controlsBound = true;
       document.querySelectorAll("[data-view]").forEach(button => button.addEventListener("click", () => {
+        restoreFocus(false);
         state.view = button.dataset.view;
-        state.hiddenNodeTypes.clear();
+        state.hiddenNodeTypes = new Set(state.view === "instances" ? ["人物"] : []);
         state.hiddenEdgeTypes.clear();
         state.selected = null;
         document.querySelectorAll("[data-view]").forEach(item => item.classList.toggle("active", item === button));
@@ -342,6 +351,7 @@
         renderGraph(false);
       });
       document.querySelector("#resetView").addEventListener("click", () => resetView(false));
+      document.querySelector("#restoreFocus").addEventListener("click", () => restoreFocus());
       bindCanvasControls();
       window.addEventListener("resize", () => renderGraph(false));
     }
@@ -349,15 +359,62 @@
     function currentSection() { return state.data[state.view]; }
     function visibleData() {
       const section = currentSection();
+      const focusIds = state.focusId ? new Set([state.focusId]) : null;
+      if (focusIds) {
+        section.edges.forEach(edge => {
+          if (state.hiddenEdgeTypes.has(edge.type)) return;
+          if (edge.source === state.focusId) focusIds.add(edge.target);
+          if (edge.target === state.focusId) focusIds.add(edge.source);
+        });
+      }
       const matchedIds = new Set();
       for (const node of section.nodes) {
         const haystack = [node.label, node.type, JSON.stringify(node.properties || {})].filter(Boolean).join(" ").toLowerCase();
         if (!state.query || haystack.includes(state.query)) matchedIds.add(node.id);
       }
-      const nodes = section.nodes.filter(node => !state.hiddenNodeTypes.has(node.type) && matchedIds.has(node.id));
+      const nodes = section.nodes.filter(node => !state.hiddenNodeTypes.has(node.type) && matchedIds.has(node.id) && (!focusIds || focusIds.has(node.id)));
       const ids = new Set(nodes.map(node => node.id));
       const edges = section.edges.filter(edge => ids.has(edge.source) && ids.has(edge.target) && !state.hiddenEdgeTypes.has(edge.type));
       return { nodes, edges };
+    }
+
+    function focusOnNode(id) {
+      if (!state.focusReturnState) {
+        state.focusReturnState = {
+          query: state.query,
+          hiddenNodeTypes: [...state.hiddenNodeTypes],
+          hiddenEdgeTypes: [...state.hiddenEdgeTypes],
+          positions: JSON.parse(JSON.stringify(state.positions[state.view])),
+          transform: { ...state.transform }
+        };
+      }
+      state.focusId = id;
+      state.query = "";
+      state.hiddenEdgeTypes.clear();
+      document.querySelector("#search").value = "";
+      document.querySelector("#restoreFocus").hidden = false;
+      layoutFocusedNodes();
+      buildFilters();
+      selectNode(id);
+      renderGraph(false);
+    }
+
+    function restoreFocus(render = true) {
+      if (!state.focusReturnState) return;
+      state.query = state.focusReturnState.query;
+      state.hiddenNodeTypes = new Set(state.focusReturnState.hiddenNodeTypes);
+      state.hiddenEdgeTypes = new Set(state.focusReturnState.hiddenEdgeTypes);
+      state.positions[state.view] = state.focusReturnState.positions;
+      state.transform = state.focusReturnState.transform;
+      state.focusId = null;
+      state.focusReturnState = null;
+      document.querySelector("#search").value = state.query;
+      document.querySelector("#restoreFocus").hidden = true;
+      if (render) {
+        buildFilters();
+        renderGraph(false);
+        if (state.selected && currentSection().nodes.some(node => node.id === state.selected.id)) renderDetailsForNode(state.selected);
+      }
     }
 
     function resetView(reseed) {
@@ -402,7 +459,8 @@
         const target = button.dataset.kind === "node" ? state.hiddenNodeTypes : state.hiddenEdgeTypes;
         target.has(button.dataset.value) ? target.delete(button.dataset.value) : target.add(button.dataset.value);
         button.classList.toggle("off", target.has(button.dataset.value));
-        renderGraph(true);
+        if (state.focusId) layoutFocusedNodes();
+        renderGraph(!state.focusId);
       }));
     }
 
@@ -421,7 +479,7 @@
     }
 
     function edgeGraphLabel(edge) {
-      if (state.view === "instances" && (edge.type === "参与事件" || edge.type === "涉及人物")) return "";
+      if (state.view === "instances" && ["参与事件", "涉及人物", "包含认知过程", "包含情感过程"].includes(edge.type) && state.selected?.id !== edge.id && state.hoveredEdgeId !== edge.id) return "";
       return edgeDisplayLabel(edge);
     }
 
@@ -437,15 +495,16 @@
         const d = edgePath(edge, edges, positions);
         const color = EDGE_COLORS[edge.type] || "#888";
         const selected = selectedId === edge.id;
-        return `<g data-edge="${edge.id}"><path class="edge ${selected ? "selected" : ""}" d="${d}" stroke="${color}" marker-end="url(#arrow)"></path><path class="edge-hit" d="${d}"></path><text class="edge-label" data-edge-label="${edge.id}">${escapeHtml(edgeDisplayLabel(edge))}</text></g>`;
+        return `<g data-edge="${edge.id}"><path class="edge ${selected ? "selected" : ""}" d="${d}" stroke="${color}" marker-end="url(#arrow)"></path><path class="edge-hit" d="${d}"></path><text class="edge-label" data-edge-label="${edge.id}">${escapeHtml(edgeGraphLabel(edge))}</text></g>`;
       }).join("");
       const nodeMarkup = nodes.map(node => {
         const p = positions[node.id];
         const radius = nodeRadius(node.id);
         const selected = selectedId === node.id;
-        const label = node.label.length > 13 ? `${node.label.slice(0, 12)}…` : node.label;
-        const subtype = node.subtype ? `<text class="node-subtype" y="${radius + 25}">${escapeHtml(node.subtype)}</text>` : "";
-        return `<g class="node ${selected ? "selected" : ""}" data-node="${node.id}" transform="translate(${p.x},${p.y})"><circle r="${radius}" fill="${COLORS[node.type] || "#777"}" fill-opacity=".92"></circle><text y="${radius + 14}">${escapeHtml(label)}</text>${subtype}</g>`;
+        const lines = nodeLabelLines(node);
+        const label = lines.map((line, index) => `<tspan x="0" dy="${index ? 15 : 0}">${escapeHtml(line)}</tspan>`).join("");
+        const subtype = node.subtype ? `<text class="node-subtype" y="${radius + 14 + lines.length * 15}">${escapeHtml(node.subtype)}</text>` : "";
+        return `<g class="node ${selected ? "selected" : ""}" data-node="${node.id}" transform="translate(${p.x},${p.y})"><circle r="${radius}" fill="${COLORS[node.type] || "#777"}" fill-opacity=".92"></circle><text y="${radius + 14}">${label}</text>${subtype}</g>`;
       }).join("");
       svg.innerHTML = `${defs}<g id="viewport" transform="translate(${state.transform.x} ${state.transform.y}) scale(${state.transform.k})"><g id="edges">${edgeMarkup}</g><g id="nodes">${nodeMarkup}</g></g>`;
       updateEdgeLabels(edges, positions);
@@ -490,31 +549,98 @@
       return node?.type === "事件" ? 28 : 23;
     }
 
+    function nodeLabelLines(node) {
+      const chars = Array.from(node.label);
+      if (chars.length <= 10) return [node.label];
+      return [chars.slice(0, 10).join(""), chars.slice(10, 20).join("") + (chars.length > 20 ? "…" : "")];
+    }
+
+    function nodeBounds(node, position, padding = 8) {
+      const radius = nodeRadius(node.id);
+      const lines = nodeLabelLines(node);
+      const halfWidth = Math.max(radius, Math.max(...lines.map(line => Array.from(line).length)) * 5.5);
+      return { x: position.x - halfWidth - padding, y: position.y - radius - padding,
+        width: halfWidth * 2 + padding * 2,
+        height: radius * 2 + 14 + (lines.length - 1) * 15 + (node.subtype ? 15 : 0) + padding * 2 };
+    }
+
+    function boxesOverlap(a, b) {
+      return a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y;
+    }
+
+    function layoutFocusedNodes() {
+      const { nodes } = visibleData();
+      const positions = state.positions[state.view];
+      const neighbors = nodes.filter(node => node.id !== state.focusId);
+      let radius = Math.max(190, neighbors.length * 30);
+      // Expand the ring until the complete node and title rectangles are separated.
+      for (let attempt = 0; attempt < 30; attempt++, radius += 24) {
+        positions[state.focusId] = { x: 0, y: 0, vx: 0, vy: 0 };
+        neighbors.forEach((node, index) => {
+          const angle = -Math.PI / 2 + index * Math.PI * 2 / neighbors.length;
+          positions[node.id] = { x: Math.cos(angle) * radius * 1.15, y: Math.sin(angle) * radius, vx: 0, vy: 0 };
+        });
+        const bounds = nodes.map(node => nodeBounds(node, positions[node.id], 14));
+        if (!bounds.some((box, index) => bounds.slice(index + 1).some(other => boxesOverlap(box, other)))) break;
+      }
+      const rect = svg.getBoundingClientRect();
+      state.transform.x = rect.width / 2;
+      state.transform.y = rect.height / 2;
+    }
+
     function updateEdgeLabels(edges, positions) {
-      edges.forEach(edge => {
+      const occupied = visibleData().nodes.map(node => nodeBounds(node, positions[node.id]));
+      const ordered = [...edges].sort((a, b) => Number(b.id === state.selected?.id || b.id === state.hoveredEdgeId) - Number(a.id === state.selected?.id || a.id === state.hoveredEdgeId));
+      ordered.forEach(edge => {
         const label = svg.querySelector(`[data-edge-label="${CSS.escape(edge.id)}"]`);
-        const a = positions[edge.source], b = positions[edge.target];
-        if (!label) return;
-        if (edge.source === edge.target) {
-          const loops = edges.filter(item => item.source === edge.source && item.target === edge.target);
-          const loopIndex = loops.indexOf(edge);
-          label.setAttribute("x", a.x);
-          label.setAttribute("y", a.y - 72 - loopIndex * 22);
-        } else {
-          label.setAttribute("x", (a.x + b.x) / 2);
-          label.setAttribute("y", (a.y + b.y) / 2 - 5);
+        const path = svg.querySelector(`[data-edge="${CSS.escape(edge.id)}"] .edge`);
+        if (!label || !path) return;
+        label.textContent = edgeGraphLabel(edge);
+        label.style.visibility = "visible";
+        if (!label.textContent) return;
+        const length = path.getTotalLength();
+        let placed = false;
+        for (const fraction of [.5, .35, .65, .23, .77]) {
+          const point = path.getPointAtLength(length * fraction);
+          const before = path.getPointAtLength(Math.max(0, length * fraction - 1));
+          const after = path.getPointAtLength(Math.min(length, length * fraction + 1));
+          const distance = Math.hypot(after.x - before.x, after.y - before.y) || 1;
+          for (const offset of [-10, 12, -25, 27, -40, 42]) {
+            const x = point.x - (after.y - before.y) / distance * offset;
+            const y = point.y + (after.x - before.x) / distance * offset;
+            label.setAttribute("x", x);
+            label.setAttribute("y", y);
+            const box = label.getBBox();
+            const padded = { x: box.x - 5, y: box.y - 4, width: box.width + 10, height: box.height + 8 };
+            if (occupied.some(other => boxesOverlap(padded, other))) continue;
+            occupied.push(padded);
+            placed = true;
+            break;
+          }
+          if (placed) break;
         }
+        // Keep dense labels available in the details panel instead of stacking them.
+        if (!placed) label.style.visibility = "hidden";
       });
     }
 
     function bindGraphItems() {
       svg.querySelectorAll("[data-node]").forEach(group => {
         group.addEventListener("click", event => { event.stopPropagation(); selectNode(group.dataset.node); });
+        group.addEventListener("dblclick", event => { event.stopPropagation(); focusOnNode(group.dataset.node); });
         group.addEventListener("pointerdown", event => beginNodeDrag(event, group.dataset.node));
       });
-      svg.querySelectorAll("[data-edge]").forEach(group => group.addEventListener("click", event => {
-        event.stopPropagation(); selectEdge(group.dataset.edge);
-      }));
+      svg.querySelectorAll("[data-edge]").forEach(group => {
+        group.addEventListener("click", event => { event.stopPropagation(); selectEdge(group.dataset.edge); });
+        group.addEventListener("pointerenter", () => {
+          state.hoveredEdgeId = group.dataset.edge;
+          updateEdgeLabels(visibleData().edges, state.positions[state.view]);
+        });
+        group.addEventListener("pointerleave", () => {
+          state.hoveredEdgeId = null;
+          updateEdgeLabels(visibleData().edges, state.positions[state.view]);
+        });
+      });
     }
 
     function selectNode(id) {
@@ -522,7 +648,10 @@
       const node = section.nodes.find(item => item.id === id);
       state.selected = node;
       renderDetailsForNode(node);
-      renderGraph(false);
+      cancelAnimationFrame(state.simulationFrame);
+      svg.querySelectorAll(".node.selected, .edge.selected").forEach(item => item.classList.remove("selected"));
+      svg.querySelector(`[data-node="${CSS.escape(id)}"]`)?.classList.add("selected");
+      updateEdgeLabels(visibleData().edges, state.positions[state.view]);
     }
 
     function selectEdge(id) {
@@ -537,11 +666,19 @@
       const section = currentSection();
       const connections = section.edges.filter(edge => edge.source === node.id || edge.target === node.id);
       const eventPoints = Array.isArray(node.properties?.["事件要点"]) ? node.properties["事件要点"] : [];
-      const visibleProps = Object.entries(node.properties || {}).filter(([key]) => key !== "事件要点").map(([key, value]) => [key, propertyText(value)]);
+      const visibleProps = Object.entries(node.properties || {}).filter(([key]) => key !== "事件要点").map(([key, value]) => {
+        if (key === "来源依据" && Array.isArray(value)) {
+          return [key, value.map(ref => {
+            const event = section.nodes.find(item => item.id === ref["事件ID"]);
+            return `${event?.label || ref["事件ID"]} · 要点 ${ref["要点序号"].join("、")}`;
+          }).join("\n")];
+        }
+        return [key, propertyText(value)];
+      });
       details.innerHTML = `
         <span class="detail-type"><span class="dot" style="background:${COLORS[node.type] || "#777"}"></span>${escapeHtml(node.type)}</span>
         <h2 class="detail-title">${escapeHtml(node.label)}</h2>
-        ${visibleProps.length ? `<div class="detail-block"><h3>属性</h3><dl class="property-list">${visibleProps.map(([key,value]) => `<dt>${key}</dt><dd>${escapeHtml(value)}</dd>`).join("")}</dl></div>` : ""}
+        ${visibleProps.length ? `<div class="detail-block"><h3>属性</h3><dl class="property-list">${visibleProps.map(([key,value]) => `<dt>${key}</dt><dd>${key === "过程内容" && ["认知过程", "情感过程"].includes(node.type) ? renderProcessContent(value) : escapeHtml(value)}</dd>`).join("")}</dl></div>` : ""}
         ${eventPoints.length ? `<div class="detail-block"><h3>事件要点</h3><div class="event-points">${eventPoints.map(point => `<p class="event-point"><strong>${escapeHtml(point["序号"])}. ${escapeHtml(point["要点"])}：</strong>${escapeHtml(point["详细内容"])}</p>`).join("")}</div></div>` : ""}
         <div class="detail-block"><h3>连接关系 · ${connections.length}</h3>${connections.length ? connections.map(edge => connectionMarkup(edge, node.id)).join("") : '<p class="panel-intro">暂无连接</p>'}</div>`;
       details.querySelectorAll("[data-jump]").forEach(button => button.addEventListener("click", () => selectNode(button.dataset.jump)));
@@ -561,15 +698,27 @@
       const target = section.nodes.find(node => node.id === edge.target);
       const sourcePointNumbers = Array.isArray(edge.properties?.["源要点序号"]) ? edge.properties["源要点序号"] : [];
       const targetPointNumbers = Array.isArray(edge.properties?.["目标要点序号"]) ? edge.properties["目标要点序号"] : [];
+      const isProcessRelation = ["包含认知过程", "包含情感过程"].includes(edge.type);
+      const processPointNumbers = isProcessRelation && Array.isArray(edge.properties?.["依据要点序号"]) ? edge.properties["依据要点序号"] : [];
+      const psychologicalEvidence = Array.isArray(edge.properties?.["关系依据"]) ? edge.properties["关系依据"] : [];
+      const relationDescription = edge.properties?.["关系描述"];
       const hasPointEvidence = sourcePointNumbers.length > 0 || targetPointNumbers.length > 0;
-      const pointNumberKeys = new Set(["源要点序号", "目标要点序号"]);
+      const pointNumberKeys = new Set(["源要点序号", "目标要点序号", ...(isProcessRelation ? ["依据要点序号"] : [])]);
       const visibleProps = Object.entries(edge.properties || {})
         .filter(([key, value]) => !(pointNumberKeys.has(key) && Array.isArray(value)))
+        .filter(([key, value]) => !(key === "关系依据" && Array.isArray(value)))
+        .filter(([key]) => key !== "关系描述")
         .map(([key, value]) => [key, propertyText(value)]);
       details.innerHTML = `
         <span class="detail-type"><span class="dot" style="background:${EDGE_COLORS[edge.type] || "#777"}"></span>${escapeHtml(edge.type)}</span>
         <h2 class="detail-title">${escapeHtml(edgeDisplayLabel(edge))}</h2>
         <div class="detail-block"><h3>关系方向</h3><button class="connection" data-jump="${source.id}"><span class="dot" style="background:${COLORS[source.type]}"></span><span>${escapeHtml(source.label)}</span></button><div style="padding:4px 18px;color:var(--muted)">↓ ${escapeHtml(edgeDisplayLabel(edge))}</div><button class="connection" data-jump="${target.id}"><span class="dot" style="background:${COLORS[target.type]}"></span><span>${escapeHtml(target.label)}</span></button></div>
+        ${relationDescription ? `<div class="detail-block"><h3>关系描述</h3><p class="detail-description">${escapeHtml(propertyText(relationDescription))}</p></div>` : ""}
+        ${processPointNumbers.length ? `<div class="detail-block"><h3>关系依据</h3><div class="relation-evidence"><div class="evidence-group"><h4>来源事件要点 · ${escapeHtml(source.label)}</h4>${relationPointMarkup(source, processPointNumbers)}</div></div></div>` : ""}
+        ${psychologicalEvidence.length ? `<div class="detail-block"><h3>关系依据</h3><div class="relation-evidence">${psychologicalEvidence.map(ref => {
+          const event = section.nodes.find(node => node.id === ref["事件ID"]);
+          return `<div class="evidence-group"><h4>来源事件要点 · ${escapeHtml(event?.label || ref["事件ID"])}</h4>${relationPointMarkup(event, ref["要点序号"])}</div>`;
+        }).join("")}</div></div>` : ""}
         ${hasPointEvidence ? `<div class="detail-block"><h3>关系依据</h3><div class="relation-evidence"><div class="evidence-group"><h4>源事件要点 · ${escapeHtml(source.label)}</h4>${relationPointMarkup(source, sourcePointNumbers)}</div><div class="evidence-group"><h4>目标事件要点 · ${escapeHtml(target.label)}</h4>${relationPointMarkup(target, targetPointNumbers)}</div></div></div>` : ""}
         ${visibleProps.length ? `<div class="detail-block"><h3>关系属性</h3><dl class="property-list">${visibleProps.map(([key,value]) => `<dt>${key}</dt><dd>${escapeHtml(value)}</dd>`).join("")}</dl></div>` : ""}`;
       details.querySelectorAll("[data-jump]").forEach(button => button.addEventListener("click", () => selectNode(button.dataset.jump)));
@@ -602,7 +751,7 @@
             const b = positions[nodes[j].id];
             let dx = b.x - a.x, dy = b.y - a.y;
             const d2 = Math.max(500, dx * dx + dy * dy);
-            const force = (state.view === "schema" ? 2500 : 1450) / d2 * alpha;
+            const force = (state.view === "schema" ? 2500 : 5200) / d2 * alpha;
             const d = Math.sqrt(d2); dx /= d; dy /= d;
             a.vx -= dx * force; a.vy -= dy * force; b.vx += dx * force; b.vy += dy * force;
           }
@@ -611,20 +760,48 @@
           const a = positions[edge.source], b = positions[edge.target];
           if (!a || !b || a === b) return;
           const dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx,dy) || 1;
-          const ideal = state.view === "schema" ? 170 : 118;
+          const ideal = state.view === "schema" ? 170 : (["包含认知过程", "包含情感过程"].includes(edge.type) ? 280 : 220);
           const force = (d - ideal) * .006 * alpha;
           a.vx += dx / d * force; a.vy += dy / d * force;
           b.vx -= dx / d * force; b.vy -= dy / d * force;
         });
         nodes.forEach(node => {
           const p = positions[node.id];
-          p.vx += -p.x * .00025 * alpha; p.vy += -p.y * .00025 * alpha;
+          p.vx += -p.x * .00005 * alpha; p.vy += -p.y * .00005 * alpha;
           p.vx *= .82; p.vy *= .82; p.x += p.vx; p.y += p.vy;
         });
-        updatePositions(nodes, edges);
-        if (tick < 220) state.simulationFrame = requestAnimationFrame(step);
+        for (let i = 0; i < nodes.length; i++) {
+          for (let j = i + 1; j < nodes.length; j++) {
+            const a = positions[nodes[i].id], b = positions[nodes[j].id];
+            const boxA = nodeBounds(nodes[i], a), boxB = nodeBounds(nodes[j], b);
+            if (!boxesOverlap(boxA, boxB)) continue;
+            const overlapX = Math.min(boxA.x + boxA.width, boxB.x + boxB.width) - Math.max(boxA.x, boxB.x);
+            const overlapY = Math.min(boxA.y + boxA.height, boxB.y + boxB.height) - Math.max(boxA.y, boxB.y);
+            if (overlapX < overlapY) {
+              const push = (overlapX + 1) / 2 * (a.x <= b.x ? -1 : 1);
+              a.x += push; b.x -= push;
+            } else {
+              const push = (overlapY + 1) / 2 * (a.y <= b.y ? -1 : 1);
+              a.y += push; b.y -= push;
+            }
+          }
+        }
       }
-      state.simulationFrame = requestAnimationFrame(step);
+      // Settle the layout before displaying it so clicks do not chase moving nodes.
+      for (let iteration = 0; iteration < 220; iteration++) step();
+      updatePositions(nodes, edges);
+      if (!state.focusId && nodes.length) {
+        const boxes = nodes.map(node => nodeBounds(node, positions[node.id], 20));
+        const minX = Math.min(...boxes.map(box => box.x));
+        const minY = Math.min(...boxes.map(box => box.y));
+        const maxX = Math.max(...boxes.map(box => box.x + box.width));
+        const maxY = Math.max(...boxes.map(box => box.y + box.height));
+        const rect = svg.getBoundingClientRect();
+        const k = Math.min(1, (rect.width - 60) / (maxX - minX), (rect.height - 80) / (maxY - minY));
+        state.transform = { x: rect.width / 2 - (minX + maxX) / 2 * k,
+          y: (rect.height - 30) / 2 - (minY + maxY) / 2 * k, k };
+        applyTransform();
+      }
     }
 
     function updatePositions(nodes, edges) {
