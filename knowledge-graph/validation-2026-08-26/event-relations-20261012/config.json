@@ -1,0 +1,6 @@
+{
+  "model": "deepseek-v4-flash-0731",
+  "parameters": "服务默认",
+  "business_tables_written": false,
+  "pair_count": 15
+}

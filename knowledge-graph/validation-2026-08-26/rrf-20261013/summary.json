@@ -1,0 +1,19 @@
+{
+  "counts": {
+    "NO_RELATION": 43,
+    "RELATED": 1
+  },
+  "keyword_hits": 283,
+  "semantic_hits": 10,
+  "fused_total": 283,
+  "selected_total": 283,
+  "cross_day_pairs": 23,
+  "model_pairs": 44,
+  "usage": {
+    "prompt_tokens": 66529,
+    "completion_tokens": 26131,
+    "total_tokens": 92660,
+    "reasoning_tokens": 21548
+  },
+  "rrf_independent_check_passed": true
+}

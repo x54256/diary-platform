@@ -1,0 +1,27 @@
+{
+  "scheme": "semantic_only_blind_double_judgment_with_adjudication",
+  "model": "deepseek-v4-pro",
+  "thinking": "explicit_enabled",
+  "prompt_sha256": {
+    "a": "3faec6c1efed01da0ed1db421938f83104c3a15837d48af1d7aeb3a27b5440bd",
+    "b": "f8b563f80d1bdc674175835435c8a06e03cf855467350bcb1eadd2e449fe319e",
+    "c": "84a6c8c0f303646416be66b77741394514d4b6bbd94dbcd27b95f8ffc1db91fe"
+  },
+  "batch_limits": {
+    "pairs": 25,
+    "characters": 32000
+  },
+  "batches": [
+    {
+      "number": 1,
+      "pairs": 25,
+      "characters": 12207
+    },
+    {
+      "number": 2,
+      "pairs": 3,
+      "characters": 4585
+    }
+  ],
+  "production_written": false
+}

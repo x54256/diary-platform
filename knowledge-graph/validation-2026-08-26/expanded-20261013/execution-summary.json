@@ -1,0 +1,20 @@
+{
+  "state": "因免费额度耗尽中断，等待服务恢复",
+  "new_events": 7,
+  "candidate_events": 5,
+  "candidate_points": 21,
+  "api_attempts": 26,
+  "successful_responses": 21,
+  "failed_requests": 5,
+  "usage_of_successful_responses": {
+    "prompt_tokens": 41135,
+    "completion_tokens": 179488,
+    "total_tokens": 220623
+  },
+  "source_fix_count": 8,
+  "point_audit_passed": false,
+  "embeddings_executed": false,
+  "retrieval_executed": false,
+  "relation_judgements_executed": false,
+  "production_written": false
+}

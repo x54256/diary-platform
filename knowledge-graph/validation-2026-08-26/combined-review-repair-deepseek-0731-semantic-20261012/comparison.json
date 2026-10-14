@@ -1,0 +1,57 @@
+{
+  "requested_model": "deepseek-v4-flash",
+  "effective_requested_model": "deepseek-v4-flash-0731",
+  "host": "ws-xpny11er3mzn4l2s.cn-beijing.maas.aliyuncs.com",
+  "new_prompt_version": "r5-real-examples-semantic-review-v1",
+  "score_type": "助手对照原文的主观评分，非盲评、非准确率",
+  "score_mean": 88.5,
+  "historical_independent_kimi_scores": [
+    88,
+    88
+  ],
+  "historical_combined_kimi_scores": [
+    86,
+    90
+  ],
+  "rows": [
+    {
+      "run": 1,
+      "score": {
+        "fidelity": 39,
+        "completeness": 25,
+        "themes": 15,
+        "expression": 9,
+        "total": 88
+      },
+      "model_status": {
+        "passed": true,
+        "iterations": 2
+      },
+      "calls": 4,
+      "seconds": 470.74,
+      "total_tokens": 50379
+    },
+    {
+      "run": 2,
+      "score": {
+        "fidelity": 39,
+        "completeness": 25,
+        "themes": 15,
+        "expression": 10,
+        "total": 89
+      },
+      "model_status": {
+        "passed": true,
+        "iterations": 2
+      },
+      "calls": 4,
+      "seconds": 417.47,
+      "total_tokens": 45168
+    }
+  ],
+  "successful_stage_requests": 8,
+  "structure_retries": 0,
+  "original_model_http404_requests": 2,
+  "generation_called": false,
+  "database_writes": false
+}

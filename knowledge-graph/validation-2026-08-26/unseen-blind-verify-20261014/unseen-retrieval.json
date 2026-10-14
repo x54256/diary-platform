@@ -1,0 +1,737 @@
+{
+  "config": {
+    "min_cosine_similarity": 0.5,
+    "top_history_events_per_current_event": 5,
+    "event_score": "max_point_pair_cosine_similarity",
+    "keyword_retrieval": false,
+    "same_day": "full_pairwise"
+  },
+  "counts": {
+    "events": 11,
+    "points": 46,
+    "same_day_pairs": 17,
+    "cross_day_pairs": 11,
+    "total_pairs": 28
+  },
+  "days": [
+    {
+      "date": "2026-08-17",
+      "current_events": 5,
+      "history_events": 0,
+      "same_day_pairs": 10,
+      "cross_day_pairs": 0,
+      "rankings": [],
+      "pair_ids": [
+        "S20260817-01",
+        "S20260817-02",
+        "S20260817-03",
+        "S20260817-04",
+        "S20260817-05",
+        "S20260817-06",
+        "S20260817-07",
+        "S20260817-08",
+        "S20260817-09",
+        "S20260817-10"
+      ]
+    },
+    {
+      "date": "2026-08-18",
+      "current_events": 2,
+      "history_events": 5,
+      "same_day_pairs": 1,
+      "cross_day_pairs": 2,
+      "rankings": [
+        {
+          "current_event_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+          "history_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+          "similarity": 0.7055130870976242,
+          "current_point_id": "4527be19-3176-5068-a972-d9e72e53f1ea",
+          "current_point_no": 1,
+          "history_point_id": "539b3637-07c0-5536-bd61-ffd38bcf8752",
+          "history_point_no": 3,
+          "rank": 1,
+          "qualified": true,
+          "selected": true
+        },
+        {
+          "current_event_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+          "history_event_id": "ef72c89d-f5d5-418d-a9a3-a7a1725a8d81",
+          "similarity": 0.42739662372564285,
+          "current_point_id": "4527be19-3176-5068-a972-d9e72e53f1ea",
+          "current_point_no": 1,
+          "history_point_id": "924fb7b3-a0a6-577e-a14f-6c60c7027acc",
+          "history_point_no": 2,
+          "rank": 2,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+          "history_event_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+          "similarity": 0.394845350201307,
+          "current_point_id": "d36ef95b-34d9-59d4-aa9e-60ecf9146afe",
+          "current_point_no": 2,
+          "history_point_id": "e4ad1f0e-11de-5877-ae8a-619d965a250a",
+          "history_point_no": 4,
+          "rank": 3,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+          "history_event_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+          "similarity": 0.3755715155068904,
+          "current_point_id": "3da4b963-6946-5318-9c24-131f5cc83c58",
+          "current_point_no": 3,
+          "history_point_id": "fd177ada-cc80-58c5-917d-700dc1aeb16a",
+          "history_point_no": 1,
+          "rank": 4,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+          "history_event_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+          "similarity": 0.3514356798680564,
+          "current_point_id": "3da4b963-6946-5318-9c24-131f5cc83c58",
+          "current_point_no": 3,
+          "history_point_id": "8cffddcf-efc0-59c1-aace-1b51fe76aa26",
+          "history_point_no": 2,
+          "rank": 5,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee",
+          "history_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+          "similarity": 0.5390581192457553,
+          "current_point_id": "cb4bde6b-9204-5ec2-af20-5e1c60f6c2d1",
+          "current_point_no": 1,
+          "history_point_id": "75e991ac-26c4-53cb-bbf5-353aa9faeca8",
+          "history_point_no": 1,
+          "rank": 1,
+          "qualified": true,
+          "selected": true
+        },
+        {
+          "current_event_id": "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee",
+          "history_event_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+          "similarity": 0.4344367311470311,
+          "current_point_id": "b769261a-87b6-5a7e-a6fe-14a98b7b58d2",
+          "current_point_no": 6,
+          "history_point_id": "e53efa67-ff20-5cd2-bbec-2a13ff8dfc19",
+          "history_point_no": 3,
+          "rank": 2,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee",
+          "history_event_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+          "similarity": 0.4327392924396123,
+          "current_point_id": "a36122fa-07ff-5ff9-ba58-8c4a15d4fcf3",
+          "current_point_no": 5,
+          "history_point_id": "98d86683-6f4c-5db4-91ee-00385d32dc0c",
+          "history_point_no": 4,
+          "rank": 3,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee",
+          "history_event_id": "ef72c89d-f5d5-418d-a9a3-a7a1725a8d81",
+          "similarity": 0.39579119076264285,
+          "current_point_id": "cb4bde6b-9204-5ec2-af20-5e1c60f6c2d1",
+          "current_point_no": 1,
+          "history_point_id": "55da1926-243c-5fbb-8f48-ca2a2cb01c76",
+          "history_point_no": 1,
+          "rank": 4,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee",
+          "history_event_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+          "similarity": 0.39499867167368025,
+          "current_point_id": "bb635c28-7b44-56a9-b33a-5ded31acd6b5",
+          "current_point_no": 2,
+          "history_point_id": "8cffddcf-efc0-59c1-aace-1b51fe76aa26",
+          "history_point_no": 2,
+          "rank": 5,
+          "qualified": false,
+          "selected": false
+        }
+      ],
+      "pair_ids": [
+        "S20260818-01",
+        "X20260818-01",
+        "X20260818-02"
+      ]
+    },
+    {
+      "date": "2026-08-23",
+      "current_events": 4,
+      "history_events": 7,
+      "same_day_pairs": 6,
+      "cross_day_pairs": 9,
+      "rankings": [
+        {
+          "current_event_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+          "history_event_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+          "similarity": 0.6920717980017919,
+          "current_point_id": "affe6366-6f19-5ebf-9d07-061285faff62",
+          "current_point_no": 3,
+          "history_point_id": "c9449636-dd85-502a-a488-669c8000a92d",
+          "history_point_no": 3,
+          "rank": 1,
+          "qualified": true,
+          "selected": true
+        },
+        {
+          "current_event_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+          "history_event_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+          "similarity": 0.5394170502671984,
+          "current_point_id": "affe6366-6f19-5ebf-9d07-061285faff62",
+          "current_point_no": 3,
+          "history_point_id": "ea1daf7f-b4e8-5420-8e1f-e163c3361544",
+          "history_point_no": 1,
+          "rank": 2,
+          "qualified": true,
+          "selected": true
+        },
+        {
+          "current_event_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+          "history_event_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+          "similarity": 0.3819551576283666,
+          "current_point_id": "affe6366-6f19-5ebf-9d07-061285faff62",
+          "current_point_no": 3,
+          "history_point_id": "2de15094-1305-580a-b1b1-aaed22e8909b",
+          "history_point_no": 1,
+          "rank": 3,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+          "history_event_id": "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee",
+          "similarity": 0.37239824309351505,
+          "current_point_id": "83c41311-1878-5888-82c5-babb47a69cbb",
+          "current_point_no": 1,
+          "history_point_id": "bb635c28-7b44-56a9-b33a-5ded31acd6b5",
+          "history_point_no": 2,
+          "rank": 4,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+          "history_event_id": "ef72c89d-f5d5-418d-a9a3-a7a1725a8d81",
+          "similarity": 0.34091078772558997,
+          "current_point_id": "83c41311-1878-5888-82c5-babb47a69cbb",
+          "current_point_no": 1,
+          "history_point_id": "924fb7b3-a0a6-577e-a14f-6c60c7027acc",
+          "history_point_no": 2,
+          "rank": 5,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+          "history_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+          "similarity": 0.3270191790469166,
+          "current_point_id": "83c41311-1878-5888-82c5-babb47a69cbb",
+          "current_point_no": 1,
+          "history_point_id": "75e991ac-26c4-53cb-bbf5-353aa9faeca8",
+          "history_point_no": 1,
+          "rank": 6,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+          "history_event_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+          "similarity": 0.2895639424674555,
+          "current_point_id": "affe6366-6f19-5ebf-9d07-061285faff62",
+          "current_point_no": 3,
+          "history_point_id": "d36ef95b-34d9-59d4-aa9e-60ecf9146afe",
+          "history_point_no": 2,
+          "rank": 7,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+          "history_event_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+          "similarity": 0.5844200873915736,
+          "current_point_id": "70bfe37b-2fc9-5d24-826a-75c5fd73a823",
+          "current_point_no": 4,
+          "history_point_id": "fc1741e1-9c7f-521e-8f25-7fd66b0699de",
+          "history_point_no": 2,
+          "rank": 1,
+          "qualified": true,
+          "selected": true
+        },
+        {
+          "current_event_id": "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+          "history_event_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+          "similarity": 0.5082070459108721,
+          "current_point_id": "01937278-ca1a-5f6f-8da0-ccefd0da0da1",
+          "current_point_no": 1,
+          "history_point_id": "8067d245-9374-510b-bea6-5b287b77d418",
+          "history_point_no": 3,
+          "rank": 2,
+          "qualified": true,
+          "selected": true
+        },
+        {
+          "current_event_id": "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+          "history_event_id": "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee",
+          "similarity": 0.4323098475939257,
+          "current_point_id": "70bfe37b-2fc9-5d24-826a-75c5fd73a823",
+          "current_point_no": 4,
+          "history_point_id": "b769261a-87b6-5a7e-a6fe-14a98b7b58d2",
+          "history_point_no": 6,
+          "rank": 3,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+          "history_event_id": "ef72c89d-f5d5-418d-a9a3-a7a1725a8d81",
+          "similarity": 0.42849000981961655,
+          "current_point_id": "01937278-ca1a-5f6f-8da0-ccefd0da0da1",
+          "current_point_no": 1,
+          "history_point_id": "55da1926-243c-5fbb-8f48-ca2a2cb01c76",
+          "history_point_no": 1,
+          "rank": 4,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+          "history_event_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+          "similarity": 0.42186672685387955,
+          "current_point_id": "01937278-ca1a-5f6f-8da0-ccefd0da0da1",
+          "current_point_no": 1,
+          "history_point_id": "e53efa67-ff20-5cd2-bbec-2a13ff8dfc19",
+          "history_point_no": 3,
+          "rank": 5,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+          "history_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+          "similarity": 0.3837380814208466,
+          "current_point_id": "01937278-ca1a-5f6f-8da0-ccefd0da0da1",
+          "current_point_no": 1,
+          "history_point_id": "e70896ae-550d-5c2f-b83d-2316756146de",
+          "history_point_no": 2,
+          "rank": 6,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+          "history_event_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+          "similarity": 0.37399644827711404,
+          "current_point_id": "01937278-ca1a-5f6f-8da0-ccefd0da0da1",
+          "current_point_no": 1,
+          "history_point_id": "d36ef95b-34d9-59d4-aa9e-60ecf9146afe",
+          "history_point_no": 2,
+          "rank": 7,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+          "history_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+          "similarity": 0.6349987246020804,
+          "current_point_id": "9a3cbaeb-fd63-576a-8ead-a7c56fc0525e",
+          "current_point_no": 1,
+          "history_point_id": "75e991ac-26c4-53cb-bbf5-353aa9faeca8",
+          "history_point_no": 1,
+          "rank": 1,
+          "qualified": true,
+          "selected": true
+        },
+        {
+          "current_event_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+          "history_event_id": "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee",
+          "similarity": 0.5803894340310002,
+          "current_point_id": "9a3cbaeb-fd63-576a-8ead-a7c56fc0525e",
+          "current_point_no": 1,
+          "history_point_id": "cb4bde6b-9204-5ec2-af20-5e1c60f6c2d1",
+          "history_point_no": 1,
+          "rank": 2,
+          "qualified": true,
+          "selected": true
+        },
+        {
+          "current_event_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+          "history_event_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+          "similarity": 0.5352817007369268,
+          "current_point_id": "9a3cbaeb-fd63-576a-8ead-a7c56fc0525e",
+          "current_point_no": 1,
+          "history_point_id": "4527be19-3176-5068-a972-d9e72e53f1ea",
+          "history_point_no": 1,
+          "rank": 3,
+          "qualified": true,
+          "selected": true
+        },
+        {
+          "current_event_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+          "history_event_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+          "similarity": 0.45416109864385645,
+          "current_point_id": "88871718-8e86-53cb-aa9f-5b33bbc270b6",
+          "current_point_no": 2,
+          "history_point_id": "e53efa67-ff20-5cd2-bbec-2a13ff8dfc19",
+          "history_point_no": 3,
+          "rank": 4,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+          "history_event_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+          "similarity": 0.4022762495790381,
+          "current_point_id": "9a3cbaeb-fd63-576a-8ead-a7c56fc0525e",
+          "current_point_no": 1,
+          "history_point_id": "8cffddcf-efc0-59c1-aace-1b51fe76aa26",
+          "history_point_no": 2,
+          "rank": 5,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+          "history_event_id": "ef72c89d-f5d5-418d-a9a3-a7a1725a8d81",
+          "similarity": 0.3535806506025258,
+          "current_point_id": "88871718-8e86-53cb-aa9f-5b33bbc270b6",
+          "current_point_no": 2,
+          "history_point_id": "55da1926-243c-5fbb-8f48-ca2a2cb01c76",
+          "history_point_no": 1,
+          "rank": 6,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+          "history_event_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+          "similarity": 0.3076206555723851,
+          "current_point_id": "88871718-8e86-53cb-aa9f-5b33bbc270b6",
+          "current_point_no": 2,
+          "history_point_id": "98d86683-6f4c-5db4-91ee-00385d32dc0c",
+          "history_point_no": 4,
+          "rank": 7,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "a45628ee-fd16-4bed-846f-89143528494d",
+          "history_event_id": "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee",
+          "similarity": 0.5753035202412593,
+          "current_point_id": "0aec9a0d-ef25-53f9-86a2-4370af335561",
+          "current_point_no": 3,
+          "history_point_id": "bb635c28-7b44-56a9-b33a-5ded31acd6b5",
+          "history_point_no": 2,
+          "rank": 1,
+          "qualified": true,
+          "selected": true
+        },
+        {
+          "current_event_id": "a45628ee-fd16-4bed-846f-89143528494d",
+          "history_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+          "similarity": 0.5165657020924811,
+          "current_point_id": "34effed9-fdd0-5379-8343-985179fec934",
+          "current_point_no": 2,
+          "history_point_id": "e70896ae-550d-5c2f-b83d-2316756146de",
+          "history_point_no": 2,
+          "rank": 2,
+          "qualified": true,
+          "selected": true
+        },
+        {
+          "current_event_id": "a45628ee-fd16-4bed-846f-89143528494d",
+          "history_event_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+          "similarity": 0.45576720957468303,
+          "current_point_id": "4ed6f021-e2a2-53e3-b65c-ab59da715ec3",
+          "current_point_no": 4,
+          "history_point_id": "3da4b963-6946-5318-9c24-131f5cc83c58",
+          "history_point_no": 3,
+          "rank": 3,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "a45628ee-fd16-4bed-846f-89143528494d",
+          "history_event_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+          "similarity": 0.4418515901321052,
+          "current_point_id": "34effed9-fdd0-5379-8343-985179fec934",
+          "current_point_no": 2,
+          "history_point_id": "2de15094-1305-580a-b1b1-aaed22e8909b",
+          "history_point_no": 1,
+          "rank": 4,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "a45628ee-fd16-4bed-846f-89143528494d",
+          "history_event_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+          "similarity": 0.43136317363559673,
+          "current_point_id": "0aec9a0d-ef25-53f9-86a2-4370af335561",
+          "current_point_no": 3,
+          "history_point_id": "fc1741e1-9c7f-521e-8f25-7fd66b0699de",
+          "history_point_no": 2,
+          "rank": 5,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "a45628ee-fd16-4bed-846f-89143528494d",
+          "history_event_id": "ef72c89d-f5d5-418d-a9a3-a7a1725a8d81",
+          "similarity": 0.40916260508433416,
+          "current_point_id": "1e126274-2f76-528e-93da-78e7e183d850",
+          "current_point_no": 1,
+          "history_point_id": "924fb7b3-a0a6-577e-a14f-6c60c7027acc",
+          "history_point_no": 2,
+          "rank": 6,
+          "qualified": false,
+          "selected": false
+        },
+        {
+          "current_event_id": "a45628ee-fd16-4bed-846f-89143528494d",
+          "history_event_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+          "similarity": 0.3850212780343521,
+          "current_point_id": "0aec9a0d-ef25-53f9-86a2-4370af335561",
+          "current_point_no": 3,
+          "history_point_id": "8cffddcf-efc0-59c1-aace-1b51fe76aa26",
+          "history_point_no": 2,
+          "rank": 7,
+          "qualified": false,
+          "selected": false
+        }
+      ],
+      "pair_ids": [
+        "S20260823-01",
+        "S20260823-02",
+        "S20260823-03",
+        "S20260823-04",
+        "S20260823-05",
+        "S20260823-06",
+        "X20260823-01",
+        "X20260823-02",
+        "X20260823-03",
+        "X20260823-04",
+        "X20260823-05",
+        "X20260823-06",
+        "X20260823-07",
+        "X20260823-08",
+        "X20260823-09"
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "pair_id": "S20260817-01",
+      "event_a_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+      "event_b_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "S20260817-02",
+      "event_a_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+      "event_b_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "S20260817-03",
+      "event_a_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+      "event_b_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "S20260817-04",
+      "event_a_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+      "event_b_id": "ef72c89d-f5d5-418d-a9a3-a7a1725a8d81",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "S20260817-05",
+      "event_a_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+      "event_b_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "S20260817-06",
+      "event_a_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+      "event_b_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "S20260817-07",
+      "event_a_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+      "event_b_id": "ef72c89d-f5d5-418d-a9a3-a7a1725a8d81",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "S20260817-08",
+      "event_a_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+      "event_b_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "S20260817-09",
+      "event_a_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+      "event_b_id": "ef72c89d-f5d5-418d-a9a3-a7a1725a8d81",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "S20260817-10",
+      "event_a_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+      "event_b_id": "ef72c89d-f5d5-418d-a9a3-a7a1725a8d81",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "S20260818-01",
+      "event_a_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+      "event_b_id": "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "X20260818-01",
+      "event_a_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+      "event_b_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+      "candidate_source": "cross_day_semantic",
+      "similarity": 0.7055130870976242,
+      "current_point_no": 1,
+      "history_point_no": 3
+    },
+    {
+      "pair_id": "X20260818-02",
+      "event_a_id": "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee",
+      "event_b_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+      "candidate_source": "cross_day_semantic",
+      "similarity": 0.5390581192457553,
+      "current_point_no": 1,
+      "history_point_no": 1
+    },
+    {
+      "pair_id": "S20260823-01",
+      "event_a_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+      "event_b_id": "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "S20260823-02",
+      "event_a_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+      "event_b_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "S20260823-03",
+      "event_a_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+      "event_b_id": "a45628ee-fd16-4bed-846f-89143528494d",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "S20260823-04",
+      "event_a_id": "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+      "event_b_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "S20260823-05",
+      "event_a_id": "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+      "event_b_id": "a45628ee-fd16-4bed-846f-89143528494d",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "S20260823-06",
+      "event_a_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+      "event_b_id": "a45628ee-fd16-4bed-846f-89143528494d",
+      "candidate_source": "same_day_full"
+    },
+    {
+      "pair_id": "X20260823-01",
+      "event_a_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+      "event_b_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+      "candidate_source": "cross_day_semantic",
+      "similarity": 0.6920717980017919,
+      "current_point_no": 3,
+      "history_point_no": 3
+    },
+    {
+      "pair_id": "X20260823-02",
+      "event_a_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+      "event_b_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+      "candidate_source": "cross_day_semantic",
+      "similarity": 0.5394170502671984,
+      "current_point_no": 3,
+      "history_point_no": 1
+    },
+    {
+      "pair_id": "X20260823-03",
+      "event_a_id": "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+      "event_b_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+      "candidate_source": "cross_day_semantic",
+      "similarity": 0.5844200873915736,
+      "current_point_no": 4,
+      "history_point_no": 2
+    },
+    {
+      "pair_id": "X20260823-04",
+      "event_a_id": "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+      "event_b_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+      "candidate_source": "cross_day_semantic",
+      "similarity": 0.5082070459108721,
+      "current_point_no": 1,
+      "history_point_no": 3
+    },
+    {
+      "pair_id": "X20260823-05",
+      "event_a_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+      "event_b_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+      "candidate_source": "cross_day_semantic",
+      "similarity": 0.6349987246020804,
+      "current_point_no": 1,
+      "history_point_no": 1
+    },
+    {
+      "pair_id": "X20260823-06",
+      "event_a_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+      "event_b_id": "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee",
+      "candidate_source": "cross_day_semantic",
+      "similarity": 0.5803894340310002,
+      "current_point_no": 1,
+      "history_point_no": 1
+    },
+    {
+      "pair_id": "X20260823-07",
+      "event_a_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+      "event_b_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+      "candidate_source": "cross_day_semantic",
+      "similarity": 0.5352817007369268,
+      "current_point_no": 1,
+      "history_point_no": 1
+    },
+    {
+      "pair_id": "X20260823-08",
+      "event_a_id": "a45628ee-fd16-4bed-846f-89143528494d",
+      "event_b_id": "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee",
+      "candidate_source": "cross_day_semantic",
+      "similarity": 0.5753035202412593,
+      "current_point_no": 3,
+      "history_point_no": 2
+    },
+    {
+      "pair_id": "X20260823-09",
+      "event_a_id": "a45628ee-fd16-4bed-846f-89143528494d",
+      "event_b_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+      "candidate_source": "cross_day_semantic",
+      "similarity": 0.5165657020924811,
+      "current_point_no": 2,
+      "history_point_no": 2
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "agreement_pair_ids": [
+    "S20260817-02",
+    "S20260817-03",
+    "S20260817-04",
+    "S20260817-05",
+    "S20260817-06",
+    "S20260817-07",
+    "S20260817-09",
+    "S20260817-10",
+    "S20260818-01",
+    "X20260818-02",
+    "S20260823-01",
+    "S20260823-02",
+    "S20260823-03",
+    "S20260823-04",
+    "S20260823-05",
+    "S20260823-06",
+    "X20260823-02",
+    "X20260823-03",
+    "X20260823-04",
+    "X20260823-06",
+    "X20260823-07",
+    "X20260823-08",
+    "X20260823-09"
+  ],
+  "disagreements": [
+    {
+      "pair": {
+        "pair_id": "S20260817-01",
+        "event_a_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+        "event_b_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+        "candidate_source": "same_day_full"
+      },
+      "candidate_1": {
+        "pair_id": "S20260817-01",
+        "status": "RELATED",
+        "reason": "事件A要点3为哒哒预约了第二天洗牙，事件B要点1正是带哒哒去洗牙，执行了该预约。",
+        "relation": {
+          "source_event_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+          "target_event_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+          "relation_type": "后续事件",
+          "certainty": "EXPLICIT",
+          "source_point_nos": [
+            3
+          ],
+          "target_point_nos": [
+            1
+          ],
+          "description": "事件中为哒哒预约了第二天洗牙，随后在约定时间带哒哒前往洗牙并完成了拔牙等后续处置。"
+        }
+      },
+      "candidate_2": {
+        "pair_id": "S20260817-01",
+        "status": "RELATED",
+        "reason": "事件A的要点3预约了第二天洗牙，事件B的要点3记录了洗牙过程中发现牙齿松动并拔除，构成从预约到执行的后续事件。",
+        "relation": {
+          "source_event_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+          "target_event_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+          "relation_type": "后续事件",
+          "certainty": "EXPLICIT",
+          "source_point_nos": [
+            3
+          ],
+          "target_point_nos": [
+            3
+          ],
+          "description": "因体检后预约洗牙，次日带哒哒洗牙时发现两颗牙松动并拔除。"
+        }
+      }
+    },
+    {
+      "pair": {
+        "pair_id": "S20260817-08",
+        "event_a_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+        "event_b_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+        "candidate_source": "same_day_full"
+      },
+      "candidate_1": {
+        "pair_id": "S20260817-08",
+        "status": "RELATED",
+        "reason": "事件B要点3在聚餐时明确提到“刚好下周我不在家”，指向即将出差的安排，而被提及的出差正是事件A所描述的南通行程。",
+        "relation": {
+          "source_event_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+          "target_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+          "relation_type": "提及事件",
+          "certainty": "EXPLICIT",
+          "source_point_nos": [
+            3
+          ],
+          "target_point_nos": [
+            1
+          ],
+          "description": "在聚餐时提到下周因出差不在家，督促小廖看书，而这个出差就是已安排好的前往南通的行程。"
+        }
+      },
+      "candidate_2": {
+        "pair_id": "S20260817-08",
+        "status": "NO_RELATION",
+        "reason": "聚餐中虽提到“下周我不在家”，但未明确引用出差审批的具体事项，不构成提及。",
+        "relation": null
+      }
+    },
+    {
+      "pair": {
+        "pair_id": "X20260818-01",
+        "event_a_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+        "event_b_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+        "candidate_source": "cross_day_semantic",
+        "similarity": 0.7055130870976242,
+        "current_point_no": 1,
+        "history_point_no": 3
+      },
+      "candidate_1": {
+        "pair_id": "X20260818-01",
+        "status": "RELATED",
+        "reason": "事件B的要点3确定了南通行程，事件A的要点1记录了抵达现场后的第一天感受，构成从行程安排到实际到达的后续事件。",
+        "relation": {
+          "source_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+          "target_event_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+          "relation_type": "后续事件",
+          "certainty": "EXPLICIT",
+          "source_point_nos": [
+            3
+          ],
+          "target_point_nos": [
+            1
+          ],
+          "description": "订好机票后，周二抵达南通项目现场，对环境和设施印象很好。"
+        }
+      },
+      "candidate_2": {
+        "pair_id": "X20260818-01",
+        "status": "RELATED",
+        "reason": "事件A的出行安排直接导致事件B的到达现场，事件B要点1明确为抵达南通项目现场的第一天。",
+        "relation": {
+          "source_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+          "target_event_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+          "relation_type": "后续事件",
+          "certainty": "EXPLICIT",
+          "source_point_nos": [
+            1
+          ],
+          "target_point_nos": [
+            1
+          ],
+          "description": "完成南通出差的审批与行程安排后，我在周二第一天抵达南通项目现场，开始熟悉环境和同事。"
+        }
+      }
+    },
+    {
+      "pair": {
+        "pair_id": "X20260823-01",
+        "event_a_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+        "event_b_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+        "candidate_source": "cross_day_semantic",
+        "similarity": 0.6920717980017919,
+        "current_point_no": 3,
+        "history_point_no": 3
+      },
+      "candidate_1": {
+        "pair_id": "X20260823-01",
+        "status": "RELATED",
+        "reason": "事件A要点3再次提及哒哒洗牙拔牙的结果，该洗牙事件正是事件B所记录的同一事项。",
+        "relation": {
+          "source_event_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+          "target_event_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+          "relation_type": "提及事件",
+          "certainty": "EXPLICIT",
+          "source_point_nos": [
+            3
+          ],
+          "target_point_nos": [
+            4
+          ],
+          "description": "在记录多多体检的同时，我回顾了哒哒之前洗牙时发现两颗牙松动并最终拔除的情况。"
+        }
+      },
+      "candidate_2": {
+        "pair_id": "X20260823-01",
+        "status": "RELATED",
+        "reason": "事件A的要点3明确描述了哒哒洗牙时发现牙齿松动并拔除，直接引用了事件B的洗牙事件。",
+        "relation": {
+          "source_event_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+          "target_event_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+          "relation_type": "提及事件",
+          "certainty": "EXPLICIT",
+          "source_point_nos": [
+            3
+          ],
+          "target_point_nos": [
+            3
+          ],
+          "description": "在记录宠物体检时，提到了之前带哒哒洗牙并发现两颗牙松动后拔除的情况。"
+        }
+      }
+    },
+    {
+      "pair": {
+        "pair_id": "X20260823-05",
+        "event_a_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+        "event_b_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+        "candidate_source": "cross_day_semantic",
+        "similarity": 0.6349987246020804,
+        "current_point_no": 1,
+        "history_point_no": 1
+      },
+      "candidate_1": {
+        "pair_id": "X20260823-05",
+        "status": "RELATED",
+        "reason": "事件B的出差行程安排是事件A中出差工作的前提，事件A要点1明确为在南通出差的具体工作推进。",
+        "relation": {
+          "source_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+          "target_event_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+          "relation_type": "后续事件",
+          "certainty": "EXPLICIT",
+          "source_point_nos": [
+            1
+          ],
+          "target_point_nos": [
+            1
+          ],
+          "description": "按计划出发后，周一到周五在南通处理项目bug并推进日记管理平台的开发。"
+        }
+      },
+      "candidate_2": {
+        "pair_id": "X20260823-05",
+        "status": "RELATED",
+        "reason": "事件B的要点3定下南通行程，事件A的要点1记录周一到周五在南通出差处理工作，出差安排直接指向出差期间的工作推进。",
+        "relation": {
+          "source_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+          "target_event_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+          "relation_type": "后续事件",
+          "certainty": "EXPLICIT",
+          "source_point_nos": [
+            3
+          ],
+          "target_point_nos": [
+            1
+          ],
+          "description": "订好机票和酒店后，周一到周五在南通出差，主要忙于处理项目bug和推进开发。"
+        }
+      }
+    }
+  ],
+  "private_candidate_source_map": {
+    "S20260817-01": {
+      "candidate_1": "A",
+      "candidate_2": "B"
+    },
+    "S20260817-08": {
+      "candidate_1": "A",
+      "candidate_2": "B"
+    },
+    "X20260818-01": {
+      "candidate_1": "B",
+      "candidate_2": "A"
+    },
+    "X20260823-01": {
+      "candidate_1": "A",
+      "candidate_2": "B"
+    },
+    "X20260823-05": {
+      "candidate_1": "A",
+      "candidate_2": "B"
+    }
+  }
+}

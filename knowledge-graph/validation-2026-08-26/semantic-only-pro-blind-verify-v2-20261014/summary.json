@@ -1,0 +1,125 @@
+{
+  "retrieval": {
+    "history_events": 4,
+    "current_events": 6,
+    "points": 42,
+    "historical_same_day_pairs": 6,
+    "current_same_day_pairs": 15,
+    "cross_day_semantic_pairs": 4,
+    "total_pairs": 25
+  },
+  "model": "deepseek-v4-pro",
+  "thinking": "explicit_enabled",
+  "status_counts": {
+    "A": {
+      "NO_RELATION": 23,
+      "RELATED": 2
+    },
+    "B": {
+      "NO_RELATION": 23,
+      "RELATED": 1,
+      "UNRESOLVED": 1
+    },
+    "FINAL": {
+      "NO_RELATION": 23,
+      "RELATED": 1,
+      "UNRESOLVED": 1
+    }
+  },
+  "agreement_pairs": 23,
+  "disagreement_pairs": 2,
+  "disagreement_pair_ids": [
+    "D14",
+    "X03"
+  ],
+  "final_sources": {
+    "AGREEMENT": 23,
+    "ADJUDICATED": 2
+  },
+  "reference_checks": {
+    "D05": {
+      "expected": "NO_RELATION",
+      "actual": "NO_RELATION",
+      "passed": true
+    },
+    "D14": {
+      "expected": "RELATED",
+      "actual": "RELATED",
+      "passed": true
+    },
+    "X03": {
+      "expected": "UNRESOLVED",
+      "actual": "UNRESOLVED",
+      "passed": true
+    }
+  },
+  "stages": {
+    "A": {
+      "provider_requests": 1,
+      "usage": [
+        {
+          "prompt_tokens": 7260,
+          "total_tokens": 14426,
+          "completion_tokens": 7166,
+          "prompt_tokens_details": {
+            "cached_tokens": 7168
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 5200
+          }
+        }
+      ],
+      "seconds": [
+        146.78
+      ],
+      "reasoning_chars": [
+        9249
+      ]
+    },
+    "B": {
+      "provider_requests": 1,
+      "usage": [
+        {
+          "prompt_tokens": 6666,
+          "total_tokens": 12705,
+          "completion_tokens": 6039,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 4536
+          }
+        }
+      ],
+      "seconds": [
+        111.66
+      ],
+      "reasoning_chars": [
+        8533
+      ]
+    },
+    "C": {
+      "provider_requests": 1,
+      "usage": [
+        {
+          "prompt_tokens": 2737,
+          "total_tokens": 3722,
+          "completion_tokens": 985,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 658
+          }
+        }
+      ],
+      "seconds": [
+        20.63
+      ],
+      "reasoning_chars": [
+        1170
+      ]
+    }
+  },
+  "production_written": false
+}

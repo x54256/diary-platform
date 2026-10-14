@@ -1,0 +1,57 @@
+{
+  "score_type": "助手依据原文的主观评审，非盲评，非准确率",
+  "new_calls": 8,
+  "structure_retries": 0,
+  "rows": [
+    {
+      "run": 1,
+      "historical_score": 88,
+      "combined_score": {
+        "fidelity": 35,
+        "completeness": 25,
+        "themes": 15,
+        "expression": 11,
+        "total": 86
+      },
+      "model_status": {
+        "passed": true,
+        "iterations": 2
+      },
+      "historical_post_generation": {
+        "calls": 5,
+        "seconds": 440.71,
+        "total_tokens": 29078
+      },
+      "combined_post_generation": {
+        "calls": 4,
+        "seconds": 661.3,
+        "total_tokens": 36555
+      }
+    },
+    {
+      "run": 2,
+      "historical_score": 88,
+      "combined_score": {
+        "fidelity": 38,
+        "completeness": 25,
+        "themes": 15,
+        "expression": 12,
+        "total": 90
+      },
+      "model_status": {
+        "passed": false,
+        "iterations": 2
+      },
+      "historical_post_generation": {
+        "calls": 5,
+        "seconds": 539.9,
+        "total_tokens": 33445
+      },
+      "combined_post_generation": {
+        "calls": 4,
+        "seconds": 393.61,
+        "total_tokens": 24087
+      }
+    }
+  ]
+}

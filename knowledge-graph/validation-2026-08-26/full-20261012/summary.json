@@ -1,0 +1,48 @@
+{
+  "samples": {
+    "history_events": 4,
+    "history_points": 13,
+    "current_events": 6,
+    "current_points": 29
+  },
+  "retrieval": {
+    "queries_per_path": 29,
+    "keyword_hits": 283,
+    "semantic_hits": 290,
+    "cross_day_pairs": 24,
+    "current_same_day_pairs": 15
+  },
+  "statuses": {
+    "NO_RELATION": 44,
+    "RELATED": 1
+  },
+  "usage": {
+    "points": {
+      "requests_saved": 43,
+      "input_tokens": 78385,
+      "output_tokens": 278355,
+      "total_tokens": 356740,
+      "request_seconds_sum": 2764.57,
+      "structure_errors": 2,
+      "reasoning_tokens": 246770
+    },
+    "relations": {
+      "requests_saved": 45,
+      "input_tokens": 67788,
+      "output_tokens": 29040,
+      "total_tokens": 96828,
+      "request_seconds_sum": 369.6,
+      "structure_errors": 0,
+      "reasoning_tokens": 24464
+    },
+    "embeddings": {
+      "requests_saved": 5,
+      "total_tokens": 3081,
+      "request_seconds_sum": 2.62
+    }
+  },
+  "total_saved_tokens": 456649,
+  "total_saved_requests": 93,
+  "formal_publication_executed": false,
+  "unobserved_cost_note": "首次并发调用因结构失败中断；未返回并保存的服务端消耗无法从本地记录计算。另有1次无私人文本向量联通探测未计入本试验统计。"
+}

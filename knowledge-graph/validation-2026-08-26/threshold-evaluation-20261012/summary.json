@@ -1,0 +1,73 @@
+{
+  "mode": "冻结命中结果的离线阈值评估，未重跑数据库或模型",
+  "source": "knowledge-graph/validation-2026-08-26/full-20261012/retrieval-hits.json",
+  "selected_trial_threshold": 0.53,
+  "top_k": 10,
+  "rule": "仅保留余弦相似度>=0.53的历史要点，按距离及ID排序，最多10条，不补足",
+  "threshold_status": "试验参数；缺少跨日正例，未验证漏检风险",
+  "sweep": [
+    {
+      "min_cosine_similarity": 0.3,
+      "max_cosine_distance": 0.7,
+      "semantic_hits": 224,
+      "semantic_event_pairs": 23,
+      "keyword_event_pairs": 23,
+      "union_cross_day_pairs": 24,
+      "total_current_pairs": 39
+    },
+    {
+      "min_cosine_similarity": 0.4,
+      "max_cosine_distance": 0.6,
+      "semantic_hits": 85,
+      "semantic_event_pairs": 13,
+      "keyword_event_pairs": 23,
+      "union_cross_day_pairs": 23,
+      "total_current_pairs": 38
+    },
+    {
+      "min_cosine_similarity": 0.45,
+      "max_cosine_distance": 0.55,
+      "semantic_hits": 41,
+      "semantic_event_pairs": 8,
+      "keyword_event_pairs": 23,
+      "union_cross_day_pairs": 23,
+      "total_current_pairs": 38
+    },
+    {
+      "min_cosine_similarity": 0.5,
+      "max_cosine_distance": 0.5,
+      "semantic_hits": 10,
+      "semantic_event_pairs": 4,
+      "keyword_event_pairs": 23,
+      "union_cross_day_pairs": 23,
+      "total_current_pairs": 38
+    },
+    {
+      "min_cosine_similarity": 0.53,
+      "max_cosine_distance": 0.47,
+      "semantic_hits": 5,
+      "semantic_event_pairs": 3,
+      "keyword_event_pairs": 23,
+      "union_cross_day_pairs": 23,
+      "total_current_pairs": 38
+    },
+    {
+      "min_cosine_similarity": 0.55,
+      "max_cosine_distance": 0.45,
+      "semantic_hits": 3,
+      "semantic_event_pairs": 2,
+      "keyword_event_pairs": 23,
+      "union_cross_day_pairs": 23,
+      "total_current_pairs": 38
+    },
+    {
+      "min_cosine_similarity": 0.6,
+      "max_cosine_distance": 0.4,
+      "semantic_hits": 0,
+      "semantic_event_pairs": 0,
+      "keyword_event_pairs": 23,
+      "union_cross_day_pairs": 23,
+      "total_current_pairs": 38
+    }
+  ]
+}

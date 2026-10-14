@@ -1,0 +1,193 @@
+{
+  "results": [
+    {
+      "pair_id": "H01",
+      "status": "NO_RELATION",
+      "reason": "宠物体检事件涉及多多关节错位、哒哒洗牙拔牙；询问父母身体状况事件涉及母亲甲亢和父亲腰部问题。双方事项无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "H02",
+      "status": "NO_RELATION",
+      "reason": "一方为宠物多多与哒哒的体检及治疗安排，另一方为在南通出差期间处理项目bug及推进日记管理平台开发。双方没有指向同一具体事项或其他联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "H03",
+      "status": "NO_RELATION",
+      "reason": "一方为宠物体检结果与护理限制，另一方为何慧婷未入职小杨公司及李恒近况。双方事项完全无关。",
+      "relation": null
+    },
+    {
+      "pair_id": "H04",
+      "status": "NO_RELATION",
+      "reason": "一方是遛弯时给父母打电话询问健康情况，另一方是南通出差处理项目bug及日记平台开发。无共同事项或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "H05",
+      "status": "NO_RELATION",
+      "reason": "一方为打电话询问母亲甲亢、父亲腰部并督促检查，另一方为得知何慧婷入职失败及李恒近况。双方无具体事际联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "H06",
+      "status": "NO_RELATION",
+      "reason": "一方为南通出差工作推进（处理bug、日记平台开发），另一方得知同事何慧婷未入职并反思自己曾难受。出差事件未涉及何慧婷，何慧婷事件未提及出差。",
+      "relation": null
+    },
+    {
+      "pair_id": "D01",
+      "status": "NO_RELATION",
+      "reason": "江西项目数据梳理与需求讨论处理的是具体数据问题和与童姐、田总的沟通；与德华讨论程序员职业及第二职业是前一天与德华的聊天。双方话题互不涉及。",
+      "relation": null
+    },
+    {
+      "pair_id": "D02",
+      "status": "NO_RELATION",
+      "reason": "江西项目数据梳理与需求讨论未提及出差住宿；出差时利用信息差让同事同住是前一天与德华视频讲述的经历。无引用或交叉。",
+      "relation": null
+    },
+    {
+      "pair_id": "D03",
+      "status": "NO_RELATION",
+      "reason": "江西项目梳理涉及需求讨论、对田总的畏惧；怀念过去是因于海昕要来而回忆旧时光，并提及日记平台跑通。双方无相互指向的具体事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "D04",
+      "status": "NO_RELATION",
+      "reason": "江西项目数据梳理是工作内容；了解香港生育与户口涉及同事蒋一娟及自身赴港途径探索。两者没有联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "D05",
+      "status": "NO_RELATION",
+      "reason": "江西项目梳理发生在白天工作场景，未提及晚上应酬；晚上聚餐应酬讲述与于海昕吃饭及公司人事话题，未提及白天的江西工作。无引用或触发关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "D06",
+      "status": "NO_RELATION",
+      "reason": "与德华讨论程序员职业和出差住宿经历都是前一天与德华的聊天，但话题分别为第二职业和住宿信息差，未互相提及或依赖。",
+      "relation": null
+    },
+    {
+      "pair_id": "D07",
+      "status": "NO_RELATION",
+      "reason": "怀念过去的日子仅列举过去同事包括德华，而未提及与德华的具体聊天；与德华讨论程序员职业也未提及怀念过去。仅共同人物不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "D08",
+      "status": "NO_RELATION",
+      "reason": "与德华讨论程序员职业是关于职业前景的聊天；了解香港生育与户口是蒋一娟的事和自身赴港了解。双方毫无关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "D09",
+      "status": "NO_RELATION",
+      "reason": "与德华讨论程序员职业不涉及聚餐；聚餐应酬未提及德华或程序员职业话题。",
+      "relation": null
+    },
+    {
+      "pair_id": "D10",
+      "status": "NO_RELATION",
+      "reason": "出差时利用信息差让于福豪同住的故事与怀念过去中仅列举于福豪为以前同事，未提及该具体事件。仅有共同人物，未形成事件联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "D11",
+      "status": "NO_RELATION",
+      "reason": "出差住宿经历与了解香港生育及户口事项无交集。",
+      "relation": null
+    },
+    {
+      "pair_id": "D12",
+      "status": "NO_RELATION",
+      "reason": "出差住宿经历与晚上聚餐应酬互相未提及。",
+      "relation": null
+    },
+    {
+      "pair_id": "D13",
+      "status": "NO_RELATION",
+      "reason": "怀念过去的日子未涉及香港生育或蒋一娟；了解香港生育事件也未提及怀念情绪。",
+      "relation": null
+    },
+    {
+      "pair_id": "D14",
+      "status": "RELATED",
+      "reason": "event_a 要点1 明确推测“今天可能是因为于海昕要来”而开始怀念，event_b 要点1 正是于海昕来广州并邀请吃饭的安排，两方指向同一来访事件，构成原文明示的推测性引发联系。",
+      "relation": {
+        "source_event_id": "ecc1f31c-da19-4fea-91eb-68381053e046",
+        "target_event_id": "a7c66da7-00f5-41e5-af90-04abd8c6cb21",
+        "relation_type": "引发事件",
+        "certainty": "SPECULATIVE",
+        "source_point_nos": [
+          1
+        ],
+        "target_point_nos": [
+          1
+        ],
+        "description": "于海昕来广州并邀请吃饭的来访安排，让“我”推测这可能是自己开始怀念过去的原因。"
+      }
+    },
+    {
+      "pair_id": "D15",
+      "status": "NO_RELATION",
+      "reason": "了解香港生育与户口事项未提及晚上聚餐；聚餐应酬也未涉及香港生育。无直接联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "X01",
+      "status": "NO_RELATION",
+      "reason": "江西项目数据梳理是处理江西需求数据和与童姐、田总讨论；南通出差推进的是处理项目bug和日记管理平台开发。两者是不同的工作事项，无互相指向或进展关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "X02",
+      "status": "NO_RELATION",
+      "reason": "怀念过去的日子未提及何慧婷或李恒；同事何慧婷与李恒近况也未提及怀念过去。无引用或触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "X03",
+      "status": "UNRESOLVED",
+      "reason": "event_b 要点2 仅完成日记沉淀为知识库的步骤，event_a 要点3 仅表示日记管理平台跑通。虽属同一工具，但完成范围不同，且无新动作、具体完成时间或对前期步骤的明确引用，证据不足以判定后续关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "X04",
+      "status": "NO_RELATION",
+      "reason": "聚餐应酬中谈到招A编要求、童春秀辞退、降薪裁员等，未提及何慧婷事件；同事何慧婷与李恒近况也未涉及聚餐或这些具体话题。无事件间联系。",
+      "relation": null
+    }
+  ],
+  "sources": {
+    "H01": "AGREEMENT",
+    "H02": "AGREEMENT",
+    "H03": "AGREEMENT",
+    "H04": "AGREEMENT",
+    "H05": "AGREEMENT",
+    "H06": "AGREEMENT",
+    "D01": "AGREEMENT",
+    "D02": "AGREEMENT",
+    "D03": "AGREEMENT",
+    "D04": "AGREEMENT",
+    "D05": "AGREEMENT",
+    "D06": "AGREEMENT",
+    "D07": "AGREEMENT",
+    "D08": "AGREEMENT",
+    "D09": "AGREEMENT",
+    "D10": "AGREEMENT",
+    "D11": "AGREEMENT",
+    "D12": "AGREEMENT",
+    "D13": "AGREEMENT",
+    "D14": "ADJUDICATED",
+    "D15": "AGREEMENT",
+    "X01": "AGREEMENT",
+    "X02": "AGREEMENT",
+    "X03": "ADJUDICATED",
+    "X04": "AGREEMENT"
+  }
+}

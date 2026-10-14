@@ -1,0 +1,29 @@
+{
+  "calls": 3,
+  "round_count": 3,
+  "judgements": 42,
+  "usage": {
+    "prompt_tokens": 19506,
+    "completion_tokens": 60174,
+    "total_tokens": 79680,
+    "reasoning_tokens": 54552
+  },
+  "structured_consistent_cases": 14,
+  "rounds": [
+    {
+      "round": 1,
+      "expected_fields_passed": 14,
+      "failed_cases": []
+    },
+    {
+      "round": 2,
+      "expected_fields_passed": 14,
+      "failed_cases": []
+    },
+    {
+      "round": 3,
+      "expected_fields_passed": 14,
+      "failed_cases": []
+    }
+  ]
+}

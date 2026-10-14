@@ -1,0 +1,265 @@
+{
+  "results": [
+    {
+      "pair_id": "S20260817-01",
+      "status": "RELATED",
+      "reason": "事件0ac9cf57要点3明确为哒哒预约了第二天的洗牙，事件7cdc2a1e要点1正是带哒哒去洗牙的执行行动，构成从预约到执行的同一事项的后续事件。",
+      "relation": {
+        "source_event_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+        "target_event_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_point_nos": [
+          3
+        ],
+        "target_point_nos": [
+          1
+        ],
+        "description": "为哒哒做完体检并预约洗牙后，次日带哒哒前往宠物医院洗牙。"
+      }
+    },
+    {
+      "pair_id": "S20260817-02",
+      "status": "NO_RELATION",
+      "reason": "双方事件分别涉及宠物医院就诊和周日聚餐，无具体事项联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "S20260817-03",
+      "status": "NO_RELATION",
+      "reason": "一方是宠物误咬洁厕灵就医，另一方是出差行程安排，无直接关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "S20260817-04",
+      "status": "NO_RELATION",
+      "reason": "两事件均提到家中厕所状况，但起因分别是宠物碰倒地漏与暴雨积水，分属不同具体事项，无相互指涉。",
+      "relation": null
+    },
+    {
+      "pair_id": "S20260817-05",
+      "status": "NO_RELATION",
+      "reason": "双方同为周日发生的活动，但分别涉及宠物洗牙就医和家庭聚餐，无直接联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "S20260817-06",
+      "status": "NO_RELATION",
+      "reason": "宠物洗牙与出差行程发生在不同日期，且内容无交叉，不存在关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "S20260817-07",
+      "status": "NO_RELATION",
+      "reason": "宠物洗牙和周五暴雨回家是独立事件，无任何关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "S20260817-08",
+      "status": "RELATED",
+      "reason": "事件8761a6d3要点3在聚餐时提到“刚好下周我不在家”，明确指向因出差而离开，而事件eecd27fa正是在同一天记录的出差行程安排，构成明确的提及关系。",
+      "relation": {
+        "source_event_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+        "target_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "source_point_nos": [
+          3
+        ],
+        "target_point_nos": [
+          1,
+          3
+        ],
+        "description": "聚餐时提到下周因出差不在家，所指的出差即当天已安排的南通行程。"
+      }
+    },
+    {
+      "pair_id": "S20260817-09",
+      "status": "NO_RELATION",
+      "reason": "周日聚餐与周五暴雨回家各自独立，无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "S20260817-10",
+      "status": "NO_RELATION",
+      "reason": "出差行程与暴雨回家无关。",
+      "relation": null
+    },
+    {
+      "pair_id": "S20260818-01",
+      "status": "NO_RELATION",
+      "reason": "双方都涉及南通项目，但小豪仅询问项目实施情况，并未提及“初到项目现场”的具体体验或事项，无明确引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "X20260818-01",
+      "status": "RELATED",
+      "reason": "事件eecd27fa要点3详细记录了订好南通机票和酒店的安排，事件3b195ef1要点1则是周二实际抵达南通项目现场后的第一印象，是从行程计划到实际到达的后续事件。",
+      "relation": {
+        "source_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+        "target_event_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_point_nos": [
+          3
+        ],
+        "target_point_nos": [
+          1
+        ],
+        "description": "订好机票和酒店后，周二抵达南通项目现场，对环境、设施和节奏感到满意。"
+      }
+    },
+    {
+      "pair_id": "X20260818-02",
+      "status": "NO_RELATION",
+      "reason": "小豪聊天提及想来南通玩与出差行程安排无直接关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "S20260823-01",
+      "status": "NO_RELATION",
+      "reason": "宠物体检与询问父母身体状况互不涉及。",
+      "relation": null
+    },
+    {
+      "pair_id": "S20260823-02",
+      "status": "NO_RELATION",
+      "reason": "宠物体检与南通出差工作推进无交集。",
+      "relation": null
+    },
+    {
+      "pair_id": "S20260823-03",
+      "status": "NO_RELATION",
+      "reason": "宠物与同事八卦是不同领域事件，无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "S20260823-04",
+      "status": "NO_RELATION",
+      "reason": "询问父母身体与出差工作无具体事项关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "S20260823-05",
+      "status": "NO_RELATION",
+      "reason": "父母身体状况询问与同事近况八卦无关。",
+      "relation": null
+    },
+    {
+      "pair_id": "S20260823-06",
+      "status": "NO_RELATION",
+      "reason": "出差工作推进与同事八卦分属不同事项，无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "X20260823-01",
+      "status": "RELATED",
+      "reason": "事件23d66f22要点3在描述哒哒体检时提到“哒哒在洗牙的时候，发现有两颗牙松动了，拔了两颗牙”，直接回顾了之前事件7cdc2a1e中的洗牙和拔牙经过，属于明确提及。",
+      "relation": {
+        "source_event_id": "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+        "target_event_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "source_point_nos": [
+          3
+        ],
+        "target_point_nos": [
+          3,
+          4
+        ],
+        "description": "在记录多多体检时，提及了之前带哒哒洗牙时发现牙齿松动并最终决定拔除的情况。"
+      }
+    },
+    {
+      "pair_id": "X20260823-02",
+      "status": "NO_RELATION",
+      "reason": "宠物体检提及了洗牙，但不是对洁厕灵误咬事件的引用，且该事件本身无直接联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "X20260823-03",
+      "status": "NO_RELATION",
+      "reason": "询问父母身体与宠物洗牙无关。",
+      "relation": null
+    },
+    {
+      "pair_id": "X20260823-04",
+      "status": "NO_RELATION",
+      "reason": "父母身体状况询问与宠物误咬洁厕灵就医无关。",
+      "relation": null
+    },
+    {
+      "pair_id": "X20260823-05",
+      "status": "RELATED",
+      "reason": "事件eecd27fa的要点1和要点3共同构成了出差行程的安排，而事件86a721cd要点1记录了周一到周五在南通实际处理项目bug的工作推进，是行程执行后的自然后续。",
+      "relation": {
+        "source_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+        "target_event_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_point_nos": [
+          1,
+          3
+        ],
+        "target_point_nos": [
+          1
+        ],
+        "description": "按审批后的行程出发后，周一到周五在南通出差，主要处理项目bug并推进日记管理平台的开发。"
+      }
+    },
+    {
+      "pair_id": "X20260823-06",
+      "status": "NO_RELATION",
+      "reason": "小豪想了解项目实施情况，但未在聊天记录中明确提及出差工作推进的具体内容，不构成对事件的引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "X20260823-07",
+      "status": "NO_RELATION",
+      "reason": "event_a 描述在通州出差一周处理项目bug并推进日记管理平台开发，event_b 描述初到南通项目现场对环境和同事的感受，双方虽同属南通项目，但无具体事项联系，不存在后续、引发或提及关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "X20260823-08",
+      "status": "NO_RELATION",
+      "reason": "event_a 关于得知何慧婷未入职和其前男友近况（点1~4），event_b 关于与小豪通话了解其分手原因并分享自身经历（点1~9），虽有共同人物“颂梅”出现（event_a点1，event_b点9），但仅为共同人物，无任何具体事项联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "X20260823-09",
+      "status": "NO_RELATION",
+      "reason": "event_a 关于何慧婷与李恒的八卦及反思（点1~4），event_b 关于出差南通的行程安排与审批（点1~4），双方没有共同人物、具体事项或直接线索，无任何具体事项联系。",
+      "relation": null
+    }
+  ],
+  "sources": {
+    "S20260817-01": "ADJUDICATED",
+    "S20260817-02": "AGREEMENT",
+    "S20260817-03": "AGREEMENT",
+    "S20260817-04": "AGREEMENT",
+    "S20260817-05": "AGREEMENT",
+    "S20260817-06": "AGREEMENT",
+    "S20260817-07": "AGREEMENT",
+    "S20260817-08": "ADJUDICATED",
+    "S20260817-09": "AGREEMENT",
+    "S20260817-10": "AGREEMENT",
+    "S20260818-01": "AGREEMENT",
+    "X20260818-01": "ADJUDICATED",
+    "X20260818-02": "AGREEMENT",
+    "S20260823-01": "AGREEMENT",
+    "S20260823-02": "AGREEMENT",
+    "S20260823-03": "AGREEMENT",
+    "S20260823-04": "AGREEMENT",
+    "S20260823-05": "AGREEMENT",
+    "S20260823-06": "AGREEMENT",
+    "X20260823-01": "ADJUDICATED",
+    "X20260823-02": "AGREEMENT",
+    "X20260823-03": "AGREEMENT",
+    "X20260823-04": "AGREEMENT",
+    "X20260823-05": "ADJUDICATED",
+    "X20260823-06": "AGREEMENT",
+    "X20260823-07": "AGREEMENT",
+    "X20260823-08": "AGREEMENT",
+    "X20260823-09": "AGREEMENT"
+  }
+}

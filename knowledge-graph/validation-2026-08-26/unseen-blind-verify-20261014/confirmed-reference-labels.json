@@ -1,0 +1,215 @@
+{
+  "status": "user_confirmed",
+  "confirmed_at": "2026-10-14",
+  "total_pairs": 28,
+  "positive_pairs": 6,
+  "negative_pairs": 22,
+  "metrics": {
+    "true_positive": 5,
+    "false_positive": 0,
+    "false_negative": 1,
+    "true_negative": 22,
+    "accuracy": 0.9643,
+    "precision": 1.0,
+    "recall": 0.8333,
+    "f1": 0.9091
+  },
+  "labels": [
+    {
+      "pair_id": "S20260817-01",
+      "expected_status": "RELATED",
+      "actual_status": "RELATED",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260817-02",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260817-03",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260817-04",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260817-05",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260817-06",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260817-07",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260817-08",
+      "expected_status": "RELATED",
+      "actual_status": "RELATED",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260817-09",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260817-10",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260818-01",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "X20260818-01",
+      "expected_status": "RELATED",
+      "actual_status": "RELATED",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "X20260818-02",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260823-01",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260823-02",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260823-03",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260823-04",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260823-05",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "S20260823-06",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "X20260823-01",
+      "expected_status": "RELATED",
+      "actual_status": "RELATED",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "X20260823-02",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "X20260823-03",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "X20260823-04",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "X20260823-05",
+      "expected_status": "RELATED",
+      "actual_status": "RELATED",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "X20260823-06",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "X20260823-07",
+      "expected_status": "RELATED",
+      "actual_status": "NO_RELATION",
+      "passed": false,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "X20260823-08",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    },
+    {
+      "pair_id": "X20260823-09",
+      "expected_status": "NO_RELATION",
+      "actual_status": "NO_RELATION",
+      "passed": true,
+      "confirmation": "user_confirmed_2026-10-14"
+    }
+  ]
+}

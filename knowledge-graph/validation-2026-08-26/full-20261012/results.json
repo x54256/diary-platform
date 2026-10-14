@@ -1,0 +1,622 @@
+{
+  "historical_bootstrap": [
+    {
+      "pair": [
+        "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+        "a45628ee-fd16-4bed-846f-89143528494d"
+      ],
+      "label": "history-1",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A全部要点为南通出差期间处理项目bug及推进日记管理平台开发，属于工作推进事项；事件B全部要点为何慧婷未入职小杨公司的后续八卦、两种原因说法、个人反思及李恒近况，属于同事私人近况。两者主题、内容、人物均无交叉，未出现任何一方推进、引发或明确提及另一方具体事件的事实。仅凭同一篇日记日期不能构成关系，因此判断为无关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+        "86a721cd-c21c-4186-8dde-66fa2ea6ef10"
+      ],
+      "label": "history-2",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A为宠物体检及治疗安排，事件B为南通出差工作推进，双方内容主题不同，不存在后续、引发或提及关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+        "86a721cd-c21c-4186-8dde-66fa2ea6ef10"
+      ],
+      "label": "history-3",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A全部要点围绕给父母打电话询问并讨论身体健康问题，事件B全部要点围绕南通出差处理项目bug及推进日记管理平台开发。两个事件之间没有任何要点相互引用、触发或推进，也没有明示或推测的因果关联，仅因日记日期相同且同属个人记录不构成关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+        "a45628ee-fd16-4bed-846f-89143528494d"
+      ],
+      "label": "history-4",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A内容是宠物多多和哒哒的体检及治疗安排，事件B内容是同事何慧婷与李恒的近况，两者主题、人物、事项均无关联，没有相互引用、推进或引发的证据。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+        "a45628ee-fd16-4bed-846f-89143528494d"
+      ],
+      "label": "history-5",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A全部要点围绕当天遛弯时给父母打电话，询问母亲甲亢恢复情况和父亲腰部问题；事件B全部要点围绕同事何慧婷未能入职小杨公司、相关传言以及李恒近况。双方没有共同的具体事项、人物或因果线索，不存在一方推进或引发另一方的关系；也没有任何一方明确提及、回忆或联想到另一方。仅因日记日期相同不构成关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+        "83b0982d-41d4-4b5a-9cb5-1baa97ba196b"
+      ],
+      "label": "history-6",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A为宠物多多和哒哒的体检及治疗安排，事件B为遛弯时打电话询问父母身体状况。两者主题完全不同，事件A未提及事件B中的任何内容，事件B也未提及事件A中的宠物或体检。虽然两事件在时间上可能接近（事件A提到带哒哒遛弯，事件B提到遛弯时打电话），但仅时间邻近不构成关系，且没有引用、引发或后续的具体事项。",
+        "relation": null
+      },
+      "mapped_relation": null
+    }
+  ],
+  "current_results": [
+    {
+      "pair": [
+        "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+        "358da8de-d48c-4a63-bf7b-bab759f48d0e"
+      ],
+      "label": "current-1",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A为宠物多多与哒哒的体检及后续治疗安排，事件B为江西项目的数据梳理与需求讨论。两者主题完全不同，事件B中仅回忆此前田总在江西需求讨论中的强势解释，并未引用、回忆或联想到事件A中的任何内容；事件A也没有指向事件B的后续推进、引发或提及。不存在符合关系定义的联系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+        "79110645-469b-4993-815e-21cb9c432f02"
+      ],
+      "label": "current-2",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A内容为宠物多多和哒哒的体检及治疗安排，事件B为与德华讨论程序员职业与第二职业，两者主题、人物、事项均无关联，且没有相互引用、引发或推进的证据。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+        "85a26742-d463-4cd0-9a1c-301b16d9df42"
+      ],
+      "label": "current-3",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A全部要点围绕宠物多多和哒哒的体检结果、治疗安排及护理限制；事件B全部要点围绕出差住宿时利用信息差让同事同住。两者内容主题完全不同，没有共同事项、人物或时间上的承接，事件A中没有信息被事件B引用或回忆，也没有任何信息或结果促使事件B发生，因此不符合后续事件、引发事件或提及事件的定义。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+        "a7c66da7-00f5-41e5-af90-04abd8c6cb21"
+      ],
+      "label": "current-4",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A围绕宠物多多和哒哒的体检结果与后续治疗安排，事件B围绕对过去职场生活的怀念及当前工作感受，两者主题完全独立，没有相互引用、推进或引发关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+        "c00eba29-9227-443d-a526-7c181a599f34"
+      ],
+      "label": "current-5",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A围绕宠物多多的关节错位和哒哒的洗牙拔牙体检治疗，事件B围绕了解香港生育、户口及就业途径，两者无相同主题、人物或事项；无任何要点引用、回忆、推进或触发对方，时间邻近不构成关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "23d66f22-cd3d-4d52-8ea0-7db13e7eec7b",
+        "ecc1f31c-da19-4fea-91eb-68381053e046"
+      ],
+      "label": "current-6",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A内容为宠物体检及治疗安排，事件B内容为聚餐应酬及公司人事、绩效等讨论。两者主题不同，事件B中仅泛泛提到“遛狗”被耽误，并未引用、回忆或涉及事件A的具体体检事项；事件A也未提及聚餐。双方不存在后续推进、因果引发或明确提及的关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "358da8de-d48c-4a63-bf7b-bab759f48d0e",
+        "79110645-469b-4993-815e-21cb9c432f02"
+      ],
+      "label": "current-7",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A聚焦于江西项目的数据梳理、与童姐/田总讨论需求及自我反思，事件B记录与德华关于程序员职业和第二职业的讨论。两者主题完全不同，没有共同的具体事项；事件A的要点中未提及或引用事件B，事件B的要点中也未提及或引用事件A；时间上事件B发生在昨天（8月25日），事件A在今天（8月26日），且无任何线索表明事件A引发事件B或事件B引发事件A。因此不构成后续事件、引发事件或提及事件。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "358da8de-d48c-4a63-bf7b-bab759f48d0e",
+        "83b0982d-41d4-4b5a-9cb5-1baa97ba196b"
+      ],
+      "label": "current-8",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A为江西项目数据梳理与需求讨论，事件B为询问父母身体状况，两者主题、人物、时间均无关联。事件A未提及事件B中的任何内容，事件B也未引用事件A，不存在推进、引发或提及的具体事实关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "358da8de-d48c-4a63-bf7b-bab759f48d0e",
+        "85a26742-d463-4cd0-9a1c-301b16d9df42"
+      ],
+      "label": "current-9",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A聚焦于江西项目的数据梳理、需求讨论及与同事互动中的心理反应；事件B则是讲述出差住宿时利用信息差让同事同住。两者在内容、主题和涉及的人事上均无交集，没有后续、引发或提及关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "358da8de-d48c-4a63-bf7b-bab759f48d0e",
+        "86a721cd-c21c-4186-8dde-66fa2ea6ef10"
+      ],
+      "label": "current-10",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A为2026-08-26江西项目数据梳理与需求讨论，事件B为2026-08-23南通出差处理项目bug及推进日记管理平台开发。两者涉及不同项目/事项，事件A未提及、引用或回忆事件B，事件B也未提及事件A；不存在后续、引发或提及关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "358da8de-d48c-4a63-bf7b-bab759f48d0e",
+        "a45628ee-fd16-4bed-846f-89143528494d"
+      ],
+      "label": "current-11",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A全部内容围绕江西项目数据梳理、需求讨论及与同事沟通时的心理活动；事件B全部内容围绕同事何慧婷与李恒的近况八卦及自身感受。两者主题、人物、事项均不同，事件A未引用、回忆或联想到事件B的任何具体事件，事件B也未促使或推进事件A中的事项，无符合后续事件、引发事件或提及事件定义的关联。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "358da8de-d48c-4a63-bf7b-bab759f48d0e",
+        "a7c66da7-00f5-41e5-af90-04abd8c6cb21"
+      ],
+      "label": "current-12",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A描述江西项目数据梳理、需求讨论及由此产生的对田总畏惧心理的反思；事件B描述对过去日子的怀念及当前工作乐趣减少的感受。两者主题和具体事项不同，事件B未明确引用、回忆或指向事件A中的任何具体事件，也没有证据表明事件A促使事件B发生。仅有同一日记日期不足以构成关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "358da8de-d48c-4a63-bf7b-bab759f48d0e",
+        "c00eba29-9227-443d-a526-7c181a599f34"
+      ],
+      "label": "current-13",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "完整检查双方要点后，事件A全部围绕江西项目的数据梳理、需求讨论以及与童姐、田总的互动；事件B全部围绕通过蒋一娟赴港生子一事了解香港生育与户口途径，并建议颂梅尝试香港工作。两件事主题、人物、事项均无交叉，没有一处要点明确引用、回忆起对方事件中的具体内容，也没有任何证据表明一方事件的信息或结果促使另一方事件发生。仅凭日记日期相同不能建立关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "358da8de-d48c-4a63-bf7b-bab759f48d0e",
+        "ecc1f31c-da19-4fea-91eb-68381053e046"
+      ],
+      "label": "current-14",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A描述的是白天江西项目数据梳理与需求讨论，事件B描述的是晚上与于海昕等人的聚餐应酬。两者分别独立记录，没有同一具体事项的推进，也没有一方明确促使另一方发生，且彼此未引用、回忆或比较对方的具体事件。虽然涉及田总、童姐/童春秀等共同人物且日期相同，但共同人物和时间邻近不构成关系。因此完整检查未发现符合定义的关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "79110645-469b-4993-815e-21cb9c432f02",
+        "83b0982d-41d4-4b5a-9cb5-1baa97ba196b"
+      ],
+      "label": "current-15",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A为与德华讨论程序员职业前景及是否寻找第二职业，事件B为询问父母身体状况。两事件涉及不同人物、不同主题，内容间无相互引用、无因果引发、也无同一事项的推进关系。仅时间相近不构成关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "79110645-469b-4993-815e-21cb9c432f02",
+        "85a26742-d463-4cd0-9a1c-301b16d9df42"
+      ],
+      "label": "current-16",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A是关于与德华讨论程序员职业寿命及是否寻找第二职业；事件B是向德华讲述出差时利用信息差让同事同住的经历。两者仅共同涉及人物德华和“昨天”的时间背景，但没有一方明确引用、回忆、比较或联想到另一方的具体事件，也不存在同一事项的推进或因果引发关系。相同人物和时间邻近不构成关系，因此判定为无关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "79110645-469b-4993-815e-21cb9c432f02",
+        "86a721cd-c21c-4186-8dde-66fa2ea6ef10"
+      ],
+      "label": "current-17",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A（2026-08-26）内容为与德华讨论程序员职业周期及考虑第二职业；事件B（2026-08-23）内容为南通出差处理项目bug、推进日记管理平台开发。两者主题、事项、涉及人物均不同，事件A未引用、回忆或比较事件B的具体内容，事件B也未触发或推进事件A讨论的事项，且事件B发生在事件A之前，无法构成后续或引发关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "79110645-469b-4993-815e-21cb9c432f02",
+        "a45628ee-fd16-4bed-846f-89143528494d"
+      ],
+      "label": "current-18",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A内容为与德华讨论程序员职业周期及是否寻找第二职业，事件B内容为何慧婷入职失败及李恒近况等同事八卦。两者主题、人物、事项均无重叠，不存在一方推进、引发或提及另一方的关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "79110645-469b-4993-815e-21cb9c432f02",
+        "a7c66da7-00f5-41e5-af90-04abd8c6cb21"
+      ],
+      "label": "current-19",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A聚焦于与德华讨论程序员职业前景及是否寻找第二职业；事件B则是在怀念过去的日子，反思现在的生活与职场氛围。两者虽都涉及AI和德华这一人物，但事件B并未引用、回忆或比较事件A中的具体讨论内容，也未因事件A而产生新的行动或引发新事项，共同主题与人名不构成关系。未发现符合后续事件、引发事件或提及事件定义的具体关联。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "79110645-469b-4993-815e-21cb9c432f02",
+        "c00eba29-9227-443d-a526-7c181a599f34"
+      ],
+      "label": "current-20",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A是关于与德华讨论程序员职业前景及是否寻找第二职业；事件B是关于同事赴港生子、了解香港户口途径及建议颂梅尝试香港工作。两者主题、人物和事项均不同，没有一方推进、引发或提及另一方的明确证据。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "79110645-469b-4993-815e-21cb9c432f02",
+        "ecc1f31c-da19-4fea-91eb-68381053e046"
+      ],
+      "label": "current-21",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A记录与德华讨论程序员职业周期及是否寻找第二职业；事件B记录晚上与于海昕等人聚餐，并涉及公司招聘、辞退、降薪、绩效和AI投入等话题。两者既没有一方推进另一方同一具体事项，也没有一方信息或结果明确促使另一方新事项发生，更没有一方明确引用、回忆、比较或联想到另一方的这一具体事件。共同涉及AI、职业或公司处境等主题以及同日记日时间邻近，不足以构成关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+        "85a26742-d463-4cd0-9a1c-301b16d9df42"
+      ],
+      "label": "current-22",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A为询问父母身体状况的家庭通话，事件B为出差时利用信息差让同事同住的经历讲述。双方要点中均未引用、回忆或比较对方事件的具体内容，也不存在一方推进或引发另一方的事项，仅属于同一日记作者在不同日期的独立记录，不构成任何定义中的关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+        "a7c66da7-00f5-41e5-af90-04abd8c6cb21"
+      ],
+      "label": "current-23",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A的要点全部围绕2026-08-23与家人通话：询问母亲甲亢恢复情况、父亲腰部问题，坚持父亲去拍片检查，并反驳“病不致命”的说法；事件B的要点则围绕2026-08-26怀念过去、对比过去和现在的职场氛围、AI对创造乐趣的影响。两事件之间没有明确引用、回忆或联想到对方，也没有内容表明事件A触发事件B或事件B延续事件A的具体事项；仅时间邻近和作者相同不足以构成关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+        "c00eba29-9227-443d-a526-7c181a599f34"
+      ],
+      "label": "current-24",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A内容为询问父母身体状况，包括母亲甲亢、父亲腰部问题及就医安排；事件B内容为因同事赴港生子而了解香港生育与户口途径，并建议伴侣尝试香港工作。两起事件主题、人物指向和具体事项均不同，时间邻近不构成关系，原文也没有相互引用、推进或触发表达。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "83b0982d-41d4-4b5a-9cb5-1baa97ba196b",
+        "ecc1f31c-da19-4fea-91eb-68381053e046"
+      ],
+      "label": "current-25",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A是2026-08-23电话询问父母身体状况，涉及母亲甲亢、父亲腰伤及检查安排；事件B是2026-08-26与于海昕等人的工作聚餐应酬，涉及公司招聘、裁员、绩效等职场话题。两者主题不同，事件B未提及事件A，事件A也未引发或推进事件B的任何事项，仅存在日记时间邻近，不构成后续事件、引发事件或提及事件。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "85a26742-d463-4cd0-9a1c-301b16d9df42",
+        "86a721cd-c21c-4186-8dde-66fa2ea6ef10"
+      ],
+      "label": "current-26",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A的核心是向南通出差期间的住宿安排及利用信息差让于福豪同住，并未引用或推进事件B中“处理项目bug、推进日记管理平台开发”等工作事项；事件B也未提及事件A的住宿经历。两者仅共享“南通出差”的时间地点背景，不能仅凭共同主题或同一出差背景建立关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "85a26742-d463-4cd0-9a1c-301b16d9df42",
+        "a45628ee-fd16-4bed-846f-89143528494d"
+      ],
+      "label": "current-27",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A描述出差住宿时利用信息差让同事同住；事件B描述何慧婷与李恒的近况八卦。两者主题、人物、时间均无明确关联，不存在后续、引发或提及关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "85a26742-d463-4cd0-9a1c-301b16d9df42",
+        "a7c66da7-00f5-41e5-af90-04abd8c6cb21"
+      ],
+      "label": "current-28",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A讲述的是出差时利用信息差让同事同住的具体经历；事件B表达的是对过去日子和职场氛围的怀念，虽然B中提及于福豪等同事名字，但并未引用、回忆或联想到A中“利用信息差让同住”这一具体事件，也没有推进、引发关系。仅因人物重合和同一日记日期不能建立关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "85a26742-d463-4cd0-9a1c-301b16d9df42",
+        "c00eba29-9227-443d-a526-7c181a599f34"
+      ],
+      "label": "current-29",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A描述出差住宿时利用信息差让同事同住；事件B描述通过同事蒋一娟和ChatGPT了解香港生育、户口及工作机会。两者是同一篇日记中分别讲述的不同事项，没有一方推进另一方的事项，也没有一方的信息、体验或结果明确促成另一方发生，更不存在一方明确引用另一方。仅时间或叙述邻近不足以构成关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "85a26742-d463-4cd0-9a1c-301b16d9df42",
+        "ecc1f31c-da19-4fea-91eb-68381053e046"
+      ],
+      "label": "current-30",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A围绕此前南通出差时利用信息差让同事同住的住宿经历，事件B则是当晚与于海昕等人的聚餐应酬及席间聊到的公司情况。事件B的要点中未引用、回忆或比较事件A的具体事项，也没有迹象表明事件A促使或推进了事件B的发生；两者仅因同属同一日记日期和同一人物的记录而并列出现，但缺乏语义上的直接关联，不构成后续事件、引发事件或提及事件。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+        "a7c66da7-00f5-41e5-af90-04abd8c6cb21"
+      ],
+      "label": "current-31",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A记录南通出差期间处理bug及推进日记管理平台开发；事件B记录怀念过去、对比职场氛围、讨论AI对快乐的影响及平台跑通的感受。事件B未明确引用、回忆或联想到事件A的具体事件，也未说明由事件A的信息或结果促发，未继续推进事件A的同一事项。两边仅因提及日记平台而产生主题关联，但根据规则，共同主题不足以建立关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+        "c00eba29-9227-443d-a526-7c181a599f34"
+      ],
+      "label": "current-32",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A是南通出差期间处理项目bug及推进日记管理平台开发，属于工作事项；事件B是了解香港生育与户口相关信息及建议伴侣寻找香港工作，属于个人家庭与教育规划事项。两者主题、内容均无重合，事件A未提及或触发事件B，事件B也未提及或推进事件A，仅时间邻近不构成关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+        "ecc1f31c-da19-4fea-91eb-68381053e046"
+      ],
+      "label": "current-33",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A围绕南通出差期间处理bug和推进日记管理平台开发；事件B围绕广州聚餐及对公司管理状况的讨论。两者无同一事项推进、无一方信息或结果触发另一方新事项、也无一方明确引用另一方具体事件。时间邻近和不同主题不构成关系，故无关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "a45628ee-fd16-4bed-846f-89143528494d",
+        "a7c66da7-00f5-41e5-af90-04abd8c6cb21"
+      ],
+      "label": "current-34",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A记录何慧婷、李恒近况及叙述者对此的反思；事件B记录叙述者因于海昕要来而对过去工作生活的怀念。两者未相互提及、引用或回忆对方的具体事件：A中未出现B的怀念主题或杨龙、淑慧等内容，B中未出现A的何慧婷、李恒、小杨等信息。仅有的共同点是同一叙述者及时期相近，但相同人物、主题、情绪、时间邻近不构成关系。B的怀旧原因在原文中指向于海昕和现状，未指向A中的事件，因此无后续、引发或提及关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "a45628ee-fd16-4bed-846f-89143528494d",
+        "c00eba29-9227-443d-a526-7c181a599f34"
+      ],
+      "label": "current-35",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A围绕何慧婷未入职小杨公司、两个说法辨析、反思及李恒近况；事件B围绕蒋一娟赴港生子、了解香港生育与户口途径、建议颂梅尝试香港工作。双方不存在同一具体事项的推进、明确触发或提及，也无证据支持一方引用或引发另一方。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "a45628ee-fd16-4bed-846f-89143528494d",
+        "ecc1f31c-da19-4fea-91eb-68381053e046"
+      ],
+      "label": "current-36",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A内容围绕何慧婷未入职小杨公司及李恒近况展开；事件B内容围绕与于海昕的聚餐及公司招聘、裁员、绩效等话题展开。逐项检查后，事件B没有任何要点引用、提及、推进或由事件A引发；事件A也没有任何要点引用或指向事件B。两者主题不同、具体事项不同，仅日记时间接近不构成关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "a7c66da7-00f5-41e5-af90-04abd8c6cb21",
+        "c00eba29-9227-443d-a526-7c181a599f34"
+      ],
+      "label": "current-37",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A核心是怀念过去、对比过去与现在的职场与工作状态，属于个人情绪和职业感受；事件B核心是了解香港生育与户口途径、考虑妻子找香港工作，属于具体信息获取和家庭规划。两者之间没有任何一方明确引用、回忆或联想到另一事件，也没有证据显示A中的内容促使B发生，或B推进/引发A中的事项。仅因日记日期相同和时间邻近不能构成关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    },
+    {
+      "pair": [
+        "a7c66da7-00f5-41e5-af90-04abd8c6cb21",
+        "ecc1f31c-da19-4fea-91eb-68381053e046"
+      ],
+      "label": "current-38",
+      "result": {
+        "status": "RELATED",
+        "reason": "事件b第1点提供“于海昕今天来广州并邀请作者吃饭”这一事前安排；事件a第1点明确记录“今天可能是因为于海昕要来，我又开始怀念过去”。这构成事件b中的事前安排触发事件a的怀念状态，原文用“可能”限定，故certainty为SPECULATIVE。其余内容不构成后续或提及关系。",
+        "relation": {
+          "source_event_id": "ecc1f31c-da19-4fea-91eb-68381053e046",
+          "target_event_id": "a7c66da7-00f5-41e5-af90-04abd8c6cb21",
+          "relation_type": "引发事件",
+          "certainty": "SPECULATIVE",
+          "source_point_nos": [
+            1
+          ],
+          "target_point_nos": [
+            1
+          ],
+          "description": "于海昕当天来广州并邀请作者吃饭；作者记录今天可能是因为于海昕要来而开始怀念过去。"
+        }
+      },
+      "mapped_relation": {
+        "source_event_id": "ecc1f31c-da19-4fea-91eb-68381053e046",
+        "target_event_id": "a7c66da7-00f5-41e5-af90-04abd8c6cb21",
+        "relation_type": "引发事件",
+        "certainty": "SPECULATIVE",
+        "source_point_nos": [
+          1
+        ],
+        "target_point_nos": [
+          1
+        ],
+        "description": "于海昕当天来广州并邀请作者吃饭；作者记录今天可能是因为于海昕要来而开始怀念过去。",
+        "source_point_ids": [
+          "dd3408b8-dac3-5f08-b06a-8a60b5a2a032"
+        ],
+        "target_point_ids": [
+          "e5f829ca-5651-5ffb-9863-234b9aebd439"
+        ]
+      }
+    },
+    {
+      "pair": [
+        "c00eba29-9227-443d-a526-7c181a599f34",
+        "ecc1f31c-da19-4fea-91eb-68381053e046"
+      ],
+      "label": "current-39",
+      "result": {
+        "status": "NO_RELATION",
+        "reason": "事件A围绕了解香港生育与户口、赴港途径及建议颂梅尝试香港工作；事件B围绕晚上与于海昕等人的聚餐应酬，内容包括对饭局的态度、公司招聘、裁员、绩效等。双方要点之间没有一方推进另一方具体事项、没有一方由另一方明确触发，也没有一方明确引用、回忆或联想到另一方具体事件。仅因日记日期相同以及都与工作背景相关，不足以建立关系。",
+        "relation": null
+      },
+      "mapped_relation": null
+    }
+  ],
+  "formal_publication_executed": false
+}

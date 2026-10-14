@@ -1,0 +1,41 @@
+{
+  "retrieval": {
+    "history_events": 4,
+    "current_events": 6,
+    "points": 42,
+    "historical_same_day_pairs": 6,
+    "current_same_day_pairs": 15,
+    "cross_day_semantic_pairs": 4,
+    "total_pairs": 25
+  },
+  "model": "deepseek-v4-pro",
+  "channel": "百炼平台语言模型",
+  "request_thinking": "服务默认，未下发思考开关",
+  "logical_rounds": 1,
+  "provider_requests": 1,
+  "statuses": {
+    "RELATED": 2,
+    "NO_RELATION": 23,
+    "UNRESOLVED": 0
+  },
+  "usage": [
+    {
+      "prompt_tokens": 7260,
+      "total_tokens": 14699,
+      "completion_tokens": 7439,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 5933
+      }
+    }
+  ],
+  "seconds": [
+    142.32
+  ],
+  "reasoning_chars": [
+    10597
+  ],
+  "production_written": false
+}

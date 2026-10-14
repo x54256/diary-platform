@@ -1,0 +1,149 @@
+{
+  "retrieval": {
+    "events": 11,
+    "points": 46,
+    "same_day_pairs": 17,
+    "cross_day_pairs": 11,
+    "total_pairs": 28
+  },
+  "status_counts": {
+    "A": {
+      "RELATED": 5,
+      "NO_RELATION": 23
+    },
+    "B": {
+      "RELATED": 4,
+      "NO_RELATION": 24
+    },
+    "FINAL": {
+      "RELATED": 5,
+      "NO_RELATION": 23
+    }
+  },
+  "agreement_pairs": 23,
+  "disagreement_pairs": 5,
+  "disagreement_pair_ids": [
+    "S20260817-01",
+    "S20260817-08",
+    "X20260818-01",
+    "X20260823-01",
+    "X20260823-05"
+  ],
+  "final_sources": {
+    "ADJUDICATED": 5,
+    "AGREEMENT": 23
+  },
+  "stages": {
+    "adjudicator-c-01": {
+      "provider_requests": 1,
+      "usage": [
+        {
+          "prompt_tokens": 5476,
+          "total_tokens": 9175,
+          "completion_tokens": 3699,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 2579
+          }
+        }
+      ],
+      "seconds": [
+        83.21
+      ],
+      "reasoning_chars": [
+        5051
+      ]
+    },
+    "blind-verifier-b-01": {
+      "provider_requests": 1,
+      "usage": [
+        {
+          "prompt_tokens": 7432,
+          "total_tokens": 13707,
+          "completion_tokens": 6275,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 4268
+          }
+        }
+      ],
+      "seconds": [
+        138.08
+      ],
+      "reasoning_chars": [
+        7900
+      ]
+    },
+    "blind-verifier-b-02": {
+      "provider_requests": 1,
+      "usage": [
+        {
+          "prompt_tokens": 3203,
+          "total_tokens": 5712,
+          "completion_tokens": 2509,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 2190
+          }
+        }
+      ],
+      "seconds": [
+        65.17
+      ],
+      "reasoning_chars": [
+        3989
+      ]
+    },
+    "judge-a-01": {
+      "provider_requests": 1,
+      "usage": [
+        {
+          "prompt_tokens": 8026,
+          "total_tokens": 18233,
+          "completion_tokens": 10207,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 8081
+          }
+        }
+      ],
+      "seconds": [
+        238.67
+      ],
+      "reasoning_chars": [
+        13729
+      ]
+    },
+    "judge-a-02": {
+      "provider_requests": 1,
+      "usage": [
+        {
+          "prompt_tokens": 3797,
+          "total_tokens": 5807,
+          "completion_tokens": 2010,
+          "prompt_tokens_details": {
+            "cached_tokens": 1024
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1702
+          }
+        }
+      ],
+      "seconds": [
+        49.73
+      ],
+      "reasoning_chars": [
+        3196
+      ]
+    }
+  },
+  "production_written": false
+}

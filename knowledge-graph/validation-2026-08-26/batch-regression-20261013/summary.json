@@ -1,0 +1,32 @@
+{
+  "calls": 3,
+  "rounds": [
+    {
+      "round": 1,
+      "expected_fields_passed": 13,
+      "failed_cases": [
+        "R03"
+      ]
+    },
+    {
+      "round": 2,
+      "expected_fields_passed": 14,
+      "failed_cases": []
+    },
+    {
+      "round": 3,
+      "expected_fields_passed": 13,
+      "failed_cases": [
+        "R03"
+      ]
+    }
+  ],
+  "judgements": 42,
+  "usage": {
+    "prompt_tokens": 18318,
+    "completion_tokens": 70839,
+    "total_tokens": 89157,
+    "reasoning_tokens": 65031
+  },
+  "structured_consistent_cases": 13
+}

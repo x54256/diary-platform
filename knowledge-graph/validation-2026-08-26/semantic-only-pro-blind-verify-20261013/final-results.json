@@ -1,0 +1,205 @@
+{
+  "results": [
+    {
+      "pair_id": "H01",
+      "status": "NO_RELATION",
+      "reason": "双方事件分别涉及宠物体检和父母身体状况，内容无关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "H02",
+      "status": "NO_RELATION",
+      "reason": "一方为宠物体检，另一方为南通出差工作推进，两者事项不交叉，无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "H03",
+      "status": "NO_RELATION",
+      "reason": "宠物体检与同事人事近况分属不同领域，无任何具体关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "H04",
+      "status": "NO_RELATION",
+      "reason": "询问父母身体状况与南通出差工作推进，话题和人物均无关。",
+      "relation": null
+    },
+    {
+      "pair_id": "H05",
+      "status": "NO_RELATION",
+      "reason": "询问父母身体状况与了解同事近况，无共同事项或联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "H06",
+      "status": "NO_RELATION",
+      "reason": "南通出差工作推进与同事近况虽同属工作相关，但前者是具体项目开发和bug处理，后者是何慧婷与李恒的个人消息，未发现相互引用或直接关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "D01",
+      "status": "NO_RELATION",
+      "reason": "江西项目数据梳理与讨论程序员职业，分别为不同工作话题，无关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "D02",
+      "status": "NO_RELATION",
+      "reason": "江西项目工作与利用信息差让同事同住的讲述，为独立事件，无内容交叉。",
+      "relation": null
+    },
+    {
+      "pair_id": "D03",
+      "status": "NO_RELATION",
+      "reason": "江西项目工作与怀念过去，未见一方事件引致或提及另一方具体事项的线索。",
+      "relation": null
+    },
+    {
+      "pair_id": "D04",
+      "status": "NO_RELATION",
+      "reason": "江西项目工作与了解香港生育及户口信息，无任何联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "D05",
+      "status": "NO_RELATION",
+      "reason": "江西项目工作涉及田总，晚上聚餐涉及于海昕，但两事件无直接衔接或提及。",
+      "relation": null
+    },
+    {
+      "pair_id": "D06",
+      "status": "NO_RELATION",
+      "reason": "均提及“与德华”交流，但职业讨论和住宿经历是两个独立的话题，相互未引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "D07",
+      "status": "NO_RELATION",
+      "reason": "虽都涉及AI话题，但讨论职业和怀念过去为不同事件，没有相互触发或提及的证据。",
+      "relation": null
+    },
+    {
+      "pair_id": "D08",
+      "status": "NO_RELATION",
+      "reason": "程序员职业讨论与香港生育信息了解，无关。",
+      "relation": null
+    },
+    {
+      "pair_id": "D09",
+      "status": "NO_RELATION",
+      "reason": "职业讨论与聚餐应酬，无相互关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "D10",
+      "status": "NO_RELATION",
+      "reason": "住宿经历提及于福豪，怀念过去也列举于福豪，但仅为共同人物，怀念没有提及这一具体行事，不构成事件关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "D11",
+      "status": "NO_RELATION",
+      "reason": "出差住宿经历与了解香港生育信息，无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "D12",
+      "status": "NO_RELATION",
+      "reason": "出差住宿经历与晚上聚餐，无关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "D13",
+      "status": "NO_RELATION",
+      "reason": "怀念过去与了解香港生育信息，无关联线索。",
+      "relation": null
+    },
+    {
+      "pair_id": "D14",
+      "status": "RELATED",
+      "reason": "怀念过去事件要点1明确因‘于海昕要来’而触发情绪，聚餐事件要点1记录了于海昕当日来访并请吃饭的安排，原文使用‘可能’，构成推测性引发关系。",
+      "relation": {
+        "source_event_id": "ecc1f31c-da19-4fea-91eb-68381053e046",
+        "target_event_id": "a7c66da7-00f5-41e5-af90-04abd8c6cb21",
+        "relation_type": "引发事件",
+        "certainty": "SPECULATIVE",
+        "source_point_nos": [
+          1
+        ],
+        "target_point_nos": [
+          1
+        ],
+        "description": "于海昕来广州请吃饭的安排，可能触发了作者怀念过去的情绪。"
+      }
+    },
+    {
+      "pair_id": "D15",
+      "status": "NO_RELATION",
+      "reason": "了解香港生育信息与晚上聚餐，无内容交叉。",
+      "relation": null
+    },
+    {
+      "pair_id": "X01",
+      "status": "NO_RELATION",
+      "reason": "江西项目数据梳理与南通出差工作推进，为两个独立项目，互不关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "X02",
+      "status": "NO_RELATION",
+      "reason": "怀念过去列举的同事中不含何慧婷，怀念与了解何慧婷近况无直接联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "X03",
+      "status": "RELATED",
+      "reason": "两个事件均针对同一个日记管理平台，南通出差中完成了知识库沉淀步骤，后期平台整体跑通为同一事项的新状态，构成后续进展。",
+      "relation": {
+        "source_event_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+        "target_event_id": "a7c66da7-00f5-41e5-af90-04abd8c6cb21",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_point_nos": [
+          2
+        ],
+        "target_point_nos": [
+          3
+        ],
+        "description": "日记管理平台在完成知识库沉淀后，进一步实现了平台整体跑通。"
+      }
+    },
+    {
+      "pair_id": "X04",
+      "status": "NO_RELATION",
+      "reason": "晚上聚餐与了解何慧婷近况，无任何共同事项或提及。",
+      "relation": null
+    }
+  ],
+  "sources": {
+    "H01": "AGREEMENT",
+    "H02": "AGREEMENT",
+    "H03": "AGREEMENT",
+    "H04": "AGREEMENT",
+    "H05": "AGREEMENT",
+    "H06": "AGREEMENT",
+    "D01": "AGREEMENT",
+    "D02": "AGREEMENT",
+    "D03": "AGREEMENT",
+    "D04": "AGREEMENT",
+    "D05": "AGREEMENT",
+    "D06": "AGREEMENT",
+    "D07": "AGREEMENT",
+    "D08": "AGREEMENT",
+    "D09": "AGREEMENT",
+    "D10": "AGREEMENT",
+    "D11": "AGREEMENT",
+    "D12": "AGREEMENT",
+    "D13": "AGREEMENT",
+    "D14": "ADJUDICATED",
+    "D15": "AGREEMENT",
+    "X01": "AGREEMENT",
+    "X02": "AGREEMENT",
+    "X03": "ADJUDICATED",
+    "X04": "AGREEMENT"
+  }
+}

@@ -35,8 +35,7 @@ data/
 .idea/
 .nuxt/
 .output/
-**/.DS_Store/
-.DS_Store/
+.DS_Store
 backend/logs/
 .env
 deploy.server

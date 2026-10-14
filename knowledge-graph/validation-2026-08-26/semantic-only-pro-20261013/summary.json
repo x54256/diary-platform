@@ -1,0 +1,54 @@
+{
+  "status": "FAILED_VALIDATION",
+  "logical_rounds": 1,
+  "provider_requests": 2,
+  "failure": "两次响应均省略全部 RELATED 结果的 reason 字段，批次未通过结构校验",
+  "retrieval": {
+    "history_events": 4,
+    "current_events": 6,
+    "points": 42,
+    "historical_same_day_pairs": 6,
+    "current_same_day_pairs": 15,
+    "cross_day_semantic_pairs": 4,
+    "total_pairs": 25
+  },
+  "model": {
+    "name": "deepseek-v4-pro",
+    "channel": "百炼平台语言模型",
+    "thinking_enabled": false
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "seconds": 57.33,
+      "prompt_tokens": 7260,
+      "completion_tokens": 2971,
+      "total_tokens": 10231,
+      "statuses": {"RELATED": 6, "NO_RELATION": 15, "UNRESOLVED": 4},
+      "missing_reason_pairs": ["D02", "D09", "D14", "D15", "X03", "X04"]
+    },
+    {
+      "attempt": 2,
+      "seconds": 43.96,
+      "prompt_tokens": 10255,
+      "completion_tokens": 2558,
+      "total_tokens": 12813,
+      "cached_prompt_tokens": 7168,
+      "statuses": {"RELATED": 4, "NO_RELATION": 17, "UNRESOLVED": 4},
+      "missing_reason_pairs": ["D14", "D15", "X03", "X04"]
+    }
+  ],
+  "total_usage": {
+    "seconds": 101.29,
+    "prompt_tokens": 17515,
+    "completion_tokens": 5529,
+    "total_tokens": 23044
+  },
+  "known_label_review": {
+    "labels": 3,
+    "semantically_correct": 2,
+    "semantically_wrong": 1,
+    "fully_valid_results": 0
+  },
+  "production_written": false
+}
