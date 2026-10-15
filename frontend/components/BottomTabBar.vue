@@ -39,7 +39,6 @@ const tabs: TabItem[] = [
   { key: 'schedule', label: '日程', icon: '🗓️', path: '/schedule' },
   { key: 'review', label: '回顾', icon: '🔄', path: '/review' },
   { key: 'ai', label: 'AI伙伴', icon: '💬', path: '/ai' },
-  { key: 'knowledge', label: '知识', icon: '📚', path: '/knowledge' },
   { key: 'profile', label: '我的', icon: '👤', path: '/profile' },
 ]
 </script>

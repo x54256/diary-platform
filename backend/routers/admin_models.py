@@ -144,6 +144,8 @@ def get_model_options(current_user: User = Depends(require_admin)):
             "chat": "对话",
             "transcription": "语音转文字",
             "embedding": "向量化",
+            "graph": "事件建图",
+            "graph_embedding": "图谱向量",
         },
     }
 
@@ -497,7 +499,7 @@ async def test_model_setting(
             raise HTTPException(status_code=400, detail="渠道模型不存在")
         try:
             validate_setting_choice(request.setting_key, channel_model)
-            if request.setting_key not in {"transcription", "embedding"}:
+            if request.setting_key not in {"transcription", "embedding", "graph_embedding"}:
                 if request.thinking_enabled is None:
                     raise ModelConfigError("测试语言模型时必须指定思考状态")
                 validate_thinking_choice(channel_model, request.thinking_enabled, request.step_key or request.setting_key)
@@ -508,7 +510,7 @@ async def test_model_setting(
         api_base_url = channel_model.channel.api_base_url.rstrip("/")
         model_name = channel_model.model.model_name
         thinking_payload = {}
-        if request.setting_key not in {"transcription", "embedding"}:
+        if request.setting_key not in {"transcription", "embedding", "graph_embedding"}:
             from services.model_runtime import RuntimeModelConfig
             thinking_payload = resolve_thinking_payload(RuntimeModelConfig(
                 setting_key=request.setting_key,

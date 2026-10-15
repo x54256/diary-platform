@@ -52,7 +52,8 @@ from services.analysis_history import (
 )
 from services.search_service import search_diaries as search_diaries_service
 from services.auth import get_current_user
-from services.knowledge_guards import KnowledgeSourceLockedError, assert_knowledge_source_writable
+from services.graph_runtime import GraphError
+from services.graph_tasks import assert_source_writable, can_retry_task
 
 import asyncio
 from database import SessionLocal
@@ -65,10 +66,10 @@ router = APIRouter(prefix="/api/diaries", tags=["日记管理"])
 logger = logging.getLogger(__name__)
 
 
-def ensure_knowledge_source_writable(db: Session, diary_id: UUID) -> None:
+def ensure_graph_source_writable(db: Session, diary_id: UUID, *, content=False) -> None:
     try:
-        assert_knowledge_source_writable(db, diary_id)
-    except KnowledgeSourceLockedError as exc:
+        assert_source_writable(db, diary_id, content=content)
+    except GraphError as exc:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=str(exc)) from exc
 
 
@@ -1077,6 +1078,8 @@ def update_diary(
     if not diary:
         raise HTTPException(status_code=404, detail="日记不存在")
 
+    ensure_graph_source_writable(db, diary.id, content=True)
+
     running_organize_task = (
         db.query(OrganizeTask)
         .filter(
@@ -1138,7 +1141,7 @@ def delete_diary(
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="日记不存在")
     if diary.status == DiaryStatus.analyzed:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="已分析的日记不可删除")
-    ensure_knowledge_source_writable(db, diary.id)
+    ensure_graph_source_writable(db, diary.id)
 
     running_task = (
         db.query(OrganizeTask)
@@ -1182,7 +1185,7 @@ async def organize_diary(
     )
     if not diary:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="日记不存在")
-    ensure_knowledge_source_writable(db, diary.id)
+    ensure_graph_source_writable(db, diary.id, content=True)
 
     # 2. 状态守卫：仅 saved、organized 可整理；analyzed 不可
     if diary.status not in (DiaryStatus.saved, DiaryStatus.organized):
@@ -1314,7 +1317,7 @@ async def _run_organize(task_id: str, diary_id: str, original_text: str, user_id
         ).with_for_update().first()
         if not diary:
             raise RuntimeError("日记不存在或已删除")
-        assert_knowledge_source_writable(db, diary.id)
+        assert_source_writable(db, diary.id)
 
         # 已整理日记再次整理时复用一对一的整理记录，并清除会被替换的旧事件。
         organized = db.query(DiaryOrganized).filter(DiaryOrganized.diary_id == diary_id).first()
@@ -1474,318 +1477,36 @@ def get_organize_status(
     )
 
 
-@router.post("/{diary_id}/analyze", response_model=OrganizeTaskResponse)
-async def analyze_diary(
-    diary_id: UUID,
-    db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user),
-):
-    """AI 分析日记：异步任务模式，立即返回任务状态"""
-    request_started = Stopwatch()
-    logger.info(
-        "收到 AI 日记分析请求",
-        extra=log_extra(event="analysis.request.received", diary_id=str(diary_id), user_id=str(current_user.id)),
-    )
-    # 1. 查找日记，校验属于当前用户
-    diary = (
-        db.query(Diary)
-        .filter(Diary.id == diary_id, Diary.user_id == current_user.id, Diary.deleted_at.is_(None))
-        .with_for_update()
-        .first()
-    )
-    if not diary:
-        logger.warning(
-            "AI 日记分析请求被拒绝：日记不存在",
-            extra=log_extra(event="analysis.request.rejected", diary_id=str(diary_id), user_id=str(current_user.id), reason="diary_not_found"),
-        )
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="日记不存在")
-    ensure_knowledge_source_writable(db, diary.id)
-
-    # 2. 状态守卫：仅 organized、analyzed 可触发分析
-    if diary.status not in (DiaryStatus.organized, DiaryStatus.analyzed):
-        logger.warning(
-            "AI 日记分析请求被拒绝：日记状态不允许",
-            extra=log_extra(event="analysis.request.rejected", diary_id=str(diary_id), user_id=str(current_user.id), reason="invalid_diary_status", status=diary.status.value),
-        )
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="仅已整理或已分析的日记可以触发分析",
-        )
-
-    # 3. 必须有整理记录才能分析
-    if not diary.organized:
-        logger.warning(
-            "AI 日记分析请求被拒绝：缺少整理结果",
-            extra=log_extra(event="analysis.request.rejected", diary_id=str(diary_id), user_id=str(current_user.id), reason="organized_result_missing"),
-        )
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="日记尚未整理，无法分析",
-        )
-
-    # 本次分析模式由当前有效反馈决定，并在任务创建后固定下来。
-    current_run = get_current_analysis_run(db, diary.id)
-    has_effective_feedback = bool(
-        current_run and effective_feedback(db, current_run.id)
-    )
-    analysis_mode = "feedback" if has_effective_feedback else "ordinary"
-    feedback_run_id = str(current_run.id) if has_effective_feedback else None
-    feedback_source_run_id = str(current_run.id) if current_run else None
-    logger.info(
-        "AI 日记分析分支已确定",
-        extra=log_extra(
-            event="analysis.branch.selected",
-            diary_id=str(diary_id),
-            user_id=str(current_user.id),
-            analysis_mode=analysis_mode,
-            feedback_source_run_id=feedback_source_run_id,
-            has_effective_feedback=has_effective_feedback,
-        ),
-    )
-
-    # 4. 检查是否已有 running 分析任务
-    existing_task = (
-        db.query(OrganizeTask)
-        .filter(
-            OrganizeTask.diary_id == diary_id,
-            OrganizeTask.user_id == current_user.id,
-            OrganizeTask.task_type == "analyze",
-            OrganizeTask.status == "running",
-        )
-        .with_for_update()
-        .first()
-    )
-    if existing_task:
-        from datetime import datetime, timedelta
-        if datetime.utcnow() - existing_task.created_at > timedelta(minutes=15):
-            existing_task.status = "failed"
-            existing_task.error_message = "分析任务超时，已自动终止"
-            db.commit()
-            logger.warning(
-                "超时分析任务已终止",
-                extra=log_extra(
-                    event="analysis.task.timed_out",
-                    diary_id=str(diary_id),
-                    task_id=str(existing_task.id),
-                    analysis_mode=existing_task.analysis_mode,
-                    old_status="running",
-                    new_status="failed",
-                ),
-            )
-        else:
-            logger.info(
-                "复用正在运行的分析任务",
-                extra=log_extra(event="analysis.task.reused", diary_id=str(diary_id), task_id=str(existing_task.id), status=existing_task.status, current_step=existing_task.current_step),
-            )
-            return OrganizeTaskResponse(
-                diary_id=diary_id,
-                status=existing_task.status,
-                task_type="analyze",
-                analysis_mode=existing_task.analysis_mode,
-                current_step=existing_task.current_step,
-                error_message=existing_task.error_message,
-            )
-
-    # 5. 检查是否存在 failed 分析任务（断点续跑：复用 task_id）
-    failed_task = (
-        db.query(OrganizeTask)
-        .filter(
-            OrganizeTask.diary_id == diary_id,
-            OrganizeTask.user_id == current_user.id,
-            OrganizeTask.task_type == "analyze",
-            OrganizeTask.status == "failed",
-            OrganizeTask.analysis_mode == analysis_mode,
-        )
-        .order_by(OrganizeTask.created_at.desc())
-        .first()
-    )
-    if failed_task:
-        failed_task.status = "running"
-        failed_task.error_message = None
-        db.commit()
-        db.refresh(failed_task)
-        task = failed_task
-        logger.info(
-            "失败分析任务已重新启动",
-            extra=log_extra(event="analysis.task.restarted", diary_id=str(diary_id), task_id=str(task.id), analysis_mode=analysis_mode, old_status="failed", new_status="running"),
-        )
-    else:
-        # 6. 创建新 OrganizeTask 记录（task_type=analyze）
-        task = OrganizeTask(
-            diary_id=diary_id,
-            user_id=current_user.id,
-            task_type="analyze",
-            analysis_mode=analysis_mode,
-            status="running",
-            current_step="feedback_core_analysis" if analysis_mode == "feedback" else "mood_tag_extract",
-        )
-        db.add(task)
-        db.commit()
-        db.refresh(task)
-        logger.info(
-            "分析任务已创建",
-            extra=log_extra(event="analysis.task.created", diary_id=str(diary_id), task_id=str(task.id), user_id=str(current_user.id), analysis_mode=analysis_mode, status=task.status, current_step=task.current_step),
-        )
-
-    # 7. 组装 structured_diary，供分析流水线使用
-    diary_organized = diary.organized
-    structured_diary = {
-        "diary_date": diary.diary_date.isoformat(),
-        "analysis_date": date.today().isoformat(),
-        "timezone": "Asia/Shanghai",
-        "introduction": diary_organized.introduction or "",
-        "events": [
-            {
-                "title": event.event_title,
-                "body": json.loads(event.body) if isinstance(event.body, str) else event.body,
-                "feeling": json.loads(event.feeling) if isinstance(event.feeling, str) else (event.feeling or []),
-                "reflection": json.loads(event.reflection) if isinstance(event.reflection, str) else (event.reflection or []),
-            }
-            for event in diary_organized.events
-        ],
-        "trivia": json.loads(diary_organized.trivia) if isinstance(diary_organized.trivia, str) else (diary_organized.trivia or []),
-        "plans": json.loads(diary_organized.plans) if isinstance(diary_organized.plans, str) else (diary_organized.plans or []),
-    }
-
-    # 8. 启动后台异步分析任务
-    asyncio.create_task(
-        _run_analyze(
-            task_id=str(task.id),
-            diary_id=str(diary_id),
-            user_id=str(current_user.id),
-            diary_organized_id=str(diary_organized.id),
-            original_text=diary.original_text,
-            structured_diary=structured_diary,
-            analysis_mode=analysis_mode,
-            feedback_run_id=feedback_run_id,
-            feedback_source_run_id=feedback_source_run_id,
-        ),
-        name=f"analysis-{task.id}",
-    )
-    logger.info(
-        "后台分析任务已启动",
-        extra=log_extra(event="analysis.task.started", diary_id=str(diary_id), task_id=str(task.id), analysis_mode=analysis_mode, event_count=len(structured_diary["events"]), duration_ms=request_started.elapsed_ms()),
-    )
-
-    # 9. 立即返回任务状态
-    return OrganizeTaskResponse(
-        diary_id=diary_id,
-        status="running",
-        task_type="analyze",
-        analysis_mode=task.analysis_mode,
-        current_step=task.current_step,
-        error_message=None,
-    )
-
-
-async def _run_analyze(
-    task_id: str,
-    diary_id: str,
-    user_id: str,
-    diary_organized_id: str,
-    original_text: str,
-    structured_diary: dict,
-    analysis_mode: str,
-    feedback_run_id: str | None = None,
-    feedback_source_run_id: str | None = None,
-):
-    """后台执行 AI 分析（独立 DB session）"""
-    task_started = Stopwatch()
-    db = SessionLocal()
-    logger.info(
-        "后台分析任务开始执行",
-        extra=log_extra(event="analysis.background.started", diary_id=diary_id, task_id=task_id, analysis_mode=analysis_mode, feedback_source_run_id=feedback_source_run_id),
-    )
+@router.post("/{diary_id}/analyze", response_model=OrganizeTaskResponse, status_code=202)
+def analyze_diary(diary_id: UUID, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    """创建完整建图与分析任务，失败恢复由图谱retry接口执行。"""
+    from services.graph_tasks import create_analysis
+    from routers.graph import http_error
     try:
-        if analysis_mode == "feedback":
-            if not feedback_run_id:
-                raise ValueError("反馈分析任务缺少上一轮分析结果")
-            from services.analysis_pipeline import run_feedback_reanalysis_pipeline
-            await run_feedback_reanalysis_pipeline(
-                structured_diary=structured_diary,
-                task_id=task_id,
-                diary_id=diary_id,
-                user_id=user_id,
-                diary_organized_id=diary_organized_id,
-                previous_run_id=feedback_run_id,
-            )
-        else:
-            # 调用分析流水线（内部完成标签落库 + 结果存储 + 状态更新为 analyzed）
-            await ai_service.analyze_diary(
-                original_text=original_text,
-                structured_diary=structured_diary,
-                task_id=task_id,
-                diary_id=diary_id,
-                user_id=user_id,
-                diary_organized_id=diary_organized_id,
-                feedback_source_run_id=feedback_source_run_id,
-            )
-
-        # 更新任务状态
-        task = db.query(OrganizeTask).filter(OrganizeTask.id == task_id).first()
-        if task:
-            task.status = "completed"
-            task.current_step = None
-        db.commit()
-
-        # 分析产出认知 / 理解层，增量重算该日记全部事件的语义向量（fail-open）。
-        sync_events = (
-            db.query(DiaryEvent.id)
-            .filter(DiaryEvent.diary_organized_id == diary_organized_id)
-            .all()
-        )
-        logger.info(
-            "后台分析任务完成",
-            extra=log_extra(event="analysis.task.completed", diary_id=diary_id, task_id=task_id, analysis_mode=analysis_mode, old_status="running", new_status="completed", duration_ms=task_started.elapsed_ms()),
-        )
-    except Exception as e:
-        logger.exception(
-            "后台分析任务失败",
-            extra=log_extra(event="analysis.task.failed", diary_id=diary_id, task_id=task_id, analysis_mode=analysis_mode, error_type=type(e).__name__, duration_ms=task_started.elapsed_ms()),
-        )
+        task, run = create_analysis(db, current_user.id, diary_id)
+    except GraphError as error:
         db.rollback()
-        task = db.query(OrganizeTask).filter(OrganizeTask.id == task_id).first()
-        if task:
-            task.status = "failed"
-            task.error_message = str(e)
-        db.commit()
-        logger.info(
-            "后台分析任务失败状态已保存",
-            extra=log_extra(event="analysis.task.failure_persisted", diary_id=diary_id, task_id=task_id, new_status="failed"),
-        )
-    finally:
-        db.close()
+        raise http_error(error) from error
+    return OrganizeTaskResponse(diary_id=diary_id, task_id=task.id, graph_run_id=run.id,
+        status="running", task_type="analyze", analysis_mode=run.analysis_mode,
+        current_step=run.current_step or "PREPARE_SOURCE", can_retry=False)
 
 
 @router.get("/{diary_id}/analyze/status", response_model=OrganizeTaskResponse)
-def get_analyze_status(
-    diary_id: UUID,
-    db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user),
-):
-    """查询分析任务状态"""
-    task = (
-        db.query(OrganizeTask)
-        .join(Diary, Diary.id == OrganizeTask.diary_id)
-        .filter(
-            OrganizeTask.diary_id == diary_id,
-            OrganizeTask.user_id == current_user.id,
-            OrganizeTask.task_type == "analyze",
-            Diary.deleted_at.is_(None),
-        )
-        .order_by(OrganizeTask.created_at.desc())
-        .first()
-    )
+def get_analyze_status(diary_id: UUID, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    from models.graph import GraphTask, GraphRun
+    task = db.query(GraphTask).join(GraphRun, GraphRun.task_id == GraphTask.id).join(
+        Diary, Diary.id == GraphRun.diary_id).filter(GraphRun.diary_id == diary_id,
+        GraphTask.user_id == current_user.id, GraphTask.entry_type == "ANALYSIS",
+        Diary.deleted_at.is_(None)).order_by(GraphTask.created_at.desc()).first()
     if not task:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="无分析任务")
-    return OrganizeTaskResponse(
-        diary_id=diary_id,
-        status=task.status,
-        task_type=task.task_type,
-        analysis_mode=task.analysis_mode,
-        current_step=task.current_step,
-        error_message=task.error_message,
-    )
+        raise HTTPException(404, detail="无分析任务")
+    run = db.query(GraphRun).filter(GraphRun.task_id == task.id, GraphRun.diary_id == diary_id).one()
+    state = "completed" if task.status == "SUCCEEDED" else "failed" if task.status in ("FAILED", "SUPERSEDED") else "running"
+    return OrganizeTaskResponse(diary_id=diary_id, task_id=task.id, graph_run_id=run.id,
+        status=state, task_type="analyze", analysis_mode=run.analysis_mode,
+        current_step=run.current_step, error_message=task.error_message,
+        can_retry=can_retry_task(db, task))
 
 
 @router.put("/{diary_id}/organized", response_model=DiaryOrganizedResponse)
@@ -1804,7 +1525,7 @@ def update_organized(
     )
     if not diary:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="日记不存在")
-    ensure_knowledge_source_writable(db, diary.id)
+    ensure_graph_source_writable(db, diary.id, content=True)
     if not diary.organized:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -1921,7 +1642,7 @@ def update_diary_event(
     )
     if not diary:
         raise HTTPException(status_code=404, detail="日记不存在")
-    ensure_knowledge_source_writable(db, diary.id)
+    ensure_graph_source_writable(db, diary.id)
 
     # 状态守卫：仅 organized 和 analyzed
     if diary.status not in (DiaryStatus.organized, DiaryStatus.analyzed):
@@ -1935,6 +1656,9 @@ def update_diary_event(
     )
     if not event:
         raise HTTPException(status_code=404, detail="事件不存在")
+
+    if any(getattr(update_data, field) is not None for field in ("event_title", "body", "feeling", "reflection")):
+        ensure_graph_source_writable(db, diary.id, content=True)
 
     changed_fields: set[str] = set()
     structured_changed = False

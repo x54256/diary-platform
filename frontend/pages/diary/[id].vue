@@ -456,7 +456,6 @@
           </div>
         </div>
 
-        <KnowledgeDepositCard v-if="diary.status === 'analyzed'" :diary-id="diary.id" />
 
         <!-- 原始文本（折叠，默认收起） -->
         <details class="border-t border-neutral-100 pt-3">
@@ -532,19 +531,24 @@
             <!-- AI 分析按钮（organized 状态） -->
             <button
               v-if="diary.status === 'organized'"
-              @click="handleAnalyze"
+              @click="handleAnalyze()"
               class="flex-1 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-700 shrink-0"
             >
-              AI 分析
+              {{ analyzeCanRetry ? '重试分析' : 'AI 分析' }}
             </button>
             <!-- 重新分析按钮（analyzed 状态） -->
             <button
               v-if="diary.status === 'analyzed'"
-              @click="handleAnalyze"
+              @click="handleAnalyze()"
               class="px-3 py-2 rounded-lg border border-neutral-200 text-sm text-neutral-600 hover:bg-neutral-50 shrink-0"
             >
-              重新分析
+              {{ analyzeCanRetry ? '重试分析' : '重新分析' }}
             </button>
+            <button
+              v-if="analyzeCanRetry && !analyzing"
+              @click="handleAnalyze(true)"
+              class="px-3 py-2 rounded-lg border border-neutral-200 text-sm text-neutral-600 shrink-0"
+            >重新分析</button>
           </div>
           <p v-if="organizeError" class="text-xs text-red-500 text-center mt-1">{{ organizeError }}</p>
           <p v-if="analyzeError" class="text-xs text-red-500 text-center mt-1">{{ analyzeError }}</p>
@@ -1629,41 +1633,30 @@ const analyzing = ref(false)
 const analyzeError = ref('')
 const analyzeStep = ref('')
 const analyzeMode = ref<'ordinary' | 'feedback'>('ordinary')
+const analyzeTaskId = ref<string | null>(null)
+const analyzeCanRetry = ref(false)
 
-const ANALYZE_STEP_LABELS: Record<'ordinary' | 'feedback', Record<string, string>> = {
-  ordinary: {
-    mood_tag_extract: '元数据、心情与标签提取',
-    core_analysis: '核心分析与可行动建议',
-    cognition_analysis: '认知校准、问题解答与认知完善',
-    action_planning: '行动项规划',
-  },
-  feedback: {
-    feedback_core_analysis: '核心分析与可行动建议',
-    feedback_cognition_analysis: '认知校准、问题解答与认知完善',
-    action_planning: '行动项规划',
-  },
+const ANALYZE_STEP_LABELS: Record<string, string> = {
+  PREPARE_SOURCE: '准备日记来源', EXTRACT_POINTS: '生成与核验事件要点',
+  EMBED_POINTS: '生成要点向量', RECALL_PAIRS: '发现候选事件关系',
+  JUDGE_A: '判断事件关系', JUDGE_B: '独立核验事件关系', ADJUDICATE: '裁决关系分歧',
+  CHECK_GRAPH: '检查图谱结果', ANALYZE_METADATA: '元数据、心情与标签提取',
+  ANALYZE_CORE: '核心分析与可行动建议', ANALYZE_COGNITION: '认知分析',
+  PLAN_ACTIONS: '行动项规划', PUBLISH: '保存分析与图谱结果',
 }
+const formatAnalyzeStep = (stepKey: string) => ANALYZE_STEP_LABELS[stepKey] || stepKey
 
-const formatAnalyzeStep = (stepKey: string) => {
-  if (stepKey === 'saving_result') return '正在保存分析结果'
-  const labels = ANALYZE_STEP_LABELS[analyzeMode.value]
-  const stepKeys = Object.keys(labels)
-  const idx = stepKeys.indexOf(stepKey)
-  const label = labels[stepKey] || stepKey
-  if (idx === -1) return label
-  return `${idx + 1}/${stepKeys.length} ${label}`
-}
-
-const handleAnalyze = async () => {
+const handleAnalyze = async (forceNew = false) => {
   analyzing.value = true
   analyzeError.value = ''
-  analyzeStep.value = formatAnalyzeStep('mood_tag_extract')
+  analyzeStep.value = formatAnalyzeStep('PREPARE_SOURCE')
   try {
-    const task = await api<{ analysis_mode?: 'ordinary' | 'feedback'; current_step?: string }>(
-      `/diaries/${diaryId.value}/analyze`,
-      { method: 'POST' },
-    )
-    if (task.analysis_mode) {
+    const task = !forceNew && analyzeCanRetry.value && analyzeTaskId.value
+      ? await api<{ task_id: string; current_step?: string }>(`/graph/tasks/${analyzeTaskId.value}/retry`, { method: 'POST' })
+      : await api<{ task_id: string; analysis_mode?: 'ordinary' | 'feedback'; current_step?: string }>(`/diaries/${diaryId.value}/analyze`, { method: 'POST' })
+    analyzeTaskId.value = task.task_id
+    analyzeCanRetry.value = false
+    if ('analysis_mode' in task && task.analysis_mode) {
       analyzeMode.value = task.analysis_mode
     }
     if (task.current_step) {
@@ -1671,7 +1664,7 @@ const handleAnalyze = async () => {
     }
     await pollAnalyzeStatus()
   } catch (err: any) {
-    analyzeError.value = err?.data?.detail || '分析启动失败'
+    analyzeError.value = err?.data?.detail?.message || err?.data?.detail || '分析启动失败'
     analyzing.value = false
   }
 }
@@ -1682,7 +1675,7 @@ const pollAnalyzeStatus = async () => {
   for (let i = 0; i < maxAttempts; i++) {
     await new Promise(resolve => setTimeout(resolve, 20000))
     try {
-      const task = await api<{ status: string; analysis_mode?: 'ordinary' | 'feedback'; current_step?: string; error_message?: string }>(
+      const task = await api<{ task_id?: string; can_retry?: boolean; status: string; analysis_mode?: 'ordinary' | 'feedback'; current_step?: string; error_message?: string }>(
         `/diaries/${diaryId.value}/analyze/status`
       )
       consecutiveErrors = 0
@@ -1695,10 +1688,13 @@ const pollAnalyzeStatus = async () => {
       if (task.status === 'completed') {
         await loadDiary()
         activeTab.value = 'analysis'
+        analyzeCanRetry.value = false
         analyzing.value = false
         return
       }
       if (task.status === 'failed') {
+        analyzeTaskId.value = task.task_id || null
+        analyzeCanRetry.value = !!task.can_retry
         analyzeError.value = task.error_message || 'AI 分析失败，请重试'
         analyzing.value = false
         return
@@ -1734,9 +1730,11 @@ const checkOrganizeStatus = async () => {
 
 const checkAnalyzeStatus = async () => {
   try {
-    const task = await api<{ status: string; analysis_mode?: 'ordinary' | 'feedback'; current_step?: string }>(
+    const task = await api<{ task_id?: string; can_retry?: boolean; status: string; analysis_mode?: 'ordinary' | 'feedback'; current_step?: string }>(
       `/diaries/${diaryId.value}/analyze/status`
     )
+    analyzeTaskId.value = task.task_id || null
+    analyzeCanRetry.value = !!task.can_retry
     if (task.status === 'running') {
       analyzing.value = true
       if (task.analysis_mode) {

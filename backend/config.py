@@ -29,8 +29,17 @@ class Settings(BaseSettings):
     LLM_MAX_ATTEMPTS: int = Field(default=1, ge=1)
     # 每日回顾素材单批请求的输入 token 上限；完整事件不可拆分。
     REVIEW_DAILY_MATERIAL_INPUT_TOKEN_BUDGET: int = Field(default=24000, ge=1024)
-    # 单次知识事件提取请求的输入 token 上限；完整结构化事件不可拆分。
-    KNOWLEDGE_EVENT_INPUT_TOKEN_BUDGET: int = Field(default=12000, ge=1024)
+
+    # 事件图谱请求预算；随任务冻结，可按实际渠道容量配置。
+    GRAPH_CONTEXT_TOKEN_LIMIT: int = Field(default=65536, ge=4096)
+    GRAPH_MAX_OUTPUT_TOKENS: int = Field(default=16384, ge=1024)
+    GRAPH_OUTPUT_TOKENS_PER_PAIR: int = Field(default=512, ge=128)
+    GRAPH_CONTEXT_SAFETY_TOKENS: int = Field(default=2048, ge=0)
+    GRAPH_EMBEDDING_MAX_CHARS: int = Field(default=8000, ge=128)
+    GRAPH_RECALL_MIN_SIMILARITY: float = Field(default=0.5, ge=0, le=1)
+    GRAPH_RECALL_TOP_K: int = Field(default=5, ge=1)
+    GRAPH_LEASE_SECONDS: int = Field(default=180, ge=60)
+    GRAPH_HEARTBEAT_SECONDS: int = Field(default=30, ge=5)
 
     # Fun-ASR 录音文件识别运行参数。模型、API 地址和密钥由管理端模型配置维护。
     TRANSCRIPTION_PUBLIC_BASE_URL: str = "http://localhost"

@@ -319,6 +319,9 @@ class DiaryAnnotationCommentUpsert(BaseModel):
 class OrganizeTaskResponse(BaseModel):
     """异步整理/分析任务状态响应"""
 
+    task_id: Optional[UUID] = None
+    graph_run_id: Optional[UUID] = None
+    can_retry: bool = False
     diary_id: UUID
     status: str  # running / completed / failed
     task_type: Optional[str] = None  # organize（整理）/ analyze（分析）

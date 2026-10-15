@@ -95,7 +95,7 @@ def resolve_model_setting(setting_key: str, step_key: str | None = None) -> Runt
         )
         try:
             validate_setting_choice(setting_key, channel_model)
-            if setting_key != "transcription":
+            if setting_key not in {"transcription", "embedding", "graph_embedding"}:
                 validate_thinking_choice(
                     channel_model,
                     bool(thinking_enabled),

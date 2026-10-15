@@ -58,16 +58,14 @@ from models.review import (
     ReviewVersionDependency,
     ReviewVersionType,
 )
-from models.knowledge import (
-    KnowledgeAtomicEvent,
-    KnowledgeDeposit,
-    KnowledgeEventReview,
-    KnowledgeTask,
-    KnowledgeTaskStatus,
-    KnowledgeTaskStep,
+from models.graph import (
+    GraphTask, GraphRun, GraphModelCall, GraphRunEvent,
+    GraphEventPoint, GraphEventRelation, GraphRelationEvidence,
 )
 
 __all__ = [
+    "GraphTask", "GraphRun", "GraphModelCall", "GraphRunEvent",
+    "GraphEventPoint", "GraphEventRelation", "GraphRelationEvidence",
     "User",
     "Diary",
     "DiaryOrganized",
@@ -138,10 +136,4 @@ __all__ = [
     "ReviewActionCheckStatus",
     "ReviewDomain",
     "ReviewAnalysisAngle",
-    "KnowledgeAtomicEvent",
-    "KnowledgeDeposit",
-    "KnowledgeEventReview",
-    "KnowledgeTask",
-    "KnowledgeTaskStatus",
-    "KnowledgeTaskStep",
 ]

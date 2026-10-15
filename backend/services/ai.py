@@ -586,40 +586,6 @@ class AIService:
             db.close()
         return await run_pipeline(original_text, task_id, diary_id, user_id, diary_date, person_relations)
 
-    async def analyze_diary(
-            self,
-            original_text: str,
-            structured_diary: dict,
-            task_id: str,
-            diary_id: str,
-            user_id: str,
-            diary_organized_id: str,
-            feedback_source_run_id: str | None = None,
-    ) -> dict:
-        """触发分析流水线（3 环节 + 独立检查 + 标签落库）
-
-        Args:
-            original_text: 日记原文
-            structured_diary: 整理后的结构化日记
-            task_id: 分析任务 ID
-            diary_id: 日记 ID
-            user_id: 用户 ID
-            diary_organized_id: diary_organized 的 ID
-
-        Returns:
-            包含 mood/event_tags/emotion_analysis/behavior_analysis/focus_analysis/
-            cognitive_calibration/actionable_suggestions/analysis_check_log 的 dict
-        """
-        from services.analysis_pipeline import run_analysis_pipeline
-        return await run_analysis_pipeline(
-            original_text,
-            structured_diary,
-            task_id,
-            diary_id,
-            user_id,
-            diary_organized_id,
-            feedback_source_run_id=feedback_source_run_id,
-        )
 
 
 # 全局 AI 服务实例

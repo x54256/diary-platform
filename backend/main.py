@@ -20,7 +20,7 @@ from routers.schedules import router as schedules_router
 from routers.voice_profile import router as voice_profile_router
 from routers.reviews import router as reviews_router
 from routers.actions import router as actions_router
-from routers.knowledge import router as knowledge_router
+from routers.graph import router as graph_router
 from utils.log_context import ContextFormatter, LogContextFilter, log_extra, new_id, reset_request_context, set_request_context
 
 # ---------------------------------------------------------------------------
@@ -136,7 +136,7 @@ api_router.include_router(schedules_router)
 api_router.include_router(voice_profile_router)
 api_router.include_router(reviews_router)
 api_router.include_router(actions_router)
-api_router.include_router(knowledge_router)
+api_router.include_router(graph_router)
 app.include_router(api_router)
 
 
@@ -146,6 +146,10 @@ async def startup():
     _startup_logger.info("应用启动，初始化数据库...")
     # 导入所有模型，确保它们被注册到 Base.metadata
     import models  # noqa: F401
+    from sqlalchemy import inspect
+    graph_inspector = inspect(engine)
+    if not graph_inspector.has_table("graph_tasks") or "is_in_graph" not in {c["name"] for c in graph_inspector.get_columns("diary_events")}:
+        raise RuntimeError("请先执行事件图谱数据库迁移，再启动应用")
     Base.metadata.create_all(bind=engine)
     # 初始化内置模型清单
     _seed_model_catalog()
@@ -165,14 +169,14 @@ async def startup():
     await search_index_rebuild_scheduler.start()
     from services.search_rebuild_jobs import search_index_maintenance_scheduler
     await search_index_maintenance_scheduler.start()
-    from services.knowledge_tasks import knowledge_task_manager
-    await knowledge_task_manager.start()
+    from services.graph_tasks import graph_task_manager
+    await graph_task_manager.start()
 
 
 @app.on_event("shutdown")
 async def shutdown():
-    from services.knowledge_tasks import knowledge_task_manager
-    await knowledge_task_manager.stop()
+    from services.graph_tasks import graph_task_manager
+    await graph_task_manager.stop()
     from services.backup_scheduler import backup_scheduler
     await backup_scheduler.stop()
     from services.schedule_occurrence_scheduler import schedule_occurrence_scheduler
@@ -194,7 +198,7 @@ def _recover_stuck_tasks():
 
     db = SessionLocal()
     try:
-        stuck_tasks = db.query(OrganizeTask).filter(OrganizeTask.status == "running").all()
+        stuck_tasks = db.query(OrganizeTask).filter(OrganizeTask.status == "running", OrganizeTask.task_type != "analyze").all()
         for task in stuck_tasks:
             task.status = "failed"
             task.error_message = "服务器重启，整理任务已中断"

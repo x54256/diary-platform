@@ -153,7 +153,8 @@ async def run_combined(cfg, prompts, source, event, candidate, folder):
 async def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--preflight', action='store_true')
-    parser.add_argument('--model', choices=('deepseek-v4-flash-0731',))
+    parser.add_argument('--model', choices=('qwen3.7-flash-2026-07-15', 'qwen3.7-flash', 'deepseek-v4-pro', 'qwen3.7-plus', 'deepseek-v4-flash-0731'),
+                        default='qwen3.7-flash-2026-07-15')
     parser.add_argument('--source', type=Path)
     parser.add_argument('--event-id', default=EVENT_ID)
     parser.add_argument('--out', type=Path)
@@ -184,7 +185,7 @@ async def main():
         parser.error('实测须明确指定新的 --out 输出目录')
     from services.model_runtime import resolve_model_setting
     try:
-        resolved = resolve_model_setting('knowledge', 'knowledge_event_extract')
+        resolved = resolve_model_setting('graph', 'graph_point_generate')
     except Exception as exc:
         raise RuntimeError('只读模型配置加载失败：' + type(exc).__name__) from None
     cfg = replace(resolved, model_name=args.model, reasoning_mode='switchable', thinking_enabled=True,
@@ -193,7 +194,8 @@ async def main():
     assert urlparse(cfg.api_base_url).hostname == baseline['channel_host'], '模型主机与最终方案不同'
     folder = args.out.resolve()
     manifest = {'scheme': 'B', 'version': baseline['version'], 'pipeline': baseline['pipeline'],
-                'model': args.model, 'settings': baseline['model_settings'][args.model],
+                'model': args.model, 'settings': baseline['model_settings'].get(args.model,
+                    {'thinking': 'enabled', 'temperature': 'provider_default'}),
                 'prompt_sha256': baseline['prompt_sha256'], 'event_id': event['id'], 'repair_limit': 2,
                 'source_sha256': hashlib.sha256(json.dumps(payload, ensure_ascii=False).encode()).hexdigest()}
     if folder.exists() and any(folder.iterdir()):

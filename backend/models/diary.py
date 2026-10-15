@@ -276,6 +276,7 @@ class DiaryEvent(Base):
 
     __tablename__ = "diary_events"
 
+    is_in_graph = Column(Boolean, nullable=False, default=False, server_default=text("false"), comment="当前事件是否有效入图")
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     diary_organized_id = Column(UUID(as_uuid=True), ForeignKey("diary_organized.id"), nullable=False)
     event_title = Column(String(200))

@@ -13,7 +13,7 @@ from utils.crypto import decrypt_text, encrypt_text
 
 MODEL_TYPES = ["language", "asr", "embedding"]
 REASONING_MODES = ["unsupported", "switchable", "always_on"]
-SETTING_KEYS = ["organize", "analysis", "review", "knowledge", "chat", "transcription", "embedding"]
+SETTING_KEYS = ["organize", "analysis", "review", "graph", "chat", "transcription", "embedding", "graph_embedding"]
 LANGUAGE_CATEGORIES = ["通用对话", "深度推理", "长上下文", "代码能力", "轻量高速"]
 ASR_CATEGORIES = ["实时语音识别", "录音文件识别"]
 EMBEDDING_CATEGORIES = ["文本向量化"]
@@ -39,10 +39,11 @@ SETTING_REQUIREMENTS = {
     "organize": ("language", "openai_chat"),
     "analysis": ("language", "openai_chat"),
     "review": ("language", "openai_chat"),
-    "knowledge": ("language", "openai_chat"),
+    "graph": ("language", "openai_chat"),
     "chat": ("language", "openai_chat"),
     "transcription": ("asr", "dashscope_asr"),
     "embedding": ("embedding", "openai_embeddings"),
+    "graph_embedding": ("embedding", "openai_embeddings"),
 }
 STEP_SETTING_KEYS = {
     "text_clean": "organize",
@@ -59,10 +60,12 @@ STEP_SETTING_KEYS = {
     "review_daily_material": "review",
     "review_event_organize": "review",
     "review_analysis_action": "review",
-    "knowledge_event_extract": "knowledge",
-    "knowledge_event_review": "knowledge",
-    "knowledge_matter_assign": "knowledge",
-    "knowledge_matter_overview": "knowledge",
+    "graph_point_generate": "graph",
+    "graph_point_review": "graph",
+    "graph_point_combined": "graph",
+    "graph_relation_a": "graph",
+    "graph_relation_c": "graph",
+    "graph_relation_b": "graph",
 }
 STEP_LABELS = {
     "text_clean": "文本清洗",
@@ -79,10 +82,12 @@ STEP_LABELS = {
     "review_daily_material": "每日周回顾素材",
     "review_event_organize": "回顾事件组织",
     "review_analysis_action": "回顾分析与行动",
-    "knowledge_event_extract": "原子事件提取",
-    "knowledge_event_review": "知识事件复核",
-    "knowledge_matter_assign": "事项匹配判定",
-    "knowledge_matter_overview": "事项全览生成",
+    "graph_point_generate": "事件要点生成",
+    "graph_point_review": "修正版独立复核",
+    "graph_point_combined": "要点审核与修正",
+    "graph_relation_a": "事件关系判定 A",
+    "graph_relation_b": "事件关系盲判 B",
+    "graph_relation_c": "事件关系裁决 C",
 }
 
 
@@ -497,7 +502,7 @@ def save_model_settings(
         channel_model = _load_channel_model(db, data.get("channel_model_id"))
         validate_setting_choice(setting_key, channel_model)
         thinking_enabled = data.get("thinking_enabled")
-        if setting_key in {"transcription", "embedding"}:
+        if setting_key in {"transcription", "embedding", "graph_embedding"}:
             if thinking_enabled is not None:
                 raise ModelConfigError(f"{setting_key} 不能配置思考模式")
         elif not isinstance(thinking_enabled, bool):
@@ -538,7 +543,7 @@ def save_model_settings(
         step_map = {item.step_key: item for item in db.query(ModelStepSetting).all()}
         for key, setting in setting_map.items():
             validate_setting_choice(key, setting.channel_model)
-            if key not in {"transcription", "embedding"}:
+            if key not in {"transcription", "embedding", "graph_embedding"}:
                 validate_thinking_choice(setting.channel_model, bool(setting.thinking_enabled), key)
         for step_key, setting_key in STEP_SETTING_KEYS.items():
             default = setting_map.get(setting_key)
