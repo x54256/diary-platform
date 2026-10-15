@@ -1,6 +1,7 @@
 """按冻结基线执行单事件要点生成、审核修正及独立复核。"""
 
 import re
+from copy import deepcopy
 from uuid import uuid4
 
 from database import SessionLocal
@@ -46,7 +47,8 @@ def validate_points(data, event):
         require(all(isinstance(point[k], str) and point[k].strip() for k in ("summary", "detail")), "要点内容为空")
 
 
-def validate_review(data, event, candidate):
+def validate_review(data, event, candidate, protocol="legacy"):
+    require(protocol in ("legacy", "issues-v2"), "未知审核协议")
     require(isinstance(data, dict) and set(data) == {"source_checks", "checks"}, "审核顶层字段不一致")
     require(isinstance(data["source_checks"], list) and isinstance(data["checks"], list), "审核清单不是数组")
     for row in data["source_checks"]:
@@ -61,21 +63,41 @@ def validate_review(data, event, candidate):
     require(all(isinstance(x.get("comparison"), str) and x["comparison"].strip() for x in data["source_checks"]), "缺少原句比较")
     require([x.get("no") for x in data["checks"] if isinstance(x, dict)] == [p["no"] for p in candidate["points"]], "要点检查不完整")
     for check, point in zip(data["checks"], candidate["points"]):
+        if protocol == "issues-v2":
+            require(set(check) == {"no", "issues"}, "新版审核每项只允许no和issues，通过状态由程序计算")
         require(isinstance(check.get("issues"), list), "审核问题必须为数组")
         for issue in check["issues"]:
             require(isinstance(issue, dict) and issue.get("field") in ("summary", "detail"), "审核问题字段不合法")
             quote = issue.get("candidate_quote")
-            require(isinstance(quote, str) and quote and quote in point[issue["field"]], "候选引用不真实")
+            require(isinstance(quote, str) and quote and quote in point[issue["field"]],
+                    f"要点{point['no']}的{issue['field']}候选引用必须是输入字段的连续原文，不得使用省略号拼接")
             require(type(issue.get("source_index")) is int and 1 <= issue["source_index"] <= len(data["source_checks"]), "原句编号越界")
             require(all(isinstance(issue.get(k), str) and issue[k].strip() for k in ("difference", "repair")), "修正意见缺失")
+        if protocol == "legacy":
+            for field in ("summary", "detail"):
+                require(type(check.get(field + "_ok")) is bool and check[field + "_ok"] ==
+                        (not any(x["field"] == field for x in check["issues"])), "审核状态与问题矛盾")
+
+
+def review_with_status(data):
+    """验证后的问题清单计算状态；不改写模型原始响应或调用缓存。"""
+    result = deepcopy(data)
+    for check in result["checks"]:
         for field in ("summary", "detail"):
-            require(type(check.get(field + "_ok")) is bool and check[field + "_ok"] ==
-                    (not any(x["field"] == field for x in check["issues"])), "审核状态与问题矛盾")
+            check[field + "_ok"] = not any(x["field"] == field for x in check["issues"])
+    return result
 
 
-def validate_combined(data, event, candidate):
+def combined_payload(source, candidate, previous_review=None):
+    payload = {"source": source, "candidate": candidate}
+    if previous_review is not None:
+        payload["previous_review"] = deepcopy(previous_review)
+    return payload
+
+
+def validate_combined(data, event, candidate, protocol="legacy"):
     require(isinstance(data, dict) and set(data) == {"review", "candidate"}, "合并输出字段不一致")
-    validate_review(data["review"], event, candidate)
+    validate_review(data["review"], event, candidate, protocol)
     validate_points(data["candidate"], event)
     if not any(c["issues"] for c in data["review"]["checks"]):
         require(data["candidate"] == candidate, "未发现问题却修改候选")
@@ -88,6 +110,7 @@ async def extract_event(ctx, event, state):
     cache = dict(state.get("point_work", {}))
     work = dict(cache.get(event_id, {}))
     candidate = work.get("candidate")
+    protocol = ctx.config.get("point_review_protocol", "legacy")
     if candidate is None:
         candidate = await ctx.call("point_generate", event_id, source, lambda x: validate_points(x, source))
         work.update(candidate=candidate, round=0, next="combined", reports=[])
@@ -98,9 +121,11 @@ async def extract_event(ctx, event, state):
         review_source = {**source, "source_units": source_units(source)}
         if work["next"] == "combined":
             result = await ctx.call("point_combined", f"{event_id}:{recovery}:{round_no}",
-                {"source": review_source, "candidate": candidate},
-                lambda x: validate_combined(x, source, candidate))
-            work["reports"].append(result["review"])
+                combined_payload(review_source, candidate,
+                    work.get("pending_review") if protocol == "issues-v2" else None),
+                lambda x: validate_combined(x, source, candidate, protocol))
+            work["reports"].append(review_with_status(result["review"]))
+            work.pop("pending_review", None)
             if not any(c["issues"] for c in result["review"]["checks"]):
                 work["passed"] = True
                 break
@@ -110,8 +135,10 @@ async def extract_event(ctx, event, state):
             state = ctx.save("EXTRACT_POINTS", point_work=cache)
         review = await ctx.call("point_review", f"{event_id}:{recovery}:{round_no}",
             {"source": review_source, "candidate": candidate},
-            lambda x: validate_review(x, source, candidate))
-        work["reports"].append(review)
+            lambda x: validate_review(x, source, candidate, protocol))
+        work["reports"].append(review_with_status(review))
+        if protocol == "issues-v2":
+            work["pending_review"] = deepcopy(review)
         work.update(round=round_no, next="combined")
         cache[event_id] = work
         state = ctx.save("EXTRACT_POINTS", point_work=cache)

@@ -9,8 +9,8 @@ import re
 import time
 from urllib.parse import urlparse
 
-ROOT = Path(__file__).resolve().parents[2]
-BASELINE_FILE = Path(__file__).parent / 'fixtures/event_point_baseline.json'
+ROOT = Path(__file__).resolve().parents[3]
+BASELINE_FILE = ROOT / 'backend/scripts/fixtures/event_point_baseline.json'
 EVENT_ID = 'a7c66da7-00f5-41e5-af90-04abd8c6cb21'
 
 

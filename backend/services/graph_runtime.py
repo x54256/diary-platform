@@ -64,7 +64,7 @@ def thaw_model(snapshot):
 def freeze_config(include_analysis=False):
     from config import settings
     fixtures = Path(__file__).resolve().parents[1] / "scripts/fixtures"
-    baseline = json.loads((fixtures / "event_point_baseline.json").read_text())
+    baseline = json.loads((fixtures / "event_point_optimized.json").read_text())
     for name, prompt in baseline["prompts"].items():
         if hashlib.sha256(prompt.encode()).hexdigest() != baseline["prompt_sha256"][name]:
             raise GraphError("PROMPT_CHANGED", "要点提示指纹与冻结基线不一致")
@@ -93,7 +93,8 @@ def freeze_config(include_analysis=False):
             models[role] = freeze_model(analysis_config, thinking=bool(analysis_config.thinking_enabled))
     return {"models": models, "prompts": prompts,
             "prompt_sha256": {k: hashlib.sha256(v.encode()).hexdigest() for k, v in prompts.items()},
-            "point_version": baseline["version"], "relation_version": "v4-shared",
+            "point_version": baseline["version"], "point_review_protocol": baseline["review_protocol"],
+            "relation_version": "v4-shared",
             "analysis_version": "analysis-graph-event-id-20261014",
             "context_limit": settings.GRAPH_CONTEXT_TOKEN_LIMIT,
             "max_output_tokens": settings.GRAPH_MAX_OUTPUT_TOKENS,

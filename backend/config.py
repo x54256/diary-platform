@@ -36,7 +36,7 @@ class Settings(BaseSettings):
     GRAPH_OUTPUT_TOKENS_PER_PAIR: int = Field(default=512, ge=128)
     GRAPH_CONTEXT_SAFETY_TOKENS: int = Field(default=2048, ge=0)
     GRAPH_EMBEDDING_MAX_CHARS: int = Field(default=8000, ge=128)
-    GRAPH_RECALL_MIN_SIMILARITY: float = Field(default=0.5, ge=0, le=1)
+    GRAPH_RECALL_MIN_SIMILARITY: float = Field(default=0.4, ge=0, le=1)
     GRAPH_RECALL_TOP_K: int = Field(default=5, ge=1)
     GRAPH_LEASE_SECONDS: int = Field(default=180, ge=60)
     GRAPH_HEARTBEAT_SECONDS: int = Field(default=30, ge=5)

@@ -51,6 +51,7 @@ class GraphDatabaseTest(unittest.TestCase):
             self.user = User(id=uuid4(), username="graph-verification", password_encrypted="隔离测试占位")
             db.add(self.user); db.commit()
         self.config = {"models": {}, "prompts": {"relation_a": "v4", "relation_b": "v4", "relation_c": "裁决"},
+            "point_review_protocol": "issues-v2",
             "embedding_model": "隔离模型-v1", "min_similarity": 0.5, "top_k": 5,
             "context_limit": 65536, "max_output_tokens": 16384, "safety_tokens": 2048,
             "output_per_pair": 512, "embedding_max_chars": 8000}
@@ -78,7 +79,10 @@ class GraphDatabaseTest(unittest.TestCase):
         elif role in ("point_combined", "point_review"):
             source, candidate = payload["source"], payload["candidate"]
             review = {"source_checks": [{"source_unit_id": x["id"], "comparison": "原文一致"} for x in source_units(source)],
-                "checks": [{"no": p["no"], "summary_ok": True, "detail_ok": True, "issues": []} for p in candidate["points"]]}
+                "checks": [{"no": p["no"], "issues": []} for p in candidate["points"]]}
+            if ctx.config.get("point_review_protocol", "legacy") == "legacy":
+                for check in review["checks"]:
+                    check.update(summary_ok=True, detail_ok=True)
             result = {"review": review, "candidate": candidate} if role == "point_combined" else review
         elif role == "embedding": result = {"data": [{"index": 0, "embedding": [1.0] + [0.0] * 1023}]}
         elif role.startswith("relation_"):
@@ -424,6 +428,12 @@ class GraphDatabaseTest(unittest.TestCase):
             obsolete.status, obsolete.obsolete_at = "OBSOLETE", utcnow()
             deleted = db.get(Diary, ids[2][0]); deleted.deleted_at = utcnow(); db.commit()
         self.assertEqual(len(recall(ctx, source, points, vectors)), 4)
+        lower_threshold = GraphContext(current_task, run_id, token,
+                                       {**self.config, "min_similarity": 0.4})
+        expanded = recall(lower_threshold, source, points, vectors)
+        self.assertEqual(len(expanded), 5)
+        self.assertEqual(expanded[-1]["event_id"], str(ids[0][1]))
+        self.assertEqual(len(recall(ctx, source, points, vectors)), 4)
         with self.Session() as db:
             db.query(GraphEventPoint).filter(GraphEventPoint.event_id == ids[3][1]).one().embedding_model = "other-model"
             db.commit()
@@ -476,4 +486,7 @@ class GraphDatabaseTest(unittest.TestCase):
         with patch("services.model_runtime.SessionLocal",self.Session), patch("services.model_runtime.decrypt_channel_key",return_value="isolated-key"):
             frozen=freeze_config()
         self.assertEqual(frozen["models"]["embedding"]["model_name"],"qwen3.7-text-embedding-flash")
+        self.assertEqual(frozen["point_review_protocol"], "issues-v2")
+        self.assertEqual(frozen["point_version"], "event-points-issues-v2-20261015")
+        self.assertEqual(frozen["min_similarity"], 0.4)
         with self.Session() as db:self.assertEqual(db.query(ModelSetting).filter_by(setting_key="embedding").one().channel_model_id,search_binding)
