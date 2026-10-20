@@ -39,7 +39,7 @@ def source_material(source):
     return {k: source[k] for k in ("user_id", "diary_id", "diary_date", "organized_id", "original_text", "events", "introduction", "trivia", "plans")}
 
 
-def snapshot(db, diary, *, analysis=False):
+def snapshot(db, diary, *, analysis=False, allow_unanalyzed=False):
     org = diary.organized
     if not org: raise GraphError("SOURCE_NOT_READY", "日记缺少整理结果")
     records = sorted(org.events, key=lambda e: (e.sort_order, str(e.id)))
@@ -57,7 +57,7 @@ def snapshot(db, diary, *, analysis=False):
         "trivia": source["trivia"], "plans": source["plans"]}
     prior = get_current_analysis_run(db, diary.id)
     source["previous_run_id"] = str(prior.id) if prior else None
-    if not analysis and not prior:
+    if not analysis and not prior and not allow_unanalyzed:
         raise GraphError("SOURCE_NOT_READY", "历史日记缺少有效分析轮次")
     feedback = effective_feedback(db, prior.id) if prior and analysis else []
     source["analysis_mode"] = "feedback" if feedback else "ordinary"
@@ -78,6 +78,11 @@ def snapshot(db, diary, *, analysis=False):
             "location": org.location or "", "mood": prior.mood or "", "event_tags": tags}
     source["feedback_context"] = feedback_to_context(feedback, records)
     return source
+
+
+def snapshot_for_task(db, diary, task):
+    return snapshot(db, diary, analysis=task.entry_type == "ANALYSIS",
+                    allow_unanalyzed=task.entry_type == "HISTORY" and bool(task.config_snapshot.get("graph_only")))
 
 
 def assert_source_writable(db, diary_id, *, content=False):
@@ -131,14 +136,20 @@ def create_analysis(db, user_id, diary_id):
     return task, run
 
 
-def create_history(db, user_id, date_from, date_to):
+def create_history(db, user_id, date_from, date_to, *, graph_only=False):
     db.query(User).filter(User.id == user_id).with_for_update().one()
     if db.query(GraphTask.id).filter(GraphTask.user_id == user_id, GraphTask.status.in_(ACTIVE)).first():
         raise GraphError("USER_TASK_ACTIVE", "当前用户已有分析或建图任务")
-    diaries = db.query(Diary.id, Diary.diary_date).filter(Diary.user_id == user_id,
-        Diary.deleted_at.is_(None), Diary.diary_date.between(date_from, date_to)).order_by(Diary.diary_date, Diary.id).all()
+    query = db.query(Diary.id, Diary.diary_date).filter(Diary.user_id == user_id,
+        Diary.deleted_at.is_(None), Diary.diary_date.between(date_from, date_to))
+    if graph_only:
+        query = query.filter(Diary.status.in_((DiaryStatus.organized, DiaryStatus.analyzed)))
+    diaries = query.order_by(Diary.diary_date, Diary.id).all()
+    config = freeze_config() if diaries else {}
+    if graph_only:
+        config["graph_only"] = True
     task = GraphTask(user_id=user_id, entry_type="HISTORY", date_from=date_from, date_to=date_to,
-        config_snapshot=freeze_config() if diaries else {}, status="QUEUED" if diaries else "SUCCEEDED",
+        config_snapshot=config, status="QUEUED" if diaries else "SUCCEEDED",
         completed_at=None if diaries else utcnow())
     db.add(task); db.flush()
     for diary in diaries: db.add(GraphRun(task_id=task.id, user_id=user_id, diary_id=diary.id, diary_date=diary.diary_date))
@@ -156,7 +167,7 @@ def can_retry_task(db, task):
     if not diary: return False
     if not run.source_snapshot: return True
     try:
-        return digest(source_material(snapshot(db, diary, analysis=task.entry_type == "ANALYSIS"))) == run.source_sha256
+        return digest(source_material(snapshot_for_task(db, diary, task))) == run.source_sha256
     except GraphError:
         return False
 
@@ -174,7 +185,7 @@ def retry_task(db, task):
         raise GraphError("TASK_SUPERSEDED", "该日记已创建更新运行，请使用新任务")
     diary = db.query(Diary).filter(Diary.id == run.diary_id, Diary.user_id == task.user_id, Diary.deleted_at.is_(None)).with_for_update().first()
     if not diary: raise GraphError("SOURCE_CHANGED", "来源日记已不存在")
-    if run.source_snapshot and digest(source_material(snapshot(db, diary, analysis=task.entry_type == "ANALYSIS"))) != run.source_sha256:
+    if run.source_snapshot and digest(source_material(snapshot_for_task(db, diary, task))) != run.source_sha256:
         raise GraphError("SOURCE_CHANGED", "来源已变化，请创建新分析任务")
     # 独立核验失败重新开启最多两轮；保留旧审核及调用记录。
     if run.error_code == "POINT_REVIEW_FAILED":

@@ -6,7 +6,7 @@ from database import SessionLocal
 from models.diary import Diary, DiaryStatus
 from models.graph import GraphRun, utcnow
 from services.graph_runtime import GraphContext, GraphError, digest
-from services.graph_tasks import snapshot, source_material
+from services.graph_tasks import snapshot_for_task, source_material
 from services.graph_points import extract_event
 from services.graph_relations import embed_points, discover, identify
 from services.graph_publish import publish
@@ -36,15 +36,15 @@ async def execute_task(task_id, token):
             if not diary: raise GraphError("SOURCE_CHANGED", "日期清单中的日记已不存在")
             if task.entry_type == "HISTORY" and not run.source_snapshot:
                 existing = db.query(GraphRun.id).filter(GraphRun.diary_id == diary.id, GraphRun.status == "PUBLISHED").first()
-                reason = "ALREADY_PUBLISHED" if existing else "NOT_ANALYZED" if diary.status != DiaryStatus.analyzed else None
+                reason = "ALREADY_PUBLISHED" if existing else "NOT_ANALYZED" if (diary.status != DiaryStatus.analyzed and not (task.config_snapshot.get("graph_only") and diary.status == DiaryStatus.organized)) else None
                 if reason:
                     run.status, run.skip_reason, run.updated_at = "SKIPPED", reason, utcnow()
                     db.commit(); continue
             if not run.source_snapshot:
-                source = snapshot(db, diary, analysis=task.entry_type == "ANALYSIS")
+                source = snapshot_for_task(db, diary, task)
                 run.source_snapshot, run.source_sha256 = source, digest(source_material(source))
                 run.source_organized_id = diary.organized.id
-                run.analysis_run_id = UUID(source["previous_run_id"]) if task.entry_type == "HISTORY" else None
+                run.analysis_run_id = UUID(source["previous_run_id"]) if task.entry_type == "HISTORY" and source["previous_run_id"] else None
             else: source = run.source_snapshot
             run.status, run.current_step, run.updated_at = "RUNNING", "PREPARE_SOURCE", utcnow()
             state = dict(run.checkpoint or {})

@@ -7,7 +7,7 @@ from models.diary import Diary, DiaryEvent, OrganizeTask, DiaryStatus
 from models.graph import GraphEventPoint, GraphEventRelation, GraphRelationEvidence, GraphRun, GraphRunEvent, utcnow
 from services.graph_runtime import GraphError, digest
 from services.graph_relations import validate_pair, validate_vector
-from services.graph_tasks import snapshot, source_material
+from services.graph_tasks import snapshot_for_task, source_material
 
 
 def publish(ctx, source, state):
@@ -20,7 +20,7 @@ def publish(ctx, source, state):
         diary = db.query(Diary).filter(Diary.id == run.diary_id, Diary.user_id == task.user_id,
                                       Diary.deleted_at.is_(None)).with_for_update().first()
         if not diary: raise GraphError("SOURCE_CHANGED", "来源日记已不存在")
-        fresh = snapshot(db, diary, analysis=task.entry_type == "ANALYSIS")
+        fresh = snapshot_for_task(db, diary, task)
         if digest(source_material(fresh)) != run.source_sha256:
             raise GraphError("SOURCE_CHANGED", "来源内容已变化，禁止发布冻结候选")
         if not state.get("graph_checked"):

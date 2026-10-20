@@ -57,6 +57,17 @@ def build_history(payload: HistoryBuildRequest, db: Session = Depends(get_db), u
     return task_result(db, task)
 
 
+@router.post("/build", response_model=GraphTaskResponse, status_code=202)
+def build_graph_only(payload: HistoryBuildRequest, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
+    """为已整理或已分析日记仅生成图谱；保留原日记状态及分析结果。"""
+    try:
+        task = create_history(db, user.id, payload.date_from, payload.date_to, graph_only=True)
+    except GraphError as error:
+        db.rollback()
+        raise http_error(error) from error
+    return task_result(db, task)
+
+
 @router.get("/tasks/{task_id}", response_model=GraphTaskResponse)
 def get_task(task_id: UUID, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
     return task_result(db, owned_task(db, task_id, user.id))
