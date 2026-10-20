@@ -1,0 +1,99 @@
+{
+  "task_id": "a553d538-1856-457c-b183-6c1e3b7dad3a",
+  "before": [
+    {
+      "diary_id": "a315fb05-b7fa-409e-abd7-25840970f2fa",
+      "date": "2026-08-18",
+      "status": "saved",
+      "analysis_ids": []
+    },
+    {
+      "diary_id": "7f0ad5e7-35b9-405e-a09d-6712b9ffe0ea",
+      "date": "2026-08-18",
+      "status": "organized",
+      "analysis_ids": [],
+      "source_hash": "932efe532220f068c0461c94af62e69c5229a19d9e35b38b359f85795e39555d"
+    },
+    {
+      "diary_id": "5f49ea66-d65c-494f-9bc0-7d484cc8581e",
+      "date": "2026-08-17",
+      "status": "organized",
+      "analysis_ids": [],
+      "source_hash": "a14f31a0a749c4fa3d07ff0e9e7039514b0734643ab5456f3f8ccbda499202e2"
+    },
+    {
+      "diary_id": "abbcf6cd-a341-4a02-af85-28e35fedeb24",
+      "date": "2026-08-18",
+      "status": "saved",
+      "analysis_ids": []
+    }
+  ],
+  "graph_only": true,
+  "model_names": {
+    "embedding": "qwen3.7-text-embedding-flash",
+    "relation_a": "qwen3.7-flash-2026-07-15",
+    "relation_b": "qwen3.7-flash-2026-07-15",
+    "relation_c": "qwen3.7-flash-2026-07-15",
+    "point_review": "qwen3.7-flash-2026-07-15",
+    "point_combined": "qwen3.7-flash-2026-07-15",
+    "point_generate": "qwen3.7-flash-2026-07-15"
+  },
+  "result": {
+    "status": "SUCCEEDED",
+    "error_code": null,
+    "runs": [
+      {
+        "date": "2026-08-17",
+        "status": "PUBLISHED",
+        "error_code": null,
+        "events": 5,
+        "points": 20,
+        "new_relations": 1,
+        "visible_events": 5,
+        "visible_relations": 1
+      },
+      {
+        "date": "2026-08-18",
+        "status": "PUBLISHED",
+        "error_code": null,
+        "events": 2,
+        "points": 9,
+        "new_relations": 0,
+        "visible_events": 2,
+        "visible_relations": 0
+      }
+    ],
+    "source_checks": [
+      {
+        "date": "2026-08-18",
+        "status_unchanged": true,
+        "source_unchanged": null,
+        "analysis_ids_unchanged": true
+      },
+      {
+        "date": "2026-08-18",
+        "status_unchanged": true,
+        "source_unchanged": true,
+        "analysis_ids_unchanged": true
+      },
+      {
+        "date": "2026-08-17",
+        "status_unchanged": true,
+        "source_unchanged": true,
+        "analysis_ids_unchanged": true
+      },
+      {
+        "date": "2026-08-18",
+        "status_unchanged": true,
+        "source_unchanged": null,
+        "analysis_ids_unchanged": true
+      }
+    ],
+    "model_calls": 66,
+    "downstream_analysis_calls": 0
+  },
+  "semantic_recovery": {
+    "reason": "原文与候选交叉核对确认花钱主体颠倒，沿用pending_review反馈恢复一次",
+    "prior_retry_count": 2
+  }
+}
