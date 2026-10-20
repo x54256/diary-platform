@@ -1,0 +1,50 @@
+[
+  {
+    "pair_id": "R01",
+    "event_a_id": "d5f11b2c-67ce-466c-b2ed-ae3dc173edfb",
+    "event_b_id": "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795",
+    "similarity": 0.39465944039982603,
+    "same_day": true,
+    "recalled": true
+  },
+  {
+    "pair_id": "R02",
+    "event_a_id": "d5f11b2c-67ce-466c-b2ed-ae3dc173edfb",
+    "event_b_id": "4f950991-a9e5-459d-8411-9e683bc92572",
+    "similarity": 0.3198748265688391,
+    "same_day": false,
+    "recalled": false
+  },
+  {
+    "pair_id": "R03",
+    "event_a_id": "d5f11b2c-67ce-466c-b2ed-ae3dc173edfb",
+    "event_b_id": "d12b7fb0-1e53-4456-ac7f-47189081f7f7",
+    "similarity": 0.30160491378130155,
+    "same_day": false,
+    "recalled": false
+  },
+  {
+    "pair_id": "R04",
+    "event_a_id": "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795",
+    "event_b_id": "4f950991-a9e5-459d-8411-9e683bc92572",
+    "similarity": 0.5046753767605419,
+    "same_day": false,
+    "recalled": true
+  },
+  {
+    "pair_id": "R05",
+    "event_a_id": "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795",
+    "event_b_id": "d12b7fb0-1e53-4456-ac7f-47189081f7f7",
+    "similarity": 0.4135083475998545,
+    "same_day": false,
+    "recalled": false
+  },
+  {
+    "pair_id": "R06",
+    "event_a_id": "4f950991-a9e5-459d-8411-9e683bc92572",
+    "event_b_id": "d12b7fb0-1e53-4456-ac7f-47189081f7f7",
+    "similarity": 0.45247748679373995,
+    "same_day": false,
+    "recalled": false
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "language_requests": 6,
+  "total_tokens": 117263,
+  "seconds": 1661.07,
+  "structure_errors": 1,
+  "embedding_requests": 6,
+  "embedding_total_tokens": 3290
+}

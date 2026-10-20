@@ -1,0 +1,949 @@
+{
+  "point_work": {
+    "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee": {
+      "candidate": {
+        "title": "与小豪聊天并了解其分手原因",
+        "points": [
+          {
+            "no": 1,
+            "summary": "小豪突然宣布分手并来南通",
+            "detail": "下午与小豪聊天时，他在群里突然表示要分手了，计划来南通玩，并想了解我们项目的实施情况。我调侃他不想我，他否认了。随后他主动提起分手一事，我立即出去给他打电话询问原因，主要是出于八卦。"
+          },
+          {
+            "no": 2,
+            "summary": "小豪列举分手的两点主要原因",
+            "detail": "小豪告诉我分手主要基于两件事：一是他女朋友情绪不稳定，经常因小事发火，在一起时不开心；二是女方特别喜欢花钱，且逼迫他上交财务——婚前给一部分，婚后要求全部。小豪给了她四五万元，结果被迅速花光，查看账单发现全是数百元的小额支出，累积起来总额很大。"
+          },
+          {
+            "no": 3,
+            "summary": "对比男女不同的消费模式",
+            "detail": "我认同小豪的观察，认为男女消费模式确实存在差异：男性倾向于购买大件或贵重物品，账单按金额排序能立即看出大头支出；而女性可能前两条是两三万，后面跟着大量几十、几百元的小额消费，累积起来也会迅速花光积蓄。"
+          },
+          {
+            "no": 4,
+            "summary": "小豪因价值观不合当天提出分手",
+            "detail": "由于觉得双方价值观不符且女方情绪不稳定，小豪决定不再继续这段感情，并于当天正式向女朋友提出了分手。"
+          },
+          {
+            "no": 5,
+            "summary": "建议非暴力沟通但认为小豪没救",
+            "detail": "我给小豪推荐《非暴力沟通》，建议他用这种方式处理矛盾：不要因为对方有情绪就对着干导致争吵升级，花钱的问题也应通过非暴力沟通解决，前提是女方愿意好好沟通。但于福豪（小豪）表示女方是销售出身，非常擅长沟通，一直对他进行PUA。我听后认为他这种情况已经没救了。"
+          },
+          {
+            "no": 6,
+            "summary": "发现前女友与前男友联系成为导火索",
+            "detail": "小豪还发现他女朋友仍与前男友保持联系，虽然他确信两人不可能复合，但这件事成为了分手的契机和导火索，他借此发火生气，顺势提出了分手。"
+          },
+          {
+            "no": 7,
+            "summary": "建议利用拆屋效应谈判财务管理",
+            "detail": "我建议小豪在财务问题上采用各花各的模式，类似我目前的经济模式，并利用拆屋效应：先坚持提分手让对方不同意、不高兴，等对方回来谈判时，再提出以后各管各的钱，让她不要到处借钱、尽量节省。但小豪表示女方虽然每次都答应得很好，实际依然如故，月底还是没钱要花他的钱，这是他无法接受的。"
+          },
+          {
+            "no": 8,
+            "summary": "分享自己帮前任还债的类似经历",
+            "detail": "我分享了自己的经历：之前颂梅装修花费巨大，欠债约15万元。当时她每月月光，我问原因，她说工资一发就要还债。我提出帮她还清债务，让她借此机会攒钱。结果她现在虽然不再借新债，但仍是月光状态，只是每月能稍微攒一点点。我认为这无所谓，反正是她自己的钱，由她自己安排，只要不再出去借钱就好。"
+          }
+        ]
+      },
+      "round": 2,
+      "next": "combined",
+      "reports": [
+        {
+          "source_checks": [
+            {
+              "source_unit_id": 1,
+              "comparison": "忠实，候选detail保留下午聊天及打电话询问原因的核心信息。"
+            },
+            {
+              "source_unit_id": 2,
+              "comparison": "忠实，保留小豪宣布分手、来南通及了解项目的内容。"
+            },
+            {
+              "source_unit_id": 3,
+              "comparison": "忠实，候选'我调侃他不想我，他否认了'概括了'想想想'的对话。"
+            },
+            {
+              "source_unit_id": 4,
+              "comparison": "忠实，保留突然提分手、打电话询问及八卦的表述。"
+            },
+            {
+              "source_unit_id": 5,
+              "comparison": "忠实，保留情绪不稳定、发火及不开心的判断。"
+            },
+            {
+              "source_unit_id": 6,
+              "comparison": "候选使用'上交财务'一词概括给钱要求，语义可接受，保留了婚前给一部分、婚后全部的要求。"
+            },
+            {
+              "source_unit_id": 7,
+              "comparison": "候选'小豪前后给了她四五万元'中'前后'为添加的修饰词，原文仅指单次给予，但核心金额和结果忠实。"
+            },
+            {
+              "source_unit_id": 8,
+              "comparison": "忠实，保留账单多笔数百元支出、累积花光的核心意思。"
+            },
+            {
+              "source_unit_id": 9,
+              "comparison": "忠实，保留男性买大件、按金额排序知大头的对比逻辑。"
+            },
+            {
+              "source_unit_id": 10,
+              "comparison": "失真，原文'前两条可能也就两三百'被误写为'两三万'，金额单位错误。"
+            },
+            {
+              "source_unit_id": 11,
+              "comparison": "忠实，保留价值观不符、情绪不稳定及当天提分手的决定。"
+            },
+            {
+              "source_unit_id": 12,
+              "comparison": "忠实，保留推荐非暴力沟通、避免对着干升级争吵的建议。"
+            },
+            {
+              "source_unit_id": 13,
+              "comparison": "忠实，保留花钱问题用非暴力沟通的建议。"
+            },
+            {
+              "source_unit_id": 14,
+              "comparison": "忠实，保留前提她愿意好好沟通的条件。"
+            },
+            {
+              "source_unit_id": 15,
+              "comparison": "忠实，保留女方销售出身、擅长PUA的表述。"
+            },
+            {
+              "source_unit_id": 16,
+              "comparison": "忠实，保留'没救了'的评价。"
+            },
+            {
+              "source_unit_id": 17,
+              "comparison": "忠实，保留与前男友联系、不可能复合及作为导火索的判断。"
+            },
+            {
+              "source_unit_id": 18,
+              "comparison": "忠实，保留借此发火生气并提分手的行为。"
+            },
+            {
+              "source_unit_id": 19,
+              "comparison": "忠实，保留各花各的及类似说话者经济模式的建议。"
+            },
+            {
+              "source_unit_id": 20,
+              "comparison": "忠实，保留拆屋效应策略及后续各管各的、省钱要求。"
+            },
+            {
+              "source_unit_id": 21,
+              "comparison": "忠实，保留女方答应后依然如故、月底没钱及不可接受的态度。"
+            },
+            {
+              "source_unit_id": 22,
+              "comparison": "忠实，保留颂梅装修欠债15万及说话者帮还的事实。"
+            },
+            {
+              "source_unit_id": 23,
+              "comparison": "忠实，保留当时月光及询问原因的内容。"
+            },
+            {
+              "source_unit_id": 24,
+              "comparison": "忠实，保留处对象期间及询问花钱原因的语境。"
+            },
+            {
+              "source_unit_id": 25,
+              "comparison": "忠实，保留要还钱、工资下来就没钱的解释。"
+            },
+            {
+              "source_unit_id": 26,
+              "comparison": "忠实，保留帮还债、不再欠钱及攒钱机会的建议。"
+            },
+            {
+              "source_unit_id": 27,
+              "comparison": "忠实，保留现在仍月光的现状。"
+            },
+            {
+              "source_unit_id": 28,
+              "comparison": "候选'不再借新债'概括了原文'连环债，用债还债'状态的结束，忠实原意。"
+            },
+            {
+              "source_unit_id": 29,
+              "comparison": "忠实，保留现在能攒一点但基本月光的状态。"
+            },
+            {
+              "source_unit_id": 30,
+              "comparison": "忠实，保留钱由她自己安排、不向外借的态度。"
+            }
+          ],
+          "checks": [
+            {
+              "no": 1,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 2,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 3,
+              "issues": [
+                {
+                  "field": "detail",
+                  "candidate_quote": "而女性可能前两笔是两三万，后面跟着大量几十、几百元的小额消费",
+                  "source_index": 10,
+                  "difference": "原文指'前两条可能也就两三百'，候选误作'两三万'，金额单位错误。",
+                  "repair": "将'两三万'改为'两三百'。"
+                }
+              ],
+              "summary_ok": true,
+              "detail_ok": false
+            },
+            {
+              "no": 4,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 5,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 6,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 7,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 8,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            }
+          ]
+        },
+        {
+          "source_checks": [
+            {
+              "source_unit_id": 1,
+              "comparison": "忠实。候选保留下午与小豪聊天的时间背景，作为detail首句合理处理。"
+            },
+            {
+              "source_unit_id": 2,
+              "comparison": "忠实。候选准确保留小豪宣布分手、计划来南通玩、想了解项目实施三项信息。"
+            },
+            {
+              "source_unit_id": 3,
+              "comparison": "忠实。候选将口语调侃概括为'我调侃他不想我，他否认了'，语义等值。"
+            },
+            {
+              "source_unit_id": 4,
+              "comparison": "忠实。候选保留小豪主动提分手、我立即打电话询问、出于八卦的动机。"
+            },
+            {
+              "source_unit_id": 5,
+              "comparison": "忠实。候选保留女友情绪不稳定、因小事发火、在一起不开心的限定。"
+            },
+            {
+              "source_unit_id": 6,
+              "comparison": "忠实。候选准确转述女方喜欢花钱及逼迫交钱（婚前部分、婚后全部）的条件。"
+            },
+            {
+              "source_unit_id": 7,
+              "comparison": "忠实。候选保留金额四五万、迅速花光的结果。"
+            },
+            {
+              "source_unit_id": 8,
+              "comparison": "忠实。候选概括账单特征为数百元小额支出累积，未改变事实。"
+            },
+            {
+              "source_unit_id": 9,
+              "comparison": "忠实。候选准确转述男性购买大件、账单按金额排序易查的特点。"
+            },
+            {
+              "source_unit_id": 10,
+              "comparison": "失真。原文为'两三百'，候选改为'两三万'，金额扩大百倍。"
+            },
+            {
+              "source_unit_id": 11,
+              "comparison": "忠实。候选保留价值观不合、情绪不稳定、当天提分手的核心判断。"
+            },
+            {
+              "source_unit_id": 12,
+              "comparison": "忠实。候选保留推荐《非暴力沟通》及避免因情绪对着干导致争吵升级的建议。"
+            },
+            {
+              "source_unit_id": 13,
+              "comparison": "忠实。候选保留花钱问题也用非暴力沟通解决的建议。"
+            },
+            {
+              "source_unit_id": 14,
+              "comparison": "忠实。候选保留'前提是女方愿意好好沟通'的条件限定。"
+            },
+            {
+              "source_unit_id": 15,
+              "comparison": "忠实。候选保留于福豪（小豪）称女方是销售、擅长沟通、一直PUA他的关键信息。"
+            },
+            {
+              "source_unit_id": 16,
+              "comparison": "忠实。候选保留'没救了'的结论。"
+            },
+            {
+              "source_unit_id": 17,
+              "comparison": "忠实。候选保留发现女友与前男友联系、虽不可能复合但成为契机和导火索的判断。"
+            },
+            {
+              "source_unit_id": 18,
+              "comparison": "忠实。候选保留借此发火生气、顺势提出分手的因果。"
+            },
+            {
+              "source_unit_id": 19,
+              "comparison": "忠实。候选保留各花各的、类似当前经济模式的建议。"
+            },
+            {
+              "source_unit_id": 20,
+              "comparison": "忠实。候选保留拆屋效应策略（先提分手让对方不同意，再谈各管各的钱、不借钱、节省）。"
+            },
+            {
+              "source_unit_id": 21,
+              "comparison": "忠实。候选保留女方答应却做不到、月底没钱仍花他的钱、他不能接受的结果。"
+            },
+            {
+              "source_unit_id": 22,
+              "comparison": "忠实。候选保留颂梅装修欠债15万左右、我提出帮她还债的事实。"
+            },
+            {
+              "source_unit_id": 23,
+              "comparison": "忠实。候选保留当时每月月光、我询问花那么多的原因。"
+            },
+            {
+              "source_unit_id": 24,
+              "comparison": "忠实。候选保留当时还在处对象的背景（隐含于'当时'）。"
+            },
+            {
+              "source_unit_id": 25,
+              "comparison": "忠实。候选保留工资一下来就还债的解释。"
+            },
+            {
+              "source_unit_id": 26,
+              "comparison": "忠实。候选保留我提出帮她还清、让她攒钱不再欠的建议。"
+            },
+            {
+              "source_unit_id": 27,
+              "comparison": "忠实。候选保留现在仍是月光的结果。"
+            },
+            {
+              "source_unit_id": 28,
+              "comparison": "部分忠实。候选概括'不再借新债'符合'至少一个月自己赚的钱能稍微攒一点点'，但'以前连环债'的信息被省略，不影响核心事实。"
+            },
+            {
+              "source_unit_id": 29,
+              "comparison": "忠实。候选保留现在能稍微攒一点点但基本月光的状态。"
+            },
+            {
+              "source_unit_id": 30,
+              "comparison": "忠实。候选保留无所谓、钱归对方安排、不要出去借的底线。"
+            }
+          ],
+          "checks": [
+            {
+              "no": 1,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 2,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 3,
+              "issues": [
+                {
+                  "field": "detail",
+                  "candidate_quote": "女性可能前两笔是两三万",
+                  "source_index": 10,
+                  "difference": "将'两三百'误作'两三万'，金额扩大百倍，改变女性消费模式的事实描述",
+                  "repair": "改为'前两条可能也就两三百'"
+                }
+              ],
+              "summary_ok": true,
+              "detail_ok": false
+            },
+            {
+              "no": 4,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 5,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 6,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 7,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 8,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            }
+          ]
+        },
+        {
+          "source_checks": [
+            {
+              "source_unit_id": 1,
+              "comparison": "忠实。候选保留下午与小豪聊天的时间背景。"
+            },
+            {
+              "source_unit_id": 2,
+              "comparison": "忠实。候选准确保留小豪宣布分手、计划来南通玩、想了解项目实施三项信息。"
+            },
+            {
+              "source_unit_id": 3,
+              "comparison": "忠实。候选将口语调侃概括为'我调侃他不想我，他否认了'，语义等值。"
+            },
+            {
+              "source_unit_id": 4,
+              "comparison": "忠实。候选保留小豪主动提分手、我立即打电话询问、出于八卦的动机。"
+            },
+            {
+              "source_unit_id": 5,
+              "comparison": "忠实。候选保留女友情绪不稳定、因小事发火、在一起不开心的限定。"
+            },
+            {
+              "source_unit_id": 6,
+              "comparison": "忠实。候选准确转述女方喜欢花钱及逼迫交钱（婚前部分、婚后全部）的条件。"
+            },
+            {
+              "source_unit_id": 7,
+              "comparison": "忠实。候选保留金额四五万、迅速花光的结果。"
+            },
+            {
+              "source_unit_id": 8,
+              "comparison": "忠实。候选概括账单特征为数百元小额支出累积，未改变事实。"
+            },
+            {
+              "source_unit_id": 9,
+              "comparison": "忠实。候选准确转述男性购买大件、账单按金额排序易查的特点。"
+            },
+            {
+              "source_unit_id": 10,
+              "comparison": "失真。原文为'两三百'，候选改为'两三万'，金额扩大百倍。"
+            },
+            {
+              "source_unit_id": 11,
+              "comparison": "忠实。候选保留价值观不合、情绪不稳定、当天提分手的核心判断。"
+            },
+            {
+              "source_unit_id": 12,
+              "comparison": "忠实。候选保留推荐《非暴力沟通》及避免因情绪对着干导致争吵升级的建议。"
+            },
+            {
+              "source_unit_id": 13,
+              "comparison": "忠实。候选保留花钱问题也用非暴力沟通解决的建议。"
+            },
+            {
+              "source_unit_id": 14,
+              "comparison": "忠实。候选保留'前提是女方愿意好好沟通'的条件限定。"
+            },
+            {
+              "source_unit_id": 15,
+              "comparison": "忠实。候选保留于福豪（小豪）称女方是销售、擅长沟通、一直PUA他的关键信息。"
+            },
+            {
+              "source_unit_id": 16,
+              "comparison": "忠实。候选保留'没救了'的结论。"
+            },
+            {
+              "source_unit_id": 17,
+              "comparison": "忠实。候选保留发现女友与前男友联系、虽不可能复合但成为契机和导火索的判断。"
+            },
+            {
+              "source_unit_id": 18,
+              "comparison": "忠实。候选保留借此发火生气、顺势提出分手的因果。"
+            },
+            {
+              "source_unit_id": 19,
+              "comparison": "忠实。候选保留各花各的、类似当前经济模式的建议。"
+            },
+            {
+              "source_unit_id": 20,
+              "comparison": "忠实。候选保留拆屋效应策略（先提分手让对方不同意，再谈各管各的钱、不借钱、节省）。"
+            },
+            {
+              "source_unit_id": 21,
+              "comparison": "忠实。候选保留女方答应却做不到、月底没钱仍花他的钱、他不能接受的结果。"
+            },
+            {
+              "source_unit_id": 22,
+              "comparison": "忠实。候选保留颂梅装修欠债15万左右、我提出帮她还债的事实。"
+            },
+            {
+              "source_unit_id": 23,
+              "comparison": "忠实。候选保留当时每月月光、我询问花那么多的原因。"
+            },
+            {
+              "source_unit_id": 24,
+              "comparison": "忠实。候选保留当时还在处对象的背景（隐含于'当时'）。"
+            },
+            {
+              "source_unit_id": 25,
+              "comparison": "忠实。候选保留工资一下来就还债的解释。"
+            },
+            {
+              "source_unit_id": 26,
+              "comparison": "忠实。候选保留我提出帮她还清、让她攒钱不再欠的建议。"
+            },
+            {
+              "source_unit_id": 27,
+              "comparison": "忠实。候选保留现在仍是月光的结果。"
+            },
+            {
+              "source_unit_id": 28,
+              "comparison": "忠实。候选概括'不再借新债'符合'至少一个月自己赚的钱能稍微攒一点点'，未改变核心事实。"
+            },
+            {
+              "source_unit_id": 29,
+              "comparison": "忠实。候选保留现在能稍微攒一点点但基本月光的状态。"
+            },
+            {
+              "source_unit_id": 30,
+              "comparison": "忠实。候选保留无所谓、钱归对方安排、不要出去借的底线。"
+            }
+          ],
+          "checks": [
+            {
+              "no": 1,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 2,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 3,
+              "issues": [
+                {
+                  "field": "detail",
+                  "candidate_quote": "女性可能前两笔是两三万",
+                  "source_index": 10,
+                  "difference": "将'两三百'误作'两三万'，金额扩大百倍，改变女性消费模式的事实描述",
+                  "repair": "改为'前两条可能也就两三百'"
+                }
+              ],
+              "summary_ok": true,
+              "detail_ok": false
+            },
+            {
+              "no": 4,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 5,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 6,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 7,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 8,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            }
+          ]
+        },
+        {
+          "source_checks": [
+            {
+              "source_unit_id": 1,
+              "comparison": "候选detail中'下午与小豪聊天'忠实保留原文时间、对象及事件。"
+            },
+            {
+              "source_unit_id": 2,
+              "comparison": "候选detail中'计划来南通玩'将原文确定意图'要来'弱化为计划，'想了解'与原文'想了解一下'语义一致，整体核心意思保留。"
+            },
+            {
+              "source_unit_id": 3,
+              "comparison": "候选detail中'我调侃他不想我，他否认了'忠实概括原文对话，'否认'与'想想想'语义一致。"
+            },
+            {
+              "source_unit_id": 4,
+              "comparison": "候选detail中'他主动提起分手一事，我立即出去给他打电话询问原因，主要是出于八卦'忠实保留原文事件顺序及动机。"
+            },
+            {
+              "source_unit_id": 5,
+              "comparison": "候选detail中'他女朋友情绪不稳定，经常因小事发火，在一起时不开心'忠实保留原文'情绪不是很稳定'、'动不动就因为一些事发火'及'感觉和她在一起的时间都不是很开心'的判断。"
+            },
+            {
+              "source_unit_id": 6,
+              "comparison": "候选detail中'女方特别喜欢花钱，且逼迫他上交财务——婚前给一部分，婚后要求全部'忠实保留原文花钱习惯、逼迫行为及婚前婚后不同要求。"
+            },
+            {
+              "source_unit_id": 7,
+              "comparison": "候选detail中'小豪给了她四五万元，结果被迅速花光'忠实保留原文金额及结果。"
+            },
+            {
+              "source_unit_id": 8,
+              "comparison": "候选detail中'查看账单发现全是数百元的小额支出，累积起来总额很大'忠实概括原文账单特征及花费方式，但省略'问花到哪了也不知道'的细节。"
+            },
+            {
+              "source_unit_id": 9,
+              "comparison": "候选detail中'男性倾向于购买大件或贵重物品，账单按金额排序能立即看出大头支出'忠实保留原文男性消费习惯及查账方式。"
+            },
+            {
+              "source_unit_id": 10,
+              "comparison": "候选detail中'女性可能前两条是两三万'与原文'前两条可能也就两三百'金额差异巨大，严重失真；'后面跟着大量几十、几百元的小额消费'与原文'到后面就是一百、几十'基本忠实。"
+            },
+            {
+              "source_unit_id": 11,
+              "comparison": "候选summary及detail中'价值观不符'、'情绪不稳定'、'当天提出分手'忠实保留原文原因及时间。"
+            },
+            {
+              "source_unit_id": 12,
+              "comparison": "候选detail中'不要因为对方有情绪就对着干导致争吵升级'忠实保留原文沟通建议及反面示例。"
+            },
+            {
+              "source_unit_id": 13,
+              "comparison": "候选detail中'花钱的问题也应通过非暴力沟通解决'忠实保留原文建议。"
+            },
+            {
+              "source_unit_id": 14,
+              "comparison": "候选detail中'前提是女方愿意好好沟通'忠实保留原文条件限定。"
+            },
+            {
+              "source_unit_id": 15,
+              "comparison": "候选detail中'于福豪（小豪）表示女方是销售出身，非常擅长沟通，一直对他进行PUA'忠实保留原文说话人、对方职业及行为判断。"
+            },
+            {
+              "source_unit_id": 16,
+              "comparison": "候选detail中'我听后认为他这种情况已经没救了'忠实保留原文结论及归属。"
+            },
+            {
+              "source_unit_id": 17,
+              "comparison": "候选detail中'小豪还发现他女朋友仍与前男友保持联系，虽然他确信两人不可能复合'将原文'他说'改为'他确信'，弱化消息来源但保留事实判断；'成为了分手的契机和导火索'忠实保留原文定性。"
+            },
+            {
+              "source_unit_id": 18,
+              "comparison": "候选detail中'他借此发火生气，顺势提出了分手'忠实保留原文情绪反应及行为结果。"
+            },
+            {
+              "source_unit_id": 19,
+              "comparison": "候选detail中'我建议小豪在财务问题上采用各花各的模式，类似我目前的经济模式'忠实保留原文建议及类比。"
+            },
+            {
+              "source_unit_id": 20,
+              "comparison": "候选detail中'利用拆屋效应：先坚持提分手让对方不同意、不高兴，等对方回来谈判时，再提出以后各管各的钱，让她不要到处借钱、尽量节省'忠实保留原文策略步骤及目的。"
+            },
+            {
+              "source_unit_id": 21,
+              "comparison": "候选detail中'女方虽然每次都答应得很好，实际依然如故，月底还是没钱要花他的钱，这是他无法接受的'忠实保留原文对方行为模式及小豪的态度。"
+            },
+            {
+              "source_unit_id": 22,
+              "comparison": "候选detail中'之前颂梅装修花费巨大，欠债约15万元'忠实保留原文事件、人物及金额；但'她'指代颂梅，与原文'他'存在人称差异，需结合上下文确认是否影响理解。"
+            },
+            {
+              "source_unit_id": 23,
+              "comparison": "候选detail中'当时她每月月光，我问原因'忠实保留原文时间、状态及动作。"
+            },
+            {
+              "source_unit_id": 24,
+              "comparison": "候选detail未明确提及'当时我们还在处对象'这一关系背景，但'我问原因'隐含亲密关系，核心意思保留。"
+            },
+            {
+              "source_unit_id": 25,
+              "comparison": "候选detail中'她说工资一发就要还债'忠实保留原文原因及资金去向。"
+            },
+            {
+              "source_unit_id": 26,
+              "comparison": "候选detail中'我提出帮她还清债务，让她借此机会攒钱'忠实保留原文建议及目的。"
+            },
+            {
+              "source_unit_id": 27,
+              "comparison": "候选detail中'结果她现在虽然不再借新债，但仍是月光状态'忠实保留原文结果，但'不再借新债'为合理推断，原文未明确表述。"
+            },
+            {
+              "source_unit_id": 28,
+              "comparison": "候选detail未明确提及'连环债，用债还债'的过去模式，但'不再借新债'隐含此意，核心意思部分保留。"
+            },
+            {
+              "source_unit_id": 29,
+              "comparison": "候选detail中'只是每月能稍微攒一点点'忠实保留原文当前改善程度。"
+            },
+            {
+              "source_unit_id": 30,
+              "comparison": "候选detail中'我认为这无所谓，反正是她自己的钱，由她自己安排，只要不再出去借钱就好'忠实保留原文态度及条件。"
+            }
+          ],
+          "checks": [
+            {
+              "no": 1,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 2,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 3,
+              "issues": [
+                {
+                  "field": "detail",
+                  "candidate_quote": "女性可能前两条是两三万，后面跟着大量几十、几百元的小额消费",
+                  "source_index": 10,
+                  "difference": "候选将原文'前两条可能也就两三百'改为'两三万'，金额单位错误导致消费模式描述严重失真，夸大女性消费金额；且'几十、几百元'与原文'一百、几十'顺序颠倒，但核心差异在金额错误。",
+                  "repair": "将'两三万'改为'两三百'，并保持金额递减顺序与原文一致。"
+                }
+              ],
+              "summary_ok": true,
+              "detail_ok": false
+            },
+            {
+              "no": 4,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 5,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 6,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 7,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 8,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            }
+          ]
+        }
+      ],
+      "pending_review": {
+        "source_checks": [
+          {
+            "source_unit_id": 1,
+            "comparison": "候选detail中'下午与小豪聊天'忠实保留原文时间、对象及事件。"
+          },
+          {
+            "source_unit_id": 2,
+            "comparison": "候选detail中'计划来南通玩'将原文确定意图'要来'弱化为计划，'想了解'与原文'想了解一下'语义一致，整体核心意思保留。"
+          },
+          {
+            "source_unit_id": 3,
+            "comparison": "候选detail中'我调侃他不想我，他否认了'忠实概括原文对话，'否认'与'想想想'语义一致。"
+          },
+          {
+            "source_unit_id": 4,
+            "comparison": "候选detail中'他主动提起分手一事，我立即出去给他打电话询问原因，主要是出于八卦'忠实保留原文事件顺序及动机。"
+          },
+          {
+            "source_unit_id": 5,
+            "comparison": "候选detail中'他女朋友情绪不稳定，经常因小事发火，在一起时不开心'忠实保留原文'情绪不是很稳定'、'动不动就因为一些事发火'及'感觉和她在一起的时间都不是很开心'的判断。"
+          },
+          {
+            "source_unit_id": 6,
+            "comparison": "候选detail中'女方特别喜欢花钱，且逼迫他上交财务——婚前给一部分，婚后要求全部'忠实保留原文花钱习惯、逼迫行为及婚前婚后不同要求。"
+          },
+          {
+            "source_unit_id": 7,
+            "comparison": "候选detail中'小豪给了她四五万元，结果被迅速花光'忠实保留原文金额及结果。"
+          },
+          {
+            "source_unit_id": 8,
+            "comparison": "候选detail中'查看账单发现全是数百元的小额支出，累积起来总额很大'忠实概括原文账单特征及花费方式，但省略'问花到哪了也不知道'的细节。"
+          },
+          {
+            "source_unit_id": 9,
+            "comparison": "候选detail中'男性倾向于购买大件或贵重物品，账单按金额排序能立即看出大头支出'忠实保留原文男性消费习惯及查账方式。"
+          },
+          {
+            "source_unit_id": 10,
+            "comparison": "候选detail中'女性可能前两条是两三万'与原文'前两条可能也就两三百'金额差异巨大，严重失真；'后面跟着大量几十、几百元的小额消费'与原文'到后面就是一百、几十'基本忠实。"
+          },
+          {
+            "source_unit_id": 11,
+            "comparison": "候选summary及detail中'价值观不符'、'情绪不稳定'、'当天提出分手'忠实保留原文原因及时间。"
+          },
+          {
+            "source_unit_id": 12,
+            "comparison": "候选detail中'不要因为对方有情绪就对着干导致争吵升级'忠实保留原文沟通建议及反面示例。"
+          },
+          {
+            "source_unit_id": 13,
+            "comparison": "候选detail中'花钱的问题也应通过非暴力沟通解决'忠实保留原文建议。"
+          },
+          {
+            "source_unit_id": 14,
+            "comparison": "候选detail中'前提是女方愿意好好沟通'忠实保留原文条件限定。"
+          },
+          {
+            "source_unit_id": 15,
+            "comparison": "候选detail中'于福豪（小豪）表示女方是销售出身，非常擅长沟通，一直对他进行PUA'忠实保留原文说话人、对方职业及行为判断。"
+          },
+          {
+            "source_unit_id": 16,
+            "comparison": "候选detail中'我听后认为他这种情况已经没救了'忠实保留原文结论及归属。"
+          },
+          {
+            "source_unit_id": 17,
+            "comparison": "候选detail中'小豪还发现他女朋友仍与前男友保持联系，虽然他确信两人不可能复合'将原文'他说'改为'他确信'，弱化消息来源但保留事实判断；'成为了分手的契机和导火索'忠实保留原文定性。"
+          },
+          {
+            "source_unit_id": 18,
+            "comparison": "候选detail中'他借此发火生气，顺势提出了分手'忠实保留原文情绪反应及行为结果。"
+          },
+          {
+            "source_unit_id": 19,
+            "comparison": "候选detail中'我建议小豪在财务问题上采用各花各的模式，类似我目前的经济模式'忠实保留原文建议及类比。"
+          },
+          {
+            "source_unit_id": 20,
+            "comparison": "候选detail中'利用拆屋效应：先坚持提分手让对方不同意、不高兴，等对方回来谈判时，再提出以后各管各的钱，让她不要到处借钱、尽量节省'忠实保留原文策略步骤及目的。"
+          },
+          {
+            "source_unit_id": 21,
+            "comparison": "候选detail中'女方虽然每次都答应得很好，实际依然如故，月底还是没钱要花他的钱，这是他无法接受的'忠实保留原文对方行为模式及小豪的态度。"
+          },
+          {
+            "source_unit_id": 22,
+            "comparison": "候选detail中'之前颂梅装修花费巨大，欠债约15万元'忠实保留原文事件、人物及金额；但'她'指代颂梅，与原文'他'存在人称差异，需结合上下文确认是否影响理解。"
+          },
+          {
+            "source_unit_id": 23,
+            "comparison": "候选detail中'当时她每月月光，我问原因'忠实保留原文时间、状态及动作。"
+          },
+          {
+            "source_unit_id": 24,
+            "comparison": "候选detail未明确提及'当时我们还在处对象'这一关系背景，但'我问原因'隐含亲密关系，核心意思保留。"
+          },
+          {
+            "source_unit_id": 25,
+            "comparison": "候选detail中'她说工资一发就要还债'忠实保留原文原因及资金去向。"
+          },
+          {
+            "source_unit_id": 26,
+            "comparison": "候选detail中'我提出帮她还清债务，让她借此机会攒钱'忠实保留原文建议及目的。"
+          },
+          {
+            "source_unit_id": 27,
+            "comparison": "候选detail中'结果她现在虽然不再借新债，但仍是月光状态'忠实保留原文结果，但'不再借新债'为合理推断，原文未明确表述。"
+          },
+          {
+            "source_unit_id": 28,
+            "comparison": "候选detail未明确提及'连环债，用债还债'的过去模式，但'不再借新债'隐含此意，核心意思部分保留。"
+          },
+          {
+            "source_unit_id": 29,
+            "comparison": "候选detail中'只是每月能稍微攒一点点'忠实保留原文当前改善程度。"
+          },
+          {
+            "source_unit_id": 30,
+            "comparison": "候选detail中'我认为这无所谓，反正是她自己的钱，由她自己安排，只要不再出去借钱就好'忠实保留原文态度及条件。"
+          }
+        ],
+        "checks": [
+          {
+            "no": 1,
+            "issues": []
+          },
+          {
+            "no": 2,
+            "issues": []
+          },
+          {
+            "no": 3,
+            "issues": [
+              {
+                "field": "detail",
+                "candidate_quote": "女性可能前两条是两三万，后面跟着大量几十、几百元的小额消费",
+                "source_index": 10,
+                "difference": "候选将原文'前两条可能也就两三百'改为'两三万'，金额单位错误导致消费模式描述严重失真，夸大女性消费金额；且'几十、几百元'与原文'一百、几十'顺序颠倒，但核心差异在金额错误。",
+                "repair": "将'两三万'改为'两三百'，并保持金额递减顺序与原文一致。"
+              }
+            ]
+          },
+          {
+            "no": 4,
+            "issues": []
+          },
+          {
+            "no": 5,
+            "issues": []
+          },
+          {
+            "no": 6,
+            "issues": []
+          },
+          {
+            "no": 7,
+            "issues": []
+          },
+          {
+            "no": 8,
+            "issues": []
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "provenance": "依据历史实验记录重建独立关系实验；并非已遗失实验脚本的逐字恢复",
+  "language_model": "qwen3.7-flash-2026-07-15",
+  "embedding_model": "qwen3.7-text-embedding-flash",
+  "thinking": true,
+  "threshold": 0.5,
+  "top_k": 5,
+  "prompt_sha256": {
+    "a": "6765d71b0bca342b8a7c534880b513928e8e9ce7cd092112a38bd1a5200e5b50",
+    "b": "6765d71b0bca342b8a7c534880b513928e8e9ce7cd092112a38bd1a5200e5b50",
+    "c": "611e43174fc507eda93b9b9fc190f388edefb262b0e61a828dcca8f1adaf8c23"
+  },
+  "variants": [
+    "previous-points"
+  ],
+  "production_writes": false,
+  "transport": "复用原要点脚本call；无显式max_tokens；每阶段至多两次请求；不自动恢复任务",
+  "previous_points": "上次实现验收最终候选，含已记录语义问题；不等于旧实验人工核验要点",
+  "regenerated_group_complete": false,
+  "regenerated_group_excluded_events": [
+    "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795"
+  ],
+  "regenerated_group_skip_reason": "原脚本未取得四事件全部通过结果；不使用失败候选继续组装完整新链路"
+}

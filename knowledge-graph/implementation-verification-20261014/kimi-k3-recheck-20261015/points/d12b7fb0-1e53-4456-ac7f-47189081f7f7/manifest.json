@@ -1,0 +1,15 @@
+{
+  "model": "kimi-k3",
+  "version": "event-points-final-20261013-thinking",
+  "prompt_sha256": {
+    "generate": "7010dcd6a2d7febfe1460aba3ff378f95050c2b329bc69ab8c6ce4008f0a33ef",
+    "review": "f82c19a1af101eac15a389f26b4cab89d79f073508b7ddfe9529c20906fe0e70",
+    "repair": "bc351b7c471016ec33d889201d11e91f81946e916c8b5ee7a6dd5010bd3b2457",
+    "combined": "9e44583c240dea3754d9012f5e97e336ed8fad8dd2d2f079a1b4d52ef52fbe9e"
+  },
+  "source_sha256": "ee13bc96b20a02db53c44eb3a4cc970fec98c59548ce1f023f0ba26a8291e246",
+  "repair_limit": 2,
+  "thinking": true,
+  "baseline_functions": "call,validate_points,validate_combined,validate_review,run_combined",
+  "production_writes": false
+}

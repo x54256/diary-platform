@@ -1,0 +1,473 @@
+{
+  "point_work": {
+    "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d": {
+      "candidate": {
+        "title": "出差南通的行程安排与审批",
+        "points": [
+          {
+            "no": 1,
+            "summary": "出差申请审批延迟导致行程改为下午",
+            "detail": "本来今天应该上午就去南通，但因为领导昨天半夜才审批通过我的出差申请，所以改为下午再出发。这个申请流程是周五发起的，但周五项目经理不给我审批。周六我给他发消息，他才审批通过。之后到田银伟那里，他指出承担人选错了，需要选项目经理，于是退回让我重新发起。"
+          },
+          {
+            "no": 2,
+            "summary": "大领导审批迟迟未通过",
+            "detail": "项目经理和田银伟都审批通过后，到最后一个大领导那里，他又迟迟不给通过。我认为领导周末要休息，不会管这些事情。"
+          },
+          {
+            "no": 3,
+            "summary": "确定下午行程并预订机票酒店",
+            "detail": "我订了下午4点的机票，预计晚上7点半到达。我把去南通的机票和酒店全部都订好了。那边有一个什么江的景区，好像还挺好玩，但到底好不好玩不知道，到时候可以去逛一逛。应该晚上8点到，吃个饭差不多9点，然后过去散散步。"
+          },
+          {
+            "no": 4,
+            "summary": "对比过去感叹审批流程变严",
+            "detail": "现在感觉钱的事情管得越来越严了，原来出差申请都不管的，现在不仅要项目经理批，还要我领导批和大领导批，挺麻烦的。"
+          }
+        ]
+      },
+      "round": 2,
+      "next": "combined",
+      "reports": [
+        {
+          "source_checks": [
+            {
+              "source_unit_id": 1,
+              "comparison": "候选detail准确保留了原计划上午去南通、因领导昨日半夜审批通过而改为下午出发的事实与因果，将“应该要去”明确为“应该上午就去”并结合后文“不上午去”合理细化，语义一致。"
+            },
+            {
+              "source_unit_id": 2,
+              "comparison": "候选detail准确保留了申请流程于周五发起、项目经理当日不予审批的事实，语义一致。"
+            },
+            {
+              "source_unit_id": 3,
+              "comparison": "候选detail准确保留了周六经发消息后才获审批的事实，语义一致。"
+            },
+            {
+              "source_unit_id": 4,
+              "comparison": "候选detail准确保留了田银伟指出承担人应选项目经理、遂退回并重新发起的核心信息，仅将直接引语改为间接叙述，语义一致。"
+            },
+            {
+              "source_unit_id": 5,
+              "comparison": "候选detail准确保留了项目经理与田银伟已通过、大领导迟迟不批的转折，语义一致。"
+            },
+            {
+              "source_unit_id": 6,
+              "comparison": "候选detail将口语化抱怨“人家领导周末要好好休息，才不管你这些屁事”改写为“我认为领导周末要休息，不会管这些事情”，保留了说话人认为领导周末休息故不处理审批的核心归因，清理了粗俗口语，语义一致。"
+            },
+            {
+              "source_unit_id": 7,
+              "comparison": "候选detail前半句准确保留了下午4点机票及预计晚上7点半到达的信息，但后半句“实际应该8点到”错误地将后文推测性的行程安排（应该晚上8点到）当作对实际到达时间的修正，属于新增信息。"
+            },
+            {
+              "source_unit_id": 8,
+              "comparison": "候选detail准确保留了已订妥机票与酒店的事实，将“买”改为“订”为同义表达，语义一致。"
+            },
+            {
+              "source_unit_id": 9,
+              "comparison": "候选detail“江边的景区”改变了原文“什么江”的不确定表述，“听说挺好玩”将原文自述“好像”的错误归属为传闻，且遗漏了“好不好玩不知道”的不确定性；仅保留“可以去逛一逛”正确。"
+            },
+            {
+              "source_unit_id": 10,
+              "comparison": "候选detail将“应该晚上8点到”错误表述为“我计划晚上8点到达”，混淆了推测与计划；对用餐及散步时间的描述与原文基本一致。"
+            },
+            {
+              "source_unit_id": 11,
+              "comparison": "候选summary准确概括了审批流程变严的核心判断；detail中“原来出差申请都不怎么管”增添“怎么”弱化原意，“比以前麻烦多了”将“挺麻烦”改为比较级，均为轻微程度偏差，但核心事实与感叹语气一致。"
+            }
+          ],
+          "checks": [
+            {
+              "no": 1,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 2,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 3,
+              "issues": [
+                {
+                  "field": "detail",
+                  "candidate_quote": "实际应该8点到",
+                  "source_index": 7,
+                  "difference": "原文“差不多晚上7点半能到”为到达时间预估，“应该晚上8点到”是另一独立推测句，候选将其拼接为对实际到达时间的修正，新增了原文没有的信息。",
+                  "repair": "删除“实际应该8点到”，仅保留“我订了下午4点的机票，预计晚上7点半到达”。"
+                },
+                {
+                  "field": "detail",
+                  "candidate_quote": "江边的景区",
+                  "source_index": 9,
+                  "difference": "原文“什么江”表明不确定具体名称，候选改为“江边的景区”使其确定化，改变了原意。",
+                  "repair": "改为“那边有一个什么江的景区”，保留不确定性。"
+                },
+                {
+                  "field": "detail",
+                  "candidate_quote": "听说挺好玩但不确定",
+                  "source_index": 9,
+                  "difference": "原文为说话人自述“好像还挺好玩”“好不好玩不知道”，候选“听说”将信息来源错误归为传闻。",
+                  "repair": "改为“好像还挺好玩，但到底好不好玩不知道”。"
+                },
+                {
+                  "field": "detail",
+                  "candidate_quote": "我计划晚上8点到达后先吃饭，差不多9点再去那边散步",
+                  "source_index": 10,
+                  "difference": "原文“应该晚上8点到”是推测而非确定计划，候选“我计划”将其确定化；且未保留“过去散散步”的原文语境。",
+                  "repair": "改为“应该晚上8点到，吃个饭差不多9点，然后过去散散步”。"
+                }
+              ],
+              "summary_ok": true,
+              "detail_ok": false
+            },
+            {
+              "no": 4,
+              "issues": [
+                {
+                  "field": "detail",
+                  "candidate_quote": "原来出差申请都不怎么管",
+                  "source_index": 11,
+                  "difference": "原文“都不管的”为直接否定，候选加入“怎么”弱化为不完全否定，程度不符。",
+                  "repair": "改为“原来出差申请都不管的”。"
+                },
+                {
+                  "field": "detail",
+                  "candidate_quote": "比以前麻烦多了",
+                  "source_index": 11,
+                  "difference": "原文“挺麻烦的”为一般性感叹，候选改为比较级“比以前麻烦多了”，增添了原文未明确表达的比较意味。",
+                  "repair": "改为“挺麻烦的”。"
+                }
+              ],
+              "summary_ok": true,
+              "detail_ok": false
+            }
+          ]
+        },
+        {
+          "source_checks": [
+            {
+              "source_unit_id": 1,
+              "comparison": "候选第1点detail前半部分'本来今天应该上午就去南通，但因为领导昨天半夜才审批通过我的出差申请，所以改为下午再出发'与原句语义一致；summary'出差申请审批延迟导致行程改为下午'忠实概括。"
+            },
+            {
+              "source_unit_id": 2,
+              "comparison": "候选第1点detail'这个申请流程是周五发起的，但周五项目经理不给我审批'忠实保留事实。"
+            },
+            {
+              "source_unit_id": 3,
+              "comparison": "候选第1点detail'周六我给他发消息，他才审批通过'忠实保留条件与结果。"
+            },
+            {
+              "source_unit_id": 4,
+              "comparison": "候选第1点detail'之后到田银伟那里，他指出承担人选错了，需要选项目经理，于是退回让我重新发起'忠实保留因果与过程。"
+            },
+            {
+              "source_unit_id": 5,
+              "comparison": "候选第2点detail前半句'项目经理和田银伟都审批通过后，到最后一个大领导那里，他又迟迟不给通过'忠实；但summary'大领导审批迟缓引发不满'将原句仅陈述的'迟迟不给通过'以及第6句口语吐槽概括为确定结论'引发不满'，改变了事实归属与确定性，summary失真。"
+            },
+            {
+              "source_unit_id": 6,
+              "comparison": "候选第2点detail'我认为领导周末要休息，不会管这些事情'把原文口语化讽刺'人家领导周末要好好休息，才不管你这些屁事'改写为陈述'我认为...不会管'，弱化原语气但核心意思可接受；然而summary'引发不满'是对该口语的过度事实化定性。"
+            },
+            {
+              "source_unit_id": 7,
+              "comparison": "候选第3点detail'我订了下午4点的机票，预计晚上7点半到达'忠实。"
+            },
+            {
+              "source_unit_id": 8,
+              "comparison": "候选第3点detail'我把去南通的机票和酒店全部都订好了'忠实，'买了'同义为'订好了'可接受。"
+            },
+            {
+              "source_unit_id": 9,
+              "comparison": "候选第3点detail'那边有一个什么江的景区，好像还挺好玩，但到底好不好玩不知道，到时候可以去逛一逛'忠实保留不确定性与计划。"
+            },
+            {
+              "source_unit_id": 10,
+              "comparison": "候选第3点detail'应该晚上8点到，吃个饭差不多9点，然后过去散散步'忠实。"
+            },
+            {
+              "source_unit_id": 11,
+              "comparison": "候选第4点summary'对比过去感叹审批流程变严'与detail'现在感觉钱的事情管得越来越严了，原来出差申请都不管的，现在不仅要项目经理批，还要我领导批和大领导批，挺麻烦的'均忠实保留对比、程度与评价。"
+            }
+          ],
+          "checks": [
+            {
+              "no": 1,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 2,
+              "issues": [
+                {
+                  "field": "summary",
+                  "candidate_quote": "大领导审批迟缓引发不满",
+                  "source_index": 5,
+                  "difference": "原文仅陈述大领导'迟迟不给通过'，并以口语'人家领导周末要好好休息，才不管你这些屁事'表达吐槽；summary将其概括为确定事实'引发不满'，把口语情绪固化为明确的心理状态结论，改变了确定性与观点归属。",
+                  "repair": "改为忠实陈述审批状态，例如'大领导审批迟迟未通过'或'大领导迟迟不给通过'，不要添加'引发不满'的定论。"
+                }
+              ],
+              "summary_ok": false,
+              "detail_ok": true
+            },
+            {
+              "no": 3,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 4,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            }
+          ]
+        },
+        {
+          "source_checks": [
+            {
+              "source_unit_id": 1,
+              "comparison": "候选第1点detail'本来今天应该上午就去南通，但因为领导昨天半夜才审批通过我的出差申请，所以改为下午再出发'忠实保留因果；summary'出差申请审批延迟导致行程改为下午'忠实概括，previous_review确认成立。"
+            },
+            {
+              "source_unit_id": 2,
+              "comparison": "候选第1点detail'这个申请流程是周五发起的，但周五项目经理不给我审批'忠实保留时间与事实，previous_review确认成立。"
+            },
+            {
+              "source_unit_id": 3,
+              "comparison": "候选第1点detail'周六我给他发消息，他才审批通过'忠实保留条件关系，previous_review确认成立。"
+            },
+            {
+              "source_unit_id": 4,
+              "comparison": "候选第1点detail'之后到田银伟那里，他指出承担人选错了，需要选项目经理，于是退回让我重新发起'忠实保留过程与因果，previous_review确认成立。"
+            },
+            {
+              "source_unit_id": 5,
+              "comparison": "候选第2点detail'项目经理和田银伟都审批通过后，到最后一个大领导那里，他又迟迟不给通过'忠实；previous_review指出summary'大领导审批迟缓引发不满'将口语吐槽固化为确定心理状态，经核实成立：原文仅陈述'迟迟不给通过'，'引发不满'属过度推断，summary失真。"
+            },
+            {
+              "source_unit_id": 6,
+              "comparison": "候选第2点detail'我认为领导周末要休息，不会管这些事情'将讽刺口语'才不管你这些屁事'改写为'不会管这些事情'，弱化语气但保留核心意思，可接受；previous_review关于summary过度事实化'引发不满'的意见成立，因原文该句为口语化吐槽而非确定结论。"
+            },
+            {
+              "source_unit_id": 7,
+              "comparison": "候选第3点detail'我订了下午4点的机票，预计晚上7点半到达'忠实，previous_review确认成立。"
+            },
+            {
+              "source_unit_id": 8,
+              "comparison": "候选第3点detail'我把去南通的机票和酒店全部都订好了'忠实，'买了'同义为'订好了'可接受，previous_review确认成立。"
+            },
+            {
+              "source_unit_id": 9,
+              "comparison": "候选第3点detail'那边有一个什么江的景区，好像还挺好玩，但到底好不好玩不知道，到时候可以去逛一逛'忠实保留不确定性与计划，previous_review确认成立。"
+            },
+            {
+              "source_unit_id": 10,
+              "comparison": "候选第3点detail'应该晚上8点到，吃个饭差不多9点，然后过去散散步'忠实，previous_review确认成立。"
+            },
+            {
+              "source_unit_id": 11,
+              "comparison": "候选第4点summary'对比过去感叹审批流程变严'与detail完整保留对比、程度及评价，忠实，previous_review确认成立。"
+            }
+          ],
+          "checks": [
+            {
+              "no": 1,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 2,
+              "issues": [
+                {
+                  "field": "summary",
+                  "candidate_quote": "大领导审批迟缓引发不满",
+                  "source_index": 5,
+                  "difference": "原文仅陈述大领导'迟迟不给通过'，并以口语'人家领导周末要好好休息，才不管你这些屁事'表达吐槽；summary将其概括为确定事实'引发不满'，把口语情绪固化为明确的心理状态结论，改变了确定性与观点归属。",
+                  "repair": "改为忠实陈述审批状态，例如'大领导审批迟迟未通过'或'大领导迟迟不给通过'，不要添加'引发不满'的定论。"
+                }
+              ],
+              "summary_ok": false,
+              "detail_ok": true
+            },
+            {
+              "no": 3,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 4,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            }
+          ]
+        },
+        {
+          "source_checks": [
+            {
+              "source_unit_id": 1,
+              "comparison": "detail中描述'本来今天应该上午就去南通'，但原文是'本来今天应该要去南通的...所以就不上午去了'。原文仅表明原计划今天去（未明确限定上午），因审批延迟改为下午出发；candidate添加了'上午'这一原文未明确限定的出发时间，改变了事实限定。"
+            },
+            {
+              "source_unit_id": 2,
+              "comparison": "detail描述'这个申请流程是周五发起的，但周五项目经理不给我审批'，与原文一致，忠实保留了时间（周五）和否定（不审批）的限定。"
+            },
+            {
+              "source_unit_id": 3,
+              "comparison": "detail描述'周六我给他发消息，他才审批通过'，与原文一致，保留了时间条件（周六）和结果（审批通过）。"
+            },
+            {
+              "source_unit_id": 4,
+              "comparison": "detail描述'之后到田银伟那里，他指出承担人选错了，需要选项目经理，于是退回让我重新发起'，与原文一致，忠实保留了人物（田银伟）、原因（承担人选错）和结果（退回重新发起）。"
+            },
+            {
+              "source_unit_id": 5,
+              "comparison": "summary'大领导审批迟迟未通过'与detail描述一致，均忠实保留了原文中'迟迟不给通过'的否定限定和延迟状态。"
+            },
+            {
+              "source_unit_id": 6,
+              "comparison": "detail将原文口语表达'人家领导周末要好好休息，才不管你这些屁事'改写为'我认为领导周末要休息，不会管这些事情'，虽添加了'我认为'，但原文本身就是说话者的主观判断，改写未改变观点归属，保留了核心语义。"
+            },
+            {
+              "source_unit_id": 7,
+              "comparison": "detail描述'我订了下午4点的机票，预计晚上7点半到达'，与原文一致，保留了时间限定（下午4点、晚上7点半）和预计性（差不多/预计）。"
+            },
+            {
+              "source_unit_id": 8,
+              "comparison": "detail描述'我把去南通的机票和酒店全部都订好了'，与原文'买了'同义，忠实保留了完成状态。"
+            },
+            {
+              "source_unit_id": 9,
+              "comparison": "detail描述'那边有一个什么江的景区，好像还挺好玩，但到底好不好玩不知道'，与原文一致，保留了不确定性（好像、不知道）和事物属性（江、景区）。"
+            },
+            {
+              "source_unit_id": 10,
+              "comparison": "detail描述'应该晚上8点到，吃个饭差不多9点，然后过去散散步'，与原文一致，保留了时间推测（应该、差不多）和动作顺序。"
+            },
+            {
+              "source_unit_id": 11,
+              "comparison": "summary'对比过去感叹审批流程变严'与detail描述'现在感觉钱的事情管得越来越严了...不仅要项目经理批，还要我领导批和大领导批'一致，忠实保留了原文的对比结构（原来vs现在）和程度变化（越来越严），以及审批主体（项目经理、我领导、大领导）。"
+            }
+          ],
+          "checks": [
+            {
+              "no": 1,
+              "issues": [
+                {
+                  "field": "detail",
+                  "candidate_quote": "本来今天应该上午就去南通",
+                  "source_index": 1,
+                  "difference": "原文仅表述'本来今天应该要去南通的'，未明确限定原计划是上午出发；candidate添加'上午'一词，将'今天'窄化为'上午'，改变了时间限定。",
+                  "repair": "应改为'本来今天应该要去南通'或'本来今天应该早点去南通'，避免添加原文未明确的上午时间限定。"
+                }
+              ],
+              "summary_ok": true,
+              "detail_ok": false
+            },
+            {
+              "no": 2,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 3,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            },
+            {
+              "no": 4,
+              "issues": [],
+              "summary_ok": true,
+              "detail_ok": true
+            }
+          ]
+        }
+      ],
+      "pending_review": {
+        "source_checks": [
+          {
+            "source_unit_id": 1,
+            "comparison": "detail中描述'本来今天应该上午就去南通'，但原文是'本来今天应该要去南通的...所以就不上午去了'。原文仅表明原计划今天去（未明确限定上午），因审批延迟改为下午出发；candidate添加了'上午'这一原文未明确限定的出发时间，改变了事实限定。"
+          },
+          {
+            "source_unit_id": 2,
+            "comparison": "detail描述'这个申请流程是周五发起的，但周五项目经理不给我审批'，与原文一致，忠实保留了时间（周五）和否定（不审批）的限定。"
+          },
+          {
+            "source_unit_id": 3,
+            "comparison": "detail描述'周六我给他发消息，他才审批通过'，与原文一致，保留了时间条件（周六）和结果（审批通过）。"
+          },
+          {
+            "source_unit_id": 4,
+            "comparison": "detail描述'之后到田银伟那里，他指出承担人选错了，需要选项目经理，于是退回让我重新发起'，与原文一致，忠实保留了人物（田银伟）、原因（承担人选错）和结果（退回重新发起）。"
+          },
+          {
+            "source_unit_id": 5,
+            "comparison": "summary'大领导审批迟迟未通过'与detail描述一致，均忠实保留了原文中'迟迟不给通过'的否定限定和延迟状态。"
+          },
+          {
+            "source_unit_id": 6,
+            "comparison": "detail将原文口语表达'人家领导周末要好好休息，才不管你这些屁事'改写为'我认为领导周末要休息，不会管这些事情'，虽添加了'我认为'，但原文本身就是说话者的主观判断，改写未改变观点归属，保留了核心语义。"
+          },
+          {
+            "source_unit_id": 7,
+            "comparison": "detail描述'我订了下午4点的机票，预计晚上7点半到达'，与原文一致，保留了时间限定（下午4点、晚上7点半）和预计性（差不多/预计）。"
+          },
+          {
+            "source_unit_id": 8,
+            "comparison": "detail描述'我把去南通的机票和酒店全部都订好了'，与原文'买了'同义，忠实保留了完成状态。"
+          },
+          {
+            "source_unit_id": 9,
+            "comparison": "detail描述'那边有一个什么江的景区，好像还挺好玩，但到底好不好玩不知道'，与原文一致，保留了不确定性（好像、不知道）和事物属性（江、景区）。"
+          },
+          {
+            "source_unit_id": 10,
+            "comparison": "detail描述'应该晚上8点到，吃个饭差不多9点，然后过去散散步'，与原文一致，保留了时间推测（应该、差不多）和动作顺序。"
+          },
+          {
+            "source_unit_id": 11,
+            "comparison": "summary'对比过去感叹审批流程变严'与detail描述'现在感觉钱的事情管得越来越严了...不仅要项目经理批，还要我领导批和大领导批'一致，忠实保留了原文的对比结构（原来vs现在）和程度变化（越来越严），以及审批主体（项目经理、我领导、大领导）。"
+          }
+        ],
+        "checks": [
+          {
+            "no": 1,
+            "issues": [
+              {
+                "field": "detail",
+                "candidate_quote": "本来今天应该上午就去南通",
+                "source_index": 1,
+                "difference": "原文仅表述'本来今天应该要去南通的'，未明确限定原计划是上午出发；candidate添加'上午'一词，将'今天'窄化为'上午'，改变了时间限定。",
+                "repair": "应改为'本来今天应该要去南通'或'本来今天应该早点去南通'，避免添加原文未明确的上午时间限定。"
+              }
+            ]
+          },
+          {
+            "no": 2,
+            "issues": []
+          },
+          {
+            "no": 3,
+            "issues": []
+          },
+          {
+            "no": 4,
+            "issues": []
+          }
+        ]
+      }
+    }
+  }
+}

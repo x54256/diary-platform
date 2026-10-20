@@ -1,0 +1,11 @@
+{
+  "model": "kimi-k3",
+  "point_version": "event-points-issues-v2-20261015",
+  "source_sha256": "4867af398a907bd7f24f84a13d5cca2d9a58e2504dfacd054fbdd55387d3f3d9",
+  "prompt_sha256": {
+    "generate": "7010dcd6a2d7febfe1460aba3ff378f95050c2b329bc69ab8c6ce4008f0a33ef",
+    "review": "e2e5ed1c39eaeec50d37aa1f3ad06086936bd6a3b6f7e8d368dace292e99ae1b",
+    "repair": "bc351b7c471016ec33d889201d11e91f81946e916c8b5ee7a6dd5010bd3b2457",
+    "combined": "6cbd83859175017d7ea89df4cf1575f1ed8c32525dc04185c624e8c6215e7112"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "baseline_dir": "knowledge-graph/implementation-verification-20261014/script-recheck-20261015",
+  "model": "kimi-k3",
+  "baseline_model": "qwen3.7-flash-2026-07-15",
+  "fixed_source_sha256": "a497d77a253a03e5e508fb6d619a334bb632e36a07a87e73df85e21030aac889",
+  "fixed_vectors_sha256": "2fe1b3f5aed54190f84c0dae8834017ad09745c5a609521c617f37bb13e54ab2",
+  "relation_prompt_sha256": {
+    "a": "6765d71b0bca342b8a7c534880b513928e8e9ce7cd092112a38bd1a5200e5b50",
+    "b": "6765d71b0bca342b8a7c534880b513928e8e9ce7cd092112a38bd1a5200e5b50",
+    "c": "611e43174fc507eda93b9b9fc190f388edefb262b0e61a828dcca8f1adaf8c23"
+  },
+  "point_prompt_sha256": {
+    "generate": "7010dcd6a2d7febfe1460aba3ff378f95050c2b329bc69ab8c6ce4008f0a33ef",
+    "review": "f82c19a1af101eac15a389f26b4cab89d79f073508b7ddfe9529c20906fe0e70",
+    "repair": "bc351b7c471016ec33d889201d11e91f81946e916c8b5ee7a6dd5010bd3b2457",
+    "combined": "9e44583c240dea3754d9012f5e97e336ed8fad8dd2d2f079a1b4d52ef52fbe9e"
+  },
+  "thinking": true,
+  "production_writes": false,
+  "comparison": "previous-points组仅改变语言模型；新要点组另行报告，复用既定流程与提示",
+  "helper_sha256": "7722b91ad0fd1005bb1fb8e755ec72ff86bdf8386fa3cd795a60607fc8d4f5da"
+}

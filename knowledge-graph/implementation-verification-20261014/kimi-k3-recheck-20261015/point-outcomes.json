@@ -1,0 +1,23 @@
+[
+  {
+    "event_id": "d5f11b2c-67ce-466c-b2ed-ae3dc173edfb",
+    "passed": true,
+    "iterations": 1
+  },
+  {
+    "event_id": "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795",
+    "failed": true,
+    "error_type": "RuntimeError",
+    "error": "结构校验失败，已达到本次允许的请求次数"
+  },
+  {
+    "event_id": "4f950991-a9e5-459d-8411-9e683bc92572",
+    "passed": true,
+    "iterations": 1
+  },
+  {
+    "event_id": "d12b7fb0-1e53-4456-ac7f-47189081f7f7",
+    "passed": true,
+    "iterations": 1
+  }
+]

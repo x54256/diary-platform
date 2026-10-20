@@ -1,0 +1,352 @@
+{
+  "model": "kimi-k3",
+  "source_and_prompt_requests_equal_to_qwen": {
+    "a": true,
+    "b": true,
+    "d5f11b2c-67ce-466c-b2ed-ae3dc173edfb": true,
+    "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795": true,
+    "4f950991-a9e5-459d-8411-9e683bc92572": true,
+    "d12b7fb0-1e53-4456-ac7f-47189081f7f7": true
+  },
+  "language_requests": 15,
+  "point_requests": 12,
+  "relation_requests": 3,
+  "structure_failed_requests": 3,
+  "preflight_requests": 1,
+  "embedding_requests": 0,
+  "vectors_reused": true,
+  "point_outcomes": [
+    {
+      "event_id": "d5f11b2c-67ce-466c-b2ed-ae3dc173edfb",
+      "passed": true,
+      "iterations": 1
+    },
+    {
+      "event_id": "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795",
+      "failed": true,
+      "error_type": "RuntimeError",
+      "error": "结构校验失败，已达到本次允许的请求次数"
+    },
+    {
+      "event_id": "4f950991-a9e5-459d-8411-9e683bc92572",
+      "passed": true,
+      "iterations": 1
+    },
+    {
+      "event_id": "d12b7fb0-1e53-4456-ac7f-47189081f7f7",
+      "passed": true,
+      "iterations": 1
+    }
+  ],
+  "positive_status_related_forced": 4,
+  "positive_total": 4,
+  "positive_recalled": 2,
+  "positive_status_related_under_actual_recall": 2,
+  "relation_types_fully_accepted": false,
+  "note": "R01从历史提及结果变为出差指向督促阅读的引发关系；本次只统计确认正例的关联状态；另外两组不自动计为确认负例。",
+  "regenerated_relation_group_executed": false,
+  "regenerated_group_skip_reason": "出差事件未通过要点流程，未继续组装新要点关系组",
+  "production_writes": false,
+  "calls": [
+    {
+      "file": "points/4f950991-a9e5-459d-8411-9e683bc92572/combined-1.json",
+      "attempt": 1,
+      "seconds": 21.84,
+      "usage": {
+        "prompt_tokens": 1237,
+        "total_tokens": 2176,
+        "completion_tokens": 939,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 1237
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 448,
+          "text_tokens": 491
+        }
+      },
+      "structure_error": null,
+      "reasoning_chars": 1198
+    },
+    {
+      "file": "points/4f950991-a9e5-459d-8411-9e683bc92572/generate.json",
+      "attempt": 1,
+      "seconds": 9.62,
+      "usage": {
+        "prompt_tokens": 2138,
+        "total_tokens": 2443,
+        "completion_tokens": 305,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024,
+          "text_tokens": 2138
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 146,
+          "text_tokens": 159
+        }
+      },
+      "structure_error": null,
+      "reasoning_chars": 688
+    },
+    {
+      "file": "points/b6e95ca6-fa77-4ed6-8d95-4d90f3fec795/combined-1.json",
+      "attempt": 1,
+      "seconds": 139.01,
+      "usage": {
+        "prompt_tokens": 1755,
+        "total_tokens": 8802,
+        "completion_tokens": 7047,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 1755
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 6167,
+          "text_tokens": 880
+        }
+      },
+      "structure_error": "通过状态与问题列表矛盾",
+      "reasoning_chars": 18209
+    },
+    {
+      "file": "points/b6e95ca6-fa77-4ed6-8d95-4d90f3fec795/combined-1.json",
+      "attempt": 2,
+      "seconds": 36.97,
+      "usage": {
+        "prompt_tokens": 2661,
+        "total_tokens": 4612,
+        "completion_tokens": 1951,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024,
+          "text_tokens": 2661
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1001,
+          "text_tokens": 950
+        }
+      },
+      "structure_error": null,
+      "reasoning_chars": 3639
+    },
+    {
+      "file": "points/b6e95ca6-fa77-4ed6-8d95-4d90f3fec795/combined-2.json",
+      "attempt": 1,
+      "seconds": 150.5,
+      "usage": {
+        "prompt_tokens": 1753,
+        "total_tokens": 9673,
+        "completion_tokens": 7920,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024,
+          "text_tokens": 1753
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 7793,
+          "text_tokens": 127
+        }
+      },
+      "structure_error": "Unterminated string starting at: line 4 column 4 (char 42)",
+      "reasoning_chars": 22564
+    },
+    {
+      "file": "points/b6e95ca6-fa77-4ed6-8d95-4d90f3fec795/combined-2.json",
+      "attempt": 2,
+      "seconds": 72.98,
+      "usage": {
+        "prompt_tokens": 1920,
+        "total_tokens": 5660,
+        "completion_tokens": 3740,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024,
+          "text_tokens": 1920
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2581,
+          "text_tokens": 1159
+        }
+      },
+      "structure_error": "通过状态与问题列表矛盾",
+      "reasoning_chars": 6980
+    },
+    {
+      "file": "points/b6e95ca6-fa77-4ed6-8d95-4d90f3fec795/generate.json",
+      "attempt": 1,
+      "seconds": 27.54,
+      "usage": {
+        "prompt_tokens": 2268,
+        "total_tokens": 3352,
+        "completion_tokens": 1084,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024,
+          "text_tokens": 2268
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 798,
+          "text_tokens": 286
+        }
+      },
+      "structure_error": null,
+      "reasoning_chars": 2413
+    },
+    {
+      "file": "points/b6e95ca6-fa77-4ed6-8d95-4d90f3fec795/review-1.json",
+      "attempt": 1,
+      "seconds": 205.34,
+      "usage": {
+        "prompt_tokens": 1495,
+        "total_tokens": 10562,
+        "completion_tokens": 9067,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 1495
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 8314,
+          "text_tokens": 753
+        }
+      },
+      "structure_error": null,
+      "reasoning_chars": 28978
+    },
+    {
+      "file": "points/d12b7fb0-1e53-4456-ac7f-47189081f7f7/combined-1.json",
+      "attempt": 1,
+      "seconds": 47.85,
+      "usage": {
+        "prompt_tokens": 1008,
+        "total_tokens": 3016,
+        "completion_tokens": 2008,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 1008
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1763,
+          "text_tokens": 245
+        }
+      },
+      "structure_error": null,
+      "reasoning_chars": 6650
+    },
+    {
+      "file": "points/d12b7fb0-1e53-4456-ac7f-47189081f7f7/generate.json",
+      "attempt": 1,
+      "seconds": 14.71,
+      "usage": {
+        "prompt_tokens": 2071,
+        "total_tokens": 2702,
+        "completion_tokens": 631,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024,
+          "text_tokens": 2071
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 542,
+          "text_tokens": 89
+        }
+      },
+      "structure_error": null,
+      "reasoning_chars": 1844
+    },
+    {
+      "file": "points/d5f11b2c-67ce-466c-b2ed-ae3dc173edfb/combined-1.json",
+      "attempt": 1,
+      "seconds": 148.08,
+      "usage": {
+        "prompt_tokens": 2018,
+        "total_tokens": 9815,
+        "completion_tokens": 7797,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2018
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 6651,
+          "text_tokens": 1146
+        }
+      },
+      "structure_error": null,
+      "reasoning_chars": 21507
+    },
+    {
+      "file": "points/d5f11b2c-67ce-466c-b2ed-ae3dc173edfb/generate.json",
+      "attempt": 1,
+      "seconds": 49.41,
+      "usage": {
+        "prompt_tokens": 2302,
+        "total_tokens": 4654,
+        "completion_tokens": 2352,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2302
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1931,
+          "text_tokens": 421
+        }
+      },
+      "structure_error": null,
+      "reasoning_chars": 6484
+    },
+    {
+      "file": "previous-points/a.json",
+      "attempt": 1,
+      "seconds": 259.07,
+      "usage": {
+        "prompt_tokens": 3139,
+        "total_tokens": 14702,
+        "completion_tokens": 11563,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3139
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 10513,
+          "text_tokens": 1050
+        }
+      },
+      "structure_error": null,
+      "reasoning_chars": 31367
+    },
+    {
+      "file": "previous-points/b.json",
+      "attempt": 1,
+      "seconds": 202.61,
+      "usage": {
+        "prompt_tokens": 3139,
+        "total_tokens": 10495,
+        "completion_tokens": 7356,
+        "prompt_tokens_details": {
+          "cached_tokens": 3072,
+          "text_tokens": 3139
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 6517,
+          "text_tokens": 839
+        }
+      },
+      "structure_error": null,
+      "reasoning_chars": 20969
+    },
+    {
+      "file": "previous-points/c.json",
+      "attempt": 1,
+      "seconds": 159.47,
+      "usage": {
+        "prompt_tokens": 3737,
+        "total_tokens": 11007,
+        "completion_tokens": 7270,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3737
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 6416,
+          "text_tokens": 854
+        }
+      },
+      "structure_error": null,
+      "reasoning_chars": 21929
+    }
+  ]
+}

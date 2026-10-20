@@ -1,0 +1,19 @@
+{
+  "scheme": "B",
+  "version": "event-points-final-20261013-thinking",
+  "pipeline": "generate_then_combined_review_repair_then_independent_review",
+  "model": "qwen3.7-flash-2026-07-15",
+  "settings": {
+    "thinking": "enabled",
+    "temperature": "provider_default"
+  },
+  "prompt_sha256": {
+    "generate": "7010dcd6a2d7febfe1460aba3ff378f95050c2b329bc69ab8c6ce4008f0a33ef",
+    "review": "f82c19a1af101eac15a389f26b4cab89d79f073508b7ddfe9529c20906fe0e70",
+    "repair": "bc351b7c471016ec33d889201d11e91f81946e916c8b5ee7a6dd5010bd3b2457",
+    "combined": "9e44583c240dea3754d9012f5e97e336ed8fad8dd2d2f079a1b4d52ef52fbe9e"
+  },
+  "event_id": "4f950991-a9e5-459d-8411-9e683bc92572",
+  "repair_limit": 2,
+  "source_sha256": "cb6bde7ded42c7eafefee1d9bb68e645140609e0230a27732485571c424eaabe"
+}

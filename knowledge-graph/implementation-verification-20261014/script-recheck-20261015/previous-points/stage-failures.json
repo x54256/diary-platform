@@ -1,0 +1,10 @@
+{
+  "a": {
+    "error_type": "RuntimeError",
+    "error": "结构校验失败，已达到本次允许的请求次数"
+  },
+  "b": {
+    "error_type": "RuntimeError",
+    "error": "结构校验失败，已达到本次允许的请求次数"
+  }
+}

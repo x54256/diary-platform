@@ -1,0 +1,260 @@
+{
+  "request": {
+    "system": "若输入含previous_review，它是独立复核对当前candidate提出的具体意见。先依据原文逐项核实其是否成立，在对应source_checks的comparison中记录依据，再审核其余内容并修正实际错误。不能忽略这些意见，也不能为了迎合意见而修改忠实表达。所有candidate_quote必须逐字连续引用输入candidate，不能用省略号拼接，不引用修正版。\n\n本次调用依次完成审核和修正。先对输入candidate执行下列审核，审核记录只针对输入初稿；然后根据该记录及原文修正。修正后是否通过由后续独立调用复核，本次不声明修正版已通过。\n\n先从原文到候选，再从候选到原文核验。只依据原文，保留原文人称。\n第一步逐句检查有效信息，定位候选summary和detail中对应的判断。结合上下文区分事实限定与口语、举例表达，再比较语义是否一致。只有改写改变了事实、确定性、程度、否定、时间、条件、因果或观点归属，才报告失真；不能仅因某个词被省略或替换就判错，报告时说明改变后的含义与原文具体差在哪里。\nsummary可以省略某一判断；只要表达了该判断，其限定就必须忠实。detail中限定正确不能补偿summary的失真。允许清理无信息的口语、重复及自然改写举例表达。\n第二步逐项检查概念、因果和归属，以及detail的有效信息、核心判断、变化、转折和反例是否完整。允许忠实同义改写，但相关概念不是同义概念。\n输出JSON：{\"source_checks\":[{\"source_unit_id\":1,\"comparison\":\"对应候选的实际差异或忠实依据\"}],\"checks\":[{\"no\":1,\"issues\":[{\"field\":\"summary或detail\",\"candidate_quote\":\"该字段实际片段\",\"source_index\":1,\"difference\":\"具体语义差异\",\"repair\":\"依据原文的修正要求\"}]}]}。\nsource_checks对每个source_unit检查一次，顺序对应输入原句编号；记录其限定判断与对应候选的比较。没有限定也检查是否保留核心意思。source_checks按数组顺序从1编号；issues的source_index引用该数组条目，不重复写原文。checks每项一次，顺序对应候选，每项只输出no和issues；无问题时issues=[]。通过状态由程序根据issues计算，不输出summary_ok或detail_ok。引用输入原句编号，不重新生成原文。不要给笼统评分、制造错误或固定数量。\n\n依据原文核实审核意见并修正实际错误，输出完整结果。审核意见是待验证的问题；若候选与原文语义一致，该意见不成立，保留原表达。只接受有原文依据的修改，不为了修改而重写正确内容。保留原文人称。\n保持主题组织及未出错的内容，修正概念、确定性、程度、因果和归属的偏差，清理无信息的重复口语。各项中心清楚、转折完整、表达自然。\nsummary用一句简明自然的话准确说明本项核心；detail完整忠实重写。两字段各自忠实，不新增信息。\n输出JSON：{\"title\":\"原标题\",\"points\":[{\"no\":1,\"summary\":\"简明要点\",\"detail\":\"详细内容\"}]}。\n\n将上述两份输出合并为一个JSON对象：{\"review\":{\"source_checks\":[...],\"checks\":[...]},\"candidate\":{\"title\":\"原标题\",\"points\":[...]}}。review使用上述审核结构，candidate使用上述完整要点结构。先输出review，再输出candidate。未发现问题时candidate保持输入原样。",
+    "payload": {
+      "source": {
+        "title": "处理哒哒误咬洁厕灵事件",
+        "paragraphs": [
+          {
+            "id": 1,
+            "text": "这几天主要就是哒哒的事。回到家看厕所那个哒哒堵下水道的地漏，被碰倒了。我就突然想，是不是哒哒碰的？然后我突然联想到礼拜四我洗澡的时候，发现那个马桶揣子倒了，洁厕灵也倒了。洁厕灵我拿起来的时候，是漏一个口的状态，还撒我一身，把我腿都腐蚀了。"
+          },
+          {
+            "id": 2,
+            "text": "我就在想，那个口有点奇怪，为什么这个洁厕灵会破口呢？我就突然想着会不会是哒哒咬的，就赶紧去看了一下洁厕灵，发现确实是一个小狗的牙印。这给我整得挺害怕的，那个东西喷到我腿上都有一种腐蚀的烧灼感，更何况哒哒咬下去，说不定还喝了，害怕喝下去会有肝肾功能的损伤。"
+          },
+          {
+            "id": 3,
+            "text": "我就跟小廖说这个事，让小廖跟医生说一下。医生第二天周六给回消息了，让过去看一看，检查一下。周六下午我们就出去了，带哒哒去宠物医院看洁厕灵的事。医生检查说他的精神状态都还是正常的，所以应该是没有事的。医生说精神状态挺好的，嘴也没什么溃疡，大概是没有事的。"
+          },
+          {
+            "id": 4,
+            "text": "我就问能不能约个体检，医生说可以，周六就把体检给做了。顺道把第二天的洗牙和腿部的X光片也给预约了。"
+          }
+        ],
+        "source_units": [
+          {
+            "id": 1,
+            "paragraph_id": 1,
+            "text": "这几天主要就是哒哒的事。"
+          },
+          {
+            "id": 2,
+            "paragraph_id": 1,
+            "text": "回到家看厕所那个哒哒堵下水道的地漏，被碰倒了。"
+          },
+          {
+            "id": 3,
+            "paragraph_id": 1,
+            "text": "我就突然想，是不是哒哒碰的？"
+          },
+          {
+            "id": 4,
+            "paragraph_id": 1,
+            "text": "然后我突然联想到礼拜四我洗澡的时候，发现那个马桶揣子倒了，洁厕灵也倒了。"
+          },
+          {
+            "id": 5,
+            "paragraph_id": 1,
+            "text": "洁厕灵我拿起来的时候，是漏一个口的状态，还撒我一身，把我腿都腐蚀了。"
+          },
+          {
+            "id": 6,
+            "paragraph_id": 2,
+            "text": "我就在想，那个口有点奇怪，为什么这个洁厕灵会破口呢？"
+          },
+          {
+            "id": 7,
+            "paragraph_id": 2,
+            "text": "我就突然想着会不会是哒哒咬的，就赶紧去看了一下洁厕灵，发现确实是一个小狗的牙印。"
+          },
+          {
+            "id": 8,
+            "paragraph_id": 2,
+            "text": "这给我整得挺害怕的，那个东西喷到我腿上都有一种腐蚀的烧灼感，更何况哒哒咬下去，说不定还喝了，害怕喝下去会有肝肾功能的损伤。"
+          },
+          {
+            "id": 9,
+            "paragraph_id": 3,
+            "text": "我就跟小廖说这个事，让小廖跟医生说一下。"
+          },
+          {
+            "id": 10,
+            "paragraph_id": 3,
+            "text": "医生第二天周六给回消息了，让过去看一看，检查一下。"
+          },
+          {
+            "id": 11,
+            "paragraph_id": 3,
+            "text": "周六下午我们就出去了，带哒哒去宠物医院看洁厕灵的事。"
+          },
+          {
+            "id": 12,
+            "paragraph_id": 3,
+            "text": "医生检查说他的精神状态都还是正常的，所以应该是没有事的。"
+          },
+          {
+            "id": 13,
+            "paragraph_id": 3,
+            "text": "医生说精神状态挺好的，嘴也没什么溃疡，大概是没有事的。"
+          },
+          {
+            "id": 14,
+            "paragraph_id": 4,
+            "text": "我就问能不能约个体检，医生说可以，周六就把体检给做了。"
+          },
+          {
+            "id": 15,
+            "paragraph_id": 4,
+            "text": "顺道把第二天的洗牙和腿部的X光片也给预约了。"
+          }
+        ]
+      },
+      "candidate": {
+        "title": "处理哒哒误咬洁厕灵事件",
+        "points": [
+          {
+            "no": 1,
+            "summary": "发现地漏和洁厕灵异常并怀疑是哒哒碰咬",
+            "detail": "这几天主要处理哒哒的事情。回到家后，我看到厕所里哒哒用来堵下水道的地漏被碰倒了，突然想到可能是哒哒碰的。随后我又联想到礼拜四洗澡时，发现马桶揣子倒了，洁厕灵也倒了。我把洁厕灵拿起来时，它已经破了一个口，液体还撒了我一身，把我的腿腐蚀了。"
+          },
+          {
+            "no": 2,
+            "summary": "确认洁厕灵破口是狗咬痕迹并担心哒哒健康",
+            "detail": "我觉得洁厕灵上的破口有些奇怪，想不明白为什么会破口，突然怀疑会不会是哒哒咬的，就赶紧去查看，发现瓶身上确实是小狗的牙印。这让我很害怕，因为洁厕灵喷到我腿上时就有腐蚀的烧灼感，哒哒咬下去说不定还喝进去了，我担心会损伤它的肝肾功能。"
+          },
+          {
+            "no": 3,
+            "summary": "带哒哒去宠物医院检查且结果正常",
+            "detail": "我把这件事告诉了小廖，让小廖跟医生说明情况。医生第二天周六回复消息，让我们带哒哒过去检查。周六下午我们就带哒哒去了宠物医院。医生检查后说哒哒的精神状态正常，嘴里也没有溃疡，大概没有事。"
+          },
+          {
+            "no": 4,
+            "summary": "顺便完成体检并预约后续检查",
+            "detail": "我问医生能不能约个体检，医生说可以，于是周六当天就把体检做了，还顺便预约了第二天的洗牙和腿部X光片检查。"
+          }
+        ]
+      }
+    }
+  },
+  "attempts": [
+    {
+      "raw": "{\"review\":{\"source_checks\":[{\"source_unit_id\":1,\"comparison\":\"candidate point 1 detail expresses '这几天主要处理哒哒的事情'，保留核心意思。\"},{\"source_unit_id\":2,\"comparison\":\"candidate point 1 detail expresses '厕所里哒哒用来堵下水道的地漏被碰倒了'，保留核心意思。\"},{\"source_unit_id\":3,\"comparison\":\"candidate point 1 detail expresses '突然想到可能是哒哒碰的'，保留核心意思。\"},{\"source_unit_id\":4,\"comparison\":\"candidate point 1 detail expresses '礼拜四洗澡时，发现马桶揣子倒了，洁厕灵也倒了'，保留核心意思。\"},{\"source_unit_id\":5,\"comparison\":\"candidate point 1 detail expresses '已经破了一个口，液体还撒了我一身，把我的腿腐蚀了'，保留核心意思。\"},{\"source_unit_id\":6,\"comparison\":\"candidate point 2 detail expresses '破口有些奇怪，想不明白为什么会破口'，保留核心意思。\"},{\"source_unit_id\":7,\"comparison\":\"candidate point 2 detail expresses '突然怀疑会不会是哒哒咬的，就赶紧去查看，发现瓶身上确实是小狗的牙印'，保留核心意思。\"},{\"source_unit_id\":8,\"comparison\":\"candidate point 2 detail expresses '这让我很害怕，因为洁厕灵喷到我腿上时就有腐蚀的烧灼感，哒哒咬下去说不定还喝进去了，我担心会损伤它的肝肾功能'，保留核心意思。\"},{\"source_unit_id\":9,\"comparison\":\"candidate point 3 detail expresses '我把这件事告诉了小廖，让小廖跟医生说明情况'，保留核心意思。\"},{\"source_unit_id\":10,\"comparison\":\"candidate point 3 detail expresses '医生第二天周六回复消息，让我们带哒哒过去检查'，保留核心意思。\"},{\"source_unit_id\":11,\"comparison\":\"candidate point 3 detail expresses '周六下午我们就带哒哒去了宠物医院'，保留核心意思。\"},{\"source_unit_id\":12,\"comparison\":\"candidate point 3 detail expresses '医生检查后说哒哒的精神状态正常'，保留核心意思；原文这里和下一unit一起表达'所以应该是没有事的'，candidate在unit13比较中保留。\"},{\"source_unit_id\":13,\"comparison\":\"candidate point 3 detail expresses '嘴里也没有溃疡，大概没有事'，保留核心意思。\"},{\"source_unit_id\":14,\"comparison\":\"candidate point 4 detail expresses '我问医生能不能约个体检，医生说可以，于是周六当天就把体检做了'，保留核心意思。\"},{\"source_unit_id\":15,\"comparison\":\"candidate point 4 detail expresses '还顺便预约了第二天的洗牙和腿部X光片检查'，保留核心意思。\"}],\"checks\":[{\"no\":1,\"issues\":[]},{\"no\":2,\"issues\":[]},{\"no\":3,\"issues\":[]},{\"no\":4,\"issues\":[]}]},\"candidate\":{\"title\":\"处理哒哒误咬洁厕灵事件\",\"points\":[{\"no\":1,\"summary\":\"发现地漏和洁厕灵异常并怀疑是哒哒碰咬\",\"detail\":\"这几天主要处理哒哒的事情。回到家后，我看到厕所里哒哒用来堵下水道的地漏被碰倒了，突然想到可能是哒哒碰的。随后我又联想到礼拜四洗澡时，发现马桶揣子倒了，洁厕灵也倒了。我把洁厕灵拿起来时，它已经破了一个口，液体还撒了我一身，把我的腿腐蚀了。\"},{\"no\":2,\"summary\":\"确认洁厕灵破口是狗咬痕迹并担心哒哒健康\",\"detail\":\"我觉得洁厕灵上的破口有些奇怪，想不明白为什么会破口，突然怀疑会不会是哒哒咬的，就赶紧去查看，发现瓶身上确实是小狗的牙印。这让我很害怕，因为洁厕灵喷到我腿上时就有腐蚀的烧灼感，哒哒咬下去说不定还喝进去了，我担心会损伤它的肝肾功能。\"},{\"no\":3,\"summary\":\"带哒哒去宠物医院检查且结果正常\",\"detail\":\"我把这件事告诉了小廖，让小廖跟医生说明情况。医生第二天周六回复消息，让我们带哒哒过去检查。周六下午我们就带哒哒去了宠物医院。医生检查后说哒哒的精神状态正常，嘴里也没有溃疡，大概没有事。\"},{\"no\":4,\"summary\":\"顺便完成体检并预约后续检查\",\"detail\":\"我问医生能不能约个体检，医生说可以，于是周六当天就把体检做了，还顺便预约了第二天的洗牙和腿部X光片检查。\"}]}}",
+      "seconds": 89.09,
+      "model": "kimi-k3",
+      "usage": {
+        "prompt_tokens": 2023,
+        "total_tokens": 6698,
+        "completion_tokens": 4675,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2023
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3769,
+          "text_tokens": 906
+        }
+      },
+      "reasoning_chars": 10563
+    }
+  ],
+  "data": {
+    "review": {
+      "source_checks": [
+        {
+          "source_unit_id": 1,
+          "comparison": "candidate point 1 detail expresses '这几天主要处理哒哒的事情'，保留核心意思。"
+        },
+        {
+          "source_unit_id": 2,
+          "comparison": "candidate point 1 detail expresses '厕所里哒哒用来堵下水道的地漏被碰倒了'，保留核心意思。"
+        },
+        {
+          "source_unit_id": 3,
+          "comparison": "candidate point 1 detail expresses '突然想到可能是哒哒碰的'，保留核心意思。"
+        },
+        {
+          "source_unit_id": 4,
+          "comparison": "candidate point 1 detail expresses '礼拜四洗澡时，发现马桶揣子倒了，洁厕灵也倒了'，保留核心意思。"
+        },
+        {
+          "source_unit_id": 5,
+          "comparison": "candidate point 1 detail expresses '已经破了一个口，液体还撒了我一身，把我的腿腐蚀了'，保留核心意思。"
+        },
+        {
+          "source_unit_id": 6,
+          "comparison": "candidate point 2 detail expresses '破口有些奇怪，想不明白为什么会破口'，保留核心意思。"
+        },
+        {
+          "source_unit_id": 7,
+          "comparison": "candidate point 2 detail expresses '突然怀疑会不会是哒哒咬的，就赶紧去查看，发现瓶身上确实是小狗的牙印'，保留核心意思。"
+        },
+        {
+          "source_unit_id": 8,
+          "comparison": "candidate point 2 detail expresses '这让我很害怕，因为洁厕灵喷到我腿上时就有腐蚀的烧灼感，哒哒咬下去说不定还喝进去了，我担心会损伤它的肝肾功能'，保留核心意思。"
+        },
+        {
+          "source_unit_id": 9,
+          "comparison": "candidate point 3 detail expresses '我把这件事告诉了小廖，让小廖跟医生说明情况'，保留核心意思。"
+        },
+        {
+          "source_unit_id": 10,
+          "comparison": "candidate point 3 detail expresses '医生第二天周六回复消息，让我们带哒哒过去检查'，保留核心意思。"
+        },
+        {
+          "source_unit_id": 11,
+          "comparison": "candidate point 3 detail expresses '周六下午我们就带哒哒去了宠物医院'，保留核心意思。"
+        },
+        {
+          "source_unit_id": 12,
+          "comparison": "candidate point 3 detail expresses '医生检查后说哒哒的精神状态正常'，保留核心意思；原文这里和下一unit一起表达'所以应该是没有事的'，candidate在unit13比较中保留。"
+        },
+        {
+          "source_unit_id": 13,
+          "comparison": "candidate point 3 detail expresses '嘴里也没有溃疡，大概没有事'，保留核心意思。"
+        },
+        {
+          "source_unit_id": 14,
+          "comparison": "candidate point 4 detail expresses '我问医生能不能约个体检，医生说可以，于是周六当天就把体检做了'，保留核心意思。"
+        },
+        {
+          "source_unit_id": 15,
+          "comparison": "candidate point 4 detail expresses '还顺便预约了第二天的洗牙和腿部X光片检查'，保留核心意思。"
+        }
+      ],
+      "checks": [
+        {
+          "no": 1,
+          "issues": []
+        },
+        {
+          "no": 2,
+          "issues": []
+        },
+        {
+          "no": 3,
+          "issues": []
+        },
+        {
+          "no": 4,
+          "issues": []
+        }
+      ]
+    },
+    "candidate": {
+      "title": "处理哒哒误咬洁厕灵事件",
+      "points": [
+        {
+          "no": 1,
+          "summary": "发现地漏和洁厕灵异常并怀疑是哒哒碰咬",
+          "detail": "这几天主要处理哒哒的事情。回到家后，我看到厕所里哒哒用来堵下水道的地漏被碰倒了，突然想到可能是哒哒碰的。随后我又联想到礼拜四洗澡时，发现马桶揣子倒了，洁厕灵也倒了。我把洁厕灵拿起来时，它已经破了一个口，液体还撒了我一身，把我的腿腐蚀了。"
+        },
+        {
+          "no": 2,
+          "summary": "确认洁厕灵破口是狗咬痕迹并担心哒哒健康",
+          "detail": "我觉得洁厕灵上的破口有些奇怪，想不明白为什么会破口，突然怀疑会不会是哒哒咬的，就赶紧去查看，发现瓶身上确实是小狗的牙印。这让我很害怕，因为洁厕灵喷到我腿上时就有腐蚀的烧灼感，哒哒咬下去说不定还喝进去了，我担心会损伤它的肝肾功能。"
+        },
+        {
+          "no": 3,
+          "summary": "带哒哒去宠物医院检查且结果正常",
+          "detail": "我把这件事告诉了小廖，让小廖跟医生说明情况。医生第二天周六回复消息，让我们带哒哒过去检查。周六下午我们就带哒哒去了宠物医院。医生检查后说哒哒的精神状态正常，嘴里也没有溃疡，大概没有事。"
+        },
+        {
+          "no": 4,
+          "summary": "顺便完成体检并预约后续检查",
+          "detail": "我问医生能不能约个体检，医生说可以，于是周六当天就把体检做了，还顺便预约了第二天的洗牙和腿部X光片检查。"
+        }
+      ]
+    }
+  }
+}

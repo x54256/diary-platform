@@ -1,0 +1,22 @@
+{
+  "metrics": {
+    "requests": 7,
+    "responses": 6,
+    "tokens": 38439,
+    "seconds": 364.28,
+    "structure_errors": 2,
+    "transport_errors": 1,
+    "http_errors": 0
+  },
+  "stages": {
+    "combined-1": 6,
+    "review-1": 1
+  },
+  "excluded_reused_generation_ids": [
+    "4f950991-a9e5-459d-8411-9e683bc92572",
+    "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795",
+    "d12b7fb0-1e53-4456-ac7f-47189081f7f7",
+    "d5f11b2c-67ce-466c-b2ed-ae3dc173edfb"
+  ],
+  "note": "网络异常记录未计耗时和token；seconds为成功响应耗时之和，不是墙钟时长。"
+}

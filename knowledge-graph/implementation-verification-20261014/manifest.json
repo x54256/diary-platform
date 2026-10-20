@@ -1,0 +1,48 @@
+{
+  "user_id": "708f0cdc-1f6b-46b9-8c7f-8a1771bb407a",
+  "diaries": {
+    "2026-08-17": "3fbffc92-7046-4c38-a4e9-8409ccbbd9a7",
+    "2026-08-18": "91c5dfff-be2a-45fc-8171-1c1aa81b1d36",
+    "2026-08-23": "26b4709c-6008-4897-858e-e96a71a522fc"
+  },
+  "source_to_copy": {
+    "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a": "d5f11b2c-67ce-466c-b2ed-ae3dc173edfb",
+    "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d": "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795",
+    "3b195ef1-0047-4a62-8e0e-3aca65990625": "4f950991-a9e5-459d-8411-9e683bc92572",
+    "86a721cd-c21c-4186-8dde-66fa2ea6ef10": "d12b7fb0-1e53-4456-ac7f-47189081f7f7"
+  },
+  "tasks": {
+    "ordinary_pro_quota_failed": "4102586c-e203-4e22-98bf-4932faa3a589",
+    "ordinary_qwen_plus_quota_failed": "b50b2429-596f-4c6d-98f7-3c67a232428a",
+    "ordinary": "91e46c9b-d792-4ebe-9ce0-413138be3c0c",
+    "graph_only_history": "9f3e50da-3a13-4b73-94cc-d508b23580bd"
+  },
+  "created_at": "2026-10-15 01:06:10.988651+00:00",
+  "source": "backend/.env PG",
+  "model_switch": {
+    "from": "deepseek-v4-pro",
+    "to": "qwen3.7-plus",
+    "reason": "insufficient_quota",
+    "authorized_by_user": true
+  },
+  "model_switches": [
+    {
+      "to": "qwen3.7-flash-2026-07-15",
+      "backup": "qwen3.7-flash",
+      "reason": "用户2026-10-15指定；两个别名已实际探测200",
+      "previous_switch": {
+        "from": "deepseek-v4-pro",
+        "to": "qwen3.7-plus",
+        "reason": "insufficient_quota",
+        "authorized_by_user": true
+      }
+    }
+  ],
+  "graph_only_preexisting_analysis_ids": [
+    "211f32c2-7fd8-46ae-a77f-b9988ea15ac3",
+    "527b0bdb-caf8-4118-977b-d210ba88db20",
+    "f98326dd-1da2-4375-ad8a-cc333a289908"
+  ],
+  "verification_scope": "用户2026-10-15明确只测图谱；验收副本人为预置空CURRENT分析轮次，不调用后续六阶段",
+  "graph_only_preserved_analysis": true
+}

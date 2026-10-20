@@ -1,0 +1,65 @@
+{
+  "scope": "当天完整两事件对；未执行向量召回；未发布正式结果",
+  "task_id": "91e46c9b-d792-4ebe-9ce0-413138be3c0c",
+  "run_id": "dff8d66b-4551-4054-84d7-c34087d557b3",
+  "pair": {
+    "pair_id": "pair-298bc3a9f60eff500bb5c54c",
+    "event_a_id": "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795",
+    "event_b_id": "d5f11b2c-67ce-466c-b2ed-ae3dc173edfb"
+  },
+  "a": {
+    "reason": "Event A point 3 mentions the author's travel to Nantong on the afternoon of 2026-08-17, implying they will be away that evening. Event B point 3 explicitly cites this upcoming absence (\"下周我不在家\", i.e., \"I won't be at home next week\" - contextually referring to the immediately mentioned trip) as the reason for urging Xiao Liao to read a book. This is a causal link where the arrangement in Event A triggers the action in Event B.",
+    "status": "RELATED",
+    "pair_id": "pair-298bc3a9f60eff500bb5c54c",
+    "relation": {
+      "certainty": "EXPLICIT",
+      "description": "Event A details the schedule for a business trip to Nantong departing on the afternoon of Aug 17. Event B uses this specific trip (referenced as 'not at home') as the trigger to urge Xiao Liao to finish a book.",
+      "relation_type": "引发事件",
+      "source_event_id": "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795",
+      "target_event_id": "d5f11b2c-67ce-466c-b2ed-ae3dc173edfb",
+      "source_point_nos": [
+        3
+      ],
+      "target_point_nos": [
+        3
+      ]
+    }
+  },
+  "b": {
+    "pair_id": "pair-298bc3a9f60eff500bb5c54c",
+    "status": "RELATED",
+    "reason": "事件A（b6e95ca6...）要点1、3明确提及因审批延迟导致行程调整为下午出发，预计晚上到达南通，当晚8点后活动；事件D（d5f11b2c...）标题为“周日聚餐”，要点3中“我”顺势要求小廖把书看完的理由是“因为下周我不在家”。结合上下文，唯一明确的外部出行安排即为事件A所述的南通出差。虽然日记记录日期均为2026-08-17，但根据事件内容推断，事件A描述的是出发当天的行程变动及预期不在家的状态，事件D描述的是同一天（周日）在白天的家庭生活。事件A中的“下周我不在家”这一状态预设，与事件D中“我”利用该缺席进行督促的情节存在事实上的联系。但在严格判断关系类型时，我们需要看是否有直接触发或后续推进。这里更关键的联系在于：事件A明确了“我”即将离家去南通，这构成了事件D中“我”对家人行为施加影响（督促看书）的一个具体情境背景或前提条件。然而，规则指出“相邻日记日期本身不足以支持关系”，且“共同人物...不足以支持”。我们需要寻找更紧密的逻辑链。重新审视：事件A说“预计晚上7点半到达南通...当晚8点抵达后吃个饭...计划逛景区”。事件D是“周日中午...周日聚餐”。如果A是周日当天发生（diary_date一致），那么A的行程是周日当天。事件中提到的“下周我不在家”可能指代出差期间。在事件D中，“我”要求小廖看书，理由是“因为下周我不在家”。这里的“我”就是写日记的人。事件A确认了“我”要出差南通。因此，事件A中的出差事实（尽管发生在周日，但导致了整个周的不在家状态）是事件D中督促行为的直接原因（或至少是关联背景）。但是，规则要求“引发事件：一方的局部信息...被原文明确表述为另一方事项发生的触发因素”。事件D原文：“这次我就顺势提议，因为下周我不在家，要求他把这本书看完”。这里的“因为”直接指向了“下周我不在家”这一事实。而这一事实由事件A证实（出差南通）。这符合引发事件的定义：事件A提供的事实（要出差/不在家）被事件D明确表述为触发督促行为的原因。方向应为 A->D。 certainty: EXPLICIT (原文有“因为”)。",
+    "relation": {
+      "source_event_id": "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795",
+      "target_event_id": "d5f11b2c-67ce-466c-b2ed-ae3dc173edfb",
+      "relation_type": "引发事件",
+      "certainty": "EXPLICIT",
+      "source_point_nos": [
+        3
+      ],
+      "target_point_nos": [
+        3
+      ],
+      "description": "事件A确认了当事人因出差将导致“下周不在家”的状态，这一状态在事件D中被原文明确表述为当事人督促孩子看书的直接原因（“因为下周我不在家”）。"
+    }
+  },
+  "c_used": true,
+  "final": {
+    "pair_id": "pair-298bc3a9f60eff500bb5c54c",
+    "status": "RELATED",
+    "reason": "事件A（b6e95ca6...）要点3明确记录了当事人计划前往南通出差，并提及“预计晚上7点半到达南通”，结合日记日期2026-08-17（周日），可知当事人当日下午出发。事件B（d5f11b2c...）要点3中，当事人在周日白天与伴侣逛书店时，顺势要求对方把书看完，理由是“因为下周我不在家”。在当日日记的上下文中，“下周不在家”的状态由事件A所述的南通出差行程所确立。原文使用“因为”一词明确将出差导致的缺席状态作为督促行为的触发因素。这符合引发事件的定义：一方（出差安排）的事实被另一方（督促行为）明确表述为发生的直接原因。",
+    "relation": {
+      "source_event_id": "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795",
+      "target_event_id": "d5f11b2c-67ce-466c-b2ed-ae3dc173edfb",
+      "relation_type": "引发事件",
+      "certainty": "EXPLICIT",
+      "source_point_nos": [
+        3
+      ],
+      "target_point_nos": [
+        3
+      ],
+      "description": "事件A中记录的南通出差行程导致当事人离家，这一事实被事件B中原文明确引用为督促小廖看书的原因（“因为下周我不在家”）。"
+    }
+  }
+}

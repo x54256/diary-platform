@@ -1,0 +1,364 @@
+{
+  "point_outcomes": [
+    {
+      "event_id": "d5f11b2c-67ce-466c-b2ed-ae3dc173edfb",
+      "passed": true,
+      "iterations": 1
+    },
+    {
+      "event_id": "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795",
+      "failed": true,
+      "error_type": "RuntimeError",
+      "error": "结构校验失败，已达到本次允许的请求次数"
+    },
+    {
+      "event_id": "4f950991-a9e5-459d-8411-9e683bc92572",
+      "passed": true,
+      "iterations": 1
+    },
+    {
+      "event_id": "d12b7fb0-1e53-4456-ac7f-47189081f7f7",
+      "passed": true,
+      "iterations": 1
+    }
+  ],
+  "language_requests": 16,
+  "point_requests": 12,
+  "relation_requests": 4,
+  "embedding_requests": 1,
+  "language_structure_failed_requests": 6,
+  "total_provider_requests": 17,
+  "calls": [
+    {
+      "file": "points/4f950991-a9e5-459d-8411-9e683bc92572/combined-1.json",
+      "attempt": 1,
+      "seconds": 36.34,
+      "usage": {
+        "prompt_tokens": 1136,
+        "total_tokens": 3902,
+        "completion_tokens": 2766,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 1136
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2273,
+          "text_tokens": 2766
+        }
+      },
+      "structure_error": null,
+      "http_status": null
+    },
+    {
+      "file": "points/4f950991-a9e5-459d-8411-9e683bc92572/generate.json",
+      "attempt": 1,
+      "seconds": 38.88,
+      "usage": {
+        "prompt_tokens": 2105,
+        "total_tokens": 4694,
+        "completion_tokens": 2589,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920,
+          "text_tokens": 2105
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2395,
+          "text_tokens": 2589
+        }
+      },
+      "structure_error": null,
+      "http_status": null
+    },
+    {
+      "file": "points/b6e95ca6-fa77-4ed6-8d95-4d90f3fec795/combined-1.json",
+      "attempt": 1,
+      "seconds": 93.59,
+      "usage": {
+        "prompt_tokens": 1657,
+        "total_tokens": 8839,
+        "completion_tokens": 7182,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 1657
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 6005,
+          "text_tokens": 7182
+        }
+      },
+      "structure_error": null,
+      "http_status": null
+    },
+    {
+      "file": "points/b6e95ca6-fa77-4ed6-8d95-4d90f3fec795/combined-2.json",
+      "attempt": 1,
+      "seconds": 88.02,
+      "usage": {
+        "prompt_tokens": 1661,
+        "total_tokens": 7815,
+        "completion_tokens": 6154,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 1661
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4191,
+          "text_tokens": 6154
+        }
+      },
+      "structure_error": "候选引用不真实",
+      "http_status": null
+    },
+    {
+      "file": "points/b6e95ca6-fa77-4ed6-8d95-4d90f3fec795/combined-2.json",
+      "attempt": 2,
+      "seconds": 77.92,
+      "usage": {
+        "prompt_tokens": 3647,
+        "total_tokens": 9961,
+        "completion_tokens": 6314,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3647
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4714,
+          "text_tokens": 6314
+        }
+      },
+      "structure_error": "候选引用不真实",
+      "http_status": null
+    },
+    {
+      "file": "points/b6e95ca6-fa77-4ed6-8d95-4d90f3fec795/generate.json",
+      "attempt": 1,
+      "seconds": 52.39,
+      "usage": {
+        "prompt_tokens": 2236,
+        "total_tokens": 5582,
+        "completion_tokens": 3346,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2236
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3006,
+          "text_tokens": 3346
+        }
+      },
+      "structure_error": null,
+      "http_status": null
+    },
+    {
+      "file": "points/b6e95ca6-fa77-4ed6-8d95-4d90f3fec795/review-1.json",
+      "attempt": 1,
+      "seconds": 66.95,
+      "usage": {
+        "prompt_tokens": 1399,
+        "total_tokens": 6339,
+        "completion_tokens": 4940,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 1399
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3946,
+          "text_tokens": 4940
+        }
+      },
+      "structure_error": null,
+      "http_status": null
+    },
+    {
+      "file": "points/d12b7fb0-1e53-4456-ac7f-47189081f7f7/combined-1.json",
+      "attempt": 1,
+      "seconds": 57.99,
+      "usage": {
+        "prompt_tokens": 899,
+        "total_tokens": 5380,
+        "completion_tokens": 4481,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 899
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4053,
+          "text_tokens": 4481
+        }
+      },
+      "structure_error": null,
+      "http_status": null
+    },
+    {
+      "file": "points/d12b7fb0-1e53-4456-ac7f-47189081f7f7/generate.json",
+      "attempt": 1,
+      "seconds": 31.68,
+      "usage": {
+        "prompt_tokens": 2035,
+        "total_tokens": 4222,
+        "completion_tokens": 2187,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920,
+          "text_tokens": 2035
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2082,
+          "text_tokens": 2187
+        }
+      },
+      "structure_error": null,
+      "http_status": null
+    },
+    {
+      "file": "points/d5f11b2c-67ce-466c-b2ed-ae3dc173edfb/combined-1.json",
+      "attempt": 1,
+      "seconds": 88.0,
+      "usage": {
+        "prompt_tokens": 1824,
+        "total_tokens": 9523,
+        "completion_tokens": 7699,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 1824
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 5901,
+          "text_tokens": 7699
+        }
+      },
+      "structure_error": null,
+      "http_status": null
+    },
+    {
+      "file": "points/d5f11b2c-67ce-466c-b2ed-ae3dc173edfb/generate.json",
+      "attempt": 1,
+      "seconds": 57.72,
+      "usage": {
+        "prompt_tokens": 2284,
+        "total_tokens": 6120,
+        "completion_tokens": 3836,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 2284
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3437,
+          "text_tokens": 3836
+        }
+      },
+      "structure_error": null,
+      "http_status": null
+    },
+    {
+      "file": "points/d5f11b2c-67ce-466c-b2ed-ae3dc173edfb/review-1.json",
+      "attempt": 1,
+      "seconds": 66.62,
+      "usage": {
+        "prompt_tokens": 1566,
+        "total_tokens": 7007,
+        "completion_tokens": 5441,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 1566
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4569,
+          "text_tokens": 5441
+        }
+      },
+      "structure_error": null,
+      "http_status": null
+    },
+    {
+      "file": "previous-points/a.json",
+      "attempt": 1,
+      "seconds": 92.1,
+      "usage": {
+        "prompt_tokens": 3267,
+        "total_tokens": 10512,
+        "completion_tokens": 7245,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "text_tokens": 3267
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 6516,
+          "text_tokens": 7245
+        }
+      },
+      "structure_error": "事件对结果字段不一致；缺少['reason']，多出[]",
+      "http_status": null
+    },
+    {
+      "file": "previous-points/a.json",
+      "attempt": 2,
+      "seconds": 74.72,
+      "usage": {
+        "prompt_tokens": 4027,
+        "total_tokens": 9367,
+        "completion_tokens": 5340,
+        "prompt_tokens_details": {
+          "cached_tokens": 3200,
+          "text_tokens": 4027
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4519,
+          "text_tokens": 5340
+        }
+      },
+      "structure_error": "事件对结果字段不一致；缺少['reason']，多出[]",
+      "http_status": null
+    },
+    {
+      "file": "previous-points/b.json",
+      "attempt": 1,
+      "seconds": 107.93,
+      "usage": {
+        "prompt_tokens": 3267,
+        "total_tokens": 11520,
+        "completion_tokens": 8253,
+        "prompt_tokens_details": {
+          "cached_tokens": 3200,
+          "text_tokens": 3267
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 5769,
+          "text_tokens": 8253
+        }
+      },
+      "structure_error": "事件对结果字段不一致；缺少['reason']，多出[]",
+      "http_status": null
+    },
+    {
+      "file": "previous-points/b.json",
+      "attempt": 2,
+      "seconds": 70.8,
+      "usage": {
+        "prompt_tokens": 5782,
+        "total_tokens": 11453,
+        "completion_tokens": 5671,
+        "prompt_tokens_details": {
+          "cached_tokens": 3200,
+          "text_tokens": 5782
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4514,
+          "text_tokens": 5671
+        }
+      },
+      "structure_error": "事件对结果字段不一致；缺少['reason']，多出[]",
+      "http_status": null
+    }
+  ],
+  "point_script_sha256": "7be48df59c6f83f510e665a5b6afd7f3760924275d13a87458f887ea1d7ae7a3",
+  "production_writes": false,
+  "regenerated_relation_group_executed": false,
+  "baseline_core_matches_96e9f84": {
+    "units": true,
+    "validate_points": true,
+    "validate_review": true,
+    "call": true,
+    "validate_combined": true,
+    "run_combined": true
+  }
+}

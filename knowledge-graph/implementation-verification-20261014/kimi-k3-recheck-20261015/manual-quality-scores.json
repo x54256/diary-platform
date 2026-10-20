@@ -1,0 +1,80 @@
+{
+  "rubric": {
+    "faithfulness": 40,
+    "completeness": 25,
+    "organization": 15,
+    "expression": 20
+  },
+  "method": "助手对照原文主观评审，非盲评；按事件等权平均；对最后合法保存候选评分，不采用结构失败输出；不把文本分数当作流程通过",
+  "historical_rubric": "knowledge-graph/validation-2026-08-26/combined-review-repair-kimi-20261012/对照验证报告.md",
+  "event_scores": [
+    {
+      "event": "聚餐与阅读",
+      "qwen": {
+        "faithfulness": 27,
+        "completeness": 25,
+        "organization": 15,
+        "expression": 14,
+        "total": 81
+      },
+      "kimi": {
+        "faithfulness": 39,
+        "completeness": 25,
+        "organization": 10,
+        "expression": 14,
+        "total": 88
+      }
+    },
+    {
+      "event": "出差安排与审批",
+      "qwen": {
+        "faithfulness": 28,
+        "completeness": 25,
+        "organization": 14,
+        "expression": 16,
+        "total": 83
+      },
+      "kimi": {
+        "faithfulness": 35,
+        "completeness": 25,
+        "organization": 15,
+        "expression": 16,
+        "total": 91
+      }
+    },
+    {
+      "event": "初到项目现场",
+      "qwen": {
+        "faithfulness": 37,
+        "completeness": 25,
+        "organization": 13,
+        "expression": 16,
+        "total": 91
+      },
+      "kimi": {
+        "faithfulness": 39,
+        "completeness": 25,
+        "organization": 15,
+        "expression": 18,
+        "total": 97
+      }
+    },
+    {
+      "event": "出差工作推进",
+      "qwen": {
+        "faithfulness": 38,
+        "completeness": 25,
+        "organization": 15,
+        "expression": 18,
+        "total": 96
+      },
+      "kimi": {
+        "faithfulness": 40,
+        "completeness": 25,
+        "organization": 15,
+        "expression": 18,
+        "total": 98
+      }
+    }
+  ]
+}

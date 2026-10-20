@@ -1,0 +1,363 @@
+{
+  "P001": {
+    "pair_id": "P001",
+    "status": "NO_RELATION",
+    "reason": "出差南通的行程安排与周五暴雨后蹚水回家为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P002": {
+    "pair_id": "P002",
+    "status": "NO_RELATION",
+    "reason": "出差安排与哒哒误咬洁厕灵事件无直接事实联系。",
+    "relation": null
+  },
+  "P003": {
+    "pair_id": "P003",
+    "status": "RELATED",
+    "reason": "出差事件要点1-3记录因审批延迟改为下午出发去南通并订好机票酒店，周日聚餐事件要点7写'刚好下周我不在家'，同篇上下文中唯一的外出安排即这次南通出差，可唯一解释'不在家'的所指，属于对出差安排的联想引用。",
+    "relation": {
+      "source_event_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+      "target_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+      "relation_type": "提及事件",
+      "certainty": "EXPLICIT",
+      "source_point_nos": [
+        7
+      ],
+      "target_point_nos": [
+        1,
+        3
+      ],
+      "description": "让小廖趁自己不在家时看完一本书，所说的不在家即指这次去南通的出差安排。"
+    }
+  },
+  "P004": {
+    "pair_id": "P004",
+    "status": "NO_RELATION",
+    "reason": "出差安排与哒哒洗牙拔牙为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P005": {
+    "pair_id": "P005",
+    "status": "RELATED",
+    "reason": "出差事件要点1、3记录审批通过后改为下午出发并订好机票酒店，初到现场事件要点1记录第一天抵达南通项目现场，后者是同一出差安排的落地执行，提供新进展。",
+    "relation": {
+      "source_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+      "target_event_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+      "relation_type": "后续事件",
+      "certainty": "EXPLICIT",
+      "source_point_nos": [
+        1,
+        3
+      ],
+      "target_point_nos": [
+        1
+      ],
+      "description": "出差南通安排获得审批并订好机票酒店后，执行该安排第一天抵达南通项目现场。"
+    }
+  },
+  "P006": {
+    "pair_id": "P006",
+    "status": "NO_RELATION",
+    "reason": "出差安排与和小豪聊天了解分手原因为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P007": {
+    "pair_id": "P007",
+    "status": "RELATED",
+    "reason": "出差事件要点1、3确定去南通的审批与行程，出差工作推进事件要点1记录周一到周五在南通出差并处理项目bug，指向同一次出差，后者记录出差期间实际开展的工作，属于新进展。",
+    "relation": {
+      "source_event_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+      "target_event_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+      "relation_type": "后续事件",
+      "certainty": "EXPLICIT",
+      "source_point_nos": [
+        1,
+        3
+      ],
+      "target_point_nos": [
+        1
+      ],
+      "description": "出差南通的安排确定后，随后一周在南通出差处理项目测试bug并推进日记管理平台开发。"
+    }
+  },
+  "P008": {
+    "pair_id": "P008",
+    "status": "NO_RELATION",
+    "reason": "出差安排与何慧婷、李恒近况无具体事实联系。",
+    "relation": null
+  },
+  "P010": {
+    "pair_id": "P010",
+    "status": "NO_RELATION",
+    "reason": "出差安排与询问父母身体状况为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P011": {
+    "pair_id": "P011",
+    "status": "NO_RELATION",
+    "reason": "周五暴雨蹚水回家与哒哒误咬洁厕灵为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P012": {
+    "pair_id": "P012",
+    "status": "NO_RELATION",
+    "reason": "周五暴雨蹚水回家与周日聚餐活动为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P013": {
+    "pair_id": "P013",
+    "status": "NO_RELATION",
+    "reason": "周五暴雨蹚水回家与哒哒洗牙拔牙为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P014": {
+    "pair_id": "P014",
+    "status": "NO_RELATION",
+    "reason": "周五暴雨蹚水回家与初到南通项目现场为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P015": {
+    "pair_id": "P015",
+    "status": "NO_RELATION",
+    "reason": "周五暴雨蹚水回家与和小豪聊天了解分手原因为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P018": {
+    "pair_id": "P018",
+    "status": "NO_RELATION",
+    "reason": "周五暴雨蹚水回家与宠物多多体检、哒哒洗牙为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P019": {
+    "pair_id": "P019",
+    "status": "NO_RELATION",
+    "reason": "周五暴雨蹚水回家与询问父母身体状况为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P020": {
+    "pair_id": "P020",
+    "status": "NO_RELATION",
+    "reason": "哒哒误咬洁厕灵与周日聚餐活动为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P021": {
+    "pair_id": "P021",
+    "status": "RELATED",
+    "reason": "哒哒误咬洁厕灵事件要点4记录周六体检时顺便预约了第二天的洗牙，带哒哒洗牙事件要点1、3、4、5记录快五点带哒哒去洗牙、洗牙中发现两颗牙松动、电话沟通后决定拔除及医生解释牙齿状况。后者执行的正是前者预约的洗牙事项，并记录了拔牙这一新结果，属于后续事件。",
+    "relation": {
+      "source_event_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+      "target_event_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+      "relation_type": "后续事件",
+      "certainty": "EXPLICIT",
+      "source_point_nos": [
+        4
+      ],
+      "target_point_nos": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "description": "体检时顺便预约的洗牙随后执行，洗牙中发现哒哒两颗牙松动，经电话沟通后决定拔除。"
+    }
+  },
+  "P022": {
+    "pair_id": "P022",
+    "status": "NO_RELATION",
+    "reason": "哒哒误咬洁厕灵与初到南通项目现场为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P023": {
+    "pair_id": "P023",
+    "status": "NO_RELATION",
+    "reason": "哒哒误咬洁厕灵与和小豪聊天了解分手原因为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P024": {
+    "pair_id": "P024",
+    "status": "NO_RELATION",
+    "reason": "哒哒误咬洁厕灵与南通出差工作推进为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P026": {
+    "pair_id": "P026",
+    "status": "UNRESOLVED",
+    "reason": "哒哒误咬洁厕灵事件要点4记录周六体检时预约的是'第二天的洗牙'，而宠物多多与哒哒体检事件要点4记录的是'昨天下午'多多体检时哒哒洗牙拔牙的事项。双方虽都指向哒哒洗牙拔牙，但前者预约的是周日的洗牙，后者所述洗牙与多多体检同时发生，时间指向存在差异，无法确认是否为同一次洗牙安排，也无法区分是同一事项的执行还是另一次记录。",
+    "relation": null
+  },
+  "P027": {
+    "pair_id": "P027",
+    "status": "NO_RELATION",
+    "reason": "哒哒误咬洁厕灵与询问父母身体状况为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P028": {
+    "pair_id": "P028",
+    "status": "NO_RELATION",
+    "reason": "周日聚餐活动与哒哒洗牙拔牙为不同事项，无具体联系点。",
+    "relation": null
+  },
+  "P029": {
+    "pair_id": "P029",
+    "status": "RELATED",
+    "reason": "周日聚餐事件要点7写'刚好下周我不在家'，初到南通项目现场事件要点1记录'第一天来到南通项目现场'。同篇上下文中'下周我不在家'唯一对应的外出事项即去南通出差，后者是该安排的落地，属于对出差事项的引用。",
+    "relation": {
+      "source_event_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+      "target_event_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+      "relation_type": "提及事件",
+      "certainty": "EXPLICIT",
+      "source_point_nos": [
+        7
+      ],
+      "target_point_nos": [
+        1
+      ],
+      "description": "让小廖趁自己不在家时看完书，所说的不在家即指去南通出差、抵达南通项目现场那段时间。"
+    }
+  },
+  "P030": {
+    "pair_id": "P030",
+    "status": "NO_RELATION",
+    "reason": "A事件是周日聚餐、景区讲解员活动及督促小廖看书；B事件是与小豪聊天了解其分手原因。双方无共同人物、事项或因果联系。",
+    "relation": null
+  },
+  "P032": {
+    "pair_id": "P032",
+    "status": "NO_RELATION",
+    "reason": "A事件是周日聚餐并督促小廖看书；B事件是得知何慧婷未入职小杨公司及李恒近况。双方无共同人物或具体事项联系。",
+    "relation": null
+  },
+  "P033": {
+    "pair_id": "P033",
+    "status": "NO_RELATION",
+    "reason": "A事件是周日聚餐并督促小廖看书；B事件是带多多体检及给哒哒洗澡遛弯。双方无具体事项联系。",
+    "relation": null
+  },
+  "P034": {
+    "pair_id": "P034",
+    "status": "NO_RELATION",
+    "reason": "A事件是周日聚餐并督促小廖看书；B事件是询问父母身体状况。双方无具体事项联系。",
+    "relation": null
+  },
+  "P035": {
+    "pair_id": "P035",
+    "status": "NO_RELATION",
+    "reason": "A事件是带哒哒洗牙并拔牙；B事件是初到南通项目现场。双方无具体事项联系。",
+    "relation": null
+  },
+  "P036": {
+    "pair_id": "P036",
+    "status": "NO_RELATION",
+    "reason": "A事件是带哒哒洗牙并拔牙；B事件是与小豪聊天了解其分手原因。双方无具体事项联系。",
+    "relation": null
+  },
+  "P037": {
+    "pair_id": "P037",
+    "status": "NO_RELATION",
+    "reason": "A事件是带哒哒洗牙并拔牙；B事件是南通出差处理bug并推进日记平台开发。双方无具体事项联系。",
+    "relation": null
+  },
+  "P038": {
+    "pair_id": "P038",
+    "status": "NO_RELATION",
+    "reason": "A事件是带哒哒洗牙并拔牙；B事件是得知何慧婷及李恒近况。双方无具体事项联系。",
+    "relation": null
+  },
+  "P039": {
+    "pair_id": "P039",
+    "status": "UNRESOLVED",
+    "reason": "带哒哒洗牙事件要点3、4、5详细记录洗牙中发现两颗牙松动、讨论后决定拔除及医生解释牙齿状况的完整过程；宠物多多与哒哒体检事件要点4再次记录哒哒洗牙时被发现两颗牙松动并拔掉两颗牙。双方指向同一具体事项，但后者未提供新的行动、状态或结果，无法区分新进展与重复回顾，应判UNRESOLVED。",
+    "relation": null
+  },
+  "P040": {
+    "pair_id": "P040",
+    "status": "NO_RELATION",
+    "reason": "A事件是带哒哒洗牙并拔牙；B事件是询问父母身体状况。双方无具体事项联系。",
+    "relation": null
+  },
+  "P041": {
+    "pair_id": "P041",
+    "status": "NO_RELATION",
+    "reason": "A事件是初到南通项目现场；B事件是与小豪聊天了解其分手原因。双方无具体事项联系。",
+    "relation": null
+  },
+  "P042": {
+    "pair_id": "P042",
+    "status": "RELATED",
+    "reason": "初到南通项目现场事件要点1记录第一天到南通项目现场，要点3记录帮项目组处理问题；出差工作推进事件要点1记录周一到周五持续在南通出差、大部分时间处理项目测试bug。地点（南通项目现场）、项目与工作动作共同唯一指向同一出差工作事项，后者记录整周持续工作的新进展，属于后续事件。",
+    "relation": {
+      "source_event_id": "3b195ef1-0047-4a62-8e0e-3aca65990625",
+      "target_event_id": "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+      "relation_type": "后续事件",
+      "certainty": "EXPLICIT",
+      "source_point_nos": [
+        1,
+        3
+      ],
+      "target_point_nos": [
+        1
+      ],
+      "description": "首次到南通项目现场并帮项目组处理问题，随后周一到周五持续在南通出差，主要处理项目测试出来的bug。"
+    }
+  },
+  "P043": {
+    "pair_id": "P043",
+    "status": "NO_RELATION",
+    "reason": "A事件是初到南通项目现场；B事件是得知何慧婷及李恒近况。双方无具体事项联系。",
+    "relation": null
+  },
+  "P046": {
+    "pair_id": "P046",
+    "status": "NO_RELATION",
+    "reason": "A事件是与小豪聊天了解其分手原因；B事件是南通出差工作推进。双方无具体事项联系。",
+    "relation": null
+  },
+  "P047": {
+    "pair_id": "P047",
+    "status": "NO_RELATION",
+    "reason": "A事件是与小豪聊天了解其分手原因；B事件是得知何慧婷及李恒近况。双方无具体事项联系。",
+    "relation": null
+  },
+  "P048": {
+    "pair_id": "P048",
+    "status": "NO_RELATION",
+    "reason": "A事件是与小豪聊天了解其分手原因；B事件是宠物体检。双方无具体事项联系。",
+    "relation": null
+  },
+  "P050": {
+    "pair_id": "P050",
+    "status": "NO_RELATION",
+    "reason": "A事件是南通出差工作推进；B事件是得知何慧婷及李恒近况。双方无具体事项联系。",
+    "relation": null
+  },
+  "P051": {
+    "pair_id": "P051",
+    "status": "NO_RELATION",
+    "reason": "A事件是南通出差工作推进；B事件是宠物体检。双方无具体事项联系。",
+    "relation": null
+  },
+  "P052": {
+    "pair_id": "P052",
+    "status": "NO_RELATION",
+    "reason": "A事件是南通出差工作推进；B事件是询问父母身体状况。双方无具体事项联系。",
+    "relation": null
+  },
+  "P053": {
+    "pair_id": "P053",
+    "status": "NO_RELATION",
+    "reason": "A事件是得知何慧婷及李恒近况；B事件是宠物体检。双方无具体事项联系。",
+    "relation": null
+  },
+  "P054": {
+    "pair_id": "P054",
+    "status": "NO_RELATION",
+    "reason": "A事件是得知何慧婷及李恒近况；B事件是询问父母身体状况。双方无具体事项联系。",
+    "relation": null
+  },
+  "P055": {
+    "pair_id": "P055",
+    "status": "NO_RELATION",
+    "reason": "A事件是宠物体检；B事件是询问父母身体状况。双方无具体事项联系。",
+    "relation": null
+  }
+}

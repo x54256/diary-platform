@@ -1,0 +1,37 @@
+{
+  "threshold_0.5": {
+    "true_positive": 3,
+    "false_positive": 0,
+    "false_negative": 3,
+    "true_negative": 21,
+    "unresolved": 2,
+    "unlabeled_related_pairs": [],
+    "candidate_pairs": 21,
+    "reference_pairs": 28,
+    "note": "确认标签只含关联状态，不代表类型、方向、描述全部通过；候选并集共用一次判定"
+  },
+  "threshold_0.4": {
+    "true_positive": 5,
+    "false_positive": 0,
+    "false_negative": 1,
+    "true_negative": 21,
+    "unresolved": 2,
+    "unlabeled_related_pairs": [],
+    "candidate_pairs": 32,
+    "reference_pairs": 28,
+    "note": "确认标签只含关联状态，不代表类型、方向、描述全部通过；候选并集共用一次判定"
+  },
+  "top5_only": {
+    "true_positive": 5,
+    "false_positive": 0,
+    "false_negative": 1,
+    "true_negative": 21,
+    "unresolved": 2,
+    "unlabeled_related_pairs": [
+      "P029"
+    ],
+    "candidate_pairs": 47,
+    "reference_pairs": 28,
+    "note": "确认标签只含关联状态，不代表类型、方向、描述全部通过；候选并集共用一次判定"
+  }
+}

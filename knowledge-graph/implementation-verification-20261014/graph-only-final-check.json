@@ -1,0 +1,110 @@
+{
+  "scope": "仅知识图谱，后续六阶段不执行",
+  "task_status": "SUCCEEDED",
+  "error_code": null,
+  "error_context": [],
+  "source_unchanged": true,
+  "analysis_ids_unchanged": true,
+  "downstream_six_stage_calls": 0,
+  "runs": [
+    {
+      "date": "2026-08-17",
+      "status": "PUBLISHED",
+      "step": null,
+      "recall": {
+        "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795": [],
+        "d5f11b2c-67ce-466c-b2ed-ae3dc173edfb": []
+      }
+    },
+    {
+      "date": "2026-08-18",
+      "status": "PUBLISHED",
+      "step": null,
+      "recall": {
+        "4f950991-a9e5-459d-8411-9e683bc92572": [
+          {
+            "score": 0.5127162693035454,
+            "run_id": "d95a394f-f810-483d-8bb0-a93f68f234f0",
+            "event_id": "b6e95ca6-fa77-4ed6-8d95-4d90f3fec795",
+            "current_point_id": "26d6a030-2b8e-45bb-83b5-7a2509f4a2b2",
+            "historic_point_id": "a4c84e07-0745-44ea-a59f-5ed5516f77bd"
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-08-23",
+      "status": "PUBLISHED",
+      "step": null,
+      "recall": {
+        "d12b7fb0-1e53-4456-ac7f-47189081f7f7": []
+      }
+    }
+  ],
+  "points": 11,
+  "vectors_all_1024": true,
+  "relations": 1,
+  "confirmed_positive_pairs": [
+    {
+      "source_pair": [
+        "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+        "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d"
+      ],
+      "actual_related": false
+    },
+    {
+      "source_pair": [
+        "3b195ef1-0047-4a62-8e0e-3aca65990625",
+        "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d"
+      ],
+      "actual_related": true
+    },
+    {
+      "source_pair": [
+        "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+        "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d"
+      ],
+      "actual_related": false
+    },
+    {
+      "source_pair": [
+        "86a721cd-c21c-4186-8dde-66fa2ea6ef10",
+        "3b195ef1-0047-4a62-8e0e-3aca65990625"
+      ],
+      "actual_related": false
+    }
+  ],
+  "query_results": {
+    "2026-08-17": {
+      "events": 2,
+      "relations": 1
+    },
+    "2026-08-18": {
+      "events": 1,
+      "relations": 1
+    },
+    "2026-08-23": {
+      "events": 1,
+      "relations": 0
+    }
+  },
+  "call_statuses": {
+    "FAILED": 8,
+    "SUCCEEDED": 33,
+    "UNKNOWN": 1
+  },
+  "settled_old_incomplete_calls": 0,
+  "semantic_quality_passed": false,
+  "manual_reference_result": {
+    "confirmed_positive_pairs": 4,
+    "retrieved_and_related": 1,
+    "same_day_candidate_false_negative": 1,
+    "missed_by_vector_threshold": 2,
+    "missed_pair_max_similarity": [
+      0.456813,
+      0.422385
+    ],
+    "analysis": "小样本验收未通过，不作为整体召回率估计"
+  },
+  "note": "技术任务SUCCEEDED；语义质量未通过。原日记和已有分析轮次未变；真实后续六阶段调用为0。"
+}
