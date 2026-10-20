@@ -155,9 +155,14 @@
         </div>
       </div>
 
+      <div v-if="activeTab === 'diary' && !isEditing && !isEditingStructured" class="flex shrink-0 justify-center gap-1 border-b border-neutral-200 bg-white py-1" role="group" aria-label="日记展示方式">
+        <button v-for="view in diaryViews" :key="view.value" type="button" class="min-h-11 rounded-lg px-5 text-sm font-medium" :class="diaryView === view.value ? 'bg-primary-50 text-primary-700' : 'text-neutral-500'" :aria-pressed="diaryView === view.value" @click="setDiaryView(view.value)">{{ view.label }}</button>
+      </div>
+      <DiaryGraph v-if="graphMounted" v-show="activeTab === 'diary' && diaryView === 'graph' && !isEditing && !isEditingStructured" :key="diaryId" :diary-id="diaryId" :visible="activeTab === 'diary' && diaryView === 'graph' && !isEditing && !isEditingStructured" :revision="graphRevision" @source="showGraphSource" />
+
       <!-- 原事件标题滚出内容区后显示；完整复用原标题行的布局与收藏操作。 -->
       <div
-        v-if="stickyEvent && activeTab === 'diary' && !isEditing && !isEditingStructured"
+        v-if="stickyEvent && activeTab === 'diary' && diaryView === 'list' && !isEditing && !isEditingStructured"
         class="absolute inset-x-0 z-30 border-b border-neutral-200 bg-white"
         :style="{ top: `${diaryContentTop}px` }"
       >
@@ -195,7 +200,7 @@
 
       <!-- 日记 Tab 内容 -->
       <div
-        v-show="activeTab === 'diary'"
+        v-show="activeTab === 'diary' && (diaryView === 'list' || isEditing || isEditingStructured)"
         ref="diaryContentRef"
         class="flex-1 min-h-0 overflow-y-auto px-4 py-3 pb-24"
         @scroll="updateStickyEventTitle"
@@ -492,7 +497,7 @@
       />
 
       <!-- 底部操作区（编辑模式下隐藏） -->
-      <div v-if="!isEditingStructured" class="fixed bottom-0 left-0 right-0 px-4 py-2 border-t border-neutral-200 bg-white safe-area-bottom">
+      <div v-if="!isEditingStructured && !(activeTab === 'diary' && diaryView === 'graph' && !isEditing)" class="fixed bottom-0 left-0 right-0 px-4 py-2 border-t border-neutral-200 bg-white safe-area-bottom">
         <div class="max-w-md mx-auto">
           <!-- 整理或分析中状态：统一显示全宽进度按钮 -->
           <button
@@ -562,7 +567,7 @@
     </div>
 
     <NuxtLink
-      v-if="diary?.diary_date && !isEditing && !isEditingStructured"
+      v-if="diary?.diary_date && !isEditing && !isEditingStructured && !(activeTab === 'diary' && diaryView === 'graph')"
       :to="`/diary/new?date=${diary.diary_date}`"
       class="fixed bottom-20 right-4 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-primary-600 text-2xl text-white shadow-lg transition-colors hover:bg-primary-700"
     >
@@ -733,6 +738,30 @@ const diaryId = computed(() => route.params.id as string)
 const diary = ref<Diary | null>(null)
 const loading = ref(true)
 const activeTab = ref<'diary' | 'analysis' | 'action'>('diary')
+const diaryView = ref<'list' | 'graph'>('list')
+const diaryViews = [{ value: 'list' as const, label: '事件列表' }, { value: 'graph' as const, label: '关系图谱' }]
+const graphMounted = ref(false)
+const graphRevision = ref(0)
+let listScrollTop = 0
+const viewStorageKey = () => `diary-view:${useAuthStore().user?.id || 'user'}:${diaryId.value}`
+const setDiaryView = async (view: 'list' | 'graph') => {
+  if (diaryView.value === 'list') listScrollTop = diaryContentRef.value?.scrollTop || 0
+  diaryView.value = view
+  if (view === 'graph') graphMounted.value = true
+  try {
+    sessionStorage.setItem(viewStorageKey(), JSON.stringify({ view, scrollTop: listScrollTop }))
+    window.history.replaceState({ ...window.history.state, diaryDisplay: viewStorageKey() }, '')
+  } catch { /* 存储不可用 */ }
+  await nextTick()
+  if (view === 'list' && diaryContentRef.value) diaryContentRef.value.scrollTop = listScrollTop
+  updateStickyEventTitle()
+}
+const showGraphSource = async (eventId: string, sourceDiaryId: string) => {
+  if (sourceDiaryId !== diaryId.value) return
+  await setDiaryView('list')
+  await nextTick()
+  document.getElementById(`event-${eventId}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 const annotations = ref<DiaryAnnotation[]>([])
 const favoriteSaving = ref(false)
 const importanceSavingEventId = ref<string | null>(null)
@@ -821,7 +850,7 @@ const sortedEvents = computed(() => {
 
 const updateStickyEventTitle = () => {
   const content = diaryContentRef.value
-  if (!content || activeTab.value !== 'diary' || isEditing.value || isEditingStructured.value) {
+  if (!content || diaryView.value !== 'list' || activeTab.value !== 'diary' || isEditing.value || isEditingStructured.value) {
     stickyEvent.value = null
     return
   }
@@ -1067,6 +1096,7 @@ const loadDiary = async () => {
   loading.value = true
   try {
     diary.value = await api<Diary>(`/diaries/${diaryId.value}`)
+    graphRevision.value++
     await loadAnnotations()
   } catch (err) {
     console.error('加载日记失败', err)
@@ -1447,7 +1477,7 @@ const saveInlineEventEdit = async (eventId: string, field: InlineEventField, val
   }
 }
 
-watch([activeTab, isEditing, isEditingStructured], () => {
+watch([activeTab, diaryView, isEditing, isEditingStructured], () => {
   nextTick(updateStickyEventTitle)
 })
 
@@ -1760,9 +1790,25 @@ const Spinner = defineComponent({
   },
 })
 
+onBeforeUnmount(() => {
+  try { sessionStorage.setItem(viewStorageKey(), JSON.stringify({ view: diaryView.value, scrollTop: diaryView.value === 'list' ? diaryContentRef.value?.scrollTop || 0 : listScrollTop })) } catch { /* 存储不可用 */ }
+})
+watch(() => route.hash, async hash => {
+  if (hash.startsWith('#event-')) { await setDiaryView('list'); await scrollToEventAnchor() }
+})
+
 // ───────────────── 初始化 ─────────────────
 onMounted(async () => {
+  try {
+    const saved = JSON.parse(sessionStorage.getItem(viewStorageKey()) || 'null')
+    if (saved && window.history.state?.diaryDisplay === viewStorageKey() && !route.hash.startsWith('#event-')) {
+      diaryView.value = saved.view === 'graph' ? 'graph' : 'list'
+      graphMounted.value = diaryView.value === 'graph'
+      listScrollTop = Number(saved.scrollTop) || 0
+    }
+  } catch { /* 无缓存时默认列表 */ }
   await loadDiary()
+  if (diaryView.value === 'list' && !route.hash && diaryContentRef.value) diaryContentRef.value.scrollTop = listScrollTop
   if (diary.value) {
     if (diary.value.status === 'saved' || diary.value.status === 'organized') {
       checkOrganizeStatus()

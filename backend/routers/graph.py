@@ -81,21 +81,19 @@ def retry(task_id: UUID, db: Session = Depends(get_db), user: User = Depends(get
     return task_result(db, task)
 
 
-def graph_result(db, run, diary_id, *, history=False):
+def graph_result(db, run, diary_id, *, history=False, focus_event_id=None):
     if run is None: return {"diary_id": diary_id, "run": None, "events": [], "relations": []}
-    source_events = {e["event_id"]: e for e in (run.source_snapshot or {}).get("events", [])}
     node_query = db.query(GraphRunEvent).filter(GraphRunEvent.run_id == run.id)
-    if not history: node_query = node_query.join(DiaryEvent, DiaryEvent.id == GraphRunEvent.event_id).filter(DiaryEvent.is_in_graph.is_(True))
+    if focus_event_id is not None:
+        node_query = node_query.filter(GraphRunEvent.event_id == focus_event_id)
+    if not history:
+        node_query = node_query.join(DiaryEvent, DiaryEvent.id == GraphRunEvent.event_id).filter(DiaryEvent.is_in_graph.is_(True))
     nodes = node_query.order_by(GraphRunEvent.source_order, GraphRunEvent.event_id).all()
-    events = []
-    for node in nodes:
-        points = db.query(GraphEventPoint).filter(GraphEventPoint.run_id == run.id,
-            GraphEventPoint.event_id == node.event_id).order_by(GraphEventPoint.no).all()
-        source = source_events.get(str(node.event_id), {})
-        events.append({"event_id": node.event_id, "title": source.get("title", ""), "diary_date": run.diary_date,
-            "occurred_on": node.occurred_on, "points": [{"id": p.id, "no": p.no, "summary": p.summary, "detail": p.detail} for p in points]})
     query = db.query(GraphEventRelation).filter(GraphEventRelation.user_id == run.user_id,
         or_(GraphEventRelation.source_run_id == run.id, GraphEventRelation.target_run_id == run.id))
+    if focus_event_id is not None:
+        query = query.filter(or_(GraphEventRelation.source_event_id == focus_event_id,
+                                 GraphEventRelation.target_event_id == focus_event_id))
     if not history:
         sr, tr, owner = aliased(GraphRun), aliased(GraphRun), aliased(GraphRun)
         sd, td = aliased(Diary), aliased(Diary)
@@ -104,14 +102,49 @@ def graph_result(db, run, diary_id, *, history=False):
             sd, sd.id == sr.diary_id).join(td, td.id == tr.diary_id).join(se, se.id == GraphEventRelation.source_event_id).join(te, te.id == GraphEventRelation.target_event_id).filter(
                 owner.status == "PUBLISHED", sr.status == "PUBLISHED", tr.status == "PUBLISHED", sd.deleted_at.is_(None), td.deleted_at.is_(None), se.is_in_graph.is_(True), te.is_in_graph.is_(True))
     relations = []
-    for r in query.order_by(GraphEventRelation.id).all():
-        evidence = db.query(GraphRelationEvidence, GraphEventPoint.no).join(GraphEventPoint,
-            GraphEventPoint.id == GraphRelationEvidence.point_id).filter(GraphRelationEvidence.relation_id == r.id).order_by(GraphRelationEvidence.side, GraphEventPoint.no).all()
+    edges = query.order_by(GraphEventRelation.id).all()
+    evidence_map = {}
+    if edges:
+        evidence_rows = db.query(GraphRelationEvidence, GraphEventPoint.no).join(GraphEventPoint,
+            GraphEventPoint.id == GraphRelationEvidence.point_id).filter(
+            GraphRelationEvidence.relation_id.in_([edge.id for edge in edges]),
+            GraphRelationEvidence.user_id == run.user_id).order_by(GraphEventPoint.no).all()
+        for evidence, no in evidence_rows:
+            evidence_map.setdefault(evidence.relation_id, []).append((evidence, no))
+    for r in edges:
+        evidence = evidence_map.get(r.id, [])
         relations.append({"id": r.id, "source_event_id": r.source_event_id, "target_event_id": r.target_event_id,
             "relation_type": r.relation_type, "certainty": r.certainty, "description": r.description,
             "final_source": r.final_source,
             "source_points": [{"point_id": e.point_id, "no": no} for e, no in evidence if e.side == "SOURCE"],
             "target_points": [{"point_id": e.point_id, "no": no} for e, no in evidence if e.side == "TARGET"]})
+    # 按证据所属运行补齐跨日节点，避免混入同一事件的其他版本。
+    endpoint_keys = {(node.run_id, node.event_id) for node in nodes}
+    for edge in edges:
+        endpoint_keys.update(((edge.source_run_id, edge.source_event_id),
+                              (edge.target_run_id, edge.target_event_id)))
+    extra_ids = {event_id for _, event_id in endpoint_keys}
+    all_nodes = db.query(GraphRunEvent).filter(GraphRunEvent.user_id == run.user_id,
+        GraphRunEvent.event_id.in_(extra_ids)).all() if extra_ids else []
+    all_nodes = [node for node in all_nodes if (node.run_id, node.event_id) in endpoint_keys]
+    runs = {item.id: item for item in db.query(GraphRun).filter(GraphRun.user_id == run.user_id,
+        GraphRun.id.in_({node.run_id for node in all_nodes})).all()} if all_nodes else {}
+    point_map = {}
+    if all_nodes:
+        for point in db.query(GraphEventPoint.id, GraphEventPoint.run_id, GraphEventPoint.event_id,
+                GraphEventPoint.no, GraphEventPoint.summary, GraphEventPoint.detail).filter(GraphEventPoint.user_id == run.user_id,
+                GraphEventPoint.event_id.in_(extra_ids), GraphEventPoint.run_id.in_(runs)).order_by(GraphEventPoint.no).all():
+            point_map.setdefault((point.run_id, point.event_id), []).append(
+                {"id": point.id, "no": point.no, "summary": point.summary, "detail": point.detail})
+    events = []
+    for node in sorted(all_nodes, key=lambda node: (node.run_id != run.id,
+            runs[node.run_id].diary_date, node.source_order, str(node.event_id))):
+        owner_run = runs[node.run_id]
+        source = next((item for item in (owner_run.source_snapshot or {}).get("events", [])
+                       if item["event_id"] == str(node.event_id)), {})
+        events.append({"event_id": node.event_id, "run_id": node.run_id, "diary_id": owner_run.diary_id,
+            "title": source.get("title", ""), "diary_date": owner_run.diary_date,
+            "occurred_on": node.occurred_on, "points": point_map.get((node.run_id, node.event_id), [])})
     return {"diary_id": diary_id, "run": {"id": run.id, "status": run.status,
         "published_at": run.published_at, "obsolete_at": run.obsolete_at, "analysis_run_id": run.analysis_run_id},
         "events": events, "relations": relations}
@@ -130,3 +163,14 @@ def historical_graph(run_id: UUID, db: Session = Depends(get_db), user: User = D
     run = db.query(GraphRun).filter(GraphRun.id == run_id, GraphRun.user_id == user.id).first()
     if not run: raise HTTPException(404, detail="运行不存在")
     return graph_result(db, run, run.diary_id, history=True)
+
+
+@router.get("/events/{event_id}/neighbors", response_model=GraphResultResponse)
+def event_neighbors(event_id: UUID, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
+    run = db.query(GraphRun).join(GraphRunEvent, GraphRunEvent.run_id == GraphRun.id).join(
+        Diary, Diary.id == GraphRun.diary_id).join(DiaryEvent, DiaryEvent.id == GraphRunEvent.event_id).filter(
+        GraphRun.user_id == user.id, GraphRun.status == "PUBLISHED", GraphRunEvent.event_id == event_id,
+        Diary.deleted_at.is_(None), DiaryEvent.is_in_graph.is_(True)).first()
+    if not run:
+        raise HTTPException(404, detail="事件没有有效图谱")
+    return graph_result(db, run, run.diary_id, focus_event_id=event_id)
