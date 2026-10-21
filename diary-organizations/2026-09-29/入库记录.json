@@ -1,0 +1,30 @@
+{
+  "status": "已提交并独立读回核验",
+  "diary_date": "2026-09-29",
+  "diary_id": "33e02ff9-a75d-4933-8fb0-ff8ba2c954fc",
+  "organized_id": "c0669c55-4a24-479e-b36e-e3a473bdce69",
+  "task_id": "58a19ac1-5788-45ce-b449-728166e71189",
+  "events": 6,
+  "structured_revision": 3,
+  "keyword_segments": 39,
+  "semantic_index_states": [
+    "PENDING",
+    "PENDING",
+    "PENDING",
+    "PENDING",
+    "PENDING",
+    "PENDING"
+  ],
+  "checks": {
+    "事件正文、派生字段与重要性一致": true,
+    "引入段、琐事与计划一致": true,
+    "展示正文一致": true,
+    "原文未变更": true,
+    "日记已整理且无脏标记": true,
+    "来源与整理修订号正确": true,
+    "整理任务已完成": true,
+    "关键词索引已建立": true,
+    "语义索引状态已建立": true
+  },
+  "confirmation_sha256": "280612d599fd1e2c061fc143467382eece7500d23a2e6e377a1f0af9ab148db6"
+}

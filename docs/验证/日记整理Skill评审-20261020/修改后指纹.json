@@ -1,0 +1,52 @@
+{
+  "files": [
+    {
+      "path": "backend/services/ai.py",
+      "sha256": "e942525d08dc162b9836f76fa51fc577778e5bb13da29f50d8b832e89bb0f299"
+    },
+    {
+      "path": "backend/tests/test_organize_prompt_rules.py",
+      "sha256": "bcdf3abd384babdce259e63075688f4c9c97464fe3f1d46a88395b31c9d0942b"
+    },
+    {
+      "path": "skills/diary-organizer/SKILL.md",
+      "sha256": "758c264fba1bf41ad5809a68b36951cc3774c228fe02809d337506882d2170a7"
+    },
+    {
+      "path": "skills/diary-organizer/agents/openai.yaml",
+      "sha256": "8029119a62d30b6f99e3e80c7afc862f5c13d9144bd1445723029e1d1e0438da"
+    },
+    {
+      "path": "skills/diary-organizer/evals/cases.json",
+      "sha256": "26d97fee131effa6670123ed52ffccfdeb9e80fce6b3be14ce4c949550701154"
+    },
+    {
+      "path": "skills/diary-organizer/references/evaluation.md",
+      "sha256": "4c0315370374322e9d6553c3f851e61788010da85788184cdde56dc9779499f3"
+    },
+    {
+      "path": "skills/diary-organizer/references/examples.md",
+      "sha256": "3123b22aa347d14c38c223e59877fd60cb695d03c56e1eb65462a1719eaa9c6f"
+    },
+    {
+      "path": "skills/diary-organizer/references/storage.md",
+      "sha256": "707c0cd71152dfabe658871cb626e8211456f769a009589228f865e8cb1dc6cc"
+    },
+    {
+      "path": "skills/diary-organizer/scripts/export_people.py",
+      "sha256": "e2f3d6aa3312b40d8af9610db5adf9e525b28d1ddd48de9af4a064fe6ff3b359"
+    },
+    {
+      "path": "skills/diary-organizer/scripts/markdown_to_json.py",
+      "sha256": "5e561defec6fd9a925c94dc77345407695466f11b03b971f1a807f83d29718b2"
+    },
+    {
+      "path": "skills/diary-organizer/scripts/store_diary.py",
+      "sha256": "427b3b54a24a09dd1b23131365eabcc11bb20817da56ab7941a2c9e172013655"
+    },
+    {
+      "path": "skills/diary-organizer/scripts/test_diary_storage.py",
+      "sha256": "4a8464a7a5b6bb09be647c6f443c23a11b8db456c813e4777c3a4b962d5ae62f"
+    }
+  ]
+}

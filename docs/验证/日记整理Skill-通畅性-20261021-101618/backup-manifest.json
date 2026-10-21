@@ -1,0 +1,21 @@
+{
+  "archive": "diary-organizer-before-20261021-101618.tar.gz",
+  "archive_sha256": "75a008f68c36f83aaf1f15f65abb041af94dafe5b7248b5d5bf66180fcfa36ea",
+  "files": {
+    "SKILL.md": "a0ab38c6b72b17e312f6199c82ce8f28a94689c67f3f65ba58d6bb85dfe31ffe",
+    "evals/cases.json": "5a91321fc36ddc6a507ffc9cba0df49d89f86d7ea1a9c9252906b07c7a25c3bc",
+    "references/storage.md": "76920925aff23757fb688e57efd300b945d5b4364bd7ff36028c6fedadbcd52b",
+    "references/examples.md": "66727314cb15e3a55b3899c8098884fb2a59add38eae662397861f860725ceb6",
+    "references/evaluation.md": "2c65c389af77bb38ba31bd937523826cd05c77ce01078046c17320998da30d94",
+    "agents/openai.yaml": "8029119a62d30b6f99e3e80c7afc862f5c13d9144bd1445723029e1d1e0438da",
+    "scripts/test_diary_storage.py": "e215e53089192e1ea0fc18032a91a949ce3c0cd4a188ff34f36afc59eb1451f2",
+    "scripts/store_diary.py": "e5bcf20eb29a692a597bd81d9e52133712883ee5431a9a75d1ff6b701994b277",
+    "scripts/markdown_to_json.py": "5e561defec6fd9a925c94dc77345407695466f11b03b971f1a807f83d29718b2",
+    "scripts/export_people.py": "e2f3d6aa3312b40d8af9610db5adf9e525b28d1ddd48de9af4a064fe6ff3b359",
+    "scripts/__pycache__/export_people.cpython-311.pyc": "e13ff7caabf2f5eafe835650ca21d0956e1890b7a8b8aa5d30205d91e7eed3fb",
+    "scripts/__pycache__/store_diary.cpython-311.pyc": "c0761879bd264510be204c8584f58d5540607bd3a52fbd629b5b1979f5b28646",
+    "scripts/__pycache__/test_diary_storage.cpython-311.pyc": "fbdd75ce189b5aa3bf85e088339379660012143bee6c6908fb8a3dec4cae0857",
+    "scripts/__pycache__/markdown_to_json.cpython-311.pyc": "dc0bdc065f55da802839a5b767fb8a5d7ef59cbe8c4a931ef27324c6027d1b4a",
+    "assets/澄清记录模板.md": "4d75807beb686ba862239cb7db3a9f2a68bd9d2c0b6a852ddea541ab1ca59416"
+  }
+}

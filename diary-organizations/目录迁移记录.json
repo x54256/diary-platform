@@ -1,0 +1,450 @@
+{
+  "backup": "docs/验证/日记整理目录迁移前备份-20261021-104501.zip",
+  "files": [
+    {
+      "from": "diary-organized/2026-09-12/人物关系.json",
+      "to": "diary-organizations/2026-09-12/人物关系.json",
+      "sha256": "a540968d204dfd274fcb564362894ed858cab4b05929520ce1536b2b1141b9b6",
+      "action": "迁移"
+    },
+    {
+      "from": "diary-organized/2026-09-12/原文.json",
+      "to": "diary-organizations/2026-09-12/原文.json",
+      "sha256": "05341d1962ba60f46b5bd1b098ffdd0de749b7d40730477694d3ef507a1d1168",
+      "action": "迁移"
+    },
+    {
+      "from": "diary-organized/2026-09-12/整理稿.md",
+      "to": "diary-organizations/2026-09-12/整理稿.md",
+      "sha256": "b8e24e9c8a398cde7c9543c64652301300db3781befce4606663b2fdc98b95f0",
+      "action": "迁移"
+    },
+    {
+      "from": "diary-organized/2026-09-12/澄清记录.md",
+      "to": "diary-organizations/2026-09-12/澄清记录.md",
+      "sha256": "db08438c627e85c3f953a1e4ea11697ab5e45c7b3a965f9e8aae537b4b531b07",
+      "action": "迁移"
+    },
+    {
+      "from": "diary-organized/2026-09-13/人物关系.json",
+      "to": "diary-organizations/2026-09-13/人物关系.json",
+      "sha256": "a540968d204dfd274fcb564362894ed858cab4b05929520ce1536b2b1141b9b6",
+      "action": "迁移"
+    },
+    {
+      "from": "diary-organized/2026-09-13/入库包-v2.json",
+      "to": "diary-organizations/2026-09-13/入库包-v2.json",
+      "sha256": "1fa1747722d07b374c38c238c029ba75a5f86e31af390d35d4d9279d752c2b1f",
+      "action": "迁移"
+    },
+    {
+      "from": "diary-organized/2026-09-13/入库包.json",
+      "to": "diary-organizations/2026-09-13/入库包.json",
+      "sha256": "31361a39a90e6513905185a06f71fbe907f242676840166dfdbeb905a9a4c59d",
+      "action": "迁移"
+    },
+    {
+      "from": "diary-organized/2026-09-13/原文.json",
+      "to": "diary-organizations/2026-09-13/原文.json",
+      "sha256": "1e51abf5d57156cf49d75d998cae070b79d7cd5f3d57c208f58eea836bce5c72",
+      "action": "迁移"
+    },
+    {
+      "from": "diary-organized/2026-09-13/整理稿.md",
+      "to": "diary-organizations/2026-09-13/整理稿.md",
+      "sha256": "f81b5081ee4d23bdf367fbd0580a7d7a54df622c598f65fd971405d1997e3cb1",
+      "action": "迁移"
+    },
+    {
+      "from": "diary-organized/2026-09-13/澄清记录.md",
+      "to": "diary-organizations/2026-09-13/澄清记录.md",
+      "sha256": "7a3ad0dfed621579898de149e041d1b5971710a0b93d5b2675308e56bf20c113",
+      "action": "迁移"
+    },
+    {
+      "from": "diary-organizer-output/2026-09-15/人物关系.json",
+      "to": "diary-organizations/2026-09-15/人物关系.json",
+      "sha256": "a540968d204dfd274fcb564362894ed858cab4b05929520ce1536b2b1141b9b6",
+      "action": "迁移"
+    },
+    {
+      "from": "diary-organizer-output/2026-09-15/入库包-v2.json",
+      "to": "diary-organizations/2026-09-15/入库包-v2.json",
+      "sha256": "4246ca67af503a3c9e4a45c5e2a543f9dcb9a95ad8b18acf99282df594f1cd52",
+      "action": "迁移"
+    },
+    {
+      "from": "diary-organizer-output/2026-09-15/入库包.json",
+      "to": "diary-organizations/2026-09-15/入库包.json",
+      "sha256": "f88608f8f421dc8ed971e23de527d5e0dc4a789035855f2ad6c13463b94ac6bd",
+      "action": "迁移"
+    },
+    {
+      "from": "diary-organizer-output/2026-09-15/原文.json",
+      "to": "diary-organizations/2026-09-15/原文.json",
+      "sha256": "0e0f1f6f744b518d2de3c3ae4c1873cfda41bb89f7f7f93ca33818d2634dce4d",
+      "action": "迁移"
+    },
+    {
+      "from": "diary-organizer-output/2026-09-15/整理稿.md",
+      "to": "diary-organizations/2026-09-15/整理稿.md",
+      "sha256": "d0b11581ae3e72d50060da5e4abf38b6fa70ce82459684f2830baa2c23811e4e",
+      "action": "迁移"
+    },
+    {
+      "from": "diary-organizer-output/2026-09-15/澄清记录.md",
+      "to": "diary-organizations/2026-09-15/澄清记录.md",
+      "sha256": "84e504ddc8d7779ae747d38d6550208cf6a51a7054965cfb9e17107a629644b9",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-18/人物关系.json",
+      "to": "diary-organizations/2026-09-18/人物关系.json",
+      "sha256": "a540968d204dfd274fcb564362894ed858cab4b05929520ce1536b2b1141b9b6",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-18/原文.json",
+      "to": "diary-organizations/2026-09-18/原文.json",
+      "sha256": "aa6767ae8aee65075fdfd94f6a4dc3bfdbafc16d19ca5c9937c8ed7baadfc565",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-18/整理稿.md",
+      "to": "diary-organizations/2026-09-18/整理稿.md",
+      "sha256": "acd9da2d45ec546a012b330c37dd7cbec9eb604c87303886324bd054d5f15231",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-18/整理结果-v2.json",
+      "to": "diary-organizations/2026-09-18/整理结果-v2.json",
+      "sha256": "ea14e5d483ef413507b6626d586d0024cb70258c8ac65ff3262c50721d7adb31",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-18/整理结果-v3.json",
+      "to": "diary-organizations/2026-09-18/整理结果-v3.json",
+      "sha256": "972a04e7f581156468f9fc252648ee51b2b08834e68e93998d7664faed5ca1a0",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-18/整理结果-复读检查-v2.json",
+      "to": "diary-organizations/2026-09-18/整理结果-复读检查-v2.json",
+      "sha256": "295a7dfd55fab7db00c04acad2532d7414742a69c7c022d99b341d9884180453",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-18/整理结果-复读检查.json",
+      "to": "diary-organizations/2026-09-18/整理结果-复读检查.json",
+      "sha256": "6fd7429dfe697eb1fb1c71bff413660a4956750adcb4a9bac6dbf28596e1c086",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-18/整理结果.json",
+      "to": "diary-organizations/2026-09-18/整理结果.json",
+      "sha256": "0809c5f4361f5477fa070df4b9f0eb1e956d0c7139dc10b6a159e8bcda5a7016",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-18/澄清记录.md",
+      "to": "diary-organizations/2026-09-18/澄清记录.md",
+      "sha256": "72ce22f896622f3c85690ac71b171d87665455c5d558bbfefa7bc8871e9e7f6c",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-19/人物关系.json",
+      "to": "diary-organizations/2026-09-19/人物关系.json",
+      "sha256": "a540968d204dfd274fcb564362894ed858cab4b05929520ce1536b2b1141b9b6",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-19/入库包-用户修订确认.json",
+      "to": "diary-organizations/2026-09-19/入库包-用户修订确认.json",
+      "sha256": "1a1bd141f9c41b8761f601d372160b2d3a3d1fd861516fe91549866cbad05bac",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-19/入库包.json",
+      "to": "diary-organizations/2026-09-19/入库包.json",
+      "sha256": "3dffc9dba20623df9a68611aeb67296d9f72dfeca8412493498074b2757eb5d8",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-19/原文.json",
+      "to": "diary-organizations/2026-09-19/原文.json",
+      "sha256": "3be59d861c42dc717ba3f99a7bfd5f538955f6c8051c4584f73f1b9487cbbf07",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-19/整理稿.md",
+      "to": "diary-organizations/2026-09-19/整理稿.md",
+      "sha256": "c0ee7a24f63b2d5183ec2f9b100d6258bcd44279367834740c3308ad8d485d1b",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-19/整理结果-v2.json",
+      "to": "diary-organizations/2026-09-19/整理结果-v2.json",
+      "sha256": "ec05ad53df766c7fcae956638d5ff69ed413a71fed948f6b912d8d8d3b83dfcf",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-19/整理结果-v3.json",
+      "to": "diary-organizations/2026-09-19/整理结果-v3.json",
+      "sha256": "acc09dbb4676ff960741bf93da14a15a405c8399ac4b50da4ff04f7212426856",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-19/整理结果.json",
+      "to": "diary-organizations/2026-09-19/整理结果.json",
+      "sha256": "e18280d3b2a6f2c88e08c6a473d724a99a131e44c48472c88abdf90ee0b483d7",
+      "action": "迁移"
+    },
+    {
+      "from": "diary整理/2026-09-19/澄清记录.md",
+      "to": "diary-organizations/2026-09-19/澄清记录.md",
+      "sha256": "d74b07829b4c305e04a0e806c5bc2b081fc394d7ba228202fc87783b149c0274",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260923/人物关系.json",
+      "to": "diary-organizations/2026-09-23/人物关系.json",
+      "sha256": "a540968d204dfd274fcb564362894ed858cab4b05929520ce1536b2b1141b9b6",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260923/原文.json",
+      "to": "diary-organizations/2026-09-23/原文.json",
+      "sha256": "45c30ab61ff6b9dc199dbdcb9e5d49f7477e960b38650c41bfa2b64590c3b640",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260923/已批准字段修改对照.json",
+      "to": "diary-organizations/2026-09-23/已批准字段修改对照.json",
+      "sha256": "3a08200edfce21968bde873b6bcddf7db5c852eeec3c344d0071726724ad2889",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260923/整理稿.md",
+      "to": "diary-organizations/2026-09-23/整理稿.md",
+      "sha256": "f48c6c9f33995e540a683b5d5f5ef4b9accffd6ae1aaf824783c3295e4dd7f02",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260923/整理结果-修订1.json",
+      "to": "diary-organizations/2026-09-23/整理结果-修订1.json",
+      "sha256": "6caa24a55227d2b9519f04438cea3fd6e45ad652edc3e633801bbd0d20b38d89",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260923/整理结果-修订2.json",
+      "to": "diary-organizations/2026-09-23/整理结果-修订2.json",
+      "sha256": "e8327ef57c0f2ea7d6457b563e2dec894ee8783989812703edfacfd2dc497b9e",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260923/整理结果-初稿.json",
+      "to": "diary-organizations/2026-09-23/整理结果-初稿.json",
+      "sha256": "6cb171ec4fb8305cedb19df7183cdd224d02c9bc41fec876c5586315873746af",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260923/澄清记录.md",
+      "to": "diary-organizations/2026-09-23/澄清记录.md",
+      "sha256": "71730e1fd4f4b4dae9c5575e976be157909df84cd8412cb56c416cb492d6a9fa",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260925/人物关系.json",
+      "to": "diary-organizations/2026-09-25/人物关系.json",
+      "sha256": "a540968d204dfd274fcb564362894ed858cab4b05929520ce1536b2b1141b9b6",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260925/入库包-修订2.json",
+      "to": "diary-organizations/2026-09-25/入库包-修订2.json",
+      "sha256": "61f81bfdc5fb8ff116e49d39b77b91ba99ff4704ca326b860e74d8606a73dbf7",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260925/入库包-最终确认.json",
+      "to": "diary-organizations/2026-09-25/入库包-最终确认.json",
+      "sha256": "ce39ccb3a51225199d6e1729ebe611d4c73436d84a3205e1e255d1b16edcab2a",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260925/原文.json",
+      "to": "diary-organizations/2026-09-25/原文.json",
+      "sha256": "532d584bca4e748356f60c507a37351a2c57bcda8d82db8be44bc7f9638f3fd7",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260925/整理稿.md",
+      "to": "diary-organizations/2026-09-25/整理稿.md",
+      "sha256": "8c1bc0c4e1bf5383ede2eb63dda6325b5c12503fb776747381a354684d9c305c",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260925/整理结果-修订1.json",
+      "to": "diary-organizations/2026-09-25/整理结果-修订1.json",
+      "sha256": "14e3d45c6b7d4c8d13238de4ae590d962ae46e21d001ab139416690e0958335c",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260925/整理结果.json",
+      "to": "diary-organizations/2026-09-25/整理结果.json",
+      "sha256": "d9f3f08c1237794cb9e7f77b3ee4a0540f2ae8873aba7449db283f20468c2bc7",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260925/澄清记录.md",
+      "to": "diary-organizations/2026-09-25/澄清记录.md",
+      "sha256": "e5cf82f1326e4be14d542fb6526c90ad7ac5225bd47473b954c6954eae22d010",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260927/入库包.json",
+      "to": "diary-organizations/2026-09-27/入库包.json",
+      "sha256": "06c208e42c7c779c2797dd4832a8f657b2d42304a77d622fd77452415093c922",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260927/初稿结构检查.json",
+      "to": "diary-organizations/2026-09-27/初稿结构检查.json",
+      "sha256": "7f5a2feaa03213fe197566210a2dc1a1ce6286d6c3bb7431d76f574471038022",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260927/原文.json",
+      "to": "diary-organizations/2026-09-27/原文.json",
+      "sha256": "d4c6a8aded992bc03d4ce831c761b6751f5fc4e73cfd6689840b7d698b44e2f0",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260927/整理稿.md",
+      "to": "diary-organizations/2026-09-27/整理稿.md",
+      "sha256": "f05e5277513b1fe322b25bba51639f21253469d464d5eaf702aae29eaa451f63",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260927/整理结果.json",
+      "to": "diary-organizations/2026-09-27/整理结果.json",
+      "sha256": "9f341ac184ff79ed2212b2429bed2e962e1201ca67330f479c60f565ebace4d5",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260927/澄清记录.md",
+      "to": "diary-organizations/2026-09-27/澄清记录.md",
+      "sha256": "e4e3dd16ec66bf93ad4d25e8ff9148be52cf4a474e8a9092cf8f39f3154a61b9",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260929/入库包.json",
+      "to": "diary-organizations/2026-09-29/入库包.json",
+      "sha256": "60b8e106cf517bbc7815d42e75fe9f3852c7f97f2ab9409b15ee4d5023d6f580",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260929/入库记录.json",
+      "to": "diary-organizations/2026-09-29/入库记录.json",
+      "sha256": "33aa13d2ca07f98dc30bc1e3d59070ea5a7350cfaac4eee9d6ab59e075ff6812",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260929/原文.json",
+      "to": "diary-organizations/2026-09-29/原文.json",
+      "sha256": "9a5f5ad7ed6540e9a8264553cc12ee258074336acd6db583a618ba68b427832d",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260929/整理稿.md",
+      "to": "diary-organizations/2026-09-29/整理稿.md",
+      "sha256": "376df3308671d0e4a69f3aa7560007db05bb96c7f7cd51909e00597a3b1a6b7f",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260929/整理结果.json",
+      "to": "diary-organizations/2026-09-29/整理结果.json",
+      "sha256": "d7ab9c40fd7d5906d76a55ca672eadd940122e134587fe7f928d5bc6bde30004",
+      "action": "迁移"
+    },
+    {
+      "from": "docs/验证/日记整理Skill-20260929/澄清记录.md",
+      "to": "diary-organizations/2026-09-29/澄清记录.md",
+      "sha256": "dbfb428f0b151ac8b4ed9935c61d5ef1ba26c8d07933c632815c1bd31520e3f5",
+      "action": "迁移"
+    },
+    {
+      "from": "temp/diary-organizer/2026-09-22/入库包.json",
+      "to": "diary-organizations/2026-09-22/入库包.json",
+      "sha256": "5c8b4ad6cfb03444f45b25886fe680f3625b80796cf2ee7b5953a64ca0698f8d",
+      "action": "迁移"
+    },
+    {
+      "from": "temp/diary-organizer/2026-09-22/原文.json",
+      "to": "diary-organizations/2026-09-22/原文.json",
+      "sha256": "2a019e85dc15ead7b9efd185178bf069082c747422849d6df32a719f38e87813",
+      "action": "迁移"
+    },
+    {
+      "from": "temp/diary-organizer/2026-09-22/人物关系.json",
+      "to": "diary-organizations/2026-09-22/人物关系.json",
+      "sha256": "a540968d204dfd274fcb564362894ed858cab4b05929520ce1536b2b1141b9b6",
+      "action": "迁移"
+    },
+    {
+      "from": "temp/diary-organizer/2026-09-22/整理结果-v2.json",
+      "to": "diary-organizations/2026-09-22/整理结果-v2.json",
+      "sha256": "7ec5c613f69777a9d4c6564fa8e50d4f024bebb4d7e93b224f3b9e6334648db0",
+      "action": "迁移"
+    },
+    {
+      "from": "temp/diary-organizer/2026-09-22/整理结果-v3.json",
+      "to": "diary-organizations/2026-09-22/整理结果-v3.json",
+      "sha256": "8463145de64c0477d35561cc34f8beb5a6ab45f42d04a94e4113b4672c0e9a28",
+      "action": "迁移"
+    },
+    {
+      "from": "temp/diary-organizer/2026-09-22/整理稿.md",
+      "to": "diary-organizations/2026-09-22/整理稿.md",
+      "sha256": "959800e9a82b01490c2029ad4f285bee336a6654983bc939b0b210fa3b1dc7fb",
+      "action": "迁移"
+    },
+    {
+      "from": "temp/diary-organizer/2026-09-22/整理结果.json",
+      "to": "diary-organizations/2026-09-22/整理结果.json",
+      "sha256": "1a045bdd6b108006b5d077383bc1df399f77e40e189e8e30756757c7e0d8f3f9",
+      "action": "迁移"
+    },
+    {
+      "from": "temp/diary-organizer/2026-09-22/澄清记录.md",
+      "to": "diary-organizations/2026-09-22/澄清记录.md",
+      "sha256": "9d54cb52c4b7b2ee8ea03f7a1fa41a00f44f40d9f3a4def9ef9deb92e9de9a39",
+      "action": "迁移"
+    }
+  ],
+  "sources": [
+    "diary-organized",
+    "diary-organizer-output",
+    "diary整理",
+    "docs/验证/日记整理Skill-20260925",
+    "docs/验证/日记整理Skill-20260923",
+    "docs/验证/日记整理Skill-20260929",
+    "docs/验证/日记整理Skill-20260927",
+    "temp/diary-organizer/2026-09-22"
+  ],
+  "additional_backups": [
+    "docs/验证/日记整理目录迁移前补充备份-20261021-104727.zip"
+  ],
+  "post_migration_changes": [
+    {
+      "path": "diary-organizations/2026-09-12/整理稿.md",
+      "current_sha256": "196530efa300bdfd77ec9b300d4971a79d91b364e1c6f1fa2bdf02a7dd3585a3",
+      "note": "迁移时指纹已核验一致，此后出现新修订，保留当前内容，不恢复备份。"
+    },
+    {
+      "path": "diary-organizations/2026-09-12/澄清记录.md",
+      "current_sha256": "18d9a86a561a65010f834092aaadec17149241390469d841921ea7e51ee502c7",
+      "note": "迁移时指纹已核验一致，此后出现新修订，保留当前内容，不恢复备份。"
+    }
+  ]
+}

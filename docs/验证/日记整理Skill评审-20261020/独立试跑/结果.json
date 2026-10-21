@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-20",
+  "backup": "修改前备份-20261020-163652.zip",
+  "script_tests": {
+    "passed": 15
+  },
+  "prompt_contract_tests": {
+    "passed": 10
+  },
+  "skill_format_validation": "passed",
+  "behavior_runs": [
+    {
+      "scenario": "文本整理及补答",
+      "covered_case_boundaries": [
+        "E03",
+        "E05",
+        "E06",
+        "E07",
+        "E09"
+      ],
+      "result": "通过本次检查",
+      "evidence": [
+        "争吵只写可能",
+        "小林改为她，混合群体保留他们",
+        "反思不自动列计划，未来意向保留承诺程度",
+        "常规取件与备餐为LOW",
+        "跳过项不追问，补答后展示完整稿并请求整篇确认"
+      ]
+    },
+    {
+      "scenario": "人工改稿定点修订",
+      "covered_case_boundaries": [
+        "E11"
+      ],
+      "result": "通过本次检查",
+      "evidence": [
+        "仅两处周六替换为周日，其余全文逐字一致"
+      ]
+    },
+    {
+      "scenario": "五个名称的分轮澄清",
+      "covered_case_boundaries": [
+        "E08"
+      ],
+      "result": "通过本次检查",
+      "evidence": [
+        "第一轮四题",
+        "四项回答后继续询问第五项",
+        "第五项回答后才声明无待澄清问题并请求整篇确认"
+      ]
+    }
+  ],
+  "limitations": [
+    "16项案例未全部逐项独立运行",
+    "未验证后端在线模型输出",
+    "工具未返回可复核模型服务版本",
+    "没有访问生产数据库或进行故障注入"
+  ],
+  "installation_changed": false,
+  "production_diary_data_changed": false
+}

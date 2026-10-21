@@ -1,0 +1,6 @@
+interface:
+  display_name: "日记整理"
+  short_description: "将散乱口述日记按事件整理为自然叙述，保留事实、生活细节与思考过程"
+  default_prompt: "使用 $diary-organizer 整理我提供的日记，保留细节和思考过程，输出 Markdown。"
+policy:
+  allow_implicit_invocation: false

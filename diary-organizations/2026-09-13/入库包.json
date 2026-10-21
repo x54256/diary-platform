@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "source": {
+    "diary_id": "f2631949-29e7-4ace-80dc-dbe863901246",
+    "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+    "diary_date": "2026-09-13",
+    "content_revision": 4,
+    "original_sha256": "1c5453cc66fd834b544cde947b13369e07154e33c26b5bac1f5e2642e55599df",
+    "organized_id": null,
+    "structured_revision": null,
+    "existing_events": 0,
+    "stored_sha256": "1ec5c8493d6f2a70580bffa562931c0f7f00d32fe82aa0116faa0c75764b4025"
+  },
+  "markdown": {
+    "path": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organized/2026-09-13/整理稿.md",
+    "sha256": "aa32c7b6ec7b1a8e76401864511fc16b625ccd84e1af96fd21e3c19b4069b140"
+  },
+  "clarifications": {
+    "path": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organized/2026-09-13/澄清记录.md",
+    "sha256": "627479edfaa9942a833f4e31545d4294e3dd8ad0e370873df049c224a60f9680"
+  },
+  "result": {
+    "title": "",
+    "summary": "",
+    "location": "",
+    "introduction": "",
+    "events": [
+      {
+        "title": "小廖容易进入防御姿态",
+        "body": [
+          "小廖容易进入防御姿态。她说“我没压线呀”，就是这样的反应：她下意识地认为别人在指责她，而不是提醒她。",
+          "她爸是容易触发她敏感反应的人，这和她从小的成长环境有关，也是她容易进入防御姿态的原因。"
+        ],
+        "feeling": [],
+        "reflection": [],
+        "importance": "LOW",
+        "importance_reason": "记录了对小廖防御反应及其背景的理解，尚未体现对自身情绪、行为或关系的进一步影响。"
+      }
+    ],
+    "trivia": [],
+    "plans": [],
+    "check_log": [],
+    "clean_check_log": []
+  },
+  "confirmation_sha256": "eee514a388ef8bbf6c6423acd8c87ce6b87700fabf4db0fd079300246f078764"
+}

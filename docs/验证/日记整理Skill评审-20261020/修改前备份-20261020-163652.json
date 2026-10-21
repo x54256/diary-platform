@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-10-20T16:36:52.310917+08:00",
+  "files": [
+    {
+      "path": "backend/services/ai.py",
+      "sha256": "9f91ad057d86949f19b742ff84f7d0ae59203cb6c1bbf2efc4cea32353bbe279"
+    },
+    {
+      "path": "backend/tests/test_organize_prompt_rules.py",
+      "sha256": "e5a6cae070cdab5321b5db60399fa693495755aaa6eb92602b500cb8438c131a"
+    },
+    {
+      "path": "skills/diary-organizer/SKILL.md",
+      "sha256": "5313605dd8131c337157070f09e49f0b4e84eefdd80546f1343585d10c507e1b"
+    },
+    {
+      "path": "skills/diary-organizer/agents/openai.yaml",
+      "sha256": "8029119a62d30b6f99e3e80c7afc862f5c13d9144bd1445723029e1d1e0438da"
+    },
+    {
+      "path": "skills/diary-organizer/references/examples.md",
+      "sha256": "c30e8fc2b8aed8328914953d51d948ee8b27d65f8b1b6d017df54f9ec77eaf50"
+    },
+    {
+      "path": "skills/diary-organizer/references/storage.md",
+      "sha256": "64f9fd2cd0924a7c868993311c82b65be98e5c2d13ed05e13fa1fb1a91300eb8"
+    },
+    {
+      "path": "skills/diary-organizer/scripts/export_people.py",
+      "sha256": "e2f3d6aa3312b40d8af9610db5adf9e525b28d1ddd48de9af4a064fe6ff3b359"
+    },
+    {
+      "path": "skills/diary-organizer/scripts/markdown_to_json.py",
+      "sha256": "5e561defec6fd9a925c94dc77345407695466f11b03b971f1a807f83d29718b2"
+    },
+    {
+      "path": "skills/diary-organizer/scripts/store_diary.py",
+      "sha256": "bb544632af9688357a3ede0fe182981c54e94e52c565c6f9ca3222da14f898d4"
+    },
+    {
+      "path": "skills/diary-organizer/scripts/test_diary_storage.py",
+      "sha256": "abc0d1076b304938af5b6b9bf381fa210f0aa8dcada08830641ea50690822e69"
+    }
+  ],
+  "archive": "docs/验证/日记整理Skill评审-20261020/修改前备份-20261020-163652.zip",
+  "archive_sha256": "efb44133ba5ecf9e562ca9b16575bf4e043237289674f687376e1182e06d5366"
+}

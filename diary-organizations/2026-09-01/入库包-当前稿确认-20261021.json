@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "source": {
+    "diary_id": "7b2b2be1-38eb-42d8-9a20-320f64755e89",
+    "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+    "diary_date": "2026-09-01",
+    "content_revision": 2,
+    "original_sha256": "652f03739f3b379db4f41e19dc34af78a98681c62c0a6cf13b3f1485d505183a",
+    "organized_id": null,
+    "structured_revision": null,
+    "existing_events": 0,
+    "stored_sha256": "dc2ac22001676e6470ea80aef1253a1b7427963d7883e3c24205701c471c9801"
+  },
+  "markdown": {
+    "path": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-09-01/整理稿.md",
+    "sha256": "7adc4eaa2bf47853579d6242d20f97ee6586b7ccb9ebcb630b5423399f9a5273"
+  },
+  "clarifications": {
+    "path": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-09-01/澄清记录.md",
+    "sha256": "bba3d01075aae9694642c988651c1c4e513968fa7d4c66f20764c9f6beed7219"
+  },
+  "result": {
+    "title": "",
+    "summary": "",
+    "location": "",
+    "introduction": "现在很烦躁，主要是因为三件事。",
+    "events": [
+      {
+        "title": "事件关系建立的测试效果很糟糕",
+        "body": [
+          "早上测试了事件关系的建立，效果非常糟糕，甚至让我觉得，还不如直接根据标签匹配相同事项。",
+          "现在的方案是先用 AI 大模型建立日记内部的事件关系，再通过向量召回一部分历史事件，然后让 AI 大模型继续建立关系。我不知道这条路径是不是正确的。"
+        ],
+        "feeling": [
+          "测试效果让我烦躁，也让我怀疑当前方案是否正确。"
+        ],
+        "reflection": [],
+        "importance": "MEDIUM",
+        "importance_reason": "糟糕的测试效果引起了烦躁，也使我对当前事件关系建立方案产生疑问。"
+      },
+      {
+        "title": "江西需求和数据看不明白",
+        "body": [
+          "今天早晨又接着做江西的需求。田总整理的需求和数据乱糟糟的，看不明白，让我很烦躁。",
+          "不过，我也知道这不是我的问题，不会让自己过度烦躁。烦躁到一定程度，我就会放弃，不再继续看，先等着，大不了找他语音讲。"
+        ],
+        "feeling": [
+          "需求和数据看不明白让我烦躁，但我知道这不是我的问题，也不会让自己一直陷在里面。"
+        ],
+        "reflection": [],
+        "importance": "MEDIUM",
+        "importance_reason": "混乱的需求和数据影响了理解，并使我考虑暂停查看、改用语音沟通。"
+      },
+      {
+        "title": "电动车倒了，头盔也一时找不到",
+        "body": [
+          "刚刚准备骑车时，发现电动车倒了。我看了一下报警通知，估计是被风刮倒的，但也有可能是被人碰倒的。",
+          "我把车扶了起来。本来想着，倒了扶起来就行了，可已经够烦躁了，结果头盔还找不着，让我更加烦躁。好歹后来在地上找到了，也算是一件好事吧。"
+        ],
+        "feeling": [
+          "电动车倒了、头盔又找不到，让原本就烦躁的我更加烦躁；后来找到了头盔，好歹算是个好消息。"
+        ],
+        "reflection": [],
+        "importance": "LOW",
+        "importance_reason": "日常意外短暂加重了烦躁，头盔后来已找到，未记录进一步影响。"
+      }
+    ],
+    "trivia": [
+      "现在去吃饭。"
+    ],
+    "plans": [
+      "江西需求和数据如果实在看不明白，大不了找田总语音讲。",
+      "准备中午买杯甜的喝的，让自己开心开心。"
+    ],
+    "check_log": [],
+    "clean_check_log": []
+  },
+  "confirmation_sha256": "a86641c2aaa7ad8a4ad4c3a04b7ad9c7840a3633920461d9d95c011cf8563353"
+}
