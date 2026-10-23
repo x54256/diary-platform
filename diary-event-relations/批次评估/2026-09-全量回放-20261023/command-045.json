@@ -1,0 +1,14 @@
+{
+  "args": [
+    "record",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-10/085c0f45-8d1d-48ae-a2d3-b54da087adae/20261023T102816-b0b02c73",
+    "--input",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-全量回放-20261023/2026-09-10-decisions.json"
+  ],
+  "started_at": "2026-10-23T10:29:50.589341+08:00",
+  "ended_at": "2026-10-23T10:29:50.674244+08:00",
+  "seconds": 0.08503366698278114,
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "处理停止：同一侧证据要点重复\n"
+}

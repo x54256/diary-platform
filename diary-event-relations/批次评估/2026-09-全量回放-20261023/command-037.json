@@ -1,0 +1,25 @@
+{
+  "args": [
+    "prepare",
+    "--username",
+    "x5456",
+    "--diary-id",
+    "085c0f45-8d1d-48ae-a2d3-b54da087adae",
+    "--history-mode",
+    "replay",
+    "--completed-run",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-01/7b2b2be1-38eb-42d8-9a20-320f64755e89/20261023T102502-44df01a6",
+    "--completed-run",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-02/2eb6a94e-39b2-4502-8773-4c18ab6b7423/20261023T102524-dc9d0030",
+    "--completed-run",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-03/16ef80a9-a28b-43e5-b820-ff29cdccf58a/20261023T102536-440da698",
+    "--completed-run",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-09/828580fd-50a7-4a15-9d80-7acfe7ec987e/20261023T102643-508fa3ab"
+  ],
+  "started_at": "2026-10-23T10:28:16.232542+08:00",
+  "ended_at": "2026-10-23T10:28:17.081404+08:00",
+  "seconds": 0.8489041669818107,
+  "exit_code": 0,
+  "stdout": "{\n  \"run_dir\": \"/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-10/085c0f45-8d1d-48ae-a2d3-b54da087adae/20261023T102816-b0b02c73\",\n  \"pairs\": 26,\n  \"events\": 16,\n  \"package_sha256\": \"5f9c6047d587f4c6e48355216ecdfc264b9562da87a946dea49adb2b4c1e5304\",\n  \"history_mode\": \"replay\"\n}\n",
+  "stderr": ""
+}

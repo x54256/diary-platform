@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "package_sha256": "21d73294b8923de9a87d376543ab7556ee65d15479b2ffa556e0f3bec104d9e6",
+  "created_at": "2026-10-23T02:55:03.694757+00:00",
+  "batches": [
+    {
+      "batch_id": "B001",
+      "pair_ids": [
+        "P-3c1bfa00f335a61e",
+        "P-84d314ac7b3dc321",
+        "P-066907326fddb263",
+        "P-60de54d900046cea",
+        "P-34b0f70f6c0c1d96",
+        "P-2c0cde50d2f44e5d",
+        "P-4deeefd2855e45b7",
+        "P-2e84e10fce762741",
+        "P-54cec4a8be67d956",
+        "P-199fec16a9a0a16a",
+        "P-0d34a4bcbd1b4d51",
+        "P-b165f3ffc2599de6"
+      ]
+    },
+    {
+      "batch_id": "B002",
+      "pair_ids": [
+        "P-d90ad6eefe216338",
+        "P-d9441db5e264fc82",
+        "P-53eaed5904941c28",
+        "P-6e02a6bf2e3f4448",
+        "P-30ffd5b86b06a3f9",
+        "P-ddb3af4323d7ba10",
+        "P-bc0d87bfd6f80f0e",
+        "P-0b0ab09770d4a86d",
+        "P-9e8537f464eeb61a",
+        "P-a4c87b93a71f625f",
+        "P-6a772ddaef0c8275",
+        "P-14d28c45730d89f6"
+      ]
+    },
+    {
+      "batch_id": "B003",
+      "pair_ids": [
+        "P-702754fdf9289433",
+        "P-78cf51a696d90043",
+        "P-c880f35144fa09d1",
+        "P-460b486b93e869fa",
+        "P-79d92b525aa3275a",
+        "P-014643dbde51b8e1",
+        "P-ab8f94508e5b15e4",
+        "P-1cdb12cfb3a846fe",
+        "P-c76d16e226a6276d"
+      ]
+    },
+    {
+      "batch_id": "B004",
+      "pair_ids": [
+        "P-3036e67b2364ff8b",
+        "P-4821062929fbfb44",
+        "P-83e17171d184f36e",
+        "P-e2bc1847e0666665",
+        "P-2ede7620af6bbbba",
+        "P-310907922b1bcfdf",
+        "P-0918cae7578fe10f"
+      ]
+    },
+    {
+      "batch_id": "B005",
+      "pair_ids": [
+        "P-36bb73f719bf08ac",
+        "P-35adb98137c19888",
+        "P-bb2a37c436c4b54b",
+        "P-ee78d384e405b17f",
+        "P-f7cfdf57db1a5658"
+      ]
+    }
+  ],
+  "files": {
+    "B002.json": "0f0b2e11c9eceff9392a8ca759fc0e782780654c84b9c4bf0fa3aac2dd6dbe7d",
+    "B003.json": "323ab0355f615c95ff19940db28245e2ecb4f1d034e93299f2a772a287115a2f",
+    "source.json": "9a1e1fa809011a27c6c9fe18a779990691922664be1aa7df73f9d57fb9fe9fd7",
+    "B004.json": "c4c9e73864a68023d5b6d5135658da81b88ad17c43aa69baa8d658a9f095ca44",
+    "B005.json": "7e0984ddb5ba1b14cedba8a153c0d9e0091e9f73fc6de50c0b243e2df1e0881a",
+    "B001.json": "37872525d4734b85f5b8a33e9cf483b0637e33cd8da4ce9aab9b048eb1f582a5"
+  }
+}

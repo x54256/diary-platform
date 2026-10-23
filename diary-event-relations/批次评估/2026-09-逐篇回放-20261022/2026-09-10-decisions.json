@@ -1,0 +1,77 @@
+{
+  "package_sha256": "a104dec1aabf96f9f8606d6381521703926bb4b49505381c4afe962ff36330bb",
+  "results": [
+    {
+      "pair_id": "P-38edba245c9c8267",
+      "status": "NO_RELATION",
+      "reason": "发布会引发的产品协同讨论与擦脚视频、涂药争执没有共同具体事项；也未引用这些争执。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a8226df57e456aeb",
+      "status": "NO_RELATION",
+      "reason": "产品创新文化和借 AI 与父母沟通是不同事项；谈到 AI 不构成具体事件引用或触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6633575d6ad4cc88",
+      "status": "NO_RELATION",
+      "reason": "虽然都涉及工作环境与个人行动，但学习安排明确受王振州看书启发，未表达由发布会讨论引发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-69c083c1b08c0722",
+      "status": "NO_RELATION",
+      "reason": "观看发布会与牙痛就诊分别发生，无后续、触发或具体提及。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-aa2b452970f7b555",
+      "status": "NO_RELATION",
+      "reason": "产品协同讨论与脚碰枕头后的沟通复盘无具体联系，不能凭同日或都讨论交流方式建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ed66d94d28049638",
+      "status": "NO_RELATION",
+      "reason": "伴侣将建议视作指责的经历与同事空闲学习话题没有同一事项或明确引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5a3dfc6161ad28b6",
+      "status": "NO_RELATION",
+      "reason": "9 月 2 日的擦脚视频、涂药争执与 9 月 10 日明确定位的 9 月 8 日脚碰枕头争吵不同；后者回顾一般沟通循环，未定位引用前两次具体经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f41ce3f5fc3af06e",
+      "status": "NO_RELATION",
+      "reason": "父亲等待腰疼才就医与本人牙痛就诊是不同人物和医疗事项；共同使用 AI 不构成关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-47dacab052e93186",
+      "status": "NO_RELATION",
+      "reason": "父母沟通设想借鉴的是 9 月 2 日前的伴侣交流，9 月 10 日复盘定位的是 9 月 8 日争吵；均使用 AI 不证明同一具体事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cea5485b06127067",
+      "status": "NO_RELATION",
+      "reason": "居家学习新安排与牙痛就诊没有来源表达的触发、后续或提及。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9a5259ad48fbe9f8",
+      "status": "NO_RELATION",
+      "reason": "普通心理学学习安排和伴侣非暴力沟通复盘不是同一具体学习事项，没有彼此引用或触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-487113e6a5c06e37",
+      "status": "NO_RELATION",
+      "reason": "复盘中的洗牙例子是此前暂缓讨论、约到 9 月 1 日以后的经历，不能定位为 9 月 10 日这次牙痛就医；没有其他关系证据。",
+      "relation": null
+    }
+  ]
+}

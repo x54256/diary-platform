@@ -1,0 +1,666 @@
+{
+  "schema_version": 1,
+  "kind": "diary-event-relations-readonly",
+  "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+  "diary_id": "f2631949-29e7-4ace-80dc-dbe863901246",
+  "diary_date": "2026-09-13",
+  "current_run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+  "history_mode": "replay",
+  "config": {
+    "workspace_root": "../../diary-event-relations",
+    "min_similarity": 0.4,
+    "top_k": 5,
+    "max_batch_chars": 12000,
+    "max_pairs_per_batch": 12
+  },
+  "embedding_model": "180b751e5a42b7be7b6b98b398a8fab57ceabb9e4524d2c669bd9627a847df55",
+  "events": {
+    "E001": {
+      "id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "run_status": "POINTS_READY",
+      "diary_id": "2eb6a94e-39b2-4502-8773-4c18ab6b7423",
+      "diary_date": "2026-09-02",
+      "occurred_on": null,
+      "source_order": 0,
+      "title": "借助第三方的力量与父母沟通",
+      "run_source_sha256": "b715d2013c5060be51c2e8abe0c95e6fd1eff482d541c65649eb60c749525703",
+      "points": [
+        {
+          "id": "889cf0ae-0d6a-4675-ad3d-f057bbcc3af8",
+          "no": 1,
+          "summary": "想借 AI 的第三方力量与父母沟通",
+          "detail": "我想到，可以借助第三方的力量改变父母的认知，也培养他们用 AI 解决问题的思维。比如我妈想催生，可以让她去问豆包：父母想让孩子生孩子，担心自己年纪再大些就没办法帮忙照顾，交给别人又不放心，但孩子不想生，这种情况怎么办？让她自己听豆包的回答，相当于多了一股外部力量。",
+          "embedding_sha256": "521668b49352858729a437813346e5c18873aa5c7f90583154c1019b46e46946"
+        },
+        {
+          "id": "537e96b6-4817-4dcc-b519-0572ad7d2ca0",
+          "no": 2,
+          "summary": "认为相近的话由 AI 来说，对方可能更愿意理性看待",
+          "detail": "我妈光听我说，总觉得我在狡辩，说她“说不过我”。我觉得第三方相对比较有权威，也没有太多立场。\n\n之前和小廖沟通时，我说过的一些话，AI 后来也说过类似的。她问这些话是问 AI 得来的，还是我自己想的，我说是自己想的。我说的时候，她会觉得压力大；AI 说的时候，她却会理性看待。这让我想到，可以借助 AI 这个相对没有太多立场的第三方与父母沟通。",
+          "embedding_sha256": "fccd5a39ec2148251a7a5fb0f3eeec605c35b4d46cd59583b43f7cdab2e0d071"
+        },
+        {
+          "id": "1fa0fea3-44dd-46ba-a414-07456bd90413",
+          "no": 3,
+          "summary": "想让爸爸问 AI，检视等腰疼再就医的想法",
+          "detail": "我爸说，要等腰疼起来再去医院看腰肌劳损这些问题。我跟他说，不是只有症状出现时病才在，这个病一直都在，但他还是不听。我想到，也可以让他问问 AI，自己的这个想法、观点是否正确，借助外部力量改变他的认知。",
+          "embedding_sha256": "4fdc46ec2b7ddfb7cb405d26875d9c7220380cfc18e329935588ce0e8d77854f"
+        }
+      ]
+    },
+    "E002": {
+      "id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "run_status": "POINTS_READY",
+      "diary_id": "2eb6a94e-39b2-4502-8773-4c18ab6b7423",
+      "diary_date": "2026-09-02",
+      "occurred_on": null,
+      "source_order": 1,
+      "title": "小廖容易把建议或陈述当作指责",
+      "run_source_sha256": "b715d2013c5060be51c2e8abe0c95e6fd1eff482d541c65649eb60c749525703",
+      "points": [
+        {
+          "id": "ff4898ee-6f45-4e58-ac5d-8e8c583e2397",
+          "no": 1,
+          "summary": "觉得小廖容易把建议当作指责",
+          "detail": "我发现，小廖很容易把别人的建议当作指责，既出现在她和爸妈相处时，也出现在她和我的沟通中。\n\n比如，我之前给她发过一个给小狗用水冲脚的视频，她看了直接说：“咱也没给小狗用水冲脚丫子。”我跟她说，可以用 AI 搜一下，咱家的湿巾能不能长期给小狗擦脚。这个例子不算很典型，但我觉得确实也能反映一点。",
+          "embedding_sha256": "9357b12fca7bedaee03f67b87ec6d8149eb222580ad066a10a7343ae45a285f7"
+        },
+        {
+          "id": "6a0028c1-6524-488c-a88d-e676a214b786",
+          "no": 2,
+          "summary": "陈述涂药后晒太阳的不适，却被小廖的回应激怒",
+          "detail": "之前我让小廖给我涂药膏，出门被太阳一晒，感觉像火烤一样。回来后我说：“你做饭吧，我现在像被火烤着一样。”她回答：“你自己要涂的药膏。”\n\n我当时很无语，身体不舒服，情绪也控制不住，便说：“你说这话让我想骂你。我是在陈述事实，没有指责你给我涂药膏。”",
+          "embedding_sha256": "0040e7529f2a3adbd128d687d051f062383c3cae613e2497d71b2ca8f04e1950"
+        }
+      ]
+    },
+    "E003": {
+      "id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "run_status": "PUBLISHED",
+      "diary_id": "085c0f45-8d1d-48ae-a2d3-b54da087adae",
+      "diary_date": "2026-09-10",
+      "occurred_on": null,
+      "source_order": 0,
+      "title": "和小廖复盘争吵，讨论情绪过载与非暴力沟通",
+      "run_source_sha256": "36ea2e2660dd9d5a9fba793a199a07c7bf4fe8009ed32cf9ef0a9db7c6936406",
+      "points": [
+        {
+          "id": "fe3d0736-f9d5-4ed5-a2dd-e8f5442ae494",
+          "no": 1,
+          "summary": "开导小廖时因消费问题生气，转成新的争吵",
+          "detail": "前天应该是星期二，晚上我和小廖吵了一架。我的脚很脏，还放到了她的枕头上，加上后续的一些行为，让她不太高兴，进入了情绪内耗。我问她怎么了，她一直说不知道，我便试着开解她。\n\n沟通过程中，我想到她总买一大堆东西，买了又不用，放到过期才用，火一下就上来了。原本是在开导她，后来却为了新的事情吵了起来，这里面我也有错。",
+          "embedding_sha256": "b7200b31307451fba8c7928652f63b6e0b3bcf075ddc47ba155605e0b1cd42a5"
+        },
+        {
+          "id": "684469ca-3dd1-4677-b228-95fef5c10750",
+          "no": 2,
+          "summary": "复盘后想改用非暴力沟通，并推动小廖一起复盘",
+          "detail": "争吵后的第二天，我在记日记时复盘，觉得自己的沟通方式不对，应该用非暴力沟通交流。我和小廖都应该这样做；就算她没有用，我也应该引导她。\n\n昨天我让她学学非暴力沟通，再复盘那次争吵。那晚聊天时我录了音，她想用录音复盘，让我发给她，我就发了。不过她昨天只简单看了四步法，没有真正复盘。今天出门遛狗前，我又提醒她趁我遛狗时复盘。\n\n她后来问了 ChatGPT，让它分析那次对话，发了几张截图给我，我们又一起讨论这些分析。她说有些内容忘了，想对着电脑讲，我吐槽：“那你这复盘了个鬼。”她说自己记忆力不行，真的记不住。",
+          "embedding_sha256": "c2d32db229cccbce3beb5c9e0b97f9c057b03b48a1fa843d2faac8d9e2b2f79b"
+        },
+        {
+          "id": "1062a2ac-7c4d-4e62-9168-408d8e373791",
+          "no": 3,
+          "summary": "ChatGPT 将小廖的崩溃解释为负面刺激累积、情绪容量耗尽",
+          "detail": "ChatGPT 分析，小廖不只是因为我的脚脏、不洗澡而崩溃，而是很多负面的小刺激连续叠加，耗尽了情绪容量，她又把所有没完成的事串成一条失败链。它还认为，她接受不了失败，也接受不了事情做不好。\n\n我们回想争吵那天，一开始都不太记得她是不是很晚下班。提到 9 月 8 日和她那天给我买的虾，她才想起自己确实很晚才下班。ChatGPT 认为，她已经很累，一件事不合心意，就容易接着想到许多关联问题，开始自责、嫌弃、担忧。",
+          "embedding_sha256": "10c2009c0c0f101784a7181262ad0fad58cb77db915b7e3e1f60336b85bdc5c6"
+        },
+        {
+          "id": "4ff63613-f764-4be6-81ed-7b1352dd378c",
+          "no": 4,
+          "summary": "小廖从洗澡想到许多未完成事项，陷入难受与难以行动的循环",
+          "detail": "争吵那时，小廖已经两天没洗澡，觉得应该去洗，却又不想动；不洗澡就没法护肤，护肤品也就浪费了。我接着问她：“那你买这么多东西干什么？”她便越想越难受。\n\n按小廖转述的 AI 分析，这本来是十几分钟能解决的问题，却在她心里变成了“我怎么什么都处理不好”。这与她以前描述过的模式一致：一件事没做好，就自动搜索还有什么没做好，再想怎么把这一大堆事全部做好。结果像 CPU 爆了一样，觉得哪件事都干不好，也不知道先干哪件，反而拖延着，行动不起来。越难受越做不了事，越做不了又越难受，形成恶性循环。",
+          "embedding_sha256": "19b4b9183ea26b9b4d213ed0127aafdbe4b5d3b931ad369492818cc8329e2ee9"
+        },
+        {
+          "id": "34f2523e-c355-45d3-b1ba-c5fc056a0fbd",
+          "no": 5,
+          "summary": "把对小廖消费和囤东西的质问混进了眼前的开导",
+          "detail": "小廖纠结要不要洗澡、又想到许多没做好的事情时，我告诉她，现在想这些没用，最重要的是去做。ChatGPT 认为这句话是对的：眼下只需要解决“我现在很累，要不要洗澡”，决定洗就去洗，完成这件最小的事就够了。\n\n但我又质问她为什么买这么多护肤品，猫粮、狗粮也囤很多，万一最后生病吃不了怎么办。原本想帮她走出混乱，却又顺便审判起她平常消费、囤东西的问题。\n\n小廖说，她当时很伤心、情绪低落，这些话可能让她觉得，不仅今天没做好，平常很多事情也都做得不好。按她转述的 ChatGPT 分析，我提出的问题没有错，但时机不对。",
+          "embedding_sha256": "f6cabfa50f55d3b9b61f72612061b402e68c7beae304ec1d7a3736df021684ce"
+        },
+        {
+          "id": "643da992-b625-4902-9fab-8893f38f9497",
+          "no": 6,
+          "summary": "反思急于劝导小廖、被反驳后又生气的沟通循环",
+          "detail": "我发现自己劝导小廖时，常想着赶紧把问题解决，直接给建议，没有想着一点点开解她。这样可能让她觉得被批评，进入防御状态；我又会觉得“我明明在劝你，为什么还反驳我”，于是生气，情绪也被带崩，两个人一起陷进循环。\n\n那天好像稍微有一点这样，以前则更容易出现。不过我觉得自己今年已经比以前好了很多，还在不断发展、成长。这次沟通里仍有做得不对的地方。",
+          "embedding_sha256": "b632a2127d50c2de016913e5aafc065ebb142ac6317ac6b443d15b3f34ff2879"
+        },
+        {
+          "id": "d10718ce-b5b0-437e-9e84-7a9ff98f3773",
+          "no": 7,
+          "summary": "发现 ChatGPT 关于制止话题扩散的分析用到了我的补录自述",
+          "detail": "ChatGPT 的分析提到，我后来意识到情绪，缩小话题范围，避免继续争吵。我想起录音最后关于“我制止了她话题扩散”的内容，是小廖去洗澡以后，我自己接着录的。\n\n前面的录音则是在她已经一连说了很多事情后，我才开始录的。所以，关于我制止话题扩散的这部分分析，用到的也是我当时自己的说法。",
+          "embedding_sha256": "2b62bf102668044976a7a75211dbb1f8396cdedfbde5798d17ec3b73ed6c22d9"
+        },
+        {
+          "id": "7fe3d2c7-4259-4bac-8355-9b7f644db979",
+          "no": 8,
+          "summary": "AI 建议小廖先辨认难受的原因，找一件能让自己好一点的小事",
+          "detail": "AI 建议小廖，难受时先问自己两件事：现在到底难受的是什么？现在做哪件小事，会让自己好一点？\n\n小廖又问，如果不知道是什么事，就是觉得难受怎么办。AI 解释，让她开始特别难受的那件事，可能只是压死骆驼的最后一根稻草；背后是事情没有按她想的样子进行，而她当下又没有能力把它恢复正常。",
+          "embedding_sha256": "37bbf2db04b9f66853f3ba89a9d30ad1e5fee044a476d85d55c067703a967235"
+        },
+        {
+          "id": "cd455a9a-b339-4648-86fd-19f9023c186f",
+          "no": 9,
+          "summary": "和小廖练习用非暴力沟通表达感受、需要和具体请求",
+          "detail": "我们练习了非暴力沟通的四步。第一步是观察，只说发生了什么，不作评价，比如“你的脚刚刚碰到了我的枕头”“你刚刚又说了一句‘你怎么还不走’”。\n\n第二步是表达感受。即使还不知道原因，也可以说：“我现在特别难受，有点委屈、有点烦躁，也很累，但我不知道为什么。”第三步是说需要：可能更需要干净感、安全感，也需要对方先陪着，不要马上分析问题；眼前的需要就是希望我别把脚放在她的枕头上。\n\n最后提出具体、当下能执行的请求，例如：“你能不能先把脚碰到的枕套换了，然后陪我待一会儿？其他事情今晚先不要讨论。”也可以先说：“我现在很难受，但我不知道为什么。我不想现在分析，也不一定需要你解决。”再试着说明当下需要什么、希望对方怎么做。",
+          "embedding_sha256": "78941eb1fe3bad01a7ba568c5650cdaa3bb2dae7c8e5d2387343d6a322a43beb"
+        },
+        {
+          "id": "4f1edbd7-6b47-40e6-a625-659991580c98",
+          "no": 10,
+          "summary": "认为小廖请求买新拖鞋时没有说出自己的难受",
+          "detail": "讨论沟通方式时，我们拿买拖鞋的经历作例子。那天小廖说：“需要你重新买一双新的拖鞋，可以下单吗？”她接着问我有没有下单，我说还没有，手机没内存，明天统一处理。\n\n她提出用她的手机登录我的淘宝，我说：“我不想让你登我的号。”她问为什么，我便开玩笑说有秘密、有不能说的秘密。她说登录完可以当着我的面退出，但我还是不想让她登录。我其实也没什么隐私，就是不想让别人登自己的号。\n\n我觉得，自己在这个例子里没有让小廖满意，是因为她提出请求时没有说明自己的情绪，也就是我的脏拖鞋让她心里很难受。",
+          "embedding_sha256": "5fccc0f445f3dbdb1e6fe6befab833c2d3fbdac1fee0e0f5a985146224bfd97b"
+        },
+        {
+          "id": "d38d36d2-2d0f-4f56-b548-77a8e824dad1",
+          "no": 11,
+          "summary": "不想把非暴力沟通当作唯一办法，激动时可以先暂停谈话",
+          "detail": "我觉得不能只认定非暴力沟通就是解决办法。我们只是在逛书店时偶尔瞥见这本书，它不一定真能解决小廖的这个问题，也许有更合适的方法，于是我让她继续问 ChatGPT。\n\nChatGPT 提到，小廖会处于“高唤醒状态”，也就是很激动，身体和大脑都已进入警报模式。这时非暴力沟通未必适合立刻使用，可以先说“我现在已经不适合谈事情了”，把问题暂时存档。\n\n我举了自己之前暂缓讨论洗牙的例子：“我现在不想讨论洗牙的问题，咱们定到 9 月 1 号或者往后面再定。”",
+          "embedding_sha256": "e4a9d1f1ec3ce149fce1fcaabd1b9a2dc1616744864295ae1dc29036ba4c3a5f"
+        },
+        {
+          "id": "1f159a03-6346-44f2-b02d-9eeadcf06d19",
+          "no": 12,
+          "summary": "认为小廖需要先缓解激动，再进行非暴力沟通",
+          "detail": "我觉得小廖不应该只问沟通方法，还应该问，情绪激动时怎样先化解情绪。这次虽然是我触发了她的情绪，但和我交流只是化解方法之一。更前面的问题，是怎样先从激动回到理性，之后才能跟别人进行非暴力沟通。\n\n我们又问了 AI，也提到了深呼吸，看到的方法包括放松地坐着、深呼吸和转移注意力。",
+          "embedding_sha256": "bc774fe26f8917c2cab9edc5c5498c71f8108223b06c905d449283dfabca88aa"
+        },
+        {
+          "id": "1cee122f-2c76-4afe-a01d-67c1d4b3966e",
+          "no": 13,
+          "summary": "AI 从身体负荷、烦心事积累和过去经验解释高唤醒状态",
+          "detail": "后面看的 AI 分析把高唤醒状态比作应战模式：休息好、心情稳定时，应该没那么容易进入；很累、长期焦虑、饿了、身体不舒服，或者已经积累了很多烦心事，就更容易被最后一件事触发。\n\n分析还提到过去的经验也可能有影响，比如做不好就会被批评，事情失控就必须马上补救，别人不同意自己就意味着自己可能做错了，像是大脑的警报系统开得太高。这些是我们从 AI 分析中了解到的解释。",
+          "embedding_sha256": "03fb6f3b729a4edf76da91a27276f2857ddd3c7ec29b91bd2e0d0c0402630498"
+        },
+        {
+          "id": "e4eacfa9-da4b-41db-95fa-cca3e515dd9d",
+          "no": 14,
+          "summary": "AI 建议通过减轻负荷，让情绪更晚被触发",
+          "detail": "AI 给出的练习方向包括更晚触发、更早识别、更快恢复。其中，更晚触发是提高心理余量、减少底层负荷，而不是一味提高忍耐力。\n\n例如，每天观察自己的电量，用 0 到 10 分打分；低于一半时，先把事情停下来，不要求自己在低电量状态下还一定有成果。",
+          "embedding_sha256": "45c27afbe801cbc1890f16ff16c6d9f3f4158b2c7997249aaafa410a93906f57"
+        },
+        {
+          "id": "79bcba08-e80f-4cda-99ee-e07cc530944c",
+          "no": 15,
+          "summary": "AI 建议从反驳、反复解释和话题扩散中更早识别过载",
+          "detail": "AI 所说的更早识别，是寻找可观察的早期信号，比如脑子开始疯狂解释。当开始用“不是”“没有啊”这样的话反驳时，就要减速，反思自己为什么这样说。\n\n话题从“不洗澡”一路扩展到天气差、护肤品、家务、消费等许多问题，又伴着委屈、疲惫和反复想很多事情，也是在提醒自己已经过载，需要停下来。",
+          "embedding_sha256": "f8a72f6322eee7b3ef0b04468dbec487482b29c1fc33bc649993b24b6c47d163"
+        },
+        {
+          "id": "fc7d0e7d-97b3-4b63-9fba-7e9271802a6c",
+          "no": 16,
+          "summary": "AI 建议先让身体放松，帮助缓解激动",
+          "detail": "AI 所说的更快恢复，是先让自己没那么激动。它提到的方法包括先不说话，坐下，双脚踩地，放松肩膀，自然吸气、呼气，以及喝水、走动。",
+          "embedding_sha256": "18ad5298416709c3167df99b7a377e30ba5fdbb93069b9da93aadb8106367dd5"
+        },
+        {
+          "id": "a51f966e-8d67-4221-ae2a-b4015d5b84e6",
+          "no": 17,
+          "summary": "ChatGPT 建议用小小的不安练习耐受不完美",
+          "detail": "ChatGPT 建议每天故意制造一点小小的不安来练习耐受，例如桌上有个东西先不收，消息晚半小时再回，不重要的任务做到 80%，别人提出不同观点时先不急着纠正。即使很想修正，也可以先不动。\n\n我还开玩笑说，今天不要洗脚。",
+          "embedding_sha256": "6c16a0b4821e34934222ad67dd2df89f3b3a9e03f4ab0f0a30622afcaf4ef6d5"
+        },
+        {
+          "id": "93bf6aeb-ace9-4740-b7b6-fcd0095250b8",
+          "no": 18,
+          "summary": "了解延迟反驳和情绪后三分钟复盘的方法",
+          "detail": "我们讨论到的方法还包括延迟反驳，先听别人把话说完。等待时可以想想：这是必须马上纠正的事实错误，还是只是自己感觉被否定了？\n\n有了情绪以后，再用三分钟复盘：是什么触发了自己，最早的身体信号是什么，下次能在哪个节点提前停下来。不知道触发点，也可以写不知道。",
+          "embedding_sha256": "d9d48a74c4d056cef0c780c63cb667137fe2cfbd77a0961413b4db2fb0d9e753"
+        },
+        {
+          "id": "c982fa28-637c-42c1-9441-9771e2780cc9",
+          "no": 19,
+          "summary": "小廖觉得复盘有一点帮助，但仍容易难受",
+          "detail": "我问小廖复盘前后有什么区别。她说，之前就是难受，不知道为什么；复盘后能好一点，但还是容易难受，接下来先学习怎么降低高唤醒状态。\n\n最后问这次有没有实质作用，她先说“没有啊”，又说“有一点点吧”，提到要学习怎么认识到自己激动、怎么缓解，以及怎么降低激动的频率。",
+          "embedding_sha256": "0ad6cf27d4e5edb08d98ec93864a16f62b0cc55bc2c1df3fa59ad6fc57aa7a1c"
+        }
+      ]
+    },
+    "E004": {
+      "id": "43604780-0d57-4aec-93a0-c44f98918dd9",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "run_status": "POINTS_READY",
+      "diary_id": "ef0c6381-b0ab-4efd-8da1-9406a5ed498f",
+      "diary_date": "2026-09-11",
+      "occurred_on": null,
+      "source_order": 1,
+      "title": "和颂梅聊借助国外机构维权的事情",
+      "run_source_sha256": "03242afd8929c0c6c9d94b120620fff778e05402349b733ca48d75ff95ff8a91",
+      "points": [
+        {
+          "id": "607c7382-5840-40d3-9a56-0d041f84fb75",
+          "no": 1,
+          "summary": "与颂梅聊看到的供应商员工借奔驰施压维权的事",
+          "detail": "刚刚和颂梅聊最近看到的两件事。其中一家国内较大的汽车公司配件厂招了很多应届生，却让他们入职时主动离职，或转去不相关岗位。按我的理解，在国内即使找劳动局申请仲裁，也可能没人理。后来员工向德国奔驰反映，因为这家厂是其供应商。奔驰回复会慎重考虑与不尊重劳动法的公司合作，厂商一下服软，开始给赔偿金。",
+          "embedding_sha256": "bd6dabb7659aa7aeeef65f699ec20ca6c855a2e19ae767529ac42a20bad85cc6"
+        },
+        {
+          "id": "c4492d20-bfc5-467b-9af5-cae2fa0b6fe5",
+          "no": 2,
+          "summary": "与颂梅聊网友向马来西亚大学反映女子打骂男童的事",
+          "detail": "另一件看到的事，是一个四岁男童不小心碰到女子屁股，对方又打又骂又抓，还要求父母道歉、发视频和文章道歉。我觉得她在博流量，甚至当作自己很牛逼的事发上网，招来一系列谴责。她本想去马来西亚一所大学读书，但学校仍在考虑、尚未正式录取。网友向学校发邮件，学校回复会着重考虑这件事。",
+          "embedding_sha256": "6fe246c380c4be168760ffdf14d84d2a29f94c162832c734f0603c90e0530e3b"
+        },
+        {
+          "id": "1c4309ad-fdfe-456b-bc25-d52926028083",
+          "no": 3,
+          "summary": "对借外国力量保护自己的现象感到可悲",
+          "detail": "从刚才与颂梅聊的两件事，我觉得大家发现国内法律保护不了自己，便尝试借外国人的力量保护自己，挺可悲。我想国家应该也想打击这种事情，因为既给别人留把柄、社会影响也不好，让人觉得自己的事管不了，还要外人插手。中国一直说是内部事务、不需别国参与，现在却出现这种情况。",
+          "embedding_sha256": "ed43ea17db4a913edc2903af94b2c79b96cc1ab9dbdcfd86bf659b02a70284f7"
+        }
+      ]
+    },
+    "E005": {
+      "id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "run_status": "POINTS_READY",
+      "diary_id": "d8b04229-2f04-4665-b066-77be7e6c48b7",
+      "diary_date": "2026-09-12",
+      "occurred_on": null,
+      "source_order": 4,
+      "title": "提醒小廖盘点存款和欠款",
+      "run_source_sha256": "edd94d7301697e5e32ea545bc623a173cc81289666452884319d40a1da0d9774",
+      "points": [
+        {
+          "id": "90686eb9-4d23-4a78-849b-7c322f85e842",
+          "no": 1,
+          "summary": "提醒小廖还清欠款后盘点结余、规划生活",
+          "detail": "前段时间看债务视频，大意是普通人在经济下行时尽量别有债务、别借钱欠钱，我便想到小廖。她最近花钱猛，买投影仪、给舅舅二女儿买笔记本，又置办不少东西。我让她看看存款，欠款还清后是否还有余钱，再按剩下的钱规划生活。\n\n我也想到她快没工作，但没说出口，主要想让她心里有数，别大手大脚。她查后说还有些结余，我说那就行，自己留意、悠着花。有没有听进去不知道，反正这样吧。",
+          "embedding_sha256": "aa3333b8f02be1eb54be88f30b36fb54e065bea60516035e596035a7d01b53ec"
+        }
+      ]
+    },
+    "E006": {
+      "id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+      "run_status": "POINTS_READY",
+      "diary_id": "f2631949-29e7-4ace-80dc-dbe863901246",
+      "diary_date": "2026-09-13",
+      "occurred_on": null,
+      "source_order": 0,
+      "title": "小廖容易进入防御姿态",
+      "run_source_sha256": "c975ee0f8608e0ea342eaefa1f4e218d576eda00f4610191eecdec353cf30bad",
+      "points": [
+        {
+          "id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "no": 1,
+          "summary": "觉得小廖容易把提醒当作指责，进入防御姿态",
+          "detail": "我觉得小廖容易进入防御姿态。她说“我没压线呀”，就是下意识把别人的话当作指责，而不是提醒。\n\n她爸容易触发她的敏感反应。我认为，这与她从小的成长环境有关，也是她容易进入防御姿态的原因。",
+          "embedding_sha256": "8d1dab350bc8fc20d2cf27658ec27dd4bd8e4348728649dba71c8006121ad47c"
+        }
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "pair_id": "P-a125299cca4365d5",
+      "event_a": "E004",
+      "event_b": "E006"
+    },
+    {
+      "pair_id": "P-951ffe64c57a375e",
+      "event_a": "E002",
+      "event_b": "E006"
+    },
+    {
+      "pair_id": "P-73cd63ee392951ac",
+      "event_a": "E001",
+      "event_b": "E006"
+    },
+    {
+      "pair_id": "P-3696f5e1b3d8187e",
+      "event_a": "E006",
+      "event_b": "E005"
+    },
+    {
+      "pair_id": "P-0acce1b665fcffb4",
+      "event_a": "E006",
+      "event_b": "E003"
+    }
+  ],
+  "recall": [
+    {
+      "current_event_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+      "hits": [
+        {
+          "event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.628323032300694,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "643da992-b625-4902-9fab-8893f38f9497"
+        },
+        {
+          "event_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+          "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+          "score": 0.5294519323682695,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "ff4898ee-6f45-4e58-ac5d-8e8c583e2397"
+        },
+        {
+          "event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+          "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+          "score": 0.47709072153781323,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "537e96b6-4817-4dcc-b519-0572ad7d2ca0"
+        },
+        {
+          "event_id": "43604780-0d57-4aec-93a0-c44f98918dd9",
+          "run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+          "score": 0.42314945920874814,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "c4492d20-bfc5-467b-9af5-cae2fa0b6fe5"
+        },
+        {
+          "event_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+          "run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+          "score": 0.40504788760898114,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "90686eb9-4d23-4a78-849b-7c322f85e842"
+        },
+        {
+          "event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+          "run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+          "score": 0.3990936101008598,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "d40947dc-8133-441d-b421-911f53872792"
+        },
+        {
+          "event_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+          "run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+          "score": 0.39095336528279,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "e454515e-97d7-445b-9194-1f8084adedcd"
+        },
+        {
+          "event_id": "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+          "run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+          "score": 0.3854358816883037,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "0e1ec494-c98b-442f-8557-908e57fee7c7"
+        },
+        {
+          "event_id": "00f249de-d76f-40a0-80ad-0410a0d00e2a",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.3839050230640402,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "f0d02ac2-f54d-40cd-a11c-39313b13aef6"
+        },
+        {
+          "event_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+          "run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+          "score": 0.3786665121164841,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "6156cf39-696e-4805-92ab-564f323c1bee"
+        },
+        {
+          "event_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+          "run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+          "score": 0.37794194846845913,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "25b42551-a5d6-4445-b69e-b924241c71a1"
+        },
+        {
+          "event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+          "run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+          "score": 0.37078882401917496,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "88e09d6f-0737-4d20-a2a7-24b4f4e8d9c8"
+        },
+        {
+          "event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+          "run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+          "score": 0.3623953322316093,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "0b7b8237-cb6f-4b04-a131-55f233656dce"
+        },
+        {
+          "event_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+          "run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+          "score": 0.33978549956141707,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "fd59a915-492d-4e40-a0a6-ab65e83754ff"
+        },
+        {
+          "event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+          "run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+          "score": 0.3374454451570042,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "a1564a64-8656-460a-b205-97889df1a7ea"
+        },
+        {
+          "event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+          "run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+          "score": 0.3324114906600154,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "70677e75-d40a-4823-9d31-273f4b8d3fb1"
+        },
+        {
+          "event_id": "bbadb977-54af-43f3-9684-6f8e12570d57",
+          "run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+          "score": 0.33147738711559493,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "22f2f76d-3e3a-4051-8aed-5353a27a26e3"
+        },
+        {
+          "event_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+          "run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+          "score": 0.3290937462441073,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "add9fd9d-6afd-4152-a0e7-4eeb6a870374"
+        },
+        {
+          "event_id": "60253ec4-e484-41ec-993f-356ab5c3cfd8",
+          "run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+          "score": 0.32745756908326046,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "4e40f622-5e25-4520-a415-7dbff6bc3c53"
+        },
+        {
+          "event_id": "95ec9c7b-ae87-41c1-8723-19f992379da6",
+          "run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+          "score": 0.3194288269445372,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "8b470ae8-4ce1-4fce-8867-4dea7e5deca0"
+        },
+        {
+          "event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+          "run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+          "score": 0.318043236021049,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "aa3faf3a-13fc-4d2d-b537-c8cdef88edbb"
+        },
+        {
+          "event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+          "run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+          "score": 0.3172411088925348,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "d8805646-c3cf-57f8-9e0a-ea85c42db952"
+        },
+        {
+          "event_id": "be91b8cd-9f00-49f9-a413-964d816ea815",
+          "run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+          "score": 0.3123914838945175,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "8bdc5546-a3fd-58c4-bf08-b8d2fba9e79b"
+        },
+        {
+          "event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+          "run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+          "score": 0.3100559036527844,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "6e2f810e-d6e1-55f0-bfce-19512fc5540f"
+        },
+        {
+          "event_id": "cdd8c172-499d-4044-ba56-b81d013a936d",
+          "run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+          "score": 0.3090050584584515,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "cf534018-caad-5b12-adc0-9571ea095c60"
+        },
+        {
+          "event_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+          "run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+          "score": 0.3068604120504312,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "b35bf249-84c8-4d7c-8c19-c0a2ebff0183"
+        },
+        {
+          "event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.3013883560077405,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "c1e3f57f-28fc-43a1-9c75-7d795c3431fa"
+        },
+        {
+          "event_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+          "run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+          "score": 0.29956141187280616,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "e8671d7a-570b-478b-9041-e5c23a48ed82"
+        },
+        {
+          "event_id": "6b745863-5538-408d-baed-f6c86379916f",
+          "run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+          "score": 0.296416687837495,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "cd05ecea-25ff-4495-b190-ad1ffabe8ff6"
+        },
+        {
+          "event_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+          "run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+          "score": 0.2957916050647469,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "242a675a-c4fd-4022-a2cc-9cf193d4f16e"
+        },
+        {
+          "event_id": "de174c23-aa0c-4464-8705-b7809ee53072",
+          "run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+          "score": 0.2951186669599844,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "b1b57b7b-ba98-5fbc-97b3-c4092345c7e5"
+        },
+        {
+          "event_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+          "run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+          "score": 0.29021189780877277,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "bf6720f3-80ea-4558-9c23-6c2950b6bd81"
+        },
+        {
+          "event_id": "733bd13d-8a17-4eb4-b949-071d4c3c808f",
+          "run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+          "score": 0.28868125531889216,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "54b0d157-7c8a-4c84-a0d9-3fe91e9c5ae5"
+        },
+        {
+          "event_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+          "run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+          "score": 0.2839177405157333,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "f6665a03-6dfa-587e-9810-d185ac34dd01"
+        },
+        {
+          "event_id": "572a7733-0f29-4730-9963-44397d2fa4a1",
+          "run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+          "score": 0.2803944775562763,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "4576f2d4-2449-4753-86e2-8258d1387e62"
+        },
+        {
+          "event_id": "18b7236f-d927-4581-a087-a814a6bc63b7",
+          "run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+          "score": 0.2746777944125405,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "0d1a2446-5c0a-4c6c-b4d0-05865b37a7eb"
+        },
+        {
+          "event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.2707432007128762,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "e3e5ec4a-db71-4e4e-ac3b-531acd64346a"
+        },
+        {
+          "event_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+          "run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+          "score": 0.2547688163097208,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "e4ae24df-0e25-5bed-aacd-be005320f6d6"
+        },
+        {
+          "event_id": "28fc02fd-cda6-4455-b02f-e4d83bb061fa",
+          "run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+          "score": 0.23452649816622018,
+          "current_point_id": "bbe2789c-e072-4175-8057-382d7007cba1",
+          "historic_point_id": "b2ec044f-0280-44f3-9eb7-413ed9d660a3"
+        }
+      ],
+      "selected_event_ids": [
+        "99392f74-a819-4f3e-bcbe-b43e5199285a",
+        "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+        "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+        "43604780-0d57-4aec-93a0-c44f98918dd9",
+        "689118c5-c385-4cd9-ac07-fcde9ef0ec6e"
+      ]
+    }
+  ],
+  "completed_dependencies": [
+    {
+      "run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-01/7b2b2be1-38eb-42d8-9a20-320f64755e89/20261023T102502-44df01a6",
+      "package_sha256": "08f05ab741400ede4dda7fe1416edc97da4cf81d0b5831a6426a5a0121567f31",
+      "results_sha256": "89a7de779ac31001d8e5741f8789debfb7e5630e1214bc92be35af1934c214ea"
+    },
+    {
+      "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-02/2eb6a94e-39b2-4502-8773-4c18ab6b7423/20261023T102524-dc9d0030",
+      "package_sha256": "718b9b10ee2694ea8bcfb0726f609ad2d35645220f7e1a937ecfe99964a9bffb",
+      "results_sha256": "21ade59f8d20f5b33068e0787ee2d120fbd208426b3020da0b2abbba2958af22"
+    },
+    {
+      "run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-03/16ef80a9-a28b-43e5-b820-ff29cdccf58a/20261023T102536-440da698",
+      "package_sha256": "59418bb66407af3da3b515152ee3ca1ebb091f627a6e35c7c45e3d9f62ac0be5",
+      "results_sha256": "79b005398d36b550b249f1e2c8c62ca48af9d83861493fc3e85a70af312ee7bc"
+    },
+    {
+      "run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-09/828580fd-50a7-4a15-9d80-7acfe7ec987e/20261023T102643-508fa3ab",
+      "package_sha256": "a241b62513238f5e6e4de8e2ab78878c62028b800688447dc13c70c4d0cd90df",
+      "results_sha256": "5aca6d4c06da59c971f59cf65c4ae6112ca406200d1208a75246f23cdeedee7f"
+    },
+    {
+      "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-10/085c0f45-8d1d-48ae-a2d3-b54da087adae/20261023T102816-b0b02c73",
+      "package_sha256": "5f9c6047d587f4c6e48355216ecdfc264b9562da87a946dea49adb2b4c1e5304",
+      "results_sha256": "6787c6218ac076cd720785ff6e4aaa0d7d1007995be0715d94b9852c6c1bea87"
+    },
+    {
+      "run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-11/ef0c6381-b0ab-4efd-8da1-9406a5ed498f/20261023T103012-d51ea0f4",
+      "package_sha256": "1210ca66186a2f96708d506d5d0b792e1c652f541808a5c7a5fdb4c251338405",
+      "results_sha256": "76595b9c50ff7bb1974feb8b49f1015d7b3433453a28a62cc520e84b173cd389"
+    },
+    {
+      "run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-12/d8b04229-2f04-4665-b066-77be7e6c48b7/20261023T103122-3a64b692",
+      "package_sha256": "2c1affd5e56516ab03b5278fcc0fbfeaab0c093d6c69c889c9f71ba69f21d8d4",
+      "results_sha256": "3975860c975a473c3f1f5fd739ae48b9d434e16bd8771f498b1f7cf1ca2adc02"
+    }
+  ],
+  "skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+  "package_sha256": "c63d81af5226a4ab53bca9b0e9674d28df04a7826c2b680c11f30940497eab73"
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-22T04:11:02.023599+00:00",
+  "origin": "database",
+  "diary_id": "e2c710d1-7fea-49ef-83a7-f738a32859d9",
+  "diary_date": "2026-09-14",
+  "source_sha256": "e8526337322f9884142cdf0a2a14c3ffdcd296700da66c8b161ed164abfecc9d",
+  "event_ids": [
+    "2400213a-5465-4b1d-9b11-7290d5161266",
+    "13cbd0fe-aaf1-4752-af73-6400fe0bb8cd",
+    "0a580700-09e0-428c-bbe0-24da0155d251",
+    "bf06326d-92cf-4238-9a88-da0d645092cb",
+    "cd04de84-8355-4498-8df8-47d0dc91386a",
+    "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+    "600b3ddc-e835-40dd-b417-b05b85aedcac",
+    "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04"
+  ],
+  "event_count": 8,
+  "source_files_sha256": {
+    "source.json": "fe7a2892f5934ee4a0e49bdd751f9480d24455c70b03db5e6c684d02069fe73d",
+    "source.md": "3cc7b4dacd0c63b0cf12531113d409dd6886f285ae4b8d40cd1d4d1fa88965f7"
+  },
+  "skill_files_sha256": {
+    "SKILL.md": "efd51927056292e3bff8393ac6a0253029e298c4180f80a88efa1992d59fc831",
+    "references/examples.md": "73a5903a5fb4a8433f5af2935598dd951a38b2af0ff42288ebef350bdbaffff4",
+    "settings.json": "eb7cda825c6e8a813a3a1f8c4579b362f71d2f2826ff8ef4b758a567758059cb"
+  }
+}

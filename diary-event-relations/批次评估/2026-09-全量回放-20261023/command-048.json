@@ -1,0 +1,14 @@
+{
+  "args": [
+    "record",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-10/085c0f45-8d1d-48ae-a2d3-b54da087adae/20261023T102816-b0b02c73",
+    "--input",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-全量回放-20261023/2026-09-10-decisions.json"
+  ],
+  "started_at": "2026-10-23T10:30:10.806702+08:00",
+  "ended_at": "2026-10-23T10:30:10.885928+08:00",
+  "seconds": 0.07935370900668204,
+  "exit_code": 0,
+  "stdout": "{\n  \"package_sha256\": \"5f9c6047d587f4c6e48355216ecdfc264b9562da87a946dea49adb2b4c1e5304\",\n  \"history_mode\": \"replay\",\n  \"total_pairs\": 26,\n  \"completed_pairs\": 26,\n  \"complete\": true,\n  \"counts\": {\n    \"NO_RELATION\": 21,\n    \"RELATED\": 5\n  },\n  \"pending_pair_ids\": [],\n  \"pending_batches\": [],\n  \"stored_in_database\": false\n}\n",
+  "stderr": ""
+}

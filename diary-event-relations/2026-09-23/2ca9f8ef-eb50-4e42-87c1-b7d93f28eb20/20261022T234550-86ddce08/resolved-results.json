@@ -1,0 +1,327 @@
+{
+  "package_sha256": "725a14d23a5e21fe7fcc03d98832d76283072a8b95eacd3fadf5609ad96a06ad",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "725a14d23a5e21fe7fcc03d98832d76283072a8b95eacd3fadf5609ad96a06ad",
+    "verified_at": "2026-10-22T15:46:40.542117+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-09f5ccf4491d21c4",
+      "event_a_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "居家学习心理学安排与母亲医疗争执无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1ac4d38f2a048f3a",
+      "event_a_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "复盘脚碰枕头争吵与母亲就医沟通分别对应不同经历，先共情等原则相近不构成具体引用或后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-22081b86a14333df",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "一个是昨晚处理伴侣离职压力，一个是今天学习多邻国机制，未表达后者针对前者形成新行动，也未引用那段对话。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-234acc80fa0bc6ef",
+      "event_a_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "伴侣把建议当指责与多邻国机制观察没有具体事件引用或后续关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2508aa95efb1d9c2",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "同事居家空闲学习与伴侣离职压力是不同主体、不同具体事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-299edd5b06fb3415",
+      "event_a_id": "00f249de-d76f-40a0-80ad-0410a0d00e2a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "均谈组织与机制，但多邻国带来的激励和执行监管反思未引用苹果发布会或此前协同讨论，不能把主题延伸当具体后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2fb7eba9acbb0145",
+      "event_a_id": "00f249de-d76f-40a0-80ad-0410a0d00e2a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "企业创新文化讨论与伴侣离职压力沟通是不同事项，双方未表达相互触发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3a5ac1e0167095a5",
+      "event_a_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "母亲看病时共情的例子没有指向此前擦脚视频、涂药争执。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4a3dd92b41add702",
+      "event_a_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "让父母自己询问 AI 与采用豆包式共情回应是不同措施，后者未表达对前一设想的执行、调整或具体引用；不能仅凭同对象同目标建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5700b8c418b8256b",
+      "event_a_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "多邻国激励机制与脚碰枕头争吵后的非暴力沟通复盘不是同一具体事项，未相互引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-595a4af692b79482",
+      "event_a_id": "00f249de-d76f-40a0-80ad-0410a0d00e2a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "观看发布会与母亲生育、医疗争执没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5bec79620f794546",
+      "event_a_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "伴侣的两次争执与母亲生育医疗对话是不同经历，沟通受挫相似不足以建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-61503a7f9f1b5d90",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "分别复盘母亲看病和伴侣离职压力，均强调先共情，但没有表达其中一件触发另一件；不靠第三个母亲通话事件补因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-83c5dcb98f5c9fb9",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "9 月 23 日反思没用非暴力沟通，但未回忆脚碰枕头争吵、引用那次复盘或明确报告对那次练习的后续；共用方法不足以建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8b04d902de2697fc",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+      "event_b_run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+      "status": "NO_RELATION",
+      "reason": "离职话题与“我没压线呀”的防御反应是不同经历，未指向同一事件或具体后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-95e679a6723439a6",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_b_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "status": "NO_RELATION",
+      "reason": "离职压力下的强硬劝告与早前擦脚视频、涂药争执不同；不能凭都涉及伴侣沟通建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9cf14c89a0784d50",
+      "event_a_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "应用学习机制与总结对母亲的共情引导分别发生，无具体联系证据。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a4297187d6063240",
+      "event_a_id": "00f249de-d76f-40a0-80ad-0410a0d00e2a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "产品协同与母亲看病沟通是不同事件，没有引用或因果表达。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a710d42478ecb8ac",
+      "event_a_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "RELATED",
+      "reason": "同篇双方均定位昨天与母亲因生育发生的争吵，今天进一步总结回应方式，是对该沟通经历的进一步反思。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "昨天与母亲因生育话题争吵并继续带着情绪聊天后，今天进一步总结先共情、再逐步引导的“豆包式回应”。",
+        "source_event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+        "source_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天与妈妈聊生育后已经生气，本想挂，她想聊别的，我态度便不好。",
+            "point_id": "022067ea-49ee-427a-8a5f-868316a58276",
+            "point_event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "25ae083631ce657c6647b1c9dd42bf289f9f8d740c2458ec2488d65b2adf2577"
+          }
+        ],
+        "target_event_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+        "target_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天与妈妈因生育吵架，反思过可以先顺着说。今天进一步总结“豆包式回应”：先共情，再慢慢引导对方意识到问题原因，不一上来讲大道理。",
+            "point_id": "8c8eb5aa-d5a5-4cc9-b517-68c102f1c18a",
+            "point_event_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "6c988c242df49267d005267a01e474c1ad0c4b3376e55fccdd5b2cc886595e54"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-abc6add8efa7ab79",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "RELATED",
+      "reason": "双方均明确母亲电话影响情绪，情绪又带入回家后的伴侣沟通，具备具体触发及对应结果。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "与母亲通话后的不良情绪延续到回家后的交流，使我没能先共情引导小廖，而是强硬要求她月底离职。",
+        "source_event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+        "source_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我知道昨天对妈妈的沟通不对，主要是前面的事已影响情绪。那时就不该继续，应尽快结束、深呼吸等让自己快些稳定，免得回家再把情绪带到与颂梅的沟通，没能好好说。",
+            "point_id": "f59dec28-2313-40ff-8cf9-d2ccff46a3a2",
+            "point_event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "6eddf1fec1caa39847e6c5eb5c20097260d7fdd52b9f1f9fa4d93f4b3c0ed1e6"
+          }
+        ],
+        "target_event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+        "target_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨晚回家前被妈妈电话弄得不开心。",
+            "point_id": "91fc4be4-9df1-45ec-81ee-11e958a6ac15",
+            "point_event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ab194777eb26c9937539870f122cba010deabad2d207eefe0ec56b70273fc4a0"
+          },
+          {
+            "point_no": 2,
+            "quote": "因自己当时情绪差，我没共情、没引导，直接说：“你都提了离职，为什么还要接着干？你都提了一个月了，你直接跟领导说我这个月底要走。”",
+            "point_id": "cead1a27-09dd-4ba6-aa97-e4e78b1a92a6",
+            "point_event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5d328cec5b3757a8b404b73255ac1840c48353684c0c60b578be2948a38ca72a"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-ca93fdf744a2bb1a",
+      "event_a_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+      "event_a_run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "压线提醒引起的防御与母亲换医生问题没有具体事件联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fdac9f3e4b5d32e9",
+      "event_a_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "多邻国反馈机制与母亲医疗争执没有具体触发、引用或后续安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ff6c812e0f3605ed",
+      "event_a_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "母亲通话反思虽提到深呼吸等方法，但未定位回忆脚碰枕头争吵或当时练习，不能由方法相似补出后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ff83de6a29712253",
+      "event_a_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "都涉及母亲催生及就医观念，但前者是请父母问 AI 的设想，后者没有执行或回顾该设想；父亲腰痛与母亲不愿花钱治病也非同一次事件。",
+      "relation": null
+    }
+  ]
+}

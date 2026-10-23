@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "package_sha256": "a39fc8c7f5b08f1c9dd775f6e7ff4304394d2f7a43e92bafbb7821ea08e6c908",
+  "created_at": "2026-10-23T02:40:10.282053+00:00",
+  "batches": [
+    {
+      "batch_id": "B001",
+      "pair_ids": [
+        "P-38edba245c9c8267",
+        "P-6633575d6ad4cc88",
+        "P-5cd5886667aca532",
+        "P-e4be382a070cdb66"
+      ]
+    },
+    {
+      "batch_id": "B002",
+      "pair_ids": [
+        "P-69c083c1b08c0722",
+        "P-aa2b452970f7b555"
+      ]
+    },
+    {
+      "batch_id": "B003",
+      "pair_ids": [
+        "P-fc6a627aca8521dc",
+        "P-2e8f1e81941a35fe",
+        "P-170329445e832f8e"
+      ]
+    },
+    {
+      "batch_id": "B004",
+      "pair_ids": [
+        "P-dd345b2b9cd5122e",
+        "P-5a3dfc6161ad28b6",
+        "P-60dea8c9702bbe7c",
+        "P-c48e0618ce0e2a3f",
+        "P-cea5485b06127067",
+        "P-9a5259ad48fbe9f8",
+        "P-67cb1b35c3c6c3ce",
+        "P-86b7ef8b807c9061",
+        "P-636dae51e3cbd757",
+        "P-d783afc5512db24e"
+      ]
+    },
+    {
+      "batch_id": "B005",
+      "pair_ids": [
+        "P-b3f9c3d2100ce9dc",
+        "P-8602d7ff75a621e1",
+        "P-67dca4a8fabe77f3",
+        "P-487113e6a5c06e37",
+        "P-62cbd1eb6b16f6c3"
+      ]
+    },
+    {
+      "batch_id": "B006",
+      "pair_ids": [
+        "P-3c385ad2488ac53b",
+        "P-8c1a65e328ce3577"
+      ]
+    }
+  ],
+  "files": {
+    "B002.json": "188a1473fc6ce607dcc33dc10dbe447e933c740be3595bc203191a4d469873ed",
+    "B003.json": "5c5de0eefbcc60a23e820235f9adc836cb351935b1259a5242bff49c9bf4b278",
+    "source.json": "f414c1453198d5e28279eb29ccd543a87d5d5f5352a8b5e32e1ef2adc7d21683",
+    "B004.json": "b499bb1bbb0d6916ca05baf16bb08c6d4349b5c34500bea601c1f4e934274d50",
+    "B005.json": "96c91414eb01f01e32f97f11ba8f49b46aff11842093361906adb1219273533c",
+    "B006.json": "818b84646a2fc5dea632ae348c376a2395b7538aeb9d7d08259e51d37067089f",
+    "B001.json": "b87d56d301e53e3f11da3eccd22a4d669459bc6575fb9f232bcd1ba38da8be79"
+  }
+}

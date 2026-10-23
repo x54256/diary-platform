@@ -1,0 +1,23 @@
+{
+  "package_sha256": "bfb16ce0c9fe7a272d4faf753e04afc3f0447e40107102ae1c720c8d822e28fe",
+  "results": [
+    {
+      "pair_id": "P-ca4f54f91b2952cd",
+      "status": "NO_RELATION",
+      "reason": "预约修车与收到家乡老屋拆除消息是独立事项，双方未表达具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5be9a605029d0ca5",
+      "status": "NO_RELATION",
+      "reason": "修车预约与去年退租押金纠纷没有同一事项、引用或触发关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e88207b28f34de85",
+      "status": "NO_RELATION",
+      "reason": "家乡老屋拆除通知与去年租住房屋押金纠纷虽涉及房屋，但缺乏同一具体事项或明确引用、触发表达。",
+      "relation": null
+    }
+  ]
+}

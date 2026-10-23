@@ -1,0 +1,12 @@
+{
+  "args": [
+    "status",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-29/33e02ff9-a75d-4933-8fb0-ff8ba2c954fc/20261023T104941-51cb3d17"
+  ],
+  "started_at": "2026-10-23T10:49:41.690325+08:00",
+  "ended_at": "2026-10-23T10:49:41.872977+08:00",
+  "seconds": 0.182678000011947,
+  "exit_code": 0,
+  "stdout": "{\n  \"package_sha256\": \"3fb7fe838904b4df5fe15deb7e4e5e1dba0978f207e50113bf8efe527c6fc006\",\n  \"history_mode\": \"replay\",\n  \"total_pairs\": 44,\n  \"completed_pairs\": 0,\n  \"complete\": false,\n  \"counts\": {},\n  \"pending_pair_ids\": [\n    \"P-af95f2de82d0dfb9\",\n    \"P-bd49a6af7a1dfd49\",\n    \"P-669346c3bafbcdd3\",\n    \"P-a623a606f3a8a551\",\n    \"P-daeb5f9d563e9ddd\",\n    \"P-d0b690259717cb84\",\n    \"P-106d0437b948f0ce\",\n    \"P-05d9829f1167150f\",\n    \"P-10be9ae11cba7f74\",\n    \"P-e84f710810de43fb\",\n    \"P-6a849c3cb797c97c\",\n    \"P-3e4ff02b755d2f01\",\n    \"P-acf09f3384ba6522\",\n    \"P-bb5aeb13f8a25049\",\n    \"P-21ddc0f199b785d7\",\n    \"P-7dc63fb1d7a1117b\",\n    \"P-ea3121bd94bad0aa\",\n    \"P-3839b271592a51b1\",\n    \"P-01fac86ec1c6b18c\",\n    \"P-66dbf254729570fd\",\n    \"P-c0087a353ef3fe75\",\n    \"P-8e068b2e1db5bb11\",\n    \"P-02ba29bc6f88ce60\",\n    \"P-e169bcc01cbbd7fd\",\n    \"P-328f0a3366172863\",\n    \"P-ef09713bce07c2ce\",\n    \"P-c487e9628efef492\",\n    \"P-5eb285c04adf4048\",\n    \"P-ec1ec4970904eb71\",\n    \"P-1127a3664e76f61a\",\n    \"P-32a1ea9d8a57f890\",\n    \"P-fe596b3ee07ca531\",\n    \"P-220dd3d2eb59af9f\",\n    \"P-ee6f9aa6ab3c69ef\",\n    \"P-6cfdab07e298f7d6\",\n    \"P-1cda1d467531b349\",\n    \"P-7247ed2c5d7e3fea\",\n    \"P-fa3f23c1bc16f86e\",\n    \"P-eb5af4bf93dd074f\",\n    \"P-ae3a9ad5359429a6\",\n    \"P-b060100195e0e5dd\",\n    \"P-116f24826b2d211e\",\n    \"P-e9b43641ed0d9d39\",\n    \"P-d60844e93fc6b119\"\n  ],\n  \"pending_batches\": [\n    \"B001\",\n    \"B002\",\n    \"B003\",\n    \"B004\"\n  ],\n  \"stored_in_database\": false\n}\n",
+  "stderr": ""
+}

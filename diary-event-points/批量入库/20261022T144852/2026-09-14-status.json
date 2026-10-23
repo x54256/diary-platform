@@ -1,0 +1,14 @@
+{
+  "task_id": "0ac954d9-e50b-45f6-98de-4abb5c0496a4",
+  "run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+  "task_status": "SUCCEEDED",
+  "run_status": "POINTS_READY",
+  "current_step": null,
+  "error_code": null,
+  "events": 4,
+  "candidate_points": 10,
+  "vectors": 10,
+  "reused_vectors": 0,
+  "stored_points": 10,
+  "stored": true
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "package_sha256": "f3bbc1429ec73d316afc914322670b47af9f4ce2fbcc12e8c9c35221c427796a",
+  "created_at": "2026-10-23T02:55:35.165333+00:00",
+  "batches": [
+    {
+      "batch_id": "B001",
+      "pair_ids": [
+        "P-af95f2de82d0dfb9",
+        "P-bd49a6af7a1dfd49",
+        "P-669346c3bafbcdd3",
+        "P-a623a606f3a8a551",
+        "P-daeb5f9d563e9ddd",
+        "P-d0b690259717cb84",
+        "P-106d0437b948f0ce",
+        "P-05d9829f1167150f",
+        "P-10be9ae11cba7f74",
+        "P-e84f710810de43fb",
+        "P-6a849c3cb797c97c",
+        "P-3e4ff02b755d2f01"
+      ]
+    },
+    {
+      "batch_id": "B002",
+      "pair_ids": [
+        "P-acf09f3384ba6522",
+        "P-bb5aeb13f8a25049",
+        "P-21ddc0f199b785d7",
+        "P-7dc63fb1d7a1117b",
+        "P-ea3121bd94bad0aa",
+        "P-3839b271592a51b1",
+        "P-01fac86ec1c6b18c",
+        "P-66dbf254729570fd",
+        "P-c0087a353ef3fe75",
+        "P-8e068b2e1db5bb11",
+        "P-02ba29bc6f88ce60",
+        "P-e169bcc01cbbd7fd"
+      ]
+    },
+    {
+      "batch_id": "B003",
+      "pair_ids": [
+        "P-328f0a3366172863",
+        "P-ef09713bce07c2ce",
+        "P-c487e9628efef492",
+        "P-5eb285c04adf4048",
+        "P-ec1ec4970904eb71",
+        "P-1127a3664e76f61a",
+        "P-32a1ea9d8a57f890",
+        "P-fe596b3ee07ca531",
+        "P-220dd3d2eb59af9f",
+        "P-ee6f9aa6ab3c69ef",
+        "P-6cfdab07e298f7d6",
+        "P-1cda1d467531b349"
+      ]
+    },
+    {
+      "batch_id": "B004",
+      "pair_ids": [
+        "P-7247ed2c5d7e3fea",
+        "P-fa3f23c1bc16f86e",
+        "P-eb5af4bf93dd074f",
+        "P-ae3a9ad5359429a6",
+        "P-b060100195e0e5dd",
+        "P-116f24826b2d211e",
+        "P-e9b43641ed0d9d39",
+        "P-d60844e93fc6b119"
+      ]
+    }
+  ],
+  "files": {
+    "B002.json": "1405b3034579cd6ae44ee492d380b6158df94e83b2bb2357f178f8060aeab366",
+    "B003.json": "ddca1e9a8889a06ebcecb695283830262d2fef51276560553195665637092ea1",
+    "source.json": "c27006179e3c10d9ca0951bf98aebb3bc2e4340dcc3b17292cdc146cee5a9c59",
+    "B004.json": "514b634c89e27ced5882f4933d4e3d9c11e325ca8fcb10520a1a6e9e9696ab6c",
+    "B001.json": "e3cf9db78f944072d157f89bcf2afe4d49fc61e0bbdaca6cc089bea549e370ab"
+  }
+}

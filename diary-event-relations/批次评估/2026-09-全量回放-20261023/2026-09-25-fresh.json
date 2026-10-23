@@ -1,0 +1,362 @@
+{
+  "events": [
+    [
+      "E039",
+      {
+        "id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "run_status": "POINTS_READY",
+        "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+        "diary_date": "2026-09-25",
+        "occurred_on": null,
+        "source_order": 0,
+        "title": "去口腔医院拿咬合垫，准备申请商业保险报销",
+        "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+        "points": [
+          {
+            "id": "4f8ba310-cc68-497f-a845-e0f8c8e35e1b",
+            "no": 1,
+            "summary": "拿到咬合垫和病历，准备申请商业保险报销",
+            "detail": "周三早上去口腔医院拿之前做好的咬合垫，也请医生开病历并打印。拿完就回家，准备之后找空闲时间申请商业保险报销。",
+            "embedding_sha256": "cfe67b8386fb415e0e55a5a092dfcc53eb3ed5931f98d2b4b05d3f818e36bb1c"
+          }
+        ]
+      }
+    ],
+    [
+      "E040",
+      {
+        "id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "run_status": "POINTS_READY",
+        "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+        "diary_date": "2026-09-25",
+        "occurred_on": null,
+        "source_order": 1,
+        "title": "梳理指标填报需求，等待原型、数据和模板确定",
+        "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+        "points": [
+          {
+            "id": "850ad7c5-3888-4b69-af4d-919dccae5b74",
+            "no": 1,
+            "summary": "梳理指标填报需求后，等待原型、数据和模板确定",
+            "detail": "周三拿咬合垫回家，想到一周过半还没怎么工作，便不继续心理学，主要处理工作。借 AI 梳理指标填报需求，与需求人员开会确认问题，但原型、数据及导入导出模板都没提供、确定，无法真正推进。确认这些情况后我就休息，没继续工作。上午也处理了几个项目问题，具体忘了，反正不是大事，若真大肯定记得。",
+            "embedding_sha256": "90344c530c5a4e042ea84ec9a88fa6a747b5534ca19dc75d975f4780a5ada8f7"
+          }
+        ]
+      }
+    ],
+    [
+      "E041",
+      {
+        "id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "run_status": "POINTS_READY",
+        "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+        "diary_date": "2026-09-25",
+        "occurred_on": null,
+        "source_order": 2,
+        "title": "想到把应用使用限制与日记平台、日程管理结合",
+        "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+        "points": [
+          {
+            "id": "d50b9d76-22c1-41d2-bccb-cebc2f703c65",
+            "no": 1,
+            "summary": "设想把 App 使用限制加入日记平台日程",
+            "detail": "周三发现多邻国限制其他应用的功能，觉得将来可放到日记管理平台，与日程结合。例如调苹果 API 限制 App，到约定时间点开别的软件，就提醒该做什么、别玩了，作为约束 B 站、僵尸的机制。",
+            "embedding_sha256": "ceee2958b68283d19be1f8c259cef50541e692ed4722ed944ac607be321da4e7"
+          },
+          {
+            "id": "61514270-63f4-4a48-a22c-a2387f1d2260",
+            "no": 2,
+            "summary": "认为不愿做却觉得正确的事，要靠机制和激励养成习惯",
+            "detail": "那天视频说别靠意志力抵抗坏习惯，我也觉得行为要靠机制和激励推动，再慢慢成习惯。对本不愿做却认为正确的事，只靠意志力很难做到，这也是我想给日记平台加入使用限制的原因。",
+            "embedding_sha256": "b3c9494be6c83e8135cbff3653aff32a925d973223ffd8691312b64a195b753a"
+          }
+        ]
+      }
+    ],
+    [
+      "E042",
+      {
+        "id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "run_status": "POINTS_READY",
+        "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+        "diary_date": "2026-09-25",
+        "occurred_on": null,
+        "source_order": 3,
+        "title": "晚上遛狗时一度找不到哒哒，决定减少夜间放开它",
+        "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+        "points": [
+          {
+            "id": "240c0199-6133-4678-807c-3bb5f76592db",
+            "no": 1,
+            "summary": "二沙岛修狗灯时找不到哒哒，后来得知它在路口玩",
+            "detail": "周三晚上带哒哒陪颂梅打卡，我在二沙岛广州大桥下公园修挂在狗身上、一直不怎么亮的小灯，修着发现狗没了。找很大一圈，包括旁边别的狗那里，都没找到。\n\n颂梅打卡回来电话说狗在她那。我过去问，她说在进公园路口，正和小白狗玩。我不知道那里有狗，没往那找。",
+            "embedding_sha256": "eeb50ae57cbe6fad9006b37a1cbfd3a2bb6975c9226e2b45d9143a0b3aa927e7"
+          },
+          {
+            "id": "5ccb7c43-ffa7-4b56-b00e-edd7e5166b55",
+            "no": 2,
+            "summary": "担心哒哒跟别的狗走丢，决定尽量少在晚上放开",
+            "detail": "我觉得哒哒真可能丢：小白狗主人若带走它，它也许跟着走。以前跟楼下小白狗玩，人家拿快递，它就跟去，吓坏我了，这小破狗。后来我跟颂梅说，能不撒开就不撒开，要放也尽量白天、好找时，晚上难找，少放开。",
+            "embedding_sha256": "50237892ff0d1b8c51e8c30daf6f907bff23c5594a93e4f450897840ab423659"
+          }
+        ]
+      }
+    ],
+    [
+      "E043",
+      {
+        "id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "run_status": "POINTS_READY",
+        "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+        "diary_date": "2026-09-25",
+        "occurred_on": null,
+        "source_order": 4,
+        "title": "骑车带人被罚五十元，尝试转移话题缓和颂梅的情绪",
+        "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+        "points": [
+          {
+            "id": "6f41fb0f-e01e-4819-9126-6c314d89189b",
+            "no": 1,
+            "summary": "带人骑车被罚五十元后，尝试转移话题缓和颂梅情绪",
+            "detail": "找到哒哒后，我们骑车去二沙岛医院后步行道继续遛。路上碰警察，以前不抓带人，当天突然抓，罚五十元。颂梅不高兴，我说看看总共罚了多少、我给她，她不要。既然补钱不能让她好些，我就扯别的话题，想转移注意恢复她情绪。",
+            "embedding_sha256": "6b9c9cbe86da1b76bb314b36f8d532e4ed0fe4befc34e8559870de89fb704949"
+          }
+        ]
+      }
+    ],
+    [
+      "E044",
+      {
+        "id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "run_status": "POINTS_READY",
+        "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+        "diary_date": "2026-09-25",
+        "occurred_on": null,
+        "source_order": 5,
+        "title": "头颈不舒服去按摩，回程头晕恶心，今天早上好转",
+        "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+        "points": [
+          {
+            "id": "e05760a2-adc5-45b6-bf36-df6c4ebf7671",
+            "no": 1,
+            "summary": "颈痛带头疼，按了两个小时后脖子松些但未彻底舒服",
+            "detail": "最近有点头疼，我觉得颈椎问题又到一定程度，之前说去康复科，还是得找空去。周四脖子疼连着头痛，晚上找一直去的师傅按摩。\n\n原本颂梅带哒哒打卡、遛狗后接我，问师傅有空便按两小时，怕她等久，让她遛完直接回家。按后脖子松快很多，仍不舒服，没彻底好。",
+            "embedding_sha256": "55473e70b94d16a03ff628dfe1ce348bb829f9f1b5c1301cc0666b11cc73de62"
+          },
+          {
+            "id": "795ddcf2-c13d-4491-91ce-fe85ec187204",
+            "no": 2,
+            "summary": "回程头晕反胃，担心按摩影响，回家后颂梅帮忙找药",
+            "detail": "坐地铁回家时，特别不舒服，头晕、头很痛、反胃想吐，不知因晚饭只吃一根玉米，还是一直头疼，有点怕是按摩造成。当时没办法，问豆包，建议喝热水、侧躺休息。\n\n回家告诉颂梅，她找了补电解质的药，说也许电解质紊乱，还给布洛芬止痛。有人帮找药，我也觉得挺好。",
+            "embedding_sha256": "f0669502e46aa1c9caf386663e23d9dd30df0e67560c1d7ee4f0b53684ebdc2d"
+          },
+          {
+            "id": "86d604d4-8509-4cd8-9704-2532a304840a",
+            "no": 3,
+            "summary": "揉肚子时说颂梅不会照顾人，今早头疼已好",
+            "detail": "不舒服过程中我请颂梅揉肚子，她却用拳头抵着，我说“你真不会照顾人啊”，今天早上她还拿此说事。今早好多了、基本好了，恶心可能剩一点，但头痛已没有。",
+            "embedding_sha256": "d6f0f606763e12a612638dd4f741917591597154718c655172136d5ed3d9855e"
+          }
+        ]
+      }
+    ],
+    [
+      "E045",
+      {
+        "id": "7397309a-7cba-447e-adec-8c386e898802",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "run_status": "POINTS_READY",
+        "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+        "diary_date": "2026-09-25",
+        "occurred_on": null,
+        "source_order": 6,
+        "title": "看到颂梅早醒后玩手机，又补觉，觉得作息不好",
+        "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+        "points": [
+          {
+            "id": "757c31d0-ca0e-491e-bee5-10558c86af75",
+            "no": 1,
+            "summary": "觉得颂梅晚睡早醒、玩手机后又补觉的作息不好",
+            "detail": "今早七点多起，看颂梅醒着玩手机，我说晚一两点睡、七点起来，睡才几个小时，作息真乱。她说试过仍睡不着，又继续玩，见我醒还开投影。我去外面沙发躺着研究吃什么，买菜后再看她又睡着了，我觉得这样不太好。",
+            "embedding_sha256": "f2a4c7dfaa737d77a0c6a844ae2e8d1e14d7aa3a3d153a1ba430db5184877f19"
+          }
+        ]
+      }
+    ],
+    [
+      "E046",
+      {
+        "id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "run_status": "POINTS_READY",
+        "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+        "diary_date": "2026-09-25",
+        "occurred_on": null,
+        "source_order": 7,
+        "title": "想起昨晚闻到的菜香，买排骨准备做给颂梅吃",
+        "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+        "points": [
+          {
+            "id": "6f42a73e-5e70-4ab6-b1c9-4f649cb94752",
+            "no": 1,
+            "summary": "想起颂梅闻到的菜香，买排骨腌好后再遛狗",
+            "detail": "昨晚她骑车送我去按摩、自己去打卡，路过一家说饭菜香，我猜是排骨。今天买菜想起，就买排骨准备中午做蒜香排骨给她，也买沙葱、菜心、生菜。\n\n本来买完就遛狗，改成先洗漱、腌排骨，回家能直接做。洗漱后排骨到了，买现成蒜末省得自己切，拌入烧烤料及其他调料，腌好才带哒哒出去。想遛完约十一点半回家做，十二点左右吃上。",
+            "embedding_sha256": "355aecc5d6e1172be937bdc9eb8ee729ff897fb8a49c269ae784079e13a72f88"
+          }
+        ]
+      }
+    ],
+    [
+      "E047",
+      {
+        "id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "run_status": "POINTS_READY",
+        "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+        "diary_date": "2026-09-25",
+        "occurred_on": null,
+        "source_order": 8,
+        "title": "中秋安排聚餐和问候父母，明天带猫狗去清远泡温泉",
+        "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+        "points": [
+          {
+            "id": "3d16ea11-bb2a-4ba6-b53c-09e93b3c8917",
+            "no": 1,
+            "summary": "中秋准备聚餐、问候爸妈，并提醒爸爸就医",
+            "detail": "今天中秋，晚上与小廖爸妈吃饭，也准备打电话问候自己爸妈，顺便提醒爸爸明天早点去医院检查、别忘了。",
+            "embedding_sha256": "1211d77d505de1fb01e4e3376ec771c85b4fac3b326a4375d5f829cff58befd3"
+          },
+          {
+            "id": "2226cbd5-6d92-4c88-957a-657d10639b8c",
+            "no": 2,
+            "summary": "订了两千多元宠物友好房间，准备明天去清远泡温泉",
+            "detail": "明天准备开车去清远泡温泉，订了能带猫狗的酒店、一个挺好的房间，两千多元，准备带哒哒、多多一起度假。",
+            "embedding_sha256": "28803da8405dc58cd7074ea1e7b2603961a282ba4bb6a4640237c05c03428187"
+          }
+        ]
+      }
+    ],
+    [
+      "E048",
+      {
+        "id": "e8c71220-00b3-4392-a990-314368bc386e",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "run_status": "POINTS_READY",
+        "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+        "diary_date": "2026-09-25",
+        "occurred_on": null,
+        "source_order": 9,
+        "title": "觉得小廖近期花钱多，准备提醒她看看资产情况",
+        "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+        "points": [
+          {
+            "id": "4b2d9732-26ce-4b77-b16e-c98d34409455",
+            "no": 1,
+            "summary": "对小廖临近离职还花钱多感到不满",
+            "detail": "小廖快辞职、快没工作了，却买得越来越多，吃饭外卖挑贵的、出去玩选最高档，两千多也不问。我觉得没收入还这样花太不负责，也担心到时就要花我的钱。不过目前是她自己的钱，我没办法干涉，提醒就好。",
+            "embedding_sha256": "d8a4f8342d746390fa77bb610e4dfa5e38dfb34f5b59fe02b5fe4a6854a83432"
+          },
+          {
+            "id": "934b8723-a12e-47bf-88e3-2dee737b2bc2",
+            "no": 2,
+            "summary": "盘点大额消费后，也觉得并非每一笔都太多",
+            "detail": "我算她近期大钱：相机一万多只用一次，投影仪两三千，为京东补贴买了些杂物，这次旅行两千多。细想旅行也还好，主要相机、投影花得多，但平常吃的也贵，前阵给上大学的妹妹送笔记本也花不少。\n\n还有一次吃贵阳菜还是什么，花了不少，我该给她七百饭钱还未转，准备一会回去转。汪苏泷香港两张票花很多，又买到十月二日广州票还要看，三日又去桂林。",
+            "embedding_sha256": "e080a70c92d043edcdb7c5259131893a097f9a25181b60dce5c687f039867d13"
+          },
+          {
+            "id": "3f968703-f076-48db-b1d8-b140b873b313",
+            "no": 3,
+            "summary": "怀疑小廖已是负资产，准备提醒她自己核算",
+            "detail": "算过这些开销，我感觉她应该已是负资产。回去想问问，让她查资产，自己看清后悠着花。都快没收入，不能还这样花；目前自己能做的就是提醒。",
+            "embedding_sha256": "57e459af44de0f999cfce8f1f38312ee20b27e4c2678dd0493c26ad8cc5ba4c6"
+          }
+        ]
+      }
+    ],
+    [
+      "E049",
+      {
+        "id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "run_status": "POINTS_READY",
+        "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+        "diary_date": "2026-09-25",
+        "occurred_on": null,
+        "source_order": 10,
+        "title": "叮咚买菜站点关门，换用其他平台不太习惯",
+        "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+        "points": [
+          {
+            "id": "d76671b6-d699-46ec-acf9-de6e67c2b0cb",
+            "no": 1,
+            "summary": "叮咚站点关门，朴朴邀请优惠也没领对",
+            "detail": "叮咚买菜站点关了，最近不知去哪买，下载朴朴。本想颂梅邀我拿四十多元新人券，她却点成老用户回归，只返她两元券，觉得亏、她傻乎乎的。不过软件也有问题：新人邀请藏二级页面，老用户放外面，只写“邀请有礼”。",
+            "embedding_sha256": "14d27df22deca6bc559e5de35ee983219cafed09cd5f19d3db4c1bb200ac65d7"
+          },
+          {
+            "id": "d5dfd48c-d02c-457b-80a3-e48ce2dcb7b0",
+            "no": 2,
+            "summary": "习惯的叮咚没了让我失落，换平台不亲切",
+            "detail": "叮咚用了很久，买菜一直用它，配送及时、App 也好用，关闭让我失落。朴朴体验没那么好，也没熟悉亲切感，优惠不足，会员除了免费菜感觉没别的福利。",
+            "embedding_sha256": "ec5f00d612a0a884987e2286e57b17f0321e096f5a79da7a422bc3b4c819be1a"
+          },
+          {
+            "id": "cf02519b-db3a-49ae-aa0c-4cf5ecda971e",
+            "no": 3,
+            "summary": "准备试多多买菜，急用时选美团、朴朴或菜市场",
+            "detail": "叮咚没了没办法，之后看看隔日自提的多多买菜，品质也许不保证，但至少便宜。急用继续美团、朴朴，实在不行去不远的菜市场。",
+            "embedding_sha256": "925bbd72184e1d049808b1fc0f0a5184f04c2feb36eb468a36762c0b1583e2e4"
+          }
+        ]
+      }
+    ],
+    [
+      "E050",
+      {
+        "id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "run_status": "POINTS_READY",
+        "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+        "diary_date": "2026-09-25",
+        "occurred_on": null,
+        "source_order": 11,
+        "title": "国庆回乡计划搁置，考虑春节前或离职后再回去",
+        "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+        "points": [
+          {
+            "id": "f6b4122a-7dfa-43f6-8f63-fc2b13fc40d9",
+            "no": 1,
+            "summary": "国庆票价和行程冲突，让回乡探亲上坟计划搁置",
+            "detail": "本想十一回家看爷爷奶奶，好多年没去，他们也没见孙媳妇，带回去见见，再上坟。但两人往返票七千元，太贵。若把中秋国庆接起、请三天假连待十三天，我觉得可以；可她又看汪苏泷演唱会，下周一还帮朋友领证拿东西搭手，就没法回，先放着。",
+            "embedding_sha256": "fd1693323ea812687dcf9fdffa017e4cb5413f618738510adbd0bfae284594d3"
+          },
+          {
+            "id": "70fff911-df27-4030-a5fb-c4ba218ec53e",
+            "no": 2,
+            "summary": "考虑春节早点回乡，或等她离职后另找时间",
+            "detail": "国庆回乡计划先搁置，实在不行春节早些回去，或者等她辞职、离职后，再找时间回一趟。",
+            "embedding_sha256": "c6866ead36478fb8e0b1cc8b7f5fab6d3ac3082cb6a037d8948022b4f8c3c481"
+          }
+        ]
+      }
+    ]
+  ]
+}

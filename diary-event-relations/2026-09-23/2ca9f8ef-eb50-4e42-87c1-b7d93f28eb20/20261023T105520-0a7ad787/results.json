@@ -1,0 +1,273 @@
+{
+  "package_sha256": "f32a6cb8f331ebe0205616a923b27deed3bfea45468357d8ea93cf302cefb161",
+  "results": [
+    {
+      "pair_id": "P-6e8bef0795694551",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "劝母亲看病的旧认知感悟与昨天生育后有病不治争执不是同一次对话，未具体回顾。"
+    },
+    {
+      "pair_id": "P-10436897e87768a2",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "老梁认知视频未被豆包式方法总结具体引用。"
+    },
+    {
+      "pair_id": "P-6c50b104b2836c60",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "香蕉售后与伴侣离职沟通不同。"
+    },
+    {
+      "pair_id": "P-fe3ae7a8aba6c96f",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "枕头争吵与此次离职压力不同，未回顾同一次争吵。"
+    },
+    {
+      "pair_id": "P-95e679a6723439a6",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "擦脚涂药争执与离职压力不同。"
+    },
+    {
+      "pair_id": "P-22081b86a14333df",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "多邻国机制与离职沟通没有具体互相触发。"
+    },
+    {
+      "pair_id": "P-abc6add8efa7ab79",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E016",
+        "target_event": "E015",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "与母亲通话后的情绪延续到回家，影响了对小廖离职压力的回应，使我直接强硬劝告而没有共情。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我知道昨天对妈妈的沟通不对，主要是前面的事已影响情绪。那时就不该继续，应尽快结束、深呼吸等让自己快些稳定，免得回家再把情绪带到与颂梅的沟通，没能好好说。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨晚回家前被妈妈电话弄得不开心。"
+          },
+          {
+            "point_no": 2,
+            "quote": "因自己当时情绪差，我没共情、没引导，直接说"
+          }
+        ]
+      },
+      "reason": "两侧明确同一母亲通话影响随后伴侣沟通。"
+    },
+    {
+      "pair_id": "P-83c5dcb98f5c9fb9",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "同用非暴力沟通不足以定位为枕头复盘的具体后续执行。"
+    },
+    {
+      "pair_id": "P-61503a7f9f1b5d90",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "母亲就医共情例子与伴侣离职不同，不借第三个母亲电话补因果。"
+    },
+    {
+      "pair_id": "P-7571b67b04c38315",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "家务积压与离职压力是不同争执，未引用。"
+    },
+    {
+      "pair_id": "P-3f8677097bfe8136",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "枕头争吵与母亲豆包式回应不同对象、不同事件。"
+    },
+    {
+      "pair_id": "P-fdac9f3e4b5d32e9",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "多邻国打卡与母亲医疗争执无具体联系。"
+    },
+    {
+      "pair_id": "P-12607f3bfa887cab",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "平台恢复障碍是人工整理成本，当前机制设想未具体对应解决该成本问题。"
+    },
+    {
+      "pair_id": "P-9171ee82066e2fba",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E012",
+        "target_event": "E017",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前早晨英语打卡已坚持几天，后来看到多邻国连续七天记录，受到鼓励继续打卡。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最近早上先英语打卡，已坚持几天"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "多邻国小组件把一周打卡逐日勾出、展示连续天数，我见已七天便油然高兴，想让天数更长，就继续打卡"
+          }
+        ]
+      },
+      "reason": "相同英语打卡有新的连续天数与行动反馈。"
+    },
+    {
+      "pair_id": "P-9cf14c89a0784d50",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "多邻国机制与母亲共情回应未表达互相触发。"
+    },
+    {
+      "pair_id": "P-1404196e34d5aee1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "学心理学的目的与多邻国打卡是不同学习事项，正面反馈主题不足以连边。"
+    },
+    {
+      "pair_id": "P-98f3b3f991adff54",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E009",
+        "target_event": "E017",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前想到用多邻国练英语，后来已连续打卡七天，并因反馈想继续保持。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "早上看豆包手机推广，里面的人每日打卡多邻国英语、每日英语、力扣。我也想让闲暇有点意义：视频、游戏可能只打发时间，多邻国能练英语，力扣能练算法和逻辑。力扣前期可先看题、自己想想画画，再看解析，但限定时间，每天顶多二十分钟，别陷进去。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我见已七天便油然高兴，想让天数更长，就继续打卡"
+          }
+        ]
+      },
+      "reason": "同一具名学习工具从打算到持续执行。"
+    },
+    {
+      "pair_id": "P-ab615c5836ff5cac",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "老梁视频沉迷未被本次App限制具体回顾，不能凭视频主题定位同次经历。"
+    },
+    {
+      "pair_id": "P-1af3f12d199f3784",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E016",
+        "target_event": "E013",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "反思与母亲的医疗话题争执时，回顾昨天形成的先顺着、再引导的沟通想法。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "按昨天想法，别总讲，先附和，能引导就引导"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "既然没用还不愉快，干脆换方式，先顺着。"
+          }
+        ]
+      },
+      "reason": "明确“按昨天想法”及相同策略，未报告该策略已执行。"
+    },
+    {
+      "pair_id": "P-a7a996668e686488",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E013",
+        "target_event": "E014",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "昨天形成先顺着母亲的想法后，今天进一步总结先共情、再逐步引导的豆包式回应。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "既然没用还不愉快，干脆换方式，先顺着。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天进一步总结“豆包式回应”：先共情，再慢慢引导对方意识到问题原因，不一上来讲大道理。"
+          }
+        ]
+      },
+      "reason": "同一策略有明确次日细化。"
+    },
+    {
+      "pair_id": "P-f26ac0074c9968fc",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "9月20日催生劝学与昨天生育后医疗争执不是同一通话，没有具体引用旧通话。"
+    },
+    {
+      "pair_id": "P-ff6c812e0f3605ed",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "深呼吸等方法相同不足以把母亲电话定位为枕头复盘后续。"
+    },
+    {
+      "pair_id": "P-a710d42478ecb8ac",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E016",
+        "target_event": "E014",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "昨天与母亲因生育话题争吵并带着情绪继续聊后，今天进一步总结豆包式回应。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天与妈妈聊生育后已经生气，本想挂，她想聊别的，我态度便不好。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天与妈妈因生育吵架，反思过可以先顺着说。今天进一步总结“豆包式回应”"
+          }
+        ]
+      },
+      "reason": "同一昨天通话可定位，后续有明确反思新总结。"
+    },
+    {
+      "pair_id": "P-4728fe90dcce94c2",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "家务积压与母亲电话是不同事件。"
+    },
+    {
+      "pair_id": "P-249b25fc921319a7",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "9月20日让母亲问AI与本次总结昨天争吵不是同一次对话，未报告前一通话的新结果。"
+    },
+    {
+      "pair_id": "P-1ac4d38f2a048f3a",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "共情原则相似，但母亲医疗回应未具体回顾枕头争吵复盘。"
+    }
+  ]
+}

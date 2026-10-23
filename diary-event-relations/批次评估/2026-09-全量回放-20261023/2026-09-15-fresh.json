@@ -1,0 +1,176 @@
+{
+  "events": [
+    [
+      "E025",
+      {
+        "id": "1e8bba57-0712-4752-98f3-0643612d5b04",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+        "run_status": "POINTS_READY",
+        "diary_id": "b8bc5707-d4b4-48f7-85bc-faa103e2fac8",
+        "diary_date": "2026-09-15",
+        "occurred_on": null,
+        "source_order": 0,
+        "title": "老梁谈认知改变，让我想到劝父母看病的经历",
+        "run_source_sha256": "abc33566b906fa19a293bf11033a4caa4b44e70b981ae456ecf8bdbd26b96e11",
+        "points": [
+          {
+            "id": "c86ce3ed-5971-497f-8d1d-87ac026aa6bc",
+            "no": 1,
+            "summary": "看到老梁谈老师传递价值观时面临的举报风险",
+            "detail": "昨天看老梁视频，他讲的事与我此前感悟对上。他有时去大学讲课，一次给老师讲时，有人问：政治、意识形态管得严格，老师想教独立思考、辩证看问题，不只讲爱国和民族主义，但舆论受压、学生从小接受民族主义教育，讲后可能被扣不爱国的帽子，甚至投诉。投诉后学校、校长也不敢维护，否则帽子又扣到校长头上。我觉得这种乱扣帽子的情况，越来越有文革时的感觉。",
+            "embedding_sha256": "c37b49e92f9ffab9487c7fc970105482842727907a474977bd25bec08cc65a81"
+          },
+          {
+            "id": "7fbf596b-5bca-4831-ae03-0b52f7da7fe5",
+            "no": 2,
+            "summary": "认同认知改变需要自身经历，劝说可能只捅破最后一层窗户纸",
+            "detail": "老梁说，三言两语没法让一个人的认知与你对齐，往往要自己摸爬滚打、受挫、踩坑才认识一些事。这像我劝妈妈就医：我说一百遍，爸爸也说很多遍，她不去，为何第一百零一遍同意？不是最后一句不同，而是她自己已有一些认识，可能只差一层窗户纸，我恰好在那次捅破。",
+            "embedding_sha256": "d3857f6011e7a86a753bf1a576644e19b98c2c9c6283d1c291a8106613e25bdc"
+          },
+          {
+            "id": "f414400b-119b-4837-86a2-8aeb5f4469bf",
+            "no": 3,
+            "summary": "佩服老梁推荐国内出版书籍的办法，兼顾自我保护和传递观点",
+            "detail": "老梁另一个方案是老师先保护自己，不要为传递自己认为正确的价值观反而把自己坑了；选国内出版社的书推荐，想学的自会看，不想学的不看，会举报的也多属不想看的。即使有人觉得书里有些话如今“反动”，书不是老师写、又是国内出版，不易追责推荐者。\n\n我觉得特别牛逼，很能洞察人心：保护自己、让学生自己读书以达到传递价值观的目的，还利用举报人的愤青、小粉红一般不看书这一层隐形保护。我觉得一般智商低或文化不高的人才容易被民族情绪、爱国主义洗脑。",
+            "embedding_sha256": "44fe95d387ac8949f8a057ccee48cf375a3eba88a81df8dd6746d16b65adfb02"
+          },
+          {
+            "id": "b118a357-bb32-47c2-b4a3-0b22a5616942",
+            "no": 4,
+            "summary": "仍不知道怎样把这种思路用在劝爸爸看腰上",
+            "detail": "老梁提倡先保护自己、借国内出版的书传递观点，我还不知道这种思路怎样用于自己生活。比如爸爸答应这个月去医院看腰，到现在仍没去，还开始逃避跟我打电话，唉。",
+            "embedding_sha256": "c5bd94efc208001439fe4d677d6dd686d03ae6eb3ba352021965ee4b3a38ec09"
+          }
+        ]
+      }
+    ],
+    [
+      "E026",
+      {
+        "id": "45bf44d7-c4eb-4f84-9c1b-6ac4eb6cd166",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+        "run_status": "POINTS_READY",
+        "diary_id": "b8bc5707-d4b4-48f7-85bc-faa103e2fac8",
+        "diary_date": "2026-09-15",
+        "occurred_on": null,
+        "source_order": 1,
+        "title": "推进江西三线监测的修改",
+        "run_source_sha256": "abc33566b906fa19a293bf11033a4caa4b44e70b981ae456ecf8bdbd26b96e11",
+        "points": [
+          {
+            "id": "65121634-bff3-5ad1-8cb8-7983d8dcaf2b",
+            "no": 1,
+            "summary": "继续修改江西三线监测，准备明天部署测试",
+            "detail": "今天上午先开会过江西三线监测进度，后台接口基本提供了，又提一些小修改。下午好像没改完，已改一部分，还有剩余。应该还没部署、测试，准备明天做完再告诉他们。工作尽是这些乱七八糟的活，我也不想再琢磨。",
+            "embedding_sha256": "ab5df351b35eaffa5d2a0e502a6afbec31f0074106277745e086d27bc68914b4"
+          }
+        ]
+      }
+    ],
+    [
+      "E027",
+      {
+        "id": "310a73d8-4ad8-4fd0-a73e-2201eea0c991",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+        "run_status": "POINTS_READY",
+        "diary_id": "b8bc5707-d4b4-48f7-85bc-faa103e2fac8",
+        "diary_date": "2026-09-15",
+        "occurred_on": null,
+        "source_order": 2,
+        "title": "讨论指标填报的技术方案",
+        "run_source_sha256": "abc33566b906fa19a293bf11033a4caa4b44e70b981ae456ecf8bdbd26b96e11",
+        "points": [
+          {
+            "id": "23dc18af-3531-552a-a2ef-3fe399de4724",
+            "no": 1,
+            "summary": "讨论指标填报方案后，仍不清楚何时开工",
+            "detail": "下午开会讨论指标填报技术方案，我最后问什么时候做，仍没弄清。反正先拖着，有时间自己歇歇。",
+            "embedding_sha256": "19c2dc3068b707d11959efa14a105fa26cee460b34877c8461089342f99e016f"
+          }
+        ]
+      }
+    ],
+    [
+      "E028",
+      {
+        "id": "edf693f2-900d-4848-8f13-ca815ca0d139",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+        "run_status": "POINTS_READY",
+        "diary_id": "b8bc5707-d4b4-48f7-85bc-faa103e2fac8",
+        "diary_date": "2026-09-15",
+        "occurred_on": null,
+        "source_order": 3,
+        "title": "晚饭吃大骨头，后牙塞得厉害",
+        "run_source_sha256": "abc33566b906fa19a293bf11033a4caa4b44e70b981ae456ecf8bdbd26b96e11",
+        "points": [
+          {
+            "id": "25cd703e-8318-5e2e-b499-914dd7796841",
+            "no": 1,
+            "summary": "大骨头好吃，但后牙塞肉严重，想以后注意",
+            "detail": "晚饭吃凉皮，又买了之前那家西北菜的两斤大骨头，因为觉得好吃，今天再买一次。吃后用牙线、牙缝刷清理，后牙塞得厉害，掏很多次还不断有东西。以后吃这种肉类要注意。",
+            "embedding_sha256": "8c11cbb994ff8fb984166740cb0e0225f1059cb1d189faf307ae61ff7dc89de5"
+          }
+        ]
+      }
+    ],
+    [
+      "E029",
+      {
+        "id": "23c145bd-8435-40b2-92e1-023b76daa7f1",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+        "run_status": "POINTS_READY",
+        "diary_id": "b8bc5707-d4b4-48f7-85bc-faa103e2fac8",
+        "diary_date": "2026-09-15",
+        "occurred_on": null,
+        "source_order": 4,
+        "title": "今晚想早点休息，也不想再一直拖到明天",
+        "run_source_sha256": "abc33566b906fa19a293bf11033a4caa4b44e70b981ae456ecf8bdbd26b96e11",
+        "points": [
+          {
+            "id": "21d6338e-b791-502e-af69-562c62345012",
+            "no": 1,
+            "summary": "今晚想补觉推迟瑜伽，也要求自己明天别再拖",
+            "detail": "一会回去不想做瑜伽，想洗漱后早点睡。今天有点困，早上睡到九点多才起，还是补补觉，明天再练。\n\n不过明日复明日的态度不好。我对自己说，明天是最后一个明天，不能再拖，就算有天大的事也先放下。",
+            "embedding_sha256": "cb66cb7a9288bcffa39d3f81cf64d5e7dc294a56ffe95b7b63dd76fa98a5849a"
+          }
+        ]
+      }
+    ],
+    [
+      "E030",
+      {
+        "id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+        "run_status": "POINTS_READY",
+        "diary_id": "b8bc5707-d4b4-48f7-85bc-faa103e2fac8",
+        "diary_date": "2026-09-15",
+        "occurred_on": null,
+        "source_order": 5,
+        "title": "准备限制游戏和 YouTube 的使用",
+        "run_source_sha256": "abc33566b906fa19a293bf11033a4caa4b44e70b981ae456ecf8bdbd26b96e11",
+        "points": [
+          {
+            "id": "4f9c342e-6f61-5dc2-8c0f-ce6fc3b60646",
+            "no": 1,
+            "summary": "准备先隐藏游戏，仍沉迷就卸载",
+            "detail": "今天玩《植物大战僵尸 2》仍有点沉迷。我准备先增加使用成本，把 App 隐藏起来；如果还是一直玩，就卸载。",
+            "embedding_sha256": "b44115165d50dc592fdc8b6d666b8cf8f3b180ef5e5cbd154014481612ebed8d"
+          },
+          {
+            "id": "2c4e97eb-6d9a-5175-98fa-3f8c786480f8",
+            "no": 2,
+            "summary": "想限制 YouTube，把时间用来学普心",
+            "detail": "YouTube 也要限时，不能全天一直看视频，有用的内容少，不如花时间学普心，这东西得学。",
+            "embedding_sha256": "68f073836458ce46f1df2a570c384fdd7dd398e437fd31e94aeef5d0db337abe"
+          }
+        ]
+      }
+    ]
+  ]
+}

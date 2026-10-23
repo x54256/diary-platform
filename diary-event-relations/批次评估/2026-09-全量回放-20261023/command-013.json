@@ -1,0 +1,12 @@
+{
+  "args": [
+    "verify",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-02/2eb6a94e-39b2-4502-8773-4c18ab6b7423/20261023T102524-dc9d0030"
+  ],
+  "started_at": "2026-10-23T10:25:35.345991+08:00",
+  "ended_at": "2026-10-23T10:25:35.787667+08:00",
+  "seconds": 0.44170320901321247,
+  "exit_code": 0,
+  "stdout": "{\n  \"verified_against_database\": true,\n  \"package_sha256\": \"718b9b10ee2694ea8bcfb0726f609ad2d35645220f7e1a937ecfe99964a9bffb\",\n  \"verified_at\": \"2026-10-23T02:25:35.731073+00:00\",\n  \"stored_in_database\": false\n}\n",
+  "stderr": ""
+}

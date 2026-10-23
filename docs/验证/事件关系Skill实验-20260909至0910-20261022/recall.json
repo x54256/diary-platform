@@ -1,0 +1,221 @@
+{
+  "scope": "这两篇内部回放，不含其他历史日记",
+  "threshold": 0.4,
+  "top_k": 5,
+  "events": [
+    {
+      "current_event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "hits": [
+        {
+          "history_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+          "score": 0.6638135029658311,
+          "current_point_id": "cd455a9a-b339-4648-86fd-19f9023c186f",
+          "history_point_id": "792e7706-08db-4949-8b31-259e32e3ed60"
+        },
+        {
+          "history_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+          "score": 0.527063811432183,
+          "current_point_id": "a51f966e-8d67-4221-ae2a-b4015d5b84e6",
+          "history_point_id": "76512977-300f-4ba9-9f99-88e8af3ab5fa"
+        },
+        {
+          "history_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+          "score": 0.4873838069923507,
+          "current_point_id": "7fe3d2c7-4259-4bac-8355-9b7f644db979",
+          "history_point_id": "9b936258-bae5-49e5-a64e-4226643aa84a"
+        },
+        {
+          "history_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+          "score": 0.47935570475835254,
+          "current_point_id": "fe3d0736-f9d5-4ed5-a2dd-e8f5442ae494",
+          "history_point_id": "70677e75-d40a-4823-9d31-273f4b8d3fb1"
+        },
+        {
+          "history_event_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+          "score": 0.4759394987232204,
+          "current_point_id": "1f159a03-6346-44f2-b02d-9eeadcf06d19",
+          "history_point_id": "fd59a915-492d-4e40-a0a6-ab65e83754ff"
+        },
+        {
+          "history_event_id": "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+          "score": 0.4225844469695111,
+          "current_point_id": "643da992-b625-4902-9fab-8893f38f9497",
+          "history_point_id": "0e1ec494-c98b-442f-8557-908e57fee7c7"
+        },
+        {
+          "history_event_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+          "score": 0.41513571374328745,
+          "current_point_id": "4ff63613-f764-4be6-81ed-7b1352dd378c",
+          "history_point_id": "9f9284c2-3218-442c-89ab-c3837dc26ceb"
+        }
+      ],
+      "selected_history_event_ids": [
+        "3a490c44-c339-48ad-b890-7718a051e660",
+        "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+        "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+        "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+        "a8b5f373-9613-409d-833b-6eff2b515a1e"
+      ]
+    },
+    {
+      "current_event_id": "00f249de-d76f-40a0-80ad-0410a0d00e2a",
+      "hits": [
+        {
+          "history_event_id": "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+          "score": 0.5092983554879372,
+          "current_point_id": "f0d02ac2-f54d-40cd-a11c-39313b13aef6",
+          "history_point_id": "0e1ec494-c98b-442f-8557-908e57fee7c7"
+        },
+        {
+          "history_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+          "score": 0.502915134903,
+          "current_point_id": "f0d02ac2-f54d-40cd-a11c-39313b13aef6",
+          "history_point_id": "76512977-300f-4ba9-9f99-88e8af3ab5fa"
+        },
+        {
+          "history_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+          "score": 0.45428468291179086,
+          "current_point_id": "f0d02ac2-f54d-40cd-a11c-39313b13aef6",
+          "history_point_id": "a35399a8-d68f-4978-baf9-9138c0fc2d51"
+        },
+        {
+          "history_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+          "score": 0.43533511064583513,
+          "current_point_id": "f0d02ac2-f54d-40cd-a11c-39313b13aef6",
+          "history_point_id": "9b936258-bae5-49e5-a64e-4226643aa84a"
+        },
+        {
+          "history_event_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+          "score": 0.42604944053876653,
+          "current_point_id": "f0d02ac2-f54d-40cd-a11c-39313b13aef6",
+          "history_point_id": "fd59a915-492d-4e40-a0a6-ab65e83754ff"
+        },
+        {
+          "history_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+          "score": 0.40775310386730673,
+          "current_point_id": "f0d02ac2-f54d-40cd-a11c-39313b13aef6",
+          "history_point_id": "70677e75-d40a-4823-9d31-273f4b8d3fb1"
+        },
+        {
+          "history_event_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+          "score": 0.3883609631556641,
+          "current_point_id": "f0d02ac2-f54d-40cd-a11c-39313b13aef6",
+          "history_point_id": "b21ae81b-abd7-402c-8322-a29d5abcbcc0"
+        }
+      ],
+      "selected_history_event_ids": [
+        "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+        "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+        "3a490c44-c339-48ad-b890-7718a051e660",
+        "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+        "a8b5f373-9613-409d-833b-6eff2b515a1e"
+      ]
+    },
+    {
+      "current_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "hits": [
+        {
+          "history_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+          "score": 0.5472950498238408,
+          "current_point_id": "90cc07db-d7ec-42b0-a9d9-e8de58b0264f",
+          "history_point_id": "d1067cee-e55e-47dd-912d-ddc56b5df1ad"
+        },
+        {
+          "history_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+          "score": 0.45403689353030036,
+          "current_point_id": "90cc07db-d7ec-42b0-a9d9-e8de58b0264f",
+          "history_point_id": "87d786c0-7a15-4d3a-ae87-12b4bbef8d5e"
+        },
+        {
+          "history_event_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+          "score": 0.44041445683528524,
+          "current_point_id": "e3e5ec4a-db71-4e4e-ac3b-531acd64346a",
+          "history_point_id": "fd59a915-492d-4e40-a0a6-ab65e83754ff"
+        },
+        {
+          "history_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+          "score": 0.4219622234220292,
+          "current_point_id": "90cc07db-d7ec-42b0-a9d9-e8de58b0264f",
+          "history_point_id": "9b936258-bae5-49e5-a64e-4226643aa84a"
+        },
+        {
+          "history_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+          "score": 0.40146373382040584,
+          "current_point_id": "e3e5ec4a-db71-4e4e-ac3b-531acd64346a",
+          "history_point_id": "03bc3dca-7f88-47bf-8483-14e2f005da42"
+        },
+        {
+          "history_event_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+          "score": 0.37528030092736137,
+          "current_point_id": "90cc07db-d7ec-42b0-a9d9-e8de58b0264f",
+          "history_point_id": "25b42551-a5d6-4445-b69e-b924241c71a1"
+        },
+        {
+          "history_event_id": "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+          "score": 0.36596984699618856,
+          "current_point_id": "90cc07db-d7ec-42b0-a9d9-e8de58b0264f",
+          "history_point_id": "82560dbf-9f15-4559-9974-c4c8ec03f484"
+        }
+      ],
+      "selected_history_event_ids": [
+        "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+        "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+        "a8b5f373-9613-409d-833b-6eff2b515a1e",
+        "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+        "3a490c44-c339-48ad-b890-7718a051e660"
+      ]
+    },
+    {
+      "current_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+      "hits": [
+        {
+          "history_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+          "score": 0.4093474021872401,
+          "current_point_id": "6f5fc4d9-42bb-46b2-a092-05cec92d139d",
+          "history_point_id": "8f9ad244-8f3a-408d-a130-a616b9f67b11"
+        },
+        {
+          "history_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+          "score": 0.40920301082828836,
+          "current_point_id": "6f5fc4d9-42bb-46b2-a092-05cec92d139d",
+          "history_point_id": "efa9b26f-4183-4f6f-94de-eabaa27b3033"
+        },
+        {
+          "history_event_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+          "score": 0.40256349424306886,
+          "current_point_id": "98db5e00-cba5-497c-b4dc-facdec16c466",
+          "history_point_id": "9f9284c2-3218-442c-89ab-c3837dc26ceb"
+        },
+        {
+          "history_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+          "score": 0.38297660953176943,
+          "current_point_id": "c1e3f57f-28fc-43a1-9c75-7d795c3431fa",
+          "history_point_id": "76512977-300f-4ba9-9f99-88e8af3ab5fa"
+        },
+        {
+          "history_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+          "score": 0.382522911928759,
+          "current_point_id": "c1e3f57f-28fc-43a1-9c75-7d795c3431fa",
+          "history_point_id": "d1067cee-e55e-47dd-912d-ddc56b5df1ad"
+        },
+        {
+          "history_event_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+          "score": 0.3454079473344973,
+          "current_point_id": "6f5fc4d9-42bb-46b2-a092-05cec92d139d",
+          "history_point_id": "1e86a779-98f1-4a24-9fa6-2cb7d539d428"
+        },
+        {
+          "history_event_id": "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+          "score": 0.2988182699037607,
+          "current_point_id": "c1e3f57f-28fc-43a1-9c75-7d795c3431fa",
+          "history_point_id": "e4abde82-b797-4239-8266-ae8e0bdc5002"
+        }
+      ],
+      "selected_history_event_ids": [
+        "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+        "3a490c44-c339-48ad-b890-7718a051e660",
+        "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e"
+      ]
+    }
+  ]
+}

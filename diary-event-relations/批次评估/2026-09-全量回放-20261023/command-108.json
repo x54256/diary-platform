@@ -1,0 +1,12 @@
+{
+  "args": [
+    "status",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-17/d5637812-eced-45c3-b54b-942088325564/20261023T103535-126ca092"
+  ],
+  "started_at": "2026-10-23T10:35:36.056076+08:00",
+  "ended_at": "2026-10-23T10:35:36.159001+08:00",
+  "seconds": 0.10294495802372694,
+  "exit_code": 0,
+  "stdout": "{\n  \"package_sha256\": \"5eb1318a2bc4b75a3c9c65a594e935240e16b51c36a8f978fe2b3c7e1bf78d8a\",\n  \"history_mode\": \"replay\",\n  \"total_pairs\": 45,\n  \"completed_pairs\": 0,\n  \"complete\": false,\n  \"counts\": {},\n  \"pending_pair_ids\": [\n    \"P-3c1bfa00f335a61e\",\n    \"P-84d314ac7b3dc321\",\n    \"P-066907326fddb263\",\n    \"P-60de54d900046cea\",\n    \"P-34b0f70f6c0c1d96\",\n    \"P-2c0cde50d2f44e5d\",\n    \"P-4deeefd2855e45b7\",\n    \"P-2e84e10fce762741\",\n    \"P-54cec4a8be67d956\",\n    \"P-199fec16a9a0a16a\",\n    \"P-0d34a4bcbd1b4d51\",\n    \"P-b165f3ffc2599de6\",\n    \"P-d90ad6eefe216338\",\n    \"P-d9441db5e264fc82\",\n    \"P-53eaed5904941c28\",\n    \"P-6e02a6bf2e3f4448\",\n    \"P-30ffd5b86b06a3f9\",\n    \"P-ddb3af4323d7ba10\",\n    \"P-bc0d87bfd6f80f0e\",\n    \"P-0b0ab09770d4a86d\",\n    \"P-9e8537f464eeb61a\",\n    \"P-a4c87b93a71f625f\",\n    \"P-6a772ddaef0c8275\",\n    \"P-14d28c45730d89f6\",\n    \"P-702754fdf9289433\",\n    \"P-78cf51a696d90043\",\n    \"P-c880f35144fa09d1\",\n    \"P-460b486b93e869fa\",\n    \"P-79d92b525aa3275a\",\n    \"P-014643dbde51b8e1\",\n    \"P-ab8f94508e5b15e4\",\n    \"P-1cdb12cfb3a846fe\",\n    \"P-c76d16e226a6276d\",\n    \"P-3036e67b2364ff8b\",\n    \"P-4821062929fbfb44\",\n    \"P-83e17171d184f36e\",\n    \"P-e2bc1847e0666665\",\n    \"P-2ede7620af6bbbba\",\n    \"P-310907922b1bcfdf\",\n    \"P-0918cae7578fe10f\",\n    \"P-36bb73f719bf08ac\",\n    \"P-35adb98137c19888\",\n    \"P-bb2a37c436c4b54b\",\n    \"P-ee78d384e405b17f\",\n    \"P-f7cfdf57db1a5658\"\n  ],\n  \"pending_batches\": [\n    \"B001\",\n    \"B002\",\n    \"B003\",\n    \"B004\",\n    \"B005\"\n  ],\n  \"stored_in_database\": false\n}\n",
+  "stderr": ""
+}

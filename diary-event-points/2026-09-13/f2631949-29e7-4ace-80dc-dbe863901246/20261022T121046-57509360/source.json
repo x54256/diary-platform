@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "origin": "database",
+  "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+  "username": "x5456",
+  "diary_id": "f2631949-29e7-4ace-80dc-dbe863901246",
+  "diary_date": "2026-09-13",
+  "organized_id": "d337aa7b-fafb-4217-be03-c41156ca09fa",
+  "content_revision": 4,
+  "structured_revision": 1,
+  "selection": {
+    "importance": "all",
+    "event_ids": []
+  },
+  "events": [
+    {
+      "event_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+      "title": "小廖容易进入防御姿态",
+      "body": [
+        "小廖容易进入防御姿态。她说“我没压线呀”，就是这样的反应：她下意识地认为别人在指责她，而不是提醒她。",
+        "她爸是容易触发她敏感反应的人，这和她从小的成长环境有关，也是她容易进入防御姿态的原因。"
+      ],
+      "feeling": [],
+      "reflection": [],
+      "source_order": 0,
+      "ai_importance": "MEDIUM",
+      "user_importance": null,
+      "effective_importance": "MEDIUM",
+      "updated_at": "2026-10-21 02:41:14.212520+00:00"
+    }
+  ],
+  "excluded_events": [],
+  "source_sha256": "56008e88ec44350ca3ec0cddb8a8c76dee054289d6debc4163a503bebf943d60"
+}

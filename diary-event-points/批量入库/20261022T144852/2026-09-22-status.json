@@ -1,0 +1,14 @@
+{
+  "task_id": "dc8f0138-b288-4338-808c-862719a6db45",
+  "run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+  "task_status": "SUCCEEDED",
+  "run_status": "POINTS_READY",
+  "current_step": null,
+  "error_code": null,
+  "events": 4,
+  "candidate_points": 17,
+  "vectors": 17,
+  "reused_vectors": 0,
+  "stored_points": 17,
+  "stored": true
+}

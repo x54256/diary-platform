@@ -1,0 +1,12 @@
+{
+  "args": [
+    "status",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-29/33e02ff9-a75d-4933-8fb0-ff8ba2c954fc/20261022T234921-b3cbcaff"
+  ],
+  "started_at": "2026-10-22T23:49:22.060488+08:00",
+  "ended_at": "2026-10-22T23:49:22.134648+08:00",
+  "seconds": 0.07417883299058303,
+  "exit_code": 0,
+  "stdout": "{\n  \"package_sha256\": \"9c99daf0d4443e529fd21ab6f3ded2f13aabe1063203e1c418b709e793620379\",\n  \"history_mode\": \"replay\",\n  \"total_pairs\": 35,\n  \"completed_pairs\": 0,\n  \"complete\": false,\n  \"counts\": {},\n  \"pending_pair_ids\": [\n    \"P-dabfc9ce8d9ab2d1\",\n    \"P-0067bac34488be48\",\n    \"P-fb04a26ecb9471b5\",\n    \"P-a623a606f3a8a551\",\n    \"P-a0d9bb6fc56bd840\",\n    \"P-70808c455211df3f\",\n    \"P-d0b690259717cb84\",\n    \"P-05d9829f1167150f\",\n    \"P-10be9ae11cba7f74\",\n    \"P-e84f710810de43fb\",\n    \"P-6a849c3cb797c97c\",\n    \"P-ec38fcf34c48ce97\",\n    \"P-e6fee5ba86c122a9\",\n    \"P-773ae24350e64a95\",\n    \"P-66dbf254729570fd\",\n    \"P-c0087a353ef3fe75\",\n    \"P-8e068b2e1db5bb11\",\n    \"P-02ba29bc6f88ce60\",\n    \"P-328f0a3366172863\",\n    \"P-ef09713bce07c2ce\",\n    \"P-6efee5fb8abb2168\",\n    \"P-4d8125eed4be1173\",\n    \"P-d41b5340270d8fd3\",\n    \"P-b38d5368df72d9c3\",\n    \"P-a940e4bb168e3002\",\n    \"P-e3bffaddb3bb20e9\",\n    \"P-220dd3d2eb59af9f\",\n    \"P-ee6f9aa6ab3c69ef\",\n    \"P-6cfdab07e298f7d6\",\n    \"P-1cda1d467531b349\",\n    \"P-eb5af4bf93dd074f\",\n    \"P-b060100195e0e5dd\",\n    \"P-116f24826b2d211e\",\n    \"P-e9b43641ed0d9d39\",\n    \"P-49ea01ff3b265c14\"\n  ],\n  \"pending_batches\": [\n    \"B001\",\n    \"B002\",\n    \"B003\"\n  ],\n  \"stored_in_database\": false\n}\n",
+  "stderr": ""
+}

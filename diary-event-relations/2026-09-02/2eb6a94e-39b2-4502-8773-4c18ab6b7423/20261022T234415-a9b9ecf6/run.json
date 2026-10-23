@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "package_sha256": "2a4d9f322a64499a5e0936c24d80da82ea852281922fd62425c04c43648ff978",
+  "created_at": "2026-10-22T15:44:15.964536+00:00",
+  "batches": [
+    {
+      "batch_id": "B001",
+      "pair_ids": [
+        "P-050df6e138750aff"
+      ]
+    }
+  ],
+  "files": {
+    "source.json": "58dea909275f635c22042b26eded75cd6f99735a288decaf1cca9719724060e7",
+    "B001.json": "edcc735662282ba104f03b42dd777328ec39b915ce9eb6eca8208d259ec3e15c"
+  }
+}

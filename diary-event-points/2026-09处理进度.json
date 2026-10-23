@@ -1,0 +1,617 @@
+{
+  "month": "2026-09",
+  "workflow": "逐日生成并完成subagent审阅后，用户确认批量入库；17篇中高重要性事件要点及向量已全部保存",
+  "diaries": [
+    {
+      "diary_id": "7b2b2be1-38eb-42d8-9a20-320f64755e89",
+      "diary_date": "2026-09-01",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "9304208b-4a26-44a6-b6fa-8126bbe92918",
+      "source_content_revision": 2,
+      "structured_revision": 1,
+      "event_count": 3,
+      "runs": []
+    },
+    {
+      "diary_id": "2eb6a94e-39b2-4502-8773-4c18ab6b7423",
+      "diary_date": "2026-09-02",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "bf168952-cbff-4c2e-82ba-3d02ac321ac2",
+      "source_content_revision": 2,
+      "structured_revision": 1,
+      "event_count": 2,
+      "runs": []
+    },
+    {
+      "diary_id": "16ef80a9-a28b-43e5-b820-ff29cdccf58a",
+      "diary_date": "2026-09-03",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 3,
+      "organized_id": "4a159de2-8885-4b8a-9fbc-7a4d1485f840",
+      "source_content_revision": 3,
+      "structured_revision": 1,
+      "event_count": 8,
+      "runs": []
+    },
+    {
+      "diary_id": "828580fd-50a7-4a15-9d80-7acfe7ec987e",
+      "diary_date": "2026-09-09",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "d6f8587c-ff73-4758-8ee7-47b6d03f57f3",
+      "source_content_revision": 2,
+      "structured_revision": 2,
+      "event_count": 8,
+      "runs": [
+        {
+          "diary_id": "828580fd-50a7-4a15-9d80-7acfe7ec987e",
+          "status": "FAILED",
+          "obsolete_at": null,
+          "point_count": 0
+        },
+        {
+          "diary_id": "828580fd-50a7-4a15-9d80-7acfe7ec987e",
+          "status": "POINTS_READY",
+          "obsolete_at": null,
+          "point_count": 37
+        }
+      ]
+    },
+    {
+      "diary_id": "085c0f45-8d1d-48ae-a2d3-b54da087adae",
+      "diary_date": "2026-09-10",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "e8388388-2c2e-4302-b7d8-8202d5c4f326",
+      "source_content_revision": 2,
+      "structured_revision": 1,
+      "event_count": 4,
+      "runs": [
+        {
+          "diary_id": "085c0f45-8d1d-48ae-a2d3-b54da087adae",
+          "status": "POINTS_READY",
+          "obsolete_at": null,
+          "point_count": 46
+        }
+      ]
+    },
+    {
+      "diary_id": "ef0c6381-b0ab-4efd-8da1-9406a5ed498f",
+      "diary_date": "2026-09-11",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "3ffb68f5-0917-472d-97e2-c78707ca78da",
+      "source_content_revision": 2,
+      "structured_revision": 3,
+      "event_count": 6,
+      "runs": []
+    },
+    {
+      "diary_id": "d8b04229-2f04-4665-b066-77be7e6c48b7",
+      "diary_date": "2026-09-12",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "45bec44e-0d86-4c8c-b1a8-816db433c0f5",
+      "source_content_revision": 2,
+      "structured_revision": 4,
+      "event_count": 8,
+      "runs": []
+    },
+    {
+      "diary_id": "f2631949-29e7-4ace-80dc-dbe863901246",
+      "diary_date": "2026-09-13",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 4,
+      "organized_id": "d337aa7b-fafb-4217-be03-c41156ca09fa",
+      "source_content_revision": 4,
+      "structured_revision": 1,
+      "event_count": 1,
+      "runs": []
+    },
+    {
+      "diary_id": "e2c710d1-7fea-49ef-83a7-f738a32859d9",
+      "diary_date": "2026-09-14",
+      "status": "analyzed",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "2c9b926e-7111-4274-8465-ea0b5b78b04d",
+      "source_content_revision": 2,
+      "structured_revision": 11,
+      "event_count": 8,
+      "runs": []
+    },
+    {
+      "diary_id": "b8bc5707-d4b4-48f7-85bc-faa103e2fac8",
+      "diary_date": "2026-09-15",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "09d175d4-bf53-47eb-adab-1fcd1e26e8f9",
+      "source_content_revision": 2,
+      "structured_revision": 2,
+      "event_count": 6,
+      "runs": []
+    },
+    {
+      "diary_id": "d5637812-eced-45c3-b54b-942088325564",
+      "diary_date": "2026-09-17",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "d65d2eec-9d09-4cc5-bc4d-775135ce2fd4",
+      "source_content_revision": 2,
+      "structured_revision": 1,
+      "event_count": 6,
+      "runs": []
+    },
+    {
+      "diary_id": "bf1a3a0f-75c6-4466-b33c-1a5cdeaf2631",
+      "diary_date": "2026-09-18",
+      "status": "analyzed",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "da0d4563-64af-4122-ab17-e8b93980cfb5",
+      "source_content_revision": 2,
+      "structured_revision": 5,
+      "event_count": 5,
+      "runs": []
+    },
+    {
+      "diary_id": "f7719c11-fdd5-41f9-ac64-37dddb6290e0",
+      "diary_date": "2026-09-19",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "ae100550-4c0a-4071-ae7d-52866fcf07c6",
+      "source_content_revision": 2,
+      "structured_revision": 1,
+      "event_count": 5,
+      "runs": []
+    },
+    {
+      "diary_id": "d7c7de3e-a68f-4b8c-8538-30d88da0d0cf",
+      "diary_date": "2026-09-20",
+      "status": "analyzed",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "0af8ca51-558b-43b3-8eb8-90354e350ef8",
+      "source_content_revision": 2,
+      "structured_revision": 14,
+      "event_count": 9,
+      "runs": []
+    },
+    {
+      "diary_id": "fa916775-76aa-4701-883d-c4267cf2bc97",
+      "diary_date": "2026-09-20",
+      "status": "saved",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": null,
+      "source_content_revision": null,
+      "structured_revision": null,
+      "event_count": 0,
+      "runs": []
+    },
+    {
+      "diary_id": "27bcda57-db3f-4c72-a345-e71ba8997ac8",
+      "diary_date": "2026-09-22",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "f1264f6a-9463-41a4-be72-2a3e76f8f509",
+      "source_content_revision": 2,
+      "structured_revision": 6,
+      "event_count": 9,
+      "runs": []
+    },
+    {
+      "diary_id": "2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20",
+      "diary_date": "2026-09-23",
+      "status": "analyzed",
+      "is_dirty": false,
+      "content_revision": 3,
+      "organized_id": "36d5804d-f96e-4673-817c-4719a7fdeb73",
+      "source_content_revision": 3,
+      "structured_revision": 4,
+      "event_count": 4,
+      "runs": []
+    },
+    {
+      "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+      "diary_date": "2026-09-25",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "a3c74658-c6eb-468e-9629-db099632599c",
+      "source_content_revision": 2,
+      "structured_revision": 6,
+      "event_count": 12,
+      "runs": []
+    },
+    {
+      "diary_id": "5f9d35f3-387b-43e6-bb0a-5207f73b65f0",
+      "diary_date": "2026-09-27",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "4cfe6ea5-c73f-426b-b2ac-03179b3b48b2",
+      "source_content_revision": 2,
+      "structured_revision": 6,
+      "event_count": 8,
+      "runs": []
+    },
+    {
+      "diary_id": "33e02ff9-a75d-4933-8fb0-ff8ba2c954fc",
+      "diary_date": "2026-09-29",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 2,
+      "organized_id": "c0669c55-4a24-479e-b36e-e3a473bdce69",
+      "source_content_revision": 2,
+      "structured_revision": 3,
+      "event_count": 6,
+      "runs": []
+    }
+  ],
+  "current": {
+    "stage": "BATCH_STORED",
+    "diaries": 17,
+    "events": 73,
+    "stored_points": 208,
+    "vectors": 208,
+    "excluded_low_events": 33,
+    "excluded_low_points": 45,
+    "all_stored": true,
+    "batch_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/批量入库/20261022T144852"
+  },
+  "notes": [
+    "本次17篇全部入库成功，保存73个中高重要性事件、208条要点及向量。",
+    "33个低重要性事件共45条要点仅保留文档。",
+    "09-09的37条和09-10的46条此前已入库，本次未重复处理。",
+    "09-20按用户选择仅处理已整理的d7c7de3e-a68f-4b8c-8538-30d88da0d0cf；另一篇未整理日记排除。",
+    "稿件保留生成时文字和来源，后续状态以本进度文件、索引和入库结果为准。"
+  ],
+  "generated_documents": {
+    "2026-09-02": {
+      "diary_id": "2eb6a94e-39b2-4502-8773-4c18ab6b7423",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-02/2eb6a94e-39b2-4502-8773-4c18ab6b7423/20261022T120347-75cdb1e0",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-02/2eb6a94e-39b2-4502-8773-4c18ab6b7423/20261022T120347-75cdb1e0/事件要点.md",
+      "events": 2,
+      "points": 5,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "f170cc66-0934-4993-96f2-b3e084a353b0",
+        "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+        "events": 2,
+        "stored_points": 5,
+        "vectors": 5,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-02/2eb6a94e-39b2-4502-8773-4c18ab6b7423/20261022T120347-75cdb1e0/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-03": {
+      "diary_id": "16ef80a9-a28b-43e5-b820-ff29cdccf58a",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-03/16ef80a9-a28b-43e5-b820-ff29cdccf58a/20261022T120447-8ef13884",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-03/16ef80a9-a28b-43e5-b820-ff29cdccf58a/20261022T120447-8ef13884/事件要点.md",
+      "events": 8,
+      "points": 34,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "c0c3f930-2e61-4650-98c6-6d4f3b548d8f",
+        "run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "events": 6,
+        "stored_points": 31,
+        "vectors": 31,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-03/16ef80a9-a28b-43e5-b820-ff29cdccf58a/20261022T120447-8ef13884/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-11": {
+      "diary_id": "ef0c6381-b0ab-4efd-8da1-9406a5ed498f",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-11/ef0c6381-b0ab-4efd-8da1-9406a5ed498f/20261022T120725-72aefe52",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-11/ef0c6381-b0ab-4efd-8da1-9406a5ed498f/20261022T120725-72aefe52/事件要点.md",
+      "events": 6,
+      "points": 22,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "e18b4282-b1c3-4186-9c0a-cc39a3b0c3a0",
+        "run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+        "events": 5,
+        "stored_points": 21,
+        "vectors": 21,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-11/ef0c6381-b0ab-4efd-8da1-9406a5ed498f/20261022T120725-72aefe52/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-12": {
+      "diary_id": "d8b04229-2f04-4665-b066-77be7e6c48b7",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-12/d8b04229-2f04-4665-b066-77be7e6c48b7/20261022T120901-b5b52b90",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-12/d8b04229-2f04-4665-b066-77be7e6c48b7/20261022T120901-b5b52b90/事件要点.md",
+      "events": 8,
+      "points": 24,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "f8d94c4c-310b-4f7a-885e-fca501c61c32",
+        "run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "events": 6,
+        "stored_points": 18,
+        "vectors": 18,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-12/d8b04229-2f04-4665-b066-77be7e6c48b7/20261022T120901-b5b52b90/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-13": {
+      "diary_id": "f2631949-29e7-4ace-80dc-dbe863901246",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-13/f2631949-29e7-4ace-80dc-dbe863901246/20261022T121046-57509360",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-13/f2631949-29e7-4ace-80dc-dbe863901246/20261022T121046-57509360/事件要点.md",
+      "events": 1,
+      "points": 1,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "5776f9f9-b8f1-418d-939a-39360ca1cf82",
+        "run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+        "events": 1,
+        "stored_points": 1,
+        "vectors": 1,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-13/f2631949-29e7-4ace-80dc-dbe863901246/20261022T121046-57509360/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-14": {
+      "diary_id": "e2c710d1-7fea-49ef-83a7-f738a32859d9",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-14/e2c710d1-7fea-49ef-83a7-f738a32859d9/20261022T121102-ffce238a",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-14/e2c710d1-7fea-49ef-83a7-f738a32859d9/20261022T121102-ffce238a/事件要点.md",
+      "events": 8,
+      "points": 14,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "0ac954d9-e50b-45f6-98de-4abb5c0496a4",
+        "run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "events": 4,
+        "stored_points": 10,
+        "vectors": 10,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-14/e2c710d1-7fea-49ef-83a7-f738a32859d9/20261022T121102-ffce238a/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-15": {
+      "diary_id": "b8bc5707-d4b4-48f7-85bc-faa103e2fac8",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-15/b8bc5707-d4b4-48f7-85bc-faa103e2fac8/20261022T121157-9a2335ab",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-15/b8bc5707-d4b4-48f7-85bc-faa103e2fac8/20261022T121157-9a2335ab/事件要点.md",
+      "events": 6,
+      "points": 10,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "2026e064-956f-48f7-be56-d3e6e68d4481",
+        "run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+        "events": 1,
+        "stored_points": 4,
+        "vectors": 4,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-15/b8bc5707-d4b4-48f7-85bc-faa103e2fac8/20261022T121157-9a2335ab/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-17": {
+      "diary_id": "d5637812-eced-45c3-b54b-942088325564",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-17/d5637812-eced-45c3-b54b-942088325564/20261022T121245-b6663e69",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-17/d5637812-eced-45c3-b54b-942088325564/20261022T121245-b6663e69/事件要点.md",
+      "events": 6,
+      "points": 11,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "64b8c2a9-b915-45ad-9fbb-b0a27b090e80",
+        "run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "events": 4,
+        "stored_points": 9,
+        "vectors": 9,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-17/d5637812-eced-45c3-b54b-942088325564/20261022T121245-b6663e69/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-18": {
+      "diary_id": "bf1a3a0f-75c6-4466-b33c-1a5cdeaf2631",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-18/bf1a3a0f-75c6-4466-b33c-1a5cdeaf2631/20261022T121344-e415ad3e",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-18/bf1a3a0f-75c6-4466-b33c-1a5cdeaf2631/20261022T121344-e415ad3e/事件要点.md",
+      "events": 5,
+      "points": 10,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "6c322df3-4cf6-4621-a503-94f90e24200d",
+        "run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "events": 4,
+        "stored_points": 9,
+        "vectors": 9,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-18/bf1a3a0f-75c6-4466-b33c-1a5cdeaf2631/20261022T121344-e415ad3e/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-19": {
+      "diary_id": "f7719c11-fdd5-41f9-ac64-37dddb6290e0",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-19/f7719c11-fdd5-41f9-ac64-37dddb6290e0/20261022T121434-7f70264b",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-19/f7719c11-fdd5-41f9-ac64-37dddb6290e0/20261022T121434-7f70264b/事件要点.md",
+      "events": 5,
+      "points": 9,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "05deda0d-dd9d-4cad-a4c5-2c729a27baea",
+        "run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+        "events": 1,
+        "stored_points": 3,
+        "vectors": 3,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-19/f7719c11-fdd5-41f9-ac64-37dddb6290e0/20261022T121434-7f70264b/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-22": {
+      "diary_id": "27bcda57-db3f-4c72-a345-e71ba8997ac8",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-22/27bcda57-db3f-4c72-a345-e71ba8997ac8/20261022T121525-bc96863b",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-22/27bcda57-db3f-4c72-a345-e71ba8997ac8/20261022T121525-bc96863b/事件要点.md",
+      "events": 9,
+      "points": 23,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "dc8f0138-b288-4338-808c-862719a6db45",
+        "run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+        "events": 4,
+        "stored_points": 17,
+        "vectors": 17,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-22/27bcda57-db3f-4c72-a345-e71ba8997ac8/20261022T121525-bc96863b/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-23": {
+      "diary_id": "2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-23/2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20/20261022T121655-ea5d2fb3",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-23/2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20/20261022T121655-ea5d2fb3/事件要点.md",
+      "events": 4,
+      "points": 11,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "15486065-f466-4da0-b2f8-621b6ec27e6a",
+        "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+        "events": 4,
+        "stored_points": 11,
+        "vectors": 11,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-23/2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20/20261022T121655-ea5d2fb3/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-25": {
+      "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-25/2ae44b75-b2d4-4bf7-9fca-e809580d5ab8/20261022T121809-e7e12ab0",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-25/2ae44b75-b2d4-4bf7-9fca-e809580d5ab8/20261022T121809-e7e12ab0/事件要点.md",
+      "events": 12,
+      "points": 22,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "a43ef882-114b-45a2-8657-04da801a658d",
+        "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "events": 12,
+        "stored_points": 22,
+        "vectors": 22,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-25/2ae44b75-b2d4-4bf7-9fca-e809580d5ab8/20261022T121809-e7e12ab0/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-27": {
+      "diary_id": "5f9d35f3-387b-43e6-bb0a-5207f73b65f0",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-27/5f9d35f3-387b-43e6-bb0a-5207f73b65f0/20261022T121929-35654e81",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-27/5f9d35f3-387b-43e6-bb0a-5207f73b65f0/20261022T121929-35654e81/事件要点.md",
+      "events": 8,
+      "points": 17,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "866e22e4-e44f-47b4-8c95-ba7890990858",
+        "run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+        "events": 3,
+        "stored_points": 9,
+        "vectors": 9,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-27/5f9d35f3-387b-43e6-bb0a-5207f73b65f0/20261022T121929-35654e81/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-29": {
+      "diary_id": "33e02ff9-a75d-4933-8fb0-ff8ba2c954fc",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-29/33e02ff9-a75d-4933-8fb0-ff8ba2c954fc/20261022T122041-47047afc",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-29/33e02ff9-a75d-4933-8fb0-ff8ba2c954fc/20261022T122041-47047afc/事件要点.md",
+      "events": 6,
+      "points": 11,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "701f1d13-9a49-4563-b9fc-d0cba91d3341",
+        "run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+        "events": 6,
+        "stored_points": 11,
+        "vectors": 11,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-29/33e02ff9-a75d-4933-8fb0-ff8ba2c954fc/20261022T122041-47047afc/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-01": {
+      "diary_id": "7b2b2be1-38eb-42d8-9a20-320f64755e89",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-01/7b2b2be1-38eb-42d8-9a20-320f64755e89/20261022T114659-56df224e",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-01/7b2b2be1-38eb-42d8-9a20-320f64755e89/20261022T114659-56df224e/事件要点.md",
+      "events": 3,
+      "points": 3,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "d73bea41-ca19-4d17-a622-c71722810bee",
+        "run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+        "events": 2,
+        "stored_points": 2,
+        "vectors": 2,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-01/7b2b2be1-38eb-42d8-9a20-320f64755e89/20261022T114659-56df224e/入库包-批量确认-20261022T144852.json"
+      }
+    },
+    "2026-09-20": {
+      "diary_id": "d7c7de3e-a68f-4b8c-8538-30d88da0d0cf",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-20/d7c7de3e-a68f-4b8c-8538-30d88da0d0cf/20261022T122946-10e3e862",
+      "document": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-20/d7c7de3e-a68f-4b8c-8538-30d88da0d0cf/20261022T122946-10e3e862/事件要点.md",
+      "events": 9,
+      "points": 26,
+      "stage": "POINTS_READY",
+      "storage": {
+        "task_id": "5140f084-5dd1-429c-a22f-1fde26cc106f",
+        "run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "events": 8,
+        "stored_points": 25,
+        "vectors": 25,
+        "task_status": "SUCCEEDED",
+        "run_status": "POINTS_READY",
+        "stored": true,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-20/d7c7de3e-a68f-4b8c-8538-30d88da0d0cf/20261022T122946-10e3e862/入库包-批量确认-20261022T144852.json"
+      }
+    }
+  },
+  "pending_selection": {
+    "date": "2026-09-20",
+    "status": "RESOLVED",
+    "answered": true,
+    "answer": "只处理已整理的 d7c7de3e-a68f-4b8c-8538-30d88da0d0cf",
+    "selected_diary_id": "d7c7de3e-a68f-4b8c-8538-30d88da0d0cf",
+    "excluded_diary_id": "fa916775-76aa-4701-883d-c4267cf2bc97"
+  }
+}

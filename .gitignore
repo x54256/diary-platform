@@ -42,3 +42,4 @@ deploy.server
 docker-compose.**.yml**
 **/*.zip
 .workbuddy
+diary-event-relations/**/.results.lock

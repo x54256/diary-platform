@@ -1,0 +1,847 @@
+{
+  "package_sha256": "03cedffb08586032f360aa315717c6e8f1f3f82e02ae320ce858c9eac1827bd0",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "03cedffb08586032f360aa315717c6e8f1f3f82e02ae320ce858c9eac1827bd0",
+    "verified_at": "2026-10-23T02:40:26.192634+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-014643dbde51b8e1",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "8d074718-1a6e-4ae0-92e9-af44bd75c00b",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "旧争吵中的囤狗粮与买小龙虾不同购买事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-066907326fddb263",
+      "event_a_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "政治视频与PVZ秘境无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0918cae7578fe10f",
+      "event_a_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "恢复平台日程等与新增英语算法打卡没有具体事项定位。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0b0ab09770d4a86d",
+      "event_a_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "RELATED",
+      "reason": "同一具体课程新增持续投入状态。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "普通心理学初步重启但未进入正轨后，继续发展为连续两天看课和整理笔记。",
+        "source_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "source_evidence": [
+          {
+            "point_no": 4,
+            "quote": "这两天我重新开始看普通心理学课程，不过还没有进入正轨。",
+            "point_id": "d1067cee-e55e-47dd-912d-ddc56b5df1ad",
+            "point_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 16,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "048a1fcd519931166676284de1064ffc7c80c6a7e007f36b1f350637085f2313"
+          }
+        ],
+        "target_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+        "target_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天基本都在看普通心理学课、整理笔记，今天上班也一直做",
+            "point_id": "cd658f47-126e-4e5c-b5fa-369078d0722c",
+            "point_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "67639834242386606cf806fde58767871b59e9cf5fef935a7d53152a6771ee85"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-0d34a4bcbd1b4d51",
+      "event_a_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "同为油管观看，但不同视频材料，当前未回顾老梁沉迷经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-14d28c45730d89f6",
+      "event_a_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "秘境游戏与图谱三步方案无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-199fec16a9a0a16a",
+      "event_a_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "英语契机与具体多邻国下载未定位为先后执行或彼此触发，同主题愿望不足以连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1cdb12cfb3a846fe",
+      "event_a_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "同王振州聊天不等于工时谈话的后续，当前是另一个数据核对安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2c0cde50d2f44e5d",
+      "event_a_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "event_b_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "status": "RELATED",
+      "reason": "具体限时打算出现执行反馈。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前打算限制YouTube时间后，今天已控制观看、没有看太多油管。",
+        "source_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+        "source_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "YouTube 也要限时，不能全天一直看视频",
+            "point_id": "2c4e97eb-6d9a-5175-98fa-3f8c786480f8",
+            "point_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+            "point_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "4f99a31c8d3f0cd70ca2208706b3db3507dcd90f0668ac45b61cd4755c1202a0"
+          }
+        ],
+        "target_event_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+        "target_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天算控制住，没怎么看油管。",
+            "point_id": "a2956be8-8ace-4cdc-91c3-0b52502ef979",
+            "point_event_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "f0709b95a40ed85c19c1b1a8f62ed95f57b4bbb80378f5400eb378a1f2349d3d"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-2e84e10fce762741",
+      "event_a_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "政治观点未引用枕头争吵复盘。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2ede7620af6bbbba",
+      "event_a_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "8d074718-1a6e-4ae0-92e9-af44bd75c00b",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "存款盘点没有指向这次三斤小龙虾开支。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3036e67b2364ff8b",
+      "event_a_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "RELATED",
+      "reason": "双方独立支持数据重整后新资料与分工，不借第三事件建立联系。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前要求重新梳理江西基础指标数据后，后来数据重新整理出来，并安排与同事核对。",
+        "source_event_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 17,
+            "quote": "最后让他重新梳理基础指标体系。",
+            "point_id": "a3e69984-c6cd-4c20-b486-6db06502b300",
+            "point_event_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 166,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "e14e6b85dc098fa8104068cd24dd4fd6b46fe11e1b1810d1b9633ac88d5f081f"
+          }
+        ],
+        "target_event_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+        "target_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "江西数据最近又整理出来，今早开会让我带王振洲一起做。",
+            "point_id": "ef5db789-f707-5004-9c80-bd54529523b8",
+            "point_event_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "759b5f3b1c31a97b7ca18dab784856417b7befff467e4e4db46d7bfc656ee321"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-30ffd5b86b06a3f9",
+      "event_a_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "RELATED",
+      "reason": "学习由希望恢复到具体实际活动。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前心理学学习荒废、想恢复，随后已重新持续看普通心理学和整理笔记。",
+        "source_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "日记管理平台、日程管理、心理学学习和瑜伽，这四项都荒废了很长时间。我想恢复",
+            "point_id": "87d786c0-7a15-4d3a-ae87-12b4bbef8d5e",
+            "point_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5665b422af9df7760d740376e3a12243385cedec5670c91ff0555bdab79aa6e0"
+          }
+        ],
+        "target_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+        "target_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天基本都在看普通心理学课、整理笔记",
+            "point_id": "cd658f47-126e-4e5c-b5fa-369078d0722c",
+            "point_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "67639834242386606cf806fde58767871b59e9cf5fef935a7d53152a6771ee85"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-310907922b1bcfdf",
+      "event_a_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "恢复心理学瑜伽与英语、阅读、算法题是不同新学习事项，普通学习愿望不足以连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-34b0f70f6c0c1d96",
+      "event_a_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "43604780-0d57-4aec-93a0-c44f98918dd9",
+      "event_b_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "status": "NO_RELATION",
+      "reason": "夸李强视频不是两则国外维权新闻的回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-35adb98137c19888",
+      "event_a_id": "8d074718-1a6e-4ae0-92e9-af44bd75c00b",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "小龙虾与家务积压未表达具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-36bb73f719bf08ac",
+      "event_a_id": "8d074718-1a6e-4ae0-92e9-af44bd75c00b",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "小龙虾与枕头争吵复盘不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3c1bfa00f335a61e",
+      "event_a_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "RELATED",
+      "reason": "后者明确回顾通关及对后续使用的原预期，出现新的关卡阶段。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "主线简单模式通关后，又因秘境和限时植物体验继续沉迷，并未转为只做日常。",
+        "source_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+        "source_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天还通关了《植物大战僵尸 2》的主线简单模式，之后每天打卡就行。",
+            "point_id": "c18ac905-0654-5e5e-9487-0e87525f58dd",
+            "point_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+            "point_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "9b96594226f4de68ca41a6def4982380a647de82b5461c5eddf5f85c83ec0be5"
+          }
+        ],
+        "target_event_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+        "target_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "原以为主线通关就不沉迷，结果又有这个，刚在家仍玩秘境。",
+            "point_id": "d4a017d7-0a85-4ffe-be71-c40dcae4bff5",
+            "point_event_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 81,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "10fa22f1b60e27f41137e8b104dfbe1d9665eee585971216319135a9a2434046"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-460b486b93e869fa",
+      "event_a_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "RELATED",
+      "reason": "同一游戏使用发展为新的特殊关卡阶段。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前估计植物大战僵尸之后只刷日常，随后又开始秘境及十四天植物体验，预期继续投入时间。",
+        "source_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "后面可能只是刷刷每日任务、做做活动，不会一直想玩。",
+            "point_id": "6e2f810e-d6e1-55f0-bfce-19512fc5540f",
+            "point_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 35,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "c34c010460f9f345a7d2ad81a8b2cd9d7419aee893d9a62ac4168641cbb96211"
+          }
+        ],
+        "target_event_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+        "target_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "想打好像叫“秘境”的特殊关卡，领了此前赠送植物的十四天体验；过期就不能用，肯定想趁现在打过能打的关",
+            "point_id": "d4a017d7-0a85-4ffe-be71-c40dcae4bff5",
+            "point_event_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 16,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "10fa22f1b60e27f41137e8b104dfbe1d9665eee585971216319135a9a2434046"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-4821062929fbfb44",
+      "event_a_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "8d074718-1a6e-4ae0-92e9-af44bd75c00b",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "做小龙虾与数据核对不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4deeefd2855e45b7",
+      "event_a_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "8d074718-1a6e-4ae0-92e9-af44bd75c00b",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "油管政治观点与做小龙虾无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-53eaed5904941c28",
+      "event_a_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "RELATED",
+      "reason": "课程恢复计划有明确执行结果。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前打算恢复心理学课，随后实际投入较多时间看普通心理学并整理笔记。",
+        "source_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下周准备继续看心理学课、做瑜伽。",
+            "point_id": "0b7b8237-cb6f-4b04-a131-55f233656dce",
+            "point_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 119,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "3d2840efa4cfbc836171d81788c83e1ff6ea1eb04ce856f6791f1fbc34a3ab2f"
+          }
+        ],
+        "target_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+        "target_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天基本都在看普通心理学课、整理笔记",
+            "point_id": "cd658f47-126e-4e5c-b5fa-369078d0722c",
+            "point_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "67639834242386606cf806fde58767871b59e9cf5fef935a7d53152a6771ee85"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-54cec4a8be67d956",
+      "event_a_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "都谈李克强但当前视频不是此前朋友访谈，未明确回顾或比较那次访谈。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-60de54d900046cea",
+      "event_a_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "政治观点与江西数据核对无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6a772ddaef0c8275",
+      "event_a_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "RELATED",
+      "reason": "目标明确把当天玩僵尸列为推迟原因之一。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "当天继续玩植物大战僵尸，与学习普心及家庭开会环境一起，使原定下午的数据核对未举行、改约明早。",
+        "source_event_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+        "source_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "中午休息又沉迷《植物大战僵尸》。",
+            "point_id": "d4a017d7-0a85-4ffe-be71-c40dcae4bff5",
+            "point_event_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "10fa22f1b60e27f41137e8b104dfbe1d9665eee585971216319135a9a2434046"
+          }
+        ],
+        "target_event_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+        "target_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "本约下午核对，但我在学普心、玩僵尸，颂梅也在家开会，便没与他开会，准备明早再对。",
+            "point_id": "ef5db789-f707-5004-9c80-bd54529523b8",
+            "point_event_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 26,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "759b5f3b1c31a97b7ca18dab784856417b7befff467e4e4db46d7bfc656ee321"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-6e02a6bf2e3f4448",
+      "event_a_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "event_b_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "status": "RELATED",
+      "reason": "明确同一普心学习打算与执行，不声称已测量视频时间节省。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前打算减少YouTube、把时间用于普心，随后实际看课并做笔记。",
+        "source_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+        "source_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "不如花时间学普心，这东西得学。",
+            "point_id": "2c4e97eb-6d9a-5175-98fa-3f8c786480f8",
+            "point_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+            "point_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+            "offset": 30,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "4f99a31c8d3f0cd70ca2208706b3db3507dcd90f0668ac45b61cd4755c1202a0"
+          }
+        ],
+        "target_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+        "target_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天基本都在看普通心理学课、整理笔记",
+            "point_id": "cd658f47-126e-4e5c-b5fa-369078d0722c",
+            "point_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "67639834242386606cf806fde58767871b59e9cf5fef935a7d53152a6771ee85"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-702754fdf9289433",
+      "event_a_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "秘境条目未引用平台整理成本或恢复四项活动的具体阻碍。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-78cf51a696d90043",
+      "event_a_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "8d074718-1a6e-4ae0-92e9-af44bd75c00b",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "秘境游戏与小龙虾不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-79d92b525aa3275a",
+      "event_a_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "有意义闲暇的泛游戏描述未定位当天秘境体验或说由该次游戏触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-83e17171d184f36e",
+      "event_a_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "英语阅读安排与数据核对没有具体触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-84d314ac7b3dc321",
+      "event_a_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "政治观点视频与心理学AI字幕学习不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9e8537f464eeb61a",
+      "event_a_id": "1e8bba57-0712-4752-98f3-0643612d5b04",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "老梁认知改变视频与下载英语算法工具无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a4c87b93a71f625f",
+      "event_a_id": "28fc02fd-cda6-4455-b02f-e4d83bb061fa",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "江西部署配置与本次数据核对未明确同一环节。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ab8f94508e5b15e4",
+      "event_a_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "45bf44d7-c4eb-4f84-9c1b-6ac4eb6cd166",
+      "event_b_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "status": "NO_RELATION",
+      "reason": "三线监测修改与江西数据核对没有明确功能映射，不能只凭项目关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b165f3ffc2599de6",
+      "event_a_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "游戏疲劳条目说工作循环，没有定位为这次心理学学习所致，不能把同日学习补成游戏原因。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bb2a37c436c4b54b",
+      "event_a_id": "8d074718-1a6e-4ae0-92e9-af44bd75c00b",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "小龙虾与闲暇学习计划不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bc0d87bfd6f80f0e",
+      "event_a_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "英语阅读力扣的新安排与课程字幕知识库是不同具体学习事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c76d16e226a6276d",
+      "event_a_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "6b745863-5538-408d-baed-f6c86379916f",
+      "event_b_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "status": "RELATED",
+      "reason": "同一江西数据梳理出现新资料及分工。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前江西需求数据看不明白，后来数据重新整理出来，并安排我带同事继续核对处理。",
+        "source_event_id": "6b745863-5538-408d-baed-f6c86379916f",
+        "source_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "田总整理的需求和数据乱糟糟的，看不明白",
+            "point_id": "cd05ecea-25ff-4495-b190-ad1ffabe8ff6",
+            "point_event_id": "6b745863-5538-408d-baed-f6c86379916f",
+            "point_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+            "offset": 15,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "a998a2ccb3179073e71d6e3f83d9a3edc551730cc136350eb3fcdbcc008832d4"
+          }
+        ],
+        "target_event_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+        "target_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "江西数据最近又整理出来，今早开会让我带王振洲一起做。",
+            "point_id": "ef5db789-f707-5004-9c80-bd54529523b8",
+            "point_event_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "759b5f3b1c31a97b7ca18dab784856417b7befff467e4e4db46d7bfc656ee321"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-c880f35144fa09d1",
+      "event_a_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "秘境游戏未引用伴侣复盘。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d90ad6eefe216338",
+      "event_a_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "RELATED",
+      "reason": "目标明确把当天下午普心学习列作未开会原因之一。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "下午继续学习普通心理学，与玩游戏及家中开会环境一起，成为推迟江西数据核对到明早的原因。",
+        "source_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+        "source_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天上班也一直做，下午继续视频和笔记。",
+            "point_id": "cd658f47-126e-4e5c-b5fa-369078d0722c",
+            "point_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 19,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "67639834242386606cf806fde58767871b59e9cf5fef935a7d53152a6771ee85"
+          }
+        ],
+        "target_event_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+        "target_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "本约下午核对，但我在学普心、玩僵尸，颂梅也在家开会，便没与他开会，准备明早再对。",
+            "point_id": "ef5db789-f707-5004-9c80-bd54529523b8",
+            "point_event_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 26,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "759b5f3b1c31a97b7ca18dab784856417b7befff467e4e4db46d7bfc656ee321"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-d9441db5e264fc82",
+      "event_a_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "RELATED",
+      "reason": "同一课程及学习时间安排实际执行。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前想到用居家办公空闲学普心和整理笔记，随后已连续两天在工作空闲中看课程并做笔记。",
+        "source_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+        "source_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "完全可以用这些时间学普通心理学，继续整理笔记、看视频",
+            "point_id": "90cc07db-d7ec-42b0-a9d9-e8de58b0264f",
+            "point_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+            "point_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+            "offset": 93,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "77a8094090fc78affab9048a344bb4c1e78074331de1d1425ca04dcda6a647e1"
+          }
+        ],
+        "target_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+        "target_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天基本都在看普通心理学课、整理笔记，今天上班也一直做，下午继续视频和笔记。",
+            "point_id": "cd658f47-126e-4e5c-b5fa-369078d0722c",
+            "point_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "67639834242386606cf806fde58767871b59e9cf5fef935a7d53152a6771ee85"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-ddb3af4323d7ba10",
+      "event_a_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "8d074718-1a6e-4ae0-92e9-af44bd75c00b",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "学习心理学与做小龙虾不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e2bc1847e0666665",
+      "event_a_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "8d074718-1a6e-4ae0-92e9-af44bd75c00b",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "伴侣涂药争执与做小龙虾不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ee78d384e405b17f",
+      "event_a_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "泛称游戏打发时间未定位9月9日等AI开发的具体游玩经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f7cfdf57db1a5658",
+      "event_a_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "阅读新闻练字与老梁视频未表达具体回顾或因那次沉迷而形成。",
+      "relation": null
+    }
+  ]
+}

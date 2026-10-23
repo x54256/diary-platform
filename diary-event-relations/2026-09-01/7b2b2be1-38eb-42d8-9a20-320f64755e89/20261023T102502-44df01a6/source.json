@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "kind": "diary-event-relations-readonly",
+  "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+  "diary_id": "7b2b2be1-38eb-42d8-9a20-320f64755e89",
+  "diary_date": "2026-09-01",
+  "current_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+  "history_mode": "replay",
+  "config": {
+    "workspace_root": "../../diary-event-relations",
+    "min_similarity": 0.4,
+    "top_k": 5,
+    "max_batch_chars": 12000,
+    "max_pairs_per_batch": 12
+  },
+  "embedding_model": "180b751e5a42b7be7b6b98b398a8fab57ceabb9e4524d2c669bd9627a847df55",
+  "events": {
+    "E001": {
+      "id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "run_status": "POINTS_READY",
+      "diary_id": "7b2b2be1-38eb-42d8-9a20-320f64755e89",
+      "diary_date": "2026-09-01",
+      "occurred_on": null,
+      "source_order": 0,
+      "title": "事件关系建立的测试效果很糟糕",
+      "run_source_sha256": "f2170c30a6cb5aa0bd985fdbf45d1853a6b4a8a07e3fdab667264ba6c608fd8b",
+      "points": [
+        {
+          "id": "242a675a-c4fd-4022-a2cc-9cf193d4f16e",
+          "no": 1,
+          "summary": "事件关系测试效果很差，怀疑当前方案",
+          "detail": "早上测试事件关系的建立，效果非常糟糕，让我烦躁，甚至觉得还不如直接根据标签匹配相同事项。\n\n目前的方案是先用 AI 大模型建立日记内部的事件关系，再通过向量召回一部分历史事件，最后让 AI 大模型继续建立关系。测试效果让我怀疑，不知道这条路径是不是正确的。",
+          "embedding_sha256": "cf47daa6d9a2258ca5e25831fb375319c5a9b86415da25abf4ee4b6b3df7204a"
+        }
+      ]
+    },
+    "E002": {
+      "id": "6b745863-5538-408d-baed-f6c86379916f",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "run_status": "POINTS_READY",
+      "diary_id": "7b2b2be1-38eb-42d8-9a20-320f64755e89",
+      "diary_date": "2026-09-01",
+      "occurred_on": null,
+      "source_order": 1,
+      "title": "江西需求和数据看不明白",
+      "run_source_sha256": "f2170c30a6cb5aa0bd985fdbf45d1853a6b4a8a07e3fdab667264ba6c608fd8b",
+      "points": [
+        {
+          "id": "cd05ecea-25ff-4495-b190-ad1ffabe8ff6",
+          "no": 1,
+          "summary": "江西需求和数据看不明白，不想让自己过度烦躁",
+          "detail": "今天早晨，我继续做江西的需求。田总整理的需求和数据乱糟糟的，看不明白，让我很烦躁。\n\n不过，我知道这不是我的问题，也不会让自己一直陷在烦躁里。烦躁到一定程度，我就会放弃，不再继续看，先等着，大不了找田总语音讲解。",
+          "embedding_sha256": "cbafc9efa59d30ef8f9babc12b2211ed9f7168eacf1ad40406c884bd64a30280"
+        }
+      ]
+    },
+    "E003": {
+      "id": "cdd8c172-499d-4044-ba56-b81d013a936d",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "run_status": "POINTS_READY",
+      "diary_id": "7b2b2be1-38eb-42d8-9a20-320f64755e89",
+      "diary_date": "2026-09-01",
+      "occurred_on": null,
+      "source_order": 2,
+      "title": "电动车倒了，头盔也一时找不到",
+      "run_source_sha256": "f2170c30a6cb5aa0bd985fdbf45d1853a6b4a8a07e3fdab667264ba6c608fd8b",
+      "points": [
+        {
+          "id": "cf534018-caad-5b12-adc0-9571ea095c60",
+          "no": 1,
+          "summary": "扶起倒下的电动车，找到头盔后觉得好歹是件好事",
+          "detail": "刚刚准备骑车时，我发现电动车倒了。看过报警通知后，我估计是被风刮倒的，但也可能是被人碰倒的。\n\n我把车扶了起来，本来想着倒了扶起来就行，可自己已经够烦躁了，头盔又一时找不到，让我更加烦躁。后来好歹在地上找到了头盔，也算是一件好事。",
+          "embedding_sha256": "edcb24e2412d06c38acde57eb80e3adef7f35cc588b62bc29e044f3b60682737"
+        }
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "pair_id": "P-b165e7772615732f",
+      "event_a": "E002",
+      "event_b": "E003"
+    },
+    {
+      "pair_id": "P-5af3c38701cc3003",
+      "event_a": "E002",
+      "event_b": "E001"
+    },
+    {
+      "pair_id": "P-9671195c07ccbf33",
+      "event_a": "E003",
+      "event_b": "E001"
+    }
+  ],
+  "recall": [
+    {
+      "current_event_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+      "hits": [],
+      "selected_event_ids": []
+    },
+    {
+      "current_event_id": "6b745863-5538-408d-baed-f6c86379916f",
+      "hits": [],
+      "selected_event_ids": []
+    },
+    {
+      "current_event_id": "cdd8c172-499d-4044-ba56-b81d013a936d",
+      "hits": [],
+      "selected_event_ids": []
+    }
+  ],
+  "completed_dependencies": [],
+  "skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+  "package_sha256": "08f05ab741400ede4dda7fe1416edc97da4cf81d0b5831a6426a5a0121567f31"
+}

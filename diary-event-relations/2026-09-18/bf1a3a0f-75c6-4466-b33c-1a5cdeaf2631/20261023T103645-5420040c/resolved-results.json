@@ -1,0 +1,831 @@
+{
+  "package_sha256": "03002ab7c617b438a3ed8a7c67d005809d532d3de33961027fad5ad8ae636cd1",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "03002ab7c617b438a3ed8a7c67d005809d532d3de33961027fad5ad8ae636cd1",
+    "verified_at": "2026-10-23T02:37:56.219083+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-01b5f77c875ee052",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "event_b_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "status": "NO_RELATION",
+      "reason": "隐藏游戏App计划与劝伴侣学习未互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-113df79f2f660b3c",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "aad8dc74-c788-4f21-80b4-51472a8cccad",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "NO_RELATION",
+      "reason": "新数据表与家庭学习倡议不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-11b8bb29f39eb565",
+      "event_a_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "RELATED",
+      "reason": "同一游戏控制事项出现仍沉迷的新状态，不把计划当执行。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前打算隐藏PVZ2控制使用，后来仍主要玩秘境并觉得快通关；现有要点没有说明隐藏措施是否已实行。",
+        "source_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+        "source_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天玩《植物大战僵尸 2》仍有点沉迷。我准备先增加使用成本，把 App 隐藏起来",
+            "point_id": "4f9c342e-6f61-5dc2-8c0f-ce6fc3b60646",
+            "point_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+            "point_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "fd4b51d2ee1e9fb6d4f7dd0d0ceda3bcda764be5744ea1ecc37cf79774c0f38e"
+          }
+        ],
+        "target_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天主要时间还是打《植物大战僵尸》，确实沉迷，但感觉快通关，秘境没几关",
+            "point_id": "c1c6ec48-d0a7-48ea-9409-4dfb7fc8ebd9",
+            "point_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "2181c11ae46ddfd404167e78e15844ff6f11147cd472cd2c140e86af7e8dccdb"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-127b4eba079bc642",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "NO_RELATION",
+      "reason": "家庭条目回顾“以前”玩游戏，不足以定位为今天打秘境的这一具体经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2a2f05348fbf6e9d",
+      "event_a_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "aad8dc74-c788-4f21-80b4-51472a8cccad",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "NO_RELATION",
+      "reason": "心理学学习与江西表设计没有明确彼此触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2b7ae520f9d93894",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "家庭学习环境倡议未引用日记平台人工整理成本。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2dd10123f18c48ce",
+      "event_a_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "RELATED",
+      "reason": "同一课程恢复事项出现明确执行成果。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "恢复心理学课的计划随后有了完成第二章和笔记的结果。",
+        "source_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下周准备继续看心理学课、做瑜伽。",
+            "point_id": "0b7b8237-cb6f-4b04-a131-55f233656dce",
+            "point_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 119,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "3d2840efa4cfbc836171d81788c83e1ff6ea1eb04ce856f6791f1fbc34a3ab2f"
+          }
+        ],
+        "target_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最终学完第二章“神经系统的结构和功能”，笔记也整理好",
+            "point_id": "c39173a6-44c4-4881-8668-d667610c5392",
+            "point_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 17,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "f65c4eaedcf5a29f28cc43a727825a7ab847d9dc1fca87834409d03f14c50d74"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-30f0a2433dcb9e7f",
+      "event_a_id": "aad8dc74-c788-4f21-80b4-51472a8cccad",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "NO_RELATION",
+      "reason": "AI评估接口影响与当天秘境游戏未表达等待期间玩游戏，不能从旧习惯补出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-41a743f955aae755",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "RELATED",
+      "reason": "双方明确同一闲时游戏转学习的想法，后侧扩展出共同学习的新安排。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前想到把居家空闲从游戏转为学习，随后与小廖讨论共同培养学习习惯、建立家庭学习环境。",
+        "source_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+        "source_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "现在既然在家，正好可以学习普通心理学，不要把时间浪费在打僵尸上。",
+            "point_id": "90cc07db-d7ec-42b0-a9d9-e8de58b0264f",
+            "point_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+            "point_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+            "offset": 168,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "77a8094090fc78affab9048a344bb4c1e78074331de1d1425ca04dcda6a647e1"
+          }
+        ],
+        "target_event_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "想共同培养学习习惯，让家庭有学习环境，更好利用时间。",
+            "point_id": "4342d18b-2c94-4308-a76e-6a6e8d749d45",
+            "point_event_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 75,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "857f9dd0dfbce44c081c7d98319aa36cae1bf4f213da28c76c18fa0c04082e30"
+          },
+          {
+            "point_no": 2,
+            "quote": "以前工作闲时我也打《植物大战僵尸》，后来觉得有时间为何浪费？游戏、没意义的脑残短剧，不如换成学习",
+            "point_id": "abf7c9f6-bb81-438a-860b-91457ce24667",
+            "point_event_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5ccc7e0f26648d52cfe5cdd165e6367a051c85118e2e1884cd88c6fdca311df0"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-51db5eaabe877b14",
+      "event_a_id": "aad8dc74-c788-4f21-80b4-51472a8cccad",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "早前成效评估开发与本次人口土地数据不同具体功能，不能凭江西AI开发建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-532da02fdc5309a2",
+      "event_a_id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "NO_RELATION",
+      "reason": "算法题与秘境游戏没有具体相互触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-543db8339599a61a",
+      "event_a_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "RELATED",
+      "reason": "同一具体秘境游玩有新的进度反馈。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "开始借十四天植物体验打秘境后，又认为秘境剩余关卡不多、估计再几天可打完。",
+        "source_event_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+        "source_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "想打好像叫“秘境”的特殊关卡，领了此前赠送植物的十四天体验",
+            "point_id": "d4a017d7-0a85-4ffe-be71-c40dcae4bff5",
+            "point_event_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 16,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "10fa22f1b60e27f41137e8b104dfbe1d9665eee585971216319135a9a2434046"
+          }
+        ],
+        "target_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "秘境没几关，估计再几天就能打完",
+            "point_id": "c1c6ec48-d0a7-48ea-9409-4dfb7fc8ebd9",
+            "point_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 30,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "2181c11ae46ddfd404167e78e15844ff6f11147cd472cd2c140e86af7e8dccdb"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-5bfb42f8104b9622",
+      "event_a_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "RELATED",
+      "reason": "相同课程内容出现章节完成结果。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前学习大脑区域并整理笔记后，完成普通心理学第二章神经系统结构和功能，准备继续第三章。",
+        "source_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+        "source_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天主要讲大脑的许多区域",
+            "point_id": "cd658f47-126e-4e5c-b5fa-369078d0722c",
+            "point_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 59,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "67639834242386606cf806fde58767871b59e9cf5fef935a7d53152a6771ee85"
+          }
+        ],
+        "target_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最终学完第二章“神经系统的结构和功能”，笔记也整理好",
+            "point_id": "c39173a6-44c4-4881-8668-d667610c5392",
+            "point_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 17,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "f65c4eaedcf5a29f28cc43a727825a7ab847d9dc1fca87834409d03f14c50d74"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-6026d19cd0b5ba0b",
+      "event_a_id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "江西需求与早晨算法打卡不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-71285935819a6ccf",
+      "event_a_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "RELATED",
+      "reason": "同一游戏出现明确新模式进度。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "主线简单模式通关之后，又推进秘境关卡，估计再几天能打完。",
+        "source_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+        "source_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天还通关了《植物大战僵尸 2》的主线简单模式，之后每天打卡就行。",
+            "point_id": "c18ac905-0654-5e5e-9487-0e87525f58dd",
+            "point_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+            "point_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "9b96594226f4de68ca41a6def4982380a647de82b5461c5eddf5f85c83ec0be5"
+          }
+        ],
+        "target_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "感觉快通关，秘境没几关，估计再几天就能打完",
+            "point_id": "c1c6ec48-d0a7-48ea-9409-4dfb7fc8ebd9",
+            "point_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 24,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "2181c11ae46ddfd404167e78e15844ff6f11147cd472cd2c140e86af7e8dccdb"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-79b5f6ccca304380",
+      "event_a_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "NO_RELATION",
+      "reason": "同日学习与游戏不同活动，未说明秘境改变本次章节学习。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7dc7fe835f622781",
+      "event_a_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "aad8dc74-c788-4f21-80b4-51472a8cccad",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "RELATED",
+      "reason": "同一批江西新数据从准备处理到具体设计导入，不声称核对会议已召开。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "江西新数据整理出来、安排继续处理后，完成总览人口和全域土地利用数据的表设计与导入。",
+        "source_event_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+        "source_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "江西数据最近又整理出来，今早开会让我带王振洲一起做。",
+            "point_id": "ef5db789-f707-5004-9c80-bd54529523b8",
+            "point_event_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "759b5f3b1c31a97b7ca18dab784856417b7befff467e4e4db46d7bfc656ee321"
+          }
+        ],
+        "target_event_id": "aad8dc74-c788-4f21-80b4-51472a8cccad",
+        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天整理江西新数据中总览要展示的人口数据及新的全域土地利用数据，完成表设计，让 AI 帮设计数据库并联动修改相关代码。目前数据已导入",
+            "point_id": "47738dd5-cd10-577c-a100-89299a5d4d24",
+            "point_event_id": "aad8dc74-c788-4f21-80b4-51472a8cccad",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "e50415951de17ac3f5148e4f527244b4800985eeb42177ec5845174d2df24b2b"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-8007d11254cf3c3f",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "NO_RELATION",
+      "reason": "同日讨论学习目的与家庭学习环境，但一处下午、一处早上，未表达彼此触发或报告同一安排新阶段。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8aa36f194e4f534a",
+      "event_a_id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "aad8dc74-c788-4f21-80b4-51472a8cccad",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "NO_RELATION",
+      "reason": "算法打卡与江西数据表不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8e90796c7d4c19c0",
+      "event_a_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "RELATED",
+      "reason": "双方独立支持同一游戏及新的具体关卡状态。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前持续玩植物大战僵尸后，后来秘境关卡接近打完。",
+        "source_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最近玩 PVZ《植物大战僵尸》有些上瘾",
+            "point_id": "67d55bc2-738b-50e6-bfca-92d101f1a9a0",
+            "point_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5df12d0f1fb4dc15169efef2ba23d59e586424340ce1c39158e6179eea5d1da8"
+          }
+        ],
+        "target_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "秘境没几关，估计再几天就能打完",
+            "point_id": "c1c6ec48-d0a7-48ea-9409-4dfb7fc8ebd9",
+            "point_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 30,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "2181c11ae46ddfd404167e78e15844ff6f11147cd472cd2c140e86af7e8dccdb"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-8f8b5dee5fc9570a",
+      "event_a_id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "RELATED",
+      "reason": "明确安排及其执行，保留“罗林国”为来源原称。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前想用英语和力扣充实闲暇，随后早晨实际完成英语打卡，并查看LeetCode打卡题及题解。",
+        "source_event_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+        "source_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "多邻国能练英语，力扣能练算法和逻辑。",
+            "point_id": "e66b234b-5c62-46d4-9195-a7ff8639809d",
+            "point_event_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 56,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "3c055008c81dff945d6c215669869e1315c441200cfaef873cdb27c3b2e6fd6e"
+          }
+        ],
+        "target_event_id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "醒后顺道刷了“罗林国”的题、完成打卡",
+            "point_id": "3750a378-63ed-4c89-b8c7-98718021f045",
+            "point_event_id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 24,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5ecc57f22f6d3bac93ebbf8aadf0aefb8fd5a5d08c095d53d5f5e59fef290802"
+          },
+          {
+            "point_no": 2,
+            "quote": "之后看 LeetCode 打卡题，有点小思路",
+            "point_id": "7e804e9a-904b-44ff-9f12-683a651eabcd",
+            "point_event_id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "01e45223f91c5941e12822826ea603848ba123cf7a398f39cbc81ca4838cad3a"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-a51b091f7549f83d",
+      "event_a_id": "45bf44d7-c4eb-4f84-9c1b-6ac4eb6cd166",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "aad8dc74-c788-4f21-80b4-51472a8cccad",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "NO_RELATION",
+      "reason": "三线监测接口修改与人口土地新数据表未定位同一功能。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b39ca7f84a3a1e14",
+      "event_a_id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "早前恢复心理学瑜伽与新增英语算法打卡是不同学习任务。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b4dad21ba00ac120",
+      "event_a_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "aad8dc74-c788-4f21-80b4-51472a8cccad",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "NO_RELATION",
+      "reason": "此前Excel缺表与新增人口土地表未说明同一表或缺陷。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bf335391579acf3e",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "NO_RELATION",
+      "reason": "家庭学习倡议未明确指向早晨具体打卡经历，不靠都学习建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c3c2c7bee371ab44",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "卡牌比较恐惧与家庭学习计划无具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-df8169dcc8debd61",
+      "event_a_id": "23c145bd-8435-40b2-92e1-023b76daa7f1",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "NO_RELATION",
+      "reason": "瑜伽拖延休息与英语算法打卡是不同任务。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e017ed49590c1587",
+      "event_a_id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "NO_RELATION",
+      "reason": "完成神经系统章节与算法题解是不同学习内容，没有相互引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e448bbded0756d05",
+      "event_a_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "RELATED",
+      "reason": "相同学习恢复事项有新结果。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前想恢复荒废的心理学学习，随后完成第二章和笔记。",
+        "source_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "心理学学习和瑜伽，这四项都荒废了很长时间。我想恢复",
+            "point_id": "87d786c0-7a15-4d3a-ae87-12b4bbef8d5e",
+            "point_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 12,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5665b422af9df7760d740376e3a12243385cedec5670c91ff0555bdab79aa6e0"
+          }
+        ],
+        "target_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最终学完第二章“神经系统的结构和功能”，笔记也整理好",
+            "point_id": "c39173a6-44c4-4881-8668-d667610c5392",
+            "point_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 17,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "f65c4eaedcf5a29f28cc43a727825a7ab847d9dc1fca87834409d03f14c50d74"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-efcf804ccb7a1955",
+      "event_a_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "RELATED",
+      "reason": "具名游戏持续事项有新的具体模式进展，不表述手腕症状变化。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "持续玩PVZ2后，新增秘境关卡接近打完的进度。",
+        "source_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "最近玩《植物大战僵尸 2》有点上瘾",
+            "point_id": "d8805646-c3cf-57f8-9e0a-ea85c42db952",
+            "point_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "73dcfe421b0bb493a9d2a2df3edde32e6d4988db9a450e893f9db063a546df47"
+          }
+        ],
+        "target_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "秘境没几关，估计再几天就能打完",
+            "point_id": "c1c6ec48-d0a7-48ea-9409-4dfb7fc8ebd9",
+            "point_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 30,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "2181c11ae46ddfd404167e78e15844ff6f11147cd472cd2c140e86af7e8dccdb"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-f0b468a167440bbf",
+      "event_a_id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "家务烦躁与算法打卡不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f107b5006b4c5c6f",
+      "event_a_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "RELATED",
+      "reason": "同一课程有明确完成状态。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "普通心理学初步重启后，继续学完第二章并整理笔记。",
+        "source_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "source_evidence": [
+          {
+            "point_no": 4,
+            "quote": "这两天我重新开始看普通心理学课程，不过还没有进入正轨。",
+            "point_id": "d1067cee-e55e-47dd-912d-ddc56b5df1ad",
+            "point_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 16,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "048a1fcd519931166676284de1064ffc7c80c6a7e007f36b1f350637085f2313"
+          }
+        ],
+        "target_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最终学完第二章“神经系统的结构和功能”，笔记也整理好",
+            "point_id": "c39173a6-44c4-4881-8668-d667610c5392",
+            "point_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 17,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "f65c4eaedcf5a29f28cc43a727825a7ab847d9dc1fca87834409d03f14c50d74"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-f179ac951c26a2f0",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "RELATED",
+      "reason": "具名游戏和工作空闲场景对应前期持续游玩经历，不指为当天某一局。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "倡议共同学习时，我回忆自己此前在工作空闲中玩植物大战僵尸的习惯。",
+        "source_event_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+        "source_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "以前工作闲时我也打《植物大战僵尸》，后来觉得有时间为何浪费？",
+            "point_id": "abf7c9f6-bb81-438a-860b-91457ce24667",
+            "point_event_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5ccc7e0f26648d52cfe5cdd165e6367a051c85118e2e1884cd88c6fdca311df0"
+          }
+        ],
+        "target_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+        "target_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最近玩 PVZ《植物大战僵尸》有些上瘾，在家办公也没好好上班",
+            "point_id": "67d55bc2-738b-50e6-bfca-92d101f1a9a0",
+            "point_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5df12d0f1fb4dc15169efef2ba23d59e586424340ce1c39158e6179eea5d1da8"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-f985532e527c0ac3",
+      "event_a_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "RELATED",
+      "reason": "具体课程与学习目标一致，新增实际完成结果。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前利用空闲学习普心的打算，发展为第二章及笔记的完成。",
+        "source_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+        "source_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "完全可以用这些时间学普通心理学，继续整理笔记、看视频",
+            "point_id": "90cc07db-d7ec-42b0-a9d9-e8de58b0264f",
+            "point_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+            "point_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+            "offset": 93,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "77a8094090fc78affab9048a344bb4c1e78074331de1d1425ca04dcda6a647e1"
+          }
+        ],
+        "target_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最终学完第二章“神经系统的结构和功能”，笔记也整理好",
+            "point_id": "c39173a6-44c4-4881-8668-d667610c5392",
+            "point_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 17,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "f65c4eaedcf5a29f28cc43a727825a7ab847d9dc1fca87834409d03f14c50d74"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-fd6200ca269e2a13",
+      "event_a_id": "28fc02fd-cda6-4455-b02f-e4d83bb061fa",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "aad8dc74-c788-4f21-80b4-51472a8cccad",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "NO_RELATION",
+      "reason": "江西部署计划与新数据表设计不同具体环节，未引用迁移交接。",
+      "relation": null
+    }
+  ]
+}

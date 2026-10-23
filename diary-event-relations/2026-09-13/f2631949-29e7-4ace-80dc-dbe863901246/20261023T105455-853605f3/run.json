@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "package_sha256": "fb175299cdf033a674daa6ba326877cab61862468a9704c9387a3beef30ee113",
+  "created_at": "2026-10-23T02:54:55.725317+00:00",
+  "batches": [
+    {
+      "batch_id": "B001",
+      "pair_ids": [
+        "P-a125299cca4365d5",
+        "P-951ffe64c57a375e",
+        "P-73cd63ee392951ac",
+        "P-3696f5e1b3d8187e",
+        "P-0acce1b665fcffb4"
+      ]
+    }
+  ],
+  "files": {
+    "source.json": "c5e3613e6f645560b4cdb60dcb81104d46697237296602f73d4379691b70d6c3",
+    "B001.json": "b164a759fb9389e5628c835b2916c99dcce7d85bf84f67874cb3ddfa13857f25"
+  }
+}

@@ -1,0 +1,375 @@
+{
+  "results": [
+    {
+      "pair_id": "P01",
+      "status": "NO_RELATION",
+      "reason": "双方分别谈沉迷视频后的恢复和AI职业认识，未表达具体事项的进展、触发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P02",
+      "status": "NO_RELATION",
+      "reason": "观看视频与害怕游戏竞争是不同经历，没有双方可举证的触发或提及。",
+      "relation": null
+    },
+    {
+      "pair_id": "P03",
+      "status": "NO_RELATION",
+      "reason": "虽都涉及观看网络内容，但老梁视频与李克强朋友访谈并非同一具体观看事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P04",
+      "status": "NO_RELATION",
+      "reason": "光看不做与开导伴侣都涉及行动，但未表达两次经历之间的具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P05",
+      "status": "NO_RELATION",
+      "reason": "恢复个人学习与处理江西项目烦躁是不同事项，未相互引用或触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P06",
+      "status": "UNRESOLVED",
+      "reason": "双方均谈日记平台及心理学学习的荒废和恢复；一方已重新开始、另一方仍不知如何恢复，无法仅凭要点区分阶段进展与同一状态的重复描述，也不能确定顺序。",
+      "relation": null
+    },
+    {
+      "pair_id": "P07",
+      "status": "NO_RELATION",
+      "reason": "沉迷视频后的恢复与伴侣争吵复盘没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P08",
+      "status": "NO_RELATION",
+      "reason": "同有视频及社会话题不足以把老梁观看与苹果发布会思考连成关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P09",
+      "status": "RELATED",
+      "reason": "此前已尝试恢复普通心理学课程学习，随后因同事准备看书形成利用居家办公空闲继续该学习的具体打算，是恢复同一学习事项的新计划。",
+      "relation": {
+        "source_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+        "target_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_point_nos": [
+          4
+        ],
+        "target_point_nos": [
+          2
+        ],
+        "description": "此前已重新开始看普通心理学课程但尚未进入正轨；和王振州聊到看书后，形成利用居家办公空闲继续整理笔记、看课程视频的打算。该打算尚未表明已执行。"
+      }
+    },
+    {
+      "pair_id": "P10",
+      "status": "NO_RELATION",
+      "reason": "学习恢复与牙痛就诊是不同事项，未发现具体触发或提及。",
+      "relation": null
+    },
+    {
+      "pair_id": "P11",
+      "status": "NO_RELATION",
+      "reason": "双方都有不自信及植物大战僵尸，但一方谈职业价值，另一方谈竞争；没有明确引用另一具体经历或因果联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P12",
+      "status": "NO_RELATION",
+      "reason": "AI职业认识与李克强访谈感想之间没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P13",
+      "status": "NO_RELATION",
+      "reason": "交流总结中泛举AI焦虑，不能据此定位职业与简历认识这次具体反思；未表达后续或触发关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P14",
+      "status": "NO_RELATION",
+      "reason": "双方都涉及江西项目，但一方是指导前端用AI排错，另一方是拆解混乱需求和数据，没有定位到同一具体任务的进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P15",
+      "status": "NO_RELATION",
+      "reason": "双方同谈日记平台，一方是实现思路试错，另一方是使用成本及动力下降；未表达两者之间的具体进展、触发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P16",
+      "status": "NO_RELATION",
+      "reason": "AI职业认识与争吵后的沟通复盘没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P17",
+      "status": "NO_RELATION",
+      "reason": "同有AI和技术经验话题，但苹果产品创新讨论没有引用这次职业认识，也无具体触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P18",
+      "status": "NO_RELATION",
+      "reason": "双方出现游戏和江西项目，但同事交流未引用职业不自信或前端排错经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P19",
+      "status": "NO_RELATION",
+      "reason": "双方使用AI的领域不同，牙痛咨询没有引用职业价值反思。",
+      "relation": null
+    },
+    {
+      "pair_id": "P20",
+      "status": "NO_RELATION",
+      "reason": "害怕自身游戏竞争与访谈中李克强不善竞争只是相似词义，无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P21",
+      "status": "NO_RELATION",
+      "reason": "害怕游戏比较与伴侣沟通争执没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P22",
+      "status": "NO_RELATION",
+      "reason": "害怕游戏比较与江西项目拆解没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P23",
+      "status": "NO_RELATION",
+      "reason": "双方提到游戏，但动力不足中的娱乐选择没有回忆或推进害怕竞争的经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P24",
+      "status": "NO_RELATION",
+      "reason": "自信不足与伴侣过载分析都涉及心理体验，但没有具体事件引用或触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P25",
+      "status": "NO_RELATION",
+      "reason": "游戏竞争体验与苹果产品创新讨论没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P26",
+      "status": "NO_RELATION",
+      "reason": "双方均出现植物大战僵尸，但空闲时间游戏没有指向双人对决抗拒或比较经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P27",
+      "status": "NO_RELATION",
+      "reason": "游戏比较体验与牙痛就诊没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P28",
+      "status": "NO_RELATION",
+      "reason": "李克强访谈感想与伴侣争执没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P29",
+      "status": "NO_RELATION",
+      "reason": "访谈中的职责认识与项目课题分离只是抽象相似，没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P30",
+      "status": "NO_RELATION",
+      "reason": "李克强访谈与恢复日记平台等动力问题没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P31",
+      "status": "NO_RELATION",
+      "reason": "李克强访谈与伴侣争吵复盘没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P32",
+      "status": "NO_RELATION",
+      "reason": "双方都讨论政治及服从安排，但苹果文化思考未明确回忆该访谈或由该访谈触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P33",
+      "status": "NO_RELATION",
+      "reason": "李克强访谈与同事空闲时间交流没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P34",
+      "status": "NO_RELATION",
+      "reason": "李克强访谈与牙痛就诊没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P35",
+      "status": "NO_RELATION",
+      "reason": "双方都谈缓解烦躁或焦虑的方法，但没有引用彼此的具体经历或表达触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P36",
+      "status": "NO_RELATION",
+      "reason": "双方都提到洗澡和行动困难，但伴侣争执与自己的动力不足并非同一具体事项，也未明确相互引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P37",
+      "status": "RELATED",
+      "reason": "脏脚碰枕头后转而指责消费的争执得到明确对应，随后分享录音、请AI分析并一起复盘，是同一争执的新行动。",
+      "relation": {
+        "source_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+        "target_event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_point_nos": [
+          1
+        ],
+        "target_point_nos": [
+          1,
+          2
+        ],
+        "description": "此前脚碰枕头引起的那次争执，随后进入继续复盘阶段：我发送当晚录音，提醒小廖复盘，双方继续讨论她向 ChatGPT 询问所得的分析。"
+      }
+    },
+    {
+      "pair_id": "P38",
+      "status": "NO_RELATION",
+      "reason": "双方出现颂梅，但争执开导与观看苹果发布会没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P39",
+      "status": "NO_RELATION",
+      "reason": "行动建议和学习计划只在抽象层面相似，没有明确的具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P40",
+      "status": "NO_RELATION",
+      "reason": "伴侣争执与牙痛就诊没有具体联系；伴侣均参与不足以建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P41",
+      "status": "NO_RELATION",
+      "reason": "江西项目拆解与个人事项动力不足没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P42",
+      "status": "NO_RELATION",
+      "reason": "双方都有结构化处理或情绪管理，但没有具体事项的承接、触发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P43",
+      "status": "NO_RELATION",
+      "reason": "项目处理与企业文化反思涉及工作，却没有明确指向该江西项目经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P44",
+      "status": "NO_RELATION",
+      "reason": "同为江西项目不足以确认混乱需求拆解和同事当日工作空闲属于同一具体任务进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P45",
+      "status": "NO_RELATION",
+      "reason": "江西项目处理与牙痛就诊没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P46",
+      "status": "NO_RELATION",
+      "reason": "自己的动力不足与伴侣情绪过载虽有行动困难主题，未明确相互引用或触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P47",
+      "status": "NO_RELATION",
+      "reason": "双方出现手机或娱乐类比，但苹果发布会思考未定位引用动力衰减经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P48",
+      "status": "RELATED",
+      "reason": "此前不知道怎样恢复包括心理学学习在内的事项；同事准备看书后形成用居家办公空闲恢复普通心理学学习的具体办法，是其中学习恢复事项的新计划。",
+      "relation": {
+        "source_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+        "target_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_point_nos": [
+          1
+        ],
+        "target_point_nos": [
+          2
+        ],
+        "description": "此前心理学学习等事项荒废，尚想不出恢复动力的办法；和王振州交流看书后，形成利用居家办公空闲学习普通心理学的具体打算。该打算尚未表明已执行。"
+      }
+    },
+    {
+      "pair_id": "P49",
+      "status": "NO_RELATION",
+      "reason": "动力不足与就诊后使用牙线都涉及执行，但没有具体引用或触发联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P50",
+      "status": "NO_RELATION",
+      "reason": "争吵复盘与苹果发布会思考没有具体联系；同一伴侣参与不足以建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P51",
+      "status": "NO_RELATION",
+      "reason": "争吵复盘与同事空闲时间交流没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P52",
+      "status": "NO_RELATION",
+      "reason": "复盘中回忆的是此前暂缓讨论洗牙的例子，牙痛就诊要点没有把此次牙痛或既往洗牙明确对应到那次暂缓讨论；不能仅凭牙齿主题建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P53",
+      "status": "NO_RELATION",
+      "reason": "苹果发布会与同事看书启发学习是不同事项，未表达具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P54",
+      "status": "NO_RELATION",
+      "reason": "苹果发布会与牙痛就诊没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P55",
+      "status": "NO_RELATION",
+      "reason": "居家学习打算与牙痛就诊没有具体联系。",
+      "relation": null
+    }
+  ],
+  "kind": "OFFLINE_EXPERIMENT_RESULT",
+  "review_origin": "ROOT_SOURCE_REVIEW",
+  "stored": false,
+  "notes": "主审基于双方正式要点和来源采用的实验候选，非用户逐条确认真值，不标为双判一致或正式发布。"
+}

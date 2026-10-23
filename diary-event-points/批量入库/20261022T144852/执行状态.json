@@ -1,0 +1,12 @@
+{
+  "phase": "COMPLETE",
+  "save_command_started": true,
+  "user_explicit_transfer_approval": "用户在获知本次208条要点的完整详情、阿里云北京主机和模型后明确回复“同意”",
+  "service_host": "ws-xpny11er3mzn4l2s.cn-beijing.maas.aliyuncs.com",
+  "model": "qwen3.7-text-embedding-flash",
+  "diaries": 17,
+  "events": 73,
+  "stored_points": 208,
+  "vectors": 208,
+  "all_stored": true
+}

@@ -1,0 +1,597 @@
+{
+  "package_sha256": "06cc21cfceadacdcfb7629f435fdf9a51c532fee354d548798f531451e9d2940",
+  "results": [
+    {
+      "pair_id": "P-b4b3102d5799630d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "买电脑回礼与枕头争吵不是同一购买事项。"
+    },
+    {
+      "pair_id": "P-8763e4f0c03be8a9",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "送电脑与国外维权新闻无具体联系。"
+    },
+    {
+      "pair_id": "P-c8ac22470f9a41f6",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "送电脑与伴侣擦脚、涂药争执不同。"
+    },
+    {
+      "pair_id": "P-6c825435092e393d",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E017",
+        "target_event": "E018",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "给舅舅二女儿买笔记本等近期支出，成为我提醒小廖核算存款、欠款和生活预算的具体原因之一。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "小廖舅舅二女儿上大学，小廖妈妈让她送笔记本。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "她最近花钱猛，买投影仪、给舅舅二女儿买笔记本，又置办不少东西。我让她看看存款，欠款还清后是否还有余钱，再按剩下的钱规划生活。"
+          }
+        ]
+      },
+      "reason": "目标明确列举同一赠电脑支出并采取提醒行动。"
+    },
+    {
+      "pair_id": "P-85d6102c342af176",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "下班买饭游戏与送电脑无具体联系。"
+    },
+    {
+      "pair_id": "P-220ffb839218c001",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "电脑回礼没有被9月10日的护肤品囤积复盘具体引用。"
+    },
+    {
+      "pair_id": "P-b67c9b9cdb3ff7ee",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "家务烦躁与电脑回礼未表达具体触发。"
+    },
+    {
+      "pair_id": "P-3a4e281d87520b72",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "亲戚电脑与母亲牙齿治疗不同，教育资源概念不足以建边。"
+    },
+    {
+      "pair_id": "P-6aeb8579b105ad3c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "此次午饭与明天亲戚聚餐、电脑回礼不是同一饭局或直接延续。"
+    },
+    {
+      "pair_id": "P-26c798eec6e901cc",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "电脑回礼与KTV不同。"
+    },
+    {
+      "pair_id": "P-66aa24ac44c22f9c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "电脑回礼与清洁牙齿不同。"
+    },
+    {
+      "pair_id": "P-c98c775b90eed126",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "电脑回礼与肝饮食作息不同。"
+    },
+    {
+      "pair_id": "P-473ed3bd6bd1b5cb",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "专业经验价值与牙线操作不同，均谈自己会做不构成引用。"
+    },
+    {
+      "pair_id": "P-de831adffe31938f",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "早前护肤品狗粮争执未指向本次电脑、投影支出盘点。"
+    },
+    {
+      "pair_id": "P-644571d495f9608d",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E008",
+        "target_event": "E019",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "枕头争吵后讨论家务分担，随后我换了床单、装了碗筷，并提醒颂梅开洗碗机。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天晚上遛完狗回家，我把脚放到颂梅的枕头上。"
+          },
+          {
+            "point_no": 8,
+            "quote": "我跟颂梅说，碗筷脏、没有碗用了，可以告诉我，让我明天在家把碗筷收进去；"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 4,
+            "quote": "之后一天我换了床单、装了碗筷，提醒她开洗碗机，她却没开。"
+          }
+        ]
+      },
+      "reason": "同一争吵及家务处理的明确后续行动；前侧要点8需配合枕头原委定位。"
+    },
+    {
+      "pair_id": "P-73f725cbd917deef",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "枕头争吵与母亲牙齿聊天无具体联系。"
+    },
+    {
+      "pair_id": "P-b24d5a58e79eb3b6",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "枕头争吵与带狗去餐厅不是同一外出。"
+    },
+    {
+      "pair_id": "P-253801c6d0a09714",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "早场KTV未引用或处理枕头争吵。"
+    },
+    {
+      "pair_id": "P-49d5a8983d621a36",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "清洁时间调整没有回顾脚碰枕头事件。"
+    },
+    {
+      "pair_id": "P-3a590bee1298de21",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "肝生活方式调整与枕头争吵无具体联系。"
+    },
+    {
+      "pair_id": "P-33c1097d2be345a1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "擦脚建议和涂药争执与电脑支出盘点不同。"
+    },
+    {
+      "pair_id": "P-e5d9502901c750fc",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "擦脚建议和涂药争执与带狗吃饭不同。"
+    },
+    {
+      "pair_id": "P-ec6bdb8780a2c923",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "父亲腰痛的AI沟通设想与母亲拔牙经历不是同一医疗沟通。"
+    },
+    {
+      "pair_id": "P-af056d044fb7a50e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "游戏手腕疼与存款盘点无具体联系。"
+    },
+    {
+      "pair_id": "P-113a38d60865ac48",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "复盘护肤品囤积与此次投影、笔记本支出不同，未具体引用。"
+    },
+    {
+      "pair_id": "P-9bc64961f5104b64",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "支出盘点与家务清洁烦躁不同，未表达彼此触发。"
+    },
+    {
+      "pair_id": "P-ea4311fe748f19f1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "母亲拔牙与伴侣资产盘点不同。"
+    },
+    {
+      "pair_id": "P-f11930f9763c3ec2",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "盘点列投影电脑等，未定位本次七百元餐费，不能因都花钱就连边。"
+    },
+    {
+      "pair_id": "P-7daff3daae57cdf5",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "存款盘点未引用KTV改约。"
+    },
+    {
+      "pair_id": "P-3d7044e2f3758964",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "债务视频不是老梁视频条目里可定位的具体材料。"
+    },
+    {
+      "pair_id": "P-abd74036ce421ef0",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "牙线操作与资产盘点不同。"
+    },
+    {
+      "pair_id": "P-d60e8f97aff8b9a9",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "肝饮食计划与资产盘点无具体联系。"
+    },
+    {
+      "pair_id": "P-87d87ffa970df7bd",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "减少对伴侣帮助的依赖并未引用日记平台整理成本。"
+    },
+    {
+      "pair_id": "P-4f156ebeb4107f7f",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "肝生活调整与恢复平台课程的计划无具体引用。"
+    },
+    {
+      "pair_id": "P-6c608481cca17cfe",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "江西指标与母亲牙齿治疗无具体联系。"
+    },
+    {
+      "pair_id": "P-cc2885b917aaeba1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "游戏手腕疼与昨晚家务烦躁不是同一症状或任务。"
+    },
+    {
+      "pair_id": "P-d010fadc4e25a7cf",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "永旺买饭与本次餐厅是不同就餐经历。"
+    },
+    {
+      "pair_id": "P-cb0413d895b8600e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "下班买饭与早场KTV是不同外出。"
+    },
+    {
+      "pair_id": "P-9e31bd3ed4ec91f6",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "手腕游戏问题没有被肝钙化灶条目具体引用为骨头问题。"
+    },
+    {
+      "pair_id": "P-3b04a945fc1f86df",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E011",
+        "target_event": "E019",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "就诊后重新学习并开始用牙线，随后晚间清洁仍遇到后牙难清、牙缝刷疼和耗时的困难。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "今天医生再次提醒一定要用牙线，我便重新查看、学习了用法，今天已经用了两回，后面也要继续用。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "牙线不会用、后牙清洁不到，牙缝刷又疼、刷不出东西；工序多、费时间，觉得烦，但不做又怕将来根管"
+          }
+        ]
+      },
+      "reason": "同一新开始的口腔清洁行为出现具体操作困难反馈。"
+    },
+    {
+      "pair_id": "P-4de5086474f212b1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "与母亲聊牙没有定位当天牙痛就诊；“前几天”也不足以确定由这次就诊引发。"
+    },
+    {
+      "pair_id": "P-1dd9014d9fb62142",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E011",
+        "target_event": "E020",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "重新学习牙线后，继续尝试并开始找到自己清洁后牙的方法。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "今天医生再次提醒一定要用牙线，我便重新查看、学习了用法，今天已经用了两回，后面也要继续用。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今天再试，发现能清后牙，算找到些方法。"
+          }
+        ]
+      },
+      "reason": "同一牙线实践新增可操作结果。"
+    },
+    {
+      "pair_id": "P-5704474fdcb5b930",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E010",
+        "target_event": "E019",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前借ChatGPT复盘枕头争吵、讨论对失败的难以接受后，我进一步结合家务执行情况，对完美主义解释提出疑问。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "它还认为，她接受不了失败，也接受不了事情做不好。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "此前常用 ChatGPT 分析与颂梅的矛盾，它说她有些完美主义，但我觉得她并非一直对整洁、卫生有同样要求。我没洗脚碰她枕头，她让我洗脚换床单，我不做，她便特别烦躁，跟我吵架"
+          }
+        ]
+      },
+      "reason": "双方都定位脚碰枕头的争执，后侧对AI解释形成新评估。"
+    },
+    {
+      "pair_id": "P-a6c87d199fdc1001",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "复盘争吵与餐厅午饭不同。"
+    },
+    {
+      "pair_id": "P-44533b67e7923e3a",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "复盘争吵与早场KTV不同。"
+    },
+    {
+      "pair_id": "P-694563555aa9fe04",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "复盘争吵与肝生活计划无具体联系。"
+    },
+    {
+      "pair_id": "P-398cad3bd49b48a2",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "母亲牙齿治疗与家务烦躁无具体引用。"
+    },
+    {
+      "pair_id": "P-7243c1456bb35645",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "午饭及晚饭发生今天，家务烦躁在昨晚，不能补造本次餐食导致昨日清洁烦躁。"
+    },
+    {
+      "pair_id": "P-4010023b6685c1fa",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "家务烦躁与KTV改约无具体联系。"
+    },
+    {
+      "pair_id": "P-8f62dc2072ebf07b",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E019",
+        "target_event": "E020",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "昨晚睡前集中清洁引发烦躁后，今天把牙线、牙缝刷清洁提前到晚饭后进行。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨晚遛狗回家有点累，快十二点起身收拾洗漱，几件事赶到一起，越来越烦。牙线不会用、后牙清洁不到"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天烦躁的原因之一是清洁都堆睡前，感觉占很长时间，其实饭后就能做。今天晚饭后电影没看完，我边看边用牙缝刷、牙线。"
+          }
+        ]
+      },
+      "reason": "相同具体清洁困难有明确次日调整行动。"
+    },
+    {
+      "pair_id": "P-e3c2ba98404ed1bc",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "水牙线设备计划未被家务烦躁条目具体回忆，不能只因牙线难用就定位同一次尝试。"
+    },
+    {
+      "pair_id": "P-f795540aa5569b46",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "家务烦躁与肝检查、饮食计划没有明确互相引用。"
+    },
+    {
+      "pair_id": "P-f18394e35444900b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "母亲牙齿聊天与餐厅午饭不同。"
+    },
+    {
+      "pair_id": "P-bffe4bfaffb0cfe3",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "母亲牙齿聊天与KTV不同。"
+    },
+    {
+      "pair_id": "P-a03c41ad7d3d2c86",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "母亲牙线提醒计划与本人清洁时间变化不同，未表达计划被实施或因新尝试而更改。"
+    },
+    {
+      "pair_id": "P-dbc10fa32d66a639",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "母亲拔牙与此前自身洗牙水牙线安排不是同一治疗。"
+    },
+    {
+      "pair_id": "P-5d740d8a06b446e8",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "母亲牙齿与本人肝问题不同。"
+    },
+    {
+      "pair_id": "P-e97819badd8514e1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "昨日二沙岛找狗与今日去餐厅不同，未回顾失踪经过。"
+    },
+    {
+      "pair_id": "P-62170863b27eb83e",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E015",
+        "target_event": "E012",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "记录KTV改约时，回忆昨天和颂梅带哒哒在二沙岛遛弯的行程。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "昨天带哒哒在二沙岛遛弯，她一直找唱歌的地方，估计很想去。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天和颂梅骑车去二沙岛遛狗。我下来继续带哒哒溜，她去那边打卡。"
+          }
+        ]
+      },
+      "reason": "日期、人物、宠物与地点共同定位同次外出；未说KTV由狗失踪造成。"
+    },
+    {
+      "pair_id": "P-5a633712965e7d23",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E015",
+        "target_event": "E016",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "早场KTV顺利唱完后，两人商量午饭，决定回家收拾再带哒哒去惦记已久的餐厅。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "到后让颂梅先上去开房，我停车，好在顺利开出房间，唱得挺开心。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "唱完十二点，我们商量午饭。颂梅想去之前带哒哒爬火炉山时就想吃、后来一直惦记的店。"
+          }
+        ]
+      },
+      "reason": "同次外出明确接续唱完后的就餐安排。"
+    },
+    {
+      "pair_id": "P-a8940afe1780262b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "餐厅饮食没有被说明为调整清洁时点的原因，晚饭时间背景不足以建边。"
+    },
+    {
+      "pair_id": "P-dec9740cb5ec1e59",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E016",
+        "target_event": "E021",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "当天吃炸鸡柳后，我将其视为不利于肝和血脂的油腻食物，打算以后不再吃。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "颂梅用蟹拌面，我吃西兰花，又点鸡柳大人的炸鸡柳"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今天又吃了炸鸡柳，觉得不太行，以后不能再吃。它油腻，我觉得对肝、血脂都不好"
+          }
+        ]
+      },
+      "reason": "相同具体食物和日期可定位，后侧表达因这次食用而反思；仅陈述本人认识。"
+    },
+    {
+      "pair_id": "P-af34b9ea3070b91f",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "KTV与牙齿清洁无具体联系。"
+    },
+    {
+      "pair_id": "P-56b6c5b5a63c0e2e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "KTV与洗牙设备安排无具体联系。"
+    },
+    {
+      "pair_id": "P-70ad4f519117aafb",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "KTV与肝饮食睡眠无具体联系。"
+    },
+    {
+      "pair_id": "P-01cb0ef853924611",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E005",
+        "target_event": "E020",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前觉得牙线难用、想试水牙线，之后继续尝试普通牙线，开始找到自己清洁后牙的方法。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "牙线费劲、塞不进去，便想试水牙线能否解决。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今天再试，发现能清后牙，算找到些方法。自己能多清就自己来，别总借助她"
+          }
+        ]
+      },
+      "reason": "同一牙线操作困难出现可独立操作的新结果，不声称水牙线设备已修好。"
+    },
+    {
+      "pair_id": "P-1dbc934857464095",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "牙齿清洁与肝生活方式分别形成安排，未给出具体互相触发。"
+    },
+    {
+      "pair_id": "P-9641a2e1acb5873e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "水牙线和洗牙计划与肝生活方式无具体联系。"
+    }
+  ]
+}

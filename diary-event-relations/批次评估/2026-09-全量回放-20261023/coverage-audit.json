@@ -1,0 +1,226 @@
+{
+  "audited_at": "2026-10-23T10:24:20.972169+08:00",
+  "seconds": 1.0132497920130845,
+  "diaries": [
+    {
+      "date": "2026-09-01",
+      "diary_id": "7b2b2be1-38eb-42d8-9a20-320f64755e89",
+      "runs": 1,
+      "run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "missing_events": [],
+      "status": "READY",
+      "events": 3,
+      "points": 3,
+      "audit_seconds": 0.0433
+    },
+    {
+      "date": "2026-09-02",
+      "diary_id": "2eb6a94e-39b2-4502-8773-4c18ab6b7423",
+      "runs": 1,
+      "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "missing_events": [],
+      "status": "READY",
+      "events": 2,
+      "points": 5,
+      "audit_seconds": 0.013
+    },
+    {
+      "date": "2026-09-03",
+      "diary_id": "16ef80a9-a28b-43e5-b820-ff29cdccf58a",
+      "runs": 1,
+      "run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "missing_events": [],
+      "status": "READY",
+      "events": 8,
+      "points": 34,
+      "audit_seconds": 0.0482
+    },
+    {
+      "date": "2026-09-09",
+      "diary_id": "828580fd-50a7-4a15-9d80-7acfe7ec987e",
+      "runs": 1,
+      "run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "missing_events": [],
+      "status": "READY",
+      "events": 8,
+      "points": 39,
+      "audit_seconds": 0.0501
+    },
+    {
+      "date": "2026-09-10",
+      "diary_id": "085c0f45-8d1d-48ae-a2d3-b54da087adae",
+      "runs": 1,
+      "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "missing_events": [],
+      "status": "READY",
+      "events": 4,
+      "points": 46,
+      "audit_seconds": 0.0626
+    },
+    {
+      "date": "2026-09-11",
+      "diary_id": "ef0c6381-b0ab-4efd-8da1-9406a5ed498f",
+      "runs": 1,
+      "run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "missing_events": [],
+      "status": "READY",
+      "events": 6,
+      "points": 22,
+      "audit_seconds": 0.0405
+    },
+    {
+      "date": "2026-09-12",
+      "diary_id": "d8b04229-2f04-4665-b066-77be7e6c48b7",
+      "runs": 1,
+      "run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "missing_events": [],
+      "status": "READY",
+      "events": 8,
+      "points": 24,
+      "audit_seconds": 0.0339
+    },
+    {
+      "date": "2026-09-13",
+      "diary_id": "f2631949-29e7-4ace-80dc-dbe863901246",
+      "runs": 1,
+      "run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+      "missing_events": [],
+      "status": "READY",
+      "events": 1,
+      "points": 1,
+      "audit_seconds": 0.0085
+    },
+    {
+      "date": "2026-09-14",
+      "diary_id": "e2c710d1-7fea-49ef-83a7-f738a32859d9",
+      "runs": 1,
+      "run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "missing_events": [],
+      "status": "READY",
+      "events": 8,
+      "points": 14,
+      "audit_seconds": 0.0214
+    },
+    {
+      "date": "2026-09-15",
+      "diary_id": "b8bc5707-d4b4-48f7-85bc-faa103e2fac8",
+      "runs": 1,
+      "run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "missing_events": [],
+      "status": "READY",
+      "events": 6,
+      "points": 10,
+      "audit_seconds": 0.0179
+    },
+    {
+      "date": "2026-09-17",
+      "diary_id": "d5637812-eced-45c3-b54b-942088325564",
+      "runs": 1,
+      "run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "missing_events": [],
+      "status": "READY",
+      "events": 6,
+      "points": 11,
+      "audit_seconds": 0.0218
+    },
+    {
+      "date": "2026-09-18",
+      "diary_id": "bf1a3a0f-75c6-4466-b33c-1a5cdeaf2631",
+      "runs": 1,
+      "run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "missing_events": [],
+      "status": "READY",
+      "events": 5,
+      "points": 10,
+      "audit_seconds": 0.0186
+    },
+    {
+      "date": "2026-09-19",
+      "diary_id": "f7719c11-fdd5-41f9-ac64-37dddb6290e0",
+      "runs": 1,
+      "run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "missing_events": [],
+      "status": "READY",
+      "events": 5,
+      "points": 9,
+      "audit_seconds": 0.0168
+    },
+    {
+      "date": "2026-09-20",
+      "diary_id": "d7c7de3e-a68f-4b8c-8538-30d88da0d0cf",
+      "runs": 1,
+      "run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "missing_events": [],
+      "status": "READY",
+      "events": 9,
+      "points": 26,
+      "audit_seconds": 0.0349
+    },
+    {
+      "date": "2026-09-20",
+      "diary_id": "fa916775-76aa-4701-883d-c4267cf2bc97",
+      "runs": 0,
+      "status": "BLOCKED",
+      "reason": "没有正式事件要点运行",
+      "audit_seconds": 0.0
+    },
+    {
+      "date": "2026-09-22",
+      "diary_id": "27bcda57-db3f-4c72-a345-e71ba8997ac8",
+      "runs": 1,
+      "run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "missing_events": [],
+      "status": "READY",
+      "events": 9,
+      "points": 23,
+      "audit_seconds": 0.0323
+    },
+    {
+      "date": "2026-09-23",
+      "diary_id": "2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20",
+      "runs": 1,
+      "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "missing_events": [],
+      "status": "READY",
+      "events": 4,
+      "points": 11,
+      "audit_seconds": 0.018
+    },
+    {
+      "date": "2026-09-25",
+      "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+      "runs": 1,
+      "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "missing_events": [],
+      "status": "READY",
+      "events": 12,
+      "points": 22,
+      "audit_seconds": 0.0295
+    },
+    {
+      "date": "2026-09-27",
+      "diary_id": "5f9d35f3-387b-43e6-bb0a-5207f73b65f0",
+      "runs": 1,
+      "run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+      "missing_events": [],
+      "status": "READY",
+      "events": 8,
+      "points": 17,
+      "audit_seconds": 0.0241
+    },
+    {
+      "date": "2026-09-29",
+      "diary_id": "33e02ff9-a75d-4933-8fb0-ff8ba2c954fc",
+      "runs": 1,
+      "run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "missing_events": [],
+      "status": "READY",
+      "events": 6,
+      "points": 11,
+      "audit_seconds": 0.0181
+    }
+  ],
+  "actual_host_tokens": null,
+  "token_note": "宿主未提供实际 token 计量，不按字符估算费用",
+  "database_written": false
+}

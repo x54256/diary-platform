@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "kind": "diary-event-relations-readonly",
+  "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+  "diary_id": "2eb6a94e-39b2-4502-8773-4c18ab6b7423",
+  "diary_date": "2026-09-02",
+  "current_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+  "history_mode": "replay",
+  "config": {
+    "workspace_root": "../../diary-event-relations",
+    "min_similarity": 0.4,
+    "top_k": 5,
+    "max_batch_chars": 12000,
+    "max_pairs_per_batch": 12
+  },
+  "embedding_model": "180b751e5a42b7be7b6b98b398a8fab57ceabb9e4524d2c669bd9627a847df55",
+  "events": {
+    "E001": {
+      "id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "run_status": "POINTS_READY",
+      "diary_id": "2eb6a94e-39b2-4502-8773-4c18ab6b7423",
+      "diary_date": "2026-09-02",
+      "occurred_on": null,
+      "source_order": 0,
+      "title": "借助第三方的力量与父母沟通",
+      "importance": "MEDIUM",
+      "run_source_sha256": "b715d2013c5060be51c2e8abe0c95e6fd1eff482d541c65649eb60c749525703",
+      "points": [
+        {
+          "id": "889cf0ae-0d6a-4675-ad3d-f057bbcc3af8",
+          "no": 1,
+          "summary": "想借 AI 的第三方力量与父母沟通",
+          "detail": "我想到，可以借助第三方的力量改变父母的认知，也培养他们用 AI 解决问题的思维。比如我妈想催生，可以让她去问豆包：父母想让孩子生孩子，担心自己年纪再大些就没办法帮忙照顾，交给别人又不放心，但孩子不想生，这种情况怎么办？让她自己听豆包的回答，相当于多了一股外部力量。",
+          "embedding_sha256": "521668b49352858729a437813346e5c18873aa5c7f90583154c1019b46e46946"
+        },
+        {
+          "id": "537e96b6-4817-4dcc-b519-0572ad7d2ca0",
+          "no": 2,
+          "summary": "认为相近的话由 AI 来说，对方可能更愿意理性看待",
+          "detail": "我妈光听我说，总觉得我在狡辩，说她“说不过我”。我觉得第三方相对比较有权威，也没有太多立场。\n\n之前和小廖沟通时，我说过的一些话，AI 后来也说过类似的。她问这些话是问 AI 得来的，还是我自己想的，我说是自己想的。我说的时候，她会觉得压力大；AI 说的时候，她却会理性看待。这让我想到，可以借助 AI 这个相对没有太多立场的第三方与父母沟通。",
+          "embedding_sha256": "fccd5a39ec2148251a7a5fb0f3eeec605c35b4d46cd59583b43f7cdab2e0d071"
+        },
+        {
+          "id": "1fa0fea3-44dd-46ba-a414-07456bd90413",
+          "no": 3,
+          "summary": "想让爸爸问 AI，检视等腰疼再就医的想法",
+          "detail": "我爸说，要等腰疼起来再去医院看腰肌劳损这些问题。我跟他说，不是只有症状出现时病才在，这个病一直都在，但他还是不听。我想到，也可以让他问问 AI，自己的这个想法、观点是否正确，借助外部力量改变他的认知。",
+          "embedding_sha256": "4fdc46ec2b7ddfb7cb405d26875d9c7220380cfc18e329935588ce0e8d77854f"
+        }
+      ]
+    },
+    "E002": {
+      "id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "run_status": "POINTS_READY",
+      "diary_id": "2eb6a94e-39b2-4502-8773-4c18ab6b7423",
+      "diary_date": "2026-09-02",
+      "occurred_on": null,
+      "source_order": 1,
+      "title": "小廖容易把建议或陈述当作指责",
+      "importance": "MEDIUM",
+      "run_source_sha256": "b715d2013c5060be51c2e8abe0c95e6fd1eff482d541c65649eb60c749525703",
+      "points": [
+        {
+          "id": "ff4898ee-6f45-4e58-ac5d-8e8c583e2397",
+          "no": 1,
+          "summary": "觉得小廖容易把建议当作指责",
+          "detail": "我发现，小廖很容易把别人的建议当作指责，既出现在她和爸妈相处时，也出现在她和我的沟通中。\n\n比如，我之前给她发过一个给小狗用水冲脚的视频，她看了直接说：“咱也没给小狗用水冲脚丫子。”我跟她说，可以用 AI 搜一下，咱家的湿巾能不能长期给小狗擦脚。这个例子不算很典型，但我觉得确实也能反映一点。",
+          "embedding_sha256": "9357b12fca7bedaee03f67b87ec6d8149eb222580ad066a10a7343ae45a285f7"
+        },
+        {
+          "id": "6a0028c1-6524-488c-a88d-e676a214b786",
+          "no": 2,
+          "summary": "陈述涂药后晒太阳的不适，却被小廖的回应激怒",
+          "detail": "之前我让小廖给我涂药膏，出门被太阳一晒，感觉像火烤一样。回来后我说：“你做饭吧，我现在像被火烤着一样。”她回答：“你自己要涂的药膏。”\n\n我当时很无语，身体不舒服，情绪也控制不住，便说：“你说这话让我想骂你。我是在陈述事实，没有指责你给我涂药膏。”",
+          "embedding_sha256": "0040e7529f2a3adbd128d687d051f062383c3cae613e2497d71b2ca8f04e1950"
+        }
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "pair_id": "P-050df6e138750aff",
+      "event_a": "E002",
+      "event_b": "E001"
+    }
+  ],
+  "recall": [
+    {
+      "current_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "hits": [],
+      "selected_event_ids": []
+    },
+    {
+      "current_event_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "hits": [],
+      "selected_event_ids": []
+    }
+  ],
+  "completed_dependencies": [],
+  "skill_sha256": "031ec3699a8d537dfd60c570c07593825f2a332c7fcde751fa9ed9ffbb908dab",
+  "package_sha256": "2a4d9f322a64499a5e0936c24d80da82ea852281922fd62425c04c43648ff978"
+}

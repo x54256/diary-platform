@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "package_sha256": "5f9c6047d587f4c6e48355216ecdfc264b9562da87a946dea49adb2b4c1e5304",
+  "created_at": "2026-10-23T02:28:17.001381+00:00",
+  "batches": [
+    {
+      "batch_id": "B001",
+      "pair_ids": [
+        "P-38edba245c9c8267",
+        "P-6633575d6ad4cc88",
+        "P-5cd5886667aca532",
+        "P-e4be382a070cdb66"
+      ]
+    },
+    {
+      "batch_id": "B002",
+      "pair_ids": [
+        "P-69c083c1b08c0722",
+        "P-aa2b452970f7b555"
+      ]
+    },
+    {
+      "batch_id": "B003",
+      "pair_ids": [
+        "P-fc6a627aca8521dc",
+        "P-2e8f1e81941a35fe",
+        "P-170329445e832f8e"
+      ]
+    },
+    {
+      "batch_id": "B004",
+      "pair_ids": [
+        "P-dd345b2b9cd5122e",
+        "P-5a3dfc6161ad28b6",
+        "P-60dea8c9702bbe7c",
+        "P-c48e0618ce0e2a3f",
+        "P-cea5485b06127067",
+        "P-9a5259ad48fbe9f8",
+        "P-67cb1b35c3c6c3ce",
+        "P-86b7ef8b807c9061",
+        "P-636dae51e3cbd757",
+        "P-d783afc5512db24e"
+      ]
+    },
+    {
+      "batch_id": "B005",
+      "pair_ids": [
+        "P-b3f9c3d2100ce9dc",
+        "P-8602d7ff75a621e1",
+        "P-67dca4a8fabe77f3",
+        "P-487113e6a5c06e37",
+        "P-62cbd1eb6b16f6c3"
+      ]
+    },
+    {
+      "batch_id": "B006",
+      "pair_ids": [
+        "P-3c385ad2488ac53b",
+        "P-8c1a65e328ce3577"
+      ]
+    }
+  ],
+  "files": {
+    "B002.json": "be19527a838795709433866d0b86583232af232e2e92e24fa9a7d57fabcca1cd",
+    "B003.json": "2fc9ff6dfa7231633f7c8d411fa9736cb90f5e0e8540b501959d03ab7eb25360",
+    "source.json": "e97ac0e5a7b5f137d38430145ef03c389d7c9159f51b2df810d3bb19a365a340",
+    "B004.json": "0b6cab5f36d534ee91009b9e4c9523d4b50cf37ef03881c37497e2bfeeaf41fa",
+    "B005.json": "8027e46e241e4c0fbebee0c30c571555ad430fbc4871ef5ee4c8794b3f95615f",
+    "B006.json": "d6036d0310ca9fd4c284d179b4c11845b74c15321f82055691893a543498943b",
+    "B001.json": "11b1b72d4e9b6b8b1e9bee26b0b8771e272a4c72f28bdab9a46ad8fcb9598dde"
+  }
+}

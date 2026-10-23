@@ -1,0 +1,23 @@
+{
+  "package_sha256": "718b9b10ee2694ea8bcfb0726f609ad2d35645220f7e1a937ecfe99964a9bffb",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "718b9b10ee2694ea8bcfb0726f609ad2d35645220f7e1a937ecfe99964a9bffb",
+    "verified_at": "2026-10-23T02:25:35.731073+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-050df6e138750aff",
+      "event_a_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "event_b_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "status": "NO_RELATION",
+      "reason": "AI与父母沟通的设想引用的是此前另一段伴侣交流，未定位擦脚视频或涂药争执；同沟通主题不足以建边。",
+      "relation": null
+    }
+  ]
+}

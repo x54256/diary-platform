@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "origin": "database",
+  "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+  "username": "x5456",
+  "diary_id": "7b2b2be1-38eb-42d8-9a20-320f64755e89",
+  "diary_date": "2026-09-01",
+  "organized_id": "9304208b-4a26-44a6-b6fa-8126bbe92918",
+  "content_revision": 2,
+  "structured_revision": 1,
+  "selection": {
+    "importance": "all",
+    "event_ids": []
+  },
+  "events": [
+    {
+      "event_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+      "title": "事件关系建立的测试效果很糟糕",
+      "body": [
+        "早上测试了事件关系的建立，效果非常糟糕，甚至让我觉得，还不如直接根据标签匹配相同事项。",
+        "现在的方案是先用 AI 大模型建立日记内部的事件关系，再通过向量召回一部分历史事件，然后让 AI 大模型继续建立关系。我不知道这条路径是不是正确的。"
+      ],
+      "feeling": [
+        "测试效果让我烦躁，也让我怀疑当前方案是否正确。"
+      ],
+      "reflection": [],
+      "source_order": 0,
+      "ai_importance": "MEDIUM",
+      "user_importance": null,
+      "effective_importance": "MEDIUM",
+      "updated_at": "2026-10-21 04:27:55.835399+00:00"
+    },
+    {
+      "event_id": "6b745863-5538-408d-baed-f6c86379916f",
+      "title": "江西需求和数据看不明白",
+      "body": [
+        "今天早晨又接着做江西的需求。田总整理的需求和数据乱糟糟的，看不明白，让我很烦躁。",
+        "不过，我也知道这不是我的问题，不会让自己过度烦躁。烦躁到一定程度，我就会放弃，不再继续看，先等着，大不了找他语音讲。"
+      ],
+      "feeling": [
+        "需求和数据看不明白让我烦躁，但我知道这不是我的问题，也不会让自己一直陷在里面。"
+      ],
+      "reflection": [],
+      "source_order": 1,
+      "ai_importance": "MEDIUM",
+      "user_importance": null,
+      "effective_importance": "MEDIUM",
+      "updated_at": "2026-10-21 04:27:55.835403+00:00"
+    },
+    {
+      "event_id": "cdd8c172-499d-4044-ba56-b81d013a936d",
+      "title": "电动车倒了，头盔也一时找不到",
+      "body": [
+        "刚刚准备骑车时，发现电动车倒了。我看了一下报警通知，估计是被风刮倒的，但也有可能是被人碰倒的。",
+        "我把车扶了起来。本来想着，倒了扶起来就行了，可已经够烦躁了，结果头盔还找不着，让我更加烦躁。好歹后来在地上找到了，也算是一件好事吧。"
+      ],
+      "feeling": [
+        "电动车倒了、头盔又找不到，让原本就烦躁的我更加烦躁；后来找到了头盔，好歹算是个好消息。"
+      ],
+      "reflection": [],
+      "source_order": 2,
+      "ai_importance": "LOW",
+      "user_importance": null,
+      "effective_importance": "LOW",
+      "updated_at": "2026-10-21 04:27:55.835407+00:00"
+    }
+  ],
+  "excluded_events": [],
+  "source_sha256": "fc5701af39895b26d9e015c107efe3ed304b620664e1fd3f8c73a5850cb49952"
+}

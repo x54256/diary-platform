@@ -1,0 +1,21 @@
+{
+  "sha256": "66f67089b45c6fb92d208a1f0910f6429fc4d02d3f72df04cb61141829ad1d50",
+  "runs": [
+    {
+      "id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "diary_id": "828580fd-50a7-4a15-9d80-7acfe7ec987e",
+      "diary_date": "2026-09-09",
+      "status": "POINTS_READY",
+      "source_sha256": "b2b8adc505119136da114183894d3257172560af4ab7033b17adb78c98aa10a6"
+    },
+    {
+      "id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "diary_id": "085c0f45-8d1d-48ae-a2d3-b54da087adae",
+      "diary_date": "2026-09-10",
+      "status": "POINTS_READY",
+      "source_sha256": "36ea2e2660dd9d5a9fba793a199a07c7bf4fe8009ed32cf9ef0a9db7c6936406"
+    }
+  ],
+  "events": 11,
+  "points": 83
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-22T04:10:46.931818+00:00",
+  "origin": "database",
+  "diary_id": "f2631949-29e7-4ace-80dc-dbe863901246",
+  "diary_date": "2026-09-13",
+  "source_sha256": "56008e88ec44350ca3ec0cddb8a8c76dee054289d6debc4163a503bebf943d60",
+  "event_ids": [
+    "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0"
+  ],
+  "event_count": 1,
+  "source_files_sha256": {
+    "source.json": "2f6cfa7dae6a3007df2e1c2e831073b6b14eb56260310fc745a1cc7b236de717",
+    "source.md": "d3dacf91f7766a343904f8f935c49988f19e789f69a109ad4e42bdee04c3990d"
+  },
+  "skill_files_sha256": {
+    "SKILL.md": "efd51927056292e3bff8393ac6a0253029e298c4180f80a88efa1992d59fc831",
+    "references/examples.md": "73a5903a5fb4a8433f5af2935598dd951a38b2af0ff42288ebef350bdbaffff4",
+    "settings.json": "eb7cda825c6e8a813a3a1f8c4579b362f71d2f2826ff8ef4b758a567758059cb"
+  }
+}

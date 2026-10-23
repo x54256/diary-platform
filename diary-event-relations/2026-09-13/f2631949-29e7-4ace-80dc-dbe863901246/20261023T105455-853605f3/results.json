@@ -1,0 +1,35 @@
+{
+  "package_sha256": "fb175299cdf033a674daa6ba326877cab61862468a9704c9387a3beef30ee113",
+  "results": [
+    {
+      "pair_id": "P-a125299cca4365d5",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "维权新闻与压线提醒的防御反应不同。"
+    },
+    {
+      "pair_id": "P-951ffe64c57a375e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "同为把建议当指责，但压线提醒不同于擦脚、涂药两次经历，未具体回顾。"
+    },
+    {
+      "pair_id": "P-73cd63ee392951ac",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "父母AI沟通设想与伴侣压线反应无具体联系。"
+    },
+    {
+      "pair_id": "P-3696f5e1b3d8187e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "资产盘点条目中没有压线回应或相应防御反应，不能凭同伴侣推断。"
+    },
+    {
+      "pair_id": "P-0acce1b665fcffb4",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "压线事件未引用枕头争吵复盘，也未说明是练习的执行结果。"
+    }
+  ]
+}

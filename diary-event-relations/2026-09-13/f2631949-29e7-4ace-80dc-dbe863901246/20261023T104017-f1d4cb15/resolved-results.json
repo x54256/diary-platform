@@ -1,0 +1,63 @@
+{
+  "package_sha256": "4783c36dc89175c4dd67b6fa8135b0686742de96394f534267dcf300d8dec007",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "4783c36dc89175c4dd67b6fa8135b0686742de96394f534267dcf300d8dec007",
+    "verified_at": "2026-10-23T02:40:18.122985+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-0acce1b665fcffb4",
+      "event_a_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+      "event_a_run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "压线事件未引用枕头争吵复盘，也未说明是练习的执行结果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3696f5e1b3d8187e",
+      "event_a_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+      "event_a_run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+      "event_b_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "资产盘点条目中没有压线回应或相应防御反应，不能凭同伴侣推断。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-73cd63ee392951ac",
+      "event_a_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+      "event_b_run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+      "status": "NO_RELATION",
+      "reason": "父母AI沟通设想与伴侣压线反应无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-951ffe64c57a375e",
+      "event_a_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+      "event_b_run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+      "status": "NO_RELATION",
+      "reason": "同为把建议当指责，但压线提醒不同于擦脚、涂药两次经历，未具体回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a125299cca4365d5",
+      "event_a_id": "43604780-0d57-4aec-93a0-c44f98918dd9",
+      "event_a_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "event_b_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+      "event_b_run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+      "status": "NO_RELATION",
+      "reason": "维权新闻与压线提醒的防御反应不同。",
+      "relation": null
+    }
+  ]
+}

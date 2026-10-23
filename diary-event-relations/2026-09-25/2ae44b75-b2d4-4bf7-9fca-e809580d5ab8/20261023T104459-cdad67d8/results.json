@@ -1,0 +1,1039 @@
+{
+  "package_sha256": "f870f19e52538592f8a25f41dcd20ebc989503934dde6b87514f5af2d9efadc5",
+  "results": [
+    {
+      "pair_id": "P-c753a59c1fa86f05",
+      "status": "NO_RELATION",
+      "reason": "取咬合垫与买菜平台关闭无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-36a412ace517beaf",
+      "status": "NO_RELATION",
+      "reason": "取垫与大屏Excel导入不同；旧开发条目提的是制作当天，不能直接当本次取件。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3605b9011de142c2",
+      "status": "NO_RELATION",
+      "reason": "口腔取件与骑车罚款不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a53728725c18cd42",
+      "status": "NO_RELATION",
+      "reason": "口腔取件与回乡计划不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bb732e1e1d181164",
+      "status": "NO_RELATION",
+      "reason": "取件与买排骨无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c797d1ce9aab902e",
+      "status": "NO_RELATION",
+      "reason": "取件与中秋度假不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-897832b33ec35f24",
+      "status": "NO_RELATION",
+      "reason": "取垫是本人，牙周清洁是伴侣，不是同一诊疗。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a2e2151735205f89",
+      "status": "NO_RELATION",
+      "reason": "取件与平台限制设想无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8f14903dbf109212",
+      "status": "NO_RELATION",
+      "reason": "取件与伴侣作息无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ab38936621c2fe83",
+      "status": "NO_RELATION",
+      "reason": "取件与找狗无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b2d0de8ccdeb4a3c",
+      "status": "NO_RELATION",
+      "reason": "工作条目提拿垫回家后，只有时间背景，转做工作明确因一周过半未工作，不是取件新进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ea30ff2542c9771e",
+      "status": "RELATED",
+      "reason": "同一咬合垫计划出现取件结果。",
+      "relation": {
+        "source_event": "E011",
+        "target_event": "E039",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 5,
+            "quote": "下周一准备去修复科做一下咬合垫，应该就是这样。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "周三早上去口腔医院拿之前做好的咬合垫，也请医生开病历并打印。"
+          }
+        ],
+        "description": "此前计划做咬合垫，后来取到做好的垫和病历，准备申请保险报销。"
+      }
+    },
+    {
+      "pair_id": "P-d7e9efd4ad292610",
+      "status": "NO_RELATION",
+      "reason": "取垫与颈痛按摩不同医疗事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9e95dcc5f22642c4",
+      "status": "RELATED",
+      "reason": "相同器具制作从取模到取件。",
+      "relation": {
+        "source_event": "E022",
+        "target_event": "E039",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "做时贴上颚模具有点恶心，干呕几次，完成后回家。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "周三早上去口腔医院拿之前做好的咬合垫"
+          }
+        ],
+        "description": "此前到修复科决定做咬合垫并完成取模，随后去医院取到做好的垫。"
+      }
+    },
+    {
+      "pair_id": "P-94bfb8f41d96314e",
+      "status": "NO_RELATION",
+      "reason": "取垫保险与伴侣支出盘点无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2df2ad585d871a2d",
+      "status": "RELATED",
+      "reason": "双方独立支持同一器具与新完成结果。",
+      "relation": {
+        "source_event": "E006",
+        "target_event": "E039",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "防止睡觉磨牙的咬合垫，也要找时间做一下。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "周三早上去口腔医院拿之前做好的咬合垫"
+          }
+        ],
+        "description": "此前想找时间做磨牙咬合垫，后来已拿到做好的垫。"
+      }
+    },
+    {
+      "pair_id": "P-ceafb7cf0d3c9496",
+      "status": "NO_RELATION",
+      "reason": "买菜换平台与罚款不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1a05c24ba02aae89",
+      "status": "NO_RELATION",
+      "reason": "香蕉售后与叮咚关闭、朴朴优惠不同平台不同订单。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a81b829e6349e1c9",
+      "status": "NO_RELATION",
+      "reason": "买菜平台与回乡安排无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5b45d67f232607d8",
+      "status": "NO_RELATION",
+      "reason": "买排骨没有说明通过朴朴购买或受叮咚关闭影响。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e6bbc1540ac8085c",
+      "status": "NO_RELATION",
+      "reason": "旧枕头争吵与买菜优惠错误不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-60e0451b9e3b90ef",
+      "status": "NO_RELATION",
+      "reason": "中秋出游与换买菜平台无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a4f4e39e21d156e9",
+      "status": "NO_RELATION",
+      "reason": "买菜换平台与此前烤鸡翅不同采购或就餐经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-860646649a968c17",
+      "status": "NO_RELATION",
+      "reason": "平台App限制与买菜软件问题不是同一功能。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e960bafbaa649195",
+      "status": "NO_RELATION",
+      "reason": "手机作息没有定位买菜App。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-284c83d4e12e4d40",
+      "status": "NO_RELATION",
+      "reason": "换买菜平台与找狗无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f0d93209b6b69882",
+      "status": "NO_RELATION",
+      "reason": "买菜App与指标填报需求不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d76f9189424709d8",
+      "status": "NO_RELATION",
+      "reason": "买小龙虾时叮咚优惠没有得到赠盆，本次是站点关闭，未回顾那次订单或优惠方案。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dffedd83540882cc",
+      "status": "NO_RELATION",
+      "reason": "永旺采购与换买菜软件不同经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-746bf74bb84f5014",
+      "status": "NO_RELATION",
+      "reason": "买菜软件与按摩不适不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a6b2b1848521866e",
+      "status": "NO_RELATION",
+      "reason": "消费盘点未列邀请券损失，不能由金钱主题连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c0be1c27a7a62315",
+      "status": "NO_RELATION",
+      "reason": "罚款没有被列为回乡搁置费用原因。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7f8ed8d76b2a0123",
+      "status": "NO_RELATION",
+      "reason": "罚款与排骨做饭无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ebb6e4e538d27bce",
+      "status": "NO_RELATION",
+      "reason": "缓和罚款情绪未定位为枕头争吵沟通的新实践。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b83c98840632440b",
+      "status": "NO_RELATION",
+      "reason": "罚款与清远出游不同活动，未说改变出行方式。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c3fdc5f82bb2198a",
+      "status": "NO_RELATION",
+      "reason": "罚款情绪与App限制不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5a8b4b41c8f448f5",
+      "status": "NO_RELATION",
+      "reason": "罚款与早醒补觉不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6f6a4bcc31f8aa09",
+      "status": "RELATED",
+      "reason": "同次明确接续外出，没有把别日找狗串入。",
+      "relation": {
+        "source_event": "E042",
+        "target_event": "E043",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "颂梅打卡回来电话说狗在她那。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "找到哒哒后，我们骑车去二沙岛医院后步行道继续遛。路上碰警察，以前不抓带人，当天突然抓，罚五十元。"
+          }
+        ],
+        "description": "周三找到哒哒后继续同次二沙岛遛狗行程，骑车带人途中被罚五十元。"
+      }
+    },
+    {
+      "pair_id": "P-1947b85652f693ec",
+      "status": "NO_RELATION",
+      "reason": "罚款与指标填报不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e2c5326c56d73044",
+      "status": "NO_RELATION",
+      "reason": "旧下班查车辆状态未涉及本次罚款，不能仅凭骑车连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0c0f40b1d812c18c",
+      "status": "NO_RELATION",
+      "reason": "周三罚款与周四按摩不同外出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-059dbf416084f3c7",
+      "status": "NO_RELATION",
+      "reason": "旧二沙岛找狗与本次罚款不是同一天，不能借本次找狗事件间接连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bfaa67b952067c5a",
+      "status": "NO_RELATION",
+      "reason": "KTV回忆的旧遛狗不是本次罚款外出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1f75d439b668ceaa",
+      "status": "NO_RELATION",
+      "reason": "多多夜间跑酷与骑车罚款不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d31f6e5c54ff28a3",
+      "status": "NO_RELATION",
+      "reason": "资产盘点没有列五十元罚款作依据。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-33fc9353f1904df9",
+      "status": "NO_RELATION",
+      "reason": "江西部署与指标填报梳理不同功能。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ceb92005221d3215",
+      "status": "NO_RELATION",
+      "reason": "家庭学习倡议未被早醒玩手机条目明确回顾或执行。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-52802e563a57e7ef",
+      "status": "NO_RELATION",
+      "reason": "亲戚聚餐安排与中秋父母聚餐不是同一饭局。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0e8bbe38523965f3",
+      "status": "RELATED",
+      "reason": "相同送大学新生笔记本开支被具体回顾并纳入触发盘点的支出；负资产只是本人估计。",
+      "relation": {
+        "source_event": "E016",
+        "target_event": "E048",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "小廖舅舅二女儿上大学，小廖妈妈让她送笔记本。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "前阵给上大学的妹妹送笔记本也花不少。"
+          },
+          {
+            "point_no": 3,
+            "quote": "算过这些开销，我感觉她应该已是负资产。回去想问问，让她查资产"
+          }
+        ],
+        "description": "给上大学的亲戚送笔记本的支出，被纳入近期消费盘点，促使我打算提醒小廖再核算资产。"
+      }
+    },
+    {
+      "pair_id": "P-62d45c84b89f6a36",
+      "status": "RELATED",
+      "reason": "同一具名指标填报功能有新的需求确认结果。",
+      "relation": {
+        "source_event": "E023",
+        "target_event": "E040",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下午开会讨论指标填报技术方案，我最后问什么时候做，仍没弄清。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "借 AI 梳理指标填报需求，与需求人员开会确认问题，但原型、数据及导入导出模板都没提供、确定，无法真正推进。"
+          }
+        ],
+        "description": "此前讨论指标填报方案却未明确开展时间，后来继续梳理需求并确认尚缺原型、数据和模板。"
+      }
+    },
+    {
+      "pair_id": "P-92b2f701505aac93",
+      "status": "NO_RELATION",
+      "reason": "回乡搁置与买排骨不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-785fc528da9749b4",
+      "status": "RELATED",
+      "reason": "双方明确同一中秋十一十三天安排，出现具体回乡方案搁置的新状态。",
+      "relation": {
+        "source_event": "E032",
+        "target_event": "E050",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "若中秋前离职，便可中秋连十一，合十三天。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "若把中秋国庆接起、请三天假连待十三天，我觉得可以；可她又看汪苏泷演唱会，下周一还帮朋友领证拿东西搭手，就没法回，先放着。"
+          }
+        ],
+        "description": "此前考虑结合离职把中秋和十一连成十三天，后来在回乡方案中因票价和行程冲突搁置这一长假出行打算。"
+      }
+    },
+    {
+      "pair_id": "P-672ee27b05741b0d",
+      "status": "NO_RELATION",
+      "reason": "清远度假未被表述为回乡探亲的替代，目的地和事项不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e5beeda2d7b0471e",
+      "status": "RELATED",
+      "reason": "同一假期演唱会安排明确成为冲突条件，不称桂林行程本身是唯一原因。",
+      "relation": {
+        "source_event": "E037",
+        "target_event": "E050",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "颂梅抢到十月二号汪苏泷演唱会票，还准备十月三号带我们去广西桂林、阳朔玩一圈"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "可她又看汪苏泷演唱会，下周一还帮朋友领证拿东西搭手，就没法回，先放着。"
+          }
+        ],
+        "description": "颂梅已有的汪苏泷演唱会安排，与票价和帮朋友婚事等因素共同使回乡计划搁置。"
+      }
+    },
+    {
+      "pair_id": "P-2b442c3af828823e",
+      "status": "NO_RELATION",
+      "reason": "回乡未引用父母先顺着的沟通策略。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0d95da3d3e0dd5c1",
+      "status": "NO_RELATION",
+      "reason": "回乡与平台限制无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-13cfa3c647ccf506",
+      "status": "NO_RELATION",
+      "reason": "回乡与伴侣补觉无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e5a20bf3655e3758",
+      "status": "NO_RELATION",
+      "reason": "回乡与找狗无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6447db8ad22a6eb3",
+      "status": "NO_RELATION",
+      "reason": "回乡与图谱三步不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a3ebb9ea8a5edf3c",
+      "status": "NO_RELATION",
+      "reason": "指标填报受阻未被表达为不能请假回乡的原因。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4c12dfcd1d2bc8b6",
+      "status": "NO_RELATION",
+      "reason": "回乡计划未表达因老陆病情或父亲检查而变化。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-65da988e3d9ddc58",
+      "status": "NO_RELATION",
+      "reason": "回乡与本人按摩不适无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-000a2b19d31e6781",
+      "status": "RELATED",
+      "reason": "两侧直接支持具体演唱会安排与出行冲突，不把盘点情绪写成原因。",
+      "relation": {
+        "source_event": "E048",
+        "target_event": "E050",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "汪苏泷香港两张票花很多，又买到十月二日广州票还要看，三日又去桂林。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "可她又看汪苏泷演唱会，下周一还帮朋友领证拿东西搭手，就没法回，先放着。"
+          }
+        ],
+        "description": "消费盘点里记录的汪苏泷演唱会安排，也成为国庆回乡计划受阻的行程因素之一。"
+      }
+    },
+    {
+      "pair_id": "P-e2c6404a1d1560f0",
+      "status": "NO_RELATION",
+      "reason": "买排骨未回顾枕头争吵。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c6d6fb5b13412991",
+      "status": "NO_RELATION",
+      "reason": "中午排骨与中秋父母晚饭不同餐食。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4797738b84b46059",
+      "status": "NO_RELATION",
+      "reason": "烤鸡翅与买排骨不同餐食，没有明确后续计划引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-87b1c00b8407b68c",
+      "status": "NO_RELATION",
+      "reason": "陪牙周清洁与买排骨不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7a9ec1c879661372",
+      "status": "NO_RELATION",
+      "reason": "排骨与App使用限制无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e28c06134543b4a3",
+      "status": "NO_RELATION",
+      "reason": "都提今天买菜，但作息条目没有指向排骨安排的变化，仅时间相邻。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-79b74c4fe14fbd12",
+      "status": "NO_RELATION",
+      "reason": "中午炒菜与今天腌排骨不同餐食。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-10c107b6e8c83420",
+      "status": "NO_RELATION",
+      "reason": "今天遛狗准备与周三找狗不同，未引用找狗或报告执行少放开。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-02520e2ac56ec52c",
+      "status": "NO_RELATION",
+      "reason": "做排骨与指标填报不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9d2efe131dc87e04",
+      "status": "NO_RELATION",
+      "reason": "旧永旺采购与本次排骨不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-582819a67872c50a",
+      "status": "RELATED",
+      "reason": "相同前一晚按摩出行可定位；做饭不是按摩治疗后续。",
+      "relation": {
+        "source_event": "E046",
+        "target_event": "E044",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨晚她骑车送我去按摩、自己去打卡，路过一家说饭菜香"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "周四脖子疼连着头痛，晚上找一直去的师傅按摩。"
+          }
+        ],
+        "description": "今天买排骨做饭时，回忆昨晚颂梅送我去按摩、自己去打卡途中的菜香。"
+      }
+    },
+    {
+      "pair_id": "P-e949d5639958c5eb",
+      "status": "NO_RELATION",
+      "reason": "资产盘点未列做排骨开支，也未说为节省伴侣支出做饭。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-71c88663a2cd1852",
+      "status": "NO_RELATION",
+      "reason": "早醒玩手机与枕头争吵不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b213ffc9988d67f2",
+      "status": "NO_RELATION",
+      "reason": "旧狗粮争执与周三找狗不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ce981e7ae1bd7368",
+      "status": "NO_RELATION",
+      "reason": "过敏或枕头争吵与周四按摩不适不同，未具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ada1a2ed015d4499",
+      "status": "NO_RELATION",
+      "reason": "旧护肤品狗粮囤积争吵与本次相机投影支出盘点不同，未明确回顾同一购买。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7be22fddc64826ed",
+      "status": "NO_RELATION",
+      "reason": "中秋问候父母未定位先顺着策略的实际执行。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cd5ab1bd9784b415",
+      "status": "NO_RELATION",
+      "reason": "中秋度假与平台限制无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c5d0831788e27a94",
+      "status": "NO_RELATION",
+      "reason": "中秋度假未表达由补觉作息引发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7473fc4e2845d47b",
+      "status": "NO_RELATION",
+      "reason": "带宠物度假未引用此次夜间找狗或因此采取措施。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1d0b44b6181d91ba",
+      "status": "NO_RELATION",
+      "reason": "工作受阻与清远度假无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5c2ba78dfb5d15e9",
+      "status": "RELATED",
+      "reason": "同一父亲检查安排有新的临近提醒，仍未称已检查。",
+      "relation": {
+        "source_event": "E034",
+        "target_event": "E047",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "爸爸也受触动说准备去，原说十一。妈妈问中秋能否去，我说周五中秋放假，周六日就去"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "准备打电话问候自己爸妈，顺便提醒爸爸明天早点去医院检查、别忘了。"
+          }
+        ],
+        "description": "用老陆病例催父亲并讨论中秋周末就医后，中秋当天又打算提醒父亲明天早去检查。"
+      }
+    },
+    {
+      "pair_id": "P-067ef5f27c6c00fa",
+      "status": "NO_RELATION",
+      "reason": "度假没有被说成按摩不适的治疗或恢复安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f020352a303bfddd",
+      "status": "RELATED",
+      "reason": "同一具金额的旅行开支被明确纳入后续担忧依据。",
+      "relation": {
+        "source_event": "E047",
+        "target_event": "E048",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "订了能带猫狗的酒店、一个挺好的房间，两千多元"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "这次旅行两千多。"
+          },
+          {
+            "point_no": 3,
+            "quote": "算过这些开销，我感觉她应该已是负资产。回去想问问，让她查资产"
+          }
+        ],
+        "description": "这次两千多元清远度假开支被纳入伴侣近期消费盘点，并与其他支出一起促使我打算让她核算资产。"
+      }
+    },
+    {
+      "pair_id": "P-bce0edb924406ab3",
+      "status": "NO_RELATION",
+      "reason": "本次中秋父母聚餐与9月19日午饭不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cc3b0b323a6636f9",
+      "status": "NO_RELATION",
+      "reason": "详妹婚事火锅与中秋父母聚餐、清远度假不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1a092f02c514a323",
+      "status": "RELATED",
+      "reason": "同一周三的功能发现和原设想，没有新实施阶段。",
+      "relation": {
+        "source_event": "E041",
+        "target_event": "E038",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "周三发现多邻国限制其他应用的功能，觉得将来可放到日记管理平台，与日程结合。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "刚发现多邻国还能限制其他 App，打卡后才能用指定软件，我选了 pvz2、B 站、YouTube。"
+          }
+        ],
+        "description": "9月25日回顾周三发现多邻国使用限制功能，并重述借鉴到日记平台日程的想法。"
+      }
+    },
+    {
+      "pair_id": "P-68a4f6c101432ecb",
+      "status": "NO_RELATION",
+      "reason": "伴侣早醒与本人先前烤鸡翅无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c0ea50f0612bc147",
+      "status": "NO_RELATION",
+      "reason": "CBB分享未定位为指标填报需求讨论的实例。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2eb40a60b87f7fde",
+      "status": "RELATED",
+      "reason": "同一具体财务盘点事项出现新估计和再次核算安排，不把估计当真实余额。",
+      "relation": {
+        "source_event": "E017",
+        "target_event": "E048",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "她查后说还有些结余，我说那就行，自己留意、悠着花。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 3,
+            "quote": "算过这些开销，我感觉她应该已是负资产。回去想问问，让她查资产，自己看清后悠着花。"
+          }
+        ],
+        "description": "此前提醒小廖盘点存欠款、得到仍有结余的反馈，后来又因盘算近期支出打算再次提醒核算资产。"
+      }
+    },
+    {
+      "pair_id": "P-fb098e4e386fdb27",
+      "status": "NO_RELATION",
+      "reason": "平台App限制仍是设想，未实施于伴侣早醒玩手机。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-82693b7ca97dc38a",
+      "status": "NO_RELATION",
+      "reason": "App限制与找狗无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-027a3d77de2c2920",
+      "status": "NO_RELATION",
+      "reason": "日记平台设想与指标填报不同项目。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-afac66d8acee9587",
+      "status": "NO_RELATION",
+      "reason": "设想增加平台功能与旧整理使用成本没有直接对应，不只凭同平台连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-10196d8720191d14",
+      "status": "NO_RELATION",
+      "reason": "多邻国限制设想未明确执行每日新闻英语作息安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e225f992d9d17908",
+      "status": "NO_RELATION",
+      "reason": "平台限制与按摩不适无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-15fa2bfe518aa6e6",
+      "status": "NO_RELATION",
+      "reason": "限制应用使用未被说用于控制伴侣消费。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2c3ecf95d9eca324",
+      "status": "NO_RELATION",
+      "reason": "英语力扣学习计划与日记平台App限制不是同一功能实施。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f7c344b99413ceb5",
+      "status": "NO_RELATION",
+      "reason": "平台限制未定位老梁某次视频观看经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a27cf4e9601b0bc2",
+      "status": "NO_RELATION",
+      "reason": "早醒补觉与周三找狗不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d2b39cf6afea3145",
+      "status": "NO_RELATION",
+      "reason": "作息观察与指标填报不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b0152ddff4aa18c0",
+      "status": "NO_RELATION",
+      "reason": "旧游戏手腕疼与伴侣早醒不同主体。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-df916e6b90dfc566",
+      "status": "NO_RELATION",
+      "reason": "未说补觉是因为昨晚照顾按摩不适，不补因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d00a5e77f3136873",
+      "status": "NO_RELATION",
+      "reason": "没有表达手机作息造成相机投影支出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1d918ba84276563d",
+      "status": "NO_RELATION",
+      "reason": "肝睡眠计划属于本人，早醒补觉属于伴侣，不能合并作息。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-90c53734e623f181",
+      "status": "NO_RELATION",
+      "reason": "摄影开始学习与按摩不适无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fe3968765722600f",
+      "status": "NO_RELATION",
+      "reason": "周三夜间找狗与白天工作不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-25830ca90116a53c",
+      "status": "NO_RELATION",
+      "reason": "旧采购游戏与周三找狗不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fda02461ffc25267",
+      "status": "NO_RELATION",
+      "reason": "周三找狗与周四按摩时伴侣遛狗是不同外出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2e0feeed69942127",
+      "status": "NO_RELATION",
+      "reason": "两次二沙岛找狗日期不同，现次明确周三且有修灯，旧次9月11日，不把相似经历合并。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-31f69fbc868c748e",
+      "status": "NO_RELATION",
+      "reason": "KTV条目回顾9月11日遛狗，并非9月23日修灯找狗。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f61ba61228ebb1d4",
+      "status": "NO_RELATION",
+      "reason": "猫夜间活动与狗走远不同主体。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-eb9ed2848de2a96f",
+      "status": "NO_RELATION",
+      "reason": "资产盘点未引用找狗作为消费或行动原因。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f033f8ba1c0b2a2e",
+      "status": "NO_RELATION",
+      "reason": "江西指标评估与指标填报未定位为同一具体需求，不能凭指标词建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cd99bc51f443286d",
+      "status": "RELATED",
+      "reason": "同一具名工作计划实际执行。",
+      "relation": {
+        "source_event": "E035",
+        "target_event": "E040",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "准备拿指标填报与 AI 聊设计。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "便不继续心理学，主要处理工作。借 AI 梳理指标填报需求，与需求人员开会确认问题"
+          }
+        ],
+        "description": "此前决定暂停心理学、拿指标填报与AI聊设计，随后转做该需求梳理并与需求人员开会确认。"
+      }
+    },
+    {
+      "pair_id": "P-b0966cb133fa15fa",
+      "status": "NO_RELATION",
+      "reason": "指标填报与按摩不适不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4e39ce3e2d0d3d55",
+      "status": "NO_RELATION",
+      "reason": "工作需求受阻与伴侣支出无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-986bee7264e59765",
+      "status": "NO_RELATION",
+      "reason": "旧游戏手腕疼与按摩后头晕不是同一病程。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c896af1afb8d2bcf",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵的护肤品狗粮与本次相机投影等不同支出，未明确旧争吵回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-93265178b718bef0",
+      "status": "NO_RELATION",
+      "reason": "家务清洁烦躁与按摩后的照顾对话不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-056200a19ccff384",
+      "status": "NO_RELATION",
+      "reason": "按摩不适未被列入近期支出或催查资产的依据。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a2643e8078915ce5",
+      "status": "NO_RELATION",
+      "reason": "老陆提醒发生在先前火锅，本次按摩没有引用那场饭局。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-63e6e8ecb58a7c02",
+      "status": "UNRESOLVED",
+      "reason": "9月12日餐厅记“好像福建菜”、七百多并打算转钱；本次说“贵阳菜还是什么”、欠七百饭钱，金额和转款相近但餐厅描述不同，需确认是否同一顿。",
+      "relation": null
+    }
+  ]
+}

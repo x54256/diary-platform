@@ -1,0 +1,1023 @@
+{
+  "package_sha256": "2c1affd5e56516ab03b5278fcc0fbfeaab0c093d6c69c889c9f71ba69f21d8d4",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "2c1affd5e56516ab03b5278fcc0fbfeaab0c093d6c69c889c9f71ba69f21d8d4",
+    "verified_at": "2026-10-23T02:33:08.098499+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-01cb0ef853924611",
+      "event_a_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "RELATED",
+      "reason": "同一牙线操作困难出现可独立操作的新结果，不声称水牙线设备已修好。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前觉得牙线难用、想试水牙线，之后继续尝试普通牙线，开始找到自己清洁后牙的方法。",
+        "source_event_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "牙线费劲、塞不进去，便想试水牙线能否解决。",
+            "point_id": "27c6f16e-5503-489e-a695-b19f8e5037f6",
+            "point_event_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 46,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "c8492fe9320a7ee63b1102b75f358876ccbcf8c5a78259b73d69903b3ac25af3"
+          }
+        ],
+        "target_event_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+        "target_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今天再试，发现能清后牙，算找到些方法。自己能多清就自己来，别总借助她",
+            "point_id": "bf6720f3-80ea-4558-9c23-6c2950b6bd81",
+            "point_event_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 20,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "39e54179f80d61030154dedf85d54eaffcf4fa886bc6963794506bbdd274fcfc"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-113a38d60865ac48",
+      "event_a_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "复盘护肤品囤积与此次投影、笔记本支出不同，未具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1dbc934857464095",
+      "event_a_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "牙齿清洁与肝生活方式分别形成安排，未给出具体互相触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1dd9014d9fb62142",
+      "event_a_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "RELATED",
+      "reason": "同一牙线实践新增可操作结果。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "重新学习牙线后，继续尝试并开始找到自己清洁后牙的方法。",
+        "source_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+        "source_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "今天医生再次提醒一定要用牙线，我便重新查看、学习了用法，今天已经用了两回，后面也要继续用。",
+            "point_id": "c1e3f57f-28fc-43a1-9c75-7d795c3431fa",
+            "point_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+            "point_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+            "offset": 37,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "c995005367f72872e5f557eed3d3ad32f429313c8126b5f9e287b231226215b9"
+          }
+        ],
+        "target_event_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+        "target_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今天再试，发现能清后牙，算找到些方法。",
+            "point_id": "bf6720f3-80ea-4558-9c23-6c2950b6bd81",
+            "point_event_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 20,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "39e54179f80d61030154dedf85d54eaffcf4fa886bc6963794506bbdd274fcfc"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-220ffb839218c001",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "电脑回礼没有被9月10日的护肤品囤积复盘具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-253801c6d0a09714",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "早场KTV未引用或处理枕头争吵。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-26c798eec6e901cc",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "电脑回礼与KTV不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-33c1097d2be345a1",
+      "event_a_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "擦脚建议和涂药争执与电脑支出盘点不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-398cad3bd49b48a2",
+      "event_a_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "bbadb977-54af-43f3-9684-6f8e12570d57",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "母亲牙齿治疗与家务烦躁无具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3a4e281d87520b72",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "bbadb977-54af-43f3-9684-6f8e12570d57",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "亲戚电脑与母亲牙齿治疗不同，教育资源概念不足以建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3a590bee1298de21",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "肝生活方式调整与枕头争吵无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3b04a945fc1f86df",
+      "event_a_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "RELATED",
+      "reason": "同一新开始的口腔清洁行为出现具体操作困难反馈。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "就诊后重新学习并开始用牙线，随后晚间清洁仍遇到后牙难清、牙缝刷疼和耗时的困难。",
+        "source_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+        "source_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "今天医生再次提醒一定要用牙线，我便重新查看、学习了用法，今天已经用了两回，后面也要继续用。",
+            "point_id": "c1e3f57f-28fc-43a1-9c75-7d795c3431fa",
+            "point_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+            "point_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+            "offset": 37,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "c995005367f72872e5f557eed3d3ad32f429313c8126b5f9e287b231226215b9"
+          }
+        ],
+        "target_event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+        "target_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "牙线不会用、后牙清洁不到，牙缝刷又疼、刷不出东西；工序多、费时间，觉得烦，但不做又怕将来根管",
+            "point_id": "79e92d6f-dcd1-4d9d-ae9e-487a6364a612",
+            "point_event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 34,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "0dc12d9e0321a8b5f66490b4256ba2f0ed07ca002891388d78573c37e01acebc"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-3d7044e2f3758964",
+      "event_a_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "债务视频不是老梁视频条目里可定位的具体材料。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4010023b6685c1fa",
+      "event_a_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "家务烦躁与KTV改约无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-44533b67e7923e3a",
+      "event_a_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "复盘争吵与早场KTV不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-473ed3bd6bd1b5cb",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "专业经验价值与牙线操作不同，均谈自己会做不构成引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-49d5a8983d621a36",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "清洁时间调整没有回顾脚碰枕头事件。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4de5086474f212b1",
+      "event_a_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "bbadb977-54af-43f3-9684-6f8e12570d57",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "与母亲聊牙没有定位当天牙痛就诊；“前几天”也不足以确定由这次就诊引发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4f156ebeb4107f7f",
+      "event_a_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "肝生活调整与恢复平台课程的计划无具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-56b6c5b5a63c0e2e",
+      "event_a_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "KTV与洗牙设备安排无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5704474fdcb5b930",
+      "event_a_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "RELATED",
+      "reason": "双方都定位脚碰枕头的争执，后侧对AI解释形成新评估。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前借ChatGPT复盘枕头争吵、讨论对失败的难以接受后，我进一步结合家务执行情况，对完美主义解释提出疑问。",
+        "source_event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+        "source_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "它还认为，她接受不了失败，也接受不了事情做不好。",
+            "point_id": "1062a2ac-7c4d-4e62-9168-408d8e373791",
+            "point_event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+            "point_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+            "offset": 71,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "c38eff0cf4fdd0ee7c6c5c31dced6571619f83d8ef444d81e1f4ef7070cec05c"
+          }
+        ],
+        "target_event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+        "target_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "此前常用 ChatGPT 分析与颂梅的矛盾，它说她有些完美主义，但我觉得她并非一直对整洁、卫生有同样要求。我没洗脚碰她枕头，她让我洗脚换床单，我不做，她便特别烦躁，跟我吵架",
+            "point_id": "4b093957-da1b-478f-b8f2-15ab50e7bf09",
+            "point_event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "6fd1f36f4c1c6bbb9ef0ad27e8453e38001620d81c9380a0e3037f22b06e718f"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-5a633712965e7d23",
+      "event_a_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "RELATED",
+      "reason": "同次外出明确接续唱完后的就餐安排。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "早场KTV顺利唱完后，两人商量午饭，决定回家收拾再带哒哒去惦记已久的餐厅。",
+        "source_event_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+        "source_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "到后让颂梅先上去开房，我停车，好在顺利开出房间，唱得挺开心。",
+            "point_id": "e4ae24df-0e25-5bed-aacd-be005320f6d6",
+            "point_event_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 48,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "df04ddbbbbbe12f320b835e69fa0c91bd29b135cf8790582ef7deb2b4bfd5399"
+          }
+        ],
+        "target_event_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+        "target_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "唱完十二点，我们商量午饭。颂梅想去之前带哒哒爬火炉山时就想吃、后来一直惦记的店。",
+            "point_id": "01cecfe0-de4c-50ee-9ea6-a6b8a1d23708",
+            "point_event_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "e796c6e9c80f593b45c81a769584b72a1373c26eef50498fc094cbafd8c93e0f"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-5d740d8a06b446e8",
+      "event_a_id": "bbadb977-54af-43f3-9684-6f8e12570d57",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "母亲牙齿与本人肝问题不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-62170863b27eb83e",
+      "event_a_id": "be91b8cd-9f00-49f9-a413-964d816ea815",
+      "event_a_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "event_b_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "RELATED",
+      "reason": "日期、人物、宠物与地点共同定位同次外出；未说KTV由狗失踪造成。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "记录KTV改约时，回忆昨天和颂梅带哒哒在二沙岛遛弯的行程。",
+        "source_event_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+        "source_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "昨天带哒哒在二沙岛遛弯，她一直找唱歌的地方，估计很想去。",
+            "point_id": "659874fb-e1e2-57c8-bd46-6c53aea13a6c",
+            "point_event_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "380c8b6e0c260b9a5e5524bef7755e023fda1f655e9c62867b5b271b33b67dcc"
+          }
+        ],
+        "target_event_id": "be91b8cd-9f00-49f9-a413-964d816ea815",
+        "target_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天和颂梅骑车去二沙岛遛狗。我下来继续带哒哒溜，她去那边打卡。",
+            "point_id": "8bdc5546-a3fd-58c4-bf08-b8d2fba9e79b",
+            "point_event_id": "be91b8cd-9f00-49f9-a413-964d816ea815",
+            "point_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "4a8626f746317576ec373bdfade391ea5e31fd20970fd825a953cfbb91f0f72b"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-644571d495f9608d",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "RELATED",
+      "reason": "同一争吵及家务处理的明确后续行动；前侧要点8需配合枕头原委定位。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "枕头争吵后讨论家务分担，随后我换了床单、装了碗筷，并提醒颂梅开洗碗机。",
+        "source_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天晚上遛完狗回家，我把脚放到颂梅的枕头上。",
+            "point_id": "03bc3dca-7f88-47bf-8483-14e2f005da42",
+            "point_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "639575a65afdc2ae5b4a78448e02d2c9d4873294ac01fc8a9630f6270b56941a"
+          },
+          {
+            "point_no": 8,
+            "quote": "我跟颂梅说，碗筷脏、没有碗用了，可以告诉我，让我明天在家把碗筷收进去；",
+            "point_id": "c09ffeb1-8906-4247-8f02-5a1b7655e5de",
+            "point_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "0dab08c044288958283a1ead218ae437556d66d96e4d9a5469af03bc3dc11be8"
+          }
+        ],
+        "target_event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+        "target_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "target_evidence": [
+          {
+            "point_no": 4,
+            "quote": "之后一天我换了床单、装了碗筷，提醒她开洗碗机，她却没开。",
+            "point_id": "33dd6ac6-77f9-4e68-972c-4eb5d65e1fcb",
+            "point_event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 56,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "267c9050c9df4dd201621591af126539826723f31fe016fb13987abb51dbd2a1"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-66aa24ac44c22f9c",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "电脑回礼与清洁牙齿不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-694563555aa9fe04",
+      "event_a_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "复盘争吵与肝生活计划无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6aeb8579b105ad3c",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "此次午饭与明天亲戚聚餐、电脑回礼不是同一饭局或直接延续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6c608481cca17cfe",
+      "event_a_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "bbadb977-54af-43f3-9684-6f8e12570d57",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "江西指标与母亲牙齿治疗无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6c825435092e393d",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "RELATED",
+      "reason": "目标明确列举同一赠电脑支出并采取提醒行动。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "给舅舅二女儿买笔记本等近期支出，成为我提醒小廖核算存款、欠款和生活预算的具体原因之一。",
+        "source_event_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+        "source_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "小廖舅舅二女儿上大学，小廖妈妈让她送笔记本。",
+            "point_id": "d1840540-420d-4c87-b10c-79f75fa8e483",
+            "point_event_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "8e9ff47bd90af509f121cea0daaa8a2d28c694ea4bf6b727d62b72f79387fe72"
+          }
+        ],
+        "target_event_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+        "target_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "她最近花钱猛，买投影仪、给舅舅二女儿买笔记本，又置办不少东西。我让她看看存款，欠款还清后是否还有余钱，再按剩下的钱规划生活。",
+            "point_id": "90686eb9-4d23-4a78-849b-7c322f85e842",
+            "point_event_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 42,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b92e3745e85eefb39fc07aadb5f9a0665c773786a73b48f2c75308ace5bec2cd"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-70ad4f519117aafb",
+      "event_a_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "KTV与肝饮食睡眠无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7243c1456bb35645",
+      "event_a_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "午饭及晚饭发生今天，家务烦躁在昨晚，不能补造本次餐食导致昨日清洁烦躁。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-73f725cbd917deef",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "bbadb977-54af-43f3-9684-6f8e12570d57",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵与母亲牙齿聊天无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7daff3daae57cdf5",
+      "event_a_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "存款盘点未引用KTV改约。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-85d6102c342af176",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "下班买饭游戏与送电脑无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8763e4f0c03be8a9",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "43604780-0d57-4aec-93a0-c44f98918dd9",
+      "event_b_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "status": "NO_RELATION",
+      "reason": "送电脑与国外维权新闻无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-87d87ffa970df7bd",
+      "event_a_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "减少对伴侣帮助的依赖并未引用日记平台整理成本。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8f62dc2072ebf07b",
+      "event_a_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "RELATED",
+      "reason": "相同具体清洁困难有明确次日调整行动。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "昨晚睡前集中清洁引发烦躁后，今天把牙线、牙缝刷清洁提前到晚饭后进行。",
+        "source_event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+        "source_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨晚遛狗回家有点累，快十二点起身收拾洗漱，几件事赶到一起，越来越烦。牙线不会用、后牙清洁不到",
+            "point_id": "79e92d6f-dcd1-4d9d-ae9e-487a6364a612",
+            "point_event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "0dc12d9e0321a8b5f66490b4256ba2f0ed07ca002891388d78573c37e01acebc"
+          }
+        ],
+        "target_event_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+        "target_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天烦躁的原因之一是清洁都堆睡前，感觉占很长时间，其实饭后就能做。今天晚饭后电影没看完，我边看边用牙缝刷、牙线。",
+            "point_id": "cf4348d0-b4fe-4e31-a3c2-efeec568461d",
+            "point_event_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "667f48bc3e67f5157700bea3fdeb930b4e12e35eeff9070a30c9e905c9d1f886"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-9641a2e1acb5873e",
+      "event_a_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "水牙线和洗牙计划与肝生活方式无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9bc64961f5104b64",
+      "event_a_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "支出盘点与家务清洁烦躁不同，未表达彼此触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9e31bd3ed4ec91f6",
+      "event_a_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "手腕游戏问题没有被肝钙化灶条目具体引用为骨头问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a03c41ad7d3d2c86",
+      "event_a_id": "bbadb977-54af-43f3-9684-6f8e12570d57",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "母亲牙线提醒计划与本人清洁时间变化不同，未表达计划被实施或因新尝试而更改。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a6c87d199fdc1001",
+      "event_a_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "复盘争吵与餐厅午饭不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a8940afe1780262b",
+      "event_a_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "餐厅饮食没有被说明为调整清洁时点的原因，晚饭时间背景不足以建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-abd74036ce421ef0",
+      "event_a_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "牙线操作与资产盘点不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-af056d044fb7a50e",
+      "event_a_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "游戏手腕疼与存款盘点无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-af34b9ea3070b91f",
+      "event_a_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "KTV与牙齿清洁无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b24d5a58e79eb3b6",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵与带狗去餐厅不是同一外出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b4b3102d5799630d",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "买电脑回礼与枕头争吵不是同一购买事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b67c9b9cdb3ff7ee",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "家务烦躁与电脑回礼未表达具体触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bffe4bfaffb0cfe3",
+      "event_a_id": "bbadb977-54af-43f3-9684-6f8e12570d57",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "母亲牙齿聊天与KTV不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c8ac22470f9a41f6",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_b_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "status": "NO_RELATION",
+      "reason": "送电脑与伴侣擦脚、涂药争执不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c98c775b90eed126",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "电脑回礼与肝饮食作息不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cb0413d895b8600e",
+      "event_a_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "下班买饭与早场KTV是不同外出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cc2885b917aaeba1",
+      "event_a_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "游戏手腕疼与昨晚家务烦躁不是同一症状或任务。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d010fadc4e25a7cf",
+      "event_a_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "永旺买饭与本次餐厅是不同就餐经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d60e8f97aff8b9a9",
+      "event_a_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "肝饮食计划与资产盘点无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dbc10fa32d66a639",
+      "event_a_id": "bbadb977-54af-43f3-9684-6f8e12570d57",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "母亲拔牙与此前自身洗牙水牙线安排不是同一治疗。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-de831adffe31938f",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "早前护肤品狗粮争执未指向本次电脑、投影支出盘点。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dec9740cb5ec1e59",
+      "event_a_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "RELATED",
+      "reason": "相同具体食物和日期可定位，后侧表达因这次食用而反思；仅陈述本人认识。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "当天吃炸鸡柳后，我将其视为不利于肝和血脂的油腻食物，打算以后不再吃。",
+        "source_event_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+        "source_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "颂梅用蟹拌面，我吃西兰花，又点鸡柳大人的炸鸡柳",
+            "point_id": "f04d3621-907c-527b-9071-819bae196511",
+            "point_event_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 21,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "56fcb039114683a2f94ca67210b74b8168388124b7a87684ea9a803da940cf11"
+          }
+        ],
+        "target_event_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+        "target_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今天又吃了炸鸡柳，觉得不太行，以后不能再吃。它油腻，我觉得对肝、血脂都不好",
+            "point_id": "78f23fe8-ef9c-45da-a6d9-d197f27fd286",
+            "point_event_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 60,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "fd53b149ce3bd6dd6aea0556ebdd516ba2f0e3502c990df8a452493e1d871406"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-e3c2ba98404ed1bc",
+      "event_a_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "水牙线设备计划未被家务烦躁条目具体回忆，不能只因牙线难用就定位同一次尝试。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e5d9502901c750fc",
+      "event_a_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "擦脚建议和涂药争执与带狗吃饭不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e97819badd8514e1",
+      "event_a_id": "be91b8cd-9f00-49f9-a413-964d816ea815",
+      "event_a_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "event_b_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "昨日二沙岛找狗与今日去餐厅不同，未回顾失踪经过。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ea4311fe748f19f1",
+      "event_a_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "bbadb977-54af-43f3-9684-6f8e12570d57",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "母亲拔牙与伴侣资产盘点不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ec6bdb8780a2c923",
+      "event_a_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "bbadb977-54af-43f3-9684-6f8e12570d57",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "父亲腰痛的AI沟通设想与母亲拔牙经历不是同一医疗沟通。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f11930f9763c3ec2",
+      "event_a_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "盘点列投影电脑等，未定位本次七百元餐费，不能因都花钱就连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f18394e35444900b",
+      "event_a_id": "bbadb977-54af-43f3-9684-6f8e12570d57",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "母亲牙齿聊天与餐厅午饭不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f795540aa5569b46",
+      "event_a_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "家务烦躁与肝检查、饮食计划没有明确互相引用。",
+      "relation": null
+    }
+  ]
+}

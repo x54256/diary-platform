@@ -1,0 +1,341 @@
+{
+  "package_sha256": "3fb7fe838904b4df5fe15deb7e4e5e1dba0978f207e50113bf8efe527c6fc006",
+  "results": [
+    {
+      "pair_id": "P-af95f2de82d0dfb9",
+      "status": "NO_RELATION",
+      "reason": "清远入住与朋友婚后聚餐不同外出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bd49a6af7a1dfd49",
+      "status": "NO_RELATION",
+      "reason": "大屏导入与xdata-parent测试是不同模块工作。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-669346c3bafbcdd3",
+      "status": "NO_RELATION",
+      "reason": "珠江遛狗未回顾枕头争吵或相应遛狗经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a623a606f3a8a551",
+      "status": "NO_RELATION",
+      "reason": "遛狗与框架测试不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-daeb5f9d563e9ddd",
+      "status": "NO_RELATION",
+      "reason": "旧买饭玩游戏与本次喝酒遛狗不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d0b690259717cb84",
+      "status": "NO_RELATION",
+      "reason": "给猫驱虫与遛狗同日但没有具体先后或互相影响，不能补因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-106d0437b948f0ce",
+      "status": "NO_RELATION",
+      "reason": "旧家务积压与本次遛狗不同事件。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-05d9829f1167150f",
+      "status": "NO_RELATION",
+      "reason": "遛狗条目没有说平台设计疲惫，不能借聚餐条目作为第三方证据补触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e84f710810de43fb",
+      "status": "NO_RELATION",
+      "reason": "醉酒与周四按摩不适不同，伴侣例假不适也非本人按摩病程。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6a849c3cb797c97c",
+      "status": "NO_RELATION",
+      "reason": "晚上票务讨论没有回顾遛狗或由它触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3e4ff02b755d2f01",
+      "status": "NO_RELATION",
+      "reason": "昨日聚餐遛狗与此前清远电影泡澡不同活动。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-acf09f3384ba6522",
+      "status": "NO_RELATION",
+      "reason": "CBB版本方法与xdata-parent测试方案未说明同一任务的后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bb5aeb13f8a25049",
+      "status": "NO_RELATION",
+      "reason": "江西配置交接与框架测试不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-21ddc0f199b785d7",
+      "status": "NO_RELATION",
+      "reason": "旧日记知识库先图谱再要点的策略，与本次实体属性建模未定位同一具体改动；不能仅同平台目标建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7dc63fb1d7a1117b",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵与昨天猫驱虫不同，未具体回顾旧次争吵。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ea3121bd94bad0aa",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵与周杰伦票务不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3839b271592a51b1",
+      "status": "NO_RELATION",
+      "reason": "三线监测与框架测试不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-01fac86ec1c6b18c",
+      "status": "NO_RELATION",
+      "reason": "广州JAR接口答疑与框架测试未定位同一接口测试。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-66dbf254729570fd",
+      "status": "NO_RELATION",
+      "reason": "测试设计与猫驱虫争执不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c0087a353ef3fe75",
+      "status": "NO_RELATION",
+      "reason": "日记知识库建模与xdata-parent分层测试不同项目。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8e068b2e1db5bb11",
+      "status": "NO_RELATION",
+      "reason": "饭局疲惫明确来自日记实体设计，非框架测试，不能混同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-02ba29bc6f88ce60",
+      "status": "NO_RELATION",
+      "reason": "框架测试与黄牛票务不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e169bcc01cbbd7fd",
+      "status": "NO_RELATION",
+      "reason": "汪苏泷十月二日票与周杰伦票不同演出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-328f0a3366172863",
+      "status": "NO_RELATION",
+      "reason": "早前涂药晒痛与猫驱虫时嘴唇过敏不同经历，未相互引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ef09713bce07c2ce",
+      "status": "NO_RELATION",
+      "reason": "母亲通话影响沟通与过敏触发驱虫争执不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c487e9628efef492",
+      "status": "NO_RELATION",
+      "reason": "摄影课程与朋友婚后聚餐不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ec1ec4970904eb71",
+      "status": "NO_RELATION",
+      "reason": "平台使用整理成本与重新开发知识库是不同具体操作，未报告原成本问题被解决。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1127a3664e76f61a",
+      "status": "NO_RELATION",
+      "reason": "平台恢复动力与周杰伦实名票无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-32a1ea9d8a57f890",
+      "status": "NO_RELATION",
+      "reason": "旧永旺采购与婚后新疆菜馆不同饭局。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fe596b3ee07ca531",
+      "status": "NO_RELATION",
+      "reason": "家务饮水机争执与猫驱虫是不同争执，未具体回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-220dd3d2eb59af9f",
+      "status": "NO_RELATION",
+      "reason": "猫驱虫与知识库建模无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ee6f9aa6ab3c69ef",
+      "status": "NO_RELATION",
+      "reason": "聚餐与猫驱虫没有明确相互触发或具体引用，不凭同日连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6cfdab07e298f7d6",
+      "status": "NO_RELATION",
+      "reason": "猫驱虫时找过敏药与按摩后找药不同病程。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1cda1d467531b349",
+      "status": "NO_RELATION",
+      "reason": "猫驱虫与周杰伦票务不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7247ed2c5d7e3fea",
+      "status": "NO_RELATION",
+      "reason": "刘德华跨年与周杰伦不同演出，不是抢票方案的后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fa3f23c1bc16f86e",
+      "status": "NO_RELATION",
+      "reason": "家务烦躁与实名票黄牛不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ae3a9ad5359429a6",
+      "status": "NO_RELATION",
+      "reason": "关系测试效果与实体属性建模是不同环节，目标未定位继续处理同次测试或直接由它引发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b060100195e0e5dd",
+      "status": "NO_RELATION",
+      "reason": "知识库建模与实名票无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-116f24826b2d211e",
+      "status": "NO_RELATION",
+      "reason": "聚餐疲惫明确来自日记实体设计，不是此前按摩头晕的结果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e9b43641ed0d9d39",
+      "status": "NO_RELATION",
+      "reason": "聚餐看雷达与床上票务讨论没有具体互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-10be9ae11cba7f74",
+      "status": "RELATED",
+      "reason": "明确同次聚餐被回顾；遛狗是新事项，不仅因时间接续就当饭局后续。",
+      "relation": {
+        "source_event": "E025",
+        "target_event": "E024",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "聚餐后带颂梅回家"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天颂梅朋友结婚，她去帮忙，结束后四五点去新疆菜馆"
+          }
+        ],
+        "description": "记录喝酒后遛狗的经过时，提到此前参加的朋友婚后聚餐及带颂梅回家的背景。"
+      }
+    },
+    {
+      "pair_id": "P-5eb285c04adf4048",
+      "status": "RELATED",
+      "reason": "同一具体实体关系建模任务从拟议内容到实际梳理，未称先前人工步骤已完成。",
+      "relation": {
+        "source_event": "E005",
+        "target_event": "E022",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "弄清事件、人物、经验、思考等实体，以及关系和关系类型。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "让 Codex 从头分析如何用日记构建个人知识库，一起确认实体、实体属性、关系及关系属性。"
+          }
+        ],
+        "description": "此前提出先弄清事件等实体和关系类型，后来重新推进平台，实际与Codex确认知识库实体、属性与关系属性。"
+      }
+    },
+    {
+      "pair_id": "P-eb5af4bf93dd074f",
+      "status": "RELATED",
+      "reason": "目标明确表达同一设计工作造成疲惫并影响饭局状态。",
+      "relation": {
+        "source_event": "E022",
+        "target_event": "E024",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天重新捡起日记管理平台，让 Codex 从头分析如何用日记构建个人知识库，一起确认实体、实体属性、关系及关系属性。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我与他们不熟，昨天又因设计日记平台实体疲惫，坐着听，不愿讲话。"
+          }
+        ],
+        "description": "昨天设计日记平台实体和关系让我疲惫，加上与饭局其他人不熟，导致聚餐时坐着听、不愿讲话。"
+      }
+    },
+    {
+      "pair_id": "P-d60844e93fc6b119",
+      "status": "RELATED",
+      "reason": "9月22日的下周一和9月29日的昨天均为9月28日，人物角色及婚事帮忙安排相合，形成执行后续。",
+      "relation": {
+        "source_event": "E015",
+        "target_event": "E024",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "详妹下周一领证，想请她帮拿衣服、搭手，提前请我们吃饭。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天颂梅朋友结婚，她去帮忙，结束后四五点去新疆菜馆"
+          }
+        ],
+        "description": "此前朋友约颂梅下周一帮忙领证婚事并提前请吃饭，随后到周一她实际去帮忙，结束后参加婚后聚餐。"
+      }
+    }
+  ]
+}

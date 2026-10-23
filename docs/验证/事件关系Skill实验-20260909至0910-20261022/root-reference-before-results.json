@@ -1,0 +1,405 @@
+{
+  "frozen_at": "2026-10-22T07:10:58.972579+00:00",
+  "basis": "主实验者先读全部正式要点及关键来源再独立拟定；尚未读取三组实验结果；非用户确认真值，五项边界不纳入确定标签统计",
+  "results": [
+    {
+      "pair_id": "P01",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "视频消费与AI职业信心为不同具体经历；未表达本对引用或触发。"
+    },
+    {
+      "pair_id": "P02",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“刷老梁的视频，又陷入光看不做的状态”与“害怕竞争、比较和被别人看见自己打错”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P03",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "YouTube观看与李克强访谈均为观看内容，但没有明确说明访谈来自该频道或被其触发。"
+    },
+    {
+      "pair_id": "P04",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“刷老梁的视频，又陷入光看不做的状态”与“从惹颂梅不高兴，到讨论行动和沟通”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P05",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“刷老梁的视频，又陷入光看不做的状态”与“用课题分离和纸上拆解应对江西项目的混乱”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P06",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "BORDERLINE",
+      "reason": "都涉及心理学与日记平台恢复，但E1已开始学习、E7仍不知如何恢复的叙述无可确定推进顺序；也没有明确回忆定位。"
+    },
+    {
+      "pair_id": "P07",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“刷老梁的视频，又陷入光看不做的状态”与“和小廖复盘争吵，讨论情绪过载与非暴力沟通”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P08",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“刷老梁的视频，又陷入光看不做的状态”与“看苹果发布会，想到产品协同与创新文化”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P09",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "BORDERLINE",
+      "reason": "E1已重新开始心理学课程，E10因王振州看书而想到居家学习；同一学习对象但未明示继续此前哪次学习，是否构成具体新安排需核对边界。"
+    },
+    {
+      "pair_id": "P10",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“刷老梁的视频，又陷入光看不做的状态”与“牙痛后看医生，重新学习并开始使用牙线”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P11",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "E2谈广泛不自信并提到植物大战僵尸，E3列竞争与观战的表现；未明确引用具体游戏经历，不凭同一心理主题建边。"
+    },
+    {
+      "pair_id": "P12",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“AI 带来的职业不自信，与专业经验仍然有用的认识”与“看李克强朋友的访谈后，对他的看法发生变化”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P13",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "BORDERLINE",
+      "reason": "E5总结应对焦虑并以被AI搞得焦虑为例；E2是AI职业不自信。概括性的条件例子是否唯一定位此事存疑。"
+    },
+    {
+      "pair_id": "P14",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "都谈江西工作，但E2是指导前端排错，E6是用课题分离和纸笔理清需求，不足以证明两段有新进展或明确引用。"
+    },
+    {
+      "pair_id": "P15",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "BORDERLINE",
+      "reason": "E2谈日记平台设计试错，E7谈使用成本及执行阻碍；同一平台但开发和使用不是自动相继的具体动作，也未明示两者促成联系。"
+    },
+    {
+      "pair_id": "P16",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“AI 带来的职业不自信，与专业经验仍然有用的认识”与“和小廖复盘争吵，讨论情绪过载与非暴力沟通”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P17",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“AI 带来的职业不自信，与专业经验仍然有用的认识”与“看苹果发布会，想到产品协同与创新文化”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P18",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“AI 带来的职业不自信，与专业经验仍然有用的认识”与“和王振州聊空闲时间，想到居家办公时学习心理学”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P19",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“AI 带来的职业不自信，与专业经验仍然有用的认识”与“牙痛后看医生，重新学习并开始使用牙线”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P20",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "都出现竞争，主体和具体经历不同，访谈未说明引用本人游戏表现。"
+    },
+    {
+      "pair_id": "P21",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“害怕竞争、比较和被别人看见自己打错”与“从惹颂梅不高兴，到讨论行动和沟通”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P22",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“害怕竞争、比较和被别人看见自己打错”与“用课题分离和纸上拆解应对江西项目的混乱”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P23",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“害怕竞争、比较和被别人看见自己打错”与“日记平台等事情荒废后，仍不知道怎样恢复动力”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P24",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“害怕竞争、比较和被别人看见自己打错”与“和小廖复盘争吵，讨论情绪过载与非暴力沟通”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P25",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“害怕竞争、比较和被别人看见自己打错”与“看苹果发布会，想到产品协同与创新文化”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P26",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“害怕竞争、比较和被别人看见自己打错”与“和王振州聊空闲时间，想到居家办公时学习心理学”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P27",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“害怕竞争、比较和被别人看见自己打错”与“牙痛后看医生，重新学习并开始使用牙线”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P28",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“看李克强朋友的访谈后，对他的看法发生变化”与“从惹颂梅不高兴，到讨论行动和沟通”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P29",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“看李克强朋友的访谈后，对他的看法发生变化”与“用课题分离和纸上拆解应对江西项目的混乱”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P30",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“看李克强朋友的访谈后，对他的看法发生变化”与“日记平台等事情荒废后，仍不知道怎样恢复动力”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P31",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“看李克强朋友的访谈后，对他的看法发生变化”与“和小廖复盘争吵，讨论情绪过载与非暴力沟通”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P32",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "都讨论国家制度或服从安排；E9没有引用E4的李克强访谈或说明受其触发。"
+    },
+    {
+      "pair_id": "P33",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“看李克强朋友的访谈后，对他的看法发生变化”与“和王振州聊空闲时间，想到居家办公时学习心理学”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P34",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“看李克强朋友的访谈后，对他的看法发生变化”与“牙痛后看医生，重新学习并开始使用牙线”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P35",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "都谈调节情绪，但江西项目纸上分解与伴侣争执无明确互引。"
+    },
+    {
+      "pair_id": "P36",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "焦虑时行动与恢复动力是可关联主题，未明确以该次争吵作为恢复四项活动的依据。"
+    },
+    {
+      "pair_id": "P37",
+      "status": "RELATED",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "同一脚碰枕头、消费指责的争吵；09-10明确出现提醒复盘、发送录音、询问AI和共同讨论的新动作，因此为后续而非单纯回忆。",
+      "relation": {
+        "source_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+        "target_event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_point_nos": [
+          1
+        ],
+        "target_point_nos": [
+          1,
+          2
+        ],
+        "description": "此前脚碰枕头并因消费话题发生争吵后，我继续推动小廖复盘，发送录音，并共同讨论她向ChatGPT询问所得的分析。"
+      }
+    },
+    {
+      "pair_id": "P38",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“从惹颂梅不高兴，到讨论行动和沟通”与“看苹果发布会，想到产品协同与创新文化”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P39",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“从惹颂梅不高兴，到讨论行动和沟通”与“和王振州聊空闲时间，想到居家办公时学习心理学”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P40",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "E5谈哒哒体检及狗粮，E11是本人牙痛就医；对象与事项不同。"
+    },
+    {
+      "pair_id": "P41",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“用课题分离和纸上拆解应对江西项目的混乱”与“日记平台等事情荒废后，仍不知道怎样恢复动力”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P42",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“用课题分离和纸上拆解应对江西项目的混乱”与“和小廖复盘争吵，讨论情绪过载与非暴力沟通”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P43",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“用课题分离和纸上拆解应对江西项目的混乱”与“看苹果发布会，想到产品协同与创新文化”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P44",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "同属江西工作，E6未限定是王振州的任务，E10亦未引用此前纸笔安排，不能直接接为项目进展。"
+    },
+    {
+      "pair_id": "P45",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“用课题分离和纸上拆解应对江西项目的混乱”与“牙痛后看医生，重新学习并开始使用牙线”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P46",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“日记平台等事情荒废后，仍不知道怎样恢复动力”与“和小廖复盘争吵，讨论情绪过载与非暴力沟通”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P47",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“日记平台等事情荒废后，仍不知道怎样恢复动力”与“看苹果发布会，想到产品协同与创新文化”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P48",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "BORDERLINE",
+      "reason": "E7希望恢复心理学学习等四项活动，E10形成利用居家空闲学心理学的想法；没有明确把它表述为解决此前恢复动力的事项，需防止同目标即后续。"
+    },
+    {
+      "pair_id": "P49",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“日记平台等事情荒废后，仍不知道怎样恢复动力”与“牙痛后看医生，重新学习并开始使用牙线”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P50",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“和小廖复盘争吵，讨论情绪过载与非暴力沟通”与“看苹果发布会，想到产品协同与创新文化”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P51",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“和小廖复盘争吵，讨论情绪过载与非暴力沟通”与“和王振州聊空闲时间，想到居家办公时学习心理学”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P52",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "E8回忆的是暂缓讨论洗牙、约到09-01或以后；E11是09-10牙痛就医、学牙线和下周做咬合垫。不能把既往洗牙回忆定位为此后牙痛就诊。"
+    },
+    {
+      "pair_id": "P53",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“看苹果发布会，想到产品协同与创新文化”与“和王振州聊空闲时间，想到居家办公时学习心理学”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P54",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“看苹果发布会，想到产品协同与创新文化”与“牙痛后看医生，重新学习并开始使用牙线”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    },
+    {
+      "pair_id": "P55",
+      "status": "NO_RELATION",
+      "reviewer": "ROOT_SOURCE_REVIEW_NOT_USER_GOLD",
+      "review_scope": "CLEAR",
+      "reason": "已检查双方全部要点；“和王振州聊空闲时间，想到居家办公时学习心理学”与“牙痛后看医生，重新学习并开始使用牙线”未表达可定位的进展、引发或提及，不能凭共有概念补关系。"
+    }
+  ]
+}

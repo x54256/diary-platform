@@ -1,0 +1,783 @@
+{
+  "package_sha256": "a241b62513238f5e6e4de8e2ab78878c62028b800688447dc13c70c4d0cd90df",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "a241b62513238f5e6e4de8e2ab78878c62028b800688447dc13c70c4d0cd90df",
+    "verified_at": "2026-10-23T02:40:09.367972+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-0133052ab1eda130",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "暂缓洗牙被总结为沟通方法，但本次枕头争吵条目没有引用这次暂缓洗牙。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-09549f3d309f589d",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_b_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵与擦脚视频、涂药争执不同，未引用具体旧经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0a95b83469331b29",
+      "event_a_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "指标沟通与卡牌比较恐惧无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0e5a6e30df136592",
+      "event_a_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "老梁视频与下班采购游戏未互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0f84c2de1f3a489f",
+      "event_a_id": "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "李克强朋友访谈与老梁视频没有定位为同一视频或具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1b5ba5b78672d04f",
+      "event_a_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "政治人物访谈与平台动力无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1d27f79944634c86",
+      "event_a_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "老梁视频与江西指标核对无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1e0fc4dd08b6f426",
+      "event_a_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "卡牌比较恐惧与江西纸上拆解无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-22600c2d9735c08e",
+      "event_a_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "平台动力与口腔护理无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-26b1a3e301616e1e",
+      "event_a_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "泛说有时间不如玩两把游戏，不能定位为等AI开发的具体游戏经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-27e3db07e7c259f0",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "RELATED",
+      "reason": "同一图谱任务继续形成更具体的要点优先方案，不将设想写成已实施。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前提出先人工建立事件图谱后，又进一步提出先结构化事件原文、提取内容要点再建立关系的优化设想。",
+        "source_event_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "第一步，根据每天日记整理出的事件，纯人工、没有系统参与地建立联系、画图谱，弄清事件、人物、经验、思考等实体，以及关系和关系类型。",
+            "point_id": "11689170-cd26-4882-ad9c-a3e17cb152af",
+            "point_event_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 15,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "4f3864679b3682e174973206f82ac8d9138b26d2320ce454e741abd7bc626682"
+          }
+        ],
+        "target_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+        "target_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "target_evidence": [
+          {
+            "point_no": 3,
+            "quote": "现在我又发现，直接建事件图谱的准确性很差，应该先结构化整理事件原文，弄清楚一个事件讲了哪几件事、有哪些内容和要点，再建立这些点之间的关系，这样准确性可能会高一些。",
+            "point_id": "90bf00f0-4bfd-499d-a360-51b482baadaa",
+            "point_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 129,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "1c29e135f70286aa49898283985417563d9b20e2a509ba01508ed89b82a9f95a"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-2b2c4d983ccd360c",
+      "event_a_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "口腔护理与等AI打游戏无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2c39b81974eec242",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "恢复平台动力未被表达为枕头争吵后的行动或由其触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2fa10c5bd6ada1c6",
+      "event_a_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "RELATED",
+      "reason": "同一具体游戏的持续游玩新增关卡完成状态。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "持续玩植物大战僵尸之后，已基本打过自己能打过的关卡，并估计之后主要刷每日任务和活动。",
+        "source_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "最近玩《植物大战僵尸 2》有点上瘾，回家又玩了一段",
+            "point_id": "d8805646-c3cf-57f8-9e0a-ea85c42db952",
+            "point_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "73dcfe421b0bb493a9d2a2df3edde32e6d4988db9a450e893f9db063a546df47"
+          }
+        ],
+        "target_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+        "target_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "能打过的关卡，我基本都打过了。",
+            "point_id": "6e2f810e-d6e1-55f0-bfce-19512fc5540f",
+            "point_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "c34c010460f9f345a7d2ad81a8b2cd9d7419aee893d9a62ac4168641cbb96211"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-30545da3a865938a",
+      "event_a_id": "28fc02fd-cda6-4455-b02f-e4d83bb061fa",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "配置交接与需求纸上拆解不同环节，未说明是该次部署的新结果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-314e703e03ccf759",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "比较恐惧与枕头争吵不同，未相互引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3240734ecd79f2fa",
+      "event_a_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "仍想恢复平台课程等仅重复恢复愿望，没有新的安排或行动足以作为此前恢复计划的后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-34116217362f1fc5",
+      "event_a_id": "95ec9c7b-ae87-41c1-8723-19f992379da6",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "许益龙AI能力比较与卡牌竞争恐惧不是同一具体比较，未表达类比引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-38e62edd0a16887d",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "职业不自信与平台使用成本是不同反思，没有引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3b7200ac588ef8e1",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "老梁视频与GPT文章是不同内容，不因同为阅读就连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3f46bbea3993ad44",
+      "event_a_id": "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "访谈说李克强不善竞争，没有明确类比自己的卡牌恐惧。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-405776b78493e68e",
+      "event_a_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "两侧是不同的江西工作整理事项，原要点未定位同一次整理或同一具体问题的新进展；不能仅凭同项目建边。用户已澄清不是同一次整理。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-439b8a3074cd7c54",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "95ec9c7b-ae87-41c1-8723-19f992379da6",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "RELATED",
+      "reason": "同一江西前端协助后台开发的实践出现对排错分工和自身价值的新认识。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "江西项目让前端借AI生成后台功能后，我继续从解决试错问题中认识到自己的专业经验仍有价值。",
+        "source_event_id": "95ec9c7b-ae87-41c1-8723-19f992379da6",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "最近让吴伟豪帮做一部分江西需求，用 AI 生成 SQL，现在又生成 Java 后端代码，都还行。",
+            "point_id": "1112467f-6f5a-4699-ac7a-45120d6a0321",
+            "point_event_id": "95ec9c7b-ae87-41c1-8723-19f992379da6",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "8c72b711199a2416f978a85578e554d72165549bc014312a8bb19dde21f036c1"
+          }
+        ],
+        "target_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+        "target_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "target_evidence": [
+          {
+            "point_no": 5,
+            "quote": "江西项目最近找了几个前端帮我做后台功能。简单的事情，跟 AI 沟通一下就能做出来；但遇到问题时，因为我懂，我能很快看出原因，直接告诉 AI，再把问题解决。",
+            "point_id": "8f9ad244-8f3a-408d-a130-a616b9f67b11",
+            "point_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "4dd0bcaee318297559e71f3feb8f35138d71a0ef28a0df0733b574ddb1911f82"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-4c03e7642e596805",
+      "event_a_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "游戏手腕疼与同卡组输赢恐惧不是同一场游戏或其新结果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5c8aefd3b7934402",
+      "event_a_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "游戏等待AI没有引用恢复课程运动的计划。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-620c60c692a06918",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "沟通行动总结未引用图谱三步方案。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-68294b77c082f694",
+      "event_a_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "RELATED",
+      "reason": "恢复学习从计划到初步执行，保留未进入正轨的状态。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前打算下周恢复心理学课程，随后已重新开始看普通心理学并记日记，但尚未进入正轨。",
+        "source_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "心理学课也很久没看。我准备至少下周重新捡起来",
+            "point_id": "0b7b8237-cb6f-4b04-a131-55f233656dce",
+            "point_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 39,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "3d2840efa4cfbc836171d81788c83e1ff6ea1eb04ce856f6791f1fbc34a3ab2f"
+          }
+        ],
+        "target_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+        "target_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "target_evidence": [
+          {
+            "point_no": 4,
+            "quote": "这两天我重新开始看普通心理学课程，不过还没有进入正轨。日记也重新开始记了",
+            "point_id": "d1067cee-e55e-47dd-912d-ddc56b5df1ad",
+            "point_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 16,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "048a1fcd519931166676284de1064ffc7c80c6a7e007f36b1f350637085f2313"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-6b1251c0970982bf",
+      "event_a_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "老梁视频沉迷与平台整理成本分别讨论习惯和使用门槛；没有报告彼此的后续或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6fe2c88c77a056ad",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "工作自信与卡牌对决恐惧均为自信主题，未定位同一具体经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7467ec9e96561558",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "纸上拆解与沟通行动原则相近，但未表达从对方经历迁移或具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-747660053d8881c9",
+      "event_a_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "游戏等待AI与图谱三步方案未形成具体依赖。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7b75238b023677aa",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "政治人物访谈与伴侣争吵无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7c41d4e4ab9b95d9",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "de174c23-aa0c-4464-8705-b7809ee53072",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "猫跑酷与脚碰枕头争吵不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7c77aa689b42315a",
+      "event_a_id": "28fc02fd-cda6-4455-b02f-e4d83bb061fa",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "等AI开发成效评估并未报告部署或现场配置的进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7faa2662402ed174",
+      "event_a_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "重新看课程与先人工画图并非同一任务。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8d4ad9e7c9891b97",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "工作价值反思与恢复课程运动计划未具体相接。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-901d66f4a1dcb8eb",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "职业价值反思与江西纸上拆解没有明确互相触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9194da8354ffe1b8",
+      "event_a_id": "6b745863-5538-408d-baed-f6c86379916f",
+      "event_a_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "江西需求混乱未被描述为沉迷老梁视频或重启课程的具体原因。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-93fc796ea8e63203",
+      "event_a_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "纸上拆解江西与恢复平台困难没有具体触发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9491cca50686c558",
+      "event_a_id": "6b745863-5538-408d-baed-f6c86379916f",
+      "event_a_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "event_b_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "两侧是不同的江西工作整理事项，原要点未定位同一次整理或同一具体问题的新进展；不能仅凭同项目建边。用户已澄清不是同一次整理。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-95eee7d926c8dc53",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "对政治人物的访谈感想与AI职业价值无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9e507b053f3f6e0f",
+      "event_a_id": "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "访谈与游戏等待AI无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a0120e783c6c78e8",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "老梁视频与枕头争吵无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a27fe8d131732cd1",
+      "event_a_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "老梁视频与卡牌观战恐惧无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a2e6d6af7a14f6ea",
+      "event_a_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "玩PVZ日常与双人对决恐惧是不同游戏维度，未表达某次竞争由等待AI而引发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a51b89eb1b6a9ccd",
+      "event_a_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "等AI开发与纸上拆解均涉及江西，但没有说明同一具体计算问题的进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a55408d7c887ad5d",
+      "event_a_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "恢复平台的困难没有引用父母AI沟通设想。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ab31eba141c8258b",
+      "event_a_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "心累恢复计划与纸上拆解没有具体互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-aca88824d77930ba",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "游戏等待AI与伴侣争吵无具体引用或触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b2b032f64da3adbb",
+      "event_a_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "平台动力困难与具体卡牌观战恐惧无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c0beb17f5c0a8734",
+      "event_a_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "政治访谈与纸上拆解无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c3bf91c921c98179",
+      "event_a_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "玩游戏手腕疼未被平台恢复条目回顾或作为阻碍依据。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c9f42c7be4db74e9",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "泛举AI焦虑不定位职业不自信的这次具体反思。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-caaee0a17f2f3d71",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "职业反思以玩游戏作背景，没有定位等AI时的某一局或报告游戏进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cac0afa0c54a6c66",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "玩游戏手腕疼与枕头争吵不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cb6bb221e6c7d8a7",
+      "event_a_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "老梁视频与江西纸上拆解无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cd3b6c98a4674901",
+      "event_a_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "图谱建设三步与日记平台整理成本分属建设和使用，未指向同一具体操作的新进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cd8c54212383d548",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+      "event_b_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "status": "RELATED",
+      "reason": "双方独立支持同一建图准确性问题及新方案，不依赖中间第三事件。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "早期测试使我怀疑建图路径，随后针对同一准确性问题提出先整理原文要点、再建立点间关系的设想。",
+        "source_event_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+        "source_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "测试效果让我怀疑，不知道这条路径是不是正确的。",
+            "point_id": "242a675a-c4fd-4022-a2cc-9cf193d4f16e",
+            "point_event_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+            "point_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+            "offset": 105,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "69dcc236d9af846eafc3dc57070ab13b416ff605f766802751f1e0d32384a0da"
+          }
+        ],
+        "target_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+        "target_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "target_evidence": [
+          {
+            "point_no": 3,
+            "quote": "现在我又发现，直接建事件图谱的准确性很差，应该先结构化整理事件原文，弄清楚一个事件讲了哪几件事、有哪些内容和要点，再建立这些点之间的关系，这样准确性可能会高一些。",
+            "point_id": "90bf00f0-4bfd-499d-a360-51b482baadaa",
+            "point_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 129,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "1c29e135f70286aa49898283985417563d9b20e2a509ba01508ed89b82a9f95a"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-d0fe86a80e94fb12",
+      "event_a_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "纸上拆解江西与图谱先人工建模只是方法相近，未互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f82d8754be1e5add",
+      "event_a_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "视频与游戏都是打发时间，但没有互相触发、替代安排或具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fcc115e83559194c",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "前端AI开发试错与此前指标权重沟通并未定位同一具体问题。",
+      "relation": null
+    }
+  ]
+}

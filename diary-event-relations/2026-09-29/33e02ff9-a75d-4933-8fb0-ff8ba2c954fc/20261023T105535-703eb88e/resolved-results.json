@@ -1,0 +1,581 @@
+{
+  "package_sha256": "f3bbc1429ec73d316afc914322670b47af9f4ce2fbcc12e8c9c35221c427796a",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "f3bbc1429ec73d316afc914322670b47af9f4ce2fbcc12e8c9c35221c427796a",
+    "verified_at": "2026-10-23T02:55:37.181789+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-01fac86ec1c6b18c",
+      "event_a_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "733bd13d-8a17-4eb4-b949-071d4c3c808f",
+      "event_b_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "status": "NO_RELATION",
+      "reason": "广州JAR接口答疑与框架测试未定位同一接口测试。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-02ba29bc6f88ce60",
+      "event_a_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "框架测试与黄牛票务不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-05d9829f1167150f",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "遛狗条目没有说平台设计疲惫，不能借聚餐条目作为第三方证据补触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-106d0437b948f0ce",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "旧家务积压与本次遛狗不同事件。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-10be9ae11cba7f74",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "RELATED",
+      "reason": "明确同次聚餐被回顾；遛狗是新事项，不仅因时间接续就当饭局后续。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "记录喝酒后遛狗的经过时，提到此前参加的朋友婚后聚餐及带颂梅回家的背景。",
+        "source_event_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+        "source_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "聚餐后带颂梅回家",
+            "point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+            "point_event_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+            "point_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "8623e74800ff1fc7f5c433c063448294f8ac8f759141f95e58bf0deb617ec917"
+          }
+        ],
+        "target_event_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+        "target_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天颂梅朋友结婚，她去帮忙，结束后四五点去新疆菜馆",
+            "point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+            "point_event_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+            "point_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "23a83796c3b55339926aec5892efedb0c75316ae431c3766ee70fcf142499806"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-1127a3664e76f61a",
+      "event_a_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "平台恢复动力与周杰伦实名票无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-116f24826b2d211e",
+      "event_a_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "聚餐疲惫明确来自日记实体设计，不是此前按摩头晕的结果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1cda1d467531b349",
+      "event_a_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "猫驱虫与周杰伦票务不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-21ddc0f199b785d7",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "旧日记知识库先图谱再要点的策略，与本次实体属性建模未定位同一具体改动；不能仅同平台目标建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-220dd3d2eb59af9f",
+      "event_a_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "猫驱虫与知识库建模无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-328f0a3366172863",
+      "event_a_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "早前涂药晒痛与猫驱虫时嘴唇过敏不同经历，未相互引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-32a1ea9d8a57f890",
+      "event_a_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "旧永旺采购与婚后新疆菜馆不同饭局。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3839b271592a51b1",
+      "event_a_id": "45bf44d7-c4eb-4f84-9c1b-6ac4eb6cd166",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "三线监测与框架测试不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3e4ff02b755d2f01",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "fb514bed-9e00-4727-a29b-889e58a31122",
+      "event_b_run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+      "status": "NO_RELATION",
+      "reason": "昨日聚餐遛狗与此前清远电影泡澡不同活动。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5eb285c04adf4048",
+      "event_a_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "RELATED",
+      "reason": "同一具体实体关系建模任务从拟议内容到实际梳理，未称先前人工步骤已完成。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前提出先弄清事件等实体和关系类型，后来重新推进平台，实际与Codex确认知识库实体、属性与关系属性。",
+        "source_event_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "第一步，根据每天日记整理出的事件，纯人工、没有系统参与地建立联系、画图谱，弄清事件、人物、经验、思考等实体，以及关系和关系类型。",
+            "point_id": "11689170-cd26-4882-ad9c-a3e17cb152af",
+            "point_event_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 15,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "4f3864679b3682e174973206f82ac8d9138b26d2320ce454e741abd7bc626682"
+          }
+        ],
+        "target_event_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+        "target_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "让 Codex 从头分析如何用日记构建个人知识库，一起确认实体、实体属性、关系及关系属性。",
+            "point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+            "point_event_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+            "point_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+            "offset": 13,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "a74694a7fe18273aad2e6b72648f9e43d0a224d064f18ca16469a55671051675"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-669346c3bafbcdd3",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "珠江遛狗未回顾枕头争吵或相应遛狗经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-66dbf254729570fd",
+      "event_a_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "测试设计与猫驱虫争执不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6a849c3cb797c97c",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "晚上票务讨论没有回顾遛狗或由它触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6cfdab07e298f7d6",
+      "event_a_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "猫驱虫时找过敏药与按摩后找药不同病程。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7247ed2c5d7e3fea",
+      "event_a_id": "a06ad927-792e-4c51-ae88-b64700f4e187",
+      "event_a_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "刘德华跨年与周杰伦不同演出，不是抢票方案的后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7dc63fb1d7a1117b",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵与昨天猫驱虫不同，未具体回顾旧次争吵。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8e068b2e1db5bb11",
+      "event_a_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "饭局疲惫明确来自日记实体设计，非框架测试，不能混同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a623a606f3a8a551",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "遛狗与框架测试不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-acf09f3384ba6522",
+      "event_a_id": "18b7236f-d927-4581-a087-a814a6bc63b7",
+      "event_a_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "event_b_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "CBB版本方法与xdata-parent测试方案未说明同一任务的后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ae3a9ad5359429a6",
+      "event_a_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+      "event_b_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "status": "NO_RELATION",
+      "reason": "关系测试效果与实体属性建模是不同环节，目标未定位继续处理同次测试或直接由它引发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-af95f2de82d0dfb9",
+      "event_a_id": "08ebf16a-1744-46f7-9b44-a15778746ba7",
+      "event_a_run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+      "event_b_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "清远入住与朋友婚后聚餐不同外出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b060100195e0e5dd",
+      "event_a_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "知识库建模与实名票无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bb5aeb13f8a25049",
+      "event_a_id": "28fc02fd-cda6-4455-b02f-e4d83bb061fa",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "江西配置交接与框架测试不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bd49a6af7a1dfd49",
+      "event_a_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "大屏导入与xdata-parent测试是不同模块工作。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c0087a353ef3fe75",
+      "event_a_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "日记知识库建模与xdata-parent分层测试不同项目。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c487e9628efef492",
+      "event_a_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "摄影课程与朋友婚后聚餐不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d0b690259717cb84",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "给猫驱虫与遛狗同日但没有具体先后或互相影响，不能补因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d60844e93fc6b119",
+      "event_a_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "fee55ed1-6696-4d61-9a50-d7163857b39a",
+      "event_b_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "status": "RELATED",
+      "reason": "9月22日的下周一和9月29日的昨天均为9月28日，人物角色及婚事帮忙安排相合，形成执行后续。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前朋友约颂梅下周一帮忙领证婚事并提前请吃饭，随后到周一她实际去帮忙，结束后参加婚后聚餐。",
+        "source_event_id": "fee55ed1-6696-4d61-9a50-d7163857b39a",
+        "source_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "详妹下周一领证，想请她帮拿衣服、搭手，提前请我们吃饭。",
+            "point_id": "5e24529c-451e-57cb-a902-b918067e106c",
+            "point_event_id": "fee55ed1-6696-4d61-9a50-d7163857b39a",
+            "point_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+            "offset": 16,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "014378fb873ce92c13ee147d2f53e6f05748d13e44ad9bc1276520865bef4d95"
+          }
+        ],
+        "target_event_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+        "target_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天颂梅朋友结婚，她去帮忙，结束后四五点去新疆菜馆",
+            "point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+            "point_event_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+            "point_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "23a83796c3b55339926aec5892efedb0c75316ae431c3766ee70fcf142499806"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-daeb5f9d563e9ddd",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "旧买饭玩游戏与本次喝酒遛狗不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e169bcc01cbbd7fd",
+      "event_a_id": "47a3d4fb-d7fd-4c37-8554-5bf330f81c83",
+      "event_a_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "汪苏泷十月二日票与周杰伦票不同演出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e84f710810de43fb",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "醉酒与周四按摩不适不同，伴侣例假不适也非本人按摩病程。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e9b43641ed0d9d39",
+      "event_a_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "聚餐看雷达与床上票务讨论没有具体互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ea3121bd94bad0aa",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵与周杰伦票务不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-eb5af4bf93dd074f",
+      "event_a_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "RELATED",
+      "reason": "目标明确表达同一设计工作造成疲惫并影响饭局状态。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "昨天设计日记平台实体和关系让我疲惫，加上与饭局其他人不熟，导致聚餐时坐着听、不愿讲话。",
+        "source_event_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+        "source_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天重新捡起日记管理平台，让 Codex 从头分析如何用日记构建个人知识库，一起确认实体、实体属性、关系及关系属性。",
+            "point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+            "point_event_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+            "point_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "a74694a7fe18273aad2e6b72648f9e43d0a224d064f18ca16469a55671051675"
+          }
+        ],
+        "target_event_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+        "target_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我与他们不熟，昨天又因设计日记平台实体疲惫，坐着听，不愿讲话。",
+            "point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+            "point_event_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+            "point_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+            "offset": 69,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "23a83796c3b55339926aec5892efedb0c75316ae431c3766ee70fcf142499806"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-ec1ec4970904eb71",
+      "event_a_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "平台使用整理成本与重新开发知识库是不同具体操作，未报告原成本问题被解决。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ee6f9aa6ab3c69ef",
+      "event_a_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "聚餐与猫驱虫没有明确相互触发或具体引用，不凭同日连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ef09713bce07c2ce",
+      "event_a_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "母亲通话影响沟通与过敏触发驱虫争执不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fa3f23c1bc16f86e",
+      "event_a_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "家务烦躁与实名票黄牛不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fe596b3ee07ca531",
+      "event_a_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "家务饮水机争执与猫驱虫是不同争执，未具体回顾。",
+      "relation": null
+    }
+  ]
+}

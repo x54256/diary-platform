@@ -1,0 +1,847 @@
+{
+  "package_sha256": "a78495e0c8b890a457412fbff9f325fc4df1987fcb3a29ecc31d4e766cf4412b",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "a78495e0c8b890a457412fbff9f325fc4df1987fcb3a29ecc31d4e766cf4412b",
+    "verified_at": "2026-10-23T02:40:20.809809+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-0010ec5d9d16aeb5",
+      "event_a_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "ed7a6d8a-3f9f-429f-a886-fbeb5a55e95e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "双人对决恐惧与主线简单通关是不同模式，不能认为竞争恐惧已解决。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0267f45dfd64c815",
+      "event_a_id": "13cbd0fe-aaf1-4752-af73-6400fe0bb8cd",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "600b3ddc-e835-40dd-b417-b05b85aedcac",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "辽宁审查与日记整理不同项目。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0422bfa7d7215085",
+      "event_a_id": "00f249de-d76f-40a0-80ad-0410a0d00e2a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "发布会与咬合垫诊疗无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0adbcfc1a2d6b609",
+      "event_a_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "RELATED",
+      "reason": "同一游戏出现明确完成结果。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "持续玩植物大战僵尸2后，已通关主线简单模式，打算之后只做日常打卡。",
+        "source_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "最近玩《植物大战僵尸 2》有点上瘾，回家又玩了一段",
+            "point_id": "d8805646-c3cf-57f8-9e0a-ea85c42db952",
+            "point_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "73dcfe421b0bb493a9d2a2df3edde32e6d4988db9a450e893f9db063a546df47"
+          }
+        ],
+        "target_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+        "target_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天还通关了《植物大战僵尸 2》的主线简单模式，之后每天打卡就行。",
+            "point_id": "c18ac905-0654-5e5e-9487-0e87525f58dd",
+            "point_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+            "point_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "9b96594226f4de68ca41a6def4982380a647de82b5461c5eddf5f85c83ec0be5"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-0c4be4336f75a0b9",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "600b3ddc-e835-40dd-b417-b05b85aedcac",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "知识库建图结构化策略与整理功能模型超限修复不是同一具体功能变化。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0d81a5eff0414b57",
+      "event_a_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "13cbd0fe-aaf1-4752-af73-6400fe0bb8cd",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "大屏导入与辽宁合规审查是不同功能。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0eaef7039532d823",
+      "event_a_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "733bd13d-8a17-4eb4-b949-071d4c3c808f",
+      "event_b_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "status": "NO_RELATION",
+      "reason": "广州接口答疑与江西缺表不同项目。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0f8b555afccd4912",
+      "event_a_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "6b745863-5538-408d-baed-f6c86379916f",
+      "event_b_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "status": "NO_RELATION",
+      "reason": "看不明白江西需求与本次导入缺表没有具体问题映射，不能仅凭项目建立直接边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-21c342e0643f8475",
+      "event_a_id": "bf06326d-92cf-4238-9a88-da0d645092cb",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "广州修复与口腔诊疗无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2a57a77bf94cad21",
+      "event_a_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "bf06326d-92cf-4238-9a88-da0d645092cb",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "江西缺表与广州入库是不同应用缺陷。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2ae5411f8d06c1a5",
+      "event_a_id": "2400213a-5465-4b1d-9b11-7290d5161266",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "香蕉售后与江西导入无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-38619eebfcb2db5a",
+      "event_a_id": "28fc02fd-cda6-4455-b02f-e4d83bb061fa",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "bf06326d-92cf-4238-9a88-da0d645092cb",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "江西部署交接与广州分层分级修复不同项目。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3945d7d33219b5b4",
+      "event_a_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "bf06326d-92cf-4238-9a88-da0d645092cb",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "家务烦躁与广州修复不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3a0a058712f05ccf",
+      "event_a_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "RELATED",
+      "reason": "双方独立支持关卡进度与明确通关的新结果。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前已打过大部分能过的关卡，随后明确完成PVZ2主线简单模式。",
+        "source_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "能打过的关卡，我基本都打过了。",
+            "point_id": "6e2f810e-d6e1-55f0-bfce-19512fc5540f",
+            "point_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "c34c010460f9f345a7d2ad81a8b2cd9d7419aee893d9a62ac4168641cbb96211"
+          }
+        ],
+        "target_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+        "target_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天还通关了《植物大战僵尸 2》的主线简单模式，之后每天打卡就行。",
+            "point_id": "c18ac905-0654-5e5e-9487-0e87525f58dd",
+            "point_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+            "point_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "9b96594226f4de68ca41a6def4982380a647de82b5461c5eddf5f85c83ec0be5"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-3a163cb905deffef",
+      "event_a_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "RELATED",
+      "reason": "双方定位同日下午修复科就诊，不把看牙当作开发因果。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "记录下午继续大屏导入工作时，提到当天去修复科看牙后返回的行程。",
+        "source_event_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+        "source_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "下午去修复科看牙回来，我继续让 coder 做大屏 Excel 导入",
+            "point_id": "d24739d4-db0f-4b56-b469-a33079b31222",
+            "point_event_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+            "point_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b18bed9741e8fcc3496d3cdd8fd81e43a631c99b30923b099745cb371163182a"
+          }
+        ],
+        "target_event_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+        "target_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下午约两点半修复科，一点五十多从家骑电动车出发。",
+            "point_id": "46843425-4bc7-4a1c-8334-1153cc8d7c51",
+            "point_event_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+            "point_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "61671c7fb047dc459a9aed0f1b32a302a3b99488e5b5ac830edaf74e2e805423"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-45a421eb1ac223e6",
+      "event_a_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "RELATED",
+      "reason": "双方独立指向相同磨牙咬合垫事项和新就诊行动。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前想为夜间磨牙做咬合垫，之后到修复科向医生提出并讨论制作。",
+        "source_event_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "我觉得，防止睡觉磨牙的咬合垫，也要找时间做一下。",
+            "point_id": "b4b430f7-a20f-421f-aa23-9df3113d8ee5",
+            "point_event_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ba10eca772b4b53262536a645ec72db8b46169d19b31fc5c37a856ebedf4d185"
+          }
+        ],
+        "target_event_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+        "target_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我说刘佳医生提过磨牙要做咬合垫，他说夜间磨牙要做",
+            "point_id": "c0d1faae-a8d8-4fb9-86f8-bb1fba5e3774",
+            "point_event_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+            "point_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+            "offset": 68,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "36a85c454f9553670e9c7d6de0622facf0e71e04749f5bb2f0f42a7edc3c4ac1"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-4cd2ddf2a345787e",
+      "event_a_id": "2400213a-5465-4b1d-9b11-7290d5161266",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "bf06326d-92cf-4238-9a88-da0d645092cb",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "香蕉纠纷与广州修复无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4e0a0e8fa8540790",
+      "event_a_id": "2400213a-5465-4b1d-9b11-7290d5161266",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "家务积压与香蕉售后不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-562919110480699c",
+      "event_a_id": "733bd13d-8a17-4eb4-b949-071d4c3c808f",
+      "event_a_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "event_b_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "广州接口答疑与咬合垫无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-57111a9465407e6b",
+      "event_a_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "RELATED",
+      "reason": "同一咬合垫计划实际执行；同一目标要点将合并连续引用。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前计划周一去修复科做咬合垫，随后实际就诊、决定制作并完成取模。",
+        "source_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+        "source_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+        "source_evidence": [
+          {
+            "point_no": 5,
+            "quote": "下周一准备去修复科做一下咬合垫，应该就是这样。",
+            "point_id": "91a89995-6c52-4609-97d2-bba29677423a",
+            "point_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+            "point_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "195ccbbf50d1ad690c61b11ec1f8dc3c161f91460fbfcfc0acb760d227e65253"
+          }
+        ],
+        "target_event_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+        "target_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我说刘佳医生提过磨牙要做咬合垫，他说夜间磨牙要做，问我要不要，一千多、全自费。我问了一些，仍决定做：一是难得挂号、淋雨来一趟，不能问两句就走；二是颂梅说我睡觉磨牙。做时贴上颚模具有点恶心，干呕几次，完成后回家。",
+            "point_id": "c0d1faae-a8d8-4fb9-86f8-bb1fba5e3774",
+            "point_event_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+            "point_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+            "offset": 68,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "36a85c454f9553670e9c7d6de0622facf0e71e04749f5bb2f0f42a7edc3c4ac1"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-5ba05fd219bd9eaf",
+      "event_a_id": "18b7236f-d927-4581-a087-a814a6bc63b7",
+      "event_a_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "event_b_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "江西删表重建未说采用CBB工程化方法，不能从后台主题补依赖。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6011f3da890dc99c",
+      "event_a_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "家务清洁与咬合垫是不同护理事项，未相互引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6316c4e82eaa7961",
+      "event_a_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "2400213a-5465-4b1d-9b11-7290d5161266",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "香蕉售后与大屏导入不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-66da5951d8cb207d",
+      "event_a_id": "2400213a-5465-4b1d-9b11-7290d5161266",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_b_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "status": "NO_RELATION",
+      "reason": "香蕉算术争执与伴侣涂药争执不同，未具体类比。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6c4251c137ce48dc",
+      "event_a_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "大屏导入与PVZ通关不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7074803224e60f8f",
+      "event_a_id": "2400213a-5465-4b1d-9b11-7290d5161266",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "600b3ddc-e835-40dd-b417-b05b85aedcac",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "香蕉售后与日记整理无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-762389cae5061aa7",
+      "event_a_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "同事工时聊天未指向本次江西Excel缺表问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-790f65fbe4bfa7f4",
+      "event_a_id": "13cbd0fe-aaf1-4752-af73-6400fe0bb8cd",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "辽宁审查与口腔诊疗不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8037acbe1fdb23c1",
+      "event_a_id": "13cbd0fe-aaf1-4752-af73-6400fe0bb8cd",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "2400213a-5465-4b1d-9b11-7290d5161266",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "辽宁合规与香蕉售后不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-887a42f2f3610ab3",
+      "event_a_id": "600b3ddc-e835-40dd-b417-b05b85aedcac",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+      "event_b_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "status": "NO_RELATION",
+      "reason": "事件关系测试与原文整理模型修复不同功能，不能仅凭日记平台主题连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8b07acb133f37596",
+      "event_a_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "bf06326d-92cf-4238-9a88-da0d645092cb",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "Cspon与广州分层分级不同应用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9047ae7c59d923be",
+      "event_a_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "600b3ddc-e835-40dd-b417-b05b85aedcac",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "江西导入与日记整理不同缺陷。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-932ae2935269e3ce",
+      "event_a_id": "2400213a-5465-4b1d-9b11-7290d5161266",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "江西沟通与商家纠纷不同，未回忆具体旧沟通。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9622a551ae6a0008",
+      "event_a_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "AI职业反思没有定位大屏导入这次实践。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9babcada7fdb1d25",
+      "event_a_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "江西导入与PVZ通关无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a2b00bba3004a7e3",
+      "event_a_id": "2400213a-5465-4b1d-9b11-7290d5161266",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "a8b5f373-9613-409d-833b-6eff2b515a1e",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "课题分离江西与商家纠纷无具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a5d417d495acfa41",
+      "event_a_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "733bd13d-8a17-4eb4-b949-071d4c3c808f",
+      "event_b_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "status": "NO_RELATION",
+      "reason": "广州接口答疑与Cspon大屏不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a8b3b5b26673e401",
+      "event_a_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "江西评估指标与Cspon大屏同评估主题，未明确数据和功能为同一事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a9d3d110539c7dc4",
+      "event_a_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "江西导入与咬合垫无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ae3c52dbac427b64",
+      "event_a_id": "2400213a-5465-4b1d-9b11-7290d5161266",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "伴侣复盘与商家争执未互相引用或迁移练习。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-af0a5235216384cb",
+      "event_a_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "bf06326d-92cf-4238-9a88-da0d645092cb",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "江西指标梳理与广州入库不同项目。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-af3255331934c03c",
+      "event_a_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "13cbd0fe-aaf1-4752-af73-6400fe0bb8cd",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "辽宁审查与PVZ通关无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b46e8e2d5b678cac",
+      "event_a_id": "600b3ddc-e835-40dd-b417-b05b85aedcac",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "bf06326d-92cf-4238-9a88-da0d645092cb",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "日记整理与广州入库不同缺陷。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b4c9a55e50979b23",
+      "event_a_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "2400213a-5465-4b1d-9b11-7290d5161266",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "香蕉售后与PVZ通关无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-be69039536c0808e",
+      "event_a_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "18b7236f-d927-4581-a087-a814a6bc63b7",
+      "event_b_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "status": "RELATED",
+      "reason": "明确引用同一方法并报告落地行动。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "整理CBB工程化方法后，将其应用到Cspon大屏，建立骨架项目和Excel入库功能。",
+        "source_event_id": "18b7236f-d927-4581-a087-a814a6bc63b7",
+        "source_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+        "source_evidence": [
+          {
+            "point_no": 5,
+            "quote": "一是用 db.sql 这类脚本保存数据库结构，后台启动时执行初始化和维护；二是由后台提供数据导入、更新接口",
+            "point_id": "6d5af016-7c88-488f-9b60-cc61412a8911",
+            "point_event_id": "18b7236f-d927-4581-a087-a814a6bc63b7",
+            "point_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+            "offset": 18,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "d9eae70bb3de77b38f10662d5d4e633689a5df88f6530491ab8daac866401ed9"
+          }
+        ],
+        "target_event_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+        "target_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "整理出 CBB 服务管理接口使用方法论后，今天将其用于大屏，让 coder 建骨架项目，提供 Excel 导入数据库的功能。",
+            "point_id": "2913d4f3-e769-4252-984c-ce687ab000ca",
+            "point_event_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+            "point_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+            "offset": 28,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ca9187dec121cd8f6d75e86593b1af1136ec84e6b52c647ad1f2d2ef0c2fc40c"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-bfe013bf420b4a2e",
+      "event_a_id": "13cbd0fe-aaf1-4752-af73-6400fe0bb8cd",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "bf06326d-92cf-4238-9a88-da0d645092cb",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "辽宁审查与广州入库不同项目。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c27561c65fbacdf4",
+      "event_a_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "Cspon导入与江西Excel报错是不同应用，未说明共享同一缺陷。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c86785c1068c9d63",
+      "event_a_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "牙齿清洁与通关不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ccf53e437ae898d7",
+      "event_a_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "600b3ddc-e835-40dd-b417-b05b85aedcac",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "大屏导入与日记整理修复不同功能。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d18b6fa686bf5721",
+      "event_a_id": "18b7236f-d927-4581-a087-a814a6bc63b7",
+      "event_a_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "event_b_id": "bf06326d-92cf-4238-9a88-da0d645092cb",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "广州修复未说采用CBB资产版本方法。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d2ec11e9c41b2cfa",
+      "event_a_id": "13cbd0fe-aaf1-4752-af73-6400fe0bb8cd",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "辽宁审查与江西导入不同项目。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d652fd9b58da44be",
+      "event_a_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "RELATED",
+      "reason": "同一江西Excel入库环节出现新的具体问题及解决结果。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "江西评估数据的Excel导入流程继续推进，出现缺表报错后通过删表重建解决。",
+        "source_event_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "一部分从 Excel 导入系统，另一部分根据空间数据启动任务计算，再存入表中。两者分别写同一张表",
+            "point_id": "b1134ab1-5f49-4897-9bce-f98052747d6f",
+            "point_event_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 23,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "cf51e48058b31f1d7cff7b978f4d137ed53fd1775089bde36cc93e0200de9f96"
+          }
+        ],
+        "target_event_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+        "target_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "江西导入 Excel 报错，简单看是数据库表不存在。我让对方删表重建，最后搞好了。",
+            "point_id": "284bbf04-62bd-5196-93c8-d260b5fa541d",
+            "point_event_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+            "point_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ce32903bfe98f5beb9172926c47f4e533fa10539235afe239c288f075f804fe7"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-db97e9965b38faf2",
+      "event_a_id": "2400213a-5465-4b1d-9b11-7290d5161266",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "香蕉纠纷与咬合垫诊疗无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dec2301ec4c95841",
+      "event_a_id": "733bd13d-8a17-4eb4-b949-071d4c3c808f",
+      "event_a_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "event_b_id": "bf06326d-92cf-4238-9a88-da0d645092cb",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "同为广州分层分级，但此前接口对接与本次审核入库缺陷未定位为同一堵点；肖雨晨仍做另一部分不等于该缺陷延续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e4a5322c54884f4c",
+      "event_a_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "bf06326d-92cf-4238-9a88-da0d645092cb",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "广州修复与PVZ通关无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e6b448bf8702e253",
+      "event_a_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "600b3ddc-e835-40dd-b417-b05b85aedcac",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "日记整理修复与通关未表达相互触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e8268c00b36b747d",
+      "event_a_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "大屏开发与牙痛无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ea644c8f3e2948d2",
+      "event_a_id": "600b3ddc-e835-40dd-b417-b05b85aedcac",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "日记使用成本涉及人工复读修改，修复条目是模型准确率和token上限，未明确解决前述同一问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f75c86d164a898f6",
+      "event_a_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "咬合垫与PVZ通关无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f9aeb78405768764",
+      "event_a_id": "600b3ddc-e835-40dd-b417-b05b85aedcac",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "日记整理与咬合垫无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fb56829802deb409",
+      "event_a_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "老梁视频与PVZ通关未具体相接。",
+      "relation": null
+    }
+  ]
+}

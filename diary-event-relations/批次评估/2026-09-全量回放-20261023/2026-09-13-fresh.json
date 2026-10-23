@@ -1,0 +1,28 @@
+{
+  "events": [
+    [
+      "E006",
+      {
+        "id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+        "run_status": "POINTS_READY",
+        "diary_id": "f2631949-29e7-4ace-80dc-dbe863901246",
+        "diary_date": "2026-09-13",
+        "occurred_on": null,
+        "source_order": 0,
+        "title": "小廖容易进入防御姿态",
+        "run_source_sha256": "c975ee0f8608e0ea342eaefa1f4e218d576eda00f4610191eecdec353cf30bad",
+        "points": [
+          {
+            "id": "bbe2789c-e072-4175-8057-382d7007cba1",
+            "no": 1,
+            "summary": "觉得小廖容易把提醒当作指责，进入防御姿态",
+            "detail": "我觉得小廖容易进入防御姿态。她说“我没压线呀”，就是下意识把别人的话当作指责，而不是提醒。\n\n她爸容易触发她的敏感反应。我认为，这与她从小的成长环境有关，也是她容易进入防御姿态的原因。",
+            "embedding_sha256": "8d1dab350bc8fc20d2cf27658ec27dd4bd8e4348728649dba71c8006121ad47c"
+          }
+        ]
+      }
+    ]
+  ]
+}

@@ -1,0 +1,431 @@
+{
+  "month": "2026-09",
+  "scope": "审阅索引中17篇当前稿；全部中高重要性事件；不包括已入库09-09、09-10及未整理的另一篇09-20",
+  "service_host": "ws-xpny11er3mzn4l2s.cn-beijing.maas.aliyuncs.com",
+  "model": "qwen3.7-text-embedding-flash",
+  "user_authorization": "用户在逐篇审阅完成后明确要求：批量入库吧",
+  "items": [
+    {
+      "date": "2026-09-01",
+      "diary_id": "7b2b2be1-38eb-42d8-9a20-320f64755e89",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-01/7b2b2be1-38eb-42d8-9a20-320f64755e89/20261022T114659-56df224e/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-01/7b2b2be1-38eb-42d8-9a20-320f64755e89/20261022T114659-56df224e/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-01/7b2b2be1-38eb-42d8-9a20-320f64755e89/20261022T114659-56df224e/入库包-批量确认-20261022T144852.json",
+        "events": 2,
+        "points": 2,
+        "excluded_events": 1,
+        "confirmation_sha256": "e5ef16edf7766c5dec05bfee6be8f8ed1c2345573947928b4e09542d1072bc1e"
+      },
+      "excluded": [
+        {
+          "title": "电动车倒了，头盔也一时找不到",
+          "importance": "LOW"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-02",
+      "diary_id": "2eb6a94e-39b2-4502-8773-4c18ab6b7423",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-02/2eb6a94e-39b2-4502-8773-4c18ab6b7423/20261022T120347-75cdb1e0/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-02/2eb6a94e-39b2-4502-8773-4c18ab6b7423/20261022T120347-75cdb1e0/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-02/2eb6a94e-39b2-4502-8773-4c18ab6b7423/20261022T120347-75cdb1e0/入库包-批量确认-20261022T144852.json",
+        "events": 2,
+        "points": 5,
+        "excluded_events": 0,
+        "confirmation_sha256": "965a886d6e059c08e7455018fc5dd8bd0161fa6379f2e82db3eafb95f6bf64d8"
+      },
+      "excluded": []
+    },
+    {
+      "date": "2026-09-03",
+      "diary_id": "16ef80a9-a28b-43e5-b820-ff29cdccf58a",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-03/16ef80a9-a28b-43e5-b820-ff29cdccf58a/20261022T120447-8ef13884/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-03/16ef80a9-a28b-43e5-b820-ff29cdccf58a/20261022T120447-8ef13884/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-03/16ef80a9-a28b-43e5-b820-ff29cdccf58a/20261022T120447-8ef13884/入库包-批量确认-20261022T144852.json",
+        "events": 6,
+        "points": 31,
+        "excluded_events": 2,
+        "confirmation_sha256": "fa7e989ab4b8c9a2c3f32dbe4b9ef0af95bad446c4c37087e567a3f702e01b30"
+      },
+      "excluded": [
+        {
+          "title": "多多白天不动，半夜却仍在上蹦下跳",
+          "importance": "LOW"
+        },
+        {
+          "title": "下班买饭回家，玩游戏玩到手腕疼",
+          "importance": "LOW"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-11",
+      "diary_id": "ef0c6381-b0ab-4efd-8da1-9406a5ed498f",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-11/ef0c6381-b0ab-4efd-8da1-9406a5ed498f/20261022T120725-72aefe52/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-11/ef0c6381-b0ab-4efd-8da1-9406a5ed498f/20261022T120725-72aefe52/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-11/ef0c6381-b0ab-4efd-8da1-9406a5ed498f/20261022T120725-72aefe52/入库包-批量确认-20261022T144852.json",
+        "events": 5,
+        "points": 21,
+        "excluded_events": 1,
+        "confirmation_sha256": "36450467a8e4852cddcae4e70781ed83e8921d055ef282966b807077e609f1d5"
+      },
+      "excluded": [
+        {
+          "title": "和颂梅骑车到二沙岛遛狗，哒哒一度不见了",
+          "importance": "LOW"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-12",
+      "diary_id": "d8b04229-2f04-4665-b066-77be7e6c48b7",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-12/d8b04229-2f04-4665-b066-77be7e6c48b7/20261022T120901-b5b52b90/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-12/d8b04229-2f04-4665-b066-77be7e6c48b7/20261022T120901-b5b52b90/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-12/d8b04229-2f04-4665-b066-77be7e6c48b7/20261022T120901-b5b52b90/入库包-批量确认-20261022T144852.json",
+        "events": 6,
+        "points": 18,
+        "excluded_events": 2,
+        "confirmation_sha256": "b073eeb2618d2c03e0d4ae5a75972ad75d2b3a826dbeed0fe47def36e267d289"
+      },
+      "excluded": [
+        {
+          "title": "改约早场 KTV，赶在十点前开房唱歌",
+          "importance": "LOW"
+        },
+        {
+          "title": "和颂梅去吃她之前想去的餐厅，带上哒哒",
+          "importance": "LOW"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-13",
+      "diary_id": "f2631949-29e7-4ace-80dc-dbe863901246",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-13/f2631949-29e7-4ace-80dc-dbe863901246/20261022T121046-57509360/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-13/f2631949-29e7-4ace-80dc-dbe863901246/20261022T121046-57509360/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-13/f2631949-29e7-4ace-80dc-dbe863901246/20261022T121046-57509360/入库包-批量确认-20261022T144852.json",
+        "events": 1,
+        "points": 1,
+        "excluded_events": 0,
+        "confirmation_sha256": "b401c448a6a79a6cf13330e7db4f11807b47bf99df6ae31fb0b6578c81d37043"
+      },
+      "excluded": []
+    },
+    {
+      "date": "2026-09-14",
+      "diary_id": "e2c710d1-7fea-49ef-83a7-f738a32859d9",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-14/e2c710d1-7fea-49ef-83a7-f738a32859d9/20261022T121102-ffce238a/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-14/e2c710d1-7fea-49ef-83a7-f738a32859d9/20261022T121102-ffce238a/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-14/e2c710d1-7fea-49ef-83a7-f738a32859d9/20261022T121102-ffce238a/入库包-批量确认-20261022T144852.json",
+        "events": 4,
+        "points": 10,
+        "excluded_events": 4,
+        "confirmation_sha256": "67461f52376d7c0294654d5989dde8a69f8b897cbb394e3e2d89b80d94c66b82"
+      },
+      "excluded": [
+        {
+          "title": "开发辽宁项目合规审查模块",
+          "importance": "LOW"
+        },
+        {
+          "title": "修复广州云服务分层分级页面数据库入库问题",
+          "importance": "LOW"
+        },
+        {
+          "title": "修复江西导入Excel数据报错",
+          "importance": "LOW"
+        },
+        {
+          "title": "通关植物大战僵尸2简单模式",
+          "importance": "LOW"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-15",
+      "diary_id": "b8bc5707-d4b4-48f7-85bc-faa103e2fac8",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-15/b8bc5707-d4b4-48f7-85bc-faa103e2fac8/20261022T121157-9a2335ab/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-15/b8bc5707-d4b4-48f7-85bc-faa103e2fac8/20261022T121157-9a2335ab/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-15/b8bc5707-d4b4-48f7-85bc-faa103e2fac8/20261022T121157-9a2335ab/入库包-批量确认-20261022T144852.json",
+        "events": 1,
+        "points": 4,
+        "excluded_events": 5,
+        "confirmation_sha256": "e2023bb18f95368c8f48ceaa180241e781996751dc6881f63ca7f9eca3d5a6e8"
+      },
+      "excluded": [
+        {
+          "title": "推进江西三线监测的修改",
+          "importance": "LOW"
+        },
+        {
+          "title": "讨论指标填报的技术方案",
+          "importance": "LOW"
+        },
+        {
+          "title": "晚饭吃大骨头，后牙塞得厉害",
+          "importance": "LOW"
+        },
+        {
+          "title": "今晚想早点休息，也不想再一直拖到明天",
+          "importance": "LOW"
+        },
+        {
+          "title": "准备限制游戏和 YouTube 的使用",
+          "importance": "LOW"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-17",
+      "diary_id": "d5637812-eced-45c3-b54b-942088325564",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-17/d5637812-eced-45c3-b54b-942088325564/20261022T121245-b6663e69/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-17/d5637812-eced-45c3-b54b-942088325564/20261022T121245-b6663e69/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-17/d5637812-eced-45c3-b54b-942088325564/20261022T121245-b6663e69/入库包-批量确认-20261022T144852.json",
+        "events": 4,
+        "points": 9,
+        "excluded_events": 2,
+        "confirmation_sha256": "c7460c2a89afd87801d883061884b23541c3c20367dc8eb3e0f548ef3082cb2e"
+      },
+      "excluded": [
+        {
+          "title": "小廖中午做了三斤小龙虾",
+          "importance": "LOW"
+        },
+        {
+          "title": "江西数据工作准备明早再和同事对一下",
+          "importance": "LOW"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-18",
+      "diary_id": "bf1a3a0f-75c6-4466-b33c-1a5cdeaf2631",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-18/bf1a3a0f-75c6-4466-b33c-1a5cdeaf2631/20261022T121344-e415ad3e/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-18/bf1a3a0f-75c6-4466-b33c-1a5cdeaf2631/20261022T121344-e415ad3e/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-18/bf1a3a0f-75c6-4466-b33c-1a5cdeaf2631/20261022T121344-e415ad3e/入库包-批量确认-20261022T144852.json",
+        "events": 4,
+        "points": 9,
+        "excluded_events": 1,
+        "confirmation_sha256": "0396e399a7bd27f64ceffa0f6227c6d084aa74926b2b1a9135ee4c93566e9c31"
+      },
+      "excluded": [
+        {
+          "title": "处理江西新数据表设计与数据库开发",
+          "importance": "LOW"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-19",
+      "diary_id": "f7719c11-fdd5-41f9-ac64-37dddb6290e0",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-19/f7719c11-fdd5-41f9-ac64-37dddb6290e0/20261022T121434-7f70264b/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-19/f7719c11-fdd5-41f9-ac64-37dddb6290e0/20261022T121434-7f70264b/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-19/f7719c11-fdd5-41f9-ac64-37dddb6290e0/20261022T121434-7f70264b/入库包-批量确认-20261022T144852.json",
+        "events": 1,
+        "points": 3,
+        "excluded_events": 4,
+        "confirmation_sha256": "72500f3ef08039e9f319df18c3d1ce44343ff2394f6a727b71f83621e9aebf8e"
+      },
+      "excluded": [
+        {
+          "title": "昨晚用投影看《星际穿越》",
+          "importance": "LOW"
+        },
+        {
+          "title": "去小廖爸妈家吃午饭",
+          "importance": "LOW"
+        },
+        {
+          "title": "陪颂梅清洁牙周，顺路买东西",
+          "importance": "LOW"
+        },
+        {
+          "title": "放弃买炸物，自己烤鸡翅和地瓜",
+          "importance": "LOW"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-20",
+      "diary_id": "d7c7de3e-a68f-4b8c-8538-30d88da0d0cf",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-20/d7c7de3e-a68f-4b8c-8538-30d88da0d0cf/20261022T122946-10e3e862/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-20/d7c7de3e-a68f-4b8c-8538-30d88da0d0cf/20261022T122946-10e3e862/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-20/d7c7de3e-a68f-4b8c-8538-30d88da0d0cf/20261022T122946-10e3e862/入库包-批量确认-20261022T144852.json",
+        "events": 8,
+        "points": 25,
+        "excluded_events": 1,
+        "confirmation_sha256": "5984a1bc67e4f0743ab3c29895defab47631a65223b3d177d3fb98c2df25612f"
+      },
+      "excluded": [
+        {
+          "title": "查看日志中心和消息中心对接文档",
+          "importance": "LOW"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-22",
+      "diary_id": "27bcda57-db3f-4c72-a345-e71ba8997ac8",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-22/27bcda57-db3f-4c72-a345-e71ba8997ac8/20261022T121525-bc96863b/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-22/27bcda57-db3f-4c72-a345-e71ba8997ac8/20261022T121525-bc96863b/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-22/27bcda57-db3f-4c72-a345-e71ba8997ac8/20261022T121525-bc96863b/入库包-批量确认-20261022T144852.json",
+        "events": 4,
+        "points": 17,
+        "excluded_events": 5,
+        "confirmation_sha256": "667ab443b54d9b5e6604a8c8a6e20237a175bce846496bfb2b92acee39a933b4"
+      },
+      "excluded": [
+        {
+          "title": "继续学习视觉过程，也该把时间转回工作",
+          "importance": "LOW"
+        },
+        {
+          "title": "大雨里出门，和详妹吃牛肉火锅",
+          "importance": "LOW"
+        },
+        {
+          "title": "准备抢刘德华香港跨年演唱会的票",
+          "importance": "LOW"
+        },
+        {
+          "title": "考虑暂停 ChatGPT 订阅，先用公司的 coder",
+          "importance": "LOW"
+        },
+        {
+          "title": "颂梅安排十一看演唱会和桂林、阳朔出游",
+          "importance": "LOW"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-23",
+      "diary_id": "2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-23/2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20/20261022T121655-ea5d2fb3/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-23/2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20/20261022T121655-ea5d2fb3/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-23/2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20/20261022T121655-ea5d2fb3/入库包-批量确认-20261022T144852.json",
+        "events": 4,
+        "points": 11,
+        "excluded_events": 0,
+        "confirmation_sha256": "b433c0ef17272766dc41b1dfac3d2554eda5ae61cdade66cd7a0843511a9b818"
+      },
+      "excluded": []
+    },
+    {
+      "date": "2026-09-25",
+      "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-25/2ae44b75-b2d4-4bf7-9fca-e809580d5ab8/20261022T121809-e7e12ab0/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-25/2ae44b75-b2d4-4bf7-9fca-e809580d5ab8/20261022T121809-e7e12ab0/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-25/2ae44b75-b2d4-4bf7-9fca-e809580d5ab8/20261022T121809-e7e12ab0/入库包-批量确认-20261022T144852.json",
+        "events": 12,
+        "points": 22,
+        "excluded_events": 0,
+        "confirmation_sha256": "a3cf4b723f779b046412b343ee79548431f83889cca6cc03b26ee0bb932df53b"
+      },
+      "excluded": []
+    },
+    {
+      "date": "2026-09-27",
+      "diary_id": "5f9d35f3-387b-43e6-bb0a-5207f73b65f0",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-27/5f9d35f3-387b-43e6-bb0a-5207f73b65f0/20261022T121929-35654e81/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-27/5f9d35f3-387b-43e6-bb0a-5207f73b65f0/20261022T121929-35654e81/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-27/5f9d35f3-387b-43e6-bb0a-5207f73b65f0/20261022T121929-35654e81/入库包-批量确认-20261022T144852.json",
+        "events": 3,
+        "points": 9,
+        "excluded_events": 5,
+        "confirmation_sha256": "050d35157c446308674b87b00fbff5189191c26d27c3132fb55aa9d509c1f0d1"
+      },
+      "excluded": [
+        {
+          "title": "吃冬瓜鸡、看烟花，回房间泡澡看《盗梦空间》",
+          "importance": "LOW"
+        },
+        {
+          "title": "早上开阳台门，一只蛤蟆跳进房间",
+          "importance": "LOW"
+        },
+        {
+          "title": "酒店早餐很丰盛，温泉蛋吃得我发腻",
+          "importance": "LOW"
+        },
+        {
+          "title": "没去成温泉，改去射箭，退房后带宠物逛园区",
+          "importance": "LOW"
+        },
+        {
+          "title": "给哒哒洗澡、驱虫并做耳朵和牙齿护理",
+          "importance": "LOW"
+        }
+      ]
+    },
+    {
+      "date": "2026-09-29",
+      "diary_id": "33e02ff9-a75d-4933-8fb0-ff8ba2c954fc",
+      "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-29/33e02ff9-a75d-4933-8fb0-ff8ba2c954fc/20261022T122041-47047afc/事件要点.md",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-29/33e02ff9-a75d-4933-8fb0-ff8ba2c954fc/20261022T122041-47047afc/入库包-批量确认-20261022T144852.json",
+      "prepare": {
+        "phase": "prepared",
+        "write": false,
+        "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-29/33e02ff9-a75d-4933-8fb0-ff8ba2c954fc/20261022T122041-47047afc/入库包-批量确认-20261022T144852.json",
+        "events": 6,
+        "points": 11,
+        "excluded_events": 0,
+        "confirmation_sha256": "32d3593deb748196ba0aa99aedf1fab0e85cbf1ce52af1b3316a22c6fdcaeb77"
+      },
+      "excluded": []
+    }
+  ],
+  "totals": {
+    "events": 73,
+    "points": 208,
+    "excluded_events": 33,
+    "diaries": 17
+  }
+}

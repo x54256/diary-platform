@@ -1,0 +1,697 @@
+{
+  "package_sha256": "7560e70f490c9ab2b5d4e257c11c251b519ebfe709ba4567beeac90bc3cfcbf3",
+  "results": [
+    {
+      "pair_id": "P-9cecf533d641cf36",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "创新协同与父母沟通策略不同。"
+    },
+    {
+      "pair_id": "P-2e8396349573cf2d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "老梁认知视频与老陆手术不是同一经历或具体引用。"
+    },
+    {
+      "pair_id": "P-f6c95dfa3a922f78",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "母亲催生与伴侣枕头争吵不同。"
+    },
+    {
+      "pair_id": "P-e37214ed68e8b1bc",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "催生与汪苏泷行程未表达具体影响。"
+    },
+    {
+      "pair_id": "P-601c9dea0bcc7a43",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E001",
+        "target_event": "E030",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前计划让母亲问豆包看待催生，后来继续在新通话中让她问豆包，但仍反复催生并引发争论。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "比如我妈想催生，可以让她去问豆包"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "这个月给爸妈打三次电话，每次都催生。第一次妈妈说我们不考虑她，现已五十六，难道五十八才抱孩子、还抱得动吗？第二次说今年不生算了、明年必须生。我让她问豆包，希望她明白取决于我们。\n\n今天她看甲亢，医生说至少吃三四年药，爸爸让赶紧吃、四年后好抱孙，她说六十岁治好也抱不动，骂我们自私、不考虑父母。我起初没生气，一直请她跟豆包聊，可怎么拦都要讲、比较别人。我刚说老陆大我两岁已有两个孩子，她也拿来催，后来我生气。讲过的道理，下次仍说，真烦。"
+          }
+        ]
+      },
+      "reason": "同一催生AI沟通策略有实际尝试和新反馈。"
+    },
+    {
+      "pair_id": "P-06d38287f8ee800d",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E030",
+        "target_event": "E031",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "与母亲反复争论催生无效后，转而形成非原则问题先顺着、再引导的新沟通打算。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "这个月给爸妈打三次电话，每次都催生。第一次妈妈说我们不考虑她，现已五十六，难道五十八才抱孩子、还抱得动吗？第二次说今年不生算了、明年必须生。我让她问豆包，希望她明白取决于我们。\n\n今天她看甲亢，医生说至少吃三四年药，爸爸让赶紧吃、四年后好抱孙，她说六十岁治好也抱不动，骂我们自私、不考虑父母。我起初没生气，一直请她跟豆包聊，可怎么拦都要讲、比较别人。我刚说老陆大我两岁已有两个孩子，她也拿来催，后来我生气。讲过的道理，下次仍说，真烦。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我以前觉得妈妈脑子、价值观有些问题，忽然想，既然觉得她智商、认知不足，注意力又易被琐事带走，很难对齐，为何还一直争论？上次她与豆包聊生育很久，豆包说一年提两三回，她本月已三回，每次又说不再提。\n\n她心里也许懂，可见别人抱孙又想要，反复讲让人烦。我觉得一些观念扭曲、很难对齐变正常，甚至说“我觉得我好贱呀，我明明知道你听不懂这些东西，但是我还要硬给你讲，一直忍不住跟你讲”。既然没用还不愉快，干脆换方式，先顺着。"
+          }
+        ]
+      },
+      "reason": "同一次通话后的明确策略调整。"
+    },
+    {
+      "pair_id": "P-908d447d45c97ce3",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E030",
+        "target_event": "E032",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "与母亲谈生育准备时，引用老陆颈椎病需紧急手术、可能瘫痪的经历，举出孩子抚养风险的假设。",
+        "source_evidence": [
+          {
+            "point_no": 4,
+            "quote": "我举老陆的假设：若他真瘫或手术出事，两个孩子怎么办？"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "他说颈椎压脊髓已四分之三。医生见严重便排最前，别人还排队他先做，说再晚或摔一跤可能瘫"
+          }
+        ]
+      },
+      "reason": "明确姓名、手术及瘫痪风险可定位；假设不是已发生结果。"
+    },
+    {
+      "pair_id": "P-6f6ee98a08009341",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E023",
+        "target_event": "E030",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前母亲承诺不再反复催生却仍重复，后续通话继续催生，并被总结为本月三次电话次次提及。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天记完日记给家里打电话，聊过日常，妈妈又催生。我讲经济、教育压力以及这是孩子自己的事，她明白却忍不住，每次通话都提。我起初消极抵抗、不理，后来想到日记中的方案，让她用豆包，希望借 AI 对齐认知。\n\n聊后她说没好转，道理懂，只是不会说话，才用强制语气，说“明年必须得生”、天天想孩子失眠、现在不生就要五十九岁才抱孙。我说豆包建议一年提两三回，反复提会给孩子压力；可她每次说下次不说，之后又忘，让我愤怒又无奈。\n\n我猜她有传宗接代的执念，没抱孙像一件事未完成。他们不是为自己着想的人，心血都放孩子身上。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "这个月给爸妈打三次电话，每次都催生。第一次妈妈说我们不考虑她，现已五十六，难道五十八才抱孩子、还抱得动吗？第二次说今年不生算了、明年必须生。我让她问豆包，希望她明白取决于我们。\n\n今天她看甲亢，医生说至少吃三四年药，爸爸让赶紧吃、四年后好抱孙，她说六十岁治好也抱不动，骂我们自私、不考虑父母。我起初没生气，一直请她跟豆包聊，可怎么拦都要讲、比较别人。我刚说老陆大我两岁已有两个孩子，她也拿来催，后来我生气。讲过的道理，下次仍说，真烦。"
+          }
+        ]
+      },
+      "reason": "同一持续催生沟通出现新一次通话和累计状态；同要点引文需合并。"
+    },
+    {
+      "pair_id": "P-2358776df0e2def1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "催生冲突与AI Native讨论不同。"
+    },
+    {
+      "pair_id": "P-7eb1500d4cf2d00e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "催生冲突与视觉学习无联系。"
+    },
+    {
+      "pair_id": "P-d126cdfc2694ea5e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "刘德华抢票与催生不同。"
+    },
+    {
+      "pair_id": "P-fd7ca50da4364999",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "伴侣家务与母亲催生不同。"
+    },
+    {
+      "pair_id": "P-4304f762c456e181",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "移民孩子教育规划与本次催生辩论未明确为同一决定的后续。"
+    },
+    {
+      "pair_id": "P-05fa11e48beac277",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "订阅取舍与催生不同。"
+    },
+    {
+      "pair_id": "P-fd713190b3618b5d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "生育辩论提及老陆手术，不是特指火锅饭局或由该次饭局引发，不能借手术事件间接建边。"
+    },
+    {
+      "pair_id": "P-f1a6058d4b50f206",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "表妹电脑回礼与十一行程不同。"
+    },
+    {
+      "pair_id": "P-beb90efb844a3534",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "专业排错价值与AI Native接口是不同讨论，未引用同一实践。"
+    },
+    {
+      "pair_id": "P-66647a4d49532824",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E025",
+        "target_event": "E033",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前查看并下载日志中心、消息中心的对接文档后，两中心已经接好，日志仍有收尾工作。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "便看公共技术中心的日志中心、消息中心如何对接。先让 AI 把文档下载本地"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "两中心已对接好，但日志仍有尾巴。"
+          }
+        ]
+      },
+      "reason": "同一两中心对接从资料准备到执行结果。"
+    },
+    {
+      "pair_id": "P-eaf03668d5f11645",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "离职日期工资纠结与当前桂林票务未明确为原出行计划的确定版本，不凭假期人物连边。"
+    },
+    {
+      "pair_id": "P-189a30b3949621b7",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "离职日期与刘德华抢票不同。"
+    },
+    {
+      "pair_id": "P-059e1270a3071d89",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "十一出游与父母沟通不同。"
+    },
+    {
+      "pair_id": "P-32e192bd26108b79",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "十一出游与牙周护理不同。"
+    },
+    {
+      "pair_id": "P-c75d4a6ebb118831",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "十一出游与旧采购游戏不同。"
+    },
+    {
+      "pair_id": "P-5a45118e12e4e117",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "老陆手术未被表达为改变十一旅游的原因。"
+    },
+    {
+      "pair_id": "P-0ffaef55545dd957",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "AI接口与十一出游不同。"
+    },
+    {
+      "pair_id": "P-6f5409a63b7226d7",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "视觉学习与十一出游无联系。"
+    },
+    {
+      "pair_id": "P-32a42b3826309951",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "刘德华跨年与汪苏泷十一是不同演唱会，未互相引用。"
+    },
+    {
+      "pair_id": "P-65e06ab54db1e653",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "ChatGPT订阅与十一出游不同。"
+    },
+    {
+      "pair_id": "P-bcb2de7b25d9be89",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "KTV与十一演唱会不同安排。"
+    },
+    {
+      "pair_id": "P-b475b441417b1976",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "详妹婚事火锅与十一桂林出游是不同外出，未报告相互改变安排。"
+    },
+    {
+      "pair_id": "P-ea3e2c0547eaff2e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "建设性反馈是泛指伴侣沟通，未定位擦脚视频或涂药争执，不能仅按防御主题连边。"
+    },
+    {
+      "pair_id": "P-772111caf5fb55dc",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E001",
+        "target_event": "E031",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "借豆包辅助母亲理解催生问题后，又因沟通仍无效而考虑改为先顺着、再引导。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我想到，可以借助第三方的力量改变父母的认知，也培养他们用 AI 解决问题的思维。比如我妈想催生，可以让她去问豆包：父母想让孩子生孩子，担心自己年纪再大些就没办法帮忙照顾，交给别人又不放心，但孩子不想生，这种情况怎么办？让她自己听豆包的回答，相当于多了一股外部力量。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我以前觉得妈妈脑子、价值观有些问题，忽然想，既然觉得她智商、认知不足，注意力又易被琐事带走，很难对齐，为何还一直争论？上次她与豆包聊生育很久，豆包说一年提两三回，她本月已三回，每次又说不再提。\n\n她心里也许懂，可见别人抱孙又想要，反复讲让人烦。我觉得一些观念扭曲、很难对齐变正常，甚至说“我觉得我好贱呀，我明明知道你听不懂这些东西，但是我还要硬给你讲，一直忍不住跟你讲”。既然没用还不愉快，干脆换方式，先顺着。"
+          }
+        ]
+      },
+      "reason": "同一具体催生沟通策略出现调整；同要点引用需连续合并。"
+    },
+    {
+      "pair_id": "P-623ca25816ee06bf",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E001",
+        "target_event": "E032",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前父亲拖延看腰，后来在老陆病例提醒后表示准备就医，并讨论把时间安排在中秋周末。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "我爸说，要等腰疼起来再去医院看腰肌劳损这些问题。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 3,
+            "quote": "昨天跟小廖说，今天要用老陆案例催爸爸就医。今天电话开头就讲，爸爸也受触动说准备去，原说十一。妈妈问中秋能否去，我说周五中秋放假，周六日就去，还告诉他要拍核磁，至少检查清楚。"
+          }
+        ]
+      },
+      "reason": "同一父亲腰病就医问题有新的意愿和时间安排。"
+    },
+    {
+      "pair_id": "P-a1b544892af69035",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "顺着父母的策略引用老陆回乡就医建议，但手术条目没有该建议；不借第三条事实补成同一具体引用。"
+    },
+    {
+      "pair_id": "P-6436f67a9dbf3fd3",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E023",
+        "target_event": "E031",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前对母亲理解、注意力困难的推测，进一步促使我反思继续争论的效果并考虑调整沟通方式。",
+        "source_evidence": [
+          {
+            "point_no": 4,
+            "quote": "我觉得可能与智力有关，也可能是注意力受其他思维干扰，既学不进去又聊天跑偏。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我以前觉得妈妈脑子、价值观有些问题，忽然想，既然觉得她智商、认知不足，注意力又易被琐事带走，很难对齐，为何还一直争论？上次她与豆包聊生育很久，豆包说一年提两三回，她本月已三回，每次又说不再提。\n\n她心里也许懂，可见别人抱孙又想要，反复讲让人烦。我觉得一些观念扭曲、很难对齐变正常，甚至说“我觉得我好贱呀，我明明知道你听不懂这些东西，但是我还要硬给你讲，一直忍不住跟你讲”。既然没用还不愉快，干脆换方式，先顺着。"
+          }
+        ]
+      },
+      "reason": "后侧明确回顾先前相同判断；保留本人推测性质。"
+    },
+    {
+      "pair_id": "P-2a7752bf0c6b9d28",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "AI Native接口与父母沟通策略不同。"
+    },
+    {
+      "pair_id": "P-dc448633a3ecb3aa",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "父母沟通策略未定位枕头争吵那次复盘的新进展。"
+    },
+    {
+      "pair_id": "P-7dad3375bbf05785",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "视觉课程与父母沟通策略不同。"
+    },
+    {
+      "pair_id": "P-38f92d82c8a804f6",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "刘德华票务与父母沟通不同。"
+    },
+    {
+      "pair_id": "P-5563bf2b767bde25",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "订阅与父母沟通不同。"
+    },
+    {
+      "pair_id": "P-119f829982b8ee9c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "说老陆建议回去催父亲就医，未说发生在火锅饭局，不能补推同次谈话。"
+    },
+    {
+      "pair_id": "P-5029623a91eebf74",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E024",
+        "target_event": "E032",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前借AI劝父亲仍不愿就医，后来用老陆案例提醒，父亲表示准备去检查。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "他不愿用豆包也不愿去医院"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 3,
+            "quote": "昨天跟小廖说，今天要用老陆案例催爸爸就医。今天电话开头就讲，爸爸也受触动说准备去，原说十一。妈妈问中秋能否去，我说周五中秋放假，周六日就去，还告诉他要拍核磁，至少检查清楚。"
+          }
+        ]
+      },
+      "reason": "同一就医事项出现意愿变化，不写成已经检查。"
+    },
+    {
+      "pair_id": "P-c930db25b4d943e2",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "父亲AI就医与AI Native业务接口不同。"
+    },
+    {
+      "pair_id": "P-36bb69f283012ceb",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E013",
+        "target_event": "E033",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前打算利用空闲学心理学，后来继续学习视觉过程，并决定明天把时间转回工作。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "完全可以用这些时间学普通心理学，继续整理笔记、看视频"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天早上继续看视觉系统、视觉过程"
+          },
+          {
+            "point_no": 2,
+            "quote": "明天不能再看心理学，不然太过分。"
+          }
+        ]
+      },
+      "reason": "同一课程实践有新进度与时间调整，不称工作安排已执行。"
+    },
+    {
+      "pair_id": "P-118a8693396ef5f4",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "烤鸡翅与火锅是不同餐食。"
+    },
+    {
+      "pair_id": "P-a8229b85f45f17b1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "CBB宣讲反馈与AI Native接口讨论未引用具体同一接口或痛点。"
+    },
+    {
+      "pair_id": "P-52fb0b73312e67d5",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "广州JAR接口答疑与面向AI的接口设计是不同应用，未表达实例引用。"
+    },
+    {
+      "pair_id": "P-f5629f826ba4da1e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "摄影课程与刘德华抢票不同。"
+    },
+    {
+      "pair_id": "P-ab4691a066bc71fd",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "摄影与火锅无联系。"
+    },
+    {
+      "pair_id": "P-5da12fb3bdbadbca",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E005",
+        "target_event": "E033",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前恢复心理学学习的打算，随后持续推进到视觉系统和视觉过程的内容。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下周准备继续看心理学课、做瑜伽。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天早上继续看视觉系统、视觉过程"
+          },
+          {
+            "point_no": 2,
+            "quote": "明天不能再看心理学"
+          }
+        ]
+      },
+      "reason": "课程恢复后有具体新主题进度。"
+    },
+    {
+      "pair_id": "P-712ab4dee273a758",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "江西指标与老陆手术不同。"
+    },
+    {
+      "pair_id": "P-fc86e2eaf36ee2ec",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "江西指标接口与AI Native泛讨论未定位同一接口改造。"
+    },
+    {
+      "pair_id": "P-e6b0f41f5691d358",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "玩游戏手腕疼与演唱会抢票不同。"
+    },
+    {
+      "pair_id": "P-5393abf063201244",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "旧采购游戏与火锅不同。"
+    },
+    {
+      "pair_id": "P-ba5e29a8c50a2e5c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "母亲催生劝学与老陆手术前的父亲就医问题不同，未具体引用母亲那次对话。"
+    },
+    {
+      "pair_id": "P-b8d2dff2b8059653",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "老陆手术与AI Native无联系。"
+    },
+    {
+      "pair_id": "P-0cd63d84c66337c2",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "手术与视觉课程无联系。"
+    },
+    {
+      "pair_id": "P-5cda37242a360048",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "手术与刘德华票务无联系。"
+    },
+    {
+      "pair_id": "P-d3106ef39d1220b3",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "手术与订阅无联系。"
+    },
+    {
+      "pair_id": "P-2ce11e581b21c460",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E034",
+        "target_event": "E032",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "记录与详妹吃火锅时，提到听老陆讲颈椎手术并提醒自己注意身体。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "到后也听老陆讲颈椎手术，他提醒我要注意身体。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天紧急手术，脖子打钢板，后续活动靠它们。"
+          }
+        ]
+      },
+      "reason": "具名人物和相同手术可定位，饭局本身没有被说成手术后续。"
+    },
+    {
+      "pair_id": "P-118809832c070dd2",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "旧AI工具体验未定位ChatGPT订阅方案，不仅凭coder名称建边。"
+    },
+    {
+      "pair_id": "P-89e621cd10a7ff16",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "AI Native与心理学视觉课程无联系。"
+    },
+    {
+      "pair_id": "P-65703f2d49e40eee",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "AI Native与刘德华票务不同。"
+    },
+    {
+      "pair_id": "P-da4d9ac75ecde685",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "订阅决策未说由与殷总的接口讨论触发。"
+    },
+    {
+      "pair_id": "P-7229ec4ff2ff9d68",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "AI Native与火锅无联系。"
+    },
+    {
+      "pair_id": "P-b485d2043e3e6a50",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "每日计划的《简单心理学》与当前视觉课程未明确为同一课，不能仅凭近似课程名定位。"
+    },
+    {
+      "pair_id": "P-c7ce35807b9cb061",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "视觉学习与刘德华票务不同。"
+    },
+    {
+      "pair_id": "P-fe9bfd78c11ed0a1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "视觉课程与订阅决策未具体相接。"
+    },
+    {
+      "pair_id": "P-75c2301b9295a3e0",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "老梁观看与视觉学习是不同视频内容。"
+    },
+    {
+      "pair_id": "P-bf9093c97caba910",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "视觉学习与火锅无联系。"
+    },
+    {
+      "pair_id": "P-3207fcf723156636",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "作息计划与订阅无联系。"
+    },
+    {
+      "pair_id": "P-d910fedce9b4b3ad",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "订阅与刘德华抢票无联系。"
+    },
+    {
+      "pair_id": "P-1917e9a15606c2d9",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "KTV与刘德华演唱会不同活动。"
+    },
+    {
+      "pair_id": "P-2f045a5ef3f6433e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "火锅与刘德华抢票不同。"
+    },
+    {
+      "pair_id": "P-f6347a219a438dc8",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "等AI游戏与停订ChatGPT没有定位同一使用过程的新进展。"
+    },
+    {
+      "pair_id": "P-9e0741eb5f85bc9b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "火锅与订阅不同。"
+    },
+    {
+      "pair_id": "P-db927eb4d85593d9",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "福建餐厅与八合里火锅是不同饭局。"
+    },
+    {
+      "pair_id": "P-f694224d9547d299",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "KTV与本次火锅无联系。"
+    }
+  ]
+}

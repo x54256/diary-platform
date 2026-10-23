@@ -1,0 +1,16 @@
+{
+  "phase": "saved",
+  "write": true,
+  "task_id": "e18b4282-b1c3-4186-9c0a-cc39a3b0c3a0",
+  "run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+  "task_status": "SUCCEEDED",
+  "run_status": "POINTS_READY",
+  "current_step": null,
+  "error_code": null,
+  "events": 5,
+  "candidate_points": 21,
+  "vectors": 21,
+  "reused_vectors": 0,
+  "stored_points": 21,
+  "stored": true
+}

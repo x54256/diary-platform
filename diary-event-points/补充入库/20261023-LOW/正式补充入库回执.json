@@ -1,0 +1,166 @@
+{
+  "stored": true,
+  "events": 34,
+  "points": 47,
+  "items": [
+    {
+      "date": "2026-09-01",
+      "run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "stored": true,
+      "existing_content_unchanged": true,
+      "events": 1,
+      "points": 1,
+      "actual_points": 1,
+      "run_status": "POINTS_READY"
+    },
+    {
+      "date": "2026-09-03",
+      "run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "stored": true,
+      "existing_content_unchanged": true,
+      "events": 2,
+      "points": 3,
+      "actual_points": 3,
+      "run_status": "POINTS_READY"
+    },
+    {
+      "date": "2026-09-09",
+      "run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "stored": true,
+      "existing_content_unchanged": true,
+      "events": 1,
+      "points": 2,
+      "actual_points": 2,
+      "run_status": "PUBLISHED"
+    },
+    {
+      "date": "2026-09-11",
+      "run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "stored": true,
+      "existing_content_unchanged": true,
+      "events": 1,
+      "points": 1,
+      "actual_points": 1,
+      "run_status": "POINTS_READY"
+    },
+    {
+      "date": "2026-09-12",
+      "run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "stored": true,
+      "existing_content_unchanged": true,
+      "events": 2,
+      "points": 6,
+      "actual_points": 6,
+      "run_status": "POINTS_READY"
+    },
+    {
+      "date": "2026-09-14",
+      "run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "stored": true,
+      "existing_content_unchanged": true,
+      "events": 4,
+      "points": 4,
+      "actual_points": 4,
+      "run_status": "POINTS_READY"
+    },
+    {
+      "date": "2026-09-15",
+      "run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "stored": true,
+      "existing_content_unchanged": true,
+      "events": 5,
+      "points": 6,
+      "actual_points": 6,
+      "run_status": "POINTS_READY"
+    },
+    {
+      "date": "2026-09-17",
+      "run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "stored": true,
+      "existing_content_unchanged": true,
+      "events": 2,
+      "points": 2,
+      "actual_points": 2,
+      "run_status": "POINTS_READY"
+    },
+    {
+      "date": "2026-09-18",
+      "run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "stored": true,
+      "existing_content_unchanged": true,
+      "events": 1,
+      "points": 1,
+      "actual_points": 1,
+      "run_status": "POINTS_READY"
+    },
+    {
+      "date": "2026-09-19",
+      "run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "stored": true,
+      "existing_content_unchanged": true,
+      "events": 4,
+      "points": 6,
+      "actual_points": 6,
+      "run_status": "POINTS_READY"
+    },
+    {
+      "date": "2026-09-20",
+      "run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "stored": true,
+      "existing_content_unchanged": true,
+      "events": 1,
+      "points": 1,
+      "actual_points": 1,
+      "run_status": "POINTS_READY"
+    },
+    {
+      "date": "2026-09-22",
+      "run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "stored": true,
+      "existing_content_unchanged": true,
+      "events": 5,
+      "points": 6,
+      "actual_points": 6,
+      "run_status": "POINTS_READY"
+    },
+    {
+      "date": "2026-09-27",
+      "run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+      "stored": true,
+      "existing_content_unchanged": true,
+      "events": 5,
+      "points": 8,
+      "actual_points": 8,
+      "run_status": "POINTS_READY"
+    }
+  ],
+  "monthly": {
+    "diaries": 19,
+    "events": 118,
+    "points": 338,
+    "low_events": 34,
+    "low_points": 47,
+    "all_runs_cover_all_source_events": true
+  },
+  "original_relations_preserved": 3,
+  "original_evidence_preserved": 7,
+  "original_judgments": [
+    {
+      "date": "2026-09-09",
+      "judgments": {
+        "NO_RELATION": 20,
+        "UNRESOLVED": 1
+      }
+    },
+    {
+      "date": "2026-09-10",
+      "judgments": {
+        "NO_RELATION": 21,
+        "RELATED": 3
+      }
+    }
+  ],
+  "embedding_calls_succeeded": 47,
+  "max_vector_rounding_error": 6.249999989771382e-09,
+  "confirmation_sha256": "2f27da46262ea1ea9f4cac0f3d6db567d4357e0a8e444afe5368838f8abd9dad"
+}

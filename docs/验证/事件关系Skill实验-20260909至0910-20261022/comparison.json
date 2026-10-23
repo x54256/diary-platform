@@ -1,0 +1,140 @@
+{
+  "summary": {
+    "pair": {
+      "errors": [],
+      "counts": {
+        "NO_RELATION": 50,
+        "UNRESOLVED": 1,
+        "RELATED": 4
+      },
+      "status_diff_from_root_clear_reference": []
+    },
+    "pool_one": {
+      "errors": [],
+      "counts": {
+        "NO_RELATION": 51,
+        "UNRESOLVED": 1,
+        "RELATED": 3
+      },
+      "status_diff_from_root_clear_reference": []
+    },
+    "pool_two": {
+      "errors": [],
+      "counts": {
+        "NO_RELATION": 51,
+        "UNRESOLVED": 1,
+        "RELATED": 3
+      },
+      "status_diff_from_root_clear_reference": []
+    },
+    "pool_disagreements_old_exact_description": [
+      "P09",
+      "P37",
+      "P48"
+    ],
+    "three_way_structured_disagreements": [
+      "P13",
+      "P37"
+    ]
+  },
+  "differences": [
+    {
+      "pair_id": "P13",
+      "results": {
+        "pair": {
+          "pair_id": "P13",
+          "status": "RELATED",
+          "reason": "沟通总结明确把行动应对焦虑的方法联系到自己被 AI 搞得焦虑的处境。",
+          "relation": {
+            "source_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+            "target_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+            "relation_type": "提及事件",
+            "certainty": "EXPLICIT",
+            "source_point_nos": [
+              10
+            ],
+            "target_point_nos": [
+              1
+            ],
+            "description": "总结与颂梅交流的收获时，明确以自己被 AI 搞得焦虑为例，联想到 AI 浪潮下对工作和面试失去把握的处境，提出焦虑时先找当下能做的事。"
+          }
+        },
+        "pool_one": {
+          "pair_id": "P13",
+          "status": "NO_RELATION",
+          "reason": "交流总结中泛举AI焦虑，不能据此定位职业与简历认识这次具体反思；未表达后续或触发关系。",
+          "relation": null
+        },
+        "pool_two": {
+          "pair_id": "P13",
+          "status": "NO_RELATION",
+          "reason": "沟通总结中的“被 AI 搞得焦虑”是应用举例，未明确定位到面试和职业价值这次思考，不能仅据 AI 焦虑主题建立关系。",
+          "relation": null
+        }
+      }
+    },
+    {
+      "pair_id": "P37",
+      "results": {
+        "pair": {
+          "pair_id": "P37",
+          "status": "RELATED",
+          "reason": "后者回顾同一次脏脚碰枕头引起的不快，并新增发送录音、请 ChatGPT 分析及共同复盘的行动。",
+          "relation": {
+            "source_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+            "target_event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+            "relation_type": "后续事件",
+            "certainty": "EXPLICIT",
+            "source_point_nos": [
+              1
+            ],
+            "target_point_nos": [
+              1,
+              2
+            ],
+            "description": "脏脚碰枕头及后续行为引起的那次争执，随后有了发送当晚录音、提醒伴侣复盘、使用 ChatGPT 分析并一起讨论的新行动。"
+          }
+        },
+        "pool_one": {
+          "pair_id": "P37",
+          "status": "RELATED",
+          "reason": "脏脚碰枕头后转而指责消费的争执得到明确对应，随后分享录音、请AI分析并一起复盘，是同一争执的新行动。",
+          "relation": {
+            "source_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+            "target_event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+            "relation_type": "后续事件",
+            "certainty": "EXPLICIT",
+            "source_point_nos": [
+              1
+            ],
+            "target_point_nos": [
+              1,
+              2
+            ],
+            "description": "脏脚碰枕头、开导时又指责消费引起的那次争执，随后进入共同复盘阶段：分享当晚录音，请ChatGPT分析，并继续讨论沟通方式。"
+          }
+        },
+        "pool_two": {
+          "pair_id": "P37",
+          "status": "RELATED",
+          "reason": "脚碰枕头、化妆品和拖鞋账号等细节定位同一次争吵；后者新增发送录音、AI 分析、共同练习及复盘效果，超出重复回忆。",
+          "relation": {
+            "source_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+            "target_event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+            "relation_type": "后续事件",
+            "certainty": "EXPLICIT",
+            "source_point_nos": [
+              1,
+              9
+            ],
+            "target_point_nos": [
+              1,
+              2
+            ],
+            "description": "弄脏枕头后围绕囤积物品等发生争执并讨论非暴力沟通，之后双方发送争吵录音、借助 ChatGPT 复盘并再次共同讨论，出现了新的复盘行动。"
+          }
+        }
+      }
+    }
+  ]
+}

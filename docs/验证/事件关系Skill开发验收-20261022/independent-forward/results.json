@@ -1,0 +1,149 @@
+{
+  "package_sha256": "bfb16ce0c9fe7a272d4faf753e04afc3f0447e40107102ae1c720c8d822e28fe",
+  "results": [
+    {
+      "pair_id": "P-a6fc4d93d95afdc9",
+      "status": "NO_RELATION",
+      "reason": "更换刹车片与翻看童年照片是不同事项；双方没有引用或触发表达。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ff934ab687dbd31f",
+      "status": "NO_RELATION",
+      "reason": "修车完成与回忆退租纠纷没有同一事项、具体引用或触发联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d4cc81e6134d6376",
+      "status": "RELATED",
+      "reason": "同一修理厂的刹车片更换预约得到执行，并有完成结果。",
+      "relation": {
+        "source_event": "E001",
+        "target_event": "E002",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天我预约了周三去城南修理厂更换刹车片。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天周三，我按昨天的预约去了城南修理厂，已经换好刹车片。"
+          }
+        ],
+        "description": "此前预约到城南修理厂更换刹车片，之后按预约前往并完成更换。"
+      }
+    },
+    {
+      "pair_id": "P-09332d2b4f6164ae",
+      "status": "NO_RELATION",
+      "reason": "修车完成与收到老屋拆除通知是独立事项，没有联系表达。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-269d8bc6fa48d4d3",
+      "status": "NO_RELATION",
+      "reason": "修车与去年退租押金纠纷不属于同一具体事项，也没有相互提及或触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a0e81bef152cf6b8",
+      "status": "NO_RELATION",
+      "reason": "翻看童年照片与因租房资料回忆退租分别有各自事实，没有双方之间的具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5636d83ede486954",
+      "status": "NO_RELATION",
+      "reason": "翻看照片与预约更换刹车片没有同一事项、具体提及或触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-abd943e84aa8de99",
+      "status": "RELATED",
+      "reason": "翻看照片一侧将收到拆屋消息明示为可能原因，应保留来源推测。",
+      "relation": {
+        "source_event": "E003",
+        "target_event": "E004",
+        "relation_type": "引发事件",
+        "certainty": "SPECULATIVE",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天收到通知，家乡那座老房子下个月要拆除了。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我今晚翻起童年的照片，可能是因为今天收到老房子将被拆除的消息。"
+          }
+        ],
+        "description": "收到家乡老房子下个月将拆除的消息，可能促使我今晚翻看童年照片。"
+      }
+    },
+    {
+      "pair_id": "P-10da2f31110b5996",
+      "status": "NO_RELATION",
+      "reason": "童年照片与去年押金退租纠纷没有明确指向同一经历，也未表达触发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f0fa3ff85e2c65cb",
+      "status": "NO_RELATION",
+      "reason": "回忆退租与预约修车是不同事项，没有双方间的明确联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-acc0b74e2c52a5b8",
+      "status": "NO_RELATION",
+      "reason": "回忆退租纠纷与老屋拆除通知虽均涉及房屋，但不是同一事项，双方未表达联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8c8c6234c1663f62",
+      "status": "RELATED",
+      "reason": "当日回忆明确定位去年十月拒退押金、保存聊天记录并申请调解的具体退租经历，没有该纠纷的新进展。",
+      "relation": {
+        "source_event": "E006",
+        "target_event": "E005",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天帮同事找租房资料，让我想起去年十月房东拒退押金、我保存聊天记录申请调解的那次退租经历。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "去年十月退租时，房东拒退押金，我保存了聊天记录并申请调解。"
+          }
+        ],
+        "description": "今天帮同事找租房资料时，我想起去年十月被拒退押金、保存聊天记录并申请调解的退租经历。"
+      }
+    },
+    {
+      "pair_id": "P-ca4f54f91b2952cd",
+      "status": "NO_RELATION",
+      "reason": "预约修车与收到家乡老屋拆除消息是独立事项，双方未表达具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5be9a605029d0ca5",
+      "status": "NO_RELATION",
+      "reason": "修车预约与去年退租押金纠纷没有同一事项、引用或触发关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e88207b28f34de85",
+      "status": "NO_RELATION",
+      "reason": "家乡老屋拆除通知与去年租住房屋押金纠纷虽涉及房屋，但缺乏同一具体事项或明确引用、触发表达。",
+      "relation": null
+    }
+  ]
+}

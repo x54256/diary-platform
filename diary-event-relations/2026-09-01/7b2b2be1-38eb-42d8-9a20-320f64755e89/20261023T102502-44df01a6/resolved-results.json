@@ -1,0 +1,43 @@
+{
+  "package_sha256": "08f05ab741400ede4dda7fe1416edc97da4cf81d0b5831a6426a5a0121567f31",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "08f05ab741400ede4dda7fe1416edc97da4cf81d0b5831a6426a5a0121567f31",
+    "verified_at": "2026-10-23T02:25:23.953463+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-5af3c38701cc3003",
+      "event_a_id": "6b745863-5538-408d-baed-f6c86379916f",
+      "event_a_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "event_b_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+      "event_b_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "status": "NO_RELATION",
+      "reason": "关系测试与江西需求是不同工作，均感烦躁但没有相互引用或因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9671195c07ccbf33",
+      "event_a_id": "cdd8c172-499d-4044-ba56-b81d013a936d",
+      "event_a_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "event_b_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+      "event_b_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "status": "NO_RELATION",
+      "reason": "扶车条目未具体回忆关系测试，既有烦躁状态不足以定位这一触发来源。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b165e7772615732f",
+      "event_a_id": "6b745863-5538-408d-baed-f6c86379916f",
+      "event_a_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "event_b_id": "cdd8c172-499d-4044-ba56-b81d013a936d",
+      "event_b_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "status": "NO_RELATION",
+      "reason": "扶车条目说已烦躁，但未具体指向江西需求，不能把同日情绪相同升级为触发。",
+      "relation": null
+    }
+  ]
+}

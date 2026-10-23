@@ -1,0 +1,194 @@
+{
+  "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+  "username": "x5456",
+  "match_count": 17,
+  "diaries": [
+    {
+      "diary_id": "5b6fbb71-0af9-43a1-a914-7bc9534a79d1",
+      "diary_date": "2026-10-01",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": "b4687f0e-016a-441c-a7cf-a97454788d95",
+      "source_content_revision": 1,
+      "structured_revision": 1,
+      "event_count": 6
+    },
+    {
+      "diary_id": "4333bd59-ebab-485a-a156-774bc5e64e22",
+      "diary_date": "2026-10-02",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": "16faa567-332a-4241-b705-a5841f99d2f6",
+      "source_content_revision": 1,
+      "structured_revision": 1,
+      "event_count": 4
+    },
+    {
+      "diary_id": "5dcffad9-d742-4ba1-b66d-f50a207b15bb",
+      "diary_date": "2026-10-04",
+      "status": "saved",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": null,
+      "source_content_revision": null,
+      "structured_revision": null,
+      "event_count": 0
+    },
+    {
+      "diary_id": "5758d75f-67e8-4430-9237-a192dc6a03f0",
+      "diary_date": "2026-10-07",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": "a0f85033-5c4b-4f9f-9320-d632dbce8023",
+      "source_content_revision": 1,
+      "structured_revision": 1,
+      "event_count": 12
+    },
+    {
+      "diary_id": "118b1c69-adf1-41b1-b638-483e5f5947c2",
+      "diary_date": "2026-10-09",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": "a285fbc3-b0fc-4366-982f-cf911a9153c9",
+      "source_content_revision": 1,
+      "structured_revision": 1,
+      "event_count": 14
+    },
+    {
+      "diary_id": "a1b8df2f-3fba-4260-85cf-16b5430cd279",
+      "diary_date": "2026-10-10",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": "e5443883-cb54-4f01-9598-71eb5d90d2ae",
+      "source_content_revision": 1,
+      "structured_revision": 1,
+      "event_count": 12
+    },
+    {
+      "diary_id": "6aacd73a-e050-4af5-b7aa-fa140f0f8277",
+      "diary_date": "2026-10-11",
+      "status": "saved",
+      "is_dirty": true,
+      "content_revision": 3,
+      "organized_id": null,
+      "source_content_revision": null,
+      "structured_revision": null,
+      "event_count": 0
+    },
+    {
+      "diary_id": "516c323f-5c01-4dfc-85a9-b9c4536204f2",
+      "diary_date": "2026-10-12",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": "29ebfcbd-0ca4-4581-a841-8161da29c010",
+      "source_content_revision": 1,
+      "structured_revision": 1,
+      "event_count": 8
+    },
+    {
+      "diary_id": "0be3874e-29d1-482f-930a-9fb182d25e11",
+      "diary_date": "2026-10-14",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": "eab17e99-f6ad-4257-bdd3-88b660e59265",
+      "source_content_revision": 1,
+      "structured_revision": 1,
+      "event_count": 11
+    },
+    {
+      "diary_id": "196c1478-ce60-4fc3-ae78-2edd3b0d309f",
+      "diary_date": "2026-10-15",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": "ada8f51a-7da6-4925-82bf-4c53cfe26ac2",
+      "source_content_revision": 1,
+      "structured_revision": 1,
+      "event_count": 5
+    },
+    {
+      "diary_id": "c9a2e9de-bf99-4cd4-8600-95e3925cff8e",
+      "diary_date": "2026-10-17",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": "eafcbc76-8aaa-4513-8b10-8d1375a13a83",
+      "source_content_revision": 1,
+      "structured_revision": 1,
+      "event_count": 9
+    },
+    {
+      "diary_id": "71182016-2d93-4bb6-beaf-3afc470c6415",
+      "diary_date": "2026-10-18",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": "3b1579c7-ca77-4a4b-aa85-063464a937fa",
+      "source_content_revision": 1,
+      "structured_revision": 1,
+      "event_count": 10
+    },
+    {
+      "diary_id": "eace7c4c-abba-4512-b22c-a0b4ce848de0",
+      "diary_date": "2026-10-19",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": "79660a8b-188f-45ff-835b-0c038509f2bc",
+      "source_content_revision": 1,
+      "structured_revision": 1,
+      "event_count": 10
+    },
+    {
+      "diary_id": "ab767235-6ca0-4e7d-a770-938884a251c9",
+      "diary_date": "2026-10-20",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": "75d1f6b0-a64f-432e-abf0-bc27f600cbee",
+      "source_content_revision": 1,
+      "structured_revision": 1,
+      "event_count": 5
+    },
+    {
+      "diary_id": "09cf0bb7-21c9-4f30-bba9-920043d6ffef",
+      "diary_date": "2026-10-21",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": "f61a5081-0309-4d1d-b705-09e4c9271176",
+      "source_content_revision": 1,
+      "structured_revision": 1,
+      "event_count": 5
+    },
+    {
+      "diary_id": "d12d4bb1-5394-4ad6-861a-c85ce455872c",
+      "diary_date": "2026-10-22",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": "8ccf79f8-cd9d-4092-a1df-c6fccfc0b882",
+      "source_content_revision": 1,
+      "structured_revision": 1,
+      "event_count": 13
+    },
+    {
+      "diary_id": "0cef75fc-19cc-48da-a311-2a2aa0e6a7f3",
+      "diary_date": "2026-10-23",
+      "status": "organized",
+      "is_dirty": false,
+      "content_revision": 1,
+      "organized_id": "651b9b8d-86d7-4023-a661-0b4dddb076e0",
+      "source_content_revision": 1,
+      "structured_revision": 1,
+      "event_count": 5
+    }
+  ]
+}

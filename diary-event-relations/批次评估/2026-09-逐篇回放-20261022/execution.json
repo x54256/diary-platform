@@ -1,0 +1,521 @@
+{
+  "started_at": "2026-10-22T23:44:15.436995+08:00",
+  "history_scope": "仅本次来源完整并完成的较早日期；有缺失日期，非完整九月历史",
+  "actual_host_tokens": null,
+  "database_written": false,
+  "days": [
+    {
+      "date": "2026-09-02",
+      "diary_id": "2eb6a94e-39b2-4502-8773-4c18ab6b7423",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-02/2eb6a94e-39b2-4502-8773-4c18ab6b7423/20261022T234415-a9b9ecf6",
+      "started_at": "2026-10-22T23:44:15.437591+08:00",
+      "complete": true,
+      "actual_host_tokens": null,
+      "reads": [
+        {
+          "batch": "B001",
+          "at": "2026-10-22T23:44:18.576729+08:00",
+          "input_chars": 1308
+        }
+      ],
+      "ended_at": "2026-10-22T23:44:38.625642+08:00",
+      "wall_seconds": 23.188051
+    },
+    {
+      "date": "2026-09-10",
+      "diary_id": "085c0f45-8d1d-48ae-a2d3-b54da087adae",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-10/085c0f45-8d1d-48ae-a2d3-b54da087adae/20261022T234444-8a5a98d9",
+      "started_at": "2026-10-22T23:44:43.583743+08:00",
+      "complete": true,
+      "actual_host_tokens": null,
+      "reads": [
+        {
+          "batch": "B001",
+          "at": "2026-10-22T23:44:49.363766+08:00",
+          "input_chars": 7825
+        },
+        {
+          "batch": "B002",
+          "at": "2026-10-22T23:44:54.269262+08:00",
+          "input_chars": 10859
+        },
+        {
+          "batch": "B003",
+          "at": "2026-10-22T23:44:57.996199+08:00",
+          "input_chars": 7057
+        }
+      ],
+      "ended_at": "2026-10-22T23:45:19.091737+08:00",
+      "wall_seconds": 35.507994
+    },
+    {
+      "date": "2026-09-13",
+      "diary_id": "f2631949-29e7-4ace-80dc-dbe863901246",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-13/f2631949-29e7-4ace-80dc-dbe863901246/20261022T234525-5c8961b4",
+      "started_at": "2026-10-22T23:45:25.101258+08:00",
+      "complete": true,
+      "actual_host_tokens": null,
+      "reads": [
+        {
+          "batch": "B001",
+          "at": "2026-10-22T23:45:32.494007+08:00",
+          "input_chars": 6261
+        }
+      ],
+      "ended_at": "2026-10-22T23:45:42.411750+08:00",
+      "wall_seconds": 17.310492
+    },
+    {
+      "date": "2026-09-23",
+      "diary_id": "2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-23/2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20/20261022T234550-86ddce08",
+      "started_at": "2026-10-22T23:45:49.618701+08:00",
+      "complete": true,
+      "actual_host_tokens": null,
+      "reads": [
+        {
+          "batch": "B001",
+          "at": "2026-10-22T23:45:56.249880+08:00",
+          "input_chars": 9411
+        },
+        {
+          "batch": "B002",
+          "at": "2026-10-22T23:46:03.840199+08:00",
+          "input_chars": 9673
+        },
+        {
+          "batch": "B003",
+          "at": "2026-10-22T23:46:08.301634+08:00",
+          "input_chars": 6311
+        }
+      ],
+      "ended_at": "2026-10-22T23:46:40.665109+08:00",
+      "wall_seconds": 51.046408
+    },
+    {
+      "date": "2026-09-25",
+      "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-25/2ae44b75-b2d4-4bf7-9fca-e809580d5ab8/20261022T234647-e8e0ee99",
+      "started_at": "2026-10-22T23:46:46.521381+08:00",
+      "complete": true,
+      "actual_host_tokens": null,
+      "reads": [
+        {
+          "batch": "B001",
+          "at": "2026-10-22T23:46:58.286963+08:00",
+          "input_chars": 11151
+        },
+        {
+          "batch": "B002",
+          "at": "2026-10-22T23:46:58.360590+08:00",
+          "input_chars": 10738
+        },
+        {
+          "batch": "B003",
+          "at": "2026-10-22T23:46:58.433040+08:00",
+          "input_chars": 10731
+        },
+        {
+          "batch": "B004",
+          "at": "2026-10-22T23:47:09.476117+08:00",
+          "input_chars": 10507
+        },
+        {
+          "batch": "B005",
+          "at": "2026-10-22T23:47:09.550331+08:00",
+          "input_chars": 9665
+        },
+        {
+          "batch": "B006",
+          "at": "2026-10-22T23:47:09.636775+08:00",
+          "input_chars": 10002
+        },
+        {
+          "batch": "B007",
+          "at": "2026-10-22T23:47:14.976740+08:00",
+          "input_chars": 10518
+        },
+        {
+          "batch": "B008",
+          "at": "2026-10-22T23:47:15.051605+08:00",
+          "input_chars": 8850
+        },
+        {
+          "batch": "B009",
+          "at": "2026-10-22T23:47:15.124950+08:00",
+          "input_chars": 7052
+        }
+      ],
+      "shown_events": [
+        "E001",
+        "E002",
+        "E003",
+        "E004",
+        "E005",
+        "E006",
+        "E007",
+        "E008",
+        "E009",
+        "E010",
+        "E011",
+        "E012",
+        "E013",
+        "E014",
+        "E015",
+        "E016",
+        "E017",
+        "E018",
+        "E019",
+        "E020",
+        "E021"
+      ],
+      "ended_at": "2026-10-22T23:49:13.342241+08:00",
+      "wall_seconds": 146.82086
+    },
+    {
+      "date": "2026-09-29",
+      "diary_id": "33e02ff9-a75d-4933-8fb0-ff8ba2c954fc",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-29/33e02ff9-a75d-4933-8fb0-ff8ba2c954fc/20261022T234921-b3cbcaff",
+      "started_at": "2026-10-22T23:49:21.237423+08:00",
+      "complete": true,
+      "actual_host_tokens": null,
+      "reads": [
+        {
+          "batch": "B001",
+          "at": "2026-10-22T23:49:27.401492+08:00",
+          "input_chars": 6316
+        },
+        {
+          "batch": "B002",
+          "at": "2026-10-22T23:49:30.293529+08:00",
+          "input_chars": 5313
+        },
+        {
+          "batch": "B003",
+          "at": "2026-10-22T23:49:33.191903+08:00",
+          "input_chars": 4172
+        }
+      ],
+      "shown_events": [
+        "E001",
+        "E002",
+        "E003",
+        "E004",
+        "E005",
+        "E006",
+        "E007",
+        "E008",
+        "E009",
+        "E010",
+        "E011",
+        "E012",
+        "E013",
+        "E014",
+        "E015",
+        "E016",
+        "E017"
+      ],
+      "ended_at": "2026-10-22T23:50:13.794666+08:00",
+      "wall_seconds": 52.557243,
+      "review_started_at": "2026-10-22T23:53:21.856094+08:00",
+      "review_ended_at": "2026-10-22T23:53:22.659805+08:00"
+    }
+  ],
+  "commands": [
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-001.json",
+      "seconds": 0.5856207920005545,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-002.json",
+      "seconds": 0.05125712500012014,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-003.json",
+      "seconds": 0.04792795800312888,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-004.json",
+      "seconds": 0.05145724999601953,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-005.json",
+      "seconds": 0.049758624998503365,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-006.json",
+      "seconds": 0.5709976250072941,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-007.json",
+      "seconds": 0.051252542005386204,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-008.json",
+      "seconds": 0.6861651250073919,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-009.json",
+      "seconds": 0.057364625012269244,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-010.json",
+      "seconds": 0.05343195800378453,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-011.json",
+      "seconds": 0.0662839169963263,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-012.json",
+      "seconds": 0.05425699999614153,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-013.json",
+      "seconds": 0.06264991700300016,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-014.json",
+      "seconds": 0.0509848750079982,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-015.json",
+      "seconds": 0.6444454159936868,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-016.json",
+      "seconds": 0.05353008399833925,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-017.json",
+      "seconds": 0.6635535420064116,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-018.json",
+      "seconds": 0.05422325000108685,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-019.json",
+      "seconds": 0.11988258399651386,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-020.json",
+      "seconds": 0.06282166599703487,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-021.json",
+      "seconds": 0.10555875000136439,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-022.json",
+      "seconds": 0.6977476250031032,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-023.json",
+      "seconds": 0.057720458004041575,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-024.json",
+      "seconds": 0.7220001660025446,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-025.json",
+      "seconds": 0.05922195900348015,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-026.json",
+      "seconds": 0.05821308300073724,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-027.json",
+      "seconds": 0.0634164169896394,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-028.json",
+      "seconds": 0.05958470900077373,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-029.json",
+      "seconds": 0.06745404099638108,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-030.json",
+      "seconds": 0.05966791599348653,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-031.json",
+      "seconds": 0.6723823339998489,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-032.json",
+      "seconds": 0.061789667000994086,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-033.json",
+      "seconds": 0.8189449589990545,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-034.json",
+      "seconds": 0.0822460420022253,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-035.json",
+      "seconds": 0.08182449999731034,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-036.json",
+      "seconds": 0.07190258298942354,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-037.json",
+      "seconds": 0.07088158300030045,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-038.json",
+      "seconds": 0.08185487499576993,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-039.json",
+      "seconds": 0.07265333300165366,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-040.json",
+      "seconds": 0.08485904200642835,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-041.json",
+      "seconds": 0.06927304201235529,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-042.json",
+      "seconds": 0.07302562500990462,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-043.json",
+      "seconds": 0.07155466600670479,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-044.json",
+      "seconds": 0.08420020800258499,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-045.json",
+      "seconds": 0.07160924999334384,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-046.json",
+      "seconds": 0.6845665839937283,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-047.json",
+      "seconds": 0.07403704100579489,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-048.json",
+      "seconds": 0.8215409999975236,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-049.json",
+      "seconds": 0.07417883299058303,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-050.json",
+      "seconds": 0.0760191669978667,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-051.json",
+      "seconds": 0.07753120799316093,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-052.json",
+      "seconds": 0.0805782499955967,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-053.json",
+      "seconds": 0.08690162499260623,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-054.json",
+      "seconds": 0.07751820799603593,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-055.json",
+      "seconds": 0.6907137500093086,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-056.json",
+      "seconds": 0.08061516699672211,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-057.json",
+      "seconds": 0.08284616698801983,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-058.json",
+      "seconds": 0.6406739999947604,
+      "exit_code": 0
+    },
+    {
+      "log": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/批次评估/2026-09-逐篇回放-20261022/command-059.json",
+      "seconds": 0.07707999998820014,
+      "exit_code": 0
+    }
+  ]
+}

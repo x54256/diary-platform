@@ -1,0 +1,12 @@
+{
+  "args": [
+    "status",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-10/085c0f45-8d1d-48ae-a2d3-b54da087adae/20261022T234444-8a5a98d9"
+  ],
+  "started_at": "2026-10-22T23:44:44.270886+08:00",
+  "ended_at": "2026-10-22T23:44:44.328233+08:00",
+  "seconds": 0.057364625012269244,
+  "exit_code": 0,
+  "stdout": "{\n  \"package_sha256\": \"a104dec1aabf96f9f8606d6381521703926bb4b49505381c4afe962ff36330bb\",\n  \"history_mode\": \"replay\",\n  \"total_pairs\": 12,\n  \"completed_pairs\": 0,\n  \"complete\": false,\n  \"counts\": {},\n  \"pending_pair_ids\": [\n    \"P-38edba245c9c8267\",\n    \"P-a8226df57e456aeb\",\n    \"P-6633575d6ad4cc88\",\n    \"P-69c083c1b08c0722\",\n    \"P-aa2b452970f7b555\",\n    \"P-ed66d94d28049638\",\n    \"P-5a3dfc6161ad28b6\",\n    \"P-f41ce3f5fc3af06e\",\n    \"P-47dacab052e93186\",\n    \"P-cea5485b06127067\",\n    \"P-9a5259ad48fbe9f8\",\n    \"P-487113e6a5c06e37\"\n  ],\n  \"pending_batches\": [\n    \"B001\",\n    \"B002\",\n    \"B003\"\n  ],\n  \"stored_in_database\": false\n}\n",
+  "stderr": ""
+}

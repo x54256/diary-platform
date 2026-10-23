@@ -1,0 +1,14 @@
+{
+  "run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+  "task_id": "63e9e07b-475a-4ec6-9d4c-ecdbc6ea6cd3",
+  "stored": true,
+  "status": "POINTS_READY",
+  "events": 7,
+  "points": 37,
+  "reused_vectors": 37,
+  "new_service_calls": 0,
+  "text_matches_packet": true,
+  "vector_dimensions": 1024,
+  "diary_status": "organized",
+  "source_flags_unchanged": true
+}

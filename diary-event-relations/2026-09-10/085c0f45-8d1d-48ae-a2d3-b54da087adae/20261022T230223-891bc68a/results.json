@@ -1,0 +1,207 @@
+{
+  "package_sha256": "73bd36467f76eeeb4d19ceb80b3dac36e1b0681b284b8e4e8c3b86e61bc0b375",
+  "results": [
+    {
+      "pair_id": "P-76771a1b8a883612",
+      "status": "NO_RELATION",
+      "reason": "同有AI和技术经验话题，但苹果产品创新讨论没有引用这次职业认识，也无具体触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e59a9d3a2bc655fd",
+      "status": "NO_RELATION",
+      "reason": "双方出现颂梅，但争执开导与观看苹果发布会没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6633575d6ad4cc88",
+      "status": "NO_RELATION",
+      "reason": "苹果发布会与同事看书启发学习是不同事项，未表达具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5cd5886667aca532",
+      "status": "NO_RELATION",
+      "reason": "双方出现手机或娱乐类比，但苹果发布会思考未定位引用动力衰减经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-69c083c1b08c0722",
+      "status": "NO_RELATION",
+      "reason": "苹果发布会与牙痛就诊没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-aa2b452970f7b555",
+      "status": "NO_RELATION",
+      "reason": "争吵复盘与苹果发布会思考没有具体联系；同一伴侣参与不足以建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d791f786cd909fdb",
+      "status": "NO_RELATION",
+      "reason": "项目处理与企业文化反思涉及工作，却没有明确指向该江西项目经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fc6a627aca8521dc",
+      "status": "NO_RELATION",
+      "reason": "双方都讨论政治及服从安排，但苹果文化思考未明确回忆该访谈或由该访谈触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b1fad4e89448cdc7",
+      "status": "NO_RELATION",
+      "reason": "双方出现游戏和江西项目，但同事交流未引用职业不自信或前端排错经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a97a4be598950537",
+      "status": "NO_RELATION",
+      "reason": "双方使用AI的领域不同，牙痛咨询没有引用职业价值反思。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fbf86b7bc1f91a5f",
+      "status": "NO_RELATION",
+      "reason": "AI职业认识与争吵后的沟通复盘没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-727c17ef0a01c983",
+      "status": "NO_RELATION",
+      "reason": "行动建议和学习计划只在抽象层面相似，没有明确的具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-302e9be3a13e086a",
+      "status": "NO_RELATION",
+      "reason": "伴侣争执与牙痛就诊没有具体联系；伴侣均参与不足以建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dd345b2b9cd5122e",
+      "status": "RELATED",
+      "reason": "脏脚碰枕头后转而指责消费的争执得到明确对应，随后分享录音、请AI分析并一起复盘，是同一争执的新行动。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前脚碰枕头引起的那次争执，随后进入继续复盘阶段：我发送当晚录音，提醒小廖复盘，双方继续讨论她向 ChatGPT 询问所得的分析。",
+        "source_event": "E005",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天晚上遛完狗回家，我把脚放到颂梅的枕头上。她嫌我的脚脏，说我弄脏了她的枕头，让我换被单。我不想换，就让她换个枕头，又问她：“你什么时候去出差？”我是在开玩笑，她也知道，但这句话有点要赶她走的意思，而她特别不愿意出差。从她的角度看，这个玩笑不好笑，还让她联想到很抗拒的事情，所以她不高兴了。"
+          }
+        ],
+        "target_event": "E008",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "前天应该是星期二，晚上我和小廖吵了一架。我的脚很脏，还放到了她的枕头上，加上后续的一些行为，让她不太高兴，进入了情绪内耗。我问她怎么了，她一直说不知道，我便试着开解她。\n\n沟通过程中，我想到她总买一大堆东西，买了又不用，放到过期才用，火一下就上来了。原本是在开导她，后来却为了新的事情吵了起来，这里面我也有错。"
+          },
+          {
+            "point_no": 2,
+            "quote": "争吵后的第二天，我在记日记时复盘，觉得自己的沟通方式不对，应该用非暴力沟通交流。我和小廖都应该这样做；就算她没有用，我也应该引导她。\n\n昨天我让她学学非暴力沟通，再复盘那次争吵。那晚聊天时我录了音，她想用录音复盘，让我发给她，我就发了。不过她昨天只简单看了四步法，没有真正复盘。今天出门遛狗前，我又提醒她趁我遛狗时复盘。\n\n她后来问了 ChatGPT，让它分析那次对话，发了几张截图给我，我们又一起讨论这些分析。她说有些内容忘了，想对着电脑讲，我吐槽：“那你这复盘了个鬼。”她说自己记忆力不行，真的记不住。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-75827d8f513fe1d3",
+      "status": "RELATED",
+      "reason": "此前不知道怎样恢复包括心理学学习在内的事项；同事准备看书后形成用居家办公空闲恢复普通心理学学习的具体办法，是其中学习恢复事项的新计划。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前心理学学习等事项荒废，尚想不出恢复动力的办法；和王振州交流看书后，形成利用居家办公空闲学习普通心理学的具体打算。该打算尚未表明已执行。",
+        "source_event": "E007",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "日记管理平台、日程管理、心理学学习和瑜伽，这四项都荒废了很长时间。我想恢复，但要怎么恢复，怎样给自己一个推动力，暂时还想不出来。"
+          }
+        ],
+        "target_event": "E010",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "王振州后来表示准备看书，我问看什么书，他便发来了自己准备看的书。这让我想到，既然居家办公，没必要为了防止别人看到，就只能做工作上的事。实际上我也没在工作，而是在玩僵尸，挺浪费自己的时间，完全可以用这些时间学普通心理学，继续整理笔记、看视频，学自己想学的东西。\n\n以前在公司，可能更多是学技术，至少不能那么明目张胆地学自己想学的业余内容。现在既然在家，正好可以学习普通心理学，不要把时间浪费在打僵尸上。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-cea5485b06127067",
+      "status": "NO_RELATION",
+      "reason": "居家学习打算与牙痛就诊没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9a5259ad48fbe9f8",
+      "status": "NO_RELATION",
+      "reason": "争吵复盘与同事空闲时间交流没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bc8b437231726739",
+      "status": "NO_RELATION",
+      "reason": "同为江西项目不足以确认混乱需求拆解和同事当日工作空闲属于同一具体任务进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-86b7ef8b807c9061",
+      "status": "RELATED",
+      "reason": "此前已尝试恢复普通心理学课程学习，随后因同事准备看书形成利用居家办公空闲继续该学习的具体打算，是恢复同一学习事项的新计划。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前已重新开始看普通心理学课程但尚未进入正轨；和王振州聊到看书后，形成利用居家办公空闲继续整理笔记、看课程视频的打算。该打算尚未表明已执行。",
+        "source_event": "E001",
+        "source_evidence": [
+          {
+            "point_no": 4,
+            "quote": "发现自己又沉迷视频、光看不做后，这两天我重新开始看普通心理学课程，不过还没有进入正轨。日记也重新开始记了，但已经很少用日记管理平台整理和分析，基本上记完就懒得进行下一步。我觉得还需要调整，让这些事情回到正轨。"
+          }
+        ],
+        "target_event": "E010",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "王振州后来表示准备看书，我问看什么书，他便发来了自己准备看的书。这让我想到，既然居家办公，没必要为了防止别人看到，就只能做工作上的事。实际上我也没在工作，而是在玩僵尸，挺浪费自己的时间，完全可以用这些时间学普通心理学，继续整理笔记、看视频，学自己想学的东西。\n\n以前在公司，可能更多是学技术，至少不能那么明目张胆地学自己想学的业余内容。现在既然在家，正好可以学习普通心理学，不要把时间浪费在打僵尸上。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-d783afc5512db24e",
+      "status": "NO_RELATION",
+      "reason": "自己的动力不足与伴侣情绪过载虽有行动困难主题，未明确相互引用或触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-487113e6a5c06e37",
+      "status": "NO_RELATION",
+      "reason": "复盘中回忆的是此前暂缓讨论洗牙的例子，牙痛就诊要点没有把此次牙痛或既往洗牙明确对应到那次暂缓讨论；不能仅凭牙齿主题建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-504638dfa9c3d8c7",
+      "status": "NO_RELATION",
+      "reason": "游戏比较体验与牙痛就诊没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7caecad7a63bd8bd",
+      "status": "NO_RELATION",
+      "reason": "双方都有结构化处理或情绪管理，但没有具体事项的承接、触发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1b4579a88f9aa655",
+      "status": "NO_RELATION",
+      "reason": "沉迷视频后的恢复与伴侣争吵复盘没有具体联系。",
+      "relation": null
+    }
+  ]
+}

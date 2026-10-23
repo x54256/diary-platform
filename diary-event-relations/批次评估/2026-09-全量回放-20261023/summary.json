@@ -1,0 +1,89 @@
+{
+  "scope": "2026年9月19篇已整理日记；按日期逐篇回放，不含无正式事件要点运行的09-20另一篇日记",
+  "counts": {
+    "current_events": 118,
+    "current_points": 338,
+    "total_pairs": 889,
+    "same_day_pairs": 374,
+    "historic_pairs": 515,
+    "related": 139,
+    "no_relation": 750,
+    "unresolved": 0,
+    "same_day_related": 35,
+    "historic_related": 104,
+    "cli_read_chars": 832263,
+    "batches": 93
+  },
+  "relation_types": {
+    "后续事件": 108,
+    "引发事件": 13,
+    "提及事件": 18
+  },
+  "certainty": {
+    "EXPLICIT": 139
+  },
+  "started_at": "2026-10-23T10:25:02.433400+08:00",
+  "finished_identification_at": "2026-10-23T10:55:37.427115+08:00",
+  "identification_end_to_end_seconds": 1834.993715,
+  "cli_all_attempts_seconds": 127.64107550110202,
+  "cli_by_command": {
+    "prepare": {
+      "calls": 42,
+      "seconds": 53.958446042845026,
+      "failed": 0
+    },
+    "status": {
+      "calls": 20,
+      "seconds": 1.983478582027601,
+      "failed": 0
+    },
+    "read": {
+      "calls": 204,
+      "seconds": 23.930800499074394,
+      "failed": 0
+    },
+    "record": {
+      "calls": 43,
+      "seconds": 4.843636627949309,
+      "failed": 1
+    },
+    "check": {
+      "calls": 42,
+      "seconds": 4.508513961103745,
+      "failed": 0
+    },
+    "verify": {
+      "calls": 42,
+      "seconds": 33.75539791805204,
+      "failed": 0
+    },
+    "render": {
+      "calls": 42,
+      "seconds": 4.660801870049909,
+      "failed": 0
+    }
+  },
+  "cli_read_chars_all_attempts": 1849733,
+  "cli_read_chars_final_active_runs": 832263,
+  "unique_fresh_event_count": 118,
+  "unique_fresh_source_json_chars": 156754,
+  "recall_buckets": {
+    "below_threshold": 4725,
+    "selected": 515,
+    "top_k_excluded": 1289
+  },
+  "actual_host_input_tokens": null,
+  "actual_host_output_tokens": null,
+  "actual_host_reasoning_tokens": null,
+  "actual_host_cached_tokens": null,
+  "actual_host_cost": null,
+  "token_note": "本会话没有逐调用用量接口；未知值留null。字符数不是token，账户额度百分比也不能替代本任务实际用量。",
+  "additional_model_api_calls": 0,
+  "embedding_generation_calls": 0,
+  "actual_recall_rate": null,
+  "actual_precision": null,
+  "quality_note": "候选产出率是本轮agent判断分布；没有独立金标准，不能据此计算准确率或召回率。",
+  "database_written": false,
+  "skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+  "generated_at": "2026-10-23T10:58:29.883380+08:00"
+}

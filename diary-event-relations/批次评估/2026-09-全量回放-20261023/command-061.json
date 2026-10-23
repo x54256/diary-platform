@@ -1,0 +1,12 @@
+{
+  "args": [
+    "check",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-11/ef0c6381-b0ab-4efd-8da1-9406a5ed498f/20261023T103012-d51ea0f4"
+  ],
+  "started_at": "2026-10-23T10:31:21.222434+08:00",
+  "ended_at": "2026-10-23T10:31:21.288432+08:00",
+  "seconds": 0.06601329200202599,
+  "exit_code": 0,
+  "stdout": "{\n  \"package_sha256\": \"1210ca66186a2f96708d506d5d0b792e1c652f541808a5c7a5fdb4c251338405\",\n  \"history_mode\": \"replay\",\n  \"total_pairs\": 43,\n  \"completed_pairs\": 43,\n  \"complete\": true,\n  \"counts\": {\n    \"NO_RELATION\": 40,\n    \"RELATED\": 3\n  },\n  \"pending_pair_ids\": [],\n  \"pending_batches\": [],\n  \"stored_in_database\": false\n}\n",
+  "stderr": ""
+}

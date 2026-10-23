@@ -1,0 +1,1751 @@
+{
+  "schema_version": 1,
+  "kind": "diary-event-relations-readonly",
+  "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+  "diary_id": "33e02ff9-a75d-4933-8fb0-ff8ba2c954fc",
+  "diary_date": "2026-09-29",
+  "current_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+  "history_mode": "replay",
+  "config": {
+    "workspace_root": "../../diary-event-relations",
+    "min_similarity": 0.4,
+    "top_k": 5,
+    "max_batch_chars": 12000,
+    "max_pairs_per_batch": 12
+  },
+  "embedding_model": "180b751e5a42b7be7b6b98b398a8fab57ceabb9e4524d2c669bd9627a847df55",
+  "events": {
+    "E001": {
+      "id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "run_status": "POINTS_READY",
+      "diary_id": "2eb6a94e-39b2-4502-8773-4c18ab6b7423",
+      "diary_date": "2026-09-02",
+      "occurred_on": null,
+      "source_order": 1,
+      "title": "小廖容易把建议或陈述当作指责",
+      "importance": "MEDIUM",
+      "run_source_sha256": "b715d2013c5060be51c2e8abe0c95e6fd1eff482d541c65649eb60c749525703",
+      "points": [
+        {
+          "id": "ff4898ee-6f45-4e58-ac5d-8e8c583e2397",
+          "no": 1,
+          "summary": "觉得小廖容易把建议当作指责",
+          "detail": "我发现，小廖很容易把别人的建议当作指责，既出现在她和爸妈相处时，也出现在她和我的沟通中。\n\n比如，我之前给她发过一个给小狗用水冲脚的视频，她看了直接说：“咱也没给小狗用水冲脚丫子。”我跟她说，可以用 AI 搜一下，咱家的湿巾能不能长期给小狗擦脚。这个例子不算很典型，但我觉得确实也能反映一点。",
+          "embedding_sha256": "9357b12fca7bedaee03f67b87ec6d8149eb222580ad066a10a7343ae45a285f7"
+        },
+        {
+          "id": "6a0028c1-6524-488c-a88d-e676a214b786",
+          "no": 2,
+          "summary": "陈述涂药后晒太阳的不适，却被小廖的回应激怒",
+          "detail": "之前我让小廖给我涂药膏，出门被太阳一晒，感觉像火烤一样。回来后我说：“你做饭吧，我现在像被火烤着一样。”她回答：“你自己要涂的药膏。”\n\n我当时很无语，身体不舒服，情绪也控制不住，便说：“你说这话让我想骂你。我是在陈述事实，没有指责你给我涂药膏。”",
+          "embedding_sha256": "0040e7529f2a3adbd128d687d051f062383c3cae613e2497d71b2ca8f04e1950"
+        }
+      ]
+    },
+    "E002": {
+      "id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "run_status": "POINTS_READY",
+      "diary_id": "2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20",
+      "diary_date": "2026-09-23",
+      "occurred_on": null,
+      "source_order": 1,
+      "title": "因情绪不佳未能用非暴力沟通引导小廖处理离职后工作压力",
+      "importance": "HIGH",
+      "run_source_sha256": "b85688d529f2988a635ba00a8e4be664f14d5b3a050259172dabc7e4b7f0a3de",
+      "points": [
+        {
+          "id": "91fc4be4-9df1-45ec-81ee-11e958a6ac15",
+          "no": 1,
+          "summary": "反思当时应先共情，再引导小廖应对离职压力",
+          "detail": "昨晚回家前被妈妈电话弄得不开心。到家小廖抱怨烦，所有人都让她干活：我让擦哒哒脚，公司也安排工作，明明已提离职，还不放人，要干到十月之后。\n\n正常我该先用非暴力沟通弄清情绪原因，再一步步引导，如向领导说明已提一个月，要求确定离职时间。在我当时的理解里，法律规定提一个月就必须让走，可借此减少继续被施压。我也觉得已离职还软弱不反抗，以后换公司仍会受欺负，应慢慢引导她。",
+          "embedding_sha256": "472f855f3427493d7f50a7b4d4d534119c49ef1a755576472c77637f75004f51"
+        },
+        {
+          "id": "cead1a27-09dd-4ba6-aa97-e4e78b1a92a6",
+          "no": 2,
+          "summary": "直接命令小廖月底走人，意识到强硬态度可能引发争吵",
+          "detail": "因自己当时情绪差，我没共情、没引导，直接说：“你都提了离职，为什么还要接着干？你都提了一个月了，你直接跟领导说我这个月底要走。”\n\n问题在态度强硬，像命令，潜台词是“你做的不对导致的情绪别来烦我”。还好颂梅没继续这个话题，不然说不定吵架。我也烦躁、没耐心，只想让她反抗。",
+          "embedding_sha256": "c522783f90c69a23fa47cd30f73f806c4649f590907c5f7df4e001f834923c8b"
+        }
+      ]
+    },
+    "E003": {
+      "id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "run_status": "POINTS_READY",
+      "diary_id": "2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20",
+      "diary_date": "2026-09-23",
+      "occurred_on": null,
+      "source_order": 2,
+      "title": "与母亲聊天时情绪失控及对沟通方式的反思",
+      "importance": "HIGH",
+      "run_source_sha256": "b85688d529f2988a635ba00a8e4be664f14d5b3a050259172dabc7e4b7f0a3de",
+      "points": [
+        {
+          "id": "022067ea-49ee-427a-8a5f-868316a58276",
+          "no": 1,
+          "summary": "被催生影响后继续聊天，又因妈妈说有病不治而发火",
+          "detail": "昨天与妈妈聊生育后已经生气，本想挂，她想聊别的，我态度便不好。说留广州可让她用大城市医疗，她又讲以后生病别给她治、别花钱，宁愿死、不要管，省得浪费。我问为什么有病不看、要等死，她说人早晚要死，我一下又火了：“那你既然早晚都得死，你咋现在不死？我咋现在不死？是不是现在可以死了？”",
+          "embedding_sha256": "60300b7f09404ce109850cf790c97b22e6935f4dc841af92b7b9ca48f0290240"
+        },
+        {
+          "id": "f59dec28-2313-40ff-8cf9-d2ccff46a3a2",
+          "no": 2,
+          "summary": "觉得情绪受影响时应结束对话、恢复稳定，避免波及别人",
+          "detail": "我知道昨天对妈妈的沟通不对，主要是前面的事已影响情绪。那时就不该继续，应尽快结束、深呼吸等让自己快些稳定，免得回家再把情绪带到与颂梅的沟通，没能好好说。",
+          "embedding_sha256": "2f4e513196deb1818551c0ce54606202a3d5e7ec938610b934f89b5de91b98a3"
+        },
+        {
+          "id": "d3778fb3-1891-4b30-9e11-c51b19d277ce",
+          "no": 3,
+          "summary": "想到可共情妈妈怕花钱，但也担心再陷入无效说教",
+          "detail": "妈妈常说有病不治，我以前也试过先共情：理解她怕花钱、怕拖累，可按人性我们不可能不管。比如姥姥天天说想死，爸妈忍心不管吗？肯定仍会治。听姥姥说“你让我赶紧死”高兴，还是正常说话高兴？己所不欲勿施于人，这些话除让人不高兴没意义，不必总说。\n\n可这样会不会又说教、她还是不听？按昨天想法，别总讲，先附和，能引导就引导；若让自己生气，便别想着改变，维持基本家庭沟通就好。和我认为认知能力低下的父母沟通，真累。",
+          "embedding_sha256": "fe6467b1d31b0e53cb6a2139db53de57063ea108cf9a3790f71c8b19610110bb"
+        }
+      ]
+    },
+    "E004": {
+      "id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "run_status": "POINTS_READY",
+      "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+      "diary_date": "2026-09-25",
+      "occurred_on": null,
+      "source_order": 3,
+      "title": "晚上遛狗时一度找不到哒哒，决定减少夜间放开它",
+      "importance": "HIGH",
+      "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+      "points": [
+        {
+          "id": "240c0199-6133-4678-807c-3bb5f76592db",
+          "no": 1,
+          "summary": "二沙岛修狗灯时找不到哒哒，后来得知它在路口玩",
+          "detail": "周三晚上带哒哒陪颂梅打卡，我在二沙岛广州大桥下公园修挂在狗身上、一直不怎么亮的小灯，修着发现狗没了。找很大一圈，包括旁边别的狗那里，都没找到。\n\n颂梅打卡回来电话说狗在她那。我过去问，她说在进公园路口，正和小白狗玩。我不知道那里有狗，没往那找。",
+          "embedding_sha256": "eeb50ae57cbe6fad9006b37a1cbfd3a2bb6975c9226e2b45d9143a0b3aa927e7"
+        },
+        {
+          "id": "5ccb7c43-ffa7-4b56-b00e-edd7e5166b55",
+          "no": 2,
+          "summary": "担心哒哒跟别的狗走丢，决定尽量少在晚上放开",
+          "detail": "我觉得哒哒真可能丢：小白狗主人若带走它，它也许跟着走。以前跟楼下小白狗玩，人家拿快递，它就跟去，吓坏我了，这小破狗。后来我跟颂梅说，能不撒开就不撒开，要放也尽量白天、好找时，晚上难找，少放开。",
+          "embedding_sha256": "50237892ff0d1b8c51e8c30daf6f907bff23c5594a93e4f450897840ab423659"
+        }
+      ]
+    },
+    "E005": {
+      "id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "run_status": "POINTS_READY",
+      "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+      "diary_date": "2026-09-25",
+      "occurred_on": null,
+      "source_order": 4,
+      "title": "骑车带人被罚五十元，尝试转移话题缓和颂梅的情绪",
+      "importance": "MEDIUM",
+      "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+      "points": [
+        {
+          "id": "6f41fb0f-e01e-4819-9126-6c314d89189b",
+          "no": 1,
+          "summary": "带人骑车被罚五十元后，尝试转移话题缓和颂梅情绪",
+          "detail": "找到哒哒后，我们骑车去二沙岛医院后步行道继续遛。路上碰警察，以前不抓带人，当天突然抓，罚五十元。颂梅不高兴，我说看看总共罚了多少、我给她，她不要。既然补钱不能让她好些，我就扯别的话题，想转移注意恢复她情绪。",
+          "embedding_sha256": "6b9c9cbe86da1b76bb314b36f8d532e4ed0fe4befc34e8559870de89fb704949"
+        }
+      ]
+    },
+    "E006": {
+      "id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "run_status": "POINTS_READY",
+      "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+      "diary_date": "2026-09-25",
+      "occurred_on": null,
+      "source_order": 5,
+      "title": "头颈不舒服去按摩，回程头晕恶心，今天早上好转",
+      "importance": "HIGH",
+      "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+      "points": [
+        {
+          "id": "e05760a2-adc5-45b6-bf36-df6c4ebf7671",
+          "no": 1,
+          "summary": "颈痛带头疼，按了两个小时后脖子松些但未彻底舒服",
+          "detail": "最近有点头疼，我觉得颈椎问题又到一定程度，之前说去康复科，还是得找空去。周四脖子疼连着头痛，晚上找一直去的师傅按摩。\n\n原本颂梅带哒哒打卡、遛狗后接我，问师傅有空便按两小时，怕她等久，让她遛完直接回家。按后脖子松快很多，仍不舒服，没彻底好。",
+          "embedding_sha256": "55473e70b94d16a03ff628dfe1ce348bb829f9f1b5c1301cc0666b11cc73de62"
+        },
+        {
+          "id": "795ddcf2-c13d-4491-91ce-fe85ec187204",
+          "no": 2,
+          "summary": "回程头晕反胃，担心按摩影响，回家后颂梅帮忙找药",
+          "detail": "坐地铁回家时，特别不舒服，头晕、头很痛、反胃想吐，不知因晚饭只吃一根玉米，还是一直头疼，有点怕是按摩造成。当时没办法，问豆包，建议喝热水、侧躺休息。\n\n回家告诉颂梅，她找了补电解质的药，说也许电解质紊乱，还给布洛芬止痛。有人帮找药，我也觉得挺好。",
+          "embedding_sha256": "f0669502e46aa1c9caf386663e23d9dd30df0e67560c1d7ee4f0b53684ebdc2d"
+        },
+        {
+          "id": "86d604d4-8509-4cd8-9704-2532a304840a",
+          "no": 3,
+          "summary": "揉肚子时说颂梅不会照顾人，今早头疼已好",
+          "detail": "不舒服过程中我请颂梅揉肚子，她却用拳头抵着，我说“你真不会照顾人啊”，今天早上她还拿此说事。今早好多了、基本好了，恶心可能剩一点，但头痛已没有。",
+          "embedding_sha256": "d6f0f606763e12a612638dd4f741917591597154718c655172136d5ed3d9855e"
+        }
+      ]
+    },
+    "E007": {
+      "id": "7397309a-7cba-447e-adec-8c386e898802",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "run_status": "POINTS_READY",
+      "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+      "diary_date": "2026-09-25",
+      "occurred_on": null,
+      "source_order": 6,
+      "title": "看到颂梅早醒后玩手机，又补觉，觉得作息不好",
+      "importance": "MEDIUM",
+      "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+      "points": [
+        {
+          "id": "757c31d0-ca0e-491e-bee5-10558c86af75",
+          "no": 1,
+          "summary": "觉得颂梅晚睡早醒、玩手机后又补觉的作息不好",
+          "detail": "今早七点多起，看颂梅醒着玩手机，我说晚一两点睡、七点起来，睡才几个小时，作息真乱。她说试过仍睡不着，又继续玩，见我醒还开投影。我去外面沙发躺着研究吃什么，买菜后再看她又睡着了，我觉得这样不太好。",
+          "embedding_sha256": "f2a4c7dfaa737d77a0c6a844ae2e8d1e14d7aa3a3d153a1ba430db5184877f19"
+        }
+      ]
+    },
+    "E008": {
+      "id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "run_status": "POINTS_READY",
+      "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+      "diary_date": "2026-09-25",
+      "occurred_on": null,
+      "source_order": 7,
+      "title": "想起昨晚闻到的菜香，买排骨准备做给颂梅吃",
+      "importance": "MEDIUM",
+      "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+      "points": [
+        {
+          "id": "6f42a73e-5e70-4ab6-b1c9-4f649cb94752",
+          "no": 1,
+          "summary": "想起颂梅闻到的菜香，买排骨腌好后再遛狗",
+          "detail": "昨晚她骑车送我去按摩、自己去打卡，路过一家说饭菜香，我猜是排骨。今天买菜想起，就买排骨准备中午做蒜香排骨给她，也买沙葱、菜心、生菜。\n\n本来买完就遛狗，改成先洗漱、腌排骨，回家能直接做。洗漱后排骨到了，买现成蒜末省得自己切，拌入烧烤料及其他调料，腌好才带哒哒出去。想遛完约十一点半回家做，十二点左右吃上。",
+          "embedding_sha256": "355aecc5d6e1172be937bdc9eb8ee729ff897fb8a49c269ae784079e13a72f88"
+        }
+      ]
+    },
+    "E009": {
+      "id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "run_status": "POINTS_READY",
+      "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+      "diary_date": "2026-09-25",
+      "occurred_on": null,
+      "source_order": 9,
+      "title": "觉得小廖近期花钱多，准备提醒她看看资产情况",
+      "importance": "HIGH",
+      "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+      "points": [
+        {
+          "id": "4b2d9732-26ce-4b77-b16e-c98d34409455",
+          "no": 1,
+          "summary": "对小廖临近离职还花钱多感到不满",
+          "detail": "小廖快辞职、快没工作了，却买得越来越多，吃饭外卖挑贵的、出去玩选最高档，两千多也不问。我觉得没收入还这样花太不负责，也担心到时就要花我的钱。不过目前是她自己的钱，我没办法干涉，提醒就好。",
+          "embedding_sha256": "d8a4f8342d746390fa77bb610e4dfa5e38dfb34f5b59fe02b5fe4a6854a83432"
+        },
+        {
+          "id": "934b8723-a12e-47bf-88e3-2dee737b2bc2",
+          "no": 2,
+          "summary": "盘点大额消费后，也觉得并非每一笔都太多",
+          "detail": "我算她近期大钱：相机一万多只用一次，投影仪两三千，为京东补贴买了些杂物，这次旅行两千多。细想旅行也还好，主要相机、投影花得多，但平常吃的也贵，前阵给上大学的妹妹送笔记本也花不少。\n\n还有一次吃贵阳菜还是什么，花了不少，我该给她七百饭钱还未转，准备一会回去转。汪苏泷香港两张票花很多，又买到十月二日广州票还要看，三日又去桂林。",
+          "embedding_sha256": "e080a70c92d043edcdb7c5259131893a097f9a25181b60dce5c687f039867d13"
+        },
+        {
+          "id": "3f968703-f076-48db-b1d8-b140b873b313",
+          "no": 3,
+          "summary": "怀疑小廖已是负资产，准备提醒她自己核算",
+          "detail": "算过这些开销，我感觉她应该已是负资产。回去想问问，让她查资产，自己看清后悠着花。都快没收入，不能还这样花；目前自己能做的就是提醒。",
+          "embedding_sha256": "57e459af44de0f999cfce8f1f38312ee20b27e4c2678dd0493c26ad8cc5ba4c6"
+        }
+      ]
+    },
+    "E010": {
+      "id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "run_status": "POINTS_READY",
+      "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+      "diary_date": "2026-09-25",
+      "occurred_on": null,
+      "source_order": 10,
+      "title": "叮咚买菜站点关门，换用其他平台不太习惯",
+      "importance": "MEDIUM",
+      "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+      "points": [
+        {
+          "id": "d76671b6-d699-46ec-acf9-de6e67c2b0cb",
+          "no": 1,
+          "summary": "叮咚站点关门，朴朴邀请优惠也没领对",
+          "detail": "叮咚买菜站点关了，最近不知去哪买，下载朴朴。本想颂梅邀我拿四十多元新人券，她却点成老用户回归，只返她两元券，觉得亏、她傻乎乎的。不过软件也有问题：新人邀请藏二级页面，老用户放外面，只写“邀请有礼”。",
+          "embedding_sha256": "14d27df22deca6bc559e5de35ee983219cafed09cd5f19d3db4c1bb200ac65d7"
+        },
+        {
+          "id": "d5dfd48c-d02c-457b-80a3-e48ce2dcb7b0",
+          "no": 2,
+          "summary": "习惯的叮咚没了让我失落，换平台不亲切",
+          "detail": "叮咚用了很久，买菜一直用它，配送及时、App 也好用，关闭让我失落。朴朴体验没那么好，也没熟悉亲切感，优惠不足，会员除了免费菜感觉没别的福利。",
+          "embedding_sha256": "ec5f00d612a0a884987e2286e57b17f0321e096f5a79da7a422bc3b4c819be1a"
+        },
+        {
+          "id": "cf02519b-db3a-49ae-aa0c-4cf5ecda971e",
+          "no": 3,
+          "summary": "准备试多多买菜，急用时选美团、朴朴或菜市场",
+          "detail": "叮咚没了没办法，之后看看隔日自提的多多买菜，品质也许不保证，但至少便宜。急用继续美团、朴朴，实在不行去不远的菜市场。",
+          "embedding_sha256": "925bbd72184e1d049808b1fc0f0a5184f04c2feb36eb468a36762c0b1583e2e4"
+        }
+      ]
+    },
+    "E011": {
+      "id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "run_status": "POINTS_READY",
+      "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+      "diary_date": "2026-09-25",
+      "occurred_on": null,
+      "source_order": 11,
+      "title": "国庆回乡计划搁置，考虑春节前或离职后再回去",
+      "importance": "MEDIUM",
+      "run_source_sha256": "110839cd7e92526b1a7754b3dc2f12b84a2abd678119253f5494dd75ccf5c851",
+      "points": [
+        {
+          "id": "f6b4122a-7dfa-43f6-8f63-fc2b13fc40d9",
+          "no": 1,
+          "summary": "国庆票价和行程冲突，让回乡探亲上坟计划搁置",
+          "detail": "本想十一回家看爷爷奶奶，好多年没去，他们也没见孙媳妇，带回去见见，再上坟。但两人往返票七千元，太贵。若把中秋国庆接起、请三天假连待十三天，我觉得可以；可她又看汪苏泷演唱会，下周一还帮朋友领证拿东西搭手，就没法回，先放着。",
+          "embedding_sha256": "fd1693323ea812687dcf9fdffa017e4cb5413f618738510adbd0bfae284594d3"
+        },
+        {
+          "id": "70fff911-df27-4030-a5fb-c4ba218ec53e",
+          "no": 2,
+          "summary": "考虑春节早点回乡，或等她离职后另找时间",
+          "detail": "国庆回乡计划先搁置，实在不行春节早些回去，或者等她辞职、离职后，再找时间回一趟。",
+          "embedding_sha256": "c6866ead36478fb8e0b1cc8b7f5fab6d3ac3082cb6a037d8948022b4f8c3c481"
+        }
+      ]
+    },
+    "E012": {
+      "id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "run_status": "POINTS_READY",
+      "diary_id": "33e02ff9-a75d-4933-8fb0-ff8ba2c954fc",
+      "diary_date": "2026-09-29",
+      "occurred_on": null,
+      "source_order": 0,
+      "title": "重新做日记管理平台，梳理个人知识库的实体与关系",
+      "importance": "MEDIUM",
+      "run_source_sha256": "52dcc991e1d05927b0704da459fbc190e3e5e69bc52066875389291fd56c2852",
+      "points": [
+        {
+          "id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "no": 1,
+          "summary": "重新推进日记平台，梳理个人知识库实体和关系",
+          "detail": "昨天重新捡起日记管理平台，让 Codex 从头分析如何用日记构建个人知识库，一起确认实体、实体属性、关系及关系属性。今天仍继续，没有工作上的事时偶尔做一下。",
+          "embedding_sha256": "23e3d86a2b1fa0ea07b6b81cd63bbd10b0ddc718c449e6ff0c13844025d5440f"
+        }
+      ]
+    },
+    "E013": {
+      "id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "run_status": "POINTS_READY",
+      "diary_id": "33e02ff9-a75d-4933-8fb0-ff8ba2c954fc",
+      "diary_date": "2026-09-29",
+      "occurred_on": null,
+      "source_order": 1,
+      "title": "和 coder 讨论后端框架的三层测试，继续设计其他模块的测试方案",
+      "importance": "MEDIUM",
+      "run_source_sha256": "52dcc991e1d05927b0704da459fbc190e3e5e69bc52066875389291fd56c2852",
+      "points": [
+        {
+          "id": "63cb322b-3628-45c6-ac61-2388a56ad5a0",
+          "no": 1,
+          "summary": "与 coder 确定后端框架的三层测试",
+          "detail": "昨天与 coder 讨论 xdata-parent 的测试，分三层：第一层单元测试；第二层包括切片测试及用 SpringBootTest 之类启动整个应用的完整应用测试；第三层跨应用测试，例如 xfox 需启动两个或更多应用联调。",
+          "embedding_sha256": "c324e76fe25a938768e1ec5bbb37f0531e3eb98b66c507388acfd16997df7a4a"
+        },
+        {
+          "id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "no": 2,
+          "summary": "已让 coder 写好 xdata-web 测试，继续设计其他模块",
+          "detail": "我也让它写好 xdata-web 模块测试，今早简单看，没大问题，就继续让它设计其他模块测试方案。准备下午看看，没问题便直接执行。",
+          "embedding_sha256": "4e00f2be4f1a102368b1ebf9eb93b875a9e424410ff1ccbaadab9f2dc8357df5"
+        }
+      ]
+    },
+    "E014": {
+      "id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "run_status": "POINTS_READY",
+      "diary_id": "33e02ff9-a75d-4933-8fb0-ff8ba2c954fc",
+      "diary_date": "2026-09-29",
+      "occurred_on": null,
+      "source_order": 2,
+      "title": "参加颂梅朋友婚后的聚餐，看到气象局的人用雷达图判断下雨",
+      "importance": "MEDIUM",
+      "run_source_sha256": "52dcc991e1d05927b0704da459fbc190e3e5e69bc52066875389291fd56c2852",
+      "points": [
+        {
+          "id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "no": 1,
+          "summary": "参加颂梅朋友婚后聚餐，因不熟悉又疲惫而想早点结束",
+          "detail": "昨天颂梅朋友结婚，她去帮忙，结束后四五点去新疆菜馆，等六点下班的我时先打扑克。菜还行，都是肉，我只能吃肉，馕等吃不了，她也说馕不好吃。\n\n我与他们不熟，昨天又因设计日记平台实体疲惫，坐着听，不愿讲话。吃后他们继续聊，我像外人，没话说、没事干，想快结束。",
+          "embedding_sha256": "02d9b7570bcfa2fb05ccd6c6eec28c1f9619e1ebc9d91b960e3611aa8f6dc32b"
+        },
+        {
+          "id": "5dae4b16-34f7-4a52-b3b5-a7bfb2990595",
+          "no": 2,
+          "summary": "起初不解气象局的人看雷达判断下雨，后来想到也许是在预测",
+          "detail": "饭局结束有人说外面可能下雨，气象局的几个人便开雷达图，说可能零星雨。我懵了，想看外面有没有水、雨滴、打伞的人不就知道，为何看雷达？\n\n起初觉得是奇怪的惯性思维，毕竟专业人士与我们不同。后来又想到，也许他们是在帮看之后一段是否下雨。",
+          "embedding_sha256": "1969fc776fc0c2c35663578c4a66f35ed4d68930a456fa082e0376cd8bca3cba"
+        }
+      ]
+    },
+    "E015": {
+      "id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "run_status": "POINTS_READY",
+      "diary_id": "33e02ff9-a75d-4933-8fb0-ff8ba2c954fc",
+      "diary_date": "2026-09-29",
+      "occurred_on": null,
+      "source_order": 3,
+      "title": "喝急了小酒有些醉，和肚子不舒服的颂梅一起遛狗，因哒哒不配合提前回家",
+      "importance": "MEDIUM",
+      "run_source_sha256": "52dcc991e1d05927b0704da459fbc190e3e5e69bc52066875389291fd56c2852",
+      "points": [
+        {
+          "id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "no": 1,
+          "summary": "喝急小酒有些醉，与肚痛的颂梅遛狗后提前回家",
+          "detail": "聚餐后带颂梅回家，她例假肚子一直不舒服。我喝点“real”小酒、嗑瓜子，可能喝太急醉了。狗还没遛，自己醉着便问她愿不愿去，她说肚痛，最后仍一起去珠江边。\n\n哒哒不知为何不配合，一直拽着向珠江外走，怎么拉都不行。我生气，觉得两人状态不好还强撑遛，它又不配合，便带回家，正好颂梅需上厕所、洗澡。回来充上电，磨蹭折腾又到晚上，瑜伽等都没做。",
+          "embedding_sha256": "7d5a0dfd9828319704c08ea03144a3b8df2aa2d541e7e69169b8c1bef46d63ba"
+        }
+      ]
+    },
+    "E016": {
+      "id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "run_status": "POINTS_READY",
+      "diary_id": "33e02ff9-a75d-4933-8fb0-ff8ba2c954fc",
+      "diary_date": "2026-09-29",
+      "occurred_on": null,
+      "source_order": 4,
+      "title": "聊周杰伦演唱会和实名购票，想到黄牛牟利的门槛变化",
+      "importance": "MEDIUM",
+      "run_source_sha256": "52dcc991e1d05927b0704da459fbc190e3e5e69bc52066875389291fd56c2852",
+      "points": [
+        {
+          "id": "e3fa0c22-d15b-4b52-a78c-6cba0df67671",
+          "no": 1,
+          "summary": "没那么想看周杰伦演唱会，但有票卖不出仍愿意去",
+          "detail": "晚上躺床，颂梅说周杰伦票有十万多人想看。我说自己怎么没那么想，可能期待过高，看近期表现觉得不值。若有人给票或抢到、卖不出去，我仍愿去；能卖便高价卖，哈哈。",
+          "embedding_sha256": "0513a6476b54dc6b4330c91d41d08bac66aa58a8e241fefa38c5955d40e695c0"
+        },
+        {
+          "id": "8c617298-21f8-46e3-afbc-6266728442ce",
+          "no": 2,
+          "summary": "颂梅推测实名票黄牛可能靠内部渠道补录买家信息",
+          "detail": "颂梅说现在演唱会票实名制，我问黄牛如何抢。她估计有内部渠道，先买再把买家的身份证、名字等印上去。",
+          "embedding_sha256": "64d82c02395dc45092e7b891b32e41547ac3f2901ebd4b97a1e9e6dc43b4c42b"
+        },
+        {
+          "id": "1637f981-806e-4713-b1f1-e63326b79763",
+          "no": 3,
+          "summary": "觉得限制提高了牟利门槛，却未消除有关系者的机会",
+          "detail": "我想到此前与她聊小廖妈妈是公务员，如今不让组织旅游、吃喝。当时我的看法是，反贪、限制大吃大喝，限制住底层，高层仍照旧，只提高门槛。\n\n黄牛类似：以前普通人抢到票就可转手赚小钱，现在堵住我们这种低成本方式，黄牛却仍在，有关系、内部渠道者仍能拿票牟利。我觉得这是实际现象。",
+          "embedding_sha256": "c475da54daddcb1ab9d484d8bca7fe18cdcd29c3b60bbe6f2fa9d7e4692f2143"
+        }
+      ]
+    },
+    "E017": {
+      "id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "run_status": "POINTS_READY",
+      "diary_id": "33e02ff9-a75d-4933-8fb0-ff8ba2c954fc",
+      "diary_date": "2026-09-29",
+      "occurred_on": null,
+      "source_order": 5,
+      "title": "给多多做驱虫时和颂梅起争执，意识到沟通方式不对后道歉",
+      "importance": "HIGH",
+      "run_source_sha256": "52dcc991e1d05927b0704da459fbc190e3e5e69bc52066875389291fd56c2852",
+      "points": [
+        {
+          "id": "f4be51fc-97cf-47bb-9295-2c45a8177cf8",
+          "no": 1,
+          "summary": "给多多驱虫时因它跑走和找过敏药，与颂梅起争执",
+          "detail": "想起前几天与颂梅小吵，起初忘时间、原因，后来想起是昨天给多多驱虫。我抓来多多让她按住，自己去找过敏药，结果它跑了。她大呼小叫问我为何不快点，我说跑了再抓，她说抓不到、不做了，两人都有情绪。\n\n我当时嘴唇过敏难受，药没找到、情绪失控，问药去哪，让她帮找。她后来找到，吃后我仍没平静，指责她没按住、责任不在我，质问“你在那里叫唤什么？如果需要我再抓一次就是了”。",
+          "embedding_sha256": "86de751ff45976d8882a8d8b52844f1ea0c6ca561f2759eeffd52dc4c1d81060"
+        },
+        {
+          "id": "037ca41d-2638-4667-ace3-77a03afa8297",
+          "no": 2,
+          "summary": "意识到自己在暴力沟通后道歉，再完成驱虫",
+          "detail": "后来意识到自己指责颂梅的沟通方式不对，是暴力沟通，便道歉：“我错了，我刚刚过敏，情绪不好。”接着重新抓多多，完成驱虫，事就结束。我有能力控制情绪，但身体很难受时仍会忍不住。",
+          "embedding_sha256": "35c21ba294f534c9616de202c9e46717fc2597f470bb42e069b23f29cde72afb"
+        }
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "pair_id": "P-dabfc9ce8d9ab2d1",
+      "event_a": "E010",
+      "event_b": "E014"
+    },
+    {
+      "pair_id": "P-0067bac34488be48",
+      "event_a": "E015",
+      "event_b": "E005"
+    },
+    {
+      "pair_id": "P-fb04a26ecb9471b5",
+      "event_a": "E015",
+      "event_b": "E002"
+    },
+    {
+      "pair_id": "P-a623a606f3a8a551",
+      "event_a": "E015",
+      "event_b": "E013"
+    },
+    {
+      "pair_id": "P-a0d9bb6fc56bd840",
+      "event_a": "E015",
+      "event_b": "E007"
+    },
+    {
+      "pair_id": "P-70808c455211df3f",
+      "event_a": "E015",
+      "event_b": "E004"
+    },
+    {
+      "pair_id": "P-d0b690259717cb84",
+      "event_a": "E015",
+      "event_b": "E017"
+    },
+    {
+      "pair_id": "P-05d9829f1167150f",
+      "event_a": "E015",
+      "event_b": "E012"
+    },
+    {
+      "pair_id": "P-10be9ae11cba7f74",
+      "event_a": "E015",
+      "event_b": "E014"
+    },
+    {
+      "pair_id": "P-e84f710810de43fb",
+      "event_a": "E015",
+      "event_b": "E006"
+    },
+    {
+      "pair_id": "P-6a849c3cb797c97c",
+      "event_a": "E015",
+      "event_b": "E016"
+    },
+    {
+      "pair_id": "P-ec38fcf34c48ce97",
+      "event_a": "E011",
+      "event_b": "E016"
+    },
+    {
+      "pair_id": "P-e6fee5ba86c122a9",
+      "event_a": "E008",
+      "event_b": "E014"
+    },
+    {
+      "pair_id": "P-773ae24350e64a95",
+      "event_a": "E002",
+      "event_b": "E017"
+    },
+    {
+      "pair_id": "P-66dbf254729570fd",
+      "event_a": "E013",
+      "event_b": "E017"
+    },
+    {
+      "pair_id": "P-c0087a353ef3fe75",
+      "event_a": "E013",
+      "event_b": "E012"
+    },
+    {
+      "pair_id": "P-8e068b2e1db5bb11",
+      "event_a": "E013",
+      "event_b": "E014"
+    },
+    {
+      "pair_id": "P-02ba29bc6f88ce60",
+      "event_a": "E013",
+      "event_b": "E016"
+    },
+    {
+      "pair_id": "P-328f0a3366172863",
+      "event_a": "E001",
+      "event_b": "E017"
+    },
+    {
+      "pair_id": "P-ef09713bce07c2ce",
+      "event_a": "E003",
+      "event_b": "E017"
+    },
+    {
+      "pair_id": "P-6efee5fb8abb2168",
+      "event_a": "E003",
+      "event_b": "E014"
+    },
+    {
+      "pair_id": "P-4d8125eed4be1173",
+      "event_a": "E003",
+      "event_b": "E016"
+    },
+    {
+      "pair_id": "P-d41b5340270d8fd3",
+      "event_a": "E007",
+      "event_b": "E014"
+    },
+    {
+      "pair_id": "P-b38d5368df72d9c3",
+      "event_a": "E007",
+      "event_b": "E016"
+    },
+    {
+      "pair_id": "P-a940e4bb168e3002",
+      "event_a": "E004",
+      "event_b": "E017"
+    },
+    {
+      "pair_id": "P-e3bffaddb3bb20e9",
+      "event_a": "E004",
+      "event_b": "E016"
+    },
+    {
+      "pair_id": "P-220dd3d2eb59af9f",
+      "event_a": "E017",
+      "event_b": "E012"
+    },
+    {
+      "pair_id": "P-ee6f9aa6ab3c69ef",
+      "event_a": "E017",
+      "event_b": "E014"
+    },
+    {
+      "pair_id": "P-6cfdab07e298f7d6",
+      "event_a": "E017",
+      "event_b": "E006"
+    },
+    {
+      "pair_id": "P-1cda1d467531b349",
+      "event_a": "E017",
+      "event_b": "E016"
+    },
+    {
+      "pair_id": "P-eb5af4bf93dd074f",
+      "event_a": "E012",
+      "event_b": "E014"
+    },
+    {
+      "pair_id": "P-b060100195e0e5dd",
+      "event_a": "E012",
+      "event_b": "E016"
+    },
+    {
+      "pair_id": "P-116f24826b2d211e",
+      "event_a": "E014",
+      "event_b": "E006"
+    },
+    {
+      "pair_id": "P-e9b43641ed0d9d39",
+      "event_a": "E014",
+      "event_b": "E016"
+    },
+    {
+      "pair_id": "P-49ea01ff3b265c14",
+      "event_a": "E009",
+      "event_b": "E016"
+    }
+  ],
+  "recall": [
+    {
+      "current_event_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "hits": [
+        {
+          "event_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.3632467156568019,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "d50b9d76-22c1-41d2-bccb-cebc2f703c65"
+        },
+        {
+          "event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.3048192736541703,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "74fbf687-fdea-437e-83b3-9ba61417c169"
+        },
+        {
+          "event_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.2972654087601302,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "850ad7c5-3888-4b69-af4d-919dccae5b74"
+        },
+        {
+          "event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.2817479065690548,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "4f8ba310-cc68-497f-a845-e0f8c8e35e1b"
+        },
+        {
+          "event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.28128956241609254,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "91a89995-6c52-4609-97d2-bba29677423a"
+        },
+        {
+          "event_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.2747338607839478,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "8c8eb5aa-d5a5-4cc9-b517-68c102f1c18a"
+        },
+        {
+          "event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.25981850771359916,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "1062a2ac-7c4d-4e62-9168-408d8e373791"
+        },
+        {
+          "event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.25916184777616275,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "3d16ea11-bb2a-4ba6-b53c-09e93b3c8917"
+        },
+        {
+          "event_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.25403186727141125,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "e05760a2-adc5-45b6-bf36-df6c4ebf7671"
+        },
+        {
+          "event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+          "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+          "score": 0.23704426022578562,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "1fa0fea3-44dd-46ba-a414-07456bd90413"
+        },
+        {
+          "event_id": "00f249de-d76f-40a0-80ad-0410a0d00e2a",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.2231538385373452,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "0a680736-33c9-400d-b9eb-6cfe4971af52"
+        },
+        {
+          "event_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.2215177942086123,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "d5dfd48c-d02c-457b-80a3-e48ce2dcb7b0"
+        },
+        {
+          "event_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.21854174891933356,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "6f42a73e-5e70-4ab6-b1c9-4f649cb94752"
+        },
+        {
+          "event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.21437810730843643,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "3f968703-f076-48db-b1d8-b140b873b313"
+        },
+        {
+          "event_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+          "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+          "score": 0.20530454346914823,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "6a0028c1-6524-488c-a88d-e676a214b786"
+        },
+        {
+          "event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.19792153552175343,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "e3e5ec4a-db71-4e4e-ac3b-531acd64346a"
+        },
+        {
+          "event_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.19440166585167035,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "5ccb7c43-ffa7-4b56-b00e-edd7e5166b55"
+        },
+        {
+          "event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.1818924434698806,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "f59dec28-2313-40ff-8cf9-d2ccff46a3a2"
+        },
+        {
+          "event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.18009193253002095,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "cead1a27-09dd-4ba6-aa97-e4e78b1a92a6"
+        },
+        {
+          "event_id": "7397309a-7cba-447e-adec-8c386e898802",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.17826946467857052,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "757c31d0-ca0e-491e-bee5-10558c86af75"
+        },
+        {
+          "event_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.17424369756780528,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "70fff911-df27-4030-a5fb-c4ba218ec53e"
+        },
+        {
+          "event_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+          "run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+          "score": 0.1731486348523677,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "bbe2789c-e072-4175-8057-382d7007cba1"
+        },
+        {
+          "event_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.1633830854564547,
+          "current_point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+          "historic_point_id": "6f41fb0f-e01e-4819-9126-6c314d89189b"
+        }
+      ],
+      "selected_event_ids": []
+    },
+    {
+      "current_event_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "hits": [
+        {
+          "event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.3583163254426826,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "a51f966e-8d67-4221-ae2a-b4015d5b84e6"
+        },
+        {
+          "event_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+          "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+          "score": 0.32817920805528206,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "6a0028c1-6524-488c-a88d-e676a214b786"
+        },
+        {
+          "event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.3250127725954556,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "917e96ac-c109-4d7a-9aef-fd9ef05b3464"
+        },
+        {
+          "event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.3245797032276909,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "91a89995-6c52-4609-97d2-bba29677423a"
+        },
+        {
+          "event_id": "00f249de-d76f-40a0-80ad-0410a0d00e2a",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.30919877223929737,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "f0d02ac2-f54d-40cd-a11c-39313b13aef6"
+        },
+        {
+          "event_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.3043267417159882,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "850ad7c5-3888-4b69-af4d-919dccae5b74"
+        },
+        {
+          "event_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.29256155131091244,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "2f016a02-7a5a-445a-926d-8b4339200784"
+        },
+        {
+          "event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.2835779517320813,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "e3e5ec4a-db71-4e4e-ac3b-531acd64346a"
+        },
+        {
+          "event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.27995689938466145,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "f59dec28-2313-40ff-8cf9-d2ccff46a3a2"
+        },
+        {
+          "event_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.2754730352639354,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "5ccb7c43-ffa7-4b56-b00e-edd7e5166b55"
+        },
+        {
+          "event_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.27404480410699167,
+          "current_point_id": "63cb322b-3628-45c6-ac61-2388a56ad5a0",
+          "historic_point_id": "d50b9d76-22c1-41d2-bccb-cebc2f703c65"
+        },
+        {
+          "event_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.27159894640297355,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "cf02519b-db3a-49ae-aa0c-4cf5ecda971e"
+        },
+        {
+          "event_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.26729734743090544,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "6f42a73e-5e70-4ab6-b1c9-4f649cb94752"
+        },
+        {
+          "event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.2536852727478244,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "3d16ea11-bb2a-4ba6-b53c-09e93b3c8917"
+        },
+        {
+          "event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.2536776940926956,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "4f8ba310-cc68-497f-a845-e0f8c8e35e1b"
+        },
+        {
+          "event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.25316621588090465,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "3f968703-f076-48db-b1d8-b140b873b313"
+        },
+        {
+          "event_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.24760003937313374,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "6f41fb0f-e01e-4819-9126-6c314d89189b"
+        },
+        {
+          "event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.2425615593532482,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "cead1a27-09dd-4ba6-aa97-e4e78b1a92a6"
+        },
+        {
+          "event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+          "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+          "score": 0.23544086528588543,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "537e96b6-4817-4dcc-b519-0572ad7d2ca0"
+        },
+        {
+          "event_id": "7397309a-7cba-447e-adec-8c386e898802",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.234077973787473,
+          "current_point_id": "63cb322b-3628-45c6-ac61-2388a56ad5a0",
+          "historic_point_id": "757c31d0-ca0e-491e-bee5-10558c86af75"
+        },
+        {
+          "event_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.2307216155604262,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "86d604d4-8509-4cd8-9704-2532a304840a"
+        },
+        {
+          "event_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.19691072699154274,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "70fff911-df27-4030-a5fb-c4ba218ec53e"
+        },
+        {
+          "event_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+          "run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+          "score": 0.1902207110246986,
+          "current_point_id": "1cbe08ad-7fa8-4860-b4fe-cb00071bd004",
+          "historic_point_id": "bbe2789c-e072-4175-8057-382d7007cba1"
+        }
+      ],
+      "selected_event_ids": []
+    },
+    {
+      "current_event_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "hits": [
+        {
+          "event_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.5161447345149808,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "86d604d4-8509-4cd8-9704-2532a304840a"
+        },
+        {
+          "event_id": "7397309a-7cba-447e-adec-8c386e898802",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.466801227193321,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "757c31d0-ca0e-491e-bee5-10558c86af75"
+        },
+        {
+          "event_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.4645920533463388,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "6f42a73e-5e70-4ab6-b1c9-4f649cb94752"
+        },
+        {
+          "event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.4514872818345034,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "f59dec28-2313-40ff-8cf9-d2ccff46a3a2"
+        },
+        {
+          "event_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.4338940937949576,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "d5dfd48c-d02c-457b-80a3-e48ce2dcb7b0"
+        },
+        {
+          "event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.4185127042827907,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "cead1a27-09dd-4ba6-aa97-e4e78b1a92a6"
+        },
+        {
+          "event_id": "00f249de-d76f-40a0-80ad-0410a0d00e2a",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.41824475867371713,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "f0d02ac2-f54d-40cd-a11c-39313b13aef6"
+        },
+        {
+          "event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.41476217380332564,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "e3e5ec4a-db71-4e4e-ac3b-531acd64346a"
+        },
+        {
+          "event_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+          "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+          "score": 0.41373045557503624,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "6a0028c1-6524-488c-a88d-e676a214b786"
+        },
+        {
+          "event_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.3894439767569083,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "f6b4122a-7dfa-43f6-8f63-fc2b13fc40d9"
+        },
+        {
+          "event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.38878989818086734,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "fe3d0736-f9d5-4ed5-a2dd-e8f5442ae494"
+        },
+        {
+          "event_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.3777226606458205,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "240c0199-6133-4678-807c-3bb5f76592db"
+        },
+        {
+          "event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.3768288781513286,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "4b2d9732-26ce-4b77-b16e-c98d34409455"
+        },
+        {
+          "event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.37610811959177026,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "6f5fc4d9-42bb-46b2-a092-05cec92d139d"
+        },
+        {
+          "event_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.36533308210402055,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "d50b9d76-22c1-41d2-bccb-cebc2f703c65"
+        },
+        {
+          "event_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.3650652818944044,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "850ad7c5-3888-4b69-af4d-919dccae5b74"
+        },
+        {
+          "event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.36403855534035445,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "3d16ea11-bb2a-4ba6-b53c-09e93b3c8917"
+        },
+        {
+          "event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.3313035133200724,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "74fbf687-fdea-437e-83b3-9ba61417c169"
+        },
+        {
+          "event_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.3308156704039069,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "6f41fb0f-e01e-4819-9126-6c314d89189b"
+        },
+        {
+          "event_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.3273761433304366,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "8c8eb5aa-d5a5-4cc9-b517-68c102f1c18a"
+        },
+        {
+          "event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+          "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+          "score": 0.30502628296408557,
+          "current_point_id": "5dae4b16-34f7-4a52-b3b5-a7bfb2990595",
+          "historic_point_id": "889cf0ae-0d6a-4675-ad3d-f057bbcc3af8"
+        },
+        {
+          "event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.29686478107223174,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "4f8ba310-cc68-497f-a845-e0f8c8e35e1b"
+        },
+        {
+          "event_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+          "run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+          "score": 0.25496726227167493,
+          "current_point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+          "historic_point_id": "bbe2789c-e072-4175-8057-382d7007cba1"
+        }
+      ],
+      "selected_event_ids": [
+        "ba5492a9-875c-49b3-9e07-c70975675ec5",
+        "7397309a-7cba-447e-adec-8c386e898802",
+        "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+        "553beea5-1c4e-458c-931c-75bc92717952",
+        "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890"
+      ]
+    },
+    {
+      "current_event_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "hits": [
+        {
+          "event_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.5749345169618467,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "86d604d4-8509-4cd8-9704-2532a304840a"
+        },
+        {
+          "event_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.5460878885893178,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "5ccb7c43-ffa7-4b56-b00e-edd7e5166b55"
+        },
+        {
+          "event_id": "7397309a-7cba-447e-adec-8c386e898802",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.5258579028376856,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "757c31d0-ca0e-491e-bee5-10558c86af75"
+        },
+        {
+          "event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.5148004529968894,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "cead1a27-09dd-4ba6-aa97-e4e78b1a92a6"
+        },
+        {
+          "event_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.5102462219552587,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "6f41fb0f-e01e-4819-9126-6c314d89189b"
+        },
+        {
+          "event_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+          "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+          "score": 0.5024023972914032,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "ff4898ee-6f45-4e58-ac5d-8e8c583e2397"
+        },
+        {
+          "event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.48841079510461366,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "fe3d0736-f9d5-4ed5-a2dd-e8f5442ae494"
+        },
+        {
+          "event_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.4684968887555595,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "6f42a73e-5e70-4ab6-b1c9-4f649cb94752"
+        },
+        {
+          "event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.4672071032544517,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "f59dec28-2313-40ff-8cf9-d2ccff46a3a2"
+        },
+        {
+          "event_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.4621161357117394,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "f6b4122a-7dfa-43f6-8f63-fc2b13fc40d9"
+        },
+        {
+          "event_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.4576567511727397,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "8c8eb5aa-d5a5-4cc9-b517-68c102f1c18a"
+        },
+        {
+          "event_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.4186498177668211,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "d76671b6-d699-46ec-acf9-de6e67c2b0cb"
+        },
+        {
+          "event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.41360246023777775,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "2226cbd5-6d92-4c88-957a-657d10639b8c"
+        },
+        {
+          "event_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.40171078802632565,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "850ad7c5-3888-4b69-af4d-919dccae5b74"
+        },
+        {
+          "event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.397263007484922,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "934b8723-a12e-47bf-88e3-2dee737b2bc2"
+        },
+        {
+          "event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.3771942238954381,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "c4be7a7f-16cd-48e8-bbce-7422af0dd0e0"
+        },
+        {
+          "event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.3740293020664964,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "e3e5ec4a-db71-4e4e-ac3b-531acd64346a"
+        },
+        {
+          "event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.37394420630781905,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "74fbf687-fdea-437e-83b3-9ba61417c169"
+        },
+        {
+          "event_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.34940443159863216,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "d50b9d76-22c1-41d2-bccb-cebc2f703c65"
+        },
+        {
+          "event_id": "00f249de-d76f-40a0-80ad-0410a0d00e2a",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.34440582600586694,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "f0d02ac2-f54d-40cd-a11c-39313b13aef6"
+        },
+        {
+          "event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+          "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+          "score": 0.33497689217458426,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "1fa0fea3-44dd-46ba-a414-07456bd90413"
+        },
+        {
+          "event_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+          "run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+          "score": 0.3186326724586621,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "bbe2789c-e072-4175-8057-382d7007cba1"
+        },
+        {
+          "event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.3111445750014525,
+          "current_point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+          "historic_point_id": "4f8ba310-cc68-497f-a845-e0f8c8e35e1b"
+        }
+      ],
+      "selected_event_ids": [
+        "ba5492a9-875c-49b3-9e07-c70975675ec5",
+        "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+        "7397309a-7cba-447e-adec-8c386e898802",
+        "34a6697e-050b-432f-8880-dc9686a074e0",
+        "1465865a-3b12-4227-b99b-9ccfb33fccce"
+      ]
+    },
+    {
+      "current_event_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "hits": [
+        {
+          "event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.4308726257905812,
+          "current_point_id": "1637f981-806e-4713-b1f1-e63326b79763",
+          "historic_point_id": "4b2d9732-26ce-4b77-b16e-c98d34409455"
+        },
+        {
+          "event_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.43086235693656055,
+          "current_point_id": "e3fa0c22-d15b-4b52-a78c-6cba0df67671",
+          "historic_point_id": "5ccb7c43-ffa7-4b56-b00e-edd7e5166b55"
+        },
+        {
+          "event_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.4266558295210614,
+          "current_point_id": "e3fa0c22-d15b-4b52-a78c-6cba0df67671",
+          "historic_point_id": "f6b4122a-7dfa-43f6-8f63-fc2b13fc40d9"
+        },
+        {
+          "event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.40961135092894607,
+          "current_point_id": "e3fa0c22-d15b-4b52-a78c-6cba0df67671",
+          "historic_point_id": "022067ea-49ee-427a-8a5f-868316a58276"
+        },
+        {
+          "event_id": "7397309a-7cba-447e-adec-8c386e898802",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.4048748095234601,
+          "current_point_id": "e3fa0c22-d15b-4b52-a78c-6cba0df67671",
+          "historic_point_id": "757c31d0-ca0e-491e-bee5-10558c86af75"
+        },
+        {
+          "event_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.37672009539252593,
+          "current_point_id": "8c617298-21f8-46e3-afbc-6266728442ce",
+          "historic_point_id": "6f41fb0f-e01e-4819-9126-6c314d89189b"
+        },
+        {
+          "event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.37545512741825926,
+          "current_point_id": "e3fa0c22-d15b-4b52-a78c-6cba0df67671",
+          "historic_point_id": "fe3d0736-f9d5-4ed5-a2dd-e8f5442ae494"
+        },
+        {
+          "event_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.36904975750626884,
+          "current_point_id": "8c617298-21f8-46e3-afbc-6266728442ce",
+          "historic_point_id": "86d604d4-8509-4cd8-9704-2532a304840a"
+        },
+        {
+          "event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.3613945383630688,
+          "current_point_id": "1637f981-806e-4713-b1f1-e63326b79763",
+          "historic_point_id": "2feafe4f-0ce4-442d-a09e-a08715d6154b"
+        },
+        {
+          "event_id": "00f249de-d76f-40a0-80ad-0410a0d00e2a",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.35930293038465677,
+          "current_point_id": "1637f981-806e-4713-b1f1-e63326b79763",
+          "historic_point_id": "f0d02ac2-f54d-40cd-a11c-39313b13aef6"
+        },
+        {
+          "event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.35581928881172814,
+          "current_point_id": "e3fa0c22-d15b-4b52-a78c-6cba0df67671",
+          "historic_point_id": "cead1a27-09dd-4ba6-aa97-e4e78b1a92a6"
+        },
+        {
+          "event_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.3535430819272484,
+          "current_point_id": "e3fa0c22-d15b-4b52-a78c-6cba0df67671",
+          "historic_point_id": "2f016a02-7a5a-445a-926d-8b4339200784"
+        },
+        {
+          "event_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.34870998323076313,
+          "current_point_id": "e3fa0c22-d15b-4b52-a78c-6cba0df67671",
+          "historic_point_id": "cf02519b-db3a-49ae-aa0c-4cf5ecda971e"
+        },
+        {
+          "event_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.34841415774851825,
+          "current_point_id": "1637f981-806e-4713-b1f1-e63326b79763",
+          "historic_point_id": "61514270-63f4-4a48-a22c-a2387f1d2260"
+        },
+        {
+          "event_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+          "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+          "score": 0.34273407152745017,
+          "current_point_id": "1637f981-806e-4713-b1f1-e63326b79763",
+          "historic_point_id": "ff4898ee-6f45-4e58-ac5d-8e8c583e2397"
+        },
+        {
+          "event_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.3263465663468108,
+          "current_point_id": "e3fa0c22-d15b-4b52-a78c-6cba0df67671",
+          "historic_point_id": "850ad7c5-3888-4b69-af4d-919dccae5b74"
+        },
+        {
+          "event_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+          "run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+          "score": 0.3213003910381358,
+          "current_point_id": "1637f981-806e-4713-b1f1-e63326b79763",
+          "historic_point_id": "bbe2789c-e072-4175-8057-382d7007cba1"
+        },
+        {
+          "event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.32023200167930016,
+          "current_point_id": "e3fa0c22-d15b-4b52-a78c-6cba0df67671",
+          "historic_point_id": "3d16ea11-bb2a-4ba6-b53c-09e93b3c8917"
+        },
+        {
+          "event_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.3184219524108764,
+          "current_point_id": "8c617298-21f8-46e3-afbc-6266728442ce",
+          "historic_point_id": "6f42a73e-5e70-4ab6-b1c9-4f649cb94752"
+        },
+        {
+          "event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.31682911940900427,
+          "current_point_id": "e3fa0c22-d15b-4b52-a78c-6cba0df67671",
+          "historic_point_id": "e3e5ec4a-db71-4e4e-ac3b-531acd64346a"
+        },
+        {
+          "event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+          "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+          "score": 0.31369480740620925,
+          "current_point_id": "e3fa0c22-d15b-4b52-a78c-6cba0df67671",
+          "historic_point_id": "1fa0fea3-44dd-46ba-a414-07456bd90413"
+        },
+        {
+          "event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.3106445489861777,
+          "current_point_id": "e3fa0c22-d15b-4b52-a78c-6cba0df67671",
+          "historic_point_id": "6f5fc4d9-42bb-46b2-a092-05cec92d139d"
+        },
+        {
+          "event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.31046995858991894,
+          "current_point_id": "8c617298-21f8-46e3-afbc-6266728442ce",
+          "historic_point_id": "4f8ba310-cc68-497f-a845-e0f8c8e35e1b"
+        }
+      ],
+      "selected_event_ids": [
+        "e8c71220-00b3-4392-a990-314368bc386e",
+        "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+        "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+        "553beea5-1c4e-458c-931c-75bc92717952",
+        "7397309a-7cba-447e-adec-8c386e898802"
+      ]
+    },
+    {
+      "current_event_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "hits": [
+        {
+          "event_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.598003690984266,
+          "current_point_id": "037ca41d-2638-4667-ace3-77a03afa8297",
+          "historic_point_id": "86d604d4-8509-4cd8-9704-2532a304840a"
+        },
+        {
+          "event_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+          "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+          "score": 0.5944861428234907,
+          "current_point_id": "037ca41d-2638-4667-ace3-77a03afa8297",
+          "historic_point_id": "6a0028c1-6524-488c-a88d-e676a214b786"
+        },
+        {
+          "event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.579141339465242,
+          "current_point_id": "037ca41d-2638-4667-ace3-77a03afa8297",
+          "historic_point_id": "f59dec28-2313-40ff-8cf9-d2ccff46a3a2"
+        },
+        {
+          "event_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.5533052783468481,
+          "current_point_id": "f4be51fc-97cf-47bb-9295-2c45a8177cf8",
+          "historic_point_id": "5ccb7c43-ffa7-4b56-b00e-edd7e5166b55"
+        },
+        {
+          "event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.5522909840287247,
+          "current_point_id": "f4be51fc-97cf-47bb-9295-2c45a8177cf8",
+          "historic_point_id": "cead1a27-09dd-4ba6-aa97-e4e78b1a92a6"
+        },
+        {
+          "event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.5495402656331336,
+          "current_point_id": "f4be51fc-97cf-47bb-9295-2c45a8177cf8",
+          "historic_point_id": "fe3d0736-f9d5-4ed5-a2dd-e8f5442ae494"
+        },
+        {
+          "event_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.5364137556686119,
+          "current_point_id": "f4be51fc-97cf-47bb-9295-2c45a8177cf8",
+          "historic_point_id": "6f41fb0f-e01e-4819-9126-6c314d89189b"
+        },
+        {
+          "event_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.5023756079192389,
+          "current_point_id": "037ca41d-2638-4667-ace3-77a03afa8297",
+          "historic_point_id": "8c8eb5aa-d5a5-4cc9-b517-68c102f1c18a"
+        },
+        {
+          "event_id": "7397309a-7cba-447e-adec-8c386e898802",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.45804278595540737,
+          "current_point_id": "f4be51fc-97cf-47bb-9295-2c45a8177cf8",
+          "historic_point_id": "757c31d0-ca0e-491e-bee5-10558c86af75"
+        },
+        {
+          "event_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+          "run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+          "score": 0.43484984848396024,
+          "current_point_id": "f4be51fc-97cf-47bb-9295-2c45a8177cf8",
+          "historic_point_id": "bbe2789c-e072-4175-8057-382d7007cba1"
+        },
+        {
+          "event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+          "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+          "score": 0.41077110786936266,
+          "current_point_id": "037ca41d-2638-4667-ace3-77a03afa8297",
+          "historic_point_id": "87051fbc-77c9-4f63-ac66-823fdd56998a"
+        },
+        {
+          "event_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.4072275362535755,
+          "current_point_id": "037ca41d-2638-4667-ace3-77a03afa8297",
+          "historic_point_id": "d5dfd48c-d02c-457b-80a3-e48ce2dcb7b0"
+        },
+        {
+          "event_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.3972409480470069,
+          "current_point_id": "f4be51fc-97cf-47bb-9295-2c45a8177cf8",
+          "historic_point_id": "6f42a73e-5e70-4ab6-b1c9-4f649cb94752"
+        },
+        {
+          "event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.3970927422345843,
+          "current_point_id": "f4be51fc-97cf-47bb-9295-2c45a8177cf8",
+          "historic_point_id": "e3e5ec4a-db71-4e4e-ac3b-531acd64346a"
+        },
+        {
+          "event_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.38871207196856095,
+          "current_point_id": "037ca41d-2638-4667-ace3-77a03afa8297",
+          "historic_point_id": "61514270-63f4-4a48-a22c-a2387f1d2260"
+        },
+        {
+          "event_id": "00f249de-d76f-40a0-80ad-0410a0d00e2a",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.3797739956265304,
+          "current_point_id": "037ca41d-2638-4667-ace3-77a03afa8297",
+          "historic_point_id": "f0d02ac2-f54d-40cd-a11c-39313b13aef6"
+        },
+        {
+          "event_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.3794843272344392,
+          "current_point_id": "f4be51fc-97cf-47bb-9295-2c45a8177cf8",
+          "historic_point_id": "850ad7c5-3888-4b69-af4d-919dccae5b74"
+        },
+        {
+          "event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+          "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+          "score": 0.3762546732335309,
+          "current_point_id": "f4be51fc-97cf-47bb-9295-2c45a8177cf8",
+          "historic_point_id": "c4be7a7f-16cd-48e8-bbce-7422af0dd0e0"
+        },
+        {
+          "event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+          "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+          "score": 0.3576227702687213,
+          "current_point_id": "037ca41d-2638-4667-ace3-77a03afa8297",
+          "historic_point_id": "537e96b6-4817-4dcc-b519-0572ad7d2ca0"
+        },
+        {
+          "event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.3548579696623936,
+          "current_point_id": "f4be51fc-97cf-47bb-9295-2c45a8177cf8",
+          "historic_point_id": "4b2d9732-26ce-4b77-b16e-c98d34409455"
+        },
+        {
+          "event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.353439775536295,
+          "current_point_id": "f4be51fc-97cf-47bb-9295-2c45a8177cf8",
+          "historic_point_id": "2226cbd5-6d92-4c88-957a-657d10639b8c"
+        },
+        {
+          "event_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.30986983009169194,
+          "current_point_id": "f4be51fc-97cf-47bb-9295-2c45a8177cf8",
+          "historic_point_id": "f6b4122a-7dfa-43f6-8f63-fc2b13fc40d9"
+        },
+        {
+          "event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+          "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+          "score": 0.30914948762430305,
+          "current_point_id": "f4be51fc-97cf-47bb-9295-2c45a8177cf8",
+          "historic_point_id": "4f8ba310-cc68-497f-a845-e0f8c8e35e1b"
+        }
+      ],
+      "selected_event_ids": [
+        "ba5492a9-875c-49b3-9e07-c70975675ec5",
+        "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+        "553beea5-1c4e-458c-931c-75bc92717952",
+        "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+        "34a6697e-050b-432f-8880-dc9686a074e0"
+      ]
+    }
+  ],
+  "completed_dependencies": [
+    {
+      "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-02/2eb6a94e-39b2-4502-8773-4c18ab6b7423/20261022T234415-a9b9ecf6",
+      "package_sha256": "2a4d9f322a64499a5e0936c24d80da82ea852281922fd62425c04c43648ff978",
+      "results_sha256": "1ba68f616dda7219ad5910f164c84f8ae2def31c7497ade6135f7e02927f4545"
+    },
+    {
+      "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-10/085c0f45-8d1d-48ae-a2d3-b54da087adae/20261022T234444-8a5a98d9",
+      "package_sha256": "a104dec1aabf96f9f8606d6381521703926bb4b49505381c4afe962ff36330bb",
+      "results_sha256": "254996989bc810db150cf6e733b5592ac089818ff82f9b03eb61e986af733361"
+    },
+    {
+      "run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-13/f2631949-29e7-4ace-80dc-dbe863901246/20261022T234525-5c8961b4",
+      "package_sha256": "668ff9f79e18f582e61175f516053b819480953542632859db48a6fe5e24465c",
+      "results_sha256": "084fa5eca6e632e3b7538fde1c53fa87f3d6d70244ac9193c34f34844974d478"
+    },
+    {
+      "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-23/2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20/20261022T234550-86ddce08",
+      "package_sha256": "725a14d23a5e21fe7fcc03d98832d76283072a8b95eacd3fadf5609ad96a06ad",
+      "results_sha256": "95b4a6c5ee2552ed1ccd82c8b135b8579dde10ad6242a70368620fd9d143720e"
+    },
+    {
+      "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-25/2ae44b75-b2d4-4bf7-9fca-e809580d5ab8/20261022T234647-e8e0ee99",
+      "package_sha256": "80a70a8c1edc29f22dcdd0ef38926a60b523fff9dd1b983e6d74203a9cd5aaf6",
+      "results_sha256": "bcfcc6f7efe756131447aae37e96d045c249dd98f9e03daea34a15a69dd96f3a"
+    }
+  ],
+  "skill_sha256": "031ec3699a8d537dfd60c570c07593825f2a332c7fcde751fa9ed9ffbb908dab",
+  "package_sha256": "9c99daf0d4443e529fd21ab6f3ded2f13aabe1063203e1c418b709e793620379"
+}

@@ -1,0 +1,12 @@
+{
+  "args": [
+    "status",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-09/828580fd-50a7-4a15-9d80-7acfe7ec987e/20261023T102643-508fa3ab"
+  ],
+  "started_at": "2026-10-23T10:26:43.120913+08:00",
+  "ended_at": "2026-10-23T10:26:43.176369+08:00",
+  "seconds": 0.055475125001976267,
+  "exit_code": 0,
+  "stdout": "{\n  \"package_sha256\": \"a241b62513238f5e6e4de8e2ab78878c62028b800688447dc13c70c4d0cd90df\",\n  \"history_mode\": \"replay\",\n  \"total_pairs\": 61,\n  \"completed_pairs\": 0,\n  \"complete\": false,\n  \"counts\": {},\n  \"pending_pair_ids\": [\n    \"P-30545da3a865938a\",\n    \"P-7c77aa689b42315a\",\n    \"P-c9f42c7be4db74e9\",\n    \"P-27e3db07e7c259f0\",\n    \"P-8d4ad9e7c9891b97\",\n    \"P-38e62edd0a16887d\",\n    \"P-fcc115e83559194c\",\n    \"P-439b8a3074cd7c54\",\n    \"P-901d66f4a1dcb8eb\",\n    \"P-95eee7d926c8dc53\",\n    \"P-caaee0a17f2f3d71\",\n    \"P-cd8c54212383d548\",\n    \"P-6fe2c88c77a056ad\",\n    \"P-3b7200ac588ef8e1\",\n    \"P-09549f3d309f589d\",\n    \"P-620c60c692a06918\",\n    \"P-2c39b81974eec242\",\n    \"P-cac0afa0c54a6c66\",\n    \"P-7467ec9e96561558\",\n    \"P-7b75238b023677aa\",\n    \"P-aca88824d77930ba\",\n    \"P-7c41d4e4ab9b95d9\",\n    \"P-314e703e03ccf759\",\n    \"P-a0120e783c6c78e8\",\n    \"P-0133052ab1eda130\",\n    \"P-9491cca50686c558\",\n    \"P-9194da8354ffe1b8\",\n    \"P-cd3b6c98a4674901\",\n    \"P-d0fe86a80e94fb12\",\n    \"P-747660053d8881c9\",\n    \"P-7faa2662402ed174\",\n    \"P-3240734ecd79f2fa\",\n    \"P-ab31eba141c8258b\",\n    \"P-5c8aefd3b7934402\",\n    \"P-68294b77c082f694\",\n    \"P-a55408d7c887ad5d\",\n    \"P-c3bf91c921c98179\",\n    \"P-93fc796ea8e63203\",\n    \"P-1b5ba5b78672d04f\",\n    \"P-26b1a3e301616e1e\",\n    \"P-b2b032f64da3adbb\",\n    \"P-6b1251c0970982bf\",\n    \"P-22600c2d9735c08e\",\n    \"P-405776b78493e68e\",\n    \"P-0a95b83469331b29\",\n    \"P-1d27f79944634c86\",\n    \"P-2fa10c5bd6ada1c6\",\n    \"P-4c03e7642e596805\",\n    \"P-0e5a6e30df136592\",\n    \"P-34116217362f1fc5\",\n    \"P-c0beb17f5c0a8734\",\n    \"P-a51b89eb1b6a9ccd\",\n    \"P-1e0fc4dd08b6f426\",\n    \"P-cb6bb221e6c7d8a7\",\n    \"P-9e507b053f3f6e0f\",\n    \"P-3f46bbea3993ad44\",\n    \"P-0f84c2de1f3a489f\",\n    \"P-a2e6d6af7a14f6ea\",\n    \"P-f82d8754be1e5add\",\n    \"P-2b2c4d983ccd360c\",\n    \"P-a27fe8d131732cd1\"\n  ],\n  \"pending_batches\": [\n    \"B001\",\n    \"B002\",\n    \"B003\",\n    \"B004\",\n    \"B005\",\n    \"B006\"\n  ],\n  \"stored_in_database\": false\n}\n",
+  "stderr": ""
+}

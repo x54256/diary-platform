@@ -1,0 +1,23 @@
+{
+  "package_sha256": "08f05ab741400ede4dda7fe1416edc97da4cf81d0b5831a6426a5a0121567f31",
+  "results": [
+    {
+      "pair_id": "P-b165e7772615732f",
+      "status": "NO_RELATION",
+      "reason": "扶车条目说已烦躁，但未具体指向江西需求，不能把同日情绪相同升级为触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5af3c38701cc3003",
+      "status": "NO_RELATION",
+      "reason": "关系测试与江西需求是不同工作，均感烦躁但没有相互引用或因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9671195c07ccbf33",
+      "status": "NO_RELATION",
+      "reason": "扶车条目未具体回忆关系测试，既有烦躁状态不足以定位这一触发来源。",
+      "relation": null
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "authorization": "把除了 10-23 以外其他的整理稿入库吧",
+  "excluded": [
+    "2026-10-04",
+    "2026-10-11",
+    "2026-10-23"
+  ],
+  "entries": [
+    {
+      "date": "2026-10-01",
+      "diary_id": "5b6fbb71-0af9-43a1-a914-7bc9534a79d1",
+      "manuscript_sha256": "b37519279baeaac5e6ae1be748890e3efd6894b523c3cc57e3809c798cbbbea9",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-10-01/入库包-用户统一确认20261023.json",
+      "status": "已提交",
+      "confirmation_sha256": "cd377909b55cd686f373b1f99b5ab58c7935f0c80d8d5fcd0e8a029eed0f2646",
+      "events": 6,
+      "receipt": {
+        "status": "已提交",
+        "diary_id": "5b6fbb71-0af9-43a1-a914-7bc9534a79d1",
+        "organized_id": "b4687f0e-016a-441c-a7cf-a97454788d95",
+        "task_id": "0574cb9f-25f5-4068-82c8-ca26df888041",
+        "events": 6,
+        "structured_revision": 1
+      }
+    },
+    {
+      "date": "2026-10-02",
+      "diary_id": "4333bd59-ebab-485a-a156-774bc5e64e22",
+      "manuscript_sha256": "9c549829f5625baaa4b783fdd3ff0f3f710392162ce452c824f45ce7ee484ad8",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-10-02/入库包-用户统一确认20261023.json",
+      "status": "已提交",
+      "confirmation_sha256": "9b5804f7fc14594ee1af7b78e8adc71e18877a7d7162e8646d7768aa9376e49f",
+      "events": 4,
+      "receipt": {
+        "status": "已提交",
+        "diary_id": "4333bd59-ebab-485a-a156-774bc5e64e22",
+        "organized_id": "16faa567-332a-4241-b705-a5841f99d2f6",
+        "task_id": "46e2b682-2a57-4014-9384-83ba086e7d90",
+        "events": 4,
+        "structured_revision": 1
+      }
+    },
+    {
+      "date": "2026-10-07",
+      "diary_id": "5758d75f-67e8-4430-9237-a192dc6a03f0",
+      "manuscript_sha256": "e05a852fa133a7a465bc26e71dfbc236609f0ca53636bf03ff242a7dda1b18e9",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-10-07/入库包-用户统一确认20261023.json",
+      "status": "已提交",
+      "confirmation_sha256": "66cc76969206a564097d5c4bee61deb791dddef2ccc15d8069edfd3bc158fa90",
+      "events": 12,
+      "receipt": {
+        "status": "已提交",
+        "diary_id": "5758d75f-67e8-4430-9237-a192dc6a03f0",
+        "organized_id": "a0f85033-5c4b-4f9f-9320-d632dbce8023",
+        "task_id": "527f105b-83ac-4444-b4ff-b05a5eda51e8",
+        "events": 12,
+        "structured_revision": 1
+      }
+    },
+    {
+      "date": "2026-10-09",
+      "diary_id": "118b1c69-adf1-41b1-b638-483e5f5947c2",
+      "manuscript_sha256": "a12fa1c085d498ddbaf797b6e69f3e166d95dac3e68d2d6a22f1a05468b83e34",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-10-09/入库包-用户统一确认20261023.json",
+      "status": "已提交",
+      "confirmation_sha256": "ca08c4995bd1e781c8b0812c1ccc9e9996440640c1f0eb7e456ff2113a8ca6f0",
+      "events": 14,
+      "receipt": {
+        "status": "已提交",
+        "diary_id": "118b1c69-adf1-41b1-b638-483e5f5947c2",
+        "organized_id": "a285fbc3-b0fc-4366-982f-cf911a9153c9",
+        "task_id": "d9dd5d50-386d-4790-9346-7d82291657bf",
+        "events": 14,
+        "structured_revision": 1
+      }
+    },
+    {
+      "date": "2026-10-10",
+      "diary_id": "a1b8df2f-3fba-4260-85cf-16b5430cd279",
+      "manuscript_sha256": "6f46188b60b5d52691714b2cefc930ff12695f1f4801d5f364f1559b4660e073",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-10-10/入库包-用户统一确认20261023.json",
+      "status": "已提交",
+      "confirmation_sha256": "28f946786139357868051d7e14e83ac84d0fe32091bf769163867c0a7746916d",
+      "events": 12,
+      "receipt": {
+        "status": "已提交",
+        "diary_id": "a1b8df2f-3fba-4260-85cf-16b5430cd279",
+        "organized_id": "e5443883-cb54-4f01-9598-71eb5d90d2ae",
+        "task_id": "8677d413-54f9-4ecc-a38b-30afb2ca2087",
+        "events": 12,
+        "structured_revision": 1
+      }
+    },
+    {
+      "date": "2026-10-12",
+      "diary_id": "516c323f-5c01-4dfc-85a9-b9c4536204f2",
+      "manuscript_sha256": "76c33050cead0adf100d3cacb8f893f8356d6f4710e62d7f52634c6fcc513a20",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-10-12/入库包-用户统一确认20261023.json",
+      "status": "已提交",
+      "confirmation_sha256": "0cd20728d2eca06daddcf4a2fbcdd2def4cfce7311526db94ea7710f8ef00c71",
+      "events": 8,
+      "receipt": {
+        "status": "已提交",
+        "diary_id": "516c323f-5c01-4dfc-85a9-b9c4536204f2",
+        "organized_id": "29ebfcbd-0ca4-4581-a841-8161da29c010",
+        "task_id": "708a5417-f4f5-4c4b-844a-3b29404bf73b",
+        "events": 8,
+        "structured_revision": 1
+      }
+    },
+    {
+      "date": "2026-10-14",
+      "diary_id": "0be3874e-29d1-482f-930a-9fb182d25e11",
+      "manuscript_sha256": "4c8958b9d0d152afb6d02f1f6a69e7bf9dbdf654b992cef6a8d62ed7168dfbd2",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-10-14/入库包-用户统一确认20261023.json",
+      "status": "已提交",
+      "confirmation_sha256": "e8c150822160993cb8e1df136617d8a6f4ab13bf89e361bde1ef0b1d405c7a3f",
+      "events": 11,
+      "receipt": {
+        "status": "已提交",
+        "diary_id": "0be3874e-29d1-482f-930a-9fb182d25e11",
+        "organized_id": "eab17e99-f6ad-4257-bdd3-88b660e59265",
+        "task_id": "59f123ce-39cc-470b-b7b3-966307d1e1f4",
+        "events": 11,
+        "structured_revision": 1
+      }
+    },
+    {
+      "date": "2026-10-15",
+      "diary_id": "196c1478-ce60-4fc3-ae78-2edd3b0d309f",
+      "manuscript_sha256": "64729f23706012cb3b0a9ca73c4fa0250db8e51c6d9bc9fde5ae8f4231632fc7",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-10-15/入库包-用户统一确认20261023.json",
+      "status": "已提交",
+      "confirmation_sha256": "fae779c7dffc03a3ce51c5937ff0ec2a463864944403198cebb13713786ffd5e",
+      "events": 5,
+      "receipt": {
+        "status": "已提交",
+        "diary_id": "196c1478-ce60-4fc3-ae78-2edd3b0d309f",
+        "organized_id": "ada8f51a-7da6-4925-82bf-4c53cfe26ac2",
+        "task_id": "ba2217c2-fbf7-4ef7-8765-ff96bfa7f918",
+        "events": 5,
+        "structured_revision": 1
+      }
+    },
+    {
+      "date": "2026-10-17",
+      "diary_id": "c9a2e9de-bf99-4cd4-8600-95e3925cff8e",
+      "manuscript_sha256": "76377f9704a52f184f203eea519b06b38844ecad6255745fb5d4d75a4357b09d",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-10-17/入库包-用户统一确认20261023.json",
+      "status": "已提交",
+      "confirmation_sha256": "a545fd3a2836d378dd508f4e8e184d4bb62b51cf4fdbd7072cece653217865b3",
+      "events": 9,
+      "receipt": {
+        "status": "已提交",
+        "diary_id": "c9a2e9de-bf99-4cd4-8600-95e3925cff8e",
+        "organized_id": "eafcbc76-8aaa-4513-8b10-8d1375a13a83",
+        "task_id": "8ee1ed4a-6482-4045-b01d-c7cc398234b2",
+        "events": 9,
+        "structured_revision": 1
+      }
+    },
+    {
+      "date": "2026-10-18",
+      "diary_id": "71182016-2d93-4bb6-beaf-3afc470c6415",
+      "manuscript_sha256": "c9376f582795e22c16511105375637a851909399484de6c05216acfefe6f6799",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-10-18/入库包-用户统一确认20261023.json",
+      "status": "已提交",
+      "confirmation_sha256": "5ddf93c74bae6592d60f53fe2acba70da4bf6e01040f3e0115b356764fac6cce",
+      "events": 10,
+      "receipt": {
+        "status": "已提交",
+        "diary_id": "71182016-2d93-4bb6-beaf-3afc470c6415",
+        "organized_id": "3b1579c7-ca77-4a4b-aa85-063464a937fa",
+        "task_id": "97808631-9f53-4f2e-bc46-2317ac94623a",
+        "events": 10,
+        "structured_revision": 1
+      }
+    },
+    {
+      "date": "2026-10-19",
+      "diary_id": "eace7c4c-abba-4512-b22c-a0b4ce848de0",
+      "manuscript_sha256": "5c58a307fc40d09600b3ad043e64a6daad356659c89baf39866f6475451d6bd9",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-10-19/入库包-用户统一确认20261023.json",
+      "status": "已提交",
+      "confirmation_sha256": "de03b9e005b6ce9c1471fc6f3a7392663220539aab97e3003ec150d689bf9ee4",
+      "events": 10,
+      "receipt": {
+        "status": "已提交",
+        "diary_id": "eace7c4c-abba-4512-b22c-a0b4ce848de0",
+        "organized_id": "79660a8b-188f-45ff-835b-0c038509f2bc",
+        "task_id": "6711b448-28db-44db-8c2d-8cf3aebf9d01",
+        "events": 10,
+        "structured_revision": 1
+      }
+    },
+    {
+      "date": "2026-10-20",
+      "diary_id": "ab767235-6ca0-4e7d-a770-938884a251c9",
+      "manuscript_sha256": "85c05d6add1d2d527cf31257397ce802faa5a1e9674e4ce60191700a8dde8e20",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-10-20/入库包-用户统一确认20261023.json",
+      "status": "已提交",
+      "confirmation_sha256": "46f72cb2e69f44063558cf3fcc73a3457691e1925acd37602221d4107216f8d9",
+      "events": 5,
+      "receipt": {
+        "status": "已提交",
+        "diary_id": "ab767235-6ca0-4e7d-a770-938884a251c9",
+        "organized_id": "75d1f6b0-a64f-432e-abf0-bc27f600cbee",
+        "task_id": "6e2cc881-0112-4fc4-acf2-39500cc916fc",
+        "events": 5,
+        "structured_revision": 1
+      }
+    },
+    {
+      "date": "2026-10-21",
+      "diary_id": "09cf0bb7-21c9-4f30-bba9-920043d6ffef",
+      "manuscript_sha256": "ace3e1be636c96dac35347089224c9f3287288bae70d535cd5f07c8b2bf0b844",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-10-21/入库包-用户统一确认20261023.json",
+      "status": "已提交",
+      "confirmation_sha256": "d494bb1c86eaf0b19dc5ffc24edc2fe83952c6229efa1e6ec0f445fcd214908a",
+      "events": 5,
+      "receipt": {
+        "status": "已提交",
+        "diary_id": "09cf0bb7-21c9-4f30-bba9-920043d6ffef",
+        "organized_id": "f61a5081-0309-4d1d-b705-09e4c9271176",
+        "task_id": "0d097ee6-a34d-4465-a82f-f9dd06ecaa82",
+        "events": 5,
+        "structured_revision": 1
+      }
+    },
+    {
+      "date": "2026-10-22",
+      "diary_id": "d12d4bb1-5394-4ad6-861a-c85ce455872c",
+      "manuscript_sha256": "ad9585e2760029fe3cc96da6211d4add64a98760fe3650e3de16679ebcc65afb",
+      "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-10-22/入库包-用户统一确认20261023.json",
+      "status": "已提交",
+      "confirmation_sha256": "c470c17484ebaef5e62f0ea3f1dae67c67140db3359531930c49518ed2bba308",
+      "events": 13,
+      "receipt": {
+        "status": "已提交",
+        "diary_id": "d12d4bb1-5394-4ad6-861a-c85ce455872c",
+        "organized_id": "8ccf79f8-cd9d-4092-a1df-c6fccfc0b882",
+        "task_id": "5d9db131-4a3d-4c60-8185-ffe6dabfb83f",
+        "events": 13,
+        "structured_revision": 1
+      }
+    }
+  ]
+}

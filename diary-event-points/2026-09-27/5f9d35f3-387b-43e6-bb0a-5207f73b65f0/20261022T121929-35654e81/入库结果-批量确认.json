@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-27",
+  "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-09-27/5f9d35f3-387b-43e6-bb0a-5207f73b65f0/20261022T121929-35654e81/入库包-批量确认-20261022T144852.json",
+  "task_id": "866e22e4-e44f-47b4-8c95-ba7890990858",
+  "run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+  "task_status": "SUCCEEDED",
+  "run_status": "POINTS_READY",
+  "current_step": null,
+  "error_code": null,
+  "events": 3,
+  "candidate_points": 9,
+  "vectors": 9,
+  "reused_vectors": 0,
+  "stored_points": 9,
+  "stored": true
+}

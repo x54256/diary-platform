@@ -1,0 +1,251 @@
+{
+  "package_sha256": "a39fc8c7f5b08f1c9dd775f6e7ff4304394d2f7a43e92bafbb7821ea08e6c908",
+  "results": [
+    {
+      "pair_id": "P-38edba245c9c8267",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "产品协同与伴侣将建议当指责的两次经历不同。"
+    },
+    {
+      "pair_id": "P-6633575d6ad4cc88",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "发布会讨论没有被表达为同事看书启发学习的原因。"
+    },
+    {
+      "pair_id": "P-5cd5886667aca532",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "观看发布会未引用平台荒废或恢复动力的具体经历。"
+    },
+    {
+      "pair_id": "P-e4be382a070cdb66",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "公司文化的泛指开会少发言没有定位9月3日指标会议。"
+    },
+    {
+      "pair_id": "P-69c083c1b08c0722",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "发布会与牙痛就诊无具体联系。"
+    },
+    {
+      "pair_id": "P-aa2b452970f7b555",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "产品协同与伴侣争吵复盘无具体联系。"
+    },
+    {
+      "pair_id": "P-fc6a627aca8521dc",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "国家体制讨论未定位引用李克强朋友的具体访谈。"
+    },
+    {
+      "pair_id": "P-2e8f1e81941a35fe",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "发布会与水牙线洗牙安排无具体联系。"
+    },
+    {
+      "pair_id": "P-170329445e832f8e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "同事工时聊天未报告江西部署交接的新状态。"
+    },
+    {
+      "pair_id": "P-dd345b2b9cd5122e",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E011",
+        "target_event": "E013",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "脚碰枕头引起争吵后，我发出当晚录音，小廖向ChatGPT询问并发来分析截图，两人继续复盘和讨论。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天晚上遛完狗回家，我把脚放到颂梅的枕头上。她嫌我的脚脏，说我弄脏了她的枕头，让我换被单。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "昨天我让她学学非暴力沟通，再复盘那次争吵。那晚聊天时我录了音，她想用录音复盘，让我发给她，我就发了。不过她昨天只简单看了四步法，没有真正复盘。今天出门遛狗前，我又提醒她趁我遛狗时复盘。\n\n她后来问了 ChatGPT，让它分析那次对话，发了几张截图给我，我们又一起讨论这些分析。"
+          }
+        ]
+      },
+      "reason": "双方明确同一次枕头争吵，新动作是发录音、询问和共同复盘。"
+    },
+    {
+      "pair_id": "P-5a3dfc6161ad28b6",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "枕头争吵不同于擦脚视频和涂药争执，复盘未定位后二者。"
+    },
+    {
+      "pair_id": "P-60dea8c9702bbe7c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "同事工时与江西需求看不明白不是同一具体问题的新进展。"
+    },
+    {
+      "pair_id": "P-c48e0618ce0e2a3f",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E007",
+        "target_event": "E015",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前打算恢复心理学课后，又形成利用居家办公空闲学习普通心理学、减少玩僵尸时间的具体安排。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下周准备继续看心理学课、做瑜伽。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "现在既然在家，正好可以学习普通心理学，不要把时间浪费在打僵尸上。"
+          }
+        ]
+      },
+      "reason": "同一课程恢复任务形成更具体时间场景安排，不写成已落实。"
+    },
+    {
+      "pair_id": "P-cea5485b06127067",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "居家学习安排与牙痛就医无具体联系。"
+    },
+    {
+      "pair_id": "P-9a5259ad48fbe9f8",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "学普通心理学与伴侣复盘非暴力沟通并非同一具体练习。"
+    },
+    {
+      "pair_id": "P-67cb1b35c3c6c3ce",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "后文仍玩僵尸并谈利用空闲，但未定位9月9日等AI开发的具体经历或该游戏的新结果。"
+    },
+    {
+      "pair_id": "P-86b7ef8b807c9061",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E009",
+        "target_event": "E015",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "普通心理学课程已初步恢复但未进入正轨后，又想到利用居家办公空闲继续整理笔记和看视频。",
+        "source_evidence": [
+          {
+            "point_no": 4,
+            "quote": "这两天我重新开始看普通心理学课程，不过还没有进入正轨。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "完全可以用这些时间学普通心理学，继续整理笔记、看视频，学自己想学的东西。"
+          }
+        ]
+      },
+      "reason": "同一具体课程有新的时间安排，保留设想。"
+    },
+    {
+      "pair_id": "P-636dae51e3cbd757",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "恢复课程运动计划与牙痛无具体联系。"
+    },
+    {
+      "pair_id": "P-d783afc5512db24e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "伴侣复盘没有引用日记平台整理成本或恢复动力。"
+    },
+    {
+      "pair_id": "P-b3f9c3d2100ce9dc",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "指标数据梳理与牙痛无具体联系。"
+    },
+    {
+      "pair_id": "P-8602d7ff75a621e1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "伴侣争吵复盘与江西指标问题无具体联系。"
+    },
+    {
+      "pair_id": "P-67dca4a8fabe77f3",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "玩游戏手腕疼与牙痛是不同身体事项。"
+    },
+    {
+      "pair_id": "P-487113e6a5c06e37",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "暂缓洗牙的回忆指向9月1日前的讨论，不能定位为当天牙痛就诊。"
+    },
+    {
+      "pair_id": "P-62cbd1eb6b16f6c3",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "等AI打游戏与牙痛无具体联系。"
+    },
+    {
+      "pair_id": "P-3c385ad2488ac53b",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E006",
+        "target_event": "E016",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前想找时间做咬合垫，随后把计划具体到下周一去修复科。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "我觉得，防止睡觉磨牙的咬合垫，也要找时间做一下。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 5,
+            "quote": "下周一准备去修复科做一下咬合垫，应该就是这样。"
+          }
+        ]
+      },
+      "reason": "相同医疗事项从笼统找时间到具体科室和时间的新安排。"
+    },
+    {
+      "pair_id": "P-8c1a65e328ce3577",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E013",
+        "target_event": "E006",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "复盘伴侣争吵、讨论激动时暂停谈话时，我举出此前把洗牙讨论推迟到九月一号的经历。",
+        "source_evidence": [
+          {
+            "point_no": 11,
+            "quote": "我举了自己之前暂缓讨论洗牙的例子：“我现在不想讨论洗牙的问题，咱们定到 9 月 1 号或者往后面再定。”"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "上个月谈这个，我一想就烦，不想近期再谈，便说：“咱们换一个时间点，你设个提醒，到时候再讨论。”她设在九月一号。"
+          }
+        ]
+      },
+      "reason": "相同洗牙讨论延期及日期可定位，方向是复盘条目提及旧安排。"
+    }
+  ]
+}

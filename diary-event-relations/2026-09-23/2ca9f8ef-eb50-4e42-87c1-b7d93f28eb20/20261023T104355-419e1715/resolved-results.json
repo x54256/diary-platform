@@ -1,0 +1,475 @@
+{
+  "package_sha256": "5cc578a7990407e1b7f2e94ac991f669b92592a0c8e8c29d74ad06324ae7d185",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "5cc578a7990407e1b7f2e94ac991f669b92592a0c8e8c29d74ad06324ae7d185",
+    "verified_at": "2026-10-23T02:44:56.998313+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-10436897e87768a2",
+      "event_a_id": "1e8bba57-0712-4752-98f3-0643612d5b04",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "老梁认知视频未被豆包式方法总结具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-12607f3bfa887cab",
+      "event_a_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "平台恢复障碍是人工整理成本，当前机制设想未具体对应解决该成本问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1404196e34d5aee1",
+      "event_a_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "NO_RELATION",
+      "reason": "学心理学的目的与多邻国打卡是不同学习事项，正面反馈主题不足以连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1ac4d38f2a048f3a",
+      "event_a_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "共情原则相似，但母亲医疗回应未具体回顾枕头争吵复盘。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1af3f12d199f3784",
+      "event_a_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+      "event_a_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "event_b_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "RELATED",
+      "reason": "明确“按昨天想法”及相同策略，未报告该策略已执行。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "反思与母亲的医疗话题争执时，回顾昨天形成的先顺着、再引导的沟通想法。",
+        "source_event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+        "source_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "按昨天想法，别总讲，先附和，能引导就引导",
+            "point_id": "d3778fb3-1891-4b30-9e11-c51b19d277ce",
+            "point_event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 135,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5b7ecb464112e1f81df296134c35457d83a4fabb76766384c7beecb9d133d706"
+          }
+        ],
+        "target_event_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+        "target_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "既然没用还不愉快，干脆换方式，先顺着。",
+            "point_id": "9a907c4f-9bef-4059-9a5e-3cbd77d0b4b4",
+            "point_event_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+            "point_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+            "offset": 186,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5f5b43639e46cf50ba5d44fb6d31bde873b332c5e37a38f5e4c2178dd5c621f6"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-22081b86a14333df",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "多邻国机制与离职沟通没有具体互相触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-249b25fc921319a7",
+      "event_a_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "9月20日让母亲问AI与本次总结昨天争吵不是同一次对话，未报告前一通话的新结果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3f8677097bfe8136",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵与母亲豆包式回应不同对象、不同事件。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4728fe90dcce94c2",
+      "event_a_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "家务积压与母亲电话是不同事件。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-61503a7f9f1b5d90",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "母亲就医共情例子与伴侣离职不同，不借第三个母亲电话补因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6c50b104b2836c60",
+      "event_a_id": "2400213a-5465-4b1d-9b11-7290d5161266",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "香蕉售后与伴侣离职沟通不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6e8bef0795694551",
+      "event_a_id": "1e8bba57-0712-4752-98f3-0643612d5b04",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "劝母亲看病的旧认知感悟与昨天生育后有病不治争执不是同一次对话，未具体回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7571b67b04c38315",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "家务积压与离职压力是不同争执，未引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-83c5dcb98f5c9fb9",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "同用非暴力沟通不足以定位为枕头复盘的具体后续执行。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9171ee82066e2fba",
+      "event_a_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "RELATED",
+      "reason": "相同英语打卡有新的连续天数与行动反馈。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前早晨英语打卡已坚持几天，后来看到多邻国连续七天记录，受到鼓励继续打卡。",
+        "source_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+        "source_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最近早上先英语打卡，已坚持几天",
+            "point_id": "96f66b6f-3792-4c4a-89d9-6323738f4ee0",
+            "point_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "47efde837cd7f971c1ed24f1b4a1a8aad98847fc79371848a3c2b05315efab37"
+          }
+        ],
+        "target_event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+        "target_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "多邻国小组件把一周打卡逐日勾出、展示连续天数，我见已七天便油然高兴，想让天数更长，就继续打卡",
+            "point_id": "74fbf687-fdea-437e-83b3-9ba61417c169",
+            "point_event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 69,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "e4b59973b9560ce5f0fa1f70da81888c3b2081a0f20567f4c2975e2f2fb2e715"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-95e679a6723439a6",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_b_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "status": "NO_RELATION",
+      "reason": "擦脚涂药争执与离职压力不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-98f3b3f991adff54",
+      "event_a_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "RELATED",
+      "reason": "同一具名学习工具从打算到持续执行。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前想到用多邻国练英语，后来已连续打卡七天，并因反馈想继续保持。",
+        "source_event_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+        "source_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "多邻国能练英语，力扣能练算法和逻辑。",
+            "point_id": "e66b234b-5c62-46d4-9195-a7ff8639809d",
+            "point_event_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 56,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "3c055008c81dff945d6c215669869e1315c441200cfaef873cdb27c3b2e6fd6e"
+          }
+        ],
+        "target_event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+        "target_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我见已七天便油然高兴，想让天数更长，就继续打卡",
+            "point_id": "74fbf687-fdea-437e-83b3-9ba61417c169",
+            "point_event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 92,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "e4b59973b9560ce5f0fa1f70da81888c3b2081a0f20567f4c2975e2f2fb2e715"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-9cf14c89a0784d50",
+      "event_a_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "多邻国机制与母亲共情回应未表达互相触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a710d42478ecb8ac",
+      "event_a_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "RELATED",
+      "reason": "同一昨天通话可定位，后续有明确反思新总结。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "昨天与母亲因生育话题争吵并带着情绪继续聊后，今天进一步总结豆包式回应。",
+        "source_event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+        "source_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天与妈妈聊生育后已经生气，本想挂，她想聊别的，我态度便不好。",
+            "point_id": "022067ea-49ee-427a-8a5f-868316a58276",
+            "point_event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "25ae083631ce657c6647b1c9dd42bf289f9f8d740c2458ec2488d65b2adf2577"
+          }
+        ],
+        "target_event_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+        "target_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天与妈妈因生育吵架，反思过可以先顺着说。今天进一步总结“豆包式回应”",
+            "point_id": "8c8eb5aa-d5a5-4cc9-b517-68c102f1c18a",
+            "point_event_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "6c988c242df49267d005267a01e474c1ad0c4b3376e55fccdd5b2cc886595e54"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-a7a996668e686488",
+      "event_a_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+      "event_a_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "RELATED",
+      "reason": "同一策略有明确次日细化。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "昨天形成先顺着母亲的想法后，今天进一步总结先共情、再逐步引导的豆包式回应。",
+        "source_event_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+        "source_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "既然没用还不愉快，干脆换方式，先顺着。",
+            "point_id": "9a907c4f-9bef-4059-9a5e-3cbd77d0b4b4",
+            "point_event_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+            "point_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+            "offset": 186,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5f5b43639e46cf50ba5d44fb6d31bde873b332c5e37a38f5e4c2178dd5c621f6"
+          }
+        ],
+        "target_event_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+        "target_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天进一步总结“豆包式回应”：先共情，再慢慢引导对方意识到问题原因，不一上来讲大道理。",
+            "point_id": "8c8eb5aa-d5a5-4cc9-b517-68c102f1c18a",
+            "point_event_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 21,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "6c988c242df49267d005267a01e474c1ad0c4b3376e55fccdd5b2cc886595e54"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-ab615c5836ff5cac",
+      "event_a_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "老梁视频沉迷未被本次App限制具体回顾，不能凭视频主题定位同次经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-abc6add8efa7ab79",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "RELATED",
+      "reason": "两侧明确同一母亲通话影响随后伴侣沟通。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "与母亲通话后的情绪延续到回家，影响了对小廖离职压力的回应，使我直接强硬劝告而没有共情。",
+        "source_event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+        "source_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "免得回家再把情绪带到与颂梅的沟通，没能好好说。",
+            "point_id": "f59dec28-2313-40ff-8cf9-d2ccff46a3a2",
+            "point_event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 53,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "6eddf1fec1caa39847e6c5eb5c20097260d7fdd52b9f1f9fa4d93f4b3c0ed1e6"
+          }
+        ],
+        "target_event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+        "target_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨晚回家前被妈妈电话弄得不开心。",
+            "point_id": "91fc4be4-9df1-45ec-81ee-11e958a6ac15",
+            "point_event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ab194777eb26c9937539870f122cba010deabad2d207eefe0ec56b70273fc4a0"
+          },
+          {
+            "point_no": 2,
+            "quote": "因自己当时情绪差，我没共情、没引导，直接说",
+            "point_id": "cead1a27-09dd-4ba6-aa97-e4e78b1a92a6",
+            "point_event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5d328cec5b3757a8b404b73255ac1840c48353684c0c60b578be2948a38ca72a"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-f26ac0074c9968fc",
+      "event_a_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "9月20日催生劝学与昨天生育后医疗争执不是同一通话，没有具体引用旧通话。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fdac9f3e4b5d32e9",
+      "event_a_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "多邻国打卡与母亲医疗争执无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fe3ae7a8aba6c96f",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵与此次离职压力不同，未回顾同一次争吵。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ff6c812e0f3605ed",
+      "event_a_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "深呼吸等方法相同不足以把母亲电话定位为枕头复盘后续。",
+      "relation": null
+    }
+  ]
+}

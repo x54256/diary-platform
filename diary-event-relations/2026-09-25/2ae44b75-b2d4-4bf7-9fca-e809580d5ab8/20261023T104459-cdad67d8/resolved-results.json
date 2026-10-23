@@ -1,0 +1,1773 @@
+{
+  "package_sha256": "f870f19e52538592f8a25f41dcd20ebc989503934dde6b87514f5af2d9efadc5",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "f870f19e52538592f8a25f41dcd20ebc989503934dde6b87514f5af2d9efadc5",
+    "verified_at": "2026-10-23T02:47:02.859992+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-000a2b19d31e6781",
+      "event_a_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "RELATED",
+      "reason": "两侧直接支持具体演唱会安排与出行冲突，不把盘点情绪写成原因。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "消费盘点里记录的汪苏泷演唱会安排，也成为国庆回乡计划受阻的行程因素之一。",
+        "source_event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+        "source_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "汪苏泷香港两张票花很多，又买到十月二日广州票还要看，三日又去桂林。",
+            "point_id": "934b8723-a12e-47bf-88e3-2dee737b2bc2",
+            "point_event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 129,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "e3b284003e970e5672d9c5a93a4b270bd4afb8365a6b5e288ec9abcdab5fe139"
+          }
+        ],
+        "target_event_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "可她又看汪苏泷演唱会，下周一还帮朋友领证拿东西搭手，就没法回，先放着。",
+            "point_id": "f6b4122a-7dfa-43f6-8f63-fc2b13fc40d9",
+            "point_event_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 75,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "e03afeb67d5eedb8d33ac097be371aae833d0931650f0936ae1f76346011576b"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-02520e2ac56ec52c",
+      "event_a_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "做排骨与指标填报不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-027a3d77de2c2920",
+      "event_a_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "日记平台设想与指标填报不同项目。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-056200a19ccff384",
+      "event_a_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "按摩不适未被列入近期支出或催查资产的依据。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-059dbf416084f3c7",
+      "event_a_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "be91b8cd-9f00-49f9-a413-964d816ea815",
+      "event_b_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "status": "NO_RELATION",
+      "reason": "旧二沙岛找狗与本次罚款不是同一天，不能借本次找狗事件间接连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-067ef5f27c6c00fa",
+      "event_a_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "度假没有被说成按摩不适的治疗或恢复安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0c0f40b1d812c18c",
+      "event_a_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "周三罚款与周四按摩不同外出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0d95da3d3e0dd5c1",
+      "event_a_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "回乡与平台限制无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0e8bbe38523965f3",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "RELATED",
+      "reason": "相同送大学新生笔记本开支被具体回顾并纳入触发盘点的支出；负资产只是本人估计。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "给上大学的亲戚送笔记本的支出，被纳入近期消费盘点，促使我打算提醒小廖再核算资产。",
+        "source_event_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+        "source_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "小廖舅舅二女儿上大学，小廖妈妈让她送笔记本。",
+            "point_id": "d1840540-420d-4c87-b10c-79f75fa8e483",
+            "point_event_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "8e9ff47bd90af509f121cea0daaa8a2d28c694ea4bf6b727d62b72f79387fe72"
+          }
+        ],
+        "target_event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "前阵给上大学的妹妹送笔记本也花不少。",
+            "point_id": "934b8723-a12e-47bf-88e3-2dee737b2bc2",
+            "point_event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 71,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "e3b284003e970e5672d9c5a93a4b270bd4afb8365a6b5e288ec9abcdab5fe139"
+          },
+          {
+            "point_no": 3,
+            "quote": "算过这些开销，我感觉她应该已是负资产。回去想问问，让她查资产",
+            "point_id": "3f968703-f076-48db-b1d8-b140b873b313",
+            "point_event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "82348328be2524a7ebe736d0ff94175946d70c34ac57b2e6eb070cfdd46670bd"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-10196d8720191d14",
+      "event_a_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "多邻国限制设想未明确执行每日新闻英语作息安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-10c107b6e8c83420",
+      "event_a_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "今天遛狗准备与周三找狗不同，未引用找狗或报告执行少放开。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-13cfa3c647ccf506",
+      "event_a_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "回乡与伴侣补觉无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-15fa2bfe518aa6e6",
+      "event_a_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "限制应用使用未被说用于控制伴侣消费。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1947b85652f693ec",
+      "event_a_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "罚款与指标填报不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1a05c24ba02aae89",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "2400213a-5465-4b1d-9b11-7290d5161266",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "香蕉售后与叮咚关闭、朴朴优惠不同平台不同订单。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1a092f02c514a323",
+      "event_a_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "RELATED",
+      "reason": "同一周三的功能发现和原设想，没有新实施阶段。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "9月25日回顾周三发现多邻国使用限制功能，并重述借鉴到日记平台日程的想法。",
+        "source_event_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+        "source_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "周三发现多邻国限制其他应用的功能，觉得将来可放到日记管理平台，与日程结合。",
+            "point_id": "d50b9d76-22c1-41d2-bccb-cebc2f703c65",
+            "point_event_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "07453bebcc08e4dcb4ccf52d1afd7c8d35a56b3431e9e8add66739b2b368d1b4"
+          }
+        ],
+        "target_event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+        "target_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "刚发现多邻国还能限制其他 App，打卡后才能用指定软件，我选了 pvz2、B 站、YouTube。",
+            "point_id": "2feafe4f-0ce4-442d-a09e-a08715d6154b",
+            "point_event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "9abc26057da27edde79bbc59917b71c8adc7164ad1549c2579e9cd9614d74ad8"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-1d0b44b6181d91ba",
+      "event_a_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "工作受阻与清远度假无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1d918ba84276563d",
+      "event_a_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "肝睡眠计划属于本人，早醒补觉属于伴侣，不能合并作息。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1f75d439b668ceaa",
+      "event_a_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "de174c23-aa0c-4464-8705-b7809ee53072",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "多多夜间跑酷与骑车罚款不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-25830ca90116a53c",
+      "event_a_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "旧采购游戏与周三找狗不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-284c83d4e12e4d40",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "换买菜平台与找狗无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2b442c3af828823e",
+      "event_a_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+      "event_b_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "status": "NO_RELATION",
+      "reason": "回乡未引用父母先顺着的沟通策略。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2c3ecf95d9eca324",
+      "event_a_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "英语力扣学习计划与日记平台App限制不是同一功能实施。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2df2ad585d871a2d",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "RELATED",
+      "reason": "双方独立支持同一器具与新完成结果。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前想找时间做磨牙咬合垫，后来已拿到做好的垫。",
+        "source_event_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "防止睡觉磨牙的咬合垫，也要找时间做一下。",
+            "point_id": "b4b430f7-a20f-421f-aa23-9df3113d8ee5",
+            "point_event_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 4,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ba10eca772b4b53262536a645ec72db8b46169d19b31fc5c37a856ebedf4d185"
+          }
+        ],
+        "target_event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "周三早上去口腔医院拿之前做好的咬合垫",
+            "point_id": "4f8ba310-cc68-497f-a845-e0f8c8e35e1b",
+            "point_event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "cfe8eeb4e5a803781020b09109fbf8b0f63675b48ae473c932e40feae46f498a"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-2e0feeed69942127",
+      "event_a_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "be91b8cd-9f00-49f9-a413-964d816ea815",
+      "event_b_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "status": "NO_RELATION",
+      "reason": "两次二沙岛找狗日期不同，现次明确周三且有修灯，旧次9月11日，不把相似经历合并。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2eb40a60b87f7fde",
+      "event_a_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "RELATED",
+      "reason": "同一具体财务盘点事项出现新估计和再次核算安排，不把估计当真实余额。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前提醒小廖盘点存欠款、得到仍有结余的反馈，后来又因盘算近期支出打算再次提醒核算资产。",
+        "source_event_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+        "source_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "她查后说还有些结余，我说那就行，自己留意、悠着花。",
+            "point_id": "90686eb9-4d23-4a78-849b-7c322f85e842",
+            "point_event_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 138,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b92e3745e85eefb39fc07aadb5f9a0665c773786a73b48f2c75308ace5bec2cd"
+          }
+        ],
+        "target_event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "target_evidence": [
+          {
+            "point_no": 3,
+            "quote": "算过这些开销，我感觉她应该已是负资产。回去想问问，让她查资产，自己看清后悠着花。",
+            "point_id": "3f968703-f076-48db-b1d8-b140b873b313",
+            "point_event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "82348328be2524a7ebe736d0ff94175946d70c34ac57b2e6eb070cfdd46670bd"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-31f69fbc868c748e",
+      "event_a_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "KTV条目回顾9月11日遛狗，并非9月23日修灯找狗。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-33fc9353f1904df9",
+      "event_a_id": "28fc02fd-cda6-4455-b02f-e4d83bb061fa",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "江西部署与指标填报梳理不同功能。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3605b9011de142c2",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "口腔取件与骑车罚款不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-36a412ace517beaf",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "取垫与大屏Excel导入不同；旧开发条目提的是制作当天，不能直接当本次取件。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4797738b84b46059",
+      "event_a_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "583be2e0-acbb-4132-b348-171b63f8f173",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "烤鸡翅与买排骨不同餐食，没有明确后续计划引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4c12dfcd1d2bc8b6",
+      "event_a_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "90072bec-a536-4325-964e-c8b22a30680e",
+      "event_b_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "status": "NO_RELATION",
+      "reason": "回乡计划未表达因老陆病情或父亲检查而变化。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4e39ce3e2d0d3d55",
+      "event_a_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "工作需求受阻与伴侣支出无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-52802e563a57e7ef",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "亲戚聚餐安排与中秋父母聚餐不是同一饭局。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-582819a67872c50a",
+      "event_a_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "RELATED",
+      "reason": "相同前一晚按摩出行可定位；做饭不是按摩治疗后续。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "今天买排骨做饭时，回忆昨晚颂梅送我去按摩、自己去打卡途中的菜香。",
+        "source_event_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+        "source_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨晚她骑车送我去按摩、自己去打卡，路过一家说饭菜香",
+            "point_id": "6f42a73e-5e70-4ab6-b1c9-4f649cb94752",
+            "point_event_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "194f521d78fea23edd6862fd475e9aeccc63b6692f7568a98c48f98aa9e31e6d"
+          }
+        ],
+        "target_event_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "周四脖子疼连着头痛，晚上找一直去的师傅按摩。",
+            "point_id": "e05760a2-adc5-45b6-bf36-df6c4ebf7671",
+            "point_event_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 36,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "197fc59a2ecb6933a0ebb2695fe1805f3fd98e6c66abe5587f1d66e847925f6d"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-5a8b4b41c8f448f5",
+      "event_a_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "罚款与早醒补觉不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5b45d67f232607d8",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "买排骨没有说明通过朴朴购买或受叮咚关闭影响。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5c2ba78dfb5d15e9",
+      "event_a_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "90072bec-a536-4325-964e-c8b22a30680e",
+      "event_b_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "status": "RELATED",
+      "reason": "同一父亲检查安排有新的临近提醒，仍未称已检查。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "用老陆病例催父亲并讨论中秋周末就医后，中秋当天又打算提醒父亲明天早去检查。",
+        "source_event_id": "90072bec-a536-4325-964e-c8b22a30680e",
+        "source_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "爸爸也受触动说准备去，原说十一。妈妈问中秋能否去，我说周五中秋放假，周六日就去",
+            "point_id": "adbe65bd-69f5-46d5-bf35-33d1c07e1dd3",
+            "point_event_id": "90072bec-a536-4325-964e-c8b22a30680e",
+            "point_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+            "offset": 30,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "d385d5ac16d6df586fbd6f638eec8fcccbbbf3bef7c088cb26e36786f627f9e2"
+          }
+        ],
+        "target_event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "准备打电话问候自己爸妈，顺便提醒爸爸明天早点去医院检查、别忘了。",
+            "point_id": "3d16ea11-bb2a-4ba6-b53c-09e93b3c8917",
+            "point_event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 16,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5d2d23f804809968da418d863c65f5b4b4f2e8f1c20af071a2fac441d351ca3c"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-60e0451b9e3b90ef",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "中秋出游与换买菜平台无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-62d45c84b89f6a36",
+      "event_a_id": "310a73d8-4ad8-4fd0-a73e-2201eea0c991",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "RELATED",
+      "reason": "同一具名指标填报功能有新的需求确认结果。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前讨论指标填报方案却未明确开展时间，后来继续梳理需求并确认尚缺原型、数据和模板。",
+        "source_event_id": "310a73d8-4ad8-4fd0-a73e-2201eea0c991",
+        "source_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下午开会讨论指标填报技术方案，我最后问什么时候做，仍没弄清。",
+            "point_id": "23dc18af-3531-552a-a2ef-3fe399de4724",
+            "point_event_id": "310a73d8-4ad8-4fd0-a73e-2201eea0c991",
+            "point_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "57c90ba3b08ba750deec1a251ee39a997e8eb70a6f41611c32786353a2175aa7"
+          }
+        ],
+        "target_event_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "借 AI 梳理指标填报需求，与需求人员开会确认问题，但原型、数据及导入导出模板都没提供、确定，无法真正推进。",
+            "point_id": "850ad7c5-3888-4b69-af4d-919dccae5b74",
+            "point_event_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 37,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "a64c733d74599be98a58bc192057af6e0d3e2e951a6a74a8ca04a37fbe825af6"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-63e6e8ecb58a7c02",
+      "event_a_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "UNRESOLVED",
+      "reason": "9月12日餐厅记“好像福建菜”、七百多并打算转钱；本次说“贵阳菜还是什么”、欠七百饭钱，金额和转款相近但餐厅描述不同，需确认是否同一顿。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6447db8ad22a6eb3",
+      "event_a_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "回乡与图谱三步不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-65da988e3d9ddc58",
+      "event_a_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "回乡与本人按摩不适无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-672ee27b05741b0d",
+      "event_a_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "清远度假未被表述为回乡探亲的替代，目的地和事项不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-68a4f6c101432ecb",
+      "event_a_id": "583be2e0-acbb-4132-b348-171b63f8f173",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "伴侣早醒与本人先前烤鸡翅无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6f6a4bcc31f8aa09",
+      "event_a_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "RELATED",
+      "reason": "同次明确接续外出，没有把别日找狗串入。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "周三找到哒哒后继续同次二沙岛遛狗行程，骑车带人途中被罚五十元。",
+        "source_event_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+        "source_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "颂梅打卡回来电话说狗在她那。",
+            "point_id": "240c0199-6133-4678-807c-3bb5f76592db",
+            "point_event_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 73,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b81f7d9e32c325f65bd9de631edb33590946c0cb87c37da68d43f45683cedb73"
+          }
+        ],
+        "target_event_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "找到哒哒后，我们骑车去二沙岛医院后步行道继续遛。路上碰警察，以前不抓带人，当天突然抓，罚五十元。",
+            "point_id": "6f41fb0f-e01e-4819-9126-6c314d89189b",
+            "point_event_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "704ae91001fbb14facce1c8a0604d0aa427366a386afbf658c9e716737a3424a"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-71c88663a2cd1852",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "早醒玩手机与枕头争吵不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-746bf74bb84f5014",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "买菜软件与按摩不适不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7473fc4e2845d47b",
+      "event_a_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "带宠物度假未引用此次夜间找狗或因此采取措施。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-785fc528da9749b4",
+      "event_a_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "RELATED",
+      "reason": "双方明确同一中秋十一十三天安排，出现具体回乡方案搁置的新状态。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前考虑结合离职把中秋和十一连成十三天，后来在回乡方案中因票价和行程冲突搁置这一长假出行打算。",
+        "source_event_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+        "source_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "若中秋前离职，便可中秋连十一，合十三天。",
+            "point_id": "d8aa9040-0b6c-432b-b972-bf36500bc2a8",
+            "point_event_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 14,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "3e06f700a88ac74bdb68264f1492414c0290b487ebd3f799473f90b8cbaa5988"
+          }
+        ],
+        "target_event_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "若把中秋国庆接起、请三天假连待十三天，我觉得可以；可她又看汪苏泷演唱会，下周一还帮朋友领证拿东西搭手，就没法回，先放着。",
+            "point_id": "f6b4122a-7dfa-43f6-8f63-fc2b13fc40d9",
+            "point_event_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 50,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "e03afeb67d5eedb8d33ac097be371aae833d0931650f0936ae1f76346011576b"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-79b74c4fe14fbd12",
+      "event_a_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "中午炒菜与今天腌排骨不同餐食。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7a9ec1c879661372",
+      "event_a_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "排骨与App使用限制无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7be22fddc64826ed",
+      "event_a_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+      "event_b_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "status": "NO_RELATION",
+      "reason": "中秋问候父母未定位先顺着策略的实际执行。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7f8ed8d76b2a0123",
+      "event_a_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "罚款与排骨做饭无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-82693b7ca97dc38a",
+      "event_a_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "App限制与找狗无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-860646649a968c17",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "平台App限制与买菜软件问题不是同一功能。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-87b1c00b8407b68c",
+      "event_a_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "5c18836c-b4cf-47aa-886b-7f91c84f9bef",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "陪牙周清洁与买排骨不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-897832b33ec35f24",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "5c18836c-b4cf-47aa-886b-7f91c84f9bef",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "取垫是本人，牙周清洁是伴侣，不是同一诊疗。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8f14903dbf109212",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "取件与伴侣作息无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-90c53734e623f181",
+      "event_a_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "摄影开始学习与按摩不适无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-92b2f701505aac93",
+      "event_a_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "回乡搁置与买排骨不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-93265178b718bef0",
+      "event_a_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "家务清洁烦躁与按摩后的照顾对话不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-94bfb8f41d96314e",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "取垫保险与伴侣支出盘点无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-986bee7264e59765",
+      "event_a_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "旧游戏手腕疼与按摩后头晕不是同一病程。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9d2efe131dc87e04",
+      "event_a_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "旧永旺采购与本次排骨不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9e95dcc5f22642c4",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "RELATED",
+      "reason": "相同器具制作从取模到取件。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前到修复科决定做咬合垫并完成取模，随后去医院取到做好的垫。",
+        "source_event_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+        "source_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "做时贴上颚模具有点恶心，干呕几次，完成后回家。",
+            "point_id": "c0d1faae-a8d8-4fb9-86f8-bb1fba5e3774",
+            "point_event_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+            "point_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+            "offset": 150,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "36a85c454f9553670e9c7d6de0622facf0e71e04749f5bb2f0f42a7edc3c4ac1"
+          }
+        ],
+        "target_event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "周三早上去口腔医院拿之前做好的咬合垫",
+            "point_id": "4f8ba310-cc68-497f-a845-e0f8c8e35e1b",
+            "point_event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "cfe8eeb4e5a803781020b09109fbf8b0f63675b48ae473c932e40feae46f498a"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-a2643e8078915ce5",
+      "event_a_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "fee55ed1-6696-4d61-9a50-d7163857b39a",
+      "event_b_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "status": "NO_RELATION",
+      "reason": "老陆提醒发生在先前火锅，本次按摩没有引用那场饭局。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a27cf4e9601b0bc2",
+      "event_a_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "早醒补觉与周三找狗不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a2e2151735205f89",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "取件与平台限制设想无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a3ebb9ea8a5edf3c",
+      "event_a_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "指标填报受阻未被表达为不能请假回乡的原因。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a4f4e39e21d156e9",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "583be2e0-acbb-4132-b348-171b63f8f173",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "买菜换平台与此前烤鸡翅不同采购或就餐经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a53728725c18cd42",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "口腔取件与回乡计划不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a6b2b1848521866e",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "消费盘点未列邀请券损失，不能由金钱主题连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a81b829e6349e1c9",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "买菜平台与回乡安排无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ab38936621c2fe83",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "取件与找狗无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ada1a2ed015d4499",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "旧护肤品狗粮囤积争吵与本次相机投影支出盘点不同，未明确回顾同一购买。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-afac66d8acee9587",
+      "event_a_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "设想增加平台功能与旧整理使用成本没有直接对应，不只凭同平台连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b0152ddff4aa18c0",
+      "event_a_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "旧游戏手腕疼与伴侣早醒不同主体。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b0966cb133fa15fa",
+      "event_a_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "指标填报与按摩不适不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b213ffc9988d67f2",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "旧狗粮争执与周三找狗不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b2d0de8ccdeb4a3c",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "工作条目提拿垫回家后，只有时间背景，转做工作明确因一周过半未工作，不是取件新进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b83c98840632440b",
+      "event_a_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "罚款与清远出游不同活动，未说改变出行方式。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bb732e1e1d181164",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "取件与买排骨无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bce0edb924406ab3",
+      "event_a_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "fd9aa409-84d7-4aed-bdf0-92124c4cbe84",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "本次中秋父母聚餐与9月19日午饭不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bfaa67b952067c5a",
+      "event_a_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "KTV回忆的旧遛狗不是本次罚款外出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c0be1c27a7a62315",
+      "event_a_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "罚款没有被列为回乡搁置费用原因。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c0ea50f0612bc147",
+      "event_a_id": "60253ec4-e484-41ec-993f-356ab5c3cfd8",
+      "event_a_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "event_b_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "CBB分享未定位为指标填报需求讨论的实例。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c3fdc5f82bb2198a",
+      "event_a_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "罚款情绪与App限制不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c5d0831788e27a94",
+      "event_a_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "中秋度假未表达由补觉作息引发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c6d6fb5b13412991",
+      "event_a_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "中午排骨与中秋父母晚饭不同餐食。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c753a59c1fa86f05",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "取咬合垫与买菜平台关闭无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c797d1ce9aab902e",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "取件与中秋度假不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c896af1afb8d2bcf",
+      "event_a_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵的护肤品狗粮与本次相机投影等不同支出，未明确旧争吵回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cc3b0b323a6636f9",
+      "event_a_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "fee55ed1-6696-4d61-9a50-d7163857b39a",
+      "event_b_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "status": "NO_RELATION",
+      "reason": "详妹婚事火锅与中秋父母聚餐、清远度假不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cd5ab1bd9784b415",
+      "event_a_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "中秋度假与平台限制无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cd99bc51f443286d",
+      "event_a_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "99724fcf-f62d-426a-abf4-3b86bd731340",
+      "event_b_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "status": "RELATED",
+      "reason": "同一具名工作计划实际执行。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前决定暂停心理学、拿指标填报与AI聊设计，随后转做该需求梳理并与需求人员开会确认。",
+        "source_event_id": "99724fcf-f62d-426a-abf4-3b86bd731340",
+        "source_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "准备拿指标填报与 AI 聊设计。",
+            "point_id": "46323185-35f2-56ea-a704-4b329c84c1d2",
+            "point_event_id": "99724fcf-f62d-426a-abf4-3b86bd731340",
+            "point_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+            "offset": 48,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "eea7f939947c89e4c1f051b3f322bee22f584760eff95839b994ea56e87ecb18"
+          }
+        ],
+        "target_event_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "便不继续心理学，主要处理工作。借 AI 梳理指标填报需求，与需求人员开会确认问题",
+            "point_id": "850ad7c5-3888-4b69-af4d-919dccae5b74",
+            "point_event_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 22,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "a64c733d74599be98a58bc192057af6e0d3e2e951a6a74a8ca04a37fbe825af6"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-ce981e7ae1bd7368",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "过敏或枕头争吵与周四按摩不适不同，未具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ceafb7cf0d3c9496",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "买菜换平台与罚款不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ceb92005221d3215",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "家庭学习倡议未被早醒玩手机条目明确回顾或执行。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d00a5e77f3136873",
+      "event_a_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "没有表达手机作息造成相机投影支出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d2b39cf6afea3145",
+      "event_a_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "作息观察与指标填报不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d31f6e5c54ff28a3",
+      "event_a_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "资产盘点没有列五十元罚款作依据。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d76f9189424709d8",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "8d074718-1a6e-4ae0-92e9-af44bd75c00b",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "买小龙虾时叮咚优惠没有得到赠盆，本次是站点关闭，未回顾那次订单或优惠方案。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d7e9efd4ad292610",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "取垫与颈痛按摩不同医疗事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-df916e6b90dfc566",
+      "event_a_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "未说补觉是因为昨晚照顾按摩不适，不补因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dffedd83540882cc",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "永旺采购与换买菜软件不同经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e225f992d9d17908",
+      "event_a_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "平台限制与按摩不适无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e28c06134543b4a3",
+      "event_a_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "都提今天买菜，但作息条目没有指向排骨安排的变化，仅时间相邻。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e2c5326c56d73044",
+      "event_a_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "旧下班查车辆状态未涉及本次罚款，不能仅凭骑车连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e2c6404a1d1560f0",
+      "event_a_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "买排骨未回顾枕头争吵。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e5a20bf3655e3758",
+      "event_a_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "回乡与找狗无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e5beeda2d7b0471e",
+      "event_a_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "47a3d4fb-d7fd-4c37-8554-5bf330f81c83",
+      "event_b_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "status": "RELATED",
+      "reason": "同一假期演唱会安排明确成为冲突条件，不称桂林行程本身是唯一原因。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "颂梅已有的汪苏泷演唱会安排，与票价和帮朋友婚事等因素共同使回乡计划搁置。",
+        "source_event_id": "47a3d4fb-d7fd-4c37-8554-5bf330f81c83",
+        "source_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "颂梅抢到十月二号汪苏泷演唱会票，还准备十月三号带我们去广西桂林、阳朔玩一圈",
+            "point_id": "a150209b-37ad-5629-930e-07aaafc13f26",
+            "point_event_id": "47a3d4fb-d7fd-4c37-8554-5bf330f81c83",
+            "point_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "0833c23adbf69ecb585248589533288d27249566376d4bc088776e8e368d71aa"
+          }
+        ],
+        "target_event_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "可她又看汪苏泷演唱会，下周一还帮朋友领证拿东西搭手，就没法回，先放着。",
+            "point_id": "f6b4122a-7dfa-43f6-8f63-fc2b13fc40d9",
+            "point_event_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 75,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "e03afeb67d5eedb8d33ac097be371aae833d0931650f0936ae1f76346011576b"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-e6bbc1540ac8085c",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "旧枕头争吵与买菜优惠错误不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e949d5639958c5eb",
+      "event_a_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "资产盘点未列做排骨开支，也未说为节省伴侣支出做饭。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e960bafbaa649195",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "手机作息没有定位买菜App。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ea30ff2542c9771e",
+      "event_a_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "RELATED",
+      "reason": "同一咬合垫计划出现取件结果。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前计划做咬合垫，后来取到做好的垫和病历，准备申请保险报销。",
+        "source_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+        "source_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+        "source_evidence": [
+          {
+            "point_no": 5,
+            "quote": "下周一准备去修复科做一下咬合垫，应该就是这样。",
+            "point_id": "91a89995-6c52-4609-97d2-bba29677423a",
+            "point_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+            "point_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "195ccbbf50d1ad690c61b11ec1f8dc3c161f91460fbfcfc0acb760d227e65253"
+          }
+        ],
+        "target_event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "周三早上去口腔医院拿之前做好的咬合垫，也请医生开病历并打印。",
+            "point_id": "4f8ba310-cc68-497f-a845-e0f8c8e35e1b",
+            "point_event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "cfe8eeb4e5a803781020b09109fbf8b0f63675b48ae473c932e40feae46f498a"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-eb9ed2848de2a96f",
+      "event_a_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "资产盘点未引用找狗作为消费或行动原因。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ebb6e4e538d27bce",
+      "event_a_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "缓和罚款情绪未定位为枕头争吵沟通的新实践。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f020352a303bfddd",
+      "event_a_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "RELATED",
+      "reason": "同一具金额的旅行开支被明确纳入后续担忧依据。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "这次两千多元清远度假开支被纳入伴侣近期消费盘点，并与其他支出一起促使我打算让她核算资产。",
+        "source_event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+        "source_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "订了能带猫狗的酒店、一个挺好的房间，两千多元",
+            "point_id": "2226cbd5-6d92-4c88-957a-657d10639b8c",
+            "point_event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 13,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "2c3cf9f23264f171a17f47410d0ad5da7033585e883c3961de69e01c09f416cb"
+          }
+        ],
+        "target_event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "这次旅行两千多。",
+            "point_id": "934b8723-a12e-47bf-88e3-2dee737b2bc2",
+            "point_event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 36,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "e3b284003e970e5672d9c5a93a4b270bd4afb8365a6b5e288ec9abcdab5fe139"
+          },
+          {
+            "point_no": 3,
+            "quote": "算过这些开销，我感觉她应该已是负资产。回去想问问，让她查资产",
+            "point_id": "3f968703-f076-48db-b1d8-b140b873b313",
+            "point_event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "82348328be2524a7ebe736d0ff94175946d70c34ac57b2e6eb070cfdd46670bd"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-f033f8ba1c0b2a2e",
+      "event_a_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "江西指标评估与指标填报未定位为同一具体需求，不能凭指标词建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f0d93209b6b69882",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "买菜App与指标填报需求不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f61ba61228ebb1d4",
+      "event_a_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "de174c23-aa0c-4464-8705-b7809ee53072",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "猫夜间活动与狗走远不同主体。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f7c344b99413ceb5",
+      "event_a_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "平台限制未定位老梁某次视频观看经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fb098e4e386fdb27",
+      "event_a_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "平台App限制仍是设想，未实施于伴侣早醒玩手机。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fda02461ffc25267",
+      "event_a_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "周三找狗与周四按摩时伴侣遛狗是不同外出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fe3968765722600f",
+      "event_a_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "周三夜间找狗与白天工作不同。",
+      "relation": null
+    }
+  ]
+}

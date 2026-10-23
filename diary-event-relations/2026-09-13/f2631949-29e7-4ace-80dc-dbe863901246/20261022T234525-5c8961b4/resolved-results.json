@@ -1,0 +1,43 @@
+{
+  "package_sha256": "668ff9f79e18f582e61175f516053b819480953542632859db48a6fe5e24465c",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "668ff9f79e18f582e61175f516053b819480953542632859db48a6fe5e24465c",
+    "verified_at": "2026-10-22T15:45:42.294274+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-0acce1b665fcffb4",
+      "event_a_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+      "event_a_run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "复盘 9 月 8 日争吵与压线提醒是不同经历；共同讨论防御状态不证明后者是复盘练习的执行结果或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-73cd63ee392951ac",
+      "event_a_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+      "event_b_run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+      "status": "NO_RELATION",
+      "reason": "父母沟通的 AI 设想和伴侣对压线提醒的防御反应无具体事项联系，后者也未引用该设想。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-951ffe64c57a375e",
+      "event_a_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+      "event_b_run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+      "status": "NO_RELATION",
+      "reason": "都描述把提醒当指责的模式，但 9 月 13 日以“我没压线呀”定位另一次经历，未回忆擦脚视频或涂药争执；新例子不足以证明同一具体事项的后续。",
+      "relation": null
+    }
+  ]
+}

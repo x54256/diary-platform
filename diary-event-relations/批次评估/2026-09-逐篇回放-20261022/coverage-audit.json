@@ -1,0 +1,396 @@
+{
+  "audited_at": "2026-10-22T23:43:52.549785+08:00",
+  "seconds": 0.8281054999970365,
+  "diaries": [
+    {
+      "date": "2026-09-01",
+      "diary_id": "7b2b2be1-38eb-42d8-9a20-320f64755e89",
+      "runs": 1,
+      "run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "missing_events": [
+        {
+          "id": "cdd8c172-499d-4044-ba56-b81d013a936d",
+          "event_title": "电动车倒了，头盔也一时找不到",
+          "importance": "LOW"
+        }
+      ],
+      "status": "BLOCKED",
+      "reason": "正式要点运行未覆盖全部来源事件，请先补齐缺失事件的正式要点",
+      "audit_seconds": 0.0266
+    },
+    {
+      "date": "2026-09-02",
+      "diary_id": "2eb6a94e-39b2-4502-8773-4c18ab6b7423",
+      "runs": 1,
+      "run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "missing_events": [],
+      "status": "READY",
+      "events": 2,
+      "points": 5,
+      "audit_seconds": 0.0228
+    },
+    {
+      "date": "2026-09-03",
+      "diary_id": "16ef80a9-a28b-43e5-b820-ff29cdccf58a",
+      "runs": 1,
+      "run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "missing_events": [
+        {
+          "id": "de174c23-aa0c-4464-8705-b7809ee53072",
+          "event_title": "多多白天不动，半夜却仍在上蹦下跳",
+          "importance": "LOW"
+        },
+        {
+          "id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+          "event_title": "下班买饭回家，玩游戏玩到手腕疼",
+          "importance": "LOW"
+        }
+      ],
+      "status": "BLOCKED",
+      "reason": "正式要点运行未覆盖全部来源事件，请先补齐缺失事件的正式要点",
+      "audit_seconds": 0.0142
+    },
+    {
+      "date": "2026-09-09",
+      "diary_id": "828580fd-50a7-4a15-9d80-7acfe7ec987e",
+      "runs": 1,
+      "run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "missing_events": [
+        {
+          "id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+          "event_title": "等 AI 做项目时玩植物大战僵尸",
+          "importance": "LOW"
+        }
+      ],
+      "status": "BLOCKED",
+      "reason": "正式要点运行未覆盖全部来源事件，请先补齐缺失事件的正式要点",
+      "audit_seconds": 0.0099
+    },
+    {
+      "date": "2026-09-10",
+      "diary_id": "085c0f45-8d1d-48ae-a2d3-b54da087adae",
+      "runs": 1,
+      "run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "missing_events": [],
+      "status": "READY",
+      "events": 4,
+      "points": 46,
+      "audit_seconds": 0.0671
+    },
+    {
+      "date": "2026-09-11",
+      "diary_id": "ef0c6381-b0ab-4efd-8da1-9406a5ed498f",
+      "runs": 1,
+      "run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "missing_events": [
+        {
+          "id": "be91b8cd-9f00-49f9-a413-964d816ea815",
+          "event_title": "和颂梅骑车到二沙岛遛狗，哒哒一度不见了",
+          "importance": "LOW"
+        }
+      ],
+      "status": "BLOCKED",
+      "reason": "正式要点运行未覆盖全部来源事件，请先补齐缺失事件的正式要点",
+      "audit_seconds": 0.0168
+    },
+    {
+      "date": "2026-09-12",
+      "diary_id": "d8b04229-2f04-4665-b066-77be7e6c48b7",
+      "runs": 1,
+      "run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "missing_events": [
+        {
+          "id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+          "event_title": "改约早场 KTV，赶在十点前开房唱歌",
+          "importance": "LOW"
+        },
+        {
+          "id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+          "event_title": "和颂梅去吃她之前想去的餐厅，带上哒哒",
+          "importance": "LOW"
+        }
+      ],
+      "status": "BLOCKED",
+      "reason": "正式要点运行未覆盖全部来源事件，请先补齐缺失事件的正式要点",
+      "audit_seconds": 0.0088
+    },
+    {
+      "date": "2026-09-13",
+      "diary_id": "f2631949-29e7-4ace-80dc-dbe863901246",
+      "runs": 1,
+      "run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+      "missing_events": [],
+      "status": "READY",
+      "events": 1,
+      "points": 1,
+      "audit_seconds": 0.0081
+    },
+    {
+      "date": "2026-09-14",
+      "diary_id": "e2c710d1-7fea-49ef-83a7-f738a32859d9",
+      "runs": 1,
+      "run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "missing_events": [
+        {
+          "id": "13cbd0fe-aaf1-4752-af73-6400fe0bb8cd",
+          "event_title": "开发辽宁项目合规审查模块",
+          "importance": "LOW"
+        },
+        {
+          "id": "bf06326d-92cf-4238-9a88-da0d645092cb",
+          "event_title": "修复广州云服务分层分级页面数据库入库问题",
+          "importance": "LOW"
+        },
+        {
+          "id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+          "event_title": "修复江西导入Excel数据报错",
+          "importance": "LOW"
+        },
+        {
+          "id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+          "event_title": "通关植物大战僵尸2简单模式",
+          "importance": "LOW"
+        }
+      ],
+      "status": "BLOCKED",
+      "reason": "正式要点运行未覆盖全部来源事件，请先补齐缺失事件的正式要点",
+      "audit_seconds": 0.0082
+    },
+    {
+      "date": "2026-09-15",
+      "diary_id": "b8bc5707-d4b4-48f7-85bc-faa103e2fac8",
+      "runs": 1,
+      "run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "missing_events": [
+        {
+          "id": "45bf44d7-c4eb-4f84-9c1b-6ac4eb6cd166",
+          "event_title": "推进江西三线监测的修改",
+          "importance": "LOW"
+        },
+        {
+          "id": "310a73d8-4ad8-4fd0-a73e-2201eea0c991",
+          "event_title": "讨论指标填报的技术方案",
+          "importance": "LOW"
+        },
+        {
+          "id": "edf693f2-900d-4848-8f13-ca815ca0d139",
+          "event_title": "晚饭吃大骨头，后牙塞得厉害",
+          "importance": "LOW"
+        },
+        {
+          "id": "23c145bd-8435-40b2-92e1-023b76daa7f1",
+          "event_title": "今晚想早点休息，也不想再一直拖到明天",
+          "importance": "LOW"
+        },
+        {
+          "id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+          "event_title": "准备限制游戏和 YouTube 的使用",
+          "importance": "LOW"
+        }
+      ],
+      "status": "BLOCKED",
+      "reason": "正式要点运行未覆盖全部来源事件，请先补齐缺失事件的正式要点",
+      "audit_seconds": 0.0062
+    },
+    {
+      "date": "2026-09-17",
+      "diary_id": "d5637812-eced-45c3-b54b-942088325564",
+      "runs": 1,
+      "run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "missing_events": [
+        {
+          "id": "8d074718-1a6e-4ae0-92e9-af44bd75c00b",
+          "event_title": "小廖中午做了三斤小龙虾",
+          "importance": "LOW"
+        },
+        {
+          "id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+          "event_title": "江西数据工作准备明早再和同事对一下",
+          "importance": "LOW"
+        }
+      ],
+      "status": "BLOCKED",
+      "reason": "正式要点运行未覆盖全部来源事件，请先补齐缺失事件的正式要点",
+      "audit_seconds": 0.0065
+    },
+    {
+      "date": "2026-09-18",
+      "diary_id": "bf1a3a0f-75c6-4466-b33c-1a5cdeaf2631",
+      "runs": 1,
+      "run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "missing_events": [
+        {
+          "id": "aad8dc74-c788-4f21-80b4-51472a8cccad",
+          "event_title": "处理江西新数据表设计与数据库开发",
+          "importance": "LOW"
+        }
+      ],
+      "status": "BLOCKED",
+      "reason": "正式要点运行未覆盖全部来源事件，请先补齐缺失事件的正式要点",
+      "audit_seconds": 0.006
+    },
+    {
+      "date": "2026-09-19",
+      "diary_id": "f7719c11-fdd5-41f9-ac64-37dddb6290e0",
+      "runs": 1,
+      "run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "missing_events": [
+        {
+          "id": "51378961-204a-4566-8930-5d28c65abb8f",
+          "event_title": "昨晚用投影看《星际穿越》",
+          "importance": "LOW"
+        },
+        {
+          "id": "fd9aa409-84d7-4aed-bdf0-92124c4cbe84",
+          "event_title": "去小廖爸妈家吃午饭",
+          "importance": "LOW"
+        },
+        {
+          "id": "5c18836c-b4cf-47aa-886b-7f91c84f9bef",
+          "event_title": "陪颂梅清洁牙周，顺路买东西",
+          "importance": "LOW"
+        },
+        {
+          "id": "583be2e0-acbb-4132-b348-171b63f8f173",
+          "event_title": "放弃买炸物，自己烤鸡翅和地瓜",
+          "importance": "LOW"
+        }
+      ],
+      "status": "BLOCKED",
+      "reason": "正式要点运行未覆盖全部来源事件，请先补齐缺失事件的正式要点",
+      "audit_seconds": 0.0064
+    },
+    {
+      "date": "2026-09-20",
+      "diary_id": "d7c7de3e-a68f-4b8c-8538-30d88da0d0cf",
+      "runs": 1,
+      "run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "missing_events": [
+        {
+          "id": "34967156-9666-431a-8e0b-504a0b015ae5",
+          "event_title": "查看日志中心和消息中心对接文档",
+          "importance": "LOW"
+        }
+      ],
+      "status": "BLOCKED",
+      "reason": "正式要点运行未覆盖全部来源事件，请先补齐缺失事件的正式要点",
+      "audit_seconds": 0.0093
+    },
+    {
+      "date": "2026-09-20",
+      "diary_id": "fa916775-76aa-4701-883d-c4267cf2bc97",
+      "runs": 0,
+      "status": "BLOCKED",
+      "reason": "没有正式事件要点运行",
+      "audit_seconds": 0.0
+    },
+    {
+      "date": "2026-09-22",
+      "diary_id": "27bcda57-db3f-4c72-a345-e71ba8997ac8",
+      "runs": 1,
+      "run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "missing_events": [
+        {
+          "id": "99724fcf-f62d-426a-abf4-3b86bd731340",
+          "event_title": "继续学习视觉过程，也该把时间转回工作",
+          "importance": "LOW"
+        },
+        {
+          "id": "fee55ed1-6696-4d61-9a50-d7163857b39a",
+          "event_title": "大雨里出门，和详妹吃牛肉火锅",
+          "importance": "LOW"
+        },
+        {
+          "id": "a06ad927-792e-4c51-ae88-b64700f4e187",
+          "event_title": "准备抢刘德华香港跨年演唱会的票",
+          "importance": "LOW"
+        },
+        {
+          "id": "c6c7963f-6db3-423b-90c8-932e99640dd5",
+          "event_title": "考虑暂停 ChatGPT 订阅，先用公司的 coder",
+          "importance": "LOW"
+        },
+        {
+          "id": "47a3d4fb-d7fd-4c37-8554-5bf330f81c83",
+          "event_title": "颂梅安排十一看演唱会和桂林、阳朔出游",
+          "importance": "LOW"
+        }
+      ],
+      "status": "BLOCKED",
+      "reason": "正式要点运行未覆盖全部来源事件，请先补齐缺失事件的正式要点",
+      "audit_seconds": 0.0079
+    },
+    {
+      "date": "2026-09-23",
+      "diary_id": "2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20",
+      "runs": 1,
+      "run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "missing_events": [],
+      "status": "READY",
+      "events": 4,
+      "points": 11,
+      "audit_seconds": 0.0198
+    },
+    {
+      "date": "2026-09-25",
+      "diary_id": "2ae44b75-b2d4-4bf7-9fca-e809580d5ab8",
+      "runs": 1,
+      "run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "missing_events": [],
+      "status": "READY",
+      "events": 12,
+      "points": 22,
+      "audit_seconds": 0.0332
+    },
+    {
+      "date": "2026-09-27",
+      "diary_id": "5f9d35f3-387b-43e6-bb0a-5207f73b65f0",
+      "runs": 1,
+      "run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+      "missing_events": [
+        {
+          "id": "fb514bed-9e00-4727-a29b-889e58a31122",
+          "event_title": "吃冬瓜鸡、看烟花，回房间泡澡看《盗梦空间》",
+          "importance": "LOW"
+        },
+        {
+          "id": "d17f8daf-e60c-46d8-9d8e-1a8021cc59bb",
+          "event_title": "早上开阳台门，一只蛤蟆跳进房间",
+          "importance": "LOW"
+        },
+        {
+          "id": "a782b7bd-c7be-48e3-93eb-e0f559ca499b",
+          "event_title": "酒店早餐很丰盛，温泉蛋吃得我发腻",
+          "importance": "LOW"
+        },
+        {
+          "id": "c681d74c-6761-4fe8-b89a-8802f5f68947",
+          "event_title": "没去成温泉，改去射箭，退房后带宠物逛园区",
+          "importance": "LOW"
+        },
+        {
+          "id": "306dc0fb-5a23-4e97-8d8f-9da2388df1f4",
+          "event_title": "给哒哒洗澡、驱虫并做耳朵和牙齿护理",
+          "importance": "LOW"
+        }
+      ],
+      "status": "BLOCKED",
+      "reason": "正式要点运行未覆盖全部来源事件，请先补齐缺失事件的正式要点",
+      "audit_seconds": 0.0074
+    },
+    {
+      "date": "2026-09-29",
+      "diary_id": "33e02ff9-a75d-4933-8fb0-ff8ba2c954fc",
+      "runs": 1,
+      "run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "missing_events": [],
+      "status": "READY",
+      "events": 6,
+      "points": 11,
+      "audit_seconds": 0.0214
+    }
+  ],
+  "actual_host_tokens": null,
+  "token_note": "宿主未提供实际 token 计量，不按字符估算费用",
+  "database_written": false
+}

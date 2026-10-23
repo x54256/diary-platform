@@ -1,0 +1,449 @@
+{
+  "package_sha256": "c64158f4da94e8abba3800e5fe61a5bdd423f8cebe4674cf8be84b0a6afece25",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "c64158f4da94e8abba3800e5fe61a5bdd423f8cebe4674cf8be84b0a6afece25",
+    "verified_at": "2026-10-23T02:55:10.748835+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-0128a87b28d3a269",
+      "event_a_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "fd9aa409-84d7-4aed-bdf0-92124c4cbe84",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "涂药擦脚争执与父母家午饭无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-01e20793d92908d0",
+      "event_a_id": "583be2e0-acbb-4132-b348-171b63f8f173",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "旧餐食虽有鸡柳大人，本次“不想老吃”是泛指习惯，未定位回顾9月12日那顿饭。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0330afb1be88ed83",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "5c18836c-b4cf-47aa-886b-7f91c84f9bef",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "电脑回礼与陪牙周清洁没有联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0d4297fe46819117",
+      "event_a_id": "583be2e0-acbb-4132-b348-171b63f8f173",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "早前永旺买饭与今天烤物是不同餐食，未具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-12dc6bf670bfef08",
+      "event_a_id": "5c18836c-b4cf-47aa-886b-7f91c84f9bef",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "带狗去餐厅与陪牙周清洁是不同外出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-14764dee61683379",
+      "event_a_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "fd9aa409-84d7-4aed-bdf0-92124c4cbe84",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "带狗餐厅与父母家午饭是不同饭局。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1bdc1b2d59d0c9b9",
+      "event_a_id": "43604780-0d57-4aec-93a0-c44f98918dd9",
+      "event_a_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "event_b_id": "c896a8b6-37fe-4170-963b-723171b3df41",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "奔驰供应商维权与本次视频向欧盟投诉未定位同一事件，机构和材料不同，不能仅凭告洋状主题连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1e548ca0afd852fa",
+      "event_a_id": "583be2e0-acbb-4132-b348-171b63f8f173",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "家务清洁烦躁与烤物不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-26c91695018ee7d7",
+      "event_a_id": "51378961-204a-4566-8930-5d28c65abb8f",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "event_b_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "status": "RELATED",
+      "reason": "相同时间使用调整有新的具体替代安排，不声称已执行隐藏或卸载。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前打算限制游戏和YouTube，后来有一晚没怎么玩僵尸而用投影看电影，并想到以后以电影作休息消遣、减少短视频。",
+        "source_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+        "source_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天玩《植物大战僵尸 2》仍有点沉迷。我准备先增加使用成本，把 App 隐藏起来；如果还是一直玩，就卸载。",
+            "point_id": "4f9c342e-6f61-5dc2-8c0f-ce6fc3b60646",
+            "point_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+            "point_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "fd4b51d2ee1e9fb6d4f7dd0d0ceda3bcda764be5744ea1ecc37cf79774c0f38e"
+          },
+          {
+            "point_no": 2,
+            "quote": "YouTube 也要限时，不能全天一直看视频",
+            "point_id": "2c4e97eb-6d9a-5175-98fa-3f8c786480f8",
+            "point_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+            "point_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "4f99a31c8d3f0cd70ca2208706b3db3507dcd90f0668ac45b61cd4755c1202a0"
+          }
+        ],
+        "target_event_id": "51378961-204a-4566-8930-5d28c65abb8f",
+        "target_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨晚遛狗回家想休息，没怎么玩僵尸。想到投影仪，让颂梅打开",
+            "point_id": "e03e08f7-e325-5f24-a7e3-5474ba1e5a70",
+            "point_event_id": "51378961-204a-4566-8930-5d28c65abb8f",
+            "point_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "a68b7cb38bb998f1a17d789bb1eb31a1ceda7e9a93f63bef87a57687220251e8"
+          },
+          {
+            "point_no": 3,
+            "quote": "昨晚用投影看电影后，我想到以后也可以把电影当休息消遣，主要想尽量减少刷短视频的时间。",
+            "point_id": "362f4e34-cf47-5dca-9d42-a0b31cd916bf",
+            "point_event_id": "51378961-204a-4566-8930-5d28c65abb8f",
+            "point_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "3449a3f2d711138e90de16c74e109063c61058716067c9c868a7a741939f311e"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-3b104125207909d6",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "583be2e0-acbb-4132-b348-171b63f8f173",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵与烤鸡翅无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-40c615569316ac58",
+      "event_a_id": "583be2e0-acbb-4132-b348-171b63f8f173",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "fd9aa409-84d7-4aed-bdf0-92124c4cbe84",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "午饭父母家与自己晚饭烤物没有具体引用或因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-48fb1afcd22b08d4",
+      "event_a_id": "5c18836c-b4cf-47aa-886b-7f91c84f9bef",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "家务牙线困难是本人，牙周清洁是伴侣，不是同一治疗。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-51974484ae2666fd",
+      "event_a_id": "c896a8b6-37fe-4170-963b-723171b3df41",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "fd9aa409-84d7-4aed-bdf0-92124c4cbe84",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "父母家午饭与美国视频无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-646518933ca23f77",
+      "event_a_id": "5c18836c-b4cf-47aa-886b-7f91c84f9bef",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "下班买饭和陪牙周清洁不是同一外出。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-68a8083a208fbc1c",
+      "event_a_id": "5c18836c-b4cf-47aa-886b-7f91c84f9bef",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "本人洗牙、水牙线与陪伴侣清洁不同主体，不合并诊疗。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6a7459deb647a1c3",
+      "event_a_id": "5c18836c-b4cf-47aa-886b-7f91c84f9bef",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "c896a8b6-37fe-4170-963b-723171b3df41",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "陪牙周清洁与纽约视频无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6a991ded95759e3b",
+      "event_a_id": "51378961-204a-4566-8930-5d28c65abb8f",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "fd9aa409-84d7-4aed-bdf0-92124c4cbe84",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "看电影与父母家午饭无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6bfcef8eacb88a92",
+      "event_a_id": "51378961-204a-4566-8930-5d28c65abb8f",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "5c18836c-b4cf-47aa-886b-7f91c84f9bef",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "本人看电影与陪伴侣清洁牙周不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6d8810058c7edaa0",
+      "event_a_id": "5c18836c-b4cf-47aa-886b-7f91c84f9bef",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "fd9aa409-84d7-4aed-bdf0-92124c4cbe84",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "只说回家休息后去医院是时间背景，未具体引用父母家午饭，也非该饭局的新进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6df6adb9ed999b7c",
+      "event_a_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "fd9aa409-84d7-4aed-bdf0-92124c4cbe84",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵复盘与父母家午饭不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6e79ca6028c758ee",
+      "event_a_id": "51378961-204a-4566-8930-5d28c65abb8f",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "减少短视频的新计划未回顾老梁沉迷的具体经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-73c28cd163109fed",
+      "event_a_id": "583be2e0-acbb-4132-b348-171b63f8f173",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "5c18836c-b4cf-47aa-886b-7f91c84f9bef",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "陪伴侣牙周清洁与自己烤物没有具体触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-76ac807e393fde2c",
+      "event_a_id": "51378961-204a-4566-8930-5d28c65abb8f",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "583be2e0-acbb-4132-b348-171b63f8f173",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "昨夜看电影与次日晚饭烤物没有具体触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7761ea009f4fac68",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "51378961-204a-4566-8930-5d28c65abb8f",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵与看星际穿越无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-90d0f8e60e73f798",
+      "event_a_id": "51378961-204a-4566-8930-5d28c65abb8f",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "调整牙齿清洁时间与看电影休息未明确定位同一晚的同次电影。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ad63edd5509a2804",
+      "event_a_id": "583be2e0-acbb-4132-b348-171b63f8f173",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "RELATED",
+      "reason": "相同减少炸物的具体饮食打算出现新的选择行动。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前觉得炸鸡柳油腻、打算不再吃，后来放弃购买鸡柳大人，改为自己烤鸡翅和地瓜。",
+        "source_event_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+        "source_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今天又吃了炸鸡柳，觉得不太行，以后不能再吃。它油腻",
+            "point_id": "78f23fe8-ef9c-45da-a6d9-d197f27fd286",
+            "point_event_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+            "point_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+            "offset": 60,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "fd53b149ce3bd6dd6aea0556ebdd516ba2f0e3502c990df8a452493e1d871406"
+          }
+        ],
+        "target_event_id": "583be2e0-acbb-4132-b348-171b63f8f173",
+        "target_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "后来考虑买鸡柳大人，但觉得贵，也不想老吃不健康的炸物，最后没买。拿冰箱鸡翅用空气炸锅烤，又烤两个地瓜吃。",
+            "point_id": "2cab1d6e-4582-55be-b787-ba284cc69a04",
+            "point_event_id": "583be2e0-acbb-4132-b348-171b63f8f173",
+            "point_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+            "offset": 29,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "6392c404cc1e274407ef18d48a835718476f9908d76d775661ffe0d4e00b319c"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-b0bf14f0b181c0c8",
+      "event_a_id": "51378961-204a-4566-8930-5d28c65abb8f",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "c896a8b6-37fe-4170-963b-723171b3df41",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "RELATED",
+      "reason": "同一继续观影打算有下一次具体选择和偏离，未称盗梦空间已经看完。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "看过星际穿越、想到用电影休息后，下一晚本想继续看盗梦空间，却先转去看美国法治视频。",
+        "source_event_id": "51378961-204a-4566-8930-5d28c65abb8f",
+        "source_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "昨晚用投影看电影后，我想到以后也可以把电影当休息消遣",
+            "point_id": "362f4e34-cf47-5dca-9d42-a0b31cd916bf",
+            "point_event_id": "51378961-204a-4566-8930-5d28c65abb8f",
+            "point_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "3449a3f2d711138e90de16c74e109063c61058716067c9c868a7a741939f311e"
+          }
+        ],
+        "target_event_id": "c896a8b6-37fe-4170-963b-723171b3df41",
+        "target_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "饭后开 B 站，本想接着看电影，《盗梦空间》没看过，好像也是诺兰的。但刷到长期关注的 UP 主讲美国法治，便先投屏看他的两个视频。",
+            "point_id": "88520d09-af4f-4ace-8544-40058aa8ac85",
+            "point_event_id": "c896a8b6-37fe-4170-963b-723171b3df41",
+            "point_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "f7519b23a42e465f35215f9187456e6df3928aac503d943033276042ce844166"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-bf08e0c41febce42",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "51378961-204a-4566-8930-5d28c65abb8f",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "家庭共同学习计划与投影看电影是不同活动，未具体相接。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c67ca5a963bc4bc3",
+      "event_a_id": "c896a8b6-37fe-4170-963b-723171b3df41",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "本次回忆老梁的美国阶层观点，先前要点没有该具体观点或视频，不能定位同一材料。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ead17caa15baf25a",
+      "event_a_id": "583be2e0-acbb-4132-b348-171b63f8f173",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "c896a8b6-37fe-4170-963b-723171b3df41",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "烤物与美国法治视频无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fda9b8736d73d618",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "fd9aa409-84d7-4aed-bdf0-92124c4cbe84",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "9月12日计划次日与舅舅一家吃饭，本次是父母家午饭且未提亲戚，不能定位同一饭局。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ff198f8276739e00",
+      "event_a_id": "8d074718-1a6e-4ae0-92e9-af44bd75c00b",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "fd9aa409-84d7-4aed-bdf0-92124c4cbe84",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "小龙虾与父母家午饭不同餐食。",
+      "relation": null
+    }
+  ]
+}

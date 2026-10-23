@@ -1,0 +1,238 @@
+{
+  "events": [
+    [
+      "E022",
+      {
+        "id": "2400213a-5465-4b1d-9b11-7290d5161266",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "run_status": "POINTS_READY",
+        "diary_id": "e2c710d1-7fea-49ef-83a7-f738a32859d9",
+        "diary_date": "2026-09-14",
+        "occurred_on": null,
+        "source_order": 0,
+        "title": "拼多多买香蕉售后纠纷",
+        "run_source_sha256": "7484b57a0b084400e15a8aacf805399d956639ffa96d068298ef70f154ecfc1a",
+        "points": [
+          {
+            "id": "41d43ad4-e641-4165-a212-41f05d17c835",
+            "no": 1,
+            "summary": "香蕉坏了一半多，商家却按错误数量计算赔偿",
+            "detail": "昨天拼多多买的香蕉到了，开箱烂了一大半。虽只花十元，一般商家都承诺坏了包赔，我便发烂果、开裂照片。按商家要求数出坏十二个、好十一个，没说总数，只分别报了两数。我觉得至少该赔五元，却只获赔三元的提议。\n\n追问算法后，对方发计算器截图，用十元除以三十三。我很懵，问三十三哪来的，明确十一加十二是二十三。商家可能理亏，又说赔四元，我继续问怎么算，觉得荒谬、不可理喻。",
+            "embedding_sha256": "9e221c6979d5673036ece6b7ab99107b1cc7a42b94075a303320c4855b7e8358"
+          },
+          {
+            "id": "53f16e3b-ee13-46df-a1eb-48a31a10fd76",
+            "no": 2,
+            "summary": "商家反问我想要多少，让我觉得反成了自己理亏",
+            "detail": "香蕉赔偿从三元改四元仍不合理，我打了“你是不是算术不太好”但未发。商家又问“那你想要多少”，弄得像他做错、反而我理亏，在与他讨价还价，我就把“你是不是不会算数”发了出去，他回“是的”。我觉得他生气了，却不理解他的做法。\n\n承诺坏了包赔就该按数赔，不该讨价还价；算错没道歉，又提不合理的四元。我因服务不好有情绪，但觉得自己没骂人、只陈述算术问题，他竟然与我对刚，让我很生气。",
+            "embedding_sha256": "b663f4744eba553cd8fec6a2436748bf7323945488b7c9188639e28ba0888d9c"
+          },
+          {
+            "id": "5cbfc555-f108-44f0-a43e-72253b612a86",
+            "no": 3,
+            "summary": "转向拼多多客服和退款流程，不再与商家沟通",
+            "detail": "我找拼多多客服反馈，对方说会处理，但到今天仍没反馈，于是按平台流程申请退款，不再与商家说，到时给差评。我纳闷他为什么这样沟通，就算工作一天累，也不该把情绪带到下一次服务。",
+            "embedding_sha256": "0a893ad2203f9ac280aa8f1227b1562940b9d6ea17957945261e31bd03bd91fe"
+          },
+          {
+            "id": "a610394c-72d4-4ee5-ab35-827cc903d9ef",
+            "no": 4,
+            "summary": "想起曾要求程序员保持服务姿态，也承认自己如今会带情绪",
+            "detail": "以前做后台管理者时，我定过三条规矩，其中一条是程序员是服务业，面对项目组或客户，都应保持服务者姿态、解决问题，不带情绪。如今自己也有情绪，毕竟对工作没那么热爱了。",
+            "embedding_sha256": "4b3f64f7b408762e2635335621ce49b51b0a6e320dd2738fe6fc3733187c7f85"
+          }
+        ]
+      }
+    ],
+    [
+      "E023",
+      {
+        "id": "13cbd0fe-aaf1-4752-af73-6400fe0bb8cd",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "run_status": "POINTS_READY",
+        "diary_id": "e2c710d1-7fea-49ef-83a7-f738a32859d9",
+        "diary_date": "2026-09-14",
+        "occurred_on": null,
+        "source_order": 1,
+        "title": "开发辽宁项目合规审查模块",
+        "run_source_sha256": "7484b57a0b084400e15a8aacf805399d956639ffa96d068298ef70f154ecfc1a",
+        "points": [
+          {
+            "id": "795d4234-0acd-5f27-9c7d-683754c585f1",
+            "no": 1,
+            "summary": "让 coder 完成辽宁合规审查参数改动并给现场发版",
+            "detail": "我告诉 coder 要做辽宁项目合规审查模块，请求需增加参数，调用合规巡查服务也要增加参数。它很快完成，我给现场发了版。",
+            "embedding_sha256": "4c3396e745c7b57a59c8e2f4612efc875a5d5335f18e38dec4250e0d96cb7084"
+          }
+        ]
+      }
+    ],
+    [
+      "E024",
+      {
+        "id": "0a580700-09e0-428c-bbe0-24da0155d251",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "run_status": "POINTS_READY",
+        "diary_id": "e2c710d1-7fea-49ef-83a7-f738a32859d9",
+        "diary_date": "2026-09-14",
+        "occurred_on": null,
+        "source_order": 2,
+        "title": "开发产品Cspon大屏展示的评估数据导入功能",
+        "run_source_sha256": "7484b57a0b084400e15a8aacf805399d956639ffa96d068298ef70f154ecfc1a",
+        "points": [
+          {
+            "id": "2913d4f3-e769-4252-984c-ce687ab000ca",
+            "no": 1,
+            "summary": "把 CBB 工程方法用于 Cspon 大屏，建立 Excel 导入功能",
+            "detail": "上周在做 Cspon 产品大屏评估数据，此前靠手动导入。整理出 CBB 服务管理接口使用方法论后，今天将其用于大屏，让 coder 建骨架项目，提供 Excel 导入数据库的功能。上午免费模型特别慢，做着卡住了。",
+            "embedding_sha256": "5ef5ea5cb6c1584e38d3309546668d2a5f6b0fa4f66e0eca186e003894fc7066"
+          },
+          {
+            "id": "d24739d4-db0f-4b56-b469-a33079b31222",
+            "no": 2,
+            "summary": "看牙回来测试并修复导入功能，导入需求提供的表格",
+            "detail": "下午去修复科看牙回来，我继续让 coder 做大屏 Excel 导入，自己测试，有问题就让它修。修好后，导入了需求提供的 Excel 表格。",
+            "embedding_sha256": "55b9ce50a2a91a187fc46bd6be7f4ac1a5e2859e33a415d58e247a794a045a71"
+          }
+        ]
+      }
+    ],
+    [
+      "E025",
+      {
+        "id": "bf06326d-92cf-4238-9a88-da0d645092cb",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "run_status": "POINTS_READY",
+        "diary_id": "e2c710d1-7fea-49ef-83a7-f738a32859d9",
+        "diary_date": "2026-09-14",
+        "occurred_on": null,
+        "source_order": 3,
+        "title": "修复广州云服务分层分级页面数据库入库问题",
+        "run_source_sha256": "7484b57a0b084400e15a8aacf805399d956639ffa96d068298ef70f154ecfc1a",
+        "points": [
+          {
+            "id": "0148fc11-95a9-56e4-a30c-db65a7beec09",
+            "no": 1,
+            "summary": "广州分层分级入库问题改过后，暂不单独更新我的包",
+            "detail": "广州云服务分层分级页面审核申请后，数据库表没正常入库。我改代码后，对方说还有问题，让 AI 看，理论上不该有问题。我告诉实施，他说等测试。\n\n我想再打包给他更新，他却说肖雨晨正在做另一部分，会改代码更新包，先不更新我的，免得乱。",
+            "embedding_sha256": "a91394b1a69ab6066f4ae6536e6f4f8bf31f26456d79401dc4a3a80597963e01"
+          }
+        ]
+      }
+    ],
+    [
+      "E026",
+      {
+        "id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "run_status": "POINTS_READY",
+        "diary_id": "e2c710d1-7fea-49ef-83a7-f738a32859d9",
+        "diary_date": "2026-09-14",
+        "occurred_on": null,
+        "source_order": 4,
+        "title": "去口腔医院做咬合垫",
+        "run_source_sha256": "7484b57a0b084400e15a8aacf805399d956639ffa96d068298ef70f154ecfc1a",
+        "points": [
+          {
+            "id": "46843425-4bc7-4a1c-8334-1153cc8d7c51",
+            "no": 1,
+            "summary": "赴口腔医院途中遇大雨，怕过号仍淋雨赶路",
+            "detail": "下午约两点半修复科，一点五十多从家骑电动车出发。到广州大桥突然大雨，衣服湿了，先躲二沙岛桥下；雨不停，怕过号便继续淋雨往越秀骑，快到医院才停，早已全身湿透，很不舒服。\n\n高德又带我进一条奇怪小区路线，出门禁需人脸识别，准备离开时门自己开了，出去便是医院那条路。",
+            "embedding_sha256": "a657619c26eaca9ed19d42fdd9aba20b372dcf1b31940da056540440549cdeb7"
+          },
+          {
+            "id": "c0d1faae-a8d8-4fb9-86f8-bb1fba5e3774",
+            "no": 2,
+            "summary": "听过医生说明后，决定做一千多元全自费咬合垫",
+            "detail": "到医院报到不久就叫我。一位男胖医生看了没看出问题，让等黄医生。我去厕所顺道拧衣服，回诊室后黄医生来了，说磨损不严重，用修复牙膏即可。\n\n我说刘佳医生提过磨牙要做咬合垫，他说夜间磨牙要做，问我要不要，一千多、全自费。我问了一些，仍决定做：一是难得挂号、淋雨来一趟，不能问两句就走；二是颂梅说我睡觉磨牙。做时贴上颚模具有点恶心，干呕几次，完成后回家。",
+            "embedding_sha256": "c5ee0890a0aa9ca671b8ff2d9989a0051e3ee6a94d65a5b4877552cee82477f4"
+          },
+          {
+            "id": "0f3d5ee1-a8fc-4a62-ae37-8f95d2ec0453",
+            "no": 3,
+            "summary": "觉得黄医生语气高傲，与刘佳医生的亲切很不同",
+            "detail": "我感觉黄医生和刘佳的说话方式相反：刘佳亲切、替患者考虑，这位医生则比较忙，只做自己的活、不提供建议，语气高傲。我觉得若与这种沟通方式的人合作，会吵架。",
+            "embedding_sha256": "25c65716e1b50cb0d427a74c856cfb06e7ef33ca2d3237b1fbe66a6f28b395d4"
+          }
+        ]
+      }
+    ],
+    [
+      "E027",
+      {
+        "id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "run_status": "POINTS_READY",
+        "diary_id": "e2c710d1-7fea-49ef-83a7-f738a32859d9",
+        "diary_date": "2026-09-14",
+        "occurred_on": null,
+        "source_order": 5,
+        "title": "修复江西导入Excel数据报错",
+        "run_source_sha256": "7484b57a0b084400e15a8aacf805399d956639ffa96d068298ef70f154ecfc1a",
+        "points": [
+          {
+            "id": "284bbf04-62bd-5196-93c8-d260b5fa541d",
+            "no": 1,
+            "summary": "让对方删表重建，修好江西 Excel 导入报错",
+            "detail": "江西导入 Excel 报错，简单看是数据库表不存在。我让对方删表重建，最后搞好了。",
+            "embedding_sha256": "2d3614f8b305d15166b13616930c06d00df76ee84a42fb69dd03e7f2e0fa18d1"
+          }
+        ]
+      }
+    ],
+    [
+      "E028",
+      {
+        "id": "600b3ddc-e835-40dd-b417-b05b85aedcac",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "run_status": "POINTS_READY",
+        "diary_id": "e2c710d1-7fea-49ef-83a7-f738a32859d9",
+        "diary_date": "2026-09-14",
+        "occurred_on": null,
+        "source_order": 6,
+        "title": "修好日记管理平台的整理功能",
+        "run_source_sha256": "7484b57a0b084400e15a8aacf805399d956639ffa96d068298ef70f154ecfc1a",
+        "points": [
+          {
+            "id": "afa9d782-c744-4dcd-ada1-588a32dab77d",
+            "no": 1,
+            "summary": "更换模型并解决输入限制，恢复日记整理功能",
+            "detail": "我还修好了日记管理平台的整理功能。有些模型准确率不够，另外 GL 模型输入 token 有大小限制，此前超限。我换了模型，解决这两个问题后，整理功能能正常用了。",
+            "embedding_sha256": "7712c6606cbb5fc820f7d467420e62811c1179ccf1ff012b25054f566273a292"
+          }
+        ]
+      }
+    ],
+    [
+      "E029",
+      {
+        "id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+        "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+        "run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+        "run_status": "POINTS_READY",
+        "diary_id": "e2c710d1-7fea-49ef-83a7-f738a32859d9",
+        "diary_date": "2026-09-14",
+        "occurred_on": null,
+        "source_order": 7,
+        "title": "通关植物大战僵尸2简单模式",
+        "run_source_sha256": "7484b57a0b084400e15a8aacf805399d956639ffa96d068298ef70f154ecfc1a",
+        "points": [
+          {
+            "id": "c18ac905-0654-5e5e-9487-0e87525f58dd",
+            "no": 1,
+            "summary": "通关《植物大战僵尸 2》主线简单模式",
+            "detail": "今天还通关了《植物大战僵尸 2》的主线简单模式，之后每天打卡就行。",
+            "embedding_sha256": "ae3d882df559929a05d10b3d1e15ff5ccef250f3f52173cc083b8be0bd1956d1"
+          }
+        ]
+      }
+    ]
+  ]
+}

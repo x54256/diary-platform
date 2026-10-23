@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "package_sha256": "0a4e6e9d49b025aff6902a00141c8589c378242d4e92c927f85e23be74c7ef10",
+  "created_at": "2026-10-23T02:40:21.907012+00:00",
+  "batches": [
+    {
+      "batch_id": "B001",
+      "pair_ids": [
+        "P-7eceabab9535212f",
+        "P-bfebb4169e160fe6",
+        "P-53be4f981cd3ba3d",
+        "P-944b855af823f86a",
+        "P-cab5991a9a838511",
+        "P-742f06572b5e386b",
+        "P-3a9901cdaea4a7ca",
+        "P-eb1b73f16bc2050f",
+        "P-27e098d45256795c",
+        "P-aafcb9f86b1673e1",
+        "P-b7326d8c37f9ff9e",
+        "P-adb010c39f319c1a"
+      ]
+    },
+    {
+      "batch_id": "B002",
+      "pair_ids": [
+        "P-eb5353e7705cae84",
+        "P-975912700b311db1",
+        "P-69b0a04279ebc477",
+        "P-658a77a9765f869d",
+        "P-8580293d274d1889",
+        "P-30fdd37bbc4ae085",
+        "P-a29e0fd55e91b9e0",
+        "P-ecd5154b275b46a5",
+        "P-4726d98f497941f2",
+        "P-8c46740ab3a4a4ea",
+        "P-7a0e9d995b23e248",
+        "P-9f2a2699006e583f"
+      ]
+    },
+    {
+      "batch_id": "B003",
+      "pair_ids": [
+        "P-13b709dfe3b5c0f7",
+        "P-74316342b2db4890",
+        "P-21043b865cc07fe9",
+        "P-8384a438910d7272",
+        "P-4d43fd464a7a41a3",
+        "P-b08cb1b5abe6fde4",
+        "P-c3415db71ae5eb9c",
+        "P-f6e19ef65af1fa34",
+        "P-ce7038e32ba34388",
+        "P-8054137958923bdd",
+        "P-3e2cae2c1efc24dc",
+        "P-e48f477a633a7473"
+      ]
+    },
+    {
+      "batch_id": "B004",
+      "pair_ids": [
+        "P-18663512479e9620",
+        "P-34084c744c6b9b56",
+        "P-428a9f3630a117fc",
+        "P-487ff340480caf74",
+        "P-0abcf11fdc3649bd",
+        "P-16142e5be373b20f",
+        "P-072d634ee00a4b04",
+        "P-580b0544efe9244b",
+        "P-134fcf93abec0ed9"
+      ]
+    }
+  ],
+  "files": {
+    "B002.json": "746d5b7a158add5e39be2f491789e0fe5e94298464760d3916d55fc4cb57e6d7",
+    "B003.json": "52ab2967697cb582895239f6553220327df6729272106659c412fd239f88fc2c",
+    "source.json": "d3ed7c927c3dc29d3567d85a0da16a262d2f1a09ac18c537287ce99c0c6818d2",
+    "B004.json": "57f7186292fec21392d8cfffc0a97766a7d13297a2ec54b618268665f7e448ef",
+    "B001.json": "7f0cc60422337dd556f921549f3f2762453069efca91ae4216ff1dc8b4996bdb"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "kind": "ENGINEERING_REGRESSION_NOT_NEW_SEMANTIC_EVALUATION",
+  "reference_results": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/docs/验证/事件关系Skill实验-20260909至0910-20261022/final-results.json",
+  "reference_sha256": "217d6140b3734c5bcf696f5071f358f06bb56e310b5b155c490921e8b591cebf",
+  "point_identity_and_content_matched": true,
+  "database_mutation": false
+}

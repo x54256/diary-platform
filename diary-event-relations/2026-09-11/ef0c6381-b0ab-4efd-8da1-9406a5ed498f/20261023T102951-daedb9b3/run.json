@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "package_sha256": "43e468e72a9a339a51ec26234648ece92d8d1af2c15e59c1dd0a3211d5890cf2",
+  "created_at": "2026-10-23T02:29:51.480474+00:00",
+  "batches": [
+    {
+      "batch_id": "B001",
+      "pair_ids": [
+        "P-38128fd5b8827b4e",
+        "P-7563fa9a45c654f7",
+        "P-813b94ea26c69a71",
+        "P-1b8af0805de81af5",
+        "P-326db1fb324aa280",
+        "P-9b82afa1ec8cc524"
+      ]
+    },
+    {
+      "batch_id": "B002",
+      "pair_ids": [
+        "P-69b17eea068d9338",
+        "P-baf88988aae2ee5c",
+        "P-14c4c1053b14a8fb",
+        "P-f167ba9b8ee3c623"
+      ]
+    },
+    {
+      "batch_id": "B003",
+      "pair_ids": [
+        "P-f9a3404d7d63934a",
+        "P-c61559f586ba19fb",
+        "P-32f2c7a906fa4cc6",
+        "P-225ab071e7f48216",
+        "P-4cc89bb6fa9094c0",
+        "P-3f2519bbf07df706",
+        "P-3c1415123c20a00c",
+        "P-0768449c2bf83f25",
+        "P-8a536590117029ba",
+        "P-9d2f3c3167d59fe6",
+        "P-c21b6c76d7d15e63",
+        "P-00179d77d1217625"
+      ]
+    },
+    {
+      "batch_id": "B004",
+      "pair_ids": [
+        "P-3aa49911efcc5cb6",
+        "P-859765145c8e7f40",
+        "P-04c3d4ddd9f9af90",
+        "P-c3c334f506afccad",
+        "P-a7ebe40c55d48635",
+        "P-97c710e79663a362",
+        "P-0d8b1068a3a21493",
+        "P-14da39dd0abec937",
+        "P-f39e4cbe4d6c50ab",
+        "P-50658fb96f29ac2b",
+        "P-a6be0a481656863c",
+        "P-0f3e9abe32c7178e"
+      ]
+    },
+    {
+      "batch_id": "B005",
+      "pair_ids": [
+        "P-91a0ddc27907689d",
+        "P-ba753fec6af69ae0",
+        "P-a22f5edfce2e41f9",
+        "P-b63de55a6c2c698e",
+        "P-bd14a0cdfaf8a68a",
+        "P-3087c3d03f25f805",
+        "P-9eed0eb10bf3400d"
+      ]
+    }
+  ],
+  "files": {
+    "B002.json": "7d767cacffbdaadb799915acb1c7c150cfefae0fea75525d05c06ccae6a8c9b8",
+    "B003.json": "4c575f60d2fa3fb586c448b236a6c017fd5b6e4aa95f33571219f9bc0fdd7db5",
+    "source.json": "42bd0c551c05b144c5c4c3645ff8437e97a7f2a1c61d99b99db0c5dfe2e7ef6d",
+    "B004.json": "e24ab33c9ad7198df986723cec9e9f5ab1d3bef561133efd8d7a508acbc94e67",
+    "B005.json": "304bccc00dccc27fb5e25559934d76c158c1d3311c1b6eec76240cbfa121b23a",
+    "B001.json": "130ba7d6846dcb8f2a30615439eac97c916c7363d6715bde7fc1c91a77b9061a"
+  }
+}

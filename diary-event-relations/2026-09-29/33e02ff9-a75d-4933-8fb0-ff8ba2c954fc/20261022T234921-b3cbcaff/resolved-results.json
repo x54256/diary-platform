@@ -1,0 +1,427 @@
+{
+  "package_sha256": "9c99daf0d4443e529fd21ab6f3ded2f13aabe1063203e1c418b709e793620379",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "9c99daf0d4443e529fd21ab6f3ded2f13aabe1063203e1c418b709e793620379",
+    "verified_at": "2026-10-22T15:53:22.524378+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-0067bac34488be48",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "聚餐后珠江边遛狗与周三二沙岛骑车罚款是不同外出，未回顾或受其影响。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-02ba29bc6f88ce60",
+      "event_a_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "测试分层与实名票黄牛门槛讨论无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-05d9829f1167150f",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "遛狗条目未提设计平台的疲惫；不能借聚餐条目作第三方证据补触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-10be9ae11cba7f74",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "RELATED",
+      "reason": "双方定位昨天朋友婚后聚餐，后者明示聚餐后回家再遛狗，属于该次外出及归家后的继续经过。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "朋友婚后聚餐结束后，我带颂梅回家，喝酒后有些醉，随后仍和肚子不舒服的她一起去珠江边遛狗。",
+        "source_event_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+        "source_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天颂梅朋友结婚，她去帮忙，结束后四五点去新疆菜馆，等六点下班的我时先打扑克。",
+            "point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+            "point_event_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+            "point_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "23a83796c3b55339926aec5892efedb0c75316ae431c3766ee70fcf142499806"
+          }
+        ],
+        "target_event_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+        "target_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "聚餐后带颂梅回家，她例假肚子一直不舒服。我喝点“real”小酒、嗑瓜子，可能喝太急醉了。狗还没遛，自己醉着便问她愿不愿去，她说肚痛，最后仍一起去珠江边。",
+            "point_id": "022be4ab-c587-4830-a03d-80a2ec8096d0",
+            "point_event_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+            "point_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "8623e74800ff1fc7f5c433c063448294f8ac8f759141f95e58bf0deb617ec917"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-116f24826b2d211e",
+      "event_a_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "聚餐疲惫明确来自平台实体设计，不是前几天颈痛按摩的后续或结果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1cda1d467531b349",
+      "event_a_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "驱虫争执与演唱会票讨论无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-220dd3d2eb59af9f",
+      "event_a_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "猫驱虫争执与知识库实体梳理没有触发或引用证据。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-328f0a3366172863",
+      "event_a_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "给猫驱虫时找过敏药与此前涂药膏后晒太阳不适不同，未引用此前争执；共同出现药物和伴侣不足以定位同一事件。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-49ea01ff3b265c14",
+      "event_a_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "先前盘点的汪苏泷票与此处对周杰伦票的意愿、黄牛实名讨论不同，未引用资产盘点或因此改变购买行为。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4d8125eed4be1173",
+      "event_a_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "实名票讨论提到的是与伴侣谈公务员母亲旅游限制，并非与自己母亲生育医疗争执，不能混同对象。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-66dbf254729570fd",
+      "event_a_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "框架测试设计与猫驱虫争执无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6a849c3cb797c97c",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "遛狗和床上讨论周杰伦票同属晚间，但后者未引用遛狗经过或表达由其触发，时间相邻不足以建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6cfdab07e298f7d6",
+      "event_a_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "驱虫时嘴唇过敏找药与按摩后头晕找药不同，不能凭同一伴侣帮忙认定同一照顾事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6efee5fb8abb2168",
+      "event_a_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "母亲通话的情绪与婚后聚餐疲惫无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-70808c455211df3f",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "狗拉着向外走与先前夜间找不到狗不同，未表达这是先前丢失后的措施或回忆。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-773ae24350e64a95",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "9 月 23 日离职压力时未共情与昨天驱虫时暴力沟通后道歉是不同争执；未具体回顾前次离职对话或报告对其处理结果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8e068b2e1db5bb11",
+      "event_a_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "饭局疲惫明确来自设计日记平台实体，而非后端框架测试；不能把两项编程工作混同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a0d9bb6fc56bd840",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "遛狗后没做瑜伽与此前伴侣早醒补觉无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a623a606f3a8a551",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "晚间遛狗与后端框架测试设计无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a940e4bb168e3002",
+      "event_a_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "夜间找狗与抓猫驱虫不同，不能由宠物跑开这一相似表现推断同一事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b060100195e0e5dd",
+      "event_a_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "知识库实体设计与实名票黄牛讨论无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b38d5368df72d9c3",
+      "event_a_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "早醒玩手机与晚间演唱会票讨论无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c0087a353ef3fe75",
+      "event_a_id": "466dd6ee-2652-406c-ba2b-66a1979474d8",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "后端框架分层测试与日记平台知识库实体梳理是不同项目事项，没有互相引用或明确依赖。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d0b690259717cb84",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "两段同在昨天且有情绪波动，但没有具体先后和相互影响依据；遛狗与猫驱虫不是同一事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d41b5340270d8fd3",
+      "event_a_id": "7397309a-7cba-447e-adec-8c386e898802",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "伴侣早醒补觉与聚餐中我的疲惫不同，未表达关联。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dabfc9ce8d9ab2d1",
+      "event_a_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "买菜平台关闭与朋友婚后聚餐不同；新疆菜馆不是线上买菜的后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e3bffaddb3bb20e9",
+      "event_a_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "夜间找狗与实名票黄牛讨论无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e6fee5ba86c122a9",
+      "event_a_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "买排骨准备家里做饭与朋友婚后新疆菜馆聚餐是不同餐食，不因都吃肉就建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e84f710810de43fb",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "醉酒及伴侣例假不适与本人周四按摩后不适是不同病程，没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e9b43641ed0d9d39",
+      "event_a_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "聚餐中的雷达看雨与晚间实名票讨论主题和具体事项不同，没有互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-eb5af4bf93dd074f",
+      "event_a_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "RELATED",
+      "reason": "聚餐条目明确说因昨天设计日记平台实体而疲惫，不愿说话，双方可定位同一次设计工作及其影响。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "昨天重新梳理日记平台知识库实体和关系的工作让我疲惫；聚餐时再加上与其他人不熟，我坐着听、不愿讲话。",
+        "source_event_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+        "source_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天重新捡起日记管理平台，让 Codex 从头分析如何用日记构建个人知识库，一起确认实体、实体属性、关系及关系属性。",
+            "point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+            "point_event_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+            "point_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "a74694a7fe18273aad2e6b72648f9e43d0a224d064f18ca16469a55671051675"
+          }
+        ],
+        "target_event_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+        "target_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我与他们不熟，昨天又因设计日记平台实体疲惫，坐着听，不愿讲话。",
+            "point_id": "548c936d-4eb1-4439-b8c1-86146faa04ee",
+            "point_event_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+            "point_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+            "offset": 69,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "23a83796c3b55339926aec5892efedb0c75316ae431c3766ee70fcf142499806"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-ec38fcf34c48ce97",
+      "event_a_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "回乡冲突中的汪苏泷演唱会与此处周杰伦演唱会不是同一活动，实名黄牛讨论也未引用前一回乡计划。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ee6f9aa6ab3c69ef",
+      "event_a_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "婚后聚餐与给猫驱虫没有明确相互触发或具体引用，日期相同不足以建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ef09713bce07c2ce",
+      "event_a_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "母亲电话影响回家交流与昨日过敏难受触发驱虫争执是不同原因、不同对话，未相互引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fb04a26ecb9471b5",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "醉酒后因狗不配合生气，与先前处理伴侣离职压力时的强硬劝告是不同事情，未相互引用或表达延续。",
+      "relation": null
+    }
+  ]
+}

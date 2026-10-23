@@ -1,0 +1,12 @@
+{
+  "args": [
+    "status",
+    "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-15/b8bc5707-d4b4-48f7-85bc-faa103e2fac8/20261023T103425-9e1421b6"
+  ],
+  "started_at": "2026-10-23T10:34:25.443399+08:00",
+  "ended_at": "2026-10-23T10:34:25.539647+08:00",
+  "seconds": 0.09627004101639614,
+  "exit_code": 0,
+  "stdout": "{\n  \"package_sha256\": \"c5020c8b66efb9d1610bad0be8884b148fc452e32afc5638b7924910a6072255\",\n  \"history_mode\": \"replay\",\n  \"total_pairs\": 45,\n  \"completed_pairs\": 0,\n  \"complete\": false,\n  \"counts\": {},\n  \"pending_pair_ids\": [\n    \"P-7eceabab9535212f\",\n    \"P-bfebb4169e160fe6\",\n    \"P-53be4f981cd3ba3d\",\n    \"P-944b855af823f86a\",\n    \"P-cab5991a9a838511\",\n    \"P-742f06572b5e386b\",\n    \"P-3a9901cdaea4a7ca\",\n    \"P-eb1b73f16bc2050f\",\n    \"P-27e098d45256795c\",\n    \"P-aafcb9f86b1673e1\",\n    \"P-b7326d8c37f9ff9e\",\n    \"P-adb010c39f319c1a\",\n    \"P-eb5353e7705cae84\",\n    \"P-975912700b311db1\",\n    \"P-69b0a04279ebc477\",\n    \"P-658a77a9765f869d\",\n    \"P-8580293d274d1889\",\n    \"P-30fdd37bbc4ae085\",\n    \"P-a29e0fd55e91b9e0\",\n    \"P-ecd5154b275b46a5\",\n    \"P-4726d98f497941f2\",\n    \"P-8c46740ab3a4a4ea\",\n    \"P-7a0e9d995b23e248\",\n    \"P-9f2a2699006e583f\",\n    \"P-13b709dfe3b5c0f7\",\n    \"P-74316342b2db4890\",\n    \"P-21043b865cc07fe9\",\n    \"P-8384a438910d7272\",\n    \"P-4d43fd464a7a41a3\",\n    \"P-b08cb1b5abe6fde4\",\n    \"P-c3415db71ae5eb9c\",\n    \"P-f6e19ef65af1fa34\",\n    \"P-ce7038e32ba34388\",\n    \"P-8054137958923bdd\",\n    \"P-3e2cae2c1efc24dc\",\n    \"P-e48f477a633a7473\",\n    \"P-18663512479e9620\",\n    \"P-34084c744c6b9b56\",\n    \"P-428a9f3630a117fc\",\n    \"P-487ff340480caf74\",\n    \"P-0abcf11fdc3649bd\",\n    \"P-16142e5be373b20f\",\n    \"P-072d634ee00a4b04\",\n    \"P-580b0544efe9244b\",\n    \"P-134fcf93abec0ed9\"\n  ],\n  \"pending_batches\": [\n    \"B001\",\n    \"B002\",\n    \"B003\",\n    \"B004\"\n  ],\n  \"stored_in_database\": false\n}\n",
+  "stderr": ""
+}

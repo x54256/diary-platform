@@ -1,0 +1,23 @@
+{
+  "package_sha256": "2a4d9f322a64499a5e0936c24d80da82ea852281922fd62425c04c43648ff978",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "2a4d9f322a64499a5e0936c24d80da82ea852281922fd62425c04c43648ff978",
+    "verified_at": "2026-10-22T15:44:38.518112+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-050df6e138750aff",
+      "event_a_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "event_b_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "status": "NO_RELATION",
+      "reason": "双方均谈伴侣沟通及 AI，但前者的擦脚视频、涂药争执与后者引用的 AI 沟通经历无法定位为同一次具体经历，也无相互触发或后续行动。",
+      "relation": null
+    }
+  ]
+}

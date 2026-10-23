@@ -1,0 +1,27 @@
+{
+  "origin": "local_markdown_before_database_export",
+  "source_original_path": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-09-09/整理稿.md",
+  "source_sha256": "de9edf9caab262864904353214dff08ccd7ce7b3205e34eb7522e6e63d7065ea",
+  "artifacts": [
+    {
+      "name": "事件要点-新版Skill-调整前.md",
+      "old_path": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-09-09/事件要点-新版Skill-调整前.md",
+      "sha256": "9092980ea0f1e0349a98e37d6333a941f7b9de30cd709cd3882ac28472e302d5"
+    },
+    {
+      "name": "事件要点-新版Skill.md",
+      "old_path": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-09-09/事件要点-新版Skill.md",
+      "sha256": "87c5bc056dd47268d6af641e3b69a877c2c8ead6afaf5942db2f74299040046d"
+    },
+    {
+      "name": "事件要点-首次试跑.md",
+      "old_path": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-09-09/事件要点-首次试跑.md",
+      "sha256": "b77c2e18a23fc2208b20b1c1cfad10e3c327f3255d96eed6fc3c973359762b51"
+    },
+    {
+      "name": "事件要点.md",
+      "old_path": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-organizations/2026-09-09/事件要点.md",
+      "sha256": "31c2ef4fd2def8b6f6c1f2c57bc45da1ee54ab8bcfe8944bf8f806649885e9cf"
+    }
+  ]
+}

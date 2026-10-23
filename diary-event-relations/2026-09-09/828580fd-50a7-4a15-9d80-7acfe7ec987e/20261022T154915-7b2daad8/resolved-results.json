@@ -1,0 +1,133 @@
+{
+  "package_sha256": "44cc3e32b6ef01b1850105c1b11752690cd99cbe64c99d06fc4dc96f1f147869",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "results": [
+    {
+      "pair_id": "P-c9f42c7be4db74e9",
+      "status": "NO_RELATION",
+      "reason": "交流总结中泛举AI焦虑，不能据此定位职业与简历认识这次具体反思；未表达后续或触发关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-38e62edd0a16887d",
+      "status": "NO_RELATION",
+      "reason": "双方同谈日记平台，一方是实现思路试错，另一方是使用成本及动力下降；未表达两者之间的具体进展、触发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-901d66f4a1dcb8eb",
+      "status": "NO_RELATION",
+      "reason": "双方都涉及江西项目，但一方是指导前端用AI排错，另一方是拆解混乱需求和数据，没有定位到同一具体任务的进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-95eee7d926c8dc53",
+      "status": "NO_RELATION",
+      "reason": "AI职业认识与李克强访谈感想之间没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6fe2c88c77a056ad",
+      "status": "NO_RELATION",
+      "reason": "双方都有不自信及植物大战僵尸，但一方谈职业价值，另一方谈竞争；没有明确引用另一具体经历或因果联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3b7200ac588ef8e1",
+      "status": "NO_RELATION",
+      "reason": "双方分别谈沉迷视频后的恢复和AI职业认识，未表达具体事项的进展、触发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2c39b81974eec242",
+      "status": "NO_RELATION",
+      "reason": "双方都提到洗澡和行动困难，但伴侣争执与自己的动力不足并非同一具体事项，也未明确相互引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7467ec9e96561558",
+      "status": "NO_RELATION",
+      "reason": "双方都谈缓解烦躁或焦虑的方法，但没有引用彼此的具体经历或表达触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7b75238b023677aa",
+      "status": "NO_RELATION",
+      "reason": "李克强访谈感想与伴侣争执没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-314e703e03ccf759",
+      "status": "NO_RELATION",
+      "reason": "害怕游戏比较与伴侣沟通争执没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a0120e783c6c78e8",
+      "status": "NO_RELATION",
+      "reason": "光看不做与开导伴侣都涉及行动，但未表达两次经历之间的具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-93fc796ea8e63203",
+      "status": "NO_RELATION",
+      "reason": "江西项目拆解与个人事项动力不足没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1b5ba5b78672d04f",
+      "status": "NO_RELATION",
+      "reason": "李克强访谈与恢复日记平台等动力问题没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b2b032f64da3adbb",
+      "status": "NO_RELATION",
+      "reason": "双方提到游戏，但动力不足中的娱乐选择没有回忆或推进害怕竞争的经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6b1251c0970982bf",
+      "status": "UNRESOLVED",
+      "reason": "双方均谈日记平台及心理学学习的荒废和恢复；一方已重新开始、另一方仍不知如何恢复，无法仅凭要点区分阶段进展与同一状态的重复描述，也不能确定顺序。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c0beb17f5c0a8734",
+      "status": "NO_RELATION",
+      "reason": "访谈中的职责认识与项目课题分离只是抽象相似，没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1e0fc4dd08b6f426",
+      "status": "NO_RELATION",
+      "reason": "害怕游戏比较与江西项目拆解没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cb6bb221e6c7d8a7",
+      "status": "NO_RELATION",
+      "reason": "恢复个人学习与处理江西项目烦躁是不同事项，未相互引用或触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3f46bbea3993ad44",
+      "status": "NO_RELATION",
+      "reason": "害怕自身游戏竞争与访谈中李克强不善竞争只是相似词义，无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0f84c2de1f3a489f",
+      "status": "NO_RELATION",
+      "reason": "虽都涉及观看网络内容，但老梁视频与李克强朋友访谈并非同一具体观看事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a27fe8d131732cd1",
+      "status": "NO_RELATION",
+      "reason": "观看视频与害怕游戏竞争是不同经历，没有双方可举证的触发或提及。",
+      "relation": null
+    }
+  ]
+}

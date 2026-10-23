@@ -1,0 +1,15 @@
+{
+  "events": 11,
+  "points": 83,
+  "pairs_all": 55,
+  "same_day_pairs": 27,
+  "cross_candidates": 18,
+  "pool_json_characters": 37050,
+  "all_pair_json_characters": 282400,
+  "point_text_repetitions_in_all_pair_files": [
+    10
+  ],
+  "snapshot_sha256": "66f67089b45c6fb92d208a1f0910f6429fc4d02d3f72df04cb61141829ad1d50",
+  "database_mutation": false,
+  "new_external_api_calls": 0
+}

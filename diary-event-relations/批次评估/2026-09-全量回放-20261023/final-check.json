@@ -1,0 +1,158 @@
+{
+  "checked_at": "2026-10-23T10:58:29.810159+08:00",
+  "checks": [
+    {
+      "date": "2026-09-01",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-01/7b2b2be1-38eb-42d8-9a20-320f64755e89/20261023T102502-44df01a6",
+      "package_sha256": "08f05ab741400ede4dda7fe1416edc97da4cf81d0b5831a6426a5a0121567f31",
+      "complete": true,
+      "dependency_count": 0,
+      "database_verified_at": "2026-10-23T02:25:23.953463+00:00"
+    },
+    {
+      "date": "2026-09-02",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-02/2eb6a94e-39b2-4502-8773-4c18ab6b7423/20261023T102524-dc9d0030",
+      "package_sha256": "718b9b10ee2694ea8bcfb0726f609ad2d35645220f7e1a937ecfe99964a9bffb",
+      "complete": true,
+      "dependency_count": 1,
+      "database_verified_at": "2026-10-23T02:25:35.731073+00:00"
+    },
+    {
+      "date": "2026-09-03",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-03/16ef80a9-a28b-43e5-b820-ff29cdccf58a/20261023T102536-440da698",
+      "package_sha256": "59418bb66407af3da3b515152ee3ca1ebb091f627a6e35c7c45e3d9f62ac0be5",
+      "complete": true,
+      "dependency_count": 2,
+      "database_verified_at": "2026-10-23T02:26:42.343338+00:00"
+    },
+    {
+      "date": "2026-09-09",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-09/828580fd-50a7-4a15-9d80-7acfe7ec987e/20261023T102643-508fa3ab",
+      "package_sha256": "a241b62513238f5e6e4de8e2ab78878c62028b800688447dc13c70c4d0cd90df",
+      "complete": true,
+      "dependency_count": 3,
+      "database_verified_at": "2026-10-23T02:40:09.367972+00:00"
+    },
+    {
+      "date": "2026-09-10",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-10/085c0f45-8d1d-48ae-a2d3-b54da087adae/20261023T104010-9340cfc4",
+      "package_sha256": "a39fc8c7f5b08f1c9dd775f6e7ff4304394d2f7a43e92bafbb7821ea08e6c908",
+      "complete": true,
+      "dependency_count": 4,
+      "database_verified_at": "2026-10-23T02:40:11.469405+00:00"
+    },
+    {
+      "date": "2026-09-11",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-11/ef0c6381-b0ab-4efd-8da1-9406a5ed498f/20261023T104012-83f82217",
+      "package_sha256": "9ebdb18fe1694ee5f7ab3293e4983ef72c6aaa6dc22bb609551c041dda59a558",
+      "complete": true,
+      "dependency_count": 5,
+      "database_verified_at": "2026-10-23T02:40:13.597984+00:00"
+    },
+    {
+      "date": "2026-09-12",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-12/d8b04229-2f04-4665-b066-77be7e6c48b7/20261023T104014-1c74900f",
+      "package_sha256": "06cc21cfceadacdcfb7629f435fdf9a51c532fee354d548798f531451e9d2940",
+      "complete": true,
+      "dependency_count": 6,
+      "database_verified_at": "2026-10-23T02:54:54.800429+00:00"
+    },
+    {
+      "date": "2026-09-13",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-13/f2631949-29e7-4ace-80dc-dbe863901246/20261023T105455-853605f3",
+      "package_sha256": "fb175299cdf033a674daa6ba326877cab61862468a9704c9387a3beef30ee113",
+      "complete": true,
+      "dependency_count": 7,
+      "database_verified_at": "2026-10-23T02:54:56.591880+00:00"
+    },
+    {
+      "date": "2026-09-14",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-14/e2c710d1-7fea-49ef-83a7-f738a32859d9/20261023T105457-4d6c3167",
+      "package_sha256": "14c041d9e871d3869863606cfc199231acdad5bd7f3b0e35f219532a5df305e7",
+      "complete": true,
+      "dependency_count": 8,
+      "database_verified_at": "2026-10-23T02:54:59.280966+00:00"
+    },
+    {
+      "date": "2026-09-15",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-15/b8bc5707-d4b4-48f7-85bc-faa103e2fac8/20261023T105500-8c4113aa",
+      "package_sha256": "d9e9da7e06a813397e36f4ca4aa0c30b4a9d59fc58d802303579335cd88a3a25",
+      "complete": true,
+      "dependency_count": 9,
+      "database_verified_at": "2026-10-23T02:55:01.906659+00:00"
+    },
+    {
+      "date": "2026-09-17",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-17/d5637812-eced-45c3-b54b-942088325564/20261023T105503-f1be17b4",
+      "package_sha256": "21d73294b8923de9a87d376543ab7556ee65d15479b2ffa556e0f3bec104d9e6",
+      "complete": true,
+      "dependency_count": 10,
+      "database_verified_at": "2026-10-23T02:55:05.294428+00:00"
+    },
+    {
+      "date": "2026-09-18",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-18/bf1a3a0f-75c6-4466-b33c-1a5cdeaf2631/20261023T105506-78067c38",
+      "package_sha256": "56f7756845514b9c69135606161b0a3250d75880f678504f90fada0107430ed7",
+      "complete": true,
+      "dependency_count": 11,
+      "database_verified_at": "2026-10-23T02:55:07.974258+00:00"
+    },
+    {
+      "date": "2026-09-19",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-19/f7719c11-fdd5-41f9-ac64-37dddb6290e0/20261023T105509-a23b735e",
+      "package_sha256": "c64158f4da94e8abba3800e5fe61a5bdd423f8cebe4674cf8be84b0a6afece25",
+      "complete": true,
+      "dependency_count": 12,
+      "database_verified_at": "2026-10-23T02:55:10.748835+00:00"
+    },
+    {
+      "date": "2026-09-20",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-20/d7c7de3e-a68f-4b8c-8538-30d88da0d0cf/20261023T105512-aa628800",
+      "package_sha256": "9c5a9b2c1be594dd4f18e8c2400020534b2607105547b8cb5d00d72bcf58c738",
+      "complete": true,
+      "dependency_count": 13,
+      "database_verified_at": "2026-10-23T02:55:14.457469+00:00"
+    },
+    {
+      "date": "2026-09-22",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-22/27bcda57-db3f-4c72-a345-e71ba8997ac8/20261023T105516-f446a65c",
+      "package_sha256": "56ab7da6827395accb9298017001fb499e9d18745aa057b3c013c8eb66b60f31",
+      "complete": true,
+      "dependency_count": 14,
+      "database_verified_at": "2026-10-23T02:55:18.925691+00:00"
+    },
+    {
+      "date": "2026-09-23",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-23/2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20/20261023T105520-0a7ad787",
+      "package_sha256": "f32a6cb8f331ebe0205616a923b27deed3bfea45468357d8ea93cf302cefb161",
+      "complete": true,
+      "dependency_count": 15,
+      "database_verified_at": "2026-10-23T02:55:22.373834+00:00"
+    },
+    {
+      "date": "2026-09-25",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-25/2ae44b75-b2d4-4bf7-9fca-e809580d5ab8/20261023T105524-04e1bc16",
+      "package_sha256": "0b83e4548108fa7e51cc6eb45e0bb3f0e471e4f722029127aae6c8c25522b299",
+      "complete": true,
+      "dependency_count": 16,
+      "database_verified_at": "2026-10-23T02:55:27.624717+00:00"
+    },
+    {
+      "date": "2026-09-27",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-27/5f9d35f3-387b-43e6-bb0a-5207f73b65f0/20261023T105529-bad64471",
+      "package_sha256": "33dd1e35cdaf327299340b2fa964d4d27917465cd20a3f0eba78ecfd7ce9582b",
+      "complete": true,
+      "dependency_count": 17,
+      "database_verified_at": "2026-10-23T02:55:32.404577+00:00"
+    },
+    {
+      "date": "2026-09-29",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-29/33e02ff9-a75d-4933-8fb0-ff8ba2c954fc/20261023T105535-703eb88e",
+      "package_sha256": "f3bbc1429ec73d316afc914322670b47af9f4ce2fbcc12e8c9c35221c427796a",
+      "complete": true,
+      "dependency_count": 18,
+      "database_verified_at": "2026-10-23T02:55:37.181789+00:00"
+    }
+  ],
+  "note": "离线复核当前主稿、证据、配对覆盖、指纹及完整依赖链；沿用本轮各运行刚完成的只读数据库核验回执。"
+}

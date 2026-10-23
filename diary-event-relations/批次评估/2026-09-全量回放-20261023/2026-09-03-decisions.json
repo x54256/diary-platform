@@ -1,0 +1,365 @@
+{
+  "package_sha256": "59418bb66407af3da3b515152ee3ca1ebb091f627a6e35c7c45e3d9f62ac0be5",
+  "results": [
+    {
+      "pair_id": "P-0d14a88db52f26fb",
+      "status": "NO_RELATION",
+      "reason": "江西数据需求与部署交接是不同环节，没有说明本次部署是解决9月1日数据问题的新进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f353c553cd2f79f6",
+      "status": "NO_RELATION",
+      "reason": "江西部署和关系图谱方案是不同项目事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b8e4d4063dae66cb",
+      "status": "NO_RELATION",
+      "reason": "交接部署与恢复课程运动计划没有定位同一任务或明确触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-934b58c1dfb64f9a",
+      "status": "NO_RELATION",
+      "reason": "同为江西工作，但指标体系梳理与迁移配置独立，未表达具体依赖或新状态。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-58cd05427e0816b9",
+      "status": "NO_RELATION",
+      "reason": "交接部署与下班采购、游戏不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-29e9d2b384dc8bde",
+      "status": "NO_RELATION",
+      "reason": "吴伟豪分担部署与AI生成业务代码没有定位同一分工任务。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9db0cd0058a2ea86",
+      "status": "NO_RELATION",
+      "reason": "部署与猫半夜跑酷无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-450e29c789c228c1",
+      "status": "NO_RELATION",
+      "reason": "部署与水牙线洗牙安排无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d185c7ba803235ac",
+      "status": "NO_RELATION",
+      "reason": "指标沟通不畅与伴侣把提醒当指责是不同人物、不同对话。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-634bbf9690929b2a",
+      "status": "NO_RELATION",
+      "reason": "下班采购和游戏没有回顾擦脚视频或涂药争执。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ad2565b3a8ce05ae",
+      "status": "NO_RELATION",
+      "reason": "猫夜间跑酷与伴侣擦脚建议不同，不能凭宠物主题连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6c1d95deb5557e9f",
+      "status": "NO_RELATION",
+      "reason": "洗牙安排没有定位为涂药争执的后续或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-13ba65367c1e55eb",
+      "status": "NO_RELATION",
+      "reason": "借AI沟通父母与恢复课程日记计划无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5934a56edc83699d",
+      "status": "NO_RELATION",
+      "reason": "借AI沟通父母与下班买饭玩游戏不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0432b94255090c12",
+      "status": "NO_RELATION",
+      "reason": "使用AI编码的体验未引用让父母问AI的设想。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-aa1f8d93d1dfe065",
+      "status": "NO_RELATION",
+      "reason": "父母沟通设想与猫夜间活动无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-97899bc24d31b854",
+      "status": "NO_RELATION",
+      "reason": "江西数据需求与图谱方案不同；同感烦躁不是具体因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6557c63dd529ebde",
+      "status": "NO_RELATION",
+      "reason": "恢复课程计划仅泛称工作心累，未回顾9月1日具体江西需求经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4c16c59c0f6b1928",
+      "status": "NO_RELATION",
+      "reason": "下班条目未引用9月1日数据问题，不能靠同一工作日常串连。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1332f1b231de001c",
+      "status": "NO_RELATION",
+      "reason": "江西需求与牙齿护理安排无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-85def1562cdbc5fc",
+      "status": "NO_RELATION",
+      "reason": "图谱推进计划与恢复日记习惯不是同一具体任务，未互相触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-be2d4e5a2acd529c",
+      "status": "NO_RELATION",
+      "reason": "图谱实验未表达为这次玩游戏或采购的原因。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9ee5bf1044ec8039",
+      "status": "NO_RELATION",
+      "reason": "AI编码体验与图谱三步方案未表达具体引用，均谈AI不足以连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b0d714270f82f380",
+      "status": "NO_RELATION",
+      "reason": "图谱方案与猫跑酷不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6883af4599b0876f",
+      "status": "NO_RELATION",
+      "reason": "图谱方案与洗牙咬合垫安排不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d3ab8c1f1860c9ce",
+      "status": "NO_RELATION",
+      "reason": "玩游戏手腕痛与恢复课程运动计划未表达具体触发，不能补因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-95f31ff9a144982e",
+      "status": "NO_RELATION",
+      "reason": "第二职业考虑与恢复心理学课程没有表达同一职业方案或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-48462bd8fa7deda6",
+      "status": "NO_RELATION",
+      "reason": "猫夜间活动与恢复课程计划无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-be2a8a93e6af14a9",
+      "status": "NO_RELATION",
+      "reason": "心理学运动计划与洗牙安排无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dee0c15426dd0503",
+      "status": "NO_RELATION",
+      "reason": "下班条目虽交代工作问题已写入文档，仅为离开办公室的背景，没有继续处理指标事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8dc028c8f6978e2e",
+      "status": "NO_RELATION",
+      "reason": "AI生成江西代码未明确对应本对指标计算梳理的新结果，不能只按项目连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-39fab665dcc7fb89",
+      "status": "NO_RELATION",
+      "reason": "图谱测试与江西指标问题是不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-860c0adf0ff91eb2",
+      "status": "NO_RELATION",
+      "reason": "指标体系与牙齿护理无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6354a35abfc210c0",
+      "status": "NO_RELATION",
+      "reason": "玩游戏与AI职业反思未表达具体触发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7339ec9230df61cb",
+      "status": "NO_RELATION",
+      "reason": "本次用车辆状态确认伴侣是否离开，未提9月1日倒车、头盔问题，不是该故障后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-49bae55ca634fcdc",
+      "status": "NO_RELATION",
+      "reason": "游戏、下班采购与猫半夜跑酷无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a727fe9c7626e56c",
+      "status": "NO_RELATION",
+      "reason": "游戏手腕痛与口腔护理无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b4255143d2f60a3b",
+      "status": "NO_RELATION",
+      "reason": "AI职业反思与猫活动无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-30d7b7984cceb40a",
+      "status": "NO_RELATION",
+      "reason": "AI职业反思与牙线洗牙安排无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-69be75c6129bc66b",
+      "status": "NO_RELATION",
+      "reason": "猫夜间跑酷与牙线洗牙安排无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9d37727b6eb155c2",
+      "status": "RELATED",
+      "reason": "同一江西指标需求，从看不明白到语音核实形成具体新结论。",
+      "relation": {
+        "source_event": "E002",
+        "target_event": "E006",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天早晨，我继续做江西的需求。田总整理的需求和数据乱糟糟的，看不明白，让我很烦躁。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 6,
+            "quote": "语音时我一个问题一个问题问，终于确认省级按十六项、县级按二十项，新发的十六项县级数据过时且错误，需要让客户重新按二十项提供。这一层才算弄清。"
+          }
+        ],
+        "description": "此前看不明白的江西需求和数据继续梳理，语音沟通后确认省县指标项数及错误数据问题。"
+      }
+    },
+    {
+      "pair_id": "P-a46efe6520dc0625",
+      "status": "RELATED",
+      "reason": "图谱条目明确以江西工作及工作烦躁解释暂停，来源工作条目记录具体厌烦。",
+      "relation": {
+        "source_event": "E006",
+        "target_event": "E010",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 16,
+            "quote": "准备上楼想到又要处理这些，厌烦突然上来，我说：“跟人聊天好快乐，我不想上去，上去的话就好烦。”"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 3,
+            "quote": "最近没继续推进图谱，一方面想先完成江西工作；另一方面工作已经让我很烦，平台不可能一蹴而就，还要经历艰辛爬坡。"
+          }
+        ],
+        "description": "江西工作未完成且持续带来烦躁，成为暂不继续推进事件关系图谱的原因之一。"
+      }
+    },
+    {
+      "pair_id": "P-a9561fbf6df20404",
+      "status": "RELATED",
+      "reason": "同一事件关系建设任务从失败测试到具体新方案，保留打算语气。",
+      "relation": {
+        "source_event": "E001",
+        "target_event": "E010",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "早上测试事件关系的建立，效果非常糟糕，让我烦躁，甚至觉得还不如直接根据标签匹配相同事项。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我准备分三步推进事件关系图谱。第一步，根据每天日记整理出的事件，纯人工、没有系统参与地建立联系、画图谱，弄清事件、人物、经验、思考等实体，以及关系和关系类型。第二步，把线下人工关系搬到日记管理平台，通过人工连线等操作落到系统里。第三步，让 AI 根据积累的数据重新分析、设计图谱，最终由大模型自动建立。"
+          }
+        ],
+        "description": "关系测试效果很差后，形成先线下人工、再系统人工、最后自动建图的三步推进打算。"
+      }
+    },
+    {
+      "pair_id": "P-42558b03ba375ce0",
+      "status": "RELATED",
+      "reason": "同篇具体工作消耗与目标明确的心累、恢复日记打算相接，不将计划写成执行。",
+      "relation": {
+        "source_event": "E006",
+        "target_event": "E012",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 9,
+            "quote": "我实际开发并不多，尤其现在有 AI，只要需求清楚，剩下基本都能让 AI 做；巨大精力都耗在梳理需求、数据和沟通。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我准备至少下周重新捡起来，不能再全身心投入工作，把自己弄得这么累。主要是心累"
+          }
+        ],
+        "description": "需求、数据和沟通耗费大量精力，促使我打算下周恢复日记等个人活动，减少全身心投入工作。"
+      }
+    },
+    {
+      "pair_id": "P-d13d66f8cc295374",
+      "status": "RELATED",
+      "reason": "同篇双方都定位与于福豪聊天及多多腿瘸，工作条目明确提及该猫的经历。",
+      "relation": {
+        "source_event": "E006",
+        "target_event": "E008",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 16,
+            "quote": "跟关系较好的于福豪吐槽，也聊了多多腿瘸等闲事"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "跟于福豪聊天时，我说起多多腿瘸加重。他白天堆着不动，晚上却上蹦下跳。"
+          }
+        ],
+        "description": "记录工作休息期间与于福豪聊天时，提到同次谈话中多多腿瘸的事情。"
+      }
+    }
+  ]
+}
