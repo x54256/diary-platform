@@ -71,7 +71,7 @@ class GraphRun(Base):
         UniqueConstraint("task_id", "diary_id", name="uq_graph_run_task_diary"),
         UniqueConstraint("id", "user_id", name="uq_graph_run_user"),
         UniqueConstraint("id", "task_id", name="uq_graph_run_task"),
-        CheckConstraint("status IN ('QUEUED','RUNNING','FAILED','PUBLISHED','OBSOLETE','SKIPPED')", name="ck_graph_run_status"),
+        CheckConstraint("status IN ('QUEUED','RUNNING','FAILED','POINTS_READY','PUBLISHED','OBSOLETE','SKIPPED')", name="ck_graph_run_status"),
         CheckConstraint("analysis_mode IS NULL OR analysis_mode IN ('ordinary','feedback')", name="ck_graph_run_mode"),
         CheckConstraint("source_sha256 IS NULL OR source_sha256 ~ '^[0-9a-f]{64}$'", name="ck_graph_run_digest"),
         CheckConstraint("(source_snapshot IS NULL) = (source_sha256 IS NULL)", name="ck_graph_run_source"),
@@ -184,7 +184,7 @@ class GraphEventRelation(Base):
         ForeignKeyConstraint(["target_run_id", "target_event_id", "user_id"], ["graph_run_events.run_id", "graph_run_events.event_id", "graph_run_events.user_id"], name="fk_graph_relation_target", ondelete="RESTRICT"),
         CheckConstraint("source_event_id<>target_event_id AND (source_run_id=run_id OR target_run_id=run_id)", name="ck_graph_relation_endpoints"),
         CheckConstraint("relation_type IN ('后续事件','引发事件','提及事件') AND certainty IN ('EXPLICIT','SPECULATIVE')", name="ck_graph_relation_type"),
-        CheckConstraint("btrim(description)<>'' AND final_source IN ('AGREEMENT','ADJUDICATED')", name="ck_graph_relation_description"),
+        CheckConstraint("btrim(description)<>'' AND final_source IN ('AGREEMENT','ADJUDICATED','SKILL_AGENT')", name="ck_graph_relation_description"),
         Index("ix_graph_relation_source", "user_id", "source_event_id"),
         Index("ix_graph_relation_target", "user_id", "target_event_id"),
     )
@@ -200,7 +200,7 @@ class GraphEventRelation(Base):
     relation_type = Column(String(16), nullable=False, comment="事件关系类型")
     certainty = Column(String(16), nullable=False, comment="原文关系确定程度")
     description = Column(Text, nullable=False, comment="忠实关系描述")
-    final_source = Column(String(16), nullable=False, comment="双判一致或分歧裁决")
+    final_source = Column(String(16), nullable=False, comment="双判一致、分歧裁决或Skill来源核对")
     created_at = timestamp("正式保存时间")
 
 

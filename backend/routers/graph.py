@@ -86,7 +86,7 @@ def graph_result(db, run, diary_id, *, history=False, focus_event_id=None):
     node_query = db.query(GraphRunEvent).filter(GraphRunEvent.run_id == run.id)
     if focus_event_id is not None:
         node_query = node_query.filter(GraphRunEvent.event_id == focus_event_id)
-    if not history:
+    if not history and run.status != "POINTS_READY":
         node_query = node_query.join(DiaryEvent, DiaryEvent.id == GraphRunEvent.event_id).filter(DiaryEvent.is_in_graph.is_(True))
     nodes = node_query.order_by(GraphRunEvent.source_order, GraphRunEvent.event_id).all()
     query = db.query(GraphEventRelation).filter(GraphEventRelation.user_id == run.user_id,
@@ -154,7 +154,8 @@ def graph_result(db, run, diary_id, *, history=False, focus_event_id=None):
 def current_graph(diary_id: UUID, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
     diary = db.query(Diary).filter(Diary.id == diary_id, Diary.user_id == user.id, Diary.deleted_at.is_(None)).first()
     if not diary: raise HTTPException(404, detail="日记不存在")
-    run = db.query(GraphRun).filter(GraphRun.diary_id == diary_id, GraphRun.user_id == user.id, GraphRun.status == "PUBLISHED").first()
+    run = db.query(GraphRun).filter(GraphRun.diary_id == diary_id, GraphRun.user_id == user.id,
+        GraphRun.status.in_(("PUBLISHED", "POINTS_READY"))).order_by(GraphRun.created_at.desc(), GraphRun.id.desc()).first()
     return graph_result(db, run, diary_id)
 
 
@@ -169,8 +170,9 @@ def historical_graph(run_id: UUID, db: Session = Depends(get_db), user: User = D
 def event_neighbors(event_id: UUID, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
     run = db.query(GraphRun).join(GraphRunEvent, GraphRunEvent.run_id == GraphRun.id).join(
         Diary, Diary.id == GraphRun.diary_id).join(DiaryEvent, DiaryEvent.id == GraphRunEvent.event_id).filter(
-        GraphRun.user_id == user.id, GraphRun.status == "PUBLISHED", GraphRunEvent.event_id == event_id,
-        Diary.deleted_at.is_(None), DiaryEvent.is_in_graph.is_(True)).first()
+        GraphRun.user_id == user.id, GraphRun.status.in_(("PUBLISHED", "POINTS_READY")), GraphRunEvent.event_id == event_id,
+        Diary.deleted_at.is_(None), or_(GraphRun.status == "POINTS_READY", DiaryEvent.is_in_graph.is_(True))).order_by(
+            GraphRun.created_at.desc(), GraphRun.id.desc()).first()
     if not run:
         raise HTTPException(404, detail="事件没有有效图谱")
     return graph_result(db, run, run.diary_id, focus_event_id=event_id)

@@ -158,6 +158,7 @@
       <div v-if="activeTab === 'diary' && !isEditing && !isEditingStructured" class="flex shrink-0 justify-center gap-1 border-b border-neutral-200 bg-white py-1" role="group" aria-label="日记展示方式">
         <button v-for="view in diaryViews" :key="view.value" type="button" class="min-h-11 rounded-lg px-5 text-sm font-medium" :class="diaryView === view.value ? 'bg-primary-50 text-primary-700' : 'text-neutral-500'" :aria-pressed="diaryView === view.value" @click="setDiaryView(view.value)">{{ view.label }}</button>
       </div>
+      <DiaryEventPoints v-if="pointsMounted" v-show="activeTab === 'diary' && diaryView === 'points' && !isEditing && !isEditingStructured" :key="`points-${diaryId}`" :diary-id="diaryId" :visible="activeTab === 'diary' && diaryView === 'points' && !isEditing && !isEditingStructured" :revision="graphRevision" @source="showGraphSource" />
       <DiaryGraph v-if="graphMounted" v-show="activeTab === 'diary' && diaryView === 'graph' && !isEditing && !isEditingStructured" :key="diaryId" :diary-id="diaryId" :visible="activeTab === 'diary' && diaryView === 'graph' && !isEditing && !isEditingStructured" :revision="graphRevision" @source="showGraphSource" />
 
       <!-- 原事件标题滚出内容区后显示；完整复用原标题行的布局与收藏操作。 -->
@@ -497,7 +498,7 @@
       />
 
       <!-- 底部操作区（编辑模式下隐藏） -->
-      <div v-if="!isEditingStructured && !(activeTab === 'diary' && diaryView === 'graph' && !isEditing)" class="fixed bottom-0 left-0 right-0 px-4 py-2 border-t border-neutral-200 bg-white safe-area-bottom">
+      <div v-if="!isEditingStructured && !(activeTab === 'diary' && diaryView !== 'list' && !isEditing)" class="fixed bottom-0 left-0 right-0 px-4 py-2 border-t border-neutral-200 bg-white safe-area-bottom">
         <div class="max-w-md mx-auto">
           <!-- 整理或分析中状态：统一显示全宽进度按钮 -->
           <button
@@ -567,7 +568,7 @@
     </div>
 
     <NuxtLink
-      v-if="diary?.diary_date && !isEditing && !isEditingStructured && !(activeTab === 'diary' && diaryView === 'graph')"
+      v-if="diary?.diary_date && !isEditing && !isEditingStructured && !(activeTab === 'diary' && diaryView !== 'list')"
       :to="`/diary/new?date=${diary.diary_date}`"
       class="fixed bottom-20 right-4 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-primary-600 text-2xl text-white shadow-lg transition-colors hover:bg-primary-700"
     >
@@ -738,16 +739,18 @@ const diaryId = computed(() => route.params.id as string)
 const diary = ref<Diary | null>(null)
 const loading = ref(true)
 const activeTab = ref<'diary' | 'analysis' | 'action'>('diary')
-const diaryView = ref<'list' | 'graph'>('list')
-const diaryViews = [{ value: 'list' as const, label: '事件列表' }, { value: 'graph' as const, label: '关系图谱' }]
+const diaryView = ref<'list' | 'points' | 'graph'>('list')
+const diaryViews = [{ value: 'list' as const, label: '事件列表' }, { value: 'points' as const, label: '事件要点' }, { value: 'graph' as const, label: '关系图谱' }]
 const graphMounted = ref(false)
+const pointsMounted = ref(false)
 const graphRevision = ref(0)
 let listScrollTop = 0
 const viewStorageKey = () => `diary-view:${useAuthStore().user?.id || 'user'}:${diaryId.value}`
-const setDiaryView = async (view: 'list' | 'graph') => {
+const setDiaryView = async (view: 'list' | 'points' | 'graph') => {
   if (diaryView.value === 'list') listScrollTop = diaryContentRef.value?.scrollTop || 0
   diaryView.value = view
   if (view === 'graph') graphMounted.value = true
+  if (view === 'points') pointsMounted.value = true
   try {
     sessionStorage.setItem(viewStorageKey(), JSON.stringify({ view, scrollTop: listScrollTop }))
     window.history.replaceState({ ...window.history.state, diaryDisplay: viewStorageKey() }, '')
@@ -1802,8 +1805,9 @@ onMounted(async () => {
   try {
     const saved = JSON.parse(sessionStorage.getItem(viewStorageKey()) || 'null')
     if (saved && window.history.state?.diaryDisplay === viewStorageKey() && !route.hash.startsWith('#event-')) {
-      diaryView.value = saved.view === 'graph' ? 'graph' : 'list'
+      diaryView.value = saved.view === 'graph' ? 'graph' : saved.view === 'points' ? 'points' : 'list'
       graphMounted.value = diaryView.value === 'graph'
+      pointsMounted.value = diaryView.value === 'points'
       listScrollTop = Number(saved.scrollTop) || 0
     }
   } catch { /* 无缓存时默认列表 */ }

@@ -1,0 +1,3 @@
+interface:
+  display_name: "日记事件要点提取"
+  short_description: "将整理后日记拆为中心明确的事件要点，以简短主旨定位内容并忠实自然地重写详情"

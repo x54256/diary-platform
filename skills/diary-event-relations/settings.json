@@ -1,0 +1,7 @@
+{
+  "workspace_root": "../../diary-event-relations",
+  "min_similarity": 0.4,
+  "top_k": 5,
+  "max_batch_chars": 12000,
+  "max_pairs_per_batch": 12
+}

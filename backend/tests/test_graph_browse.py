@@ -95,3 +95,41 @@ class GraphBrowseTest(unittest.TestCase):
         a[0].status = 'OBSOLETE'; self.db.flush()
         with self.assertRaises(HTTPException): event_neighbors(a[1].id, self.db, self.user)
         self.assertEqual(current_graph(a[0].diary_id, self.db, self.user)['events'], [])
+
+    def test_points_ready_is_visible_without_changing_graph_flags(self):
+        ready = self.node(9, '已保存的要点')
+        ready[0].status = 'POINTS_READY'
+        ready[0].published_at = None
+        ready[1].is_in_graph = False
+        self.db.flush()
+        for result in (current_graph(ready[0].diary_id, self.db, self.user),
+                       event_neighbors(ready[1].id, self.db, self.user)):
+            self.assertEqual(result['run']['status'], 'POINTS_READY')
+            self.assertEqual([e['event_id'] for e in result['events']], [ready[1].id])
+            self.assertEqual(result['events'][0]['points'][0]['detail'], '已保存的要点的详细依据')
+            self.assertEqual(result['relations'], [])
+        self.assertFalse(ready[1].is_in_graph)
+        self.assertIsNone(ready[0].published_at)
+
+    def test_points_ready_does_not_expose_unpublished_connections_or_foreign_data(self):
+        ready, published = self.node(9), self.node(10)
+        self.edge(ready, published)
+        ready[0].status = 'POINTS_READY'; ready[1].is_in_graph = False
+        self.db.flush()
+        result = current_graph(ready[0].diary_id, self.db, self.user)
+        self.assertEqual([e['event_id'] for e in result['events']], [ready[1].id])
+        self.assertEqual(result['relations'], [])
+        with self.assertRaises(HTTPException):
+            current_graph(ready[0].diary_id, self.db, SimpleNamespace(id=uuid4()))
+        with self.assertRaises(HTTPException):
+            event_neighbors(ready[1].id, self.db, SimpleNamespace(id=uuid4()))
+
+    def test_newer_failed_attempt_does_not_hide_ready_points(self):
+        ready = self.node(9, '可读要点')
+        ready[0].status = 'POINTS_READY'; ready[1].is_in_graph = False
+        failed = GraphRun(id=uuid4(), task_id=uuid4(), diary_id=ready[0].diary_id,
+            user_id=self.user.id, diary_date=ready[0].diary_date, status='FAILED', source_snapshot={'events': []})
+        self.db.add(failed); self.db.flush()
+        result = current_graph(ready[0].diary_id, self.db, self.user)
+        self.assertIsNotNone(result['run'])
+        self.assertEqual(result['run']['id'], ready[0].id)
