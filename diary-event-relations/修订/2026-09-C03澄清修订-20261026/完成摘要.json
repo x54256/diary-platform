@@ -1,0 +1,26 @@
+{
+  "drafts": 35,
+  "relations": 335,
+  "unresolved": 0,
+  "judgments": 2287,
+  "evidence_rows": 722,
+  "changed_dates": [
+    "2026-09-20",
+    "2026-09-22"
+  ],
+  "added_relations": 3,
+  "months": {
+    "2026-09": {
+      "drafts": 20,
+      "relations": 170
+    },
+    "2026-10": {
+      "drafts": 15,
+      "relations": 165
+    }
+  },
+  "committed_at": "2026-10-26T15:44:56.213312+08:00",
+  "verified_at": "2026-10-26T15:45:58.772962+08:00",
+  "old_publications_preserved": true,
+  "points_and_vectors_unchanged": true
+}

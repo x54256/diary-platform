@@ -1,0 +1,20 @@
+{
+  "batch_manifest_sha256": "23c9e7154174333c5df0ed8e6270a2a98a6df6d961534cb2af1498d555e9150e",
+  "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/修订/2026-09-C03澄清修订-20261026/2026-09-20-入库包-07055ed43e8b3b69.json",
+  "date": "2026-09-20",
+  "stored": true,
+  "status": "PUBLISHED",
+  "relations": 18,
+  "evidence": 37,
+  "archived_judgments": 77,
+  "unresolved": 0,
+  "storage_sha256": "07055ed43e8b3b69330488182a146c84cdd51f27685cac21c170ee13b353f27d",
+  "draft_sha256": "7622b4822c59d9f0d0cb03185b571dbab8956e9ec02fb6904d92e32c26ce39be",
+  "old_publication_preserved": {
+    "history_entries": 1,
+    "old_relations": 16,
+    "old_evidence": 33
+  },
+  "verified_at": "2026-10-26T15:45:58.772962+08:00",
+  "confirmation": "确认，按两份新稿更新入库"
+}

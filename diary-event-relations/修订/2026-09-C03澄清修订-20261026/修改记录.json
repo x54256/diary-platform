@@ -1,0 +1,101 @@
+[
+  {
+    "date": "2026-09-20",
+    "before": {
+      "pair_id": "P-1b0cd72ad8e4ac7e",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "reason": "每日计划中的《简单心理学》与此前普通心理学课程的身份尚待确认；若同一课程还需区分新安排、实际进展与重复目标，不能仅凭名称差异判无关系。"
+    },
+    "after": {
+      "pair_id": "P-1b0cd72ad8e4ac7e",
+      "status": "RELATED",
+      "reason": "在学完第二章并准备继续第三章后，进一步把同一心理学课程安排在中午或空闲时间学习；这是形成新时段安排，不表示该安排已经执行。",
+      "relation": {
+        "source_event": "E024",
+        "target_event": "E035",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "在学完第二章并准备继续第三章后，进一步把同一心理学课程安排在中午或空闲时间学习；这是形成新时段安排，不表示该安排已经执行。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今早学心理学不太专心，常玩手机，但最终学完第二章“神经系统的结构和功能”，笔记也整理好，还是有成就感，后面计划继续第三章。明天看心情，愿意学就听听。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我重新规划：早上英语、新闻打卡，新闻一部分 AI 汇集、一部分南方周末；LeetCode 看心情。中午或空闲学《简单心理学》"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "date": "2026-09-20",
+    "before": {
+      "pair_id": "P-629f8909b7c68d08",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "reason": "每日计划中的《简单心理学》与此前普通心理学课程的身份尚待确认；若同一课程还需区分新安排、实际进展与重复目标，不能仅凭名称差异判无关系。"
+    },
+    "after": {
+      "pair_id": "P-629f8909b7c68d08",
+      "status": "RELATED",
+      "reason": "此前重新开始普通心理学课程但尚未进入正轨，后来重新规划将同一课程放在中午或空闲时间学习，形成具体学习安排。",
+      "relation": {
+        "source_event": "E009",
+        "target_event": "E035",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前重新开始普通心理学课程但尚未进入正轨，后来重新规划将同一课程放在中午或空闲时间学习，形成具体学习安排。",
+        "source_evidence": [
+          {
+            "point_no": 4,
+            "quote": "发现自己又沉迷视频、光看不做后，这两天我重新开始看普通心理学课程，不过还没有进入正轨。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我重新规划：早上英语、新闻打卡，新闻一部分 AI 汇集、一部分南方周末；LeetCode 看心情。中午或空闲学《简单心理学》"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "date": "2026-09-22",
+    "before": {
+      "pair_id": "P-b485d2043e3e6a50",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "reason": "每日计划中的《简单心理学》与此前普通心理学课程的身份尚待确认；若同一课程还需区分新安排、实际进展与重复目标，不能仅凭名称差异判无关系。"
+    },
+    "after": {
+      "pair_id": "P-b485d2043e3e6a50",
+      "status": "RELATED",
+      "reason": "在形成中午或空闲学习该心理学课程的安排后，后来记录了视觉系统、视觉过程的继续学习及对不明白内容的梳理；不据此认定学习只发生在计划时段。",
+      "relation": {
+        "source_event": "E037",
+        "target_event": "E042",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "在形成中午或空闲学习该心理学课程的安排后，后来记录了视觉系统、视觉过程的继续学习及对不明白内容的梳理；不据此认定学习只发生在计划时段。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我重新规划：早上英语、新闻打卡，新闻一部分 AI 汇集、一部分南方周末；LeetCode 看心情。中午或空闲学《简单心理学》"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天早上继续看视觉系统、视觉过程，老师讲得有点不求甚解，思路与内容不连贯，有些没懂。这两天一直梳理，现在可能算清楚了，接着学即可。"
+          }
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,346 @@
+{
+  "checked_at": "2026-10-26T09:58:15.639758+08:00",
+  "current_skill_sha256": "6e213f2a8f943e162d0291d96dd625397ab6c9017ce1db855c7befdee31b95f1",
+  "changes_since_baseline": [],
+  "days": [
+    {
+      "date": "2026-09-01",
+      "source_pairs": 3,
+      "draft_pairs": 3,
+      "counts": {
+        "NO_RELATION": 3
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-01/7b2b2be1-38eb-42d8-9a20-320f64755e89/20261023T102502-44df01a6",
+      "source_file_sha256": "f3938775501a2d18e60d6d743d2c2f9de2264ff8d6df1a6c591e499c9fc72a2f",
+      "draft_file_sha256": "4b5fc945726e85e0ff5b040cff8a54b067cd6112e9d5d5d4287c3614df6b325a",
+      "package_sha256": "08f05ab741400ede4dda7fe1416edc97da4cf81d0b5831a6426a5a0121567f31",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-02",
+      "source_pairs": 1,
+      "draft_pairs": 1,
+      "counts": {
+        "NO_RELATION": 1
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-02/2eb6a94e-39b2-4502-8773-4c18ab6b7423/20261023T102524-dc9d0030",
+      "source_file_sha256": "eeb8e2b703dfb17c79f0adb6228c46476f25968b90730c12b18fbe7a6b55f7d4",
+      "draft_file_sha256": "d92c01190ea81a4bd4c28a54a5d96d4cb50adcb2178e8455bc238cfaa34d7582",
+      "package_sha256": "718b9b10ee2694ea8bcfb0726f609ad2d35645220f7e1a937ecfe99964a9bffb",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-03",
+      "source_pairs": 45,
+      "draft_pairs": 45,
+      "counts": {
+        "NO_RELATION": 40,
+        "RELATED": 5
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-03/16ef80a9-a28b-43e5-b820-ff29cdccf58a/20261023T102536-440da698",
+      "source_file_sha256": "fb3491b3d40136bbce93c5c4625b4250b20af0cb975815d5c57d1feb59bca067",
+      "draft_file_sha256": "dbe72b8cd2e97b186a51d9452f12a03c22792a4df4701836b2591537742f59f6",
+      "package_sha256": "59418bb66407af3da3b515152ee3ca1ebb091f627a6e35c7c45e3d9f62ac0be5",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-09",
+      "source_pairs": 61,
+      "draft_pairs": 61,
+      "counts": {
+        "NO_RELATION": 56,
+        "RELATED": 5
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-09/828580fd-50a7-4a15-9d80-7acfe7ec987e/20261023T102643-508fa3ab",
+      "source_file_sha256": "f67ecd6479b2f3fd5c488846de4b855a14d2d852143ed5d764f7feb2c62f8405",
+      "draft_file_sha256": "f185359baffabd5f0d131bc18c700187ef6bf9742efb51700cfcd45e14dbf841",
+      "package_sha256": "a241b62513238f5e6e4de8e2ab78878c62028b800688447dc13c70c4d0cd90df",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-10",
+      "source_pairs": 26,
+      "draft_pairs": 26,
+      "counts": {
+        "NO_RELATION": 21,
+        "RELATED": 5
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-10/085c0f45-8d1d-48ae-a2d3-b54da087adae/20261023T104010-9340cfc4",
+      "source_file_sha256": "f414c1453198d5e28279eb29ccd543a87d5d5f5352a8b5e32e1ef2adc7d21683",
+      "draft_file_sha256": "96b8f915e9af8a40cdbc2188e628fec3d0ea5fa95780884bad8e50b3ed65cb67",
+      "package_sha256": "a39fc8c7f5b08f1c9dd775f6e7ff4304394d2f7a43e92bafbb7821ea08e6c908",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-11",
+      "source_pairs": 43,
+      "draft_pairs": 43,
+      "counts": {
+        "NO_RELATION": 40,
+        "RELATED": 3
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-11/ef0c6381-b0ab-4efd-8da1-9406a5ed498f/20261023T104012-83f82217",
+      "source_file_sha256": "d03c0bfd3a8b07ec15098d1c785baf84a554c0e276ed033dc27bc4fb814d9344",
+      "draft_file_sha256": "f9f1da7d924d7a9db0df2b6ea87e95c2c3d6e3abe7dd4780f076328ba1ae29cb",
+      "package_sha256": "9ebdb18fe1694ee5f7ab3293e4983ef72c6aaa6dc22bb609551c041dda59a558",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-12",
+      "source_pairs": 68,
+      "draft_pairs": 68,
+      "counts": {
+        "NO_RELATION": 58,
+        "RELATED": 10
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-12/d8b04229-2f04-4665-b066-77be7e6c48b7/20261023T104014-1c74900f",
+      "source_file_sha256": "0002a096aee4427c107ed3646d5efa1ed6ea9cf00436ebd9770cedf9166b13f2",
+      "draft_file_sha256": "ff79f84a3465eff45034fabca00dc507c4b0e38876f785d727ec8f848c46f7d4",
+      "package_sha256": "06cc21cfceadacdcfb7629f435fdf9a51c532fee354d548798f531451e9d2940",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-13",
+      "source_pairs": 5,
+      "draft_pairs": 5,
+      "counts": {
+        "NO_RELATION": 5
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-13/f2631949-29e7-4ace-80dc-dbe863901246/20261023T105455-853605f3",
+      "source_file_sha256": "c5e3613e6f645560b4cdb60dcb81104d46697237296602f73d4379691b70d6c3",
+      "draft_file_sha256": "4a59a5afa81169b48676306b9fe73752d33f37ce833f92999d48b1fd75f90c1b",
+      "package_sha256": "fb175299cdf033a674daa6ba326877cab61862468a9704c9387a3beef30ee113",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-14",
+      "source_pairs": 61,
+      "draft_pairs": 61,
+      "counts": {
+        "NO_RELATION": 54,
+        "RELATED": 7
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-14/e2c710d1-7fea-49ef-83a7-f738a32859d9/20261023T105457-4d6c3167",
+      "source_file_sha256": "03660812c55181c125b52cb746863bb89fefca925cc40886e0ff6b8d4c611239",
+      "draft_file_sha256": "aec5dbdbe33cda283583ee8d8c71cc0273f5b9dfa284d15b58d9d0095f04932c",
+      "package_sha256": "14c041d9e871d3869863606cfc199231acdad5bd7f3b0e35f219532a5df305e7",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-15",
+      "source_pairs": 45,
+      "draft_pairs": 45,
+      "counts": {
+        "RELATED": 7,
+        "NO_RELATION": 38
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-15/b8bc5707-d4b4-48f7-85bc-faa103e2fac8/20261023T105500-8c4113aa",
+      "source_file_sha256": "22177454894b9e0f6e1b9d7d0b0f2c60d866f1158c9f8b336b94da9b7649a572",
+      "draft_file_sha256": "a43eb217f419a4e2bedd4236c79933c0e26aecaf45df92cfbd3859fba7dadbb7",
+      "package_sha256": "d9e9da7e06a813397e36f4ca4aa0c30b4a9d59fc58d802303579335cd88a3a25",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-17",
+      "source_pairs": 45,
+      "draft_pairs": 45,
+      "counts": {
+        "RELATED": 12,
+        "NO_RELATION": 33
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-17/d5637812-eced-45c3-b54b-942088325564/20261023T105503-f1be17b4",
+      "source_file_sha256": "9a1e1fa809011a27c6c9fe18a779990691922664be1aa7df73f9d57fb9fe9fd7",
+      "draft_file_sha256": "36b29a960ae308336f4a579520e00021ad589287939e394f447e973f86990b30",
+      "package_sha256": "21d73294b8923de9a87d376543ab7556ee65d15479b2ffa556e0f3bec104d9e6",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-18",
+      "source_pairs": 35,
+      "draft_pairs": 35,
+      "counts": {
+        "RELATED": 14,
+        "NO_RELATION": 21
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-18/bf1a3a0f-75c6-4466-b33c-1a5cdeaf2631/20261023T105506-78067c38",
+      "source_file_sha256": "a1df57b89d25bafb99374293167c3dc11598449d35c42b104735e7c45da0c5b1",
+      "draft_file_sha256": "173b18695de00a83240309c9c3d7b9bf996f90ad74b3699a6b99cfaf77b35b72",
+      "package_sha256": "56f7756845514b9c69135606161b0a3250d75880f678504f90fada0107430ed7",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-19",
+      "source_pairs": 32,
+      "draft_pairs": 32,
+      "counts": {
+        "NO_RELATION": 29,
+        "RELATED": 3
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-19/f7719c11-fdd5-41f9-ac64-37dddb6290e0/20261023T105509-a23b735e",
+      "source_file_sha256": "e446b06cecc509425e63d0cd30f8434092246e4c5c89b5308d52d5464f29b1b8",
+      "draft_file_sha256": "647f8aa04839e477dcc85da91caebd36d6ae11dc3b115369fe44c23c7aa21da4",
+      "package_sha256": "c64158f4da94e8abba3800e5fe61a5bdd423f8cebe4674cf8be84b0a6afece25",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-20",
+      "source_pairs": 77,
+      "draft_pairs": 77,
+      "counts": {
+        "NO_RELATION": 62,
+        "RELATED": 15
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-20/d7c7de3e-a68f-4b8c-8538-30d88da0d0cf/20261023T105512-aa628800",
+      "source_file_sha256": "987ef8ea7203a0d0e1c36373c6bc422e5283c0af9b0f7b799a4917db0d5ac52c",
+      "draft_file_sha256": "a7d4fbd757e2a0d826414c678b2a5f5b6c247afc9b5f6d71b3633bc4277cc972",
+      "package_sha256": "9c5a9b2c1be594dd4f18e8c2400020534b2607105547b8cb5d00d72bcf58c738",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-22",
+      "source_pairs": 78,
+      "draft_pairs": 78,
+      "counts": {
+        "NO_RELATION": 66,
+        "RELATED": 12
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-22/27bcda57-db3f-4c72-a345-e71ba8997ac8/20261023T105516-f446a65c",
+      "source_file_sha256": "9d4c908bdc5abd507cf3372ddaabc21557a68e7407565793887da4da15b19211",
+      "draft_file_sha256": "b07df5391121cb9c495168f2632c818957dea200992da6f1cf22e8eb9e28ccc4",
+      "package_sha256": "56ab7da6827395accb9298017001fb499e9d18745aa057b3c013c8eb66b60f31",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-23",
+      "source_pairs": 26,
+      "draft_pairs": 26,
+      "counts": {
+        "NO_RELATION": 20,
+        "RELATED": 6
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-23/2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20/20261023T105520-0a7ad787",
+      "source_file_sha256": "bc64223fe027441ec303ccffbbbb9a17de5ef9d2d870596e1b09b19141f33b04",
+      "draft_file_sha256": "86c0e7219ca05023b0ce70c5876b6cc5d422164ee273576b507c926b0cbdee9f",
+      "package_sha256": "f32a6cb8f331ebe0205616a923b27deed3bfea45468357d8ea93cf302cefb161",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-25",
+      "source_pairs": 126,
+      "draft_pairs": 126,
+      "counts": {
+        "NO_RELATION": 110,
+        "RELATED": 16
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-25/2ae44b75-b2d4-4bf7-9fca-e809580d5ab8/20261023T105524-04e1bc16",
+      "source_file_sha256": "b5a28186cf8cd73711aedc5cbdf5958fae308fa2107f1e0d95d97269f54b4c25",
+      "draft_file_sha256": "2bd29988a1b6725cc3a835f9177f8556302a573046a4c073a58c92bd99bdc139",
+      "package_sha256": "0b83e4548108fa7e51cc6eb45e0bb3f0e471e4f722029127aae6c8c25522b299",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-27",
+      "source_pairs": 68,
+      "draft_pairs": 68,
+      "counts": {
+        "NO_RELATION": 53,
+        "RELATED": 15
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-27/5f9d35f3-387b-43e6-bb0a-5207f73b65f0/20261023T105529-bad64471",
+      "source_file_sha256": "0140e41d4c6a21249a495978d1a19ad179b0bcce6b0f36ea5a6b64f5ec96c8b7",
+      "draft_file_sha256": "960fb7849c411868e33d8f4310b21c63245bc1400f79e7b7d0a64a810f1c0573",
+      "package_sha256": "33dd1e35cdaf327299340b2fa964d4d27917465cd20a3f0eba78ecfd7ce9582b",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    },
+    {
+      "date": "2026-09-29",
+      "source_pairs": 44,
+      "draft_pairs": 44,
+      "counts": {
+        "NO_RELATION": 40,
+        "RELATED": 4
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-29/33e02ff9-a75d-4933-8fb0-ff8ba2c954fc/20261023T105535-703eb88e",
+      "source_file_sha256": "c27006179e3c10d9ca0951bf98aebb3bc2e4340dcc3b17292cdc146cee5a9c59",
+      "draft_file_sha256": "fd97be8e888664b79b85bd46ec817b1959a464de520996fe955c3063a0eec619",
+      "package_sha256": "f3bbc1429ec73d316afc914322670b47af9f4ce2fbcc12e8c9c35221c427796a",
+      "source_package_self_digest_valid": true,
+      "frozen_skill_sha256": "a75d674ab164bc0151b3d07215506a1b0eedf304a7478bec362b2395a5a545cb",
+      "current_skill_matches": false,
+      "all_pairs_semantically_read": true,
+      "evidence_syntax_check": "pass"
+    }
+  ]
+}

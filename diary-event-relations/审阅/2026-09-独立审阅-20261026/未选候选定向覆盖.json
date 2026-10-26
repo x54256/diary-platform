@@ -1,0 +1,41 @@
+[
+  {
+    "review_id": "R01",
+    "current_event": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+    "historical_event": "263d2593-9661-4814-a3e8-b7a3850e0a8b",
+    "current_source_path": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-23/2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20/20261023T105520-0a7ad787/source.json",
+    "historical_source_path": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-22/27bcda57-db3f-4c72-a345-e71ba8997ac8/20261023T105516-f446a65c/source.json",
+    "recall_score": 0.4597497257666981,
+    "selected": false,
+    "frozen_pair_id": null,
+    "pair_exists": false,
+    "semantic_read": true,
+    "conclusion": "前侧昨天的具体母亲催生争吵在后侧被明确回顾，且形成进一步豆包式回应总结；建议9月22日→9月23日后续。"
+  },
+  {
+    "review_id": "R02",
+    "current_event": "34a6697e-050b-432f-8880-dc9686a074e0",
+    "historical_event": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+    "current_source_path": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-23/2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20/20261023T105520-0a7ad787/source.json",
+    "historical_source_path": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-20/d7c7de3e-a68f-4b8c-8538-30d88da0d0cf/20261023T105512-aa628800/source.json",
+    "recall_score": 0.5178631273100576,
+    "selected": false,
+    "frozen_pair_id": null,
+    "pair_exists": false,
+    "semantic_read": true,
+    "conclusion": "同一离职日期事项，从八月底提出、日期未定，到继续被安排干到十月之后并提出向领导明确月底走的新建议；建议9月20日→9月23日后续。"
+  },
+  {
+    "review_id": "R03",
+    "current_event": "08ebf16a-1744-46f7-9b44-a15778746ba7",
+    "historical_event": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+    "current_source_path": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-27/5f9d35f3-387b-43e6-bb0a-5207f73b65f0/20261023T105529-bad64471/source.json",
+    "historical_source_path": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-25/2ae44b75-b2d4-4bf7-9fca-e809580d5ab8/20261023T105524-04e1bc16/source.json",
+    "recall_score": 0.525261875478753,
+    "selected": false,
+    "frozen_pair_id": null,
+    "pair_exists": false,
+    "semantic_read": true,
+    "conclusion": "同一时间、地点、猫狗和酒店，9月25日预订/准备出发转为9月26日实际出发入住；建议9月25日→9月27日后续。"
+  }
+]

@@ -1,0 +1,236 @@
+[
+  {
+    "date": "2026-09-03",
+    "issue": "F01",
+    "before": {
+      "pair_id": "P-dee0c15426dd0503",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "下班条目虽交代工作问题已写入文档，仅为离开办公室的背景，没有继续处理指标事项。"
+    },
+    "after": {
+      "pair_id": "P-dee0c15426dd0503",
+      "status": "RELATED",
+      "reason": "下班条目回顾当天待整理的问题已经记入文档，对应此前新建文档登记会议问题。",
+      "relation": {
+        "source_event": "E016",
+        "target_event": "E013",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "下班条目回顾当天待整理的问题已经记入文档，对应此前新建文档登记会议问题。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "该做的做完、该整理的问题记进文档，我便下班走了，没想多留。颂梅先下楼，我以为她可能开车走了，又不知道去哪吃饭，查看电动车状态发现还没开机，就打电话问她在哪、去哪吃。最后一起去永旺，买了饭、水果和玉米，没有买零食，回家吃饭。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 11,
+            "quote": "我想自己为什么这么烦，是整个事情不清晰、混乱。问了问题没人回复，也没有落在一份纸面材料上，我先在脑子里理清、发群里，又要盯群反复看回复是否正确、是不是又“已读乱回”。当然，也可能有我们的问题，比如群消息太乱或表达不清。\n\n我决定留痕，让有哪些问题、还剩哪些一眼可见，有回复也能直接看文档。于是新建文档，登记刚才会议的问题。我脑子里其实也乱，借着写文档，把思维梳理一遍，从“到处都不对”变成知道具体哪里不对、哪里错了，再落到纸面，下次不用回忆和重新想。"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "date": "2026-09-09",
+    "issue": "F02",
+    "before": {
+      "pair_id": "P-a55408d7c887ad5d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "恢复平台的困难没有引用父母AI沟通设想。"
+    },
+    "after": {
+      "pair_id": "P-a55408d7c887ad5d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "一侧讨论恢复日记平台等活动的动力与成本，另一侧是江西评估指标需求和文档整理，未发现具体引用、触发或同一事项的新进展。"
+    }
+  },
+  {
+    "date": "2026-09-17",
+    "issue": "C01",
+    "before": {
+      "pair_id": "P-3036e67b2364ff8b",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E004",
+        "target_event": "E030",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前要求重新梳理江西基础指标数据后，后来数据重新整理出来，并安排与同事核对。",
+        "source_evidence": [
+          {
+            "point_no": 17,
+            "quote": "最后让他重新梳理基础指标体系。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "江西数据最近又整理出来，今早开会让我带王振洲一起做。"
+          }
+        ]
+      },
+      "reason": "双方独立支持数据重整后新资料与分工，不借第三事件建立联系。"
+    },
+    "after": {
+      "pair_id": "P-3036e67b2364ff8b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "用户澄清9月17日是江西项目的另一事项，不能将其接到9月1日、3日的基础指标需求整理上；同项目不足以建立后续关系。"
+    }
+  },
+  {
+    "date": "2026-09-17",
+    "issue": "C01",
+    "before": {
+      "pair_id": "P-c76d16e226a6276d",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E002",
+        "target_event": "E030",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前江西需求数据看不明白，后来数据重新整理出来，并安排我带同事继续核对处理。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "田总整理的需求和数据乱糟糟的，看不明白"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "江西数据最近又整理出来，今早开会让我带王振洲一起做。"
+          }
+        ]
+      },
+      "reason": "同一江西数据梳理出现新资料及分工。"
+    },
+    "after": {
+      "pair_id": "P-c76d16e226a6276d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "用户澄清9月17日是江西项目的另一事项，不能将其接到9月1日、3日的基础指标需求整理上；同项目不足以建立后续关系。"
+    }
+  },
+  {
+    "date": "2026-09-20",
+    "issue": "C02",
+    "before": {
+      "pair_id": "P-738f09e0f3580a33",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "两侧书名分别为自制力、自控力，未定位同一听书材料或因该次神经学习而制定日程，不擅自合并。"
+    },
+    "after": {
+      "pair_id": "P-738f09e0f3580a33",
+      "status": "RELATED",
+      "reason": "每日安排条目回顾昨天听书所记的方法，与学习普通心理学条目中昨晚听解读、建立知识联系的是同一次听书。",
+      "relation": {
+        "source_event": "E035",
+        "target_event": "E031",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "每日安排条目回顾昨天听书所记的方法，与学习普通心理学条目中昨晚听解读、建立知识联系的是同一次听书。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "昨天听《自控力》，记下想做一件事先强行打断、想十分钟，检查是否违背目标；若仍想做，就考虑多久、设时限，能不做尽量不做。因为睡着听，不知记得准不准。也觉得书中某些做法太理想，自己身上不容易直接奏效。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最近学普通心理学的神经系统，知道前额叶联合区比较重要。昨天中午在小廖爸妈家、她旧房间看到《自制力》，晚上去 B 站听三十分钟读完一本书的解读。里面说前额叶负责推理、决策，也控制注意力、自制力，恰好接上刚学的内容，知识连起来很有意思。"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "date": "2026-09-20",
+    "issue": "C03",
+    "before": {
+      "pair_id": "P-1b0cd72ad8e4ac7e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "学习目的讨论与每日计划未定位同一具体安排，课程名称也不同，不凭学习主题连边。"
+    },
+    "after": {
+      "pair_id": "P-1b0cd72ad8e4ac7e",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "reason": "每日计划中的《简单心理学》与此前普通心理学课程的身份尚待确认；若同一课程还需区分新安排、实际进展与重复目标，不能仅凭名称差异判无关系。"
+    }
+  },
+  {
+    "date": "2026-09-20",
+    "issue": "C03",
+    "before": {
+      "pair_id": "P-629f8909b7c68d08",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "本次计划中《简单心理学》未明确为此前普通心理学视频课，不靠近似课程名推断同一执行。"
+    },
+    "after": {
+      "pair_id": "P-629f8909b7c68d08",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "reason": "每日计划中的《简单心理学》与此前普通心理学课程的身份尚待确认；若同一课程还需区分新安排、实际进展与重复目标，不能仅凭名称差异判无关系。"
+    }
+  },
+  {
+    "date": "2026-09-22",
+    "issue": "C03",
+    "before": {
+      "pair_id": "P-b485d2043e3e6a50",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "每日计划的《简单心理学》与当前视觉课程未明确为同一课，不能仅凭近似课程名定位。"
+    },
+    "after": {
+      "pair_id": "P-b485d2043e3e6a50",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "reason": "每日计划中的《简单心理学》与此前普通心理学课程的身份尚待确认；若同一课程还需区分新安排、实际进展与重复目标，不能仅凭名称差异判无关系。"
+    }
+  },
+  {
+    "date": "2026-09-25",
+    "issue": "F03",
+    "before": {
+      "pair_id": "P-b2d0de8ccdeb4a3c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "工作条目提拿垫回家后，只有时间背景，转做工作明确因一周过半未工作，不是取件新进展。"
+    },
+    "after": {
+      "pair_id": "P-b2d0de8ccdeb4a3c",
+      "status": "RELATED",
+      "reason": "处理指标填报工作的条目明确回顾周三拿咬合垫后回家的经历，不据此建立取垫促成工作的因果。",
+      "relation": {
+        "source_event": "E048",
+        "target_event": "E047",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "处理指标填报工作的条目明确回顾周三拿咬合垫后回家的经历，不据此建立取垫促成工作的因果。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "周三拿咬合垫回家，想到一周过半还没怎么工作，便不继续心理学，主要处理工作。借 AI 梳理指标填报需求，与需求人员开会确认问题，但原型、数据及导入导出模板都没提供、确定，无法真正推进。确认这些情况后我就休息，没继续工作。上午也处理了几个项目问题，具体忘了，反正不是大事，若真大肯定记得。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "周三早上去口腔医院拿之前做好的咬合垫，也请医生开病历并打印。拿完就回家，准备之后找空闲时间申请商业保险报销。"
+          }
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "months": {
+    "2026-09": {
+      "drafts": 20,
+      "relations": 167,
+      "judgments": 1075
+    },
+    "2026-10": {
+      "drafts": 15,
+      "relations": 165,
+      "judgments": 1212
+    }
+  },
+  "drafts": 35,
+  "relations": 332,
+  "judgments": 2287,
+  "no_relation": 1952,
+  "unresolved_archived": 3,
+  "evidence_rows": 716,
+  "all_published": true,
+  "original_target_relations": 3,
+  "net_target_relation_increase": 329,
+  "points_and_vectors_unchanged": true,
+  "replaced_publications": {
+    "2026-09-09": {
+      "history_entries": 1,
+      "old_relations": 0,
+      "old_evidence": 0
+    },
+    "2026-09-10": {
+      "history_entries": 1,
+      "old_relations": 3,
+      "old_evidence": 7
+    }
+  },
+  "model_api_calls": 0,
+  "committed_at": "2026-10-26T15:28:14.722153+08:00",
+  "verified_at": "2026-10-26T15:28:42.677145+08:00",
+  "atomic_transaction_seconds": 28.937060542000836
+}

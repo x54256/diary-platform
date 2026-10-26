@@ -1,0 +1,2354 @@
+{
+  "started_at": "2026-10-26T10:05:13.971630+08:00",
+  "actual_host_tokens": null,
+  "database_written": false,
+  "days": [
+    {
+      "date": "2026-09-03",
+      "old_run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-03/16ef80a9-a28b-43e5-b820-ff29cdccf58a/20261023T102536-440da698",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-03/16ef80a9-a28b-43e5-b820-ff29cdccf58a/20261026T100514-e50664b6",
+      "top_k": 9,
+      "old_pairs": 45,
+      "new_pairs": 75,
+      "reusable": 45,
+      "new_or_changed": 30,
+      "changed_old_event_ids": [],
+      "prepare_seconds": 0.6557573340001,
+      "history_selection": {
+        "source": "database_formal_points",
+        "before": "2026-09-03",
+        "states": [
+          "POINTS_READY",
+          "PUBLISHED"
+        ],
+        "month_boundary": false,
+        "run_count": 4,
+        "event_count": 12,
+        "gaps": [
+          {
+            "diary_id": "c843aa45-0c01-4caa-825b-43409413c619",
+            "diary_date": "2026-07-08",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1d361ce3-1e74-4609-867c-9d5f2cf8467d",
+            "diary_date": "2026-07-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "972ac4c2-4bb1-41dd-989c-0b52db98bfb8",
+            "diary_date": "2026-07-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "11096557-f7d4-40bc-91f4-41ac4f621026",
+            "diary_date": "2026-07-14",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "bd337cdd-6c4b-4a05-ac2a-cb73865beb6f",
+            "diary_date": "2026-07-15",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "0a9d8881-2a38-4916-861f-3a0e964b34b7",
+            "diary_date": "2026-07-16",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "33bc0266-b5e1-490b-9c92-4387d8106f31",
+            "diary_date": "2026-07-17",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "7d630e33-5128-476b-a3b7-7c4583dc6388",
+            "diary_date": "2026-07-18",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "198a89d8-d7b2-44be-a31e-b22b326aa960",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b47f4f36-d1b4-4b6e-8e34-29704996a069",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "293331cf-28ae-4444-a2d2-bbe3bb571439",
+            "diary_date": "2026-07-20",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "57a99bea-3719-4d2c-9a9a-c3bb12a14fd4",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cdc461f9-a2cd-463e-9778-36f21e7fd8a8",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1600e506-05c7-4bac-b235-299682443c0c",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "6c36b101-5a61-48cc-a692-e814d9417abc",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "305ed0af-33be-4122-9c58-8bdbbc6eabb7",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a1871e71-b637-419a-8050-16ab1d637442",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c7f8ec89-eba7-42d4-8f77-70fef7c299ac",
+            "diary_date": "2026-07-24",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "74bdab7c-c9ea-4c90-9c21-915c59ef717d",
+            "diary_date": "2026-07-25",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b4425361-be45-498b-8655-a2d6622dd31f",
+            "diary_date": "2026-07-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "778db758-372f-43bf-b565-74f84f1e32fe",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "888977d3-650f-4085-94b1-038ffb9793f8",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c5ee9133-2bba-427b-a0d5-9956b5d95641",
+            "diary_date": "2026-07-30",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "382c2bb8-1187-4f2b-9105-9e59e7b646ab",
+            "diary_date": "2026-08-02",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "e36daa39-6373-4f2c-9250-1037c439a811",
+            "diary_date": "2026-08-03",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "567d5606-f5f4-49c6-9d57-933bb72045a9",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "abbe7b04-098a-4256-8396-2884284de7fd",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a03bac6e-17b0-4acb-b064-ee3bbcc06e6c",
+            "diary_date": "2026-08-07",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "4dc03082-e48e-41d1-a247-45b5b45c7b6f",
+            "diary_date": "2026-08-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "acfe8ba8-a042-41a4-be5f-ae4c89f5b815",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cf2e492f-4b1a-4042-b2fc-d34a038d4305",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "39f7f3dd-b550-4366-82c1-1548720bd7f1",
+            "diary_date": "2026-08-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "93301769-a631-4819-a51d-7e5c85dd220d",
+            "diary_date": "2026-08-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "09b1d82a-55be-482a-9327-5f35838ec6f1",
+            "diary_date": "2026-08-26",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "3381b76d-cf19-452a-8879-e33ff5446aaa",
+            "diary_date": "2026-08-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "fb68a61e-5417-4a6c-93ad-4353ddd4a0b3",
+            "diary_date": "2026-08-28",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "043d142e-fa41-4ff6-9caa-079909bd124e",
+            "diary_date": "2026-08-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          }
+        ],
+        "point_count": 37
+      },
+      "read_chars": 71723,
+      "read_recorded": true,
+      "complete": true,
+      "completed_at": "2026-10-26T14:26:57.264049+08:00",
+      "counts": {
+        "NO_RELATION": 69,
+        "RELATED": 6
+      }
+    },
+    {
+      "date": "2026-09-09",
+      "old_run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-09/828580fd-50a7-4a15-9d80-7acfe7ec987e/20261023T102643-508fa3ab",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-09/828580fd-50a7-4a15-9d80-7acfe7ec987e/20261026T100515-995ee234",
+      "top_k": 8,
+      "old_pairs": 61,
+      "new_pairs": 80,
+      "reusable": 61,
+      "new_or_changed": 19,
+      "changed_old_event_ids": [],
+      "prepare_seconds": 0.4774619999998322,
+      "history_selection": {
+        "source": "database_formal_points",
+        "before": "2026-09-09",
+        "states": [
+          "POINTS_READY",
+          "PUBLISHED"
+        ],
+        "month_boundary": false,
+        "run_count": 5,
+        "event_count": 20,
+        "gaps": [
+          {
+            "diary_id": "c843aa45-0c01-4caa-825b-43409413c619",
+            "diary_date": "2026-07-08",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1d361ce3-1e74-4609-867c-9d5f2cf8467d",
+            "diary_date": "2026-07-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "972ac4c2-4bb1-41dd-989c-0b52db98bfb8",
+            "diary_date": "2026-07-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "11096557-f7d4-40bc-91f4-41ac4f621026",
+            "diary_date": "2026-07-14",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "bd337cdd-6c4b-4a05-ac2a-cb73865beb6f",
+            "diary_date": "2026-07-15",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "0a9d8881-2a38-4916-861f-3a0e964b34b7",
+            "diary_date": "2026-07-16",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "33bc0266-b5e1-490b-9c92-4387d8106f31",
+            "diary_date": "2026-07-17",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "7d630e33-5128-476b-a3b7-7c4583dc6388",
+            "diary_date": "2026-07-18",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "198a89d8-d7b2-44be-a31e-b22b326aa960",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b47f4f36-d1b4-4b6e-8e34-29704996a069",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "293331cf-28ae-4444-a2d2-bbe3bb571439",
+            "diary_date": "2026-07-20",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "57a99bea-3719-4d2c-9a9a-c3bb12a14fd4",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cdc461f9-a2cd-463e-9778-36f21e7fd8a8",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1600e506-05c7-4bac-b235-299682443c0c",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "6c36b101-5a61-48cc-a692-e814d9417abc",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "305ed0af-33be-4122-9c58-8bdbbc6eabb7",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a1871e71-b637-419a-8050-16ab1d637442",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c7f8ec89-eba7-42d4-8f77-70fef7c299ac",
+            "diary_date": "2026-07-24",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "74bdab7c-c9ea-4c90-9c21-915c59ef717d",
+            "diary_date": "2026-07-25",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b4425361-be45-498b-8655-a2d6622dd31f",
+            "diary_date": "2026-07-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "778db758-372f-43bf-b565-74f84f1e32fe",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "888977d3-650f-4085-94b1-038ffb9793f8",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c5ee9133-2bba-427b-a0d5-9956b5d95641",
+            "diary_date": "2026-07-30",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "382c2bb8-1187-4f2b-9105-9e59e7b646ab",
+            "diary_date": "2026-08-02",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "e36daa39-6373-4f2c-9250-1037c439a811",
+            "diary_date": "2026-08-03",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "567d5606-f5f4-49c6-9d57-933bb72045a9",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "abbe7b04-098a-4256-8396-2884284de7fd",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a03bac6e-17b0-4acb-b064-ee3bbcc06e6c",
+            "diary_date": "2026-08-07",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "4dc03082-e48e-41d1-a247-45b5b45c7b6f",
+            "diary_date": "2026-08-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "acfe8ba8-a042-41a4-be5f-ae4c89f5b815",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cf2e492f-4b1a-4042-b2fc-d34a038d4305",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "39f7f3dd-b550-4366-82c1-1548720bd7f1",
+            "diary_date": "2026-08-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "93301769-a631-4819-a51d-7e5c85dd220d",
+            "diary_date": "2026-08-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "09b1d82a-55be-482a-9327-5f35838ec6f1",
+            "diary_date": "2026-08-26",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "3381b76d-cf19-452a-8879-e33ff5446aaa",
+            "diary_date": "2026-08-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "fb68a61e-5417-4a6c-93ad-4353ddd4a0b3",
+            "diary_date": "2026-08-28",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "043d142e-fa41-4ff6-9caa-079909bd124e",
+            "diary_date": "2026-08-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          }
+        ],
+        "point_count": 71
+      },
+      "read_chars": 79063,
+      "read_recorded": true,
+      "complete": true,
+      "completed_at": "2026-10-26T14:26:57.729539+08:00",
+      "counts": {
+        "NO_RELATION": 74,
+        "RELATED": 6
+      }
+    },
+    {
+      "date": "2026-09-17",
+      "old_run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-17/d5637812-eced-45c3-b54b-942088325564/20261023T105503-f1be17b4",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-17/d5637812-eced-45c3-b54b-942088325564/20261026T100515-da0f21dd",
+      "top_k": 6,
+      "old_pairs": 45,
+      "new_pairs": 51,
+      "reusable": 45,
+      "new_or_changed": 6,
+      "changed_old_event_ids": [],
+      "prepare_seconds": 0.7218565000002855,
+      "history_selection": {
+        "source": "database_formal_points",
+        "before": "2026-09-17",
+        "states": [
+          "POINTS_READY",
+          "PUBLISHED"
+        ],
+        "month_boundary": false,
+        "run_count": 12,
+        "event_count": 61,
+        "gaps": [
+          {
+            "diary_id": "c843aa45-0c01-4caa-825b-43409413c619",
+            "diary_date": "2026-07-08",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1d361ce3-1e74-4609-867c-9d5f2cf8467d",
+            "diary_date": "2026-07-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "972ac4c2-4bb1-41dd-989c-0b52db98bfb8",
+            "diary_date": "2026-07-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "11096557-f7d4-40bc-91f4-41ac4f621026",
+            "diary_date": "2026-07-14",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "bd337cdd-6c4b-4a05-ac2a-cb73865beb6f",
+            "diary_date": "2026-07-15",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "0a9d8881-2a38-4916-861f-3a0e964b34b7",
+            "diary_date": "2026-07-16",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "33bc0266-b5e1-490b-9c92-4387d8106f31",
+            "diary_date": "2026-07-17",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "7d630e33-5128-476b-a3b7-7c4583dc6388",
+            "diary_date": "2026-07-18",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "198a89d8-d7b2-44be-a31e-b22b326aa960",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b47f4f36-d1b4-4b6e-8e34-29704996a069",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "293331cf-28ae-4444-a2d2-bbe3bb571439",
+            "diary_date": "2026-07-20",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "57a99bea-3719-4d2c-9a9a-c3bb12a14fd4",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cdc461f9-a2cd-463e-9778-36f21e7fd8a8",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1600e506-05c7-4bac-b235-299682443c0c",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "6c36b101-5a61-48cc-a692-e814d9417abc",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "305ed0af-33be-4122-9c58-8bdbbc6eabb7",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a1871e71-b637-419a-8050-16ab1d637442",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c7f8ec89-eba7-42d4-8f77-70fef7c299ac",
+            "diary_date": "2026-07-24",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "74bdab7c-c9ea-4c90-9c21-915c59ef717d",
+            "diary_date": "2026-07-25",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b4425361-be45-498b-8655-a2d6622dd31f",
+            "diary_date": "2026-07-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "778db758-372f-43bf-b565-74f84f1e32fe",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "888977d3-650f-4085-94b1-038ffb9793f8",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c5ee9133-2bba-427b-a0d5-9956b5d95641",
+            "diary_date": "2026-07-30",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "382c2bb8-1187-4f2b-9105-9e59e7b646ab",
+            "diary_date": "2026-08-02",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "e36daa39-6373-4f2c-9250-1037c439a811",
+            "diary_date": "2026-08-03",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "567d5606-f5f4-49c6-9d57-933bb72045a9",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "abbe7b04-098a-4256-8396-2884284de7fd",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a03bac6e-17b0-4acb-b064-ee3bbcc06e6c",
+            "diary_date": "2026-08-07",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "4dc03082-e48e-41d1-a247-45b5b45c7b6f",
+            "diary_date": "2026-08-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "acfe8ba8-a042-41a4-be5f-ae4c89f5b815",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cf2e492f-4b1a-4042-b2fc-d34a038d4305",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "39f7f3dd-b550-4366-82c1-1548720bd7f1",
+            "diary_date": "2026-08-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "93301769-a631-4819-a51d-7e5c85dd220d",
+            "diary_date": "2026-08-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "09b1d82a-55be-482a-9327-5f35838ec6f1",
+            "diary_date": "2026-08-26",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "3381b76d-cf19-452a-8879-e33ff5446aaa",
+            "diary_date": "2026-08-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "fb68a61e-5417-4a6c-93ad-4353ddd4a0b3",
+            "diary_date": "2026-08-28",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "043d142e-fa41-4ff6-9caa-079909bd124e",
+            "diary_date": "2026-08-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          }
+        ],
+        "point_count": 227
+      },
+      "read_chars": 51445,
+      "read_recorded": true,
+      "complete": true,
+      "completed_at": "2026-10-26T14:26:58.646466+08:00",
+      "counts": {
+        "RELATED": 11,
+        "NO_RELATION": 40
+      }
+    },
+    {
+      "date": "2026-09-20",
+      "old_run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-20/d7c7de3e-a68f-4b8c-8538-30d88da0d0cf/20261023T105512-aa628800",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-20/d7c7de3e-a68f-4b8c-8538-30d88da0d0cf/20261026T100516-92353499",
+      "top_k": 5,
+      "old_pairs": 77,
+      "new_pairs": 77,
+      "reusable": 77,
+      "new_or_changed": 0,
+      "changed_old_event_ids": [],
+      "prepare_seconds": 1.0905617909998,
+      "history_selection": {
+        "source": "database_formal_points",
+        "before": "2026-09-20",
+        "states": [
+          "POINTS_READY",
+          "PUBLISHED"
+        ],
+        "month_boundary": false,
+        "run_count": 15,
+        "event_count": 77,
+        "gaps": [
+          {
+            "diary_id": "c843aa45-0c01-4caa-825b-43409413c619",
+            "diary_date": "2026-07-08",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1d361ce3-1e74-4609-867c-9d5f2cf8467d",
+            "diary_date": "2026-07-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "972ac4c2-4bb1-41dd-989c-0b52db98bfb8",
+            "diary_date": "2026-07-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "11096557-f7d4-40bc-91f4-41ac4f621026",
+            "diary_date": "2026-07-14",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "bd337cdd-6c4b-4a05-ac2a-cb73865beb6f",
+            "diary_date": "2026-07-15",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "0a9d8881-2a38-4916-861f-3a0e964b34b7",
+            "diary_date": "2026-07-16",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "33bc0266-b5e1-490b-9c92-4387d8106f31",
+            "diary_date": "2026-07-17",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "7d630e33-5128-476b-a3b7-7c4583dc6388",
+            "diary_date": "2026-07-18",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "198a89d8-d7b2-44be-a31e-b22b326aa960",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b47f4f36-d1b4-4b6e-8e34-29704996a069",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "293331cf-28ae-4444-a2d2-bbe3bb571439",
+            "diary_date": "2026-07-20",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "57a99bea-3719-4d2c-9a9a-c3bb12a14fd4",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cdc461f9-a2cd-463e-9778-36f21e7fd8a8",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1600e506-05c7-4bac-b235-299682443c0c",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "6c36b101-5a61-48cc-a692-e814d9417abc",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "305ed0af-33be-4122-9c58-8bdbbc6eabb7",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a1871e71-b637-419a-8050-16ab1d637442",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c7f8ec89-eba7-42d4-8f77-70fef7c299ac",
+            "diary_date": "2026-07-24",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "74bdab7c-c9ea-4c90-9c21-915c59ef717d",
+            "diary_date": "2026-07-25",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b4425361-be45-498b-8655-a2d6622dd31f",
+            "diary_date": "2026-07-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "778db758-372f-43bf-b565-74f84f1e32fe",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "888977d3-650f-4085-94b1-038ffb9793f8",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c5ee9133-2bba-427b-a0d5-9956b5d95641",
+            "diary_date": "2026-07-30",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "382c2bb8-1187-4f2b-9105-9e59e7b646ab",
+            "diary_date": "2026-08-02",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "e36daa39-6373-4f2c-9250-1037c439a811",
+            "diary_date": "2026-08-03",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "567d5606-f5f4-49c6-9d57-933bb72045a9",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "abbe7b04-098a-4256-8396-2884284de7fd",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a03bac6e-17b0-4acb-b064-ee3bbcc06e6c",
+            "diary_date": "2026-08-07",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "4dc03082-e48e-41d1-a247-45b5b45c7b6f",
+            "diary_date": "2026-08-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "acfe8ba8-a042-41a4-be5f-ae4c89f5b815",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cf2e492f-4b1a-4042-b2fc-d34a038d4305",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "39f7f3dd-b550-4366-82c1-1548720bd7f1",
+            "diary_date": "2026-08-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "93301769-a631-4819-a51d-7e5c85dd220d",
+            "diary_date": "2026-08-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "09b1d82a-55be-482a-9327-5f35838ec6f1",
+            "diary_date": "2026-08-26",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "3381b76d-cf19-452a-8879-e33ff5446aaa",
+            "diary_date": "2026-08-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "fb68a61e-5417-4a6c-93ad-4353ddd4a0b3",
+            "diary_date": "2026-08-28",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "043d142e-fa41-4ff6-9caa-079909bd124e",
+            "diary_date": "2026-08-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          }
+        ],
+        "point_count": 257
+      },
+      "read_chars": 69413,
+      "read_recorded": true,
+      "complete": true,
+      "completed_at": "2026-10-26T14:26:59.558915+08:00",
+      "counts": {
+        "NO_RELATION": 59,
+        "RELATED": 16,
+        "UNRESOLVED": 2
+      }
+    },
+    {
+      "date": "2026-09-22",
+      "old_run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-22/27bcda57-db3f-4c72-a345-e71ba8997ac8/20261023T105516-f446a65c",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-22/27bcda57-db3f-4c72-a345-e71ba8997ac8/20261026T100517-53efedb9",
+      "top_k": 7,
+      "old_pairs": 78,
+      "new_pairs": 92,
+      "reusable": 78,
+      "new_or_changed": 14,
+      "changed_old_event_ids": [],
+      "prepare_seconds": 1.0861078749999251,
+      "history_selection": {
+        "source": "database_formal_points",
+        "before": "2026-09-22",
+        "states": [
+          "POINTS_READY",
+          "PUBLISHED"
+        ],
+        "month_boundary": false,
+        "run_count": 16,
+        "event_count": 86,
+        "gaps": [
+          {
+            "diary_id": "c843aa45-0c01-4caa-825b-43409413c619",
+            "diary_date": "2026-07-08",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1d361ce3-1e74-4609-867c-9d5f2cf8467d",
+            "diary_date": "2026-07-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "972ac4c2-4bb1-41dd-989c-0b52db98bfb8",
+            "diary_date": "2026-07-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "11096557-f7d4-40bc-91f4-41ac4f621026",
+            "diary_date": "2026-07-14",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "bd337cdd-6c4b-4a05-ac2a-cb73865beb6f",
+            "diary_date": "2026-07-15",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "0a9d8881-2a38-4916-861f-3a0e964b34b7",
+            "diary_date": "2026-07-16",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "33bc0266-b5e1-490b-9c92-4387d8106f31",
+            "diary_date": "2026-07-17",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "7d630e33-5128-476b-a3b7-7c4583dc6388",
+            "diary_date": "2026-07-18",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "198a89d8-d7b2-44be-a31e-b22b326aa960",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b47f4f36-d1b4-4b6e-8e34-29704996a069",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "293331cf-28ae-4444-a2d2-bbe3bb571439",
+            "diary_date": "2026-07-20",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "57a99bea-3719-4d2c-9a9a-c3bb12a14fd4",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cdc461f9-a2cd-463e-9778-36f21e7fd8a8",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1600e506-05c7-4bac-b235-299682443c0c",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "6c36b101-5a61-48cc-a692-e814d9417abc",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "305ed0af-33be-4122-9c58-8bdbbc6eabb7",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a1871e71-b637-419a-8050-16ab1d637442",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c7f8ec89-eba7-42d4-8f77-70fef7c299ac",
+            "diary_date": "2026-07-24",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "74bdab7c-c9ea-4c90-9c21-915c59ef717d",
+            "diary_date": "2026-07-25",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b4425361-be45-498b-8655-a2d6622dd31f",
+            "diary_date": "2026-07-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "778db758-372f-43bf-b565-74f84f1e32fe",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "888977d3-650f-4085-94b1-038ffb9793f8",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c5ee9133-2bba-427b-a0d5-9956b5d95641",
+            "diary_date": "2026-07-30",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "382c2bb8-1187-4f2b-9105-9e59e7b646ab",
+            "diary_date": "2026-08-02",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "e36daa39-6373-4f2c-9250-1037c439a811",
+            "diary_date": "2026-08-03",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "567d5606-f5f4-49c6-9d57-933bb72045a9",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "abbe7b04-098a-4256-8396-2884284de7fd",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a03bac6e-17b0-4acb-b064-ee3bbcc06e6c",
+            "diary_date": "2026-08-07",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "4dc03082-e48e-41d1-a247-45b5b45c7b6f",
+            "diary_date": "2026-08-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "acfe8ba8-a042-41a4-be5f-ae4c89f5b815",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cf2e492f-4b1a-4042-b2fc-d34a038d4305",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "39f7f3dd-b550-4366-82c1-1548720bd7f1",
+            "diary_date": "2026-08-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "93301769-a631-4819-a51d-7e5c85dd220d",
+            "diary_date": "2026-08-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "09b1d82a-55be-482a-9327-5f35838ec6f1",
+            "diary_date": "2026-08-26",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "3381b76d-cf19-452a-8879-e33ff5446aaa",
+            "diary_date": "2026-08-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "fb68a61e-5417-4a6c-93ad-4353ddd4a0b3",
+            "diary_date": "2026-08-28",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "043d142e-fa41-4ff6-9caa-079909bd124e",
+            "diary_date": "2026-08-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          }
+        ],
+        "point_count": 283
+      },
+      "read_chars": 80495,
+      "read_recorded": true,
+      "complete": true,
+      "completed_at": "2026-10-26T14:27:00.547846+08:00",
+      "counts": {
+        "NO_RELATION": 78,
+        "RELATED": 13,
+        "UNRESOLVED": 1
+      }
+    },
+    {
+      "date": "2026-09-23",
+      "old_run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-23/2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20/20261023T105520-0a7ad787",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-23/2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20/20261026T100518-a6f55d56",
+      "top_k": 13,
+      "old_pairs": 26,
+      "new_pairs": 58,
+      "reusable": 26,
+      "new_or_changed": 32,
+      "changed_old_event_ids": [],
+      "prepare_seconds": 0.9247098749997349,
+      "history_selection": {
+        "source": "database_formal_points",
+        "before": "2026-09-23",
+        "states": [
+          "POINTS_READY",
+          "PUBLISHED"
+        ],
+        "month_boundary": false,
+        "run_count": 17,
+        "event_count": 95,
+        "gaps": [
+          {
+            "diary_id": "c843aa45-0c01-4caa-825b-43409413c619",
+            "diary_date": "2026-07-08",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1d361ce3-1e74-4609-867c-9d5f2cf8467d",
+            "diary_date": "2026-07-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "972ac4c2-4bb1-41dd-989c-0b52db98bfb8",
+            "diary_date": "2026-07-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "11096557-f7d4-40bc-91f4-41ac4f621026",
+            "diary_date": "2026-07-14",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "bd337cdd-6c4b-4a05-ac2a-cb73865beb6f",
+            "diary_date": "2026-07-15",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "0a9d8881-2a38-4916-861f-3a0e964b34b7",
+            "diary_date": "2026-07-16",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "33bc0266-b5e1-490b-9c92-4387d8106f31",
+            "diary_date": "2026-07-17",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "7d630e33-5128-476b-a3b7-7c4583dc6388",
+            "diary_date": "2026-07-18",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "198a89d8-d7b2-44be-a31e-b22b326aa960",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b47f4f36-d1b4-4b6e-8e34-29704996a069",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "293331cf-28ae-4444-a2d2-bbe3bb571439",
+            "diary_date": "2026-07-20",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "57a99bea-3719-4d2c-9a9a-c3bb12a14fd4",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cdc461f9-a2cd-463e-9778-36f21e7fd8a8",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1600e506-05c7-4bac-b235-299682443c0c",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "6c36b101-5a61-48cc-a692-e814d9417abc",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "305ed0af-33be-4122-9c58-8bdbbc6eabb7",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a1871e71-b637-419a-8050-16ab1d637442",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c7f8ec89-eba7-42d4-8f77-70fef7c299ac",
+            "diary_date": "2026-07-24",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "74bdab7c-c9ea-4c90-9c21-915c59ef717d",
+            "diary_date": "2026-07-25",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b4425361-be45-498b-8655-a2d6622dd31f",
+            "diary_date": "2026-07-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "778db758-372f-43bf-b565-74f84f1e32fe",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "888977d3-650f-4085-94b1-038ffb9793f8",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c5ee9133-2bba-427b-a0d5-9956b5d95641",
+            "diary_date": "2026-07-30",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "382c2bb8-1187-4f2b-9105-9e59e7b646ab",
+            "diary_date": "2026-08-02",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "e36daa39-6373-4f2c-9250-1037c439a811",
+            "diary_date": "2026-08-03",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "567d5606-f5f4-49c6-9d57-933bb72045a9",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "abbe7b04-098a-4256-8396-2884284de7fd",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a03bac6e-17b0-4acb-b064-ee3bbcc06e6c",
+            "diary_date": "2026-08-07",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "4dc03082-e48e-41d1-a247-45b5b45c7b6f",
+            "diary_date": "2026-08-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "acfe8ba8-a042-41a4-be5f-ae4c89f5b815",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cf2e492f-4b1a-4042-b2fc-d34a038d4305",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "39f7f3dd-b550-4366-82c1-1548720bd7f1",
+            "diary_date": "2026-08-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "93301769-a631-4819-a51d-7e5c85dd220d",
+            "diary_date": "2026-08-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "09b1d82a-55be-482a-9327-5f35838ec6f1",
+            "diary_date": "2026-08-26",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "3381b76d-cf19-452a-8879-e33ff5446aaa",
+            "diary_date": "2026-08-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "fb68a61e-5417-4a6c-93ad-4353ddd4a0b3",
+            "diary_date": "2026-08-28",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "043d142e-fa41-4ff6-9caa-079909bd124e",
+            "diary_date": "2026-08-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          }
+        ],
+        "point_count": 306
+      },
+      "read_chars": 66018,
+      "read_recorded": true,
+      "complete": true,
+      "completed_at": "2026-10-26T14:27:01.604518+08:00",
+      "counts": {
+        "NO_RELATION": 45,
+        "RELATED": 13
+      }
+    },
+    {
+      "date": "2026-09-25",
+      "old_run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-25/2ae44b75-b2d4-4bf7-9fca-e809580d5ab8/20261023T105524-04e1bc16",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-25/2ae44b75-b2d4-4bf7-9fca-e809580d5ab8/20261026T100520-39503409",
+      "top_k": 7,
+      "old_pairs": 126,
+      "new_pairs": 150,
+      "reusable": 126,
+      "new_or_changed": 24,
+      "changed_old_event_ids": [],
+      "prepare_seconds": 1.3052027500002623,
+      "history_selection": {
+        "source": "database_formal_points",
+        "before": "2026-09-25",
+        "states": [
+          "POINTS_READY",
+          "PUBLISHED"
+        ],
+        "month_boundary": false,
+        "run_count": 18,
+        "event_count": 99,
+        "gaps": [
+          {
+            "diary_id": "c843aa45-0c01-4caa-825b-43409413c619",
+            "diary_date": "2026-07-08",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1d361ce3-1e74-4609-867c-9d5f2cf8467d",
+            "diary_date": "2026-07-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "972ac4c2-4bb1-41dd-989c-0b52db98bfb8",
+            "diary_date": "2026-07-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "11096557-f7d4-40bc-91f4-41ac4f621026",
+            "diary_date": "2026-07-14",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "bd337cdd-6c4b-4a05-ac2a-cb73865beb6f",
+            "diary_date": "2026-07-15",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "0a9d8881-2a38-4916-861f-3a0e964b34b7",
+            "diary_date": "2026-07-16",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "33bc0266-b5e1-490b-9c92-4387d8106f31",
+            "diary_date": "2026-07-17",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "7d630e33-5128-476b-a3b7-7c4583dc6388",
+            "diary_date": "2026-07-18",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "198a89d8-d7b2-44be-a31e-b22b326aa960",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b47f4f36-d1b4-4b6e-8e34-29704996a069",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "293331cf-28ae-4444-a2d2-bbe3bb571439",
+            "diary_date": "2026-07-20",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "57a99bea-3719-4d2c-9a9a-c3bb12a14fd4",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cdc461f9-a2cd-463e-9778-36f21e7fd8a8",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1600e506-05c7-4bac-b235-299682443c0c",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "6c36b101-5a61-48cc-a692-e814d9417abc",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "305ed0af-33be-4122-9c58-8bdbbc6eabb7",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a1871e71-b637-419a-8050-16ab1d637442",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c7f8ec89-eba7-42d4-8f77-70fef7c299ac",
+            "diary_date": "2026-07-24",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "74bdab7c-c9ea-4c90-9c21-915c59ef717d",
+            "diary_date": "2026-07-25",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b4425361-be45-498b-8655-a2d6622dd31f",
+            "diary_date": "2026-07-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "778db758-372f-43bf-b565-74f84f1e32fe",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "888977d3-650f-4085-94b1-038ffb9793f8",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c5ee9133-2bba-427b-a0d5-9956b5d95641",
+            "diary_date": "2026-07-30",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "382c2bb8-1187-4f2b-9105-9e59e7b646ab",
+            "diary_date": "2026-08-02",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "e36daa39-6373-4f2c-9250-1037c439a811",
+            "diary_date": "2026-08-03",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "567d5606-f5f4-49c6-9d57-933bb72045a9",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "abbe7b04-098a-4256-8396-2884284de7fd",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a03bac6e-17b0-4acb-b064-ee3bbcc06e6c",
+            "diary_date": "2026-08-07",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "4dc03082-e48e-41d1-a247-45b5b45c7b6f",
+            "diary_date": "2026-08-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "acfe8ba8-a042-41a4-be5f-ae4c89f5b815",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cf2e492f-4b1a-4042-b2fc-d34a038d4305",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "39f7f3dd-b550-4366-82c1-1548720bd7f1",
+            "diary_date": "2026-08-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "93301769-a631-4819-a51d-7e5c85dd220d",
+            "diary_date": "2026-08-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "09b1d82a-55be-482a-9327-5f35838ec6f1",
+            "diary_date": "2026-08-26",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "3381b76d-cf19-452a-8879-e33ff5446aaa",
+            "diary_date": "2026-08-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "fb68a61e-5417-4a6c-93ad-4353ddd4a0b3",
+            "diary_date": "2026-08-28",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "043d142e-fa41-4ff6-9caa-079909bd124e",
+            "diary_date": "2026-08-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          }
+        ],
+        "point_count": 317
+      },
+      "read_chars": 104137,
+      "read_recorded": true,
+      "complete": true,
+      "completed_at": "2026-10-26T14:27:02.807772+08:00",
+      "counts": {
+        "NO_RELATION": 130,
+        "RELATED": 20
+      }
+    },
+    {
+      "date": "2026-09-27",
+      "old_run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-27/5f9d35f3-387b-43e6-bb0a-5207f73b65f0/20261023T105529-bad64471",
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-27/5f9d35f3-387b-43e6-bb0a-5207f73b65f0/20261026T100521-85d4b211",
+      "top_k": 7,
+      "old_pairs": 68,
+      "new_pairs": 84,
+      "reusable": 68,
+      "new_or_changed": 16,
+      "changed_old_event_ids": [],
+      "prepare_seconds": 1.1283961249996537,
+      "history_selection": {
+        "source": "database_formal_points",
+        "before": "2026-09-27",
+        "states": [
+          "POINTS_READY",
+          "PUBLISHED"
+        ],
+        "month_boundary": false,
+        "run_count": 19,
+        "event_count": 111,
+        "gaps": [
+          {
+            "diary_id": "c843aa45-0c01-4caa-825b-43409413c619",
+            "diary_date": "2026-07-08",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1d361ce3-1e74-4609-867c-9d5f2cf8467d",
+            "diary_date": "2026-07-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "972ac4c2-4bb1-41dd-989c-0b52db98bfb8",
+            "diary_date": "2026-07-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "11096557-f7d4-40bc-91f4-41ac4f621026",
+            "diary_date": "2026-07-14",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "bd337cdd-6c4b-4a05-ac2a-cb73865beb6f",
+            "diary_date": "2026-07-15",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "0a9d8881-2a38-4916-861f-3a0e964b34b7",
+            "diary_date": "2026-07-16",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "33bc0266-b5e1-490b-9c92-4387d8106f31",
+            "diary_date": "2026-07-17",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "7d630e33-5128-476b-a3b7-7c4583dc6388",
+            "diary_date": "2026-07-18",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "198a89d8-d7b2-44be-a31e-b22b326aa960",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b47f4f36-d1b4-4b6e-8e34-29704996a069",
+            "diary_date": "2026-07-19",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "293331cf-28ae-4444-a2d2-bbe3bb571439",
+            "diary_date": "2026-07-20",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "57a99bea-3719-4d2c-9a9a-c3bb12a14fd4",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cdc461f9-a2cd-463e-9778-36f21e7fd8a8",
+            "diary_date": "2026-07-21",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "1600e506-05c7-4bac-b235-299682443c0c",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "6c36b101-5a61-48cc-a692-e814d9417abc",
+            "diary_date": "2026-07-22",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "305ed0af-33be-4122-9c58-8bdbbc6eabb7",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a1871e71-b637-419a-8050-16ab1d637442",
+            "diary_date": "2026-07-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c7f8ec89-eba7-42d4-8f77-70fef7c299ac",
+            "diary_date": "2026-07-24",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "74bdab7c-c9ea-4c90-9c21-915c59ef717d",
+            "diary_date": "2026-07-25",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "b4425361-be45-498b-8655-a2d6622dd31f",
+            "diary_date": "2026-07-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "778db758-372f-43bf-b565-74f84f1e32fe",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "888977d3-650f-4085-94b1-038ffb9793f8",
+            "diary_date": "2026-07-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "c5ee9133-2bba-427b-a0d5-9956b5d95641",
+            "diary_date": "2026-07-30",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "382c2bb8-1187-4f2b-9105-9e59e7b646ab",
+            "diary_date": "2026-08-02",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "e36daa39-6373-4f2c-9250-1037c439a811",
+            "diary_date": "2026-08-03",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "567d5606-f5f4-49c6-9d57-933bb72045a9",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "abbe7b04-098a-4256-8396-2884284de7fd",
+            "diary_date": "2026-08-05",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "a03bac6e-17b0-4acb-b064-ee3bbcc06e6c",
+            "diary_date": "2026-08-07",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "4dc03082-e48e-41d1-a247-45b5b45c7b6f",
+            "diary_date": "2026-08-09",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "acfe8ba8-a042-41a4-be5f-ae4c89f5b815",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "cf2e492f-4b1a-4042-b2fc-d34a038d4305",
+            "diary_date": "2026-08-12",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "39f7f3dd-b550-4366-82c1-1548720bd7f1",
+            "diary_date": "2026-08-13",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "93301769-a631-4819-a51d-7e5c85dd220d",
+            "diary_date": "2026-08-23",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "09b1d82a-55be-482a-9327-5f35838ec6f1",
+            "diary_date": "2026-08-26",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "3381b76d-cf19-452a-8879-e33ff5446aaa",
+            "diary_date": "2026-08-27",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "fb68a61e-5417-4a6c-93ad-4353ddd4a0b3",
+            "diary_date": "2026-08-28",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          },
+          {
+            "diary_id": "043d142e-fa41-4ff6-9caa-079909bd124e",
+            "diary_date": "2026-08-29",
+            "gap": "NO_FORMAL_POINTS",
+            "event_count": 0,
+            "point_count": 0
+          }
+        ],
+        "point_count": 339
+      },
+      "read_chars": 48310,
+      "read_recorded": true,
+      "complete": true,
+      "completed_at": "2026-10-26T14:27:03.928015+08:00",
+      "counts": {
+        "NO_RELATION": 66,
+        "RELATED": 18
+      }
+    }
+  ],
+  "finished_at": "2026-10-26T14:27:03.929878+08:00"
+}

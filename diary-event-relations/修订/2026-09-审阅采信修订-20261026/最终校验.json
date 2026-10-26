@@ -1,0 +1,66 @@
+[
+  {
+    "date": "2026-09-03",
+    "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-03/16ef80a9-a28b-43e5-b820-ff29cdccf58a/20261026T100514-e50664b6",
+    "draft_sha256": "5882d56f4fb847e094f18a8999b0631d6fb677a1d2cc2193d33f3de696dd5bbc",
+    "package_sha256": "622a5ca02206aadb9dbfc5b866784f1005730b986e58567d2c52b9f1ea03e16d",
+    "parser_and_resolved_results_match": true,
+    "database_verified_at": "2026-10-26T06:26:57.249765+00:00"
+  },
+  {
+    "date": "2026-09-09",
+    "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-09/828580fd-50a7-4a15-9d80-7acfe7ec987e/20261026T100515-995ee234",
+    "draft_sha256": "612d4669819925da4d07f568ab851e0fecf647f4e2a27f0e9bccd14a90767ed1",
+    "package_sha256": "749c549dad6a14a534616525f17a05ee0dea12ed93fdb73a1d77a2c0731315d7",
+    "parser_and_resolved_results_match": true,
+    "database_verified_at": "2026-10-26T06:26:57.711063+00:00"
+  },
+  {
+    "date": "2026-09-17",
+    "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-17/d5637812-eced-45c3-b54b-942088325564/20261026T100515-da0f21dd",
+    "draft_sha256": "4daa1d773015bc3e4dff2c0b3b0f60092916a232a555a4ca4ad357f1393144a3",
+    "package_sha256": "350c9120a9da46ecaa4930b27444b84f8265d92bd1f8dd890d28b7c78a41cb64",
+    "parser_and_resolved_results_match": true,
+    "database_verified_at": "2026-10-26T06:26:58.630310+00:00"
+  },
+  {
+    "date": "2026-09-20",
+    "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-20/d7c7de3e-a68f-4b8c-8538-30d88da0d0cf/20261026T100516-92353499",
+    "draft_sha256": "08e0a0b20f3ce8e3097ad042242b6ae2e807c584e43858a7ede33225237fa794",
+    "package_sha256": "902758ee9746c6bad2062d8eb240e2eec2f8a33d10bdeaba1415e0a428a96a3e",
+    "parser_and_resolved_results_match": true,
+    "database_verified_at": "2026-10-26T06:26:59.536990+00:00"
+  },
+  {
+    "date": "2026-09-22",
+    "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-22/27bcda57-db3f-4c72-a345-e71ba8997ac8/20261026T100517-53efedb9",
+    "draft_sha256": "63568c5057659b2fee26d1b36854691d90d1d708ac1b8b2e8e51a74fd1b96a4f",
+    "package_sha256": "0c359f73cb077b480a49d3dbda6783e0384248223532c4fda0a7173f5b8298b8",
+    "parser_and_resolved_results_match": true,
+    "database_verified_at": "2026-10-26T06:27:00.522980+00:00"
+  },
+  {
+    "date": "2026-09-23",
+    "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-23/2ca9f8ef-eb50-4e42-87c1-b7d93f28eb20/20261026T100518-a6f55d56",
+    "draft_sha256": "a245de105e36c3d41fc9a13bf9531408052582411f9df31907a85260105688de",
+    "package_sha256": "37c7c570440dc856f3019006d1d9c6cbd9ed0b2638cc4c5499f64847eb19294a",
+    "parser_and_resolved_results_match": true,
+    "database_verified_at": "2026-10-26T06:27:01.583322+00:00"
+  },
+  {
+    "date": "2026-09-25",
+    "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-25/2ae44b75-b2d4-4bf7-9fca-e809580d5ab8/20261026T100520-39503409",
+    "draft_sha256": "f7edc78cee74d652c917ac7e3893a3880b97138c0a1848eb4fb68e34af44cd99",
+    "package_sha256": "385162d08fd8875606441e77b42959d3e3bdbca7cf16bef5be7c0bc3e4f7000c",
+    "parser_and_resolved_results_match": true,
+    "database_verified_at": "2026-10-26T06:27:02.776059+00:00"
+  },
+  {
+    "date": "2026-09-27",
+    "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-09-27/5f9d35f3-387b-43e6-bb0a-5207f73b65f0/20261026T100521-85d4b211",
+    "draft_sha256": "71b43678861f7b7af3d48a183d3b29717eb971fdf83bfe025f1bc25ec7bd658e",
+    "package_sha256": "03854d7ca900081fa8efcbcb7a54a918b527d5dc027763d7b2d409ae65ac2110",
+    "parser_and_resolved_results_match": true,
+    "database_verified_at": "2026-10-26T06:27:03.900436+00:00"
+  }
+]

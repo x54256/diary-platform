@@ -1,0 +1,408 @@
+{
+  "verified_at": "2026-10-26T15:28:42.677145+08:00",
+  "database_readonly": true,
+  "days": [
+    {
+      "date": "2026-09-01",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 0,
+      "evidence": 0,
+      "archived_judgments": 3,
+      "storage_sha256": "0bd61c4184ef9090876391baf8afadd97fcbfa9be2eab2977f7fad1dc6c9a1ac",
+      "draft_sha256": "4b5fc945726e85e0ff5b040cff8a54b067cd6112e9d5d5d4287c3614df6b325a",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-02",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 0,
+      "evidence": 0,
+      "archived_judgments": 1,
+      "storage_sha256": "07eead7c83c7b8914b9db9d5d220ef82f800f10a0b660f3b46859a5c41c469d7",
+      "draft_sha256": "d92c01190ea81a4bd4c28a54a5d96d4cb50adcb2178e8455bc238cfaa34d7582",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-03",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 6,
+      "evidence": 12,
+      "archived_judgments": 75,
+      "storage_sha256": "c290b32565771c52fcf67acbd66c953277f257367c9235475d12632231255794",
+      "draft_sha256": "5882d56f4fb847e094f18a8999b0631d6fb677a1d2cc2193d33f3de696dd5bbc",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-09",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 6,
+      "evidence": 12,
+      "archived_judgments": 80,
+      "storage_sha256": "e358b0b8fc34612396a0234e526af7526c285ac4fbe8d595d69fd3dedbf2c741",
+      "draft_sha256": "612d4669819925da4d07f568ab851e0fecf647f4e2a27f0e9bccd14a90767ed1",
+      "old_publication_preserved": {
+        "history_entries": 1,
+        "old_relations": 0,
+        "old_evidence": 0
+      }
+    },
+    {
+      "date": "2026-09-10",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 5,
+      "evidence": 10,
+      "archived_judgments": 26,
+      "storage_sha256": "cdb7a01b14cb3b67d57649df035b9123dbbba484c70d767a37d19561653c6644",
+      "draft_sha256": "96b8f915e9af8a40cdbc2188e628fec3d0ea5fa95780884bad8e50b3ed65cb67",
+      "old_publication_preserved": {
+        "history_entries": 1,
+        "old_relations": 3,
+        "old_evidence": 7
+      }
+    },
+    {
+      "date": "2026-09-11",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 3,
+      "evidence": 7,
+      "archived_judgments": 43,
+      "storage_sha256": "e1604c49704675e3d671648d34284f2e76e1f811abe5bbafa8396200905f2a80",
+      "draft_sha256": "f9f1da7d924d7a9db0df2b6ea87e95c2c3d6e3abe7dd4780f076328ba1ae29cb",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-12",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 10,
+      "evidence": 22,
+      "archived_judgments": 68,
+      "storage_sha256": "1c7df7ee29df840276f43cf0ccddd781035a187de777555c3428cc27737b90a4",
+      "draft_sha256": "ff79f84a3465eff45034fabca00dc507c4b0e38876f785d727ec8f848c46f7d4",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-13",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 0,
+      "evidence": 0,
+      "archived_judgments": 5,
+      "storage_sha256": "1bb608849e238bc81c0c14316d013d56e24e5aca775c002eeec4f17fa9108fd6",
+      "draft_sha256": "4a59a5afa81169b48676306b9fe73752d33f37ce833f92999d48b1fd75f90c1b",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-14",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 7,
+      "evidence": 14,
+      "archived_judgments": 61,
+      "storage_sha256": "c3852c84411614dec70cb698d8fe022cffc63c2c0102e20ed213b7646fb613b6",
+      "draft_sha256": "aec5dbdbe33cda283583ee8d8c71cc0273f5b9dfa284d15b58d9d0095f04932c",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-15",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 7,
+      "evidence": 14,
+      "archived_judgments": 45,
+      "storage_sha256": "703588b004063244c7c32192543239f7cb5fe6d24ac9c6ef9a961fdd986d8b99",
+      "draft_sha256": "a43eb217f419a4e2bedd4236c79933c0e26aecaf45df92cfbd3859fba7dadbb7",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-17",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 11,
+      "evidence": 22,
+      "archived_judgments": 51,
+      "storage_sha256": "05bcfeed53ae4dd99ccfa96c4420b42731802906d0dc59713518f6696b0cc43b",
+      "draft_sha256": "4daa1d773015bc3e4dff2c0b3b0f60092916a232a555a4ca4ad357f1393144a3",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-18",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 14,
+      "evidence": 30,
+      "archived_judgments": 35,
+      "storage_sha256": "edd603fb2e1990a808404cabf2041d7dda0066cb64b935b03b70c892acb43ae8",
+      "draft_sha256": "173b18695de00a83240309c9c3d7b9bf996f90ad74b3699a6b99cfaf77b35b72",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-19",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 3,
+      "evidence": 8,
+      "archived_judgments": 32,
+      "storage_sha256": "13febb20d20de0192dbffb30c09c68489a202a85deb89c4a65bdb2c0c48dd7c7",
+      "draft_sha256": "647f8aa04839e477dcc85da91caebd36d6ae11dc3b115369fe44c23c7aa21da4",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-20",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 16,
+      "evidence": 33,
+      "archived_judgments": 77,
+      "storage_sha256": "5a902ed969bd923df42088d3d847d61b4f53b4c1ff5a356b95ad7b1b2f6c7bfb",
+      "draft_sha256": "08e0a0b20f3ce8e3097ad042242b6ae2e807c584e43858a7ede33225237fa794",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-22",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 13,
+      "evidence": 28,
+      "archived_judgments": 92,
+      "storage_sha256": "11bb1128aba83bd29b4ca9cd6849c2000f005dcc5985e90184e5e8e7c2063256",
+      "draft_sha256": "63568c5057659b2fee26d1b36854691d90d1d708ac1b8b2e8e51a74fd1b96a4f",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-23",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 13,
+      "evidence": 31,
+      "archived_judgments": 58,
+      "storage_sha256": "6531a912d7cb6af1ad593220061c51b51b45198fe804a6e4d584c97579145da2",
+      "draft_sha256": "a245de105e36c3d41fc9a13bf9531408052582411f9df31907a85260105688de",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-25",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 20,
+      "evidence": 43,
+      "archived_judgments": 150,
+      "storage_sha256": "343175fcb51335e447a449ea3a416cf717594151af92275975efc2172701e3e5",
+      "draft_sha256": "f7edc78cee74d652c917ac7e3893a3880b97138c0a1848eb4fb68e34af44cd99",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-27",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 18,
+      "evidence": 39,
+      "archived_judgments": 84,
+      "storage_sha256": "88705ed625fb403dc82f89bf90da538f181e33bb6a8e0197cf94491917584177",
+      "draft_sha256": "71b43678861f7b7af3d48a183d3b29717eb971fdf83bfe025f1bc25ec7bd658e",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-29",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 4,
+      "evidence": 8,
+      "archived_judgments": 44,
+      "storage_sha256": "6ed97e7a81a142d360aab53e476b1057514f55a3661199502bbf2d884d4e6fcd",
+      "draft_sha256": "fd97be8e888664b79b85bd46ec817b1959a464de520996fe955c3063a0eec619",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-09-30",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 11,
+      "evidence": 26,
+      "archived_judgments": 45,
+      "storage_sha256": "0b2c0590082e36e6802d3356843c05569e06c1639d80793a274e9f11ed42f217",
+      "draft_sha256": "2ad25c9063d0052cbf39f112302dcde3ca71ecac4bd7264ea122e448c2d9b422",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-10-01",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 4,
+      "evidence": 9,
+      "archived_judgments": 45,
+      "storage_sha256": "9629e8c3b3e9e090dc4678f453121b8efc6c3606a43561104afb6a9eee4eabe0",
+      "draft_sha256": "852238437b6b17406f6ee8134a0f7064bc2dc54a62e2483d9d4b758d0d6bf8eb",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-10-02",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 8,
+      "evidence": 19,
+      "archived_judgments": 26,
+      "storage_sha256": "6753e35dbf2b71f17da1915ac09d4072e03dad588b4051c2a2779028ec9d5de5",
+      "draft_sha256": "99f9c2ed51c689a4bfa0dca1ae2f1720ff1de9a7a8e0216ade763e1085e7af12",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-10-07",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 10,
+      "evidence": 22,
+      "archived_judgments": 123,
+      "storage_sha256": "4a10779950199b4e2dbc3077a5786607813e5710444fff1e2af39cc83e50938d",
+      "draft_sha256": "7a43fa81261dbfd1accf8ff013be0b1b23a9742f67cf93f0e04be9fcf1b3ea87",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-10-09",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 19,
+      "evidence": 44,
+      "archived_judgments": 161,
+      "storage_sha256": "89a671b6dc87bfaf5388a6d2c91282bbda6d74f76553802ba5cb50771dbcb499",
+      "draft_sha256": "182f0eeb1ad4a77165eb1514b4f648b2d4bf47be8b0794571ad5da0239b6ba12",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-10-10",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 13,
+      "evidence": 28,
+      "archived_judgments": 126,
+      "storage_sha256": "52dd2b8595f6b22362c23153049bed05ee30c30c98df587e1cc38da307fe0dce",
+      "draft_sha256": "a8a95b4d1d639810e286c3b810ef65913ef8180c4171ae9d2e22bf0895442ee7",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-10-12",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 4,
+      "evidence": 10,
+      "archived_judgments": 68,
+      "storage_sha256": "171eb93aa0691571129be21d34ce1588312ac61c460a1487259feee0ad65271f",
+      "draft_sha256": "90fc6ac428307f710b7d6bccb9d04e1a28f852699fd80299e71eddf543698545",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-10-14",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 15,
+      "evidence": 31,
+      "archived_judgments": 109,
+      "storage_sha256": "b3e68ee19ead4b511ee3f9e4c5d283860f6637beff9818e106c6e882bcd2c924",
+      "draft_sha256": "91eb17458b652ef7eba6f7d09151ffd80b4c7ffd832d9a9eddfe05f140c9f2fa",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-10-15",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 3,
+      "evidence": 6,
+      "archived_judgments": 35,
+      "storage_sha256": "bac233a1209b912f14831944f65db7fd07cfd298535fb288179a9c8b81329ce9",
+      "draft_sha256": "d80e0b437f664a962bf20fcf9ffd6cdf0242af6cdf7b6146abecd4d9cec1e4c8",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-10-17",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 11,
+      "evidence": 22,
+      "archived_judgments": 81,
+      "storage_sha256": "d9cbe32c890b491e90280fdc6a6d7325b8b53d0ac1e2fb47fb4677e85673b792",
+      "draft_sha256": "44f07ec585103bbe77533979fc576a2e1b6b7ea86ef62371dcbce8253984c1b4",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-10-18",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 11,
+      "evidence": 22,
+      "archived_judgments": 95,
+      "storage_sha256": "11845bf992c4b72d4d05198c69be7d30ce42495be01727aa0d9d25417e5dedac",
+      "draft_sha256": "78b743a811a85ae1c504d3d8563e1d2fe9eca4a2f4a3ed470726e839e2726b77",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-10-19",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 13,
+      "evidence": 28,
+      "archived_judgments": 95,
+      "storage_sha256": "817ab38866760e54e941fd4e958ee87a54bc92a4ef9610d25720696ed51d03f9",
+      "draft_sha256": "a8fe421918fd830f7a030d5aa657d0bfb23aef9e110b44620f376a056d7a05c6",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-10-20",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 11,
+      "evidence": 23,
+      "archived_judgments": 35,
+      "storage_sha256": "cfbd3e4ae1ac71eadd990eb9539aadeda3421d175d6e324466cf10bdffbb8a53",
+      "draft_sha256": "38d274898d3916094b8a3efb88fc5463027a1b6b6e5dbbacc1859665ff5a9529",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-10-21",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 10,
+      "evidence": 23,
+      "archived_judgments": 35,
+      "storage_sha256": "08d09654cb2b25f12d3eb92d6031ffd6c7fb3b1bc5f5f7325aafbce7e9a39443",
+      "draft_sha256": "1eb00acf6ec19fb018063afbcfe11fb14e5c53efb88ac09623ccaf021b044ae4",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-10-22",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 22,
+      "evidence": 45,
+      "archived_judgments": 143,
+      "storage_sha256": "e81df29277507979a6cdc47a6e8e7b6553b329d3ddc252a3e17eca6cf464e525",
+      "draft_sha256": "8180fd256a90b9fa3a1b77596abe9dd4bb34db0766bbae0d18479254e44cc07a",
+      "old_publication_preserved": null
+    },
+    {
+      "date": "2026-10-23",
+      "stored": true,
+      "status": "PUBLISHED",
+      "relations": 11,
+      "evidence": 25,
+      "archived_judgments": 35,
+      "storage_sha256": "3a70116e4873e074a457196a9e6dbc6b1857c7dfdc55ffc51552f1e6b2b78357",
+      "draft_sha256": "81829988dad7c928a38ed5bfeabd59ae2f2959c6b1786aa938f38b7ba2983f6a",
+      "old_publication_preserved": null
+    }
+  ],
+  "relations": 332,
+  "judgments": 2287,
+  "evidence": 716,
+  "points_unchanged": true,
+  "points_digest": {
+    "count": 689,
+    "sha": "cfdd6d00a11d30f9d019857d49e1b873"
+  },
+  "model_calls": 0
+}

@@ -1,0 +1,13 @@
+{
+  "first_tool_read_started_at": null,
+  "first_persisted_review_artifact_at": "2026-10-26T09:53:17+08:00",
+  "report_generated_at": "2026-10-26T09:58:15.639758+08:00",
+  "actual_host_tokens": null,
+  "actual_host_tokens_availability": "未知：工具未提供实际host计量",
+  "external_model_calls": 0,
+  "database_reads": 0,
+  "database_writes": 0,
+  "semantic_pairs_read": 889,
+  "targeted_nonselected_pairs_read": 3,
+  "changes_since_hash_baseline": []
+}

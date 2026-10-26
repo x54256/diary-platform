@@ -1,0 +1,14 @@
+{
+  "batch_manifest_sha256": "685ed97170c1a58438a2c66c6ddd06c3c8afae5bf5b1469b5a169461c9473efb",
+  "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/入库/2026-09至10-20261026/2026-10-14-入库包-b3e68ee19ead4b51.json",
+  "date": "2026-10-14",
+  "stored": true,
+  "status": "PUBLISHED",
+  "relations": 15,
+  "evidence": 31,
+  "archived_judgments": 109,
+  "storage_sha256": "b3e68ee19ead4b511ee3f9e4c5d283860f6637beff9818e106c6e882bcd2c924",
+  "draft_sha256": "91eb17458b652ef7eba6f7d09151ffd80b4c7ffd832d9a9eddfe05f140c9f2fa",
+  "old_publication_preserved": null,
+  "verified_at": "2026-10-26T15:28:42.677145+08:00"
+}

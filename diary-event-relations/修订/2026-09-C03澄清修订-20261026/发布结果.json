@@ -1,0 +1,87 @@
+{
+  "started_at": "2026-10-26T15:44:53.808916+08:00",
+  "authorization": "确认，按两份新稿更新入库",
+  "manifest_sha256": "23c9e7154174333c5df0ed8e6270a2a98a6df6d961534cb2af1498d555e9150e",
+  "database_written": true,
+  "transaction": "one_atomic_transaction_for_two_revised_drafts",
+  "model_api_calls": 0,
+  "days": [
+    {
+      "date": "2026-09-20",
+      "storage_sha256": "07055ed43e8b3b69330488182a146c84cdd51f27685cac21c170ee13b353f27d",
+      "relations": 18,
+      "result": {
+        "stored": true,
+        "run_status": "PUBLISHED",
+        "replacing_published": true,
+        "accept_published_revisions": true,
+        "missing_published_dependencies": [],
+        "skill_source_supported": true,
+        "relations": 18,
+        "pairs": 77,
+        "storage_sha256": "07055ed43e8b3b69330488182a146c84cdd51f27685cac21c170ee13b353f27d",
+        "results_sha256": "33844cc1e5ed42d0483faed19a569ac192ec947cf93ecadbf718f76ae8b42b4e",
+        "relation_ids": {
+          "P-08bd7f0b18f48441": "3ed67c52-c94b-5d2c-84ba-f07497c83d78",
+          "P-1b0cd72ad8e4ac7e": "5ed6de35-ab73-57a2-8780-53946080f645",
+          "P-3762dd5943e874aa": "7dd50f88-d6cb-5ec4-8b04-7a4d98c9d144",
+          "P-3bb2ea548fdcd072": "4848535f-7771-591a-8f87-113e747fe281",
+          "P-480942ad9e6855cf": "187c72dc-aba2-5c29-8072-dc4c75f96f54",
+          "P-4d3b87ac36b3efc3": "99692c40-9dfc-55fc-9985-306b68f43ae2",
+          "P-629f8909b7c68d08": "0959e2ce-f38f-502b-b326-1abb77fb2c76",
+          "P-64661d7a7361e93a": "45e516fb-1c31-5670-a9bd-6fc916c1170b",
+          "P-6b2c4929234d1e1c": "e345681a-e7fa-50cc-97cb-563c17e6b8bc",
+          "P-738f09e0f3580a33": "f6436b2d-31f5-55d4-9142-a0b68fdf1245",
+          "P-74ead452824f727a": "4c636d97-b614-54eb-b9db-09c5fde4f1da",
+          "P-78a4761c3f91b998": "a7badb93-dab3-550b-a7b5-613de5284972",
+          "P-8a08906b0f627cf6": "5a4a6c7c-9454-50b1-92d3-db2abf2128b4",
+          "P-8bf65a6890f2e1d1": "4b9c29e2-7181-52fb-8460-6a6598192db0",
+          "P-b23522d6966e48ea": "0ae38bff-913e-5558-aaca-d889d9bfcf8b",
+          "P-c8e3659744e5632f": "b30d9b5c-18f1-58e2-9c28-37b486354cf7",
+          "P-de30335fa032cedb": "dc7ccf62-c054-5683-9206-300e82cc97ff",
+          "P-e774ae8f79ed7714": "3c20dc67-faaa-5af9-8acd-d5c873bb12c6"
+        }
+      }
+    },
+    {
+      "date": "2026-09-22",
+      "storage_sha256": "519088481fafca1ab2106b2ca5f5a75b2dea885a5284e47aeeaeafbb053169cb",
+      "relations": 14,
+      "result": {
+        "stored": true,
+        "run_status": "PUBLISHED",
+        "replacing_published": true,
+        "accept_published_revisions": true,
+        "missing_published_dependencies": [],
+        "skill_source_supported": true,
+        "relations": 14,
+        "pairs": 92,
+        "storage_sha256": "519088481fafca1ab2106b2ca5f5a75b2dea885a5284e47aeeaeafbb053169cb",
+        "results_sha256": "f6e4e5866781cca49f9bf3ae6cc2ec9619921ddacfc41de6c9a40ccc6a49d569",
+        "relation_ids": {
+          "P-06d38287f8ee800d": "6079f0b9-f730-5887-9e25-93ec651d694a",
+          "P-15f9fd5079e8ce73": "4dec400d-4d10-56d1-8606-9ce7b11c782f",
+          "P-2ce11e581b21c460": "d9dcc14b-ba14-5dc3-8723-579972e2d10a",
+          "P-36bb69f283012ceb": "ed4d5248-07e8-50d2-bc23-83e50b9ef3fb",
+          "P-5029623a91eebf74": "eb43d123-dada-5254-99d7-3623a3d97796",
+          "P-5da12fb3bdbadbca": "7a487fdf-f641-54fb-be9b-4171b6c4e416",
+          "P-601c9dea0bcc7a43": "65f283f2-16a9-5b1e-9df8-1678eec702ea",
+          "P-623ca25816ee06bf": "aad62cd4-690a-5bfb-a180-66ac998bd36a",
+          "P-6436f67a9dbf3fd3": "931c23df-1a69-50c0-a35c-c001a37f7b95",
+          "P-66647a4d49532824": "5e1e26fb-97bb-551f-bf6f-0d05d16308e9",
+          "P-6f6ee98a08009341": "15c7882f-eaf3-55d8-9f2f-012357761112",
+          "P-772111caf5fb55dc": "e3dc9f0d-dab5-5ff5-ad05-7a7d326db11d",
+          "P-908d447d45c97ce3": "66651410-fcfe-5ba6-8f61-0a02f79b1e14",
+          "P-b485d2043e3e6a50": "753fc3f2-e461-5cbe-b00f-490d221dfe20"
+        }
+      }
+    }
+  ],
+  "committed_at": "2026-10-26T15:44:56.213312+08:00",
+  "seconds": 2.404060374999972,
+  "points_unchanged": true,
+  "points_before": {
+    "count": 689,
+    "sha": "cfdd6d00a11d30f9d019857d49e1b873"
+  }
+}
