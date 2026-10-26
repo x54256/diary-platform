@@ -1,0 +1,33 @@
+{
+  "changed_at": "2026-10-26T14:59:29.669394+08:00",
+  "request": "k 调整为 6，并保留相似度在 0.5 以上的所有事件",
+  "previous_config": {
+    "workspace_root": "../../diary-event-relations",
+    "min_similarity": 0.4,
+    "top_k": 10,
+    "max_batch_chars": 12000,
+    "max_pairs_per_batch": 12,
+    "retain_all_min_similarity": 0.5
+  },
+  "current_config": {
+    "workspace_root": "../../diary-event-relations",
+    "min_similarity": 0.4,
+    "top_k": 6,
+    "max_batch_chars": 12000,
+    "max_pairs_per_batch": 12,
+    "retain_all_min_similarity": 0.5
+  },
+  "selection": "每个当前事件：相似度>=0.4的历史事件按得分降序、事件ID升序排列，取前6个，与相似度>=0.5的全部历史事件取并集，按事件ID去重。",
+  "boundary_inclusive": true,
+  "scope": "新运行生效；保留旧冻结运行，不据此重做关系稿或写库。",
+  "validation": {
+    "unit_tests": {
+      "run": 50,
+      "passed": 46,
+      "skipped": 4,
+      "result": "OK"
+    },
+    "skill_validation": "Skill is valid!",
+    "covered": "0.5边界包含、高分数超过K仍全保留、低分Top6、最低0.4及不补足、事件聚合去重和稳定排序"
+  }
+}

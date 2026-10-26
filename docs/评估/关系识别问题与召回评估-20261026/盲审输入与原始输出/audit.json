@@ -1,0 +1,722 @@
+{
+  "assessment": "独立语义盲审；仅依据8个批次双方完整正式要点与Skill语义标准；未读取其他关系稿、统计、排名或标签；未访问数据库或外部服务。",
+  "counts": {
+    "NO_RELATION": 30,
+    "RELATED": 2,
+    "UNRESOLVED": 0
+  },
+  "judgments": [
+    {
+      "sample_id": "A13",
+      "batch": 1,
+      "event_a": {
+        "id": "a5329c5a-9b24-47f9-b21f-3c4739a65abf",
+        "date": "2026-10-20",
+        "title": "做出日记整理skill，用九月日记验证、修复 skill 存在的问题"
+      },
+      "event_b": {
+        "id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+        "date": "2026-10-07",
+        "title": "商量回丹东扫墓，觉得事情还是要分优先级"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是日记整理skill的开发与九月日记验证；B是回丹东扫墓的票价安排及小事优先级建议。两侧虽均有AI与任务安排，但没有同一具体事项的新进展、相互引用或触发表达。"
+    },
+    {
+      "sample_id": "A23",
+      "batch": 1,
+      "event_a": {
+        "id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+        "date": "2026-10-14",
+        "title": "在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发"
+      },
+      "event_b": {
+        "id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+        "date": "2026-09-20",
+        "title": "与母亲沟通催生及劝学无果"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是使用小廖妈妈送的板栗做饭、拟发照片未发；B是与我自己母亲讨论催生和学习。人物、行动与事项不同，做饭一词也只是B劝学时的例子，未指向A这顿饭。"
+    },
+    {
+      "sample_id": "A09",
+      "batch": 1,
+      "event_a": {
+        "id": "e3ae8984-3190-4df4-bf87-00db8f77cf3a",
+        "date": "2026-10-21",
+        "title": "把“看书”变成“看十页书”，今天终于开始了"
+      },
+      "event_b": {
+        "id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+        "date": "2026-09-29",
+        "title": "给多多做驱虫时和颂梅起争执，意识到沟通方式不对后道歉"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是通过十页提醒与视频推荐开始自己的阅读；B是给多多驱虫时争执、道歉并完成驱虫。A的行动带动指向当天跑步瑜伽，未指向B；两侧无具体交叉引用。"
+    },
+    {
+      "sample_id": "A08",
+      "batch": 1,
+      "event_a": {
+        "id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+        "date": "2026-10-12",
+        "title": "扫地机上下水坏了，想先试试自己每周拖地"
+      },
+      "event_b": {
+        "id": "263d2593-9661-4814-a3e8-b7a3850e0a8b",
+        "date": "2026-09-22",
+        "title": "妈妈反复催生，我再次说明自己的立场"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是扫地机故障后的换机或每周自己拖地安排；B是母亲持续催生与生育自主立场。省钱或生活负担不足以将两项事项连成事实关系。"
+    },
+    {
+      "sample_id": "A21",
+      "batch": 2,
+      "event_a": {
+        "id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+        "date": "2026-10-22",
+        "title": "小廖生日改成抽奖，定下六样东西"
+      },
+      "event_b": {
+        "id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+        "date": "2026-10-09",
+        "title": "颂梅的朋友抽中刘德华香港演唱会第二轮购票资格"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A的抽奖是为小廖生日设计的礼物形式；B的抽签是刘德华演唱会购票资格。两种抽取并非同一次活动，A未说生日抽奖受B启发，B也未引用A。"
+    },
+    {
+      "sample_id": "A17",
+      "batch": 2,
+      "event_a": {
+        "id": "145224c1-0971-427b-bb1c-9678867aad88",
+        "date": "2026-10-22",
+        "title": "读《非暴力沟通》，拿我妈催生的事试着复盘"
+      },
+      "event_b": {
+        "id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+        "date": "2026-09-13",
+        "title": "小廖容易进入防御姿态"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是读非暴力沟通并复盘当天母亲转述大姨催生；B是小廖把提醒当指责的防御反应。A泛论先觉察再反应及觉得小廖爸爸不讲理，未回忆或定位B的压线提醒经历，不能凭沟通主题建边。"
+    },
+    {
+      "sample_id": "A20",
+      "batch": 2,
+      "event_a": {
+        "id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+        "date": "2026-10-22",
+        "title": "不小心踢到别人的小狗，道歉后仍被念叨，很烦躁"
+      },
+      "event_b": {
+        "id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+        "date": "2026-10-10",
+        "title": "颂梅提离职后又被安排去墨西哥，她心情很烦"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A误踢小狗后被狗主人念叨；B颂梅不愿出差却再次被销售安排出差。双方都谈烦躁和调节，但不是同一争执，A的催生、消费案例亦未指向B的工作出差。"
+    },
+    {
+      "sample_id": "A28",
+      "batch": 2,
+      "event_a": {
+        "id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+        "date": "2026-10-12",
+        "title": "烤羊排带去颂梅爸妈家，中午一起吃饭"
+      },
+      "event_b": {
+        "id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+        "date": "2026-09-25",
+        "title": "头颈不舒服去按摩，回程头晕恶心，今天早上好转"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是烤羊排带去颂梅父母家吃饭；B是颈痛按摩后头晕恶心。吃玉米、遛狗是不同日期的日常动作，A没有提及B的不适或因B调整饮食。"
+    },
+    {
+      "sample_id": "A29",
+      "batch": 3,
+      "event_a": {
+        "id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
+        "date": "2026-10-17",
+        "title": "我爸过生日，让颂梅先在群里送祝福"
+      },
+      "event_b": {
+        "id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+        "date": "2026-10-09",
+        "title": "给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "RELATED",
+      "relation": {
+        "type": "后续事件",
+        "direction": "B → A",
+        "certainty": "EXPLICIT",
+        "description": "为父亲本次生日提前用积分买牛奶后，生日当天又安排颂梅在群里先祝福，并打算选手机让父亲挑。",
+        "evidence": [
+          {
+            "side": "A",
+            "point_no": 1,
+            "point_id": "1ff36b40-b92e-425a-9931-cf4f6b99e90e",
+            "quote": "今天父亲生日，早晨视频时我让颂梅先在群里祝生日快乐"
+          },
+          {
+            "side": "B",
+            "point_no": 2,
+            "point_id": "2e1f1b97-c425-467c-b22c-914bcd47a8eb",
+            "quote": "刚好公司的锦鲤积分也用不完，就当给我爸的生日礼物了。然后我就下单了两箱，一箱我爸，一箱我姥。"
+          }
+        ]
+      },
+      "reason": "双方共同定位父亲本次生日：B明确牛奶是给父亲的生日礼物，A记录该生日当天的新祝福行动及新增手机礼物计划。不是仅凭父亲同人或日期接近，而是同一具体生日筹备与庆祝事项的新行动；手机仍只是待选购计划。"
+    },
+    {
+      "sample_id": "A18",
+      "batch": 3,
+      "event_a": {
+        "id": "93d08f00-f92c-4124-99fa-42eb33748202",
+        "date": "2026-10-18",
+        "title": "和AI聊观念的代际传递，想到未来的家庭教育"
+      },
+      "event_b": {
+        "id": "553beea5-1c4e-458c-931c-75bc92717952",
+        "date": "2026-09-23",
+        "title": "与母亲聊天时情绪失控及对沟通方式的反思"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A由文革观念代际传递谈未来家庭教育；B是与母亲谈生病不治时发火并反思。A未将家庭教育想法联系到B这次争吵，亲子沟通的主题相近不能确定具体关联。"
+    },
+    {
+      "sample_id": "A04",
+      "batch": 3,
+      "event_a": {
+        "id": "ef7fdcde-74f9-406e-a5dc-39b3d9678ed9",
+        "date": "2026-10-17",
+        "title": "在家烧烤，火不够旺，肉没烤出香味"
+      },
+      "event_b": {
+        "id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+        "date": "2026-10-09",
+        "title": "知识图谱需求不清时，让AI调研、实验，小步拼出方案"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是在家烧烤不香并分析火力和冻肉原因；B是让AI调研实验知识图谱方案。两侧无共同具体事项、引用或触发。"
+    },
+    {
+      "sample_id": "A06",
+      "batch": 3,
+      "event_a": {
+        "id": "a142e54a-320b-4f02-a7a4-493885cf8966",
+        "date": "2026-10-17",
+        "title": "颂梅的朋友帮忙抢到刘德华演唱会门票"
+      },
+      "event_b": {
+        "id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+        "date": "2026-09-14",
+        "title": "去口腔医院做咬合垫"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是朋友买到刘德华演唱会门票作为生日礼物；B是口腔医院就诊并制作咬合垫。门票与医疗就诊没有双方事实支持的关联。"
+    },
+    {
+      "sample_id": "A25",
+      "batch": 4,
+      "event_a": {
+        "id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+        "date": "2026-10-14",
+        "title": "帮颂梅办值机，航班延误、支付和软件问题折腾很久"
+      },
+      "event_b": {
+        "id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+        "date": "2026-09-12",
+        "title": "家务积压带来的烦躁，以及我对“完美主义”的疑问"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是赴墨西哥航班值机、延误与支付故障；B是家务积压、清洁困难及夫妻烦躁沟通。虽然都出现操作受阻和烦躁，A未回顾B的家务事件，也未说其应对来自B。"
+    },
+    {
+      "sample_id": "A15",
+      "batch": 4,
+      "event_a": {
+        "id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+        "date": "2026-10-07",
+        "title": "4号骑车看山，雨里游了一幅幅水墨画"
+      },
+      "event_b": {
+        "id": "51378961-204a-4566-8930-5d28c65abb8f",
+        "date": "2026-09-19",
+        "title": "昨晚用投影看《星际穿越》"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是桂林骑车看山、反复遇雨与回营地洗澡；B是投影看星际穿越并希望少刷短视频。休闲主题及共同伴侣不能证明同一事项或具体引用。"
+    },
+    {
+      "sample_id": "A01",
+      "batch": 4,
+      "event_a": {
+        "id": "57dc947a-2355-405b-92a7-7f7196d3965b",
+        "date": "2026-10-15",
+        "title": "问日本失落三十年，再比较软预算约束的两面性"
+      },
+      "event_b": {
+        "id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+        "date": "2026-09-12",
+        "title": "小廖给表妹买电脑回礼，明天准备和亲戚聚餐"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是询问日本经济、福利与软预算约束；B是小廖为表妹买电脑回礼及亲戚聚餐安排。金钱、成本或心意不构成两项事件之间的事实联系。"
+    },
+    {
+      "sample_id": "A31",
+      "batch": 4,
+      "event_a": {
+        "id": "b610c05d-344c-472b-ad6c-b8b6248706f0",
+        "date": "2026-10-23",
+        "title": "和爸妈聊愧疚式教育，我妈后来的话却还是同样的方式"
+      },
+      "event_b": {
+        "id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+        "date": "2026-09-29",
+        "title": "给多多做驱虫时和颂梅起争执，意识到沟通方式不对后道歉"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是与父母聊愧疚式教育并询问颂梅的成长经历；B是给多多驱虫时争执和道歉。A说自己成长后改变愧疚沟通是一般经历概括，没有定位B的驱虫争执；不能把所有认错经历自动当作被提及。"
+    },
+    {
+      "sample_id": "A30",
+      "batch": 5,
+      "event_a": {
+        "id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+        "date": "2026-10-02",
+        "title": "跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒"
+      },
+      "event_b": {
+        "id": "fd9aa409-84d7-4aed-bdf0-92124c4cbe84",
+        "date": "2026-09-19",
+        "title": "去小廖爸妈家吃午饭"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是针对自己父亲的检查结果劝用药、饮食与带饭；B是到小廖父母家吃饭并被她爸反复提问。父亲主体不同；健康饮食与具体午餐亦无相互指向。"
+    },
+    {
+      "sample_id": "A27",
+      "batch": 5,
+      "event_a": {
+        "id": "b610c05d-344c-472b-ad6c-b8b6248706f0",
+        "date": "2026-10-23",
+        "title": "和爸妈聊愧疚式教育，我妈后来的话却还是同样的方式"
+      },
+      "event_b": {
+        "id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+        "date": "2026-09-02",
+        "title": "借助第三方的力量与父母沟通"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "RELATED",
+      "relation": {
+        "type": "后续事件",
+        "direction": "B → A",
+        "certainty": "EXPLICIT",
+        "description": "此前形成借AI第三方力量帮助父母检视观念、培养用AI解决问题的安排，后来在谈愧疚式教育时让父母实际询问豆包，并讨论是否能改变。",
+        "evidence": [
+          {
+            "side": "A",
+            "point_no": 1,
+            "point_id": "0eda4f63-79b1-4ee0-9af2-2f5d4c5ad6cc",
+            "quote": "我就问，知道什么叫愧疚式教育吗？她不知道，我让他们问豆包。"
+          },
+          {
+            "side": "B",
+            "point_no": 1,
+            "point_id": "889cf0ae-0d6a-4675-ad3d-f057bbcc3af8",
+            "quote": "我想到，可以借助第三方的力量改变父母的认知，也培养他们用 AI 解决问题的思维。"
+          }
+        ]
+      },
+      "reason": "B记录的是面向自己父母的具体AI沟通方案，A记录同一对象、同一工具方式的实际实施与反馈，而非仅谈AI的一般价值。B以催生为举例，不把A改写成执行了那条特定催生问句，也不声称此次已改变母亲。"
+    },
+    {
+      "sample_id": "A16",
+      "batch": 5,
+      "event_a": {
+        "id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+        "date": "2026-10-07",
+        "title": "4号晚上去桂林市区，还共享电动车特别折腾"
+      },
+      "event_b": {
+        "id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+        "date": "2026-09-17",
+        "title": "控制油管观看，也思考政治观点与了解政治的意义"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是桂林市区共享电动车还车和景点游玩；B是政治视频的观点偏差与了解政治的意义。B说有机会出去走走是与英语、未来孩子出国有关的泛想法，未形成这次桂林旅游安排。"
+    },
+    {
+      "sample_id": "A26",
+      "batch": 5,
+      "event_a": {
+        "id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+        "date": "2026-10-12",
+        "title": "扫地机上下水坏了，想先试试自己每周拖地"
+      },
+      "event_b": {
+        "id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+        "date": "2026-08-17",
+        "title": "处理哒哒误咬洁厕灵事件"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A扫地机拖地上下水坏，商量自己拖地；B是哒哒疑咬洁厕灵而就医。B厕所地漏、清洁剂与A扫地机器人的上下水是不同对象，无表述表明误咬造成机器损坏或触发拖地安排。"
+    },
+    {
+      "sample_id": "A02",
+      "batch": 6,
+      "event_a": {
+        "id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+        "date": "2026-10-12",
+        "title": "从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》"
+      },
+      "event_b": {
+        "id": "23847dd2-f778-4f37-b4ef-e95ed05df0f3",
+        "date": "2026-09-27",
+        "title": "又沉迷《植物大战僵尸》无尽模式，回家后继续玩到通关"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A讨论财政兜底、内需与经济思想视频；B沉迷植物大战僵尸无尽模式并通关。视频观看与游戏是不同活动，没有具体引用或来源表达的触发。"
+    },
+    {
+      "sample_id": "A07",
+      "batch": 6,
+      "event_a": {
+        "id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+        "date": "2026-10-12",
+        "title": "看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益"
+      },
+      "event_b": {
+        "id": "bfc2009a-7316-4104-a414-839f4c898479",
+        "date": "2026-10-10",
+        "title": "找不到车时胃食管反流，后来解释清楚并不是在生她的气"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A由广告和骑手合同新闻讨论制度监管、利益分配；B是山姆找车时反流不适及解释情绪。小廖参与两次交流不足以建边，A的消费分配讨论未回顾B这次找车或病痛。"
+    },
+    {
+      "sample_id": "A22",
+      "batch": 6,
+      "event_a": {
+        "id": "1b27be66-512d-4590-b855-19505246ada3",
+        "date": "2026-10-22",
+        "title": "公司不断加AI和测试要求，工具使用成本让我很烦"
+      },
+      "event_b": {
+        "id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+        "date": "2026-09-18",
+        "title": "早晨刷题与看LeetCode题解视频"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是公司skill/MCP、测试及CICD考核要求的成本与后续工作安排；B是英语打卡、算法题解与对刷题用途的疑问。都涉及AI时代的技术工作，但刷算法题不是A的单元测试或Jenkins事项，也无明确引用。"
+    },
+    {
+      "sample_id": "A03",
+      "batch": 6,
+      "event_a": {
+        "id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+        "date": "2026-10-10",
+        "title": "颂梅去检查底盘没有问题，轮毂做了小修复"
+      },
+      "event_b": {
+        "id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+        "date": "2026-09-18",
+        "title": "早晨刷题与看LeetCode题解视频"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是车辆底盘检查、轮毂修复和会合；B是英语及LeetCode学习。双方完整要点没有同一具体事项、触发或引用联系。"
+    },
+    {
+      "sample_id": "A24",
+      "batch": 7,
+      "event_a": {
+        "id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+        "date": "2026-10-18",
+        "title": "睡得不好，白天昏沉，傍晚才补了一觉"
+      },
+      "event_b": {
+        "id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+        "date": "2026-10-10",
+        "title": "跟学姐夫妻吃火锅，发现见面时的开心本身就有价值"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是睡眠不足、补觉与日间饮食游戏；B是与学姐夫妻吃火锅并反思社交价值。A未将睡不好与B聚会相连，也未回忆该次聚餐。"
+    },
+    {
+      "sample_id": "A05",
+      "batch": 7,
+      "event_a": {
+        "id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+        "date": "2026-10-14",
+        "title": "我爸继续带饭、少喝酒，又商量给他买牛奶"
+      },
+      "event_b": {
+        "id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+        "date": "2026-10-09",
+        "title": "江西例会被问到两个接口，重新梳理数据和数据库设计"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是确认父亲继续带饭少酒及牛奶体验；B是江西项目接口、数据核对与数据库设计。健康随访和项目开发事项不同，无相互引用或触发。"
+    },
+    {
+      "sample_id": "A12",
+      "batch": 7,
+      "event_a": {
+        "id": "2e640b8f-13df-4ec5-ac33-6482db94ce38",
+        "date": "2026-10-19",
+        "title": "给我爸配置新手机，宣传里的功能没有那么好用"
+      },
+      "event_b": {
+        "id": "784c36a9-6887-4266-a857-9c74fc9f61d0",
+        "date": "2026-10-17",
+        "title": "给德华买生日礼物，和他视频聊天很开心"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A给父亲的新手机做适老功能研究和配置；B给德华买生日食品香薰并视频聊天。送礼对象和物品不同，A未将新手机配置联系到B生日活动。"
+    },
+    {
+      "sample_id": "A19",
+      "batch": 7,
+      "event_a": {
+        "id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+        "date": "2026-10-10",
+        "title": "带哒哒跑步，回家却又把瑜伽耽误了"
+      },
+      "event_b": {
+        "id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+        "date": "2026-09-12",
+        "title": "想到肝钙化灶，打算调整睡眠和饮食"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A为减肥健身开始带哒哒跑步而未完成瑜伽；B因肝钙化灶想调整睡眠和油腻饮食。健康主题相近，但B未制定该次跑步计划，A也未说肝检查或饮食建议促成跑步，缺少具体事项同一性。"
+    },
+    {
+      "sample_id": "A32",
+      "batch": 8,
+      "event_a": {
+        "id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+        "date": "2026-10-07",
+        "title": "3号游船、租车和露营，觉得省精力的钱值得花"
+      },
+      "event_b": {
+        "id": "ef72c89d-f5d5-418d-a9a3-a7a1725a8d81",
+        "date": "2026-08-17",
+        "title": "周五暴雨后蹚水回家"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是桂林游船、租车、吃鱼与露营；B是周五看电影后暴雨蹚水回家。不同旅程、地点与时点，A下雨及停车经历未引用B暴雨，也不能据共同淋雨补因果。"
+    },
+    {
+      "sample_id": "A11",
+      "batch": 8,
+      "event_a": {
+        "id": "5650eb49-c358-43c9-b00a-8580a3e3e0dc",
+        "date": "2026-09-30",
+        "title": "看经济危机视频后，思考“软着陆”的代价由谁承担"
+      },
+      "event_b": {
+        "id": "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee",
+        "date": "2026-08-18",
+        "title": "与小豪聊天并了解其分手原因"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A是经济危机视频及软着陆代价思考；B是听小豪分手原因、建议沟通并分享财务经历。债务或金钱只属宽泛话题，A国家债务并未引用B个人装修负债。"
+    },
+    {
+      "sample_id": "A10",
+      "batch": 8,
+      "event_a": {
+        "id": "284b13a1-77d1-45d0-9f87-763973d63031",
+        "date": "2026-10-21",
+        "title": "读《理想国》，感觉苏格拉底有时在偷换概念，还是准备慢慢看"
+      },
+      "event_b": {
+        "id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+        "date": "2026-10-07",
+        "title": "商量回丹东扫墓，觉得事情还是要分优先级"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A读理想国并理解苏格拉底提问法；B是扫墓机票安排和小事借AI处理。两侧AI用途不同，B未涉及苏格拉底提问法，A也未引用扫墓或优先级安排。"
+    },
+    {
+      "sample_id": "A14",
+      "batch": 8,
+      "event_a": {
+        "id": "8ad248a3-a8d6-4a6b-b61a-eda407c58789",
+        "date": "2026-10-01",
+        "title": "想到取消英语考试的观点，再想英语教育的意义"
+      },
+      "event_b": {
+        "id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+        "date": "2026-08-17",
+        "title": "周日聚餐并督促小廖看书"
+      },
+      "full_points_read": true,
+      "directions_checked": [
+        "A → B",
+        "B → A"
+      ],
+      "status": "NO_RELATION",
+      "reason": "A讨论英语教育、第一手信息及自己的多邻国兴趣；B是聚餐后督促小廖执行看书计划。学习主体与任务不同，A没有引用B读书约定，教育观点相近不足以建边。"
+    }
+  ]
+}

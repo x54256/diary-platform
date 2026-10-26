@@ -1,0 +1,42 @@
+[
+  {
+    "sample_id": "C01",
+    "date": "2026-10-07",
+    "current_event_id": "96cbae55-bb72-4890-973d-f532ae400a43",
+    "historic_event_id": "054d36c3-04bd-4cf5-b8eb-9a1a02b3d890",
+    "score": "0.39616724053377245",
+    "rank": "3",
+    "selected": "False",
+    "judgment": "NOT_JUDGED"
+  },
+  {
+    "sample_id": "C02",
+    "date": "2026-10-07",
+    "current_event_id": "96cbae55-bb72-4890-973d-f532ae400a43",
+    "historic_event_id": "bbadb977-54af-43f3-9684-6f8e12570d57",
+    "score": "0.39296581789416324",
+    "rank": "4",
+    "selected": "False",
+    "judgment": "NOT_JUDGED"
+  },
+  {
+    "sample_id": "C03",
+    "date": "2026-10-07",
+    "current_event_id": "96cbae55-bb72-4890-973d-f532ae400a43",
+    "historic_event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+    "score": "0.38724286496880056",
+    "rank": "5",
+    "selected": "False",
+    "judgment": "NOT_JUDGED"
+  },
+  {
+    "sample_id": "C04",
+    "date": "2026-10-14",
+    "current_event_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+    "historic_event_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+    "score": "0.3896725247555212",
+    "rank": "5",
+    "selected": "False",
+    "judgment": "NOT_JUDGED"
+  }
+]

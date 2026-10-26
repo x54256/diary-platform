@@ -1,0 +1,758 @@
+{
+  "daily": [
+    {
+      "date": "2026-09-30",
+      "same_day_candidates": 15,
+      "same_day_relations": 3,
+      "history_candidates": 30,
+      "history_relations": 8,
+      "history_pool": 750,
+      "current_events": 6
+    },
+    {
+      "date": "2026-10-01",
+      "same_day_candidates": 15,
+      "same_day_relations": 3,
+      "history_candidates": 30,
+      "history_relations": 1,
+      "history_pool": 786,
+      "current_events": 6
+    },
+    {
+      "date": "2026-10-02",
+      "same_day_candidates": 6,
+      "same_day_relations": 1,
+      "history_candidates": 20,
+      "history_relations": 7,
+      "history_pool": 548,
+      "current_events": 4
+    },
+    {
+      "date": "2026-10-07",
+      "same_day_candidates": 66,
+      "same_day_relations": 5,
+      "history_candidates": 57,
+      "history_relations": 5,
+      "history_pool": 1692,
+      "current_events": 12
+    },
+    {
+      "date": "2026-10-09",
+      "same_day_candidates": 91,
+      "same_day_relations": 0,
+      "history_candidates": 70,
+      "history_relations": 19,
+      "history_pool": 2142,
+      "current_events": 14
+    },
+    {
+      "date": "2026-10-10",
+      "same_day_candidates": 66,
+      "same_day_relations": 5,
+      "history_candidates": 60,
+      "history_relations": 8,
+      "history_pool": 2004,
+      "current_events": 12
+    },
+    {
+      "date": "2026-10-12",
+      "same_day_candidates": 28,
+      "same_day_relations": 2,
+      "history_candidates": 40,
+      "history_relations": 2,
+      "history_pool": 1432,
+      "current_events": 8
+    },
+    {
+      "date": "2026-10-14",
+      "same_day_candidates": 55,
+      "same_day_relations": 3,
+      "history_candidates": 54,
+      "history_relations": 12,
+      "history_pool": 2057,
+      "current_events": 11
+    },
+    {
+      "date": "2026-10-15",
+      "same_day_candidates": 10,
+      "same_day_relations": 0,
+      "history_candidates": 25,
+      "history_relations": 3,
+      "history_pool": 990,
+      "current_events": 5
+    },
+    {
+      "date": "2026-10-17",
+      "same_day_candidates": 36,
+      "same_day_relations": 0,
+      "history_candidates": 45,
+      "history_relations": 11,
+      "history_pool": 1827,
+      "current_events": 9
+    },
+    {
+      "date": "2026-10-18",
+      "same_day_candidates": 45,
+      "same_day_relations": 1,
+      "history_candidates": 50,
+      "history_relations": 10,
+      "history_pool": 2120,
+      "current_events": 10
+    },
+    {
+      "date": "2026-10-19",
+      "same_day_candidates": 45,
+      "same_day_relations": 1,
+      "history_candidates": 50,
+      "history_relations": 12,
+      "history_pool": 2220,
+      "current_events": 10
+    },
+    {
+      "date": "2026-10-20",
+      "same_day_candidates": 10,
+      "same_day_relations": 1,
+      "history_candidates": 25,
+      "history_relations": 10,
+      "history_pool": 1160,
+      "current_events": 5
+    },
+    {
+      "date": "2026-10-21",
+      "same_day_candidates": 10,
+      "same_day_relations": 1,
+      "history_candidates": 25,
+      "history_relations": 9,
+      "history_pool": 1185,
+      "current_events": 5
+    },
+    {
+      "date": "2026-10-22",
+      "same_day_candidates": 78,
+      "same_day_relations": 6,
+      "history_candidates": 65,
+      "history_relations": 16,
+      "history_pool": 3146,
+      "current_events": 13
+    },
+    {
+      "date": "2026-10-23",
+      "same_day_candidates": 10,
+      "same_day_relations": 1,
+      "history_candidates": 25,
+      "history_relations": 10,
+      "history_pool": 1275,
+      "current_events": 5
+    }
+  ],
+  "all_counts": {
+    "same_day": {
+      "candidates": 586,
+      "relations": 33,
+      "yield": 0.05631399317406143
+    },
+    "history": {
+      "candidates": 671,
+      "relations": 143,
+      "yield": 0.21311475409836064
+    }
+  },
+  "all_candidates": 1257,
+  "all_relations": 176,
+  "history_pool": 25334,
+  "history_above_04": 5652,
+  "history_rejected_threshold": 19682,
+  "history_rejected_top5": 4981,
+  "known_history_reference": 152,
+  "known_current_history_positive": 143,
+  "known_misses": [
+    {
+      "date": "2026-10-09",
+      "key": [
+        "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+        "c2e97d94-ca64-4a74-bafe-bef8aefa41cd"
+      ],
+      "current_event_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "historic_event_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "score": 0.5628302411640174,
+      "rank": 9,
+      "selected": false,
+      "origin": "PREVIOUS_AGENT_POSITIVE_OUTSIDE_TOP5",
+      "current_title": "再看爸妈就医后的变化，觉得这趟医院确实有价值",
+      "historic_title": "提醒我爸上班带饭，也再跟我妈说说饮食限制",
+      "historic_date": "2026-10-07",
+      "rejection": "TOP5"
+    },
+    {
+      "date": "2026-10-12",
+      "key": [
+        "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+        "d7c54415-06f6-472d-8967-bd5a064dac46"
+      ],
+      "current_event_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "historic_event_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "score": 0.5058809732416313,
+      "rank": 17,
+      "selected": false,
+      "origin": "PREVIOUS_AGENT_POSITIVE_OUTSIDE_TOP5",
+      "current_title": "烤羊排带去颂梅爸妈家，中午一起吃饭",
+      "historic_title": "一天逛完永旺和山姆，也看到小廖会提出自己的条件了",
+      "historic_date": "2026-10-10",
+      "rejection": "TOP5"
+    },
+    {
+      "date": "2026-10-17",
+      "key": [
+        "661670a2-3852-4424-a664-330049c46c6e",
+        "926dde26-3291-4ccd-879c-7290108475e4"
+      ],
+      "current_event_id": "926dde26-3291-4ccd-879c-7290108475e4",
+      "historic_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "score": 0.5460665663092736,
+      "rank": 6,
+      "selected": false,
+      "origin": "PREVIOUS_AGENT_POSITIVE_OUTSIDE_TOP5",
+      "current_title": "颂梅不想要吐司吊坠，大礼物还是直接给钱",
+      "historic_title": "颂梅最终要去墨西哥，我对她的压力和消费也很烦心",
+      "historic_date": "2026-10-12",
+      "rejection": "TOP5"
+    },
+    {
+      "date": "2026-10-19",
+      "key": [
+        "9858ebb3-5e5e-44d0-bda7-77b5b01108cf",
+        "fc69097a-a2c0-4617-bcca-cecca29ef98a"
+      ],
+      "current_event_id": "9858ebb3-5e5e-44d0-bda7-77b5b01108cf",
+      "historic_event_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "score": 0.4700706885521291,
+      "rank": 6,
+      "selected": false,
+      "origin": "PREVIOUS_AGENT_POSITIVE_OUTSIDE_TOP5",
+      "current_title": "江西城镇开发边界计算，最后仍采用中间库同步",
+      "historic_title": "江西例会被问到两个接口，重新梳理数据和数据库设计",
+      "historic_date": "2026-10-09",
+      "rejection": "TOP5"
+    },
+    {
+      "date": "2026-10-22",
+      "key": [
+        "145224c1-0971-427b-bb1c-9678867aad88",
+        "e0b6c651-23f2-4333-8349-a48b95c47225"
+      ],
+      "current_event_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "historic_event_id": "e0b6c651-23f2-4333-8349-a48b95c47225",
+      "score": 0.5782785678462745,
+      "rank": 7,
+      "selected": false,
+      "origin": "PREVIOUS_AGENT_POSITIVE_OUTSIDE_TOP5",
+      "current_title": "读《非暴力沟通》，拿我妈催生的事试着复盘",
+      "historic_title": "读《非暴力沟通》，不全认同也可以吸收别人的想法",
+      "historic_date": "2026-10-21",
+      "rejection": "TOP5"
+    },
+    {
+      "date": "2026-10-22",
+      "key": [
+        "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+        "f662c139-0cb4-4e72-bd24-d33b4ea725f1"
+      ],
+      "current_event_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "historic_event_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "score": 0.5220298121711455,
+      "rank": 11,
+      "selected": false,
+      "origin": "PREVIOUS_AGENT_POSITIVE_OUTSIDE_TOP5",
+      "current_title": "给我妈挂复查号，继续倾听才发现她并不是想停药",
+      "historic_title": "再看爸妈就医后的变化，觉得这趟医院确实有价值",
+      "historic_date": "2026-10-09",
+      "rejection": "TOP5"
+    },
+    {
+      "date": "2026-10-23",
+      "key": [
+        "1b27be66-512d-4590-b855-19505246ada3",
+        "a709d8ca-6127-4c42-98a9-3557d2e2a8b3"
+      ],
+      "current_event_id": "a709d8ca-6127-4c42-98a9-3557d2e2a8b3",
+      "historic_event_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "score": 0.5184113947455322,
+      "rank": 7,
+      "selected": false,
+      "origin": "PREVIOUS_AGENT_POSITIVE_OUTSIDE_TOP5",
+      "current_title": "和于福豪配通Jenkins，也发现自己有时还是想不起用AI",
+      "historic_title": "公司不断加AI和测试要求，工具使用成本让我很烦",
+      "historic_date": "2026-10-22",
+      "rejection": "TOP5"
+    },
+    {
+      "date": "2026-10-23",
+      "key": [
+        "4079501f-c7b6-4b76-94be-3ffefea5c71d",
+        "d124e8e3-4987-4396-a2ae-80d188f88c0f"
+      ],
+      "current_event_id": "4079501f-c7b6-4b76-94be-3ffefea5c71d",
+      "historic_event_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
+      "score": 0.5684738768349359,
+      "rank": 7,
+      "selected": false,
+      "origin": "PREVIOUS_AGENT_POSITIVE_OUTSIDE_TOP5",
+      "current_title": "我爸收到新手机，我教他迁移数据、用豆包",
+      "historic_title": "我爸过生日，让颂梅先在群里送祝福",
+      "historic_date": "2026-10-17",
+      "rejection": "TOP5"
+    },
+    {
+      "date": "2026-10-22",
+      "key": [
+        "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+        "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8"
+      ],
+      "current_event_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "historic_event_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "score": 0.4627194413851736,
+      "rank": 25,
+      "selected": false,
+      "origin": "USER_CONFIRMED_REFERENCE_NOT_IN_DRAFT",
+      "current_title": "我妈嫌我们花钱多，讲消费占比还是讲不通",
+      "historic_title": "用比价的方式给我爸再买两箱舒化奶",
+      "historic_date": "2026-10-18",
+      "rejection": "TOP5"
+    }
+  ],
+  "gold_origins": {
+    "CURRENT_AGENT_JUDGMENT": 176,
+    "PREVIOUS_AGENT_POSITIVE_OUTSIDE_TOP5": 8,
+    "USER_CONFIRMED_REFERENCE_NOT_IN_DRAFT": 1
+  },
+  "score_bins": [
+    {
+      "score_from": 0,
+      "score_to": 0.3,
+      "all_history_pairs": 6878,
+      "selected": 0,
+      "selected_related": 0,
+      "known_reference_positive": 0
+    },
+    {
+      "score_from": 0.3,
+      "score_to": 0.35,
+      "all_history_pairs": 6952,
+      "selected": 0,
+      "selected_related": 0,
+      "known_reference_positive": 0
+    },
+    {
+      "score_from": 0.35,
+      "score_to": 0.4,
+      "all_history_pairs": 5852,
+      "selected": 0,
+      "selected_related": 0,
+      "known_reference_positive": 0
+    },
+    {
+      "score_from": 0.4,
+      "score_to": 0.45,
+      "all_history_pairs": 3305,
+      "selected": 76,
+      "selected_related": 1,
+      "known_reference_positive": 1
+    },
+    {
+      "score_from": 0.45,
+      "score_to": 0.5,
+      "all_history_pairs": 1466,
+      "selected": 144,
+      "selected_related": 11,
+      "known_reference_positive": 13
+    },
+    {
+      "score_from": 0.5,
+      "score_to": 0.55,
+      "all_history_pairs": 595,
+      "selected": 216,
+      "selected_related": 37,
+      "known_reference_positive": 41
+    },
+    {
+      "score_from": 0.55,
+      "score_to": 0.6,
+      "all_history_pairs": 186,
+      "selected": 139,
+      "selected_related": 40,
+      "known_reference_positive": 43
+    },
+    {
+      "score_from": 0.6,
+      "score_to": 1.000001,
+      "all_history_pairs": 100,
+      "selected": 96,
+      "selected_related": 54,
+      "known_reference_positive": 54
+    }
+  ],
+  "parameter_sweeps": [
+    {
+      "threshold": 0.3,
+      "top_k": 5,
+      "history_candidates": 675,
+      "known_positive_hit": 143,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9407894736842105,
+      "known_negative_hit": 528,
+      "not_yet_semantically_judged": 4
+    },
+    {
+      "threshold": 0.3,
+      "top_k": 10,
+      "history_candidates": 1350,
+      "known_positive_hit": 149,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9802631578947368,
+      "known_negative_hit": 528,
+      "not_yet_semantically_judged": 673
+    },
+    {
+      "threshold": 0.3,
+      "top_k": 15,
+      "history_candidates": 2025,
+      "known_positive_hit": 150,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9868421052631579,
+      "known_negative_hit": 528,
+      "not_yet_semantically_judged": 1347
+    },
+    {
+      "threshold": 0.3,
+      "top_k": 20,
+      "history_candidates": 2700,
+      "known_positive_hit": 151,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.993421052631579,
+      "known_negative_hit": 528,
+      "not_yet_semantically_judged": 2021
+    },
+    {
+      "threshold": 0.3,
+      "top_k": null,
+      "history_candidates": 18456,
+      "known_positive_hit": 152,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 1.0,
+      "known_negative_hit": 528,
+      "not_yet_semantically_judged": 17776
+    },
+    {
+      "threshold": 0.35,
+      "top_k": 5,
+      "history_candidates": 675,
+      "known_positive_hit": 143,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9407894736842105,
+      "known_negative_hit": 528,
+      "not_yet_semantically_judged": 4
+    },
+    {
+      "threshold": 0.35,
+      "top_k": 10,
+      "history_candidates": 1350,
+      "known_positive_hit": 149,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9802631578947368,
+      "known_negative_hit": 528,
+      "not_yet_semantically_judged": 673
+    },
+    {
+      "threshold": 0.35,
+      "top_k": 15,
+      "history_candidates": 2025,
+      "known_positive_hit": 150,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9868421052631579,
+      "known_negative_hit": 528,
+      "not_yet_semantically_judged": 1347
+    },
+    {
+      "threshold": 0.35,
+      "top_k": 20,
+      "history_candidates": 2690,
+      "known_positive_hit": 151,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.993421052631579,
+      "known_negative_hit": 528,
+      "not_yet_semantically_judged": 2011
+    },
+    {
+      "threshold": 0.35,
+      "top_k": null,
+      "history_candidates": 11504,
+      "known_positive_hit": 152,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 1.0,
+      "known_negative_hit": 528,
+      "not_yet_semantically_judged": 10824
+    },
+    {
+      "threshold": 0.4,
+      "top_k": 5,
+      "history_candidates": 671,
+      "known_positive_hit": 143,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9407894736842105,
+      "known_negative_hit": 528,
+      "not_yet_semantically_judged": 0
+    },
+    {
+      "threshold": 0.4,
+      "top_k": 10,
+      "history_candidates": 1310,
+      "known_positive_hit": 149,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9802631578947368,
+      "known_negative_hit": 528,
+      "not_yet_semantically_judged": 633
+    },
+    {
+      "threshold": 0.4,
+      "top_k": 15,
+      "history_candidates": 1903,
+      "known_positive_hit": 150,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9868421052631579,
+      "known_negative_hit": 528,
+      "not_yet_semantically_judged": 1225
+    },
+    {
+      "threshold": 0.4,
+      "top_k": 20,
+      "history_candidates": 2411,
+      "known_positive_hit": 151,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.993421052631579,
+      "known_negative_hit": 528,
+      "not_yet_semantically_judged": 1732
+    },
+    {
+      "threshold": 0.4,
+      "top_k": null,
+      "history_candidates": 5652,
+      "known_positive_hit": 152,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 1.0,
+      "known_negative_hit": 528,
+      "not_yet_semantically_judged": 4972
+    },
+    {
+      "threshold": 0.45,
+      "top_k": 5,
+      "history_candidates": 595,
+      "known_positive_hit": 142,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9342105263157895,
+      "known_negative_hit": 453,
+      "not_yet_semantically_judged": 0
+    },
+    {
+      "threshold": 0.45,
+      "top_k": 10,
+      "history_candidates": 1040,
+      "known_positive_hit": 148,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9736842105263158,
+      "known_negative_hit": 453,
+      "not_yet_semantically_judged": 439
+    },
+    {
+      "threshold": 0.45,
+      "top_k": 15,
+      "history_candidates": 1378,
+      "known_positive_hit": 149,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9802631578947368,
+      "known_negative_hit": 453,
+      "not_yet_semantically_judged": 776
+    },
+    {
+      "threshold": 0.45,
+      "top_k": 20,
+      "history_candidates": 1668,
+      "known_positive_hit": 150,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9868421052631579,
+      "known_negative_hit": 453,
+      "not_yet_semantically_judged": 1065
+    },
+    {
+      "threshold": 0.45,
+      "top_k": null,
+      "history_candidates": 2347,
+      "known_positive_hit": 151,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.993421052631579,
+      "known_negative_hit": 453,
+      "not_yet_semantically_judged": 1743
+    },
+    {
+      "threshold": 0.5,
+      "top_k": 5,
+      "history_candidates": 451,
+      "known_positive_hit": 131,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.8618421052631579,
+      "known_negative_hit": 320,
+      "not_yet_semantically_judged": 0
+    },
+    {
+      "threshold": 0.5,
+      "top_k": 10,
+      "history_candidates": 693,
+      "known_positive_hit": 136,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.8947368421052632,
+      "known_negative_hit": 320,
+      "not_yet_semantically_judged": 237
+    },
+    {
+      "threshold": 0.5,
+      "top_k": 15,
+      "history_candidates": 803,
+      "known_positive_hit": 137,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9013157894736842,
+      "known_negative_hit": 320,
+      "not_yet_semantically_judged": 346
+    },
+    {
+      "threshold": 0.5,
+      "top_k": 20,
+      "history_candidates": 851,
+      "known_positive_hit": 138,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9078947368421053,
+      "known_negative_hit": 320,
+      "not_yet_semantically_judged": 393
+    },
+    {
+      "threshold": 0.5,
+      "top_k": null,
+      "history_candidates": 881,
+      "known_positive_hit": 138,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.9078947368421053,
+      "known_negative_hit": 320,
+      "not_yet_semantically_judged": 423
+    },
+    {
+      "threshold": 0.55,
+      "top_k": 5,
+      "history_candidates": 235,
+      "known_positive_hit": 94,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.618421052631579,
+      "known_negative_hit": 141,
+      "not_yet_semantically_judged": 0
+    },
+    {
+      "threshold": 0.55,
+      "top_k": 10,
+      "history_candidates": 276,
+      "known_positive_hit": 97,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.6381578947368421,
+      "known_negative_hit": 141,
+      "not_yet_semantically_judged": 38
+    },
+    {
+      "threshold": 0.55,
+      "top_k": 15,
+      "history_candidates": 286,
+      "known_positive_hit": 97,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.6381578947368421,
+      "known_negative_hit": 141,
+      "not_yet_semantically_judged": 48
+    },
+    {
+      "threshold": 0.55,
+      "top_k": 20,
+      "history_candidates": 286,
+      "known_positive_hit": 97,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.6381578947368421,
+      "known_negative_hit": 141,
+      "not_yet_semantically_judged": 48
+    },
+    {
+      "threshold": 0.55,
+      "top_k": null,
+      "history_candidates": 286,
+      "known_positive_hit": 97,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.6381578947368421,
+      "known_negative_hit": 141,
+      "not_yet_semantically_judged": 48
+    },
+    {
+      "threshold": 0.6,
+      "top_k": 5,
+      "history_candidates": 96,
+      "known_positive_hit": 54,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.35526315789473684,
+      "known_negative_hit": 42,
+      "not_yet_semantically_judged": 0
+    },
+    {
+      "threshold": 0.6,
+      "top_k": 10,
+      "history_candidates": 100,
+      "known_positive_hit": 54,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.35526315789473684,
+      "known_negative_hit": 42,
+      "not_yet_semantically_judged": 4
+    },
+    {
+      "threshold": 0.6,
+      "top_k": 15,
+      "history_candidates": 100,
+      "known_positive_hit": 54,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.35526315789473684,
+      "known_negative_hit": 42,
+      "not_yet_semantically_judged": 4
+    },
+    {
+      "threshold": 0.6,
+      "top_k": 20,
+      "history_candidates": 100,
+      "known_positive_hit": 54,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.35526315789473684,
+      "known_negative_hit": 42,
+      "not_yet_semantically_judged": 4
+    },
+    {
+      "threshold": 0.6,
+      "top_k": null,
+      "history_candidates": 100,
+      "known_positive_hit": 54,
+      "known_positive_reference_size": 152,
+      "known_positive_coverage": 0.35526315789473684,
+      "known_negative_hit": 42,
+      "not_yet_semantically_judged": 4
+    }
+  ],
+  "sample_design": {
+    "seed": 20261026,
+    "size": 32,
+    "strata": {
+      "B1": "0.30–0.35未召回",
+      "B2": "0.35–0.40未召回",
+      "B3": "0.40–0.50未召回",
+      "B4": ">=0.50未召回"
+    },
+    "max_pairs_per_current_event": 2,
+    "reference_is_not_exhaustive_gold": true
+  }
+}

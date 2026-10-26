@@ -1,0 +1,20 @@
+{
+  "changed_at": "2026-10-26T14:54:14.187963+08:00",
+  "user_decision": "保留Top K，将K值调整为10",
+  "before": {
+    "min_similarity": 0.4,
+    "top_k": 5
+  },
+  "after": {
+    "min_similarity": 0.4,
+    "top_k": 10
+  },
+  "scope": "之后新建关系运行；既有冻结来源及关系稿不修改，也未自动重跑",
+  "validation": {
+    "tests_total": 48,
+    "tests_passed": 44,
+    "tests_skipped": 4,
+    "skill_structure_valid": true
+  },
+  "historical_packages": "设置和Skill指纹变化后，旧包仍是历史记录；后续识别/发布须按现行协议新建运行，不改旧指纹绕过校验。"
+}

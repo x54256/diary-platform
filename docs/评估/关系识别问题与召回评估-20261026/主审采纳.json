@@ -1,0 +1,16 @@
+{
+  "accepted_positive_ids": [
+    "A27",
+    "A29"
+  ],
+  "review_basis": "主代理完整重读A27、A29双方全部正式要点，认可同一父亲生日筹备到生日当天新行动，以及借豆包与父母沟通的计划到实际实施；描述保留未改变母亲这一结果。仅采纳为召回诊断参照，不自动补入正式关系稿。",
+  "independent_audit_counts": {
+    "RELATED": 2,
+    "NO_RELATION": 30
+  },
+  "threshold_additional_audit_counts": {
+    "RELATED": 0,
+    "NO_RELATION": 4
+  },
+  "formal_graph_changed": false
+}

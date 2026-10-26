@@ -1,0 +1,14 @@
+{
+  "all_ranking_rows": 25334,
+  "actual_selected": 671,
+  "actual_selected_related": 143,
+  "parameter_combinations_verified": 42,
+  "known_omissions_verified": 11,
+  "blind_pairs": 36,
+  "blind_counts": {
+    "NO_RELATION": 34,
+    "RELATED": 2
+  },
+  "positive_quotes_unique": true,
+  "production_data_changed": false
+}

@@ -1,0 +1,450 @@
+[
+  {
+    "sample_id": "A01",
+    "stratum": "B1",
+    "date": "2026-10-15",
+    "key": [
+      "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "57dc947a-2355-405b-92a7-7f7196d3965b"
+    ],
+    "current_event_id": "57dc947a-2355-405b-92a7-7f7196d3965b",
+    "historic_event_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+    "score": 0.3030459343214618,
+    "rank": 136,
+    "selected": false
+  },
+  {
+    "sample_id": "A02",
+    "stratum": "B1",
+    "date": "2026-10-12",
+    "key": [
+      "23847dd2-f778-4f37-b4ef-e95ed05df0f3",
+      "6e605c60-7418-4a92-ba6f-dc2d3b357533"
+    ],
+    "current_event_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+    "historic_event_id": "23847dd2-f778-4f37-b4ef-e95ed05df0f3",
+    "score": 0.32132832603121,
+    "rank": 85,
+    "selected": false
+  },
+  {
+    "sample_id": "A03",
+    "stratum": "B1",
+    "date": "2026-10-10",
+    "key": [
+      "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+      "54fbf0a3-4698-4e81-9f3d-45f10ba0af17"
+    ],
+    "current_event_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+    "historic_event_id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+    "score": 0.32338028854343376,
+    "rank": 108,
+    "selected": false
+  },
+  {
+    "sample_id": "A04",
+    "stratum": "B1",
+    "date": "2026-10-17",
+    "key": [
+      "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "ef7fdcde-74f9-406e-a5dc-39b3d9678ed9"
+    ],
+    "current_event_id": "ef7fdcde-74f9-406e-a5dc-39b3d9678ed9",
+    "historic_event_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+    "score": 0.3040221443024221,
+    "rank": 94,
+    "selected": false
+  },
+  {
+    "sample_id": "A05",
+    "stratum": "B1",
+    "date": "2026-10-14",
+    "key": [
+      "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "fc69097a-a2c0-4617-bcca-cecca29ef98a"
+    ],
+    "current_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+    "historic_event_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+    "score": 0.3185398019468511,
+    "rank": 155,
+    "selected": false
+  },
+  {
+    "sample_id": "A06",
+    "stratum": "B1",
+    "date": "2026-10-17",
+    "key": [
+      "a142e54a-320b-4f02-a7a4-493885cf8966",
+      "cd04de84-8355-4498-8df8-47d0dc91386a"
+    ],
+    "current_event_id": "a142e54a-320b-4f02-a7a4-493885cf8966",
+    "historic_event_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+    "score": 0.30431301364294205,
+    "rank": 96,
+    "selected": false
+  },
+  {
+    "sample_id": "A07",
+    "stratum": "B2",
+    "date": "2026-10-12",
+    "key": [
+      "bfc2009a-7316-4104-a414-839f4c898479",
+      "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13"
+    ],
+    "current_event_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+    "historic_event_id": "bfc2009a-7316-4104-a414-839f4c898479",
+    "score": 0.35016787001136807,
+    "rank": 92,
+    "selected": false
+  },
+  {
+    "sample_id": "A08",
+    "stratum": "B2",
+    "date": "2026-10-12",
+    "key": [
+      "263d2593-9661-4814-a3e8-b7a3850e0a8b",
+      "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a"
+    ],
+    "current_event_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+    "historic_event_id": "263d2593-9661-4814-a3e8-b7a3850e0a8b",
+    "score": 0.39696671923581783,
+    "rank": 80,
+    "selected": false
+  },
+  {
+    "sample_id": "A09",
+    "stratum": "B2",
+    "date": "2026-10-21",
+    "key": [
+      "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "e3ae8984-3190-4df4-bf87-00db8f77cf3a"
+    ],
+    "current_event_id": "e3ae8984-3190-4df4-bf87-00db8f77cf3a",
+    "historic_event_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+    "score": 0.3705451627862582,
+    "rank": 83,
+    "selected": false
+  },
+  {
+    "sample_id": "A10",
+    "stratum": "B2",
+    "date": "2026-10-21",
+    "key": [
+      "284b13a1-77d1-45d0-9f87-763973d63031",
+      "a6086f61-fdd2-4247-8e28-a61f4929c828"
+    ],
+    "current_event_id": "284b13a1-77d1-45d0-9f87-763973d63031",
+    "historic_event_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+    "score": 0.35839338033129775,
+    "rank": 69,
+    "selected": false
+  },
+  {
+    "sample_id": "A11",
+    "stratum": "B2",
+    "date": "2026-09-30",
+    "key": [
+      "5650eb49-c358-43c9-b00a-8580a3e3e0dc",
+      "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee"
+    ],
+    "current_event_id": "5650eb49-c358-43c9-b00a-8580a3e3e0dc",
+    "historic_event_id": "ed44ebb3-7f19-4f30-9f4f-d5dea56f15ee",
+    "score": 0.3913193301630537,
+    "rank": 6,
+    "selected": false
+  },
+  {
+    "sample_id": "A12",
+    "stratum": "B2",
+    "date": "2026-10-19",
+    "key": [
+      "2e640b8f-13df-4ec5-ac33-6482db94ce38",
+      "784c36a9-6887-4266-a857-9c74fc9f61d0"
+    ],
+    "current_event_id": "2e640b8f-13df-4ec5-ac33-6482db94ce38",
+    "historic_event_id": "784c36a9-6887-4266-a857-9c74fc9f61d0",
+    "score": 0.3845122470184326,
+    "rank": 35,
+    "selected": false
+  },
+  {
+    "sample_id": "A13",
+    "stratum": "B2",
+    "date": "2026-10-20",
+    "key": [
+      "a5329c5a-9b24-47f9-b21f-3c4739a65abf",
+      "a6086f61-fdd2-4247-8e28-a61f4929c828"
+    ],
+    "current_event_id": "a5329c5a-9b24-47f9-b21f-3c4739a65abf",
+    "historic_event_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+    "score": 0.3729004996311402,
+    "rank": 77,
+    "selected": false
+  },
+  {
+    "sample_id": "A14",
+    "stratum": "B2",
+    "date": "2026-10-01",
+    "key": [
+      "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+      "8ad248a3-a8d6-4a6b-b61a-eda407c58789"
+    ],
+    "current_event_id": "8ad248a3-a8d6-4a6b-b61a-eda407c58789",
+    "historic_event_id": "8761a6d3-0c61-47bf-ad54-8d9ffb130b1a",
+    "score": 0.39323827485702,
+    "rank": 16,
+    "selected": false
+  },
+  {
+    "sample_id": "A15",
+    "stratum": "B2",
+    "date": "2026-10-07",
+    "key": [
+      "46eeb6e8-a435-4892-9235-523e1797ee41",
+      "51378961-204a-4566-8930-5d28c65abb8f"
+    ],
+    "current_event_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+    "historic_event_id": "51378961-204a-4566-8930-5d28c65abb8f",
+    "score": 0.3563375220554637,
+    "rank": 77,
+    "selected": false
+  },
+  {
+    "sample_id": "A16",
+    "stratum": "B2",
+    "date": "2026-10-07",
+    "key": [
+      "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+      "37d14a51-cf9e-44da-8184-3df6fc3f86cb"
+    ],
+    "current_event_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+    "historic_event_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+    "score": 0.37357700777774633,
+    "rank": 80,
+    "selected": false
+  },
+  {
+    "sample_id": "A17",
+    "stratum": "B3",
+    "date": "2026-10-22",
+    "key": [
+      "145224c1-0971-427b-bb1c-9678867aad88",
+      "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0"
+    ],
+    "current_event_id": "145224c1-0971-427b-bb1c-9678867aad88",
+    "historic_event_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+    "score": 0.4446901709551478,
+    "rank": 39,
+    "selected": false
+  },
+  {
+    "sample_id": "A18",
+    "stratum": "B3",
+    "date": "2026-10-18",
+    "key": [
+      "553beea5-1c4e-458c-931c-75bc92717952",
+      "93d08f00-f92c-4124-99fa-42eb33748202"
+    ],
+    "current_event_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+    "historic_event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+    "score": 0.4521810512360357,
+    "rank": 7,
+    "selected": false
+  },
+  {
+    "sample_id": "A19",
+    "stratum": "B3",
+    "date": "2026-10-10",
+    "key": [
+      "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "f4fb59b3-78c7-4a57-92c7-be1ca6872a09"
+    ],
+    "current_event_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+    "historic_event_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+    "score": 0.47073454768483847,
+    "rank": 34,
+    "selected": false
+  },
+  {
+    "sample_id": "A20",
+    "stratum": "B3",
+    "date": "2026-10-22",
+    "key": [
+      "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "efa0adad-de68-40bd-a96f-c2f1d442c450"
+    ],
+    "current_event_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+    "historic_event_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+    "score": 0.45074447572448134,
+    "rank": 35,
+    "selected": false
+  },
+  {
+    "sample_id": "A21",
+    "stratum": "B3",
+    "date": "2026-10-22",
+    "key": [
+      "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f"
+    ],
+    "current_event_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+    "historic_event_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+    "score": 0.43877764091203675,
+    "rank": 6,
+    "selected": false
+  },
+  {
+    "sample_id": "A22",
+    "stratum": "B3",
+    "date": "2026-10-22",
+    "key": [
+      "1b27be66-512d-4590-b855-19505246ada3",
+      "369da41c-1100-41f0-84c6-b4d6d7d0c7e8"
+    ],
+    "current_event_id": "1b27be66-512d-4590-b855-19505246ada3",
+    "historic_event_id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+    "score": 0.4505255077266418,
+    "rank": 16,
+    "selected": false
+  },
+  {
+    "sample_id": "A23",
+    "stratum": "B3",
+    "date": "2026-10-14",
+    "key": [
+      "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "93b2cfb4-b129-4316-b769-c52b86b8f1e9"
+    ],
+    "current_event_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+    "historic_event_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+    "score": 0.44069689426341,
+    "rank": 39,
+    "selected": false
+  },
+  {
+    "sample_id": "A24",
+    "stratum": "B3",
+    "date": "2026-10-18",
+    "key": [
+      "5dd525fa-b181-4d96-89ad-4264576795f1",
+      "b52461e6-6c00-46c2-8076-e270bc335cae"
+    ],
+    "current_event_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+    "historic_event_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+    "score": 0.4252252615913367,
+    "rank": 74,
+    "selected": false
+  },
+  {
+    "sample_id": "A25",
+    "stratum": "B3",
+    "date": "2026-10-14",
+    "key": [
+      "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7"
+    ],
+    "current_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+    "historic_event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+    "score": 0.4350191279153628,
+    "rank": 41,
+    "selected": false
+  },
+  {
+    "sample_id": "A26",
+    "stratum": "B3",
+    "date": "2026-10-12",
+    "key": [
+      "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+      "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a"
+    ],
+    "current_event_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+    "historic_event_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+    "score": 0.4108458487753892,
+    "rank": 68,
+    "selected": false
+  },
+  {
+    "sample_id": "A27",
+    "stratum": "B4",
+    "date": "2026-10-23",
+    "key": [
+      "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "b610c05d-344c-472b-ad6c-b8b6248706f0"
+    ],
+    "current_event_id": "b610c05d-344c-472b-ad6c-b8b6248706f0",
+    "historic_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+    "score": 0.5037406141092676,
+    "rank": 18,
+    "selected": false
+  },
+  {
+    "sample_id": "A28",
+    "stratum": "B4",
+    "date": "2026-10-12",
+    "key": [
+      "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "d7c54415-06f6-472d-8967-bd5a064dac46"
+    ],
+    "current_event_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+    "historic_event_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+    "score": 0.5089596438953992,
+    "rank": 15,
+    "selected": false
+  },
+  {
+    "sample_id": "A29",
+    "stratum": "B4",
+    "date": "2026-10-17",
+    "key": [
+      "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "d124e8e3-4987-4396-a2ae-80d188f88c0f"
+    ],
+    "current_event_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
+    "historic_event_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+    "score": 0.5210020395959207,
+    "rank": 6,
+    "selected": false
+  },
+  {
+    "sample_id": "A30",
+    "stratum": "B4",
+    "date": "2026-10-02",
+    "key": [
+      "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "fd9aa409-84d7-4aed-bdf0-92124c4cbe84"
+    ],
+    "current_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+    "historic_event_id": "fd9aa409-84d7-4aed-bdf0-92124c4cbe84",
+    "score": 0.5354447191024067,
+    "rank": 14,
+    "selected": false
+  },
+  {
+    "sample_id": "A31",
+    "stratum": "B4",
+    "date": "2026-10-23",
+    "key": [
+      "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "b610c05d-344c-472b-ad6c-b8b6248706f0"
+    ],
+    "current_event_id": "b610c05d-344c-472b-ad6c-b8b6248706f0",
+    "historic_event_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+    "score": 0.5387170534527337,
+    "rank": 9,
+    "selected": false
+  },
+  {
+    "sample_id": "A32",
+    "stratum": "B4",
+    "date": "2026-10-07",
+    "key": [
+      "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "ef72c89d-f5d5-418d-a9a3-a7a1725a8d81"
+    ],
+    "current_event_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+    "historic_event_id": "ef72c89d-f5d5-418d-a9a3-a7a1725a8d81",
+    "score": 0.511202787543101,
+    "rank": 7,
+    "selected": false
+  }
+]

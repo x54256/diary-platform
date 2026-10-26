@@ -1,0 +1,20 @@
+{
+  "2026-09": {
+    "diaries": 20,
+    "candidates": 934,
+    "same_day_candidates": 389,
+    "history_candidates": 545,
+    "relations": 150,
+    "history_relations": 112,
+    "same_day_relations": 38
+  },
+  "2026-10": {
+    "diaries": 15,
+    "candidates": 1212,
+    "history_candidates": 641,
+    "same_day_candidates": 571,
+    "relations": 165,
+    "same_day_relations": 30,
+    "history_relations": 135
+  }
+}
