@@ -1,0 +1,152 @@
+[
+  {
+    "date": "2026-10-01",
+    "source": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-01/5b6fbb71-0af9-43a1-a914-7bc9534a79d1/20261023T234951-41d97b04/source.json",
+    "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-01/5b6fbb71-0af9-43a1-a914-7bc9534a79d1/20261023T234951-41d97b04/事件要点-入库稿.md",
+    "output": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-01/5b6fbb71-0af9-43a1-a914-7bc9534a79d1/20261023T234951-41d97b04/入库包-仅要点.json",
+    "events": 6,
+    "points": 16,
+    "final_draft_sha256": "28aeb140c365da544471efce35383c14a73879955dd98bf5c5b4251cc945f355",
+    "storage_markdown_sha256": "a699b5409f5305db21028d78e7b3be79a6b860215dcb478c73c1912b938112ba"
+  },
+  {
+    "date": "2026-10-02",
+    "source": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-02/4333bd59-ebab-485a-a156-774bc5e64e22/20261023T235031-a8a566ae/source.json",
+    "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-02/4333bd59-ebab-485a-a156-774bc5e64e22/20261023T235031-a8a566ae/事件要点-入库稿.md",
+    "output": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-02/4333bd59-ebab-485a-a156-774bc5e64e22/20261023T235031-a8a566ae/入库包-仅要点.json",
+    "events": 4,
+    "points": 18,
+    "final_draft_sha256": "8bb164c1d78948632956d20befa53a7bf614cca6ba429714befed8d49216ddfd",
+    "storage_markdown_sha256": "6341ea5d1376a133cb9b24928ca752d8a6d046ec8060bff4e9978f9f69319d1d"
+  },
+  {
+    "date": "2026-10-07",
+    "source": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-07/5758d75f-67e8-4430-9237-a192dc6a03f0/20261023T235057-d457364f/source.json",
+    "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-07/5758d75f-67e8-4430-9237-a192dc6a03f0/20261023T235057-d457364f/事件要点-入库稿.md",
+    "output": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-07/5758d75f-67e8-4430-9237-a192dc6a03f0/20261023T235057-d457364f/入库包-仅要点.json",
+    "events": 12,
+    "points": 42,
+    "final_draft_sha256": "0b064101022d1a333f0314616d66f5beaf9d9c4b72f3c674ebc227b47392c2f0",
+    "storage_markdown_sha256": "680aae9f3403a597e00de861135bedaf383914e331127265a3169028dc6a4f12"
+  },
+  {
+    "date": "2026-10-09",
+    "source": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-09/118b1c69-adf1-41b1-b638-483e5f5947c2/20261023T235136-4413a41c/source.json",
+    "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-09/118b1c69-adf1-41b1-b638-483e5f5947c2/20261023T235136-4413a41c/事件要点-入库稿.md",
+    "output": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-09/118b1c69-adf1-41b1-b638-483e5f5947c2/20261023T235136-4413a41c/入库包-仅要点.json",
+    "events": 14,
+    "points": 34,
+    "final_draft_sha256": "ec70c63daae6a0018ac28eb0e224f82eebc8a3f7c7df69378a3c78a48ef68150",
+    "storage_markdown_sha256": "80b795d39f392faf9ac9ccb7df3771bc6f007eac0b4e73666713afd2df0a46bc"
+  },
+  {
+    "date": "2026-10-10",
+    "source": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-10/a1b8df2f-3fba-4260-85cf-16b5430cd279/20261023T235207-f751b607/source.json",
+    "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-10/a1b8df2f-3fba-4260-85cf-16b5430cd279/20261023T235207-f751b607/事件要点-入库稿.md",
+    "output": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-10/a1b8df2f-3fba-4260-85cf-16b5430cd279/20261023T235207-f751b607/入库包-仅要点.json",
+    "events": 12,
+    "points": 25,
+    "final_draft_sha256": "92d2197997062576489ca96bcadcc929288de0c361d3696838d936f922bd8b9c",
+    "storage_markdown_sha256": "668007c827c80dc174ccaf93f53fb2017face8936f0fb19e0450af00e8e3effc"
+  },
+  {
+    "date": "2026-10-12",
+    "source": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-12/516c323f-5c01-4dfc-85a9-b9c4536204f2/20261023T235240-ed4271f9/source.json",
+    "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-12/516c323f-5c01-4dfc-85a9-b9c4536204f2/20261023T235240-ed4271f9/事件要点-入库稿.md",
+    "output": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-12/516c323f-5c01-4dfc-85a9-b9c4536204f2/20261023T235240-ed4271f9/入库包-仅要点.json",
+    "events": 8,
+    "points": 25,
+    "final_draft_sha256": "0bbae01737566282a6e372634d25a330751beb2cafbaa285ff69b6b70d14746f",
+    "storage_markdown_sha256": "859460c47549b9df66884f6d209415f246e05bcfdc52aff51837e5d219d0f4c8"
+  },
+  {
+    "date": "2026-10-14",
+    "source": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-14/0be3874e-29d1-482f-930a-9fb182d25e11/20261023T235306-cf09a79c/source.json",
+    "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-14/0be3874e-29d1-482f-930a-9fb182d25e11/20261023T235306-cf09a79c/事件要点-入库稿.md",
+    "output": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-14/0be3874e-29d1-482f-930a-9fb182d25e11/20261023T235306-cf09a79c/入库包-仅要点.json",
+    "events": 11,
+    "points": 23,
+    "final_draft_sha256": "d96c73d54ef154f6d3bcc6b866759a89d4b90ecc10174f692706906d1bd7de3c",
+    "storage_markdown_sha256": "afa814051a1d5550711661d4738d769f627813755c38cacf1f408f32f5003304"
+  },
+  {
+    "date": "2026-10-15",
+    "source": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-15/196c1478-ce60-4fc3-ae78-2edd3b0d309f/20261023T235329-bd78027e/source.json",
+    "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-15/196c1478-ce60-4fc3-ae78-2edd3b0d309f/20261023T235329-bd78027e/事件要点-入库稿.md",
+    "output": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-15/196c1478-ce60-4fc3-ae78-2edd3b0d309f/20261023T235329-bd78027e/入库包-仅要点.json",
+    "events": 5,
+    "points": 13,
+    "final_draft_sha256": "84b65f1743921f87537197c537dc72fe68035964924579465dbacbce7e6d69ed",
+    "storage_markdown_sha256": "a3d489fce54e2264e0adc532ef4973e7fc7e240493c6898829f7d14bb477e752"
+  },
+  {
+    "date": "2026-10-17",
+    "source": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-17/c9a2e9de-bf99-4cd4-8600-95e3925cff8e/20261023T235345-c16a61f3/source.json",
+    "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-17/c9a2e9de-bf99-4cd4-8600-95e3925cff8e/20261023T235345-c16a61f3/事件要点-入库稿.md",
+    "output": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-17/c9a2e9de-bf99-4cd4-8600-95e3925cff8e/20261023T235345-c16a61f3/入库包-仅要点.json",
+    "events": 9,
+    "points": 11,
+    "final_draft_sha256": "2876e52a04603bbcced5c047d50976b81e110c2538be853139a51a49ab4b6132",
+    "storage_markdown_sha256": "617a5d0c86c38d876ba740ab38e59e742edb13a89d75dbccc4e72899c5e1f19a"
+  },
+  {
+    "date": "2026-10-18",
+    "source": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-18/71182016-2d93-4bb6-beaf-3afc470c6415/20261023T235408-8ce481c7/source.json",
+    "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-18/71182016-2d93-4bb6-beaf-3afc470c6415/20261023T235408-8ce481c7/事件要点-入库稿.md",
+    "output": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-18/71182016-2d93-4bb6-beaf-3afc470c6415/20261023T235408-8ce481c7/入库包-仅要点.json",
+    "events": 10,
+    "points": 15,
+    "final_draft_sha256": "d6f86c0c45090a638bd1c12ff9ca8d12043b24520d6af65cfa8bf285f5fd5ef2",
+    "storage_markdown_sha256": "7b2c8f2261a7d53f6ead8d72d422234a83e67e3086cde7f9f50b46a9d38d8a99"
+  },
+  {
+    "date": "2026-10-19",
+    "source": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-19/eace7c4c-abba-4512-b22c-a0b4ce848de0/20261023T235434-cb337c3f/source.json",
+    "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-19/eace7c4c-abba-4512-b22c-a0b4ce848de0/20261023T235434-cb337c3f/事件要点-入库稿.md",
+    "output": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-19/eace7c4c-abba-4512-b22c-a0b4ce848de0/20261023T235434-cb337c3f/入库包-仅要点.json",
+    "events": 10,
+    "points": 16,
+    "final_draft_sha256": "b90f4ea5fda345d605dbc05acef7e2aa2c4ad16a2aabb42dd54e5d83d6717ba2",
+    "storage_markdown_sha256": "bb54dd85a865be0998983b91f57eb98f0f20f658aaccf61657300ce919a8e6b7"
+  },
+  {
+    "date": "2026-10-20",
+    "source": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-20/ab767235-6ca0-4e7d-a770-938884a251c9/20261023T235502-3fe7d118/source.json",
+    "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-20/ab767235-6ca0-4e7d-a770-938884a251c9/20261023T235502-3fe7d118/事件要点-入库稿.md",
+    "output": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-20/ab767235-6ca0-4e7d-a770-938884a251c9/20261023T235502-3fe7d118/入库包-仅要点.json",
+    "events": 5,
+    "points": 8,
+    "final_draft_sha256": "c08810bab9a881f992fb9ed16f2d754aa7861a12c6b923ebb1c0410c5627cb46",
+    "storage_markdown_sha256": "2de1b28d8bf83049258ee976126ff114ade4ca47fde502d5aaa79e83565d258f"
+  },
+  {
+    "date": "2026-10-21",
+    "source": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-21/09cf0bb7-21c9-4f30-bba9-920043d6ffef/20261023T235519-f5249911/source.json",
+    "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-21/09cf0bb7-21c9-4f30-bba9-920043d6ffef/20261023T235519-f5249911/事件要点-入库稿.md",
+    "output": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-21/09cf0bb7-21c9-4f30-bba9-920043d6ffef/20261023T235519-f5249911/入库包-仅要点.json",
+    "events": 5,
+    "points": 10,
+    "final_draft_sha256": "8aa3f9cd71c95c2770e8792626ccc1a4cb61d922097ce1af2f0371cbf7178e64",
+    "storage_markdown_sha256": "2d6417420f3db190f9186bc505b5e41346713b10ece96524eeda8d2340a79eb8"
+  },
+  {
+    "date": "2026-10-22",
+    "source": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-22/d12d4bb1-5394-4ad6-861a-c85ce455872c/20261023T235533-67517a1d/source.json",
+    "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-22/d12d4bb1-5394-4ad6-861a-c85ce455872c/20261023T235533-67517a1d/事件要点-入库稿.md",
+    "output": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-22/d12d4bb1-5394-4ad6-861a-c85ce455872c/20261023T235533-67517a1d/入库包-仅要点.json",
+    "events": 13,
+    "points": 30,
+    "final_draft_sha256": "f47f016dd522cdef467933b57a1ca2d759518e18e19f1c1570f79b26c1237c5d",
+    "storage_markdown_sha256": "821f22ab457047b78dd89ad4136155c992a280005633c380a019d752396b2300"
+  },
+  {
+    "date": "2026-10-23",
+    "source": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-23/0cef75fc-19cc-48da-a311-2a2aa0e6a7f3/20261023T235605-42757767/source.json",
+    "markdown": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-23/0cef75fc-19cc-48da-a311-2a2aa0e6a7f3/20261023T235605-42757767/事件要点-入库稿.md",
+    "output": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-23/0cef75fc-19cc-48da-a311-2a2aa0e6a7f3/20261023T235605-42757767/入库包-仅要点.json",
+    "events": 5,
+    "points": 14,
+    "final_draft_sha256": "3f82a76bf2edc2348c58dbc90365f09c2b9a3e76a4911a73370ef219ef0e1ff9",
+    "storage_markdown_sha256": "11310ff1eb3421c5c55f508acd224d9569b152347d19d83e6c2440265865c68a"
+  }
+]

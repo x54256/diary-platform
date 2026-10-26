@@ -1,0 +1,16 @@
+{
+  "stage": 4,
+  "command": "prepare",
+  "date": "2026-10-12",
+  "at": "2026-10-23T16:00:46.820084+00:00",
+  "elapsed_seconds": 0.836,
+  "exit_code": 0,
+  "result": {
+    "phase": "prepared",
+    "write": false,
+    "packet": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-points/2026-10-12/516c323f-5c01-4dfc-85a9-b9c4536204f2/20261023T235240-ed4271f9/入库包-仅要点.json",
+    "events": 8,
+    "points": 25,
+    "confirmation_sha256": "fcc8725e88a7d29f8d12fc53f608d4a3a02f516f7dd9e44b166f3dc14b056b74"
+  }
+}

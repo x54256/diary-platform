@@ -1,0 +1,24 @@
+{
+  "stage": 4,
+  "command": "save",
+  "date": "2026-10-02",
+  "at": "2026-10-23T16:01:28.619294+00:00",
+  "elapsed_seconds": 10.372,
+  "exit_code": 0,
+  "result": {
+    "phase": "saved",
+    "write": true,
+    "task_id": "cedd5f42-be55-4778-b529-350b1d9a89d0",
+    "run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+    "task_status": "SUCCEEDED",
+    "run_status": "POINTS_READY",
+    "current_step": null,
+    "error_code": null,
+    "events": 4,
+    "candidate_points": 18,
+    "vectors": 18,
+    "reused_vectors": 0,
+    "stored_points": 18,
+    "stored": true
+  }
+}

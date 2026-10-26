@@ -1,0 +1,13 @@
+{
+  "point_count": 300,
+  "detail_chars_total": 51044,
+  "detail_chars_min": 40,
+  "detail_chars_max": 503,
+  "detail_chars_mean": 170.15,
+  "review_issues": 5,
+  "review_issue_rate_per_point": 0.016666666666666666,
+  "summary_fidelity_issues": 1,
+  "self_containment_issues": 4,
+  "token_usage": "当前工具未提供本任务逐阶段实际token计量，不能估算为真实值。",
+  "cost": "待向量审计查询，未提供时不推算。"
+}

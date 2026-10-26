@@ -1,0 +1,20 @@
+{
+  "verified_at": "2026-10-26T02:01:47.747806+00:00",
+  "run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+  "stored": true,
+  "run_status": "POINTS_READY",
+  "task_status": "SUCCEEDED",
+  "events": 6,
+  "points": 22,
+  "vectors": 22,
+  "all_text_matches_packet": true,
+  "all_vectors_valid_1024": true,
+  "model_calls": 22,
+  "call_status_counts": {
+    "SUCCEEDED": 22
+  },
+  "reported_input_tokens": 2007,
+  "input_tokens_missing_calls": 0,
+  "reused_vectors": 0,
+  "cost": null
+}

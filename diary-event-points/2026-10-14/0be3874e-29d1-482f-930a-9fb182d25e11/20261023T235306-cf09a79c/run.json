@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-23T15:53:06.354612+00:00",
+  "origin": "database",
+  "diary_id": "0be3874e-29d1-482f-930a-9fb182d25e11",
+  "diary_date": "2026-10-14",
+  "source_sha256": "9b56229f1d7033530088980e3fa70bb818545ac7c34f731668f1a964e0a4d724",
+  "event_ids": [
+    "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+    "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+    "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+    "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+    "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+    "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+    "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+    "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+    "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+    "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+    "cdccd835-c51b-4962-9fd3-3d01ae06c414"
+  ],
+  "event_count": 11,
+  "source_files_sha256": {
+    "source.json": "e04247182bfebb92fcbd7287ed19f298b6a184a4b99348185307f5e5324c33bf",
+    "source.md": "4df8722a3a37c2f6ef22b9c89e8468482df47994869e8805bc570bd2afc5792e"
+  },
+  "skill_files_sha256": {
+    "SKILL.md": "f8eb14d8f9e35c142a457a255dd298e28b02191a0fe526c11eadaa0454346475",
+    "references/examples.md": "f6c031aef8c23b8c6b8fe648f27e17aae8c11a679e43cd52a57f779201c8a945",
+    "settings.json": "eb7cda825c6e8a813a3a1f8c4579b362f71d2f2826ff8ef4b758a567758059cb"
+  }
+}

@@ -1,0 +1,314 @@
+{
+  "stage": 4,
+  "verified_at": "2026-10-23T16:04:20.866791+00:00",
+  "days": 15,
+  "events": 129,
+  "points": 300,
+  "vectors": 300,
+  "calls": 300,
+  "input_tokens_reported": 36342,
+  "input_tokens_missing_calls": 0,
+  "rows": [
+    {
+      "date": "2026-10-01",
+      "run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "task_id": "c54df150-f9cc-4931-9bf3-f25d3b4710ca",
+      "stored": true,
+      "run_status": "POINTS_READY",
+      "events": 6,
+      "points": 16,
+      "vectors": 16,
+      "text_matches_packet": true,
+      "all_vectors_1024_finite_nonzero": true,
+      "calls": 16,
+      "call_status_counts": {
+        "SUCCEEDED": 16
+      },
+      "input_tokens_reported": 1988,
+      "input_tokens_missing_calls": 0,
+      "call_elapsed_total_seconds": 6.876,
+      "reused_vectors": 0
+    },
+    {
+      "date": "2026-10-02",
+      "run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "task_id": "cedd5f42-be55-4778-b529-350b1d9a89d0",
+      "stored": true,
+      "run_status": "POINTS_READY",
+      "events": 4,
+      "points": 18,
+      "vectors": 18,
+      "text_matches_packet": true,
+      "all_vectors_1024_finite_nonzero": true,
+      "calls": 18,
+      "call_status_counts": {
+        "SUCCEEDED": 18
+      },
+      "input_tokens_reported": 2563,
+      "input_tokens_missing_calls": 0,
+      "call_elapsed_total_seconds": 6.388,
+      "reused_vectors": 0
+    },
+    {
+      "date": "2026-10-07",
+      "run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "task_id": "b4ec11b2-1ac5-48d0-9168-7c41f90e99fc",
+      "stored": true,
+      "run_status": "POINTS_READY",
+      "events": 12,
+      "points": 42,
+      "vectors": 42,
+      "text_matches_packet": true,
+      "all_vectors_1024_finite_nonzero": true,
+      "calls": 42,
+      "call_status_counts": {
+        "SUCCEEDED": 42
+      },
+      "input_tokens_reported": 4896,
+      "input_tokens_missing_calls": 0,
+      "call_elapsed_total_seconds": 14.407,
+      "reused_vectors": 0
+    },
+    {
+      "date": "2026-10-09",
+      "run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "task_id": "db2e664a-93c2-442c-8e6e-5bfd8e3d7c2b",
+      "stored": true,
+      "run_status": "POINTS_READY",
+      "events": 14,
+      "points": 34,
+      "vectors": 34,
+      "text_matches_packet": true,
+      "all_vectors_1024_finite_nonzero": true,
+      "calls": 34,
+      "call_status_counts": {
+        "SUCCEEDED": 34
+      },
+      "input_tokens_reported": 4376,
+      "input_tokens_missing_calls": 0,
+      "call_elapsed_total_seconds": 12.539,
+      "reused_vectors": 0
+    },
+    {
+      "date": "2026-10-10",
+      "run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "task_id": "9342421f-d0da-4230-b8a0-c6f16315936b",
+      "stored": true,
+      "run_status": "POINTS_READY",
+      "events": 12,
+      "points": 25,
+      "vectors": 25,
+      "text_matches_packet": true,
+      "all_vectors_1024_finite_nonzero": true,
+      "calls": 25,
+      "call_status_counts": {
+        "SUCCEEDED": 25
+      },
+      "input_tokens_reported": 2892,
+      "input_tokens_missing_calls": 0,
+      "call_elapsed_total_seconds": 8.239,
+      "reused_vectors": 0
+    },
+    {
+      "date": "2026-10-12",
+      "run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "task_id": "a31d07c8-4d14-4d09-9d29-678fdd0569be",
+      "stored": true,
+      "run_status": "POINTS_READY",
+      "events": 8,
+      "points": 25,
+      "vectors": 25,
+      "text_matches_packet": true,
+      "all_vectors_1024_finite_nonzero": true,
+      "calls": 25,
+      "call_status_counts": {
+        "SUCCEEDED": 25
+      },
+      "input_tokens_reported": 2969,
+      "input_tokens_missing_calls": 0,
+      "call_elapsed_total_seconds": 7.292,
+      "reused_vectors": 0
+    },
+    {
+      "date": "2026-10-14",
+      "run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "task_id": "43ff3139-258e-4b4b-8921-af0d55b0b231",
+      "stored": true,
+      "run_status": "POINTS_READY",
+      "events": 11,
+      "points": 23,
+      "vectors": 23,
+      "text_matches_packet": true,
+      "all_vectors_1024_finite_nonzero": true,
+      "calls": 23,
+      "call_status_counts": {
+        "SUCCEEDED": 23
+      },
+      "input_tokens_reported": 2379,
+      "input_tokens_missing_calls": 0,
+      "call_elapsed_total_seconds": 6.48,
+      "reused_vectors": 0
+    },
+    {
+      "date": "2026-10-15",
+      "run_id": "5ef72fe7-2c77-4680-b12e-df482cf90f0e",
+      "task_id": "c046c7aa-a939-4ec1-afbf-7911fe5080e0",
+      "stored": true,
+      "run_status": "POINTS_READY",
+      "events": 5,
+      "points": 13,
+      "vectors": 13,
+      "text_matches_packet": true,
+      "all_vectors_1024_finite_nonzero": true,
+      "calls": 13,
+      "call_status_counts": {
+        "SUCCEEDED": 13
+      },
+      "input_tokens_reported": 1398,
+      "input_tokens_missing_calls": 0,
+      "call_elapsed_total_seconds": 3.678,
+      "reused_vectors": 0
+    },
+    {
+      "date": "2026-10-17",
+      "run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
+      "task_id": "5e03bc18-ccdd-4e85-b2fe-b8b8feac32a2",
+      "stored": true,
+      "run_status": "POINTS_READY",
+      "events": 9,
+      "points": 11,
+      "vectors": 11,
+      "text_matches_packet": true,
+      "all_vectors_1024_finite_nonzero": true,
+      "calls": 11,
+      "call_status_counts": {
+        "SUCCEEDED": 11
+      },
+      "input_tokens_reported": 1162,
+      "input_tokens_missing_calls": 0,
+      "call_elapsed_total_seconds": 3.2,
+      "reused_vectors": 0
+    },
+    {
+      "date": "2026-10-18",
+      "run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "task_id": "6660f2ae-bb4b-49dd-999a-b10e7a724d5a",
+      "stored": true,
+      "run_status": "POINTS_READY",
+      "events": 10,
+      "points": 15,
+      "vectors": 15,
+      "text_matches_packet": true,
+      "all_vectors_1024_finite_nonzero": true,
+      "calls": 15,
+      "call_status_counts": {
+        "SUCCEEDED": 15
+      },
+      "input_tokens_reported": 1862,
+      "input_tokens_missing_calls": 0,
+      "call_elapsed_total_seconds": 4.594,
+      "reused_vectors": 0
+    },
+    {
+      "date": "2026-10-19",
+      "run_id": "b621e11a-d6e4-4ce2-8bfd-a31dabd9f6fd",
+      "task_id": "5197911b-deee-4909-be67-0a4237e9b5d7",
+      "stored": true,
+      "run_status": "POINTS_READY",
+      "events": 10,
+      "points": 16,
+      "vectors": 16,
+      "text_matches_packet": true,
+      "all_vectors_1024_finite_nonzero": true,
+      "calls": 16,
+      "call_status_counts": {
+        "SUCCEEDED": 16
+      },
+      "input_tokens_reported": 1769,
+      "input_tokens_missing_calls": 0,
+      "call_elapsed_total_seconds": 4.802,
+      "reused_vectors": 0
+    },
+    {
+      "date": "2026-10-20",
+      "run_id": "43e74242-261c-4458-855d-dbbc1de316a7",
+      "task_id": "4a1ff990-651c-42db-8b97-1e10048fbbfd",
+      "stored": true,
+      "run_status": "POINTS_READY",
+      "events": 5,
+      "points": 8,
+      "vectors": 8,
+      "text_matches_packet": true,
+      "all_vectors_1024_finite_nonzero": true,
+      "calls": 8,
+      "call_status_counts": {
+        "SUCCEEDED": 8
+      },
+      "input_tokens_reported": 811,
+      "input_tokens_missing_calls": 0,
+      "call_elapsed_total_seconds": 2.348,
+      "reused_vectors": 0
+    },
+    {
+      "date": "2026-10-21",
+      "run_id": "d42eceab-3c42-42b5-9018-39fb2092d793",
+      "task_id": "a3079dca-cd90-4df8-92e0-ea1abbed5af6",
+      "stored": true,
+      "run_status": "POINTS_READY",
+      "events": 5,
+      "points": 10,
+      "vectors": 10,
+      "text_matches_packet": true,
+      "all_vectors_1024_finite_nonzero": true,
+      "calls": 10,
+      "call_status_counts": {
+        "SUCCEEDED": 10
+      },
+      "input_tokens_reported": 1064,
+      "input_tokens_missing_calls": 0,
+      "call_elapsed_total_seconds": 2.706,
+      "reused_vectors": 0
+    },
+    {
+      "date": "2026-10-22",
+      "run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "task_id": "99ddc4f4-03f8-43b7-9f6d-578e31f76e1b",
+      "stored": true,
+      "run_status": "POINTS_READY",
+      "events": 13,
+      "points": 30,
+      "vectors": 30,
+      "text_matches_packet": true,
+      "all_vectors_1024_finite_nonzero": true,
+      "calls": 30,
+      "call_status_counts": {
+        "SUCCEEDED": 30
+      },
+      "input_tokens_reported": 4279,
+      "input_tokens_missing_calls": 0,
+      "call_elapsed_total_seconds": 8.275,
+      "reused_vectors": 0
+    },
+    {
+      "date": "2026-10-23",
+      "run_id": "6a8d113e-0540-4e07-91da-272bb2333473",
+      "task_id": "6802bf27-0197-4552-a711-a476c955cfca",
+      "stored": true,
+      "run_status": "POINTS_READY",
+      "events": 5,
+      "points": 14,
+      "vectors": 14,
+      "text_matches_packet": true,
+      "all_vectors_1024_finite_nonzero": true,
+      "calls": 14,
+      "call_status_counts": {
+        "SUCCEEDED": 14
+      },
+      "input_tokens_reported": 1934,
+      "input_tokens_missing_calls": 0,
+      "call_elapsed_total_seconds": 3.814,
+      "reused_vectors": 0
+    }
+  ],
+  "cost": "审计没有费用字段，不估算实际费用。"
+}
