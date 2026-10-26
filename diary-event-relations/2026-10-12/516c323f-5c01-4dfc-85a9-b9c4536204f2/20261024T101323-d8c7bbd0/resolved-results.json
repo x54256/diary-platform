@@ -1,0 +1,801 @@
+{
+  "package_sha256": "c4d0e24c43b16dfe58412cb0127ddbfccd799d4e5c812994788cdd7c92876441",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "c4d0e24c43b16dfe58412cb0127ddbfccd799d4e5c812994788cdd7c92876441",
+    "verified_at": "2026-10-24T02:13:24.082389+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-002630d166deed65",
+      "event_a_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“多多不让抱，跟小廖聊养育付出和亲近的关系”与“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-035ffb14910561b8",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0444ef30ab1ee86d",
+      "event_a_id": "26598bbd-a362-432d-8fea-db92884085c7",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“备份日记平台，准备在本地还原确认”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0b0ed1b102d3b1eb",
+      "event_a_id": "5010713e-68b8-49d8-a074-cb7b810aba8d",
+      "event_a_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "event_b_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从虎门销烟的说法，想到自给自足和全球协作”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0b19f8c030c4657d",
+      "event_a_id": "241f4e2c-8305-4b49-a344-f1e673361aea",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从核磁共振想通数学研究的价值，以及知识怎样变成认知”与“多多不让抱，跟小廖聊养育付出和亲近的关系”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0f8b9e256b517777",
+      "event_a_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“扫地机上下水坏了，想先试试自己每周拖地”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-174705d2c1f6c603",
+      "event_a_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“找不到车时胃食管反流，后来解释清楚并不是在生她的气”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-180f80a784c8a4b5",
+      "event_a_id": "26598bbd-a362-432d-8fea-db92884085c7",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-18b7bdd688a95042",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从等车位的人，跟小廖聊顾及别人和维护自己”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1de5a7fbfe0f5f95",
+      "event_a_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“备份日记平台，准备在本地还原确认”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1e24b357bbb8a433",
+      "event_a_id": "26598bbd-a362-432d-8fea-db92884085c7",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-22e3d86b82148cc1",
+      "event_a_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“备份日记平台，准备在本地还原确认”与“多多不让抱，跟小廖聊养育付出和亲近的关系”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-24bcdee99b1136f4",
+      "event_a_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“烤羊排带去颂梅爸妈家，中午一起吃饭”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-254d95e778aca157",
+      "event_a_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”与“多多不让抱，跟小廖聊养育付出和亲近的关系”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-25e01276b5c5fc31",
+      "event_a_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“备份日记平台，准备在本地还原确认”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-265a9b3760be76f8",
+      "event_a_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“6、7号去柳州吃喝，体验茶麸洗头”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-26da95d16568f2fc",
+      "event_a_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2e0d7317115e0378",
+      "event_a_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”与“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2efc884e64497f4d",
+      "event_a_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”与“备份日记平台，准备在本地还原确认”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-324ea789ff4f093c",
+      "event_a_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”与“备份日记平台，准备在本地还原确认”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3a2bbb28d7bc0bb5",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "RELATED",
+      "reason": "烤羊排记录明确回顾前天山姆采购塞满冷冻室的经过。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "烤羊排记录明确回顾前天山姆采购塞满冷冻室的经过。",
+        "source_event_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+        "source_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "前天山姆采购把冷冻室塞满了",
+            "point_id": "61537076-98b1-4a0f-85a5-f7191faa67f7",
+            "point_event_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+            "point_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+            "offset": 8,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "40bfec34a537ac18033aeeabb68b2684a9838fa699fe82b568237425c6b9540d"
+          }
+        ],
+        "target_event_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+        "target_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "target_evidence": [
+          {
+            "point_no": 3,
+            "quote": "我们又去山姆买了一千多元的东西，回家发现冷冻室基本塞满",
+            "point_id": "ae8c88dc-2ed6-44b1-a26c-c3a22c4c36ce",
+            "point_event_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 6,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "18d03627537985377b69d20128ff607e8bdd0027062abf40c91c604444e5cdc5"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-3dc1f72ad991e033",
+      "event_a_id": "26598bbd-a362-432d-8fea-db92884085c7",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“多多不让抱，跟小廖聊养育付出和亲近的关系”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3f64cfa9610f4c4d",
+      "event_a_id": "26598bbd-a362-432d-8fea-db92884085c7",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“再看爸妈就医后的变化，觉得这趟医院确实有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-40a60e3abecf202b",
+      "event_a_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-45075d0d80484bdf",
+      "event_a_id": "4ae2bd0c-2a26-40a7-a11e-e9ba0af50917",
+      "event_a_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "event_b_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“追问国内外油价对比，思考只说一半真话的叙事”与“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-484899b22f49336f",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“一天逛完永旺和山姆，也看到小廖会提出自己的条件了”与“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4ab543870f9a0df1",
+      "event_a_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“扫地机上下水坏了，想先试试自己每周拖地”与“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4ba8e28e1ee58946",
+      "event_a_id": "26598bbd-a362-432d-8fea-db92884085c7",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5c762a04ac45a67d",
+      "event_a_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“扫地机上下水坏了，想先试试自己每周拖地”与“备份日记平台，准备在本地还原确认”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5d68a0405f5c9886",
+      "event_a_id": "26598bbd-a362-432d-8fea-db92884085c7",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "4ae2bd0c-2a26-40a7-a11e-e9ba0af50917",
+      "event_b_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "status": "NO_RELATION",
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“追问国内外油价对比，思考只说一半真话的叙事”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-63e1c7a24222a6e6",
+      "event_a_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“多多不让抱，跟小廖聊养育付出和亲近的关系”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6a2050e3a80529b5",
+      "event_a_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“扫地机上下水坏了，想先试试自己每周拖地”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6dcbdfb7ea5751ed",
+      "event_a_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "RELATED",
+      "reason": "讨论出差压力和生日邮轮开销时，明确回顾扫地机因贵没换及说要拖地却未拖。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "讨论出差压力和生日邮轮开销时，明确回顾扫地机因贵没换及说要拖地却未拖。",
+        "source_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+        "source_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "扫地机我也嫌贵不换（当时我听说旧的就能抵 50 块钱，然后我决定不换了），然后我说要拖地也没拖。",
+            "point_id": "a23cd0f3-4183-43e3-a320-8f6904e3f0ce",
+            "point_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+            "point_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+            "offset": 157,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "8a105f966948beaab871d850d148c8e46a5456b2cd1808dc7c470f0dfe03643d"
+          }
+        ],
+        "target_event_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+        "target_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "发来一个3000块的链接",
+            "point_id": "360138be-e2b1-4022-bc20-7ac4d1fa6c21",
+            "point_event_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+            "point_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+            "offset": 31,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "79d5b5224156a31ed9917eb6c59d8e3e5c456ccbf93ec7ea4bbeac7dc3614d22"
+          },
+          {
+            "point_no": 2,
+            "quote": "最终没拖。",
+            "point_id": "8a49196e-afec-49ed-8d0b-2337dff01f56",
+            "point_event_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+            "point_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+            "offset": 48,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ea67f734205c50dd43106a32beec21a52180df0f925cd71726de5138deeee3c2"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-743a6ca21f43ae1d",
+      "event_a_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“3号游船、租车和露营，觉得省精力的钱值得花”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-76a1f938c6ecef57",
+      "event_a_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”与“提醒颂梅控制离职前后的花销，又给她转了5000块”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-85646bb82638825d",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-87b8129eef157952",
+      "event_a_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8ea997d92364e072",
+      "event_a_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“扫地机上下水坏了，想先试试自己每周拖地”与“多多不让抱，跟小廖聊养育付出和亲近的关系”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9023e2d20675f290",
+      "event_a_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-98d5e0089a19b051",
+      "event_a_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "RELATED",
+      "reason": "中午步行到父母家往返的疲惫，成为下午休息睡觉、未按打算拖地的原因。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "中午步行到父母家往返的疲惫，成为下午休息睡觉、未按打算拖地的原因。",
+        "source_event_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+        "source_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "所以我们走路去她爸妈家。",
+            "point_id": "61537076-98b1-4a0f-85a5-f7191faa67f7",
+            "point_event_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+            "point_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+            "offset": 230,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "40bfec34a537ac18033aeeabb68b2684a9838fa699fe82b568237425c6b9540d"
+          }
+        ],
+        "target_event_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+        "target_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "中午走路来回很累，在沙发躺到三点，又进屋睡了，最终没拖。",
+            "point_id": "8a49196e-afec-49ed-8d0b-2337dff01f56",
+            "point_event_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+            "point_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+            "offset": 25,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ea67f734205c50dd43106a32beec21a52180df0f925cd71726de5138deeee3c2"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-a02ea9bfdc30e383",
+      "event_a_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“扫地机上下水坏了，想先试试自己每周拖地”与“4号晚上去桂林市区，还共享电动车特别折腾”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ac673e279b067f02",
+      "event_a_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“备份日记平台，准备在本地还原确认”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b2f07749d76404bf",
+      "event_a_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“多多不让抱，跟小廖聊养育付出和亲近的关系”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b4cf44034dbe7b04",
+      "event_a_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“跟小豪聊华工新闻，发现自己对“卷”的理解变了”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bd84480749ffea8a",
+      "event_a_id": "26598bbd-a362-432d-8fea-db92884085c7",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“扫地机上下水坏了，想先试试自己每周拖地”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-be1d4206d1a51c55",
+      "event_a_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bfd006ed13d4b697",
+      "event_a_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“多多不让抱，跟小廖聊养育付出和亲近的关系”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c04f305966525315",
+      "event_a_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“多多不让抱，跟小廖聊养育付出和亲近的关系”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c4260c0e7cbdf77a",
+      "event_a_id": "5010713e-68b8-49d8-a074-cb7b810aba8d",
+      "event_a_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "event_b_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从虎门销烟的说法，想到自给自足和全球协作”与“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c7873570cd56735d",
+      "event_a_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "RELATED",
+      "reason": "此前被安排出差但尝试拒绝，后来向更高领导沟通仍未获准，已经收行李买票准备出发。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前被安排出差但尝试拒绝，后来向更高领导沟通仍未获准，已经收行李买票准备出发。",
+        "source_event_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+        "source_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "她不想去，提离职的主要原因就是不想跟这个销售合作",
+            "point_id": "ade76c2e-9f32-4c9b-a247-183c35c33ac4",
+            "point_event_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 31,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "d0f8c738b22b8371e2d304564eb097599f064430a6a74b687b3b10836c3bda67"
+          }
+        ],
+        "target_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+        "target_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天领导还是非让颂梅去墨西哥出差两周。",
+            "point_id": "926fbe1c-ee0b-4ead-9ba8-7f4f2a536893",
+            "point_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+            "point_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "af3cf42401609ad31f79a3455acd76574eb300d661173e65bd73389e5acf2cde"
+          },
+          {
+            "point_no": 4,
+            "quote": "既然已经答应、机票也买好",
+            "point_id": "52e454f7-1f30-4ea6-b944-52613fffdefe",
+            "point_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+            "point_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "8eeb1d7f74dae76103bf27b546cc0634040c04356bf671f609db1719bad2b6ab"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-cf8620fa70af2e80",
+      "event_a_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”与“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d1cf08e9860241da",
+      "event_a_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”与“多多不让抱，跟小廖聊养育付出和亲近的关系”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-db96a5c1bdbda6cf",
+      "event_a_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“颂梅去检查底盘没有问题，轮毂做了小修复”与“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e14e2c741ca89178",
+      "event_a_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“扫地机上下水坏了，想先试试自己每周拖地”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e2a8d66dc28a728f",
+      "event_a_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”与“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e3a67de043bf7716",
+      "event_a_id": "26598bbd-a362-432d-8fea-db92884085c7",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e69e077ae3fdef1d",
+      "event_a_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“让AI排查工作问题，感觉自己成了中转站”与“备份日记平台，准备在本地还原确认”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e6be63ee1d8a5696",
+      "event_a_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“南通项目久拖的问题，最后发现是现场配置不对”与“备份日记平台，准备在本地还原确认”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f37a126883ff2769",
+      "event_a_id": "4ae2bd0c-2a26-40a7-a11e-e9ba0af50917",
+      "event_a_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "event_b_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“追问国内外油价对比，思考只说一半真话的叙事”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f614839090474cb9",
+      "event_a_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“扫地机上下水坏了，想先试试自己每周拖地”与“颂梅被劝别离职，又接到急活，我想尽快给她续会员”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fa3713157d777822",
+      "event_a_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“备份日记平台，准备在本地还原确认”与“找不到车时胃食管反流，后来解释清楚并不是在生她的气”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fbbd7979828000a8",
+      "event_a_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fd70b39f3092b3ac",
+      "event_a_id": "31f941b6-d99c-4d4f-8ad5-87ddbdf3ab1a",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“扫地机上下水坏了，想先试试自己每周拖地”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ff9eba25569edd76",
+      "event_a_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”与“多多不让抱，跟小廖聊养育付出和亲近的关系”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    }
+  ]
+}

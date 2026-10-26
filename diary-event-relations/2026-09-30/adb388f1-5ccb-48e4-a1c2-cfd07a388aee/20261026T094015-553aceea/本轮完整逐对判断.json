@@ -1,0 +1,489 @@
+{
+  "package_sha256": "2e7fbcff671bf6881ecd4f77940cf56a83214e4277f276157bcdbc3ad898f240",
+  "results": [
+    {
+      "pair_id": "P-aec69a5365d26917",
+      "status": "NO_RELATION",
+      "reason": "苹果发布会引出的集中力量与创新文化讨论，与经济危机视频引出的软着陆代价讨论，涉及相近体制观点，但未引用彼此具体经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b23133a1602119c2",
+      "status": "RELATED",
+      "reason": "此前准备先结构化日记、提取事件要点再建关系，之后继续梳理人物事件第一层，并尝试第二层心理活动设计。",
+      "relation": {
+        "source_event": "E004",
+        "target_event": "E026",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前准备先结构化日记、提取事件要点再建关系，之后继续梳理人物事件第一层，并尝试第二层心理活动设计。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "应该先结构化整理事件原文，弄清楚一个事件讲了哪几件事、有哪些内容和要点，再建立这些点之间的关系"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "把从日记提取知识图谱最简单的第一层梳理清楚了，主要是人物和事件。今天想做第二层"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-151a2b60929196fa",
+      "status": "NO_RELATION",
+      "reason": "与小廖因家务消费的沟通和爸爸心脏血脂检查是不同事项；狗粮油脂话题没有指向爸爸的饮食。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a1ed9bb5d509e46e",
+      "status": "NO_RELATION",
+      "reason": "争吵中买拖鞋的请求与准备配眼镜是不同购买事项，没有具体延续或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5b8859048a152491",
+      "status": "RELATED",
+      "reason": "此前准备提醒爸爸去医院检查，之后爸爸已去做核磁，并顺道到心脏科询问用药及高血压问题。",
+      "relation": {
+        "source_event": "E019",
+        "target_event": "E023",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前准备提醒爸爸去医院检查，之后爸爸已去做核磁，并顺道到心脏科询问用药及高血压问题。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "顺便提醒爸爸明天早点去医院检查、别忘了"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "他今天去做核磁共振，上周又听他说在吃阿司匹林，我便让他去心脏科问问阿司匹林能不能停，顺道看看高血压的问题"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-26f36409610177fa",
+      "status": "NO_RELATION",
+      "reason": "借AI与父母沟通和我考虑配眼镜的经历没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4e9a48df7075ba03",
+      "status": "RELATED",
+      "reason": "此前爸爸打算等腰疼再就医，之后已完成核磁检查，我看过结果后觉得放心一些。",
+      "relation": {
+        "source_event": "E003",
+        "target_event": "E028",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前爸爸打算等腰疼再就医，之后已完成核磁检查，我看过结果后觉得放心一些。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "我爸说，要等腰疼起来再去医院看腰肌劳损这些问题"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我爸今天早晨去医院做核磁共振，下午出了结果"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-73300fad5d2ab28d",
+      "status": "NO_RELATION",
+      "reason": "借AI与父母沟通与自己查看体检报告，虽都用AI，但未表达具体事件间的触发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c4bb4f524579defe",
+      "status": "NO_RELATION",
+      "reason": "与母亲讨论手机伤眼和自己配镜都涉及眼睛，但当前未把配镜联系到那次谈话。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a824f2fa706a3daf",
+      "status": "NO_RELATION",
+      "reason": "劝父亲使用AI和知识图谱第二层设计都包含对AI的认识，但并非同一事项，也未明确互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-108abca45df585c2",
+      "status": "NO_RELATION",
+      "reason": "与母亲因生病不治发火和自己调整饮食没有明确触发或具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7c0e5801c1b9fcb8",
+      "status": "NO_RELATION",
+      "reason": "经济危机与爸爸的心脏血脂检查是不同事项，没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e9f977a4524afa5a",
+      "status": "NO_RELATION",
+      "reason": "经济危机视频思考与准备配镜无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-eea230f3b5843e3c",
+      "status": "NO_RELATION",
+      "reason": "经济危机视频思考与老陆手术、催爸爸检查无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-815d1a8a5be30c7b",
+      "status": "NO_RELATION",
+      "reason": "经济危机视频思考与爸爸核磁结果无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c5e4291deeda063a",
+      "status": "NO_RELATION",
+      "reason": "两个视频带来对制度和底层处境的相近思考，但未表达第二次引用前一次节目或继续同一具体事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b681f288f6efc7ed",
+      "status": "NO_RELATION",
+      "reason": "对既得利益者的总体看法与李克强访谈中的个人评价有观点对照，但未明确引用或修正那次访谈经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7a914f1b47761850",
+      "status": "NO_RELATION",
+      "reason": "经济危机视频与心理活动图谱设计是不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a95836b5abe53fad",
+      "status": "NO_RELATION",
+      "reason": "软着陆成本转移与实名票黄牛门槛都涉及权力利益观点，未具体引用彼此经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a9e4e404a1f6fb6b",
+      "status": "NO_RELATION",
+      "reason": "经济危机视频与自己体检饮食安排无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-35af5abb17522eba",
+      "status": "NO_RELATION",
+      "reason": "爸爸的检查与我准备配镜没有直接触发或引用；不能借第三事件中自己的报告建立传递因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1f82ca470a0cb7b8",
+      "status": "RELATED",
+      "reason": "此前以老陆的案例催爸爸检查、提醒拍核磁，之后爸爸已去做核磁，我也安排他顺道询问心脏科。",
+      "relation": {
+        "source_event": "E014",
+        "target_event": "E023",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前以老陆的案例催爸爸检查、提醒拍核磁，之后爸爸已去做核磁，我也安排他顺道询问心脏科。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "爸爸也受触动说准备去"
+          },
+          {
+            "point_no": 2,
+            "quote": "至少拍片，大家有底。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "他今天去做核磁共振，上周又听他说在吃阿司匹林，我便让他去心脏科问问阿司匹林能不能停，顺道看看高血压的问题"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-0ba886088ce13a9d",
+      "status": "RELATED",
+      "reason": "同日早晨爸爸去做核磁，下午核磁结果出来，我又查看结果并觉得放心一些。",
+      "relation": {
+        "source_event": "E023",
+        "target_event": "E028",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "同日早晨爸爸去做核磁，下午核磁结果出来，我又查看结果并觉得放心一些。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "他今天去做核磁共振"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我爸今天早晨去医院做核磁共振，下午出了结果"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-23a28ba52ff59857",
+      "status": "NO_RELATION",
+      "reason": "爸爸看病与知识图谱设计是不同事项，使用AI不是事件联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a0e5e5158a63829e",
+      "status": "NO_RELATION",
+      "reason": "爸爸血脂干预与自己较早因肝钙化灶调整饮食属于不同对象的健康事项，没有明确引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e89b7cf2052d81b3",
+      "status": "RELATED",
+      "reason": "爸爸查出高血脂、被医生建议服他汀，让我想到自己的多年高血脂，重新查看自己的体检报告并考虑干预方式。",
+      "relation": {
+        "source_event": "E023",
+        "target_event": "E024",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "爸爸查出高血脂、被医生建议服他汀，让我想到自己的多年高血脂，重新查看自己的体检报告并考虑干预方式。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "生化检查查出我爸有些高血脂。他拿报告复诊后，医生让他吃他汀"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "听说我爸高血脂，医生都让他吃他汀了，我也想到了自己"
+          },
+          {
+            "point_no": 2,
+            "quote": "我把今年的体检报告下载下来给AI看"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-cec2908558c2c5e2",
+      "status": "RELATED",
+      "reason": "约好爸爸拍核磁时到心脏科评估阿司匹林用药后，爸爸实际接受心脏相关检查，并收到医生的用药建议。",
+      "relation": {
+        "source_event": "E021",
+        "target_event": "E023",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "约好爸爸拍核磁时到心脏科评估阿司匹林用药后，爸爸实际接受心脏相关检查，并收到医生的用药建议。",
+        "source_evidence": [
+          {
+            "point_no": 5,
+            "quote": "我便约他们周三拍完核磁再挂心脏科，告知高血压、自行服阿司匹林四五年，请医生决定能否停"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我便让他去心脏科问问阿司匹林能不能停，顺道看看高血压的问题"
+          },
+          {
+            "point_no": 3,
+            "quote": "他拿报告复诊后，医生让他吃他汀，降压药也继续吃"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-7b85de35005b6386",
+      "status": "NO_RELATION",
+      "reason": "哒哒洗牙手术与爸爸核磁检查属于不同对象的医疗事项，未具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-44e2e09bb9bc496d",
+      "status": "NO_RELATION",
+      "reason": "自己配镜计划与爸爸核磁结果无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5429fd765a8d1445",
+      "status": "NO_RELATION",
+      "reason": "准备配镜与母亲看病时的沟通方法没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8872aaa77d11acba",
+      "status": "NO_RELATION",
+      "reason": "准备配镜与知识图谱第二层设计没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c1b7049a1dfd4c58",
+      "status": "NO_RELATION",
+      "reason": "自己担心配镜贵与小廖消费盘点不是同一笔支出，也未互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7b587503b03f4889",
+      "status": "RELATED",
+      "reason": "请AI查看自己的体检报告时，它还指出视力问题，使我考虑更换眼镜并请小廖帮忙找配镜地点。",
+      "relation": {
+        "source_event": "E024",
+        "target_event": "E025",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "请AI查看自己的体检报告时，它还指出视力问题，使我考虑更换眼镜并请小廖帮忙找配镜地点。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我把今年的体检报告下载下来给AI看"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "AI看体检报告时还说，我的视力不太行，眼镜应该换了"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-188de650d255c584",
+      "status": "RELATED",
+      "reason": "担心爸爸的腰部情况不明确、以老陆的案例催他检查后，爸爸完成核磁，我理解结果没有此前担心的压迫情况，因而放心一些。",
+      "relation": {
+        "source_event": "E014",
+        "target_event": "E028",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "担心爸爸的腰部情况不明确、以老陆的案例催他检查后，爸爸完成核磁，我理解结果没有此前担心的压迫情况，因而放心一些。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "不想一直像“量子态”，好坏不知道"
+          },
+          {
+            "point_no": 3,
+            "quote": "爸爸也受触动说准备去"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "之前想到老陆有压到神经的情况，我也担心，万一我爸同样压到了神经却一直不知道，到时候出事就不好了。现在做了检查，报告看着还可以"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-07ea45f8029f986f",
+      "status": "NO_RELATION",
+      "reason": "劝母亲学习与自己体检饮食安排没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-80b6d596250769c6",
+      "status": "NO_RELATION",
+      "reason": "争吵复盘与知识图谱拆解心理活动虽主题相近，但后者没有引用这次争吵，不能由心理学主题自动建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4b4c1913fc42f4fd",
+      "status": "NO_RELATION",
+      "reason": "学习视觉课程与知识图谱第二层心理活动设计不是同一具体学习事项，未表达前者促使后者。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7c1f91b842cc0503",
+      "status": "NO_RELATION",
+      "reason": "爸爸核磁结果与我按摩后头晕是不同对象、不同经历；颈椎主题不足建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-162059a4d4f01c00",
+      "status": "NO_RELATION",
+      "reason": "爸爸核磁结果与知识图谱设计无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0e77314e9c61b023",
+      "status": "NO_RELATION",
+      "reason": "爸爸核磁结果与我重新看体检报告无明确触发；我查看报告明确由爸爸高血脂引起，不能换成核磁结果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dedc77228bc035d8",
+      "status": "RELATED",
+      "reason": "爸爸此前已预约周三早上的核磁，之后检查完成并出结果，我看过报告后觉得放心一些。",
+      "relation": {
+        "source_event": "E021",
+        "target_event": "E028",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "爸爸此前已预约周三早上的核磁，之后检查完成并出结果，我看过报告后觉得放心一些。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "最后约下周三早上"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我爸今天早晨去医院做核磁共振，下午出了结果"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-55401c7ba210ebe3",
+      "status": "RELATED",
+      "reason": "事件关系测试效果不佳后，个人知识图谱继续推进，梳理第一层并探索第二层设计。",
+      "relation": {
+        "source_event": "E002",
+        "target_event": "E026",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "事件关系测试效果不佳后，个人知识图谱继续推进，梳理第一层并探索第二层设计。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "早上测试事件关系的建立，效果非常糟糕"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我继续做日记管理平台的个人知识图谱，把从日记提取知识图谱最简单的第一层梳理清楚了"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-31d70af7ba031990",
+      "status": "NO_RELATION",
+      "reason": "图谱设计与个人体检饮食安排无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a37577901fb755d1",
+      "status": "NO_RELATION",
+      "reason": "较早因肝钙化灶注意饮食和这次复查自己高血脂都提到饮食干预，但后者未提及或更新前一次具体安排，不能仅凭长期健康目标连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e2009ff8b16dcd7e",
+      "status": "NO_RELATION",
+      "reason": "爸爸自行服药争论与我自己评估是否服他汀，不能仅因用药主题认定后续或直接触发。",
+      "relation": null
+    }
+  ]
+}

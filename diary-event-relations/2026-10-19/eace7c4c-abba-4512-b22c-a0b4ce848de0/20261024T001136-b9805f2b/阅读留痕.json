@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-23T16:11:38.320319+00:00",
+  "all_batches_read": [
+    "B001",
+    "B002",
+    "B003",
+    "B004",
+    "B005",
+    "B006",
+    "B007",
+    "B008"
+  ],
+  "event_count": 41,
+  "all_point_details_equal_to_fully_read_final_drafts": true,
+  "pair_count": 86
+}

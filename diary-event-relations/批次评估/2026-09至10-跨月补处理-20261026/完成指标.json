@@ -1,0 +1,21 @@
+{
+  "completed_at": "2026-10-26T06:24:49.249738+00:00",
+  "runs": 16,
+  "pairs": 1257,
+  "same_day_pairs": 586,
+  "history_pairs": 671,
+  "preserved_judgments": 795,
+  "newly_judged_pairs": 462,
+  "relations": 176,
+  "cross_month_relations": 67,
+  "september_to_october_relations": 66,
+  "old_positive_preserved": 97,
+  "old_positive_dropped": 8,
+  "counts": {
+    "NO_RELATION": 1081,
+    "RELATED": 176
+  },
+  "database_relations_written": false,
+  "host_tokens": null,
+  "host_cost": null
+}

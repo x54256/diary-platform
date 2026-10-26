@@ -1,0 +1,317 @@
+{
+  "package_sha256": "c2ddc5e0078684e4cba69e072c429eb6beefb9be4390ed579265d898bf25e8ae",
+  "results": [
+    {
+      "pair_id": "P-1ca3b0249de40995",
+      "status": "NO_RELATION",
+      "reason": "老梁谈认知改变与核磁引出的数学、认知反思没有明确引用同一视频或观点来源，主题相近不足建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-38f5963f6f175773",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从核磁共振想通数学研究的价值，以及知识怎样变成认知”与“小廖反复提议给父母当导游，我建议先停下来再决定”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-a0ce83623361ab8b",
+      "status": "NO_RELATION",
+      "reason": "接受AI的认知发展与数学方法启发是不同具体经历，没有彼此引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-04d2958b9d61a4a3",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从核磁共振想通数学研究的价值，以及知识怎样变成认知”与“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-e1efcaee5462c4d8",
+      "status": "NO_RELATION",
+      "reason": "AI职业经验反思与数学研究价值没有明确具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c19ae80bdc980d83",
+      "status": "NO_RELATION",
+      "reason": "共情母亲的沟通方法与核磁引出的数学反思无具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-96bb215e6cc1b6b9",
+      "status": "NO_RELATION",
+      "reason": "知识图谱第二层设计与数学方法价值虽都谈知识和认知，未表达同一事项的进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6e298d72f0ab0d1d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从核磁共振想通数学研究的价值，以及知识怎样变成认知”与“从我爸乱吃药这件事，看到事情的两面性”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-7557f2f2ea1a261d",
+      "status": "NO_RELATION",
+      "reason": "表妹电脑回礼与给父母当导游是不同家庭责任事项，没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ea55d1ef9436b00d",
+      "status": "NO_RELATION",
+      "reason": "给父母当导游的停顿建议与调整本人对父母沟通方式，不是同一具体沟通经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-622066938c9bed97",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-52d4203980f08f5c",
+      "status": "NO_RELATION",
+      "reason": "母亲催生和小廖给父母当导游是不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-258fe67cb99880ab",
+      "status": "RELATED",
+      "reason": "给小廖建议先停顿再决定时，再次引用《自控力》中控制不住时先停十分钟的方法，把它应用到陪父母旅行等场景。",
+      "relation": {
+        "source_event": "E019",
+        "target_event": "E006",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "给小廖建议先停顿再决定时，再次引用《自控力》中控制不住时先停十分钟的方法，把它应用到陪父母旅行等场景。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "这其实也是ChatGPT跟她讲过、《自控力》里提到的方法：控制不住时，先给自己十分钟的停顿。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 3,
+            "quote": "昨天听《自控力》，记下想做一件事先强行打断、想十分钟"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-d198d709e2d70bfb",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“从我爸乱吃药这件事，看到事情的两面性”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-2c9d68bc375d8a91",
+      "status": "NO_RELATION",
+      "reason": "10月1日吃饭与9月19日吃饭为不同聚餐，不能因父亲同样讽刺提问而认定同一经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f704936d2db7ead6",
+      "status": "RELATED",
+      "reason": "反思爸爸用药时，回顾了此前安排的清远酒店之行，并定位到旅途中谈论同事用药的时刻。",
+      "relation": {
+        "source_event": "E017",
+        "target_event": "E010",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "反思爸爸用药时，回顾了此前安排的清远酒店之行，并定位到旅途中谈论同事用药的时刻。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "上周中秋去清远酒店的路上"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "明天准备开车去清远泡温泉，订了能带猫狗的酒店"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-44bb4eaeefae4c83",
+      "status": "NO_RELATION",
+      "reason": "调整与父母沟通方式与反思父亲用药两面性没有明确具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bc5cea73b82c9840",
+      "status": "NO_RELATION",
+      "reason": "两次出现母亲有病不治的类似说法，但当前定位9月30日通话，未明确为9月23日所记同一对话；重复模式不足建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e34ac2dd54d807d1",
+      "status": "RELATED",
+      "reason": "此前爸爸查出高血脂、讨论先尝试生活干预，之后我进一步意识到他已有三高，并继续落实饮食和带饭安排。",
+      "relation": {
+        "source_event": "E012",
+        "target_event": "E016",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前爸爸查出高血脂、讨论先尝试生活干预，之后我进一步意识到他已有三高，并继续落实饮食和带饭安排。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "生化检查查出我爸有些高血脂。他拿报告复诊后，医生让他吃他汀"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "9月30日，我爸检查出来有三高。"
+          },
+          {
+            "point_no": 6,
+            "quote": "最后他松口答应带饭了。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-a6eb42361b1b3973",
+      "status": "RELATED",
+      "reason": "反思事情的两面性时，回顾因爸爸自行吃阿司匹林而让他检查、查出三高并有机会干预的经历。",
+      "relation": {
+        "source_event": "E017",
+        "target_event": "E012",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "反思事情的两面性时，回顾因爸爸自行吃阿司匹林而让他检查、查出三高并有机会干预的经历。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "得知后，我让他到医院确认能否停药，意外查出三高，才有机会及时干预。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "上周又听他说在吃阿司匹林，我便让他去心脏科问问阿司匹林能不能停"
+          },
+          {
+            "point_no": 3,
+            "quote": "生化检查查出我爸有些高血脂。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-32eb8b355ba0b3e6",
+      "status": "RELATED",
+      "reason": "看过爸爸的核磁结果后，我进一步在电话里向他解释腰部问题、提醒姿势与搬重物，并回应他不疼就没事的说法。",
+      "relation": {
+        "source_event": "E015",
+        "target_event": "E016",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "看过爸爸的核磁结果后，我进一步在电话里向他解释腰部问题、提醒姿势与搬重物，并回应他不疼就没事的说法。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我爸今天早晨去医院做核磁共振，下午出了结果。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 3,
+            "quote": "然后那天晚上就给他们打电话聊天，我先给他讲报告里的腰部问题。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-75af282c09eaf287",
+      "status": "NO_RELATION",
+      "reason": "父亲饮食干预中用自己只有高血脂作比较，但未引用9月30日自己重新下载报告、制作食谱的具体行动。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-eb68800d8f879254",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E016",
+        "target_event": "E017",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "父亲自行吃阿司匹林并因检查发现三高的经过，促使我在挂电话后思考同一件事的好坏两面。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "9月30日，我爸检查出来有三高。"
+          },
+          {
+            "point_no": 4,
+            "quote": "他之前自己私自吃药"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "但若非这件事，我不会让父亲检查，三高可能继续拖重。这让我看到，同一件事确实可能同时有好坏两面。"
+          }
+        ]
+      },
+      "reason": "父亲自行吃阿司匹林并因检查发现三高的经过，促使我在挂电话后思考同一件事的好坏两面。"
+    },
+    {
+      "pair_id": "P-57f9829d10a5883a",
+      "status": "RELATED",
+      "reason": "此前约好让心脏科评估爸爸自行服药的问题，之后得知医生允许停阿司匹林并要求降压药每天服用，我继续与父母讨论落实。",
+      "relation": {
+        "source_event": "E011",
+        "target_event": "E016",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前约好让心脏科评估爸爸自行服药的问题，之后得知医生允许停阿司匹林并要求降压药每天服用，我继续与父母讨论落实。",
+        "source_evidence": [
+          {
+            "point_no": 5,
+            "quote": "我便约他们周三拍完核磁再挂心脏科，告知高血压、自行服阿司匹林四五年，请医生决定能否停。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 4,
+            "quote": "阿司匹林的问题，医生那天已经告诉他可以直接停，不用担心停药后有什么后果。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-0efdda1f0c3b05ad",
+      "status": "NO_RELATION",
+      "reason": "两面性反思指向父亲服药检查，并未引用本人制作饮食食谱的经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a3c9eed66b10da59",
+      "status": "RELATED",
+      "reason": "反思用药事件的好坏两面时，明确回顾去清远途中聊同事服阿司匹林、想到爸爸自行服药并安排医生评估的经历。",
+      "relation": {
+        "source_event": "E017",
+        "target_event": "E011",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "反思用药事件的好坏两面时，明确回顾去清远途中聊同事服阿司匹林、想到爸爸自行服药并安排医生评估的经历。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "上周中秋去清远酒店的路上，我们聊到一位做过心脏手术、在吃阿司匹林的同事"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "去清远路上，颂梅从“刘欢因心脏病去世”的消息聊心脏病，再说共同前同事亭汉近期做搭桥、要吃阿司匹林。"
+          }
+        ]
+      }
+    }
+  ]
+}

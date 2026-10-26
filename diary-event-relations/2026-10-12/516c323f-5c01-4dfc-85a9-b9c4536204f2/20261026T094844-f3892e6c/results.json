@@ -1,0 +1,493 @@
+{
+  "package_sha256": "14c1a239a4fb85dc39cedd6b8ca18da195bcabcfc4dbd2f4ba375014e06d180f",
+  "results": [
+    {
+      "pair_id": "P-be32121e9c0d2539",
+      "status": "NO_RELATION",
+      "reason": "苹果创新文化与广告、骑手制度新闻是不同具体信息，未彼此引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9e11fad552dfc68f",
+      "status": "NO_RELATION",
+      "reason": "调整父母沟通方式与自己每周拖地安排无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-77d3b06b0931ef11",
+      "status": "NO_RELATION",
+      "reason": "推迟瑜伽与拖地安排是不同计划，懒得做的状态相近不足建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-27c43d0e8587d0f3",
+      "status": "NO_RELATION",
+      "reason": "瑜伽与数据库备份是不同任务。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-de7e27b408a8f812",
+      "status": "NO_RELATION",
+      "reason": "催生争执与猫不让抱引发的愧疚教育讨论没有定位为同一具体母亲话语。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3f64cfa9610f4c4d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“再看爸妈就医后的变化，觉得这趟医院确实有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-bd84480749ffea8a",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“扫地机上下水坏了，想先试试自己每周拖地”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-024ea69010ddcace",
+      "status": "NO_RELATION",
+      "reason": "汽车党媒新闻与小廖药膏沟通无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5d68a0405f5c9886",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“追问国内外油价对比，思考只说一半真话的叙事”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-05db36930da13c2d",
+      "status": "NO_RELATION",
+      "reason": "党媒AI解释与借AI同父母沟通为不同话题，未具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1e24b357bbb8a433",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-180f80a784c8a4b5",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-0444ef30ab1ee86d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“备份日记平台，准备在本地还原确认”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-3dc1f72ad991e033",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“多多不让抱，跟小廖聊养育付出和亲近的关系”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-4ba8e28e1ee58946",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-e3a67de043bf7716",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从汽车新闻聊党媒，再想通小爱同学的解释逻辑”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-510c3f3d6b6cf629",
+      "status": "NO_RELATION",
+      "reason": "党媒新闻与小廖爸妈家吃午饭无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5d3aa51affa08294",
+      "status": "NO_RELATION",
+      "reason": "拖地省钱与枕头、消费争吵未具体引用同一清洁安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6dcbdfb7ea5751ed",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E038",
+        "target_event": "E035",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "讨论出差压力和生日邮轮开销时，明确回顾扫地机因贵没换及说要拖地却未拖。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "扫地机我也嫌贵不换（当时我听说旧的就能抵 50 块钱，然后我决定不换了），然后我说要拖地也没拖。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "发来一个3000块的链接"
+          },
+          {
+            "point_no": 2,
+            "quote": "最终没拖。"
+          }
+        ]
+      },
+      "reason": "讨论出差压力和生日邮轮开销时，明确回顾扫地机因贵没换及说要拖地却未拖。"
+    },
+    {
+      "pair_id": "P-f614839090474cb9",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“扫地机上下水坏了，想先试试自己每周拖地”与“颂梅被劝别离职，又接到急活，我想尽快给她续会员”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-4ab543870f9a0df1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“扫地机上下水坏了，想先试试自己每周拖地”与“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-5c762a04ac45a67d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“扫地机上下水坏了，想先试试自己每周拖地”与“备份日记平台，准备在本地还原确认”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-f7491b1ffa1cf26b",
+      "status": "NO_RELATION",
+      "reason": "平台瑜伽荒废与拖地是不同计划，不能按拖延主题连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8ea997d92364e072",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“扫地机上下水坏了，想先试试自己每周拖地”与“多多不让抱，跟小廖聊养育付出和亲近的关系”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-98d5e0089a19b051",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E034",
+        "target_event": "E035",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "中午步行到父母家往返的疲惫，成为下午休息睡觉、未按打算拖地的原因。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "所以我们走路去她爸妈家。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "中午走路来回很累，在沙发躺到三点，又进屋睡了，最终没拖。"
+          }
+        ]
+      },
+      "reason": "中午步行到父母家往返的疲惫，成为下午休息睡觉、未按打算拖地的原因。"
+    },
+    {
+      "pair_id": "P-e14e2c741ca89178",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“扫地机上下水坏了，想先试试自己每周拖地”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-cf9707e4081d1dbb",
+      "status": "NO_RELATION",
+      "reason": "蒜香排骨和烤羊排是不同菜、不同聚餐安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e69e077ae3fdef1d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“让AI排查工作问题，感觉自己成了中转站”与“备份日记平台，准备在本地还原确认”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-1be6a270c093e11f",
+      "status": "NO_RELATION",
+      "reason": "此前把建议当指责与当前养猫付出讨论为不同具体互动。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6ebf2bb803301807",
+      "status": "NO_RELATION",
+      "reason": "两次谈制度监管但未回顾多邻国机制那次讨论，仅同一观点不足建立具体事件关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c4260c0e7cbdf77a",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从虎门销烟的说法，想到自给自足和全球协作”与“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-64b57cb99fd5ada6",
+      "status": "NO_RELATION",
+      "reason": "与父母沟通策略和广告骑手制度新闻无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-db96a5c1bdbda6cf",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅去检查底盘没有问题，轮毂做了小修复”与“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-db07dde8090dbbec",
+      "status": "NO_RELATION",
+      "reason": "软着陆与财政兜底为不同视频及论述，当前未引用前次视频。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c7873570cd56735d",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E031",
+        "target_event": "E038",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前被安排出差但尝试拒绝，后来向更高领导沟通仍未获准，已经收行李买票准备出发。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "她不想去，提离职的主要原因就是不想跟这个销售合作"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天领导还是非让颂梅去墨西哥出差两周。"
+          },
+          {
+            "point_no": 4,
+            "quote": "既然已经答应、机票也买好"
+          }
+        ]
+      },
+      "reason": "此前被安排出差但尝试拒绝，后来向更高领导沟通仍未获准，已经收行李买票准备出发。"
+    },
+    {
+      "pair_id": "P-2e0d7317115e0378",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”与“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-324ea789ff4f093c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”与“备份日记平台，准备在本地还原确认”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-899c9f68dca03287",
+      "status": "NO_RELATION",
+      "reason": "出差和消费压力与此前玩游戏手腕疼无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ff9eba25569edd76",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”与“多多不让抱，跟小廖聊养育付出和亲近的关系”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-e2a8d66dc28a728f",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”与“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-26da95d16568f2fc",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-b9897b9a11fb2271",
+      "status": "RELATED",
+      "reason": "此前担心小廖临近离职仍消费较多、可能负资产，之后她因出差和想去的旅行付不起而哭泣，我继续为她的消费与经济压力烦心。",
+      "relation": {
+        "source_event": "E020",
+        "target_event": "E038",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前担心小廖临近离职仍消费较多、可能负资产，之后她因出差和想去的旅行付不起而哭泣，我继续为她的消费与经济压力烦心。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "小廖快辞职、快没工作了，却买得越来越多"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "她觉得自己没钱、太废物，赚得少还特别会花，想去的地方去不起，就难受。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-40a60e3abecf202b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-2efc884e64497f4d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”与“备份日记平台，准备在本地还原确认”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-254d95e778aca157",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”与“多多不让抱，跟小廖聊养育付出和亲近的关系”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-a0fdbb4ba891b04d",
+      "status": "NO_RELATION",
+      "reason": "两个视频都谈经济与底层处境，但没有相同节目定位或具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9023e2d20675f290",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-372c520c10e70293",
+      "status": "NO_RELATION",
+      "reason": "国家债务视频与小廖个人花钱盘点不是同一事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0d2b2b7d51d2739c",
+      "status": "NO_RELATION",
+      "reason": "国家债务与小豪分手消费问题不是同一具体经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-be1d4206d1a51c55",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-3ed383434a54815d",
+      "status": "NO_RELATION",
+      "reason": "两次做饭是不同菜品与日期，未引用前次。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b745cb9eb7e7dbdf",
+      "status": "NO_RELATION",
+      "reason": "备份平台与荒废后恢复动力是不同具体事项，当前未引用那次动力困难。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-22e3d86b82148cc1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“备份日记平台，准备在本地还原确认”与“多多不让抱，跟小廖聊养育付出和亲近的关系”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-25e01276b5c5fc31",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“备份日记平台，准备在本地还原确认”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-0694c07b4ac6f749",
+      "status": "NO_RELATION",
+      "reason": "数据库备份与关系图谱语义实验是不同任务，没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ac673e279b067f02",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“备份日记平台，准备在本地还原确认”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-1de5a7fbfe0f5f95",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“备份日记平台，准备在本地还原确认”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-71c06f0ac94fa168",
+      "status": "NO_RELATION",
+      "reason": "买饭回家与烤羊排去父母家是不同饮食经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-87e1ba35d85e4274",
+      "status": "NO_RELATION",
+      "reason": "母亲催生劝学与愧疚式养猫讨论没有具体引用同一次对话。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f16d00b23f51333d",
+      "status": "NO_RELATION",
+      "reason": "多多驱虫争执与多多不让抱是不同互动。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-63e1c7a24222a6e6",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“多多不让抱，跟小廖聊养育付出和亲近的关系”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-b2f07749d76404bf",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“多多不让抱，跟小廖聊养育付出和亲近的关系”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-c04f305966525315",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“多多不让抱，跟小廖聊养育付出和亲近的关系”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-da7a52ae0255a17d",
+      "status": "NO_RELATION",
+      "reason": "中外移民视频与新广告骑手合同新闻虽都谈监管制度，未引用前次具体观看。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-743a6ca21f43ae1d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“3号游船、租车和露营，觉得省精力的钱值得花”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-610070df090bd6fc",
+      "status": "NO_RELATION",
+      "reason": "餐厅午餐与烤羊排聚餐是不同饭局。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-22976080f770076a",
+      "status": "NO_RELATION",
+      "reason": "早场KTV与父母家羊排聚餐无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-24bcdee99b1136f4",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“烤羊排带去颂梅爸妈家，中午一起吃饭”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    }
+  ]
+}

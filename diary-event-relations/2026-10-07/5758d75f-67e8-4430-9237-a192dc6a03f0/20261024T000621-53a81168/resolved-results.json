@@ -1,0 +1,1095 @@
+{
+  "package_sha256": "14c00f892b2947c91d4655ccde2bbe393f44d5ac36893c064fcd2bebef620fa5",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "14c00f892b2947c91d4655ccde2bbe393f44d5ac36893c064fcd2bebef620fa5",
+    "verified_at": "2026-10-23T16:07:18.481524+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-0122840504ca78b6",
+      "event_a_id": "96cbae55-bb72-4890-973d-f532ae400a43",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“从桂林和柳州的体验，看到自己对地区差距的误判”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-03d36ffb59dfa07d",
+      "event_a_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0517499b11ed244e",
+      "event_a_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“小廖反复提议给父母当导游，我建议先停下来再决定”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-06a88212d4497661",
+      "event_a_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1103cb22eb5b0f0e",
+      "event_a_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-131dd2dca93d002d",
+      "event_a_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1a7110e2e04af462",
+      "event_a_id": "96cbae55-bb72-4890-973d-f532ae400a43",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“从桂林和柳州的体验，看到自己对地区差距的误判”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1b231e70f464a2db",
+      "event_a_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“3号游船、租车和露营，觉得省精力的钱值得花”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1c88b90ead6b4ab5",
+      "event_a_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1d12b61ebf1d0908",
+      "event_a_id": "96cbae55-bb72-4890-973d-f532ae400a43",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“从桂林和柳州的体验，看到自己对地区差距的误判”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1f669d50d03bfadb",
+      "event_a_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“3号游船、租车和露营，觉得省精力的钱值得花”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2635ef68ef197617",
+      "event_a_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2ad1bd566f7bd075",
+      "event_a_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“6、7号去柳州吃喝，体验茶麸洗头”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2e7fbe5572a65e11",
+      "event_a_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“买33块钱的榴莲，跟颂梅聊价格和期待”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3fd7fb59b0406fd8",
+      "event_a_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-41f672708796345a",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“4号骑车看山，雨里游了一幅幅水墨画”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-426e0a3a32f23168",
+      "event_a_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“6、7号去柳州吃喝，体验茶麸洗头”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-42bf7999f12a618c",
+      "event_a_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-47365a2dc33cd9c3",
+      "event_a_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-48156942b23bf74f",
+      "event_a_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "RELATED",
+      "reason": "柳州洗头记录再次提到向老板娘问水果并照推荐购买，指向同一次柳州询问水果的经历。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "柳州洗头记录再次提到向老板娘问水果并照推荐购买，指向同一次柳州询问水果的经历。",
+        "source_event_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+        "source_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "结束后问老板娘水果的事，照她推荐去买了柚子",
+            "point_id": "6ea5fb35-d547-4980-9ecb-160172300966",
+            "point_event_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+            "point_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+            "offset": 164,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "033b426f7965b7fabe9f19d7f45b38c3d85df698519ea880ccede70c22d75d00"
+          }
+        ],
+        "target_event_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+        "target_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+        "target_evidence": [
+          {
+            "point_no": 4,
+            "quote": "我再问有什么应季、好吃、值得推荐的水果。店主说当季主要是橘子和柚子",
+            "point_id": "f3749f03-1809-4761-9629-5205db9f0592",
+            "point_event_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+            "point_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+            "offset": 191,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "817d22cea16fd421be15ec6e16293da1f521495ac8a00ac3793caaa821cd4590"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-4c8d77cd2e169cc7",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4ed80d4bb444feb1",
+      "event_a_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4fe17fa3dcbafc75",
+      "event_a_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“买33块钱的榴莲，跟颂梅聊价格和期待”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-50a5a3fcd69888db",
+      "event_a_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-50e6e272d6d86db0",
+      "event_a_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-51451a8cc47d0971",
+      "event_a_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”与“6、7号去柳州吃喝，体验茶麸洗头”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5512af3a6605048b",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-558df960b6c2c2ee",
+      "event_a_id": "241f4e2c-8305-4b49-a344-f1e673361aea",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“从核磁共振想通数学研究的价值，以及知识怎样变成认知”与“4号骑车看山，雨里游了一幅幅水墨画”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5cb5e9d16c048fb1",
+      "event_a_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5ef288bb0e4e1047",
+      "event_a_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“6、7号去柳州吃喝，体验茶麸洗头”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-60dadb43a6817095",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-62a173bbf3801458",
+      "event_a_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-643d632d19e1d111",
+      "event_a_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“换纸币、拼船和问水果，发现开口比内耗更有价值”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-661c0c0c6919d4cf",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "RELATED",
+      "reason": "旅行中开车爬山造成颂梅腿不适，回程后预约按摩，她反馈明显舒服了。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "旅行中开车爬山造成颂梅腿不适，回程后预约按摩，她反馈明显舒服了。",
+        "source_event_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+        "source_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+        "source_evidence": [
+          {
+            "point_no": 6,
+            "quote": "这次路上都是颂梅开车，再爬山，腿累坏了，不太舒服。",
+            "point_id": "c8233e61-576a-4c8c-95bb-d5c04e8937d9",
+            "point_event_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+            "point_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "7fba72b9f53ca6f699ee056e9653b3129557bd56cafe461296d1884faadd22b7"
+          }
+        ],
+        "target_event_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+        "target_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "回程也是颂梅开车，她的腿很不舒服，我在车上约了以前找过的师傅，安排晚上八点按摩，七点二十左右遛完狗就带她去。师傅问上次是否按疼了，告诉她可以调整力度、不舒服就来，别害怕。我觉得虽是推销，说得也对。按完颂梅说师傅很厉害，感觉好多了",
+            "point_id": "0357d746-92ee-41cf-a7a7-4b882cf1f092",
+            "point_event_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+            "point_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "9dbca35efb21737ff47321ac91765fe50b089abf85e6c2e0deb9a246a2424292"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-67e8bb6ab8b906b7",
+      "event_a_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“提醒我爸上班带饭，也再跟我妈说说饮食限制”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6e3ec1dd95d08b5d",
+      "event_a_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7338af6730bba2fd",
+      "event_a_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-74f9eff21cf3cef7",
+      "event_a_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "96cbae55-bb72-4890-973d-f532ae400a43",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“从桂林和柳州的体验，看到自己对地区差距的误判”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-76de87c1db93e950",
+      "event_a_id": "96cbae55-bb72-4890-973d-f532ae400a43",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“从桂林和柳州的体验，看到自己对地区差距的误判”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-784fc8e22927ec1c",
+      "event_a_id": "96cbae55-bb72-4890-973d-f532ae400a43",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“从桂林和柳州的体验，看到自己对地区差距的误判”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7a469f38caeda917",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“颂梅被劝别离职，又接到急活，我想尽快给她续会员”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7c3f3b33c2b2c0f4",
+      "event_a_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“颂梅被劝别离职，又接到急活，我想尽快给她续会员”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7df0dae4c1c3eeb9",
+      "event_a_id": "5010713e-68b8-49d8-a074-cb7b810aba8d",
+      "event_a_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "event_b_id": "96cbae55-bb72-4890-973d-f532ae400a43",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“从虎门销烟的说法，想到自给自足和全球协作”与“从桂林和柳州的体验，看到自己对地区差距的误判”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-83dcc46afb937786",
+      "event_a_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-84434e3cb6d376bf",
+      "event_a_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-85712dafa6ed7843",
+      "event_a_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“颂梅被劝别离职，又接到急活，我想尽快给她续会员”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8601d0b5b5bf2006",
+      "event_a_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“换纸币、拼船和问水果，发现开口比内耗更有价值”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8893ea9474377076",
+      "event_a_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“6、7号去柳州吃喝，体验茶麸洗头”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8dcc4060b9d296d3",
+      "event_a_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8e94f4155022be0f",
+      "event_a_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8fd253b24e8003ad",
+      "event_a_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“6、7号去柳州吃喝，体验茶麸洗头”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-910be108440eda9b",
+      "event_a_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“4号骑车看山，雨里游了一幅幅水墨画”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-93097027b455d8e8",
+      "event_a_id": "96cbae55-bb72-4890-973d-f532ae400a43",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“从桂林和柳州的体验，看到自己对地区差距的误判”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9644ad37d754a1ab",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9a08bc49d295474a",
+      "event_a_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "96cbae55-bb72-4890-973d-f532ae400a43",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“从桂林和柳州的体验，看到自己对地区差距的误判”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9b03b1d77413024e",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9d982d2449e5cd9a",
+      "event_a_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a192d35cc04cce41",
+      "event_a_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a69b63f7e60d2a43",
+      "event_a_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-aa0cfe224b90c7da",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“4号晚上去桂林市区，还共享电动车特别折腾”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b03634d3d77dd324",
+      "event_a_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "96cbae55-bb72-4890-973d-f532ae400a43",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“6、7号去柳州吃喝，体验茶麸洗头”与“从桂林和柳州的体验，看到自己对地区差距的误判”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b0986af19cf53d1f",
+      "event_a_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b7a4a8592a9641d5",
+      "event_a_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "RELATED",
+      "reason": "游船露营记录中明确回顾颂梅主动询问拼船，并以此肯定她的成长。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "游船露营记录中明确回顾颂梅主动询问拼船，并以此肯定她的成长。",
+        "source_event_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+        "source_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+        "source_evidence": [
+          {
+            "point_no": 5,
+            "quote": "今天主动问人拼船，能打9.8分",
+            "point_id": "45cab59f-dc97-47ee-90e0-1c1a6117afce",
+            "point_event_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+            "point_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+            "offset": 41,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "cc6cc03683141e422ea9343f7e530a46681f5b3087cffb62686c86adc0d938ca"
+          }
+        ],
+        "target_event_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+        "target_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我又让颂梅问前面的小姐姐，人家也很爽快地同意了。",
+            "point_id": "5efb3a5d-adc9-4420-ab06-b5f37fb4cee6",
+            "point_event_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+            "point_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+            "offset": 368,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "4481372957a93bacf2ae812715ad7346ba37f643fa6a182edde7ba02d88a3ce1"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-b7dc3a5162af40ed",
+      "event_a_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bc8b148abc683d6c",
+      "event_a_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "RELATED",
+      "reason": "柳州返程买下便宜榴莲后，回酒店实际吃了榴莲和其他水果。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "柳州返程买下便宜榴莲后，回酒店实际吃了榴莲和其他水果。",
+        "source_event_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+        "source_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "总共33块，我第一次买33块钱的榴莲。",
+            "point_id": "0c42e92b-6495-43ec-9a75-687604c5dcb9",
+            "point_event_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+            "point_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+            "offset": 45,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b793641c8589b0ee0cbe169b7358b7a69a84a9b3c2d6ee16fbdfcd40e1ea6de8"
+          }
+        ],
+        "target_event_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+        "target_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+        "target_evidence": [
+          {
+            "point_no": 4,
+            "quote": "回酒店后吃了榴莲和这些水果。",
+            "point_id": "aa0fe1af-c9a3-401e-b0d9-c760eaa1e8ab",
+            "point_event_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+            "point_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "853a80a221dc4a67f00d4223e148e34ae2e7e8550cc3e5a4cd0f349616975d17"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-be07ce7e92254ab8",
+      "event_a_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "f8683458-76ea-4f81-a63b-f7efdc48d365",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“从我爸乱吃药这件事，看到事情的两面性”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-be38a0500b1ffe1c",
+      "event_a_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“颂梅被劝别离职，又接到急活，我想尽快给她续会员”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bf145b0b81d15b6b",
+      "event_a_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“6、7号去柳州吃喝，体验茶麸洗头”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bf82371a94afc167",
+      "event_a_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c0583df493cd47df",
+      "event_a_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“6、7号去柳州吃喝，体验茶麸洗头”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c3f44f3f3f54b19e",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c5c4d58966e99983",
+      "event_a_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“买33块钱的榴莲，跟颂梅聊价格和期待”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c799b79725b6faab",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“6、7号去柳州吃喝，体验茶麸洗头”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ce7a8c25ff99e03c",
+      "event_a_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d004e9ac6b203e01",
+      "event_a_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d2c5dca625863d28",
+      "event_a_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d82b93b22e4fbe41",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "96cbae55-bb72-4890-973d-f532ae400a43",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“从桂林和柳州的体验，看到自己对地区差距的误判”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-db83b52a0215625e",
+      "event_a_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“6、7号去柳州吃喝，体验茶麸洗头”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e39c3fba8d60dd18",
+      "event_a_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“买33块钱的榴莲，跟颂梅聊价格和期待”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e3da2de2915c2e55",
+      "event_a_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e4f7e9b7f33126eb",
+      "event_a_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "RELATED",
+      "reason": "第一晚在营地露营后，次晨在营地吃粉并租电动车观山，继续同一次营地游玩。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "第一晚在营地露营后，次晨在营地吃粉并租电动车观山，继续同一次营地游玩。",
+        "source_event_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+        "source_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+        "source_evidence": [
+          {
+            "point_no": 5,
+            "quote": "第一晚就在那睡了。",
+            "point_id": "45cab59f-dc97-47ee-90e0-1c1a6117afce",
+            "point_event_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+            "point_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+            "offset": 150,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "cc6cc03683141e422ea9343f7e530a46681f5b3087cffb62686c86adc0d938ca"
+          }
+        ],
+        "target_event_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+        "target_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "第二天早晨在营地吃了粉，印象也就一般。之后租他们的电动车去骑车观景",
+            "point_id": "f01a8c08-c965-4d5e-a303-e6e625f3729f",
+            "point_event_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+            "point_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "d28a8531773e0ffc863cf65dac59b0477a22314a80bd8959877d503ce7852c28"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-e81b94ade9673b29",
+      "event_a_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e91b055d71c4f6ed",
+      "event_a_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-eb8c9dce6ecb358a",
+      "event_a_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "96cbae55-bb72-4890-973d-f532ae400a43",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“从桂林和柳州的体验，看到自己对地区差距的误判”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ee6f1e56f40facba",
+      "event_a_id": "a4f83e52-96a4-4e31-bff3-12513ea37c30",
+      "event_a_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "event_b_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“用了低头提醒App，想让AI帮我做一个”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f0bcfd15e5a0e845",
+      "event_a_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "RELATED",
+      "reason": "此前父亲答应带饭，后来继续提醒明天带饭，并把携带方式简化为只带内胆。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前父亲答应带饭，后来继续提醒明天带饭，并把携带方式简化为只带内胆。",
+        "source_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+        "source_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+        "source_evidence": [
+          {
+            "point_no": 6,
+            "quote": "最后他松口答应带饭了。",
+            "point_id": "c773cce8-62e0-4627-a540-8006b2baff7a",
+            "point_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+            "point_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b1514f93c4682096b6b516a9304c3b543920cfe7e5f532d214bd8df81c363d3e"
+          }
+        ],
+        "target_event_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+        "target_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "主要督促我爸明天上班带饭。他那个饭盒有加热底盒和内胆，我让他只带饭盒内胆",
+            "point_id": "4a0d0070-7fed-4c22-a436-bf8fc69094e8",
+            "point_event_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+            "point_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+            "offset": 9,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ef5641cfcf5dc5d7874f6520001fee164fc4b928d287fc0c7a17bfd7d3215c0c"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-f55a637dd0634fc2",
+      "event_a_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fa8d580adfb18530",
+      "event_a_id": "37d14a51-cf9e-44da-8184-3df6fc3f86cb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "4c6994e7-a4f3-49ae-9d4c-eaa715adb5ec",
+      "event_b_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "status": "NO_RELATION",
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“眼镜度数不够了，准备去医院验光”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fd9713273321135d",
+      "event_a_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    }
+  ]
+}

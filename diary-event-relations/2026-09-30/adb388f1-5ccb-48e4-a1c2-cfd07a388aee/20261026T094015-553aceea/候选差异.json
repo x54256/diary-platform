@@ -1,0 +1,235 @@
+{
+  "date": "2026-09-30",
+  "old_run": "",
+  "preserved": [],
+  "new": [
+    {
+      "pair_id": "P-aec69a5365d26917",
+      "event_a": "E008",
+      "event_b": "E027"
+    },
+    {
+      "pair_id": "P-b23133a1602119c2",
+      "event_a": "E004",
+      "event_b": "E026"
+    },
+    {
+      "pair_id": "P-151a2b60929196fa",
+      "event_a": "E006",
+      "event_b": "E023"
+    },
+    {
+      "pair_id": "P-a1ed9bb5d509e46e",
+      "event_a": "E006",
+      "event_b": "E025"
+    },
+    {
+      "pair_id": "P-5b8859048a152491",
+      "event_a": "E019",
+      "event_b": "E023"
+    },
+    {
+      "pair_id": "P-26f36409610177fa",
+      "event_a": "E003",
+      "event_b": "E025"
+    },
+    {
+      "pair_id": "P-4e9a48df7075ba03",
+      "event_a": "E003",
+      "event_b": "E028"
+    },
+    {
+      "pair_id": "P-73300fad5d2ab28d",
+      "event_a": "E003",
+      "event_b": "E024"
+    },
+    {
+      "pair_id": "P-c4bb4f524579defe",
+      "event_a": "E013",
+      "event_b": "E025"
+    },
+    {
+      "pair_id": "P-a824f2fa706a3daf",
+      "event_a": "E011",
+      "event_b": "E026"
+    },
+    {
+      "pair_id": "P-108abca45df585c2",
+      "event_a": "E017",
+      "event_b": "E024"
+    },
+    {
+      "pair_id": "P-7c0e5801c1b9fcb8",
+      "event_a": "E027",
+      "event_b": "E023"
+    },
+    {
+      "pair_id": "P-e9f977a4524afa5a",
+      "event_a": "E027",
+      "event_b": "E025"
+    },
+    {
+      "pair_id": "P-eea230f3b5843e3c",
+      "event_a": "E027",
+      "event_b": "E014"
+    },
+    {
+      "pair_id": "P-815d1a8a5be30c7b",
+      "event_a": "E027",
+      "event_b": "E028"
+    },
+    {
+      "pair_id": "P-c5e4291deeda063a",
+      "event_a": "E027",
+      "event_b": "E012"
+    },
+    {
+      "pair_id": "P-b681f288f6efc7ed",
+      "event_a": "E027",
+      "event_b": "E005"
+    },
+    {
+      "pair_id": "P-7a914f1b47761850",
+      "event_a": "E027",
+      "event_b": "E026"
+    },
+    {
+      "pair_id": "P-a95836b5abe53fad",
+      "event_a": "E027",
+      "event_b": "E022"
+    },
+    {
+      "pair_id": "P-a9e4e404a1f6fb6b",
+      "event_a": "E027",
+      "event_b": "E024"
+    },
+    {
+      "pair_id": "P-35af5abb17522eba",
+      "event_a": "E023",
+      "event_b": "E025"
+    },
+    {
+      "pair_id": "P-1f82ca470a0cb7b8",
+      "event_a": "E023",
+      "event_b": "E014"
+    },
+    {
+      "pair_id": "P-0ba886088ce13a9d",
+      "event_a": "E023",
+      "event_b": "E028"
+    },
+    {
+      "pair_id": "P-23a28ba52ff59857",
+      "event_a": "E023",
+      "event_b": "E026"
+    },
+    {
+      "pair_id": "P-a0e5e5158a63829e",
+      "event_a": "E023",
+      "event_b": "E009"
+    },
+    {
+      "pair_id": "P-e89b7cf2052d81b3",
+      "event_a": "E023",
+      "event_b": "E024"
+    },
+    {
+      "pair_id": "P-cec2908558c2c5e2",
+      "event_a": "E023",
+      "event_b": "E021"
+    },
+    {
+      "pair_id": "P-7b85de35005b6386",
+      "event_a": "E001",
+      "event_b": "E028"
+    },
+    {
+      "pair_id": "P-44e2e09bb9bc496d",
+      "event_a": "E025",
+      "event_b": "E028"
+    },
+    {
+      "pair_id": "P-5429fd765a8d1445",
+      "event_a": "E025",
+      "event_b": "E016"
+    },
+    {
+      "pair_id": "P-8872aaa77d11acba",
+      "event_a": "E025",
+      "event_b": "E026"
+    },
+    {
+      "pair_id": "P-c1b7049a1dfd4c58",
+      "event_a": "E025",
+      "event_b": "E020"
+    },
+    {
+      "pair_id": "P-7b587503b03f4889",
+      "event_a": "E025",
+      "event_b": "E024"
+    },
+    {
+      "pair_id": "P-188de650d255c584",
+      "event_a": "E014",
+      "event_b": "E028"
+    },
+    {
+      "pair_id": "P-07ea45f8029f986f",
+      "event_a": "E010",
+      "event_b": "E024"
+    },
+    {
+      "pair_id": "P-80b6d596250769c6",
+      "event_a": "E007",
+      "event_b": "E026"
+    },
+    {
+      "pair_id": "P-4b4c1913fc42f4fd",
+      "event_a": "E015",
+      "event_b": "E026"
+    },
+    {
+      "pair_id": "P-7c1f91b842cc0503",
+      "event_a": "E028",
+      "event_b": "E018"
+    },
+    {
+      "pair_id": "P-162059a4d4f01c00",
+      "event_a": "E028",
+      "event_b": "E026"
+    },
+    {
+      "pair_id": "P-0e77314e9c61b023",
+      "event_a": "E028",
+      "event_b": "E024"
+    },
+    {
+      "pair_id": "P-dedc77228bc035d8",
+      "event_a": "E028",
+      "event_b": "E021"
+    },
+    {
+      "pair_id": "P-55401c7ba210ebe3",
+      "event_a": "E026",
+      "event_b": "E002"
+    },
+    {
+      "pair_id": "P-31d70af7ba031990",
+      "event_a": "E026",
+      "event_b": "E024"
+    },
+    {
+      "pair_id": "P-a37577901fb755d1",
+      "event_a": "E009",
+      "event_b": "E024"
+    },
+    {
+      "pair_id": "P-e2009ff8b16dcd7e",
+      "event_a": "E024",
+      "event_b": "E021"
+    }
+  ],
+  "dropped": [],
+  "reuse_basis": "已核验双方全部正式要点及向量指纹逐字相同，关系定义不变；以旧可编辑当前稿为准，按UUID重映射别名。",
+  "old_positive_dropped": 0
+}

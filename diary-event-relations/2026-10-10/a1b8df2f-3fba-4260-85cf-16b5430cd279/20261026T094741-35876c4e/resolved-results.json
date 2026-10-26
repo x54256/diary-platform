@@ -1,0 +1,1709 @@
+{
+  "package_sha256": "3f949f2f1a447b217d40f7623970e6fde431cf0976166bf39be1c5090f9aa345",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "3f949f2f1a447b217d40f7623970e6fde431cf0976166bf39be1c5090f9aa345",
+    "verified_at": "2026-10-26T02:01:33.176847+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-00ecee43a6cd98d8",
+      "event_a_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "此前秘境游戏进度与本次游戏耽误瑜伽没有具体引用或同一进度延续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-01f151f2be31c952",
+      "event_a_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅提离职后又被安排去墨西哥，她心情很烦”与“图谱设计继续推进，第一层真实模型实验效果不理想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0a4c382dd7fa78a3",
+      "event_a_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "bf06326d-92cf-4238-9a88-da0d645092cb",
+      "event_b_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "status": "NO_RELATION",
+      "reason": "九月分层分级入库故障与当前短信、Excel数据源故障不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0b56d5844ac1c236",
+      "event_a_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“让AI排查工作问题，感觉自己成了中转站”与“从汽车定位失灵，想到科技便利也需要传统方式兜底”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0b6e289643f01071",
+      "event_a_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "出差烦躁与家务积压烦躁为不同触发，当前未引用旧事。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-10c92a9ab9a0e952",
+      "event_a_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "买饭回家与学姐聚餐是不同吃饭经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-15f05c58f4c2609d",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "RELATED",
+      "reason": "等车位后的反思明确以永旺购物车的有条件答应为例，比较顾及别人和维护自己。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "等车位后的反思明确以永旺购物车的有条件答应为例，比较顾及别人和维护自己。",
+        "source_event_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+        "source_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "小廖虽答应把车给别人，仍提出先推到电梯",
+            "point_id": "f5024dc5-61b8-4987-95f7-46e25077a615",
+            "point_event_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 18,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "65fb3f45520a1362a359ac465ce8c63586ac2f4788ac8cf53843c459c5f98327"
+          }
+        ],
+        "target_event_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+        "target_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "要不跟着我们去电梯那边，等我们推过去再给你。",
+            "point_id": "e69e9154-5fe0-42f6-ac4e-bad7de645797",
+            "point_event_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 183,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "04a37b28cc66dfed189756dc90998d67f5ee545ca8229d5fee2090311227805f"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-1972667343e13655",
+      "event_a_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“带哒哒跑步，回家却又把瑜伽耽误了”与“继续江西数据库设计，提供耕地保护接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1dce3e82a18dbdbe",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“一天逛完永旺和山姆，也看到小廖会提出自己的条件了”与“颂梅提离职后又被安排去墨西哥，她心情很烦”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1ef782b77c3bafb0",
+      "event_a_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅和德华都不想要原定礼物，还得继续想”与“带哒哒跑步，回家却又把瑜伽耽误了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-208d4358a1bdcb0f",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“从等车位的人，跟小廖聊顾及别人和维护自己”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-22b65e676a0727d1",
+      "event_a_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅去检查底盘没有问题，轮毂做了小修复”与“颂梅提离职后又被安排去墨西哥，她心情很烦”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2550a3fa1dc52303",
+      "event_a_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "RELATED",
+      "reason": "知识图谱按小步调研实验的第二层设计继续推进，转向第一层实现及真实千问实验。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "知识图谱按小步调研实验的第二层设计继续推进，转向第一层实现及真实千问实验。",
+        "source_event_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+        "source_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "先设计有哪些实体、边界是什么、各有哪些属性，再拿已有日记做小案例实验",
+            "point_id": "c2e25942-1e21-4cda-a375-4a11a0cbdde3",
+            "point_event_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 6,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "51fef85c314cd96e222b18784f2954608892fb0ee72dda648641d6ca82fbd569"
+          }
+        ],
+        "target_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+        "target_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "第二层基本设计完了，又开始做第一层具体实现方案。",
+            "point_id": "c0dcc35e-36ee-44e2-aab6-2d3fa8db905d",
+            "point_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 61,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "7380bf49547cd4e2427966516ac381fbe19b92ec489a84c7c0e45957266e247d"
+          },
+          {
+            "point_no": 2,
+            "quote": "用真实的千问模型实现设计的效果。",
+            "point_id": "94048dce-22d0-48d2-9f2e-72f89af89e7f",
+            "point_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 7,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "9e29636f310f61f27aa41d01a045978d2caf438b94eba4291dc4bcf683462f5d"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-268ff0eacfc9a8ee",
+      "event_a_id": "23847dd2-f778-4f37-b4ef-e95ed05df0f3",
+      "event_a_run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+      "event_b_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "清远无尽通关与跑步后再次玩游戏为不同游玩过程，没有特定引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2bbdc29e7d76b97e",
+      "event_a_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“让AI排查工作问题，感觉自己成了中转站”与“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2c5aa9991545c532",
+      "event_a_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "fd9aa409-84d7-4aed-bdf0-92124c4cbe84",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "学姐夫妻聚餐与小廖父母午餐是不同饭局。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2d2831c73c89f916",
+      "event_a_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅提离职后又被安排去墨西哥，她心情很烦”与“继续江西数据库设计，提供耕地保护接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-342c29990aadef8b",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从等车位的人，跟小廖聊顾及别人和维护自己”与“从汽车定位失灵，想到科技便利也需要传统方式兜底”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-34390503dfb34f9f",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "RELATED",
+      "reason": "此前小廖已提离职却仍被安排工作，之后又被不想合作的销售要求去墨西哥出差，继续面临离职后的工作压力。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前小廖已提离职却仍被安排工作，之后又被不想合作的销售要求去墨西哥出差，继续面临离职后的工作压力。",
+        "source_event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+        "source_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "明明已提离职，还不放人，要干到十月之后。",
+            "point_id": "91fc4be4-9df1-45ec-81ee-11e958a6ac15",
+            "point_event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+            "point_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+            "offset": 48,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ab194777eb26c9937539870f122cba010deabad2d207eefe0ec56b70273fc4a0"
+          }
+        ],
+        "target_event_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+        "target_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天晚上，颂梅收到销售消息，让她去墨西哥出差，瞬间就烦躁起来。",
+            "point_id": "ade76c2e-9f32-4c9b-a247-183c35c33ac4",
+            "point_event_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "d0f8c738b22b8371e2d304564eb097599f064430a6a74b687b3b10836c3bda67"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-38df65f1f15f3c45",
+      "event_a_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅去检查底盘没有问题，轮毂做了小修复”与“继续江西数据库设计，提供耕地保护接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-39189e333f76b9d5",
+      "event_a_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅提离职后又被安排去墨西哥，她心情很烦”与“找不到车时胃食管反流，后来解释清楚并不是在生她的气”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-39ef96a04f3af4e6",
+      "event_a_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "RELATED",
+      "reason": "颂梅不想换手机后，又拒绝其他礼物选项，大礼物仍未决定。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "颂梅不想换手机后，又拒绝其他礼物选项，大礼物仍未决定。",
+        "source_event_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+        "source_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "source_evidence": [
+          {
+            "point_no": 5,
+            "quote": "现在她不要手机，大礼物送什么，我还没想好。",
+            "point_id": "4c8472be-0c61-4f5e-ad83-1c080f86776b",
+            "point_event_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 48,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "a5375c0bed646ece72018295c5884dc9834cb8d43dfd223b26708c891a7860cc"
+          }
+        ],
+        "target_event_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+        "target_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "她也不想靠普拉提减肥，觉得投入产出比低，减肥会自己安排；首饰、金项链、换手表都不要，我很纠结。",
+            "point_id": "9c6d9492-409c-4986-9796-8fb68f3be743",
+            "point_event_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 40,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "7dcf1e240dc3945e4261e167f216a21cff7a900d5fa0461083a385a9bff19224"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-3c33ee8de36c9d2c",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "家庭学习氛围与本次跑步后耽误瑜伽没有明确引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3c677d1440571c51",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从等车位的人，跟小廖聊顾及别人和维护自己”与“找不到车时胃食管反流，后来解释清楚并不是在生她的气”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3f927149bee2ab6f",
+      "event_a_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“颂梅去检查底盘没有问题，轮毂做了小修复”与“6、7号去柳州吃喝，体验茶麸洗头”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3fb2b17a3140b93a",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“从等车位的人，跟小廖聊顾及别人和维护自己”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-419f44c6085dd1c3",
+      "event_a_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅去检查底盘没有问题，轮毂做了小修复”与“图谱设计继续推进，第一层真实模型实验效果不理想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-447008134246db9a",
+      "event_a_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“让AI排查工作问题，感觉自己成了中转站”与“颂梅提离职后又被安排去墨西哥，她心情很烦”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-46b2de524ca1b53f",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“从等车位的人，跟小廖聊顾及别人和维护自己”与“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4c94b624d454fae6",
+      "event_a_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "汽车检查与按摩头晕为不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4e93c46a080b4ebf",
+      "event_a_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”与“颂梅和德华都不想要原定礼物，还得继续想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-52bbed3e17a09763",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "RELATED",
+      "reason": "考虑到颂梅当天会从4S店开车来会合，我提议同晚逛完永旺与山姆，以留出次日休息时间。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "考虑到颂梅当天会从4S店开车来会合，我提议同晚逛完永旺与山姆，以留出次日休息时间。",
+        "source_event_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+        "source_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "修后顺便充电，她等完再开车来永旺",
+            "point_id": "7bee310c-94c3-421f-acd5-6420f886f36b",
+            "point_event_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 53,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "97b1f4dcfcf42b64fe54f9ae3321209b12e66d3a37422ec66bb0698e45f462da"
+          }
+        ],
+        "target_event_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+        "target_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我想，既然她从4S店开车来，不如一天把永旺、山姆都逛完。这周调休补班，只休一天，明天就能好好歇。",
+            "point_id": "d1ba6729-20db-493e-a078-a533340d7d08",
+            "point_event_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 68,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b4cb9a088c4ef341498b7788f67ee4ad56b225f3c367e4ab0b01c00550c5a2a4"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-54c071168af9e9fa",
+      "event_a_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“让AI排查工作问题，感觉自己成了中转站”与“颂梅和德华都不想要原定礼物，还得继续想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-56c7eeaec98208f5",
+      "event_a_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“图谱设计继续推进，第一层真实模型实验效果不理想”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5701d249c2f59ffe",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“一天逛完永旺和山姆，也看到小廖会提出自己的条件了”与“继续江西数据库设计，提供耕地保护接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-570ab245e74ad9d2",
+      "event_a_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“找不到车时胃食管反流，后来解释清楚并不是在生她的气”与“图谱设计继续推进，第一层真实模型实验效果不理想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-584dfb61b86180b2",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“一天逛完永旺和山姆，也看到小廖会提出自己的条件了”与“从汽车定位失灵，想到科技便利也需要传统方式兜底”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5921b444a0c1ec39",
+      "event_a_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "RELATED",
+      "reason": "早期图谱真实数据实验不理想并计划分步推进后，继续完成第二层设计，转回第一层实现调研和真实千问实验，仍需完善。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "早期图谱真实数据实验不理想并计划分步推进后，继续完成第二层设计，转回第一层实现调研和真实千问实验，仍需完善。",
+        "source_event_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "让 AI 用真实数据测试。不相关的事也被连起来，效果很差",
+            "point_id": "e2fb2eaa-381c-4055-8a89-2946c54252b4",
+            "point_event_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 41,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "eff0adb3ca9eece0a6d2ce7ce8abca3ddc9401e4690a08f87d871ba0a010a795"
+          }
+        ],
+        "target_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+        "target_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "第二层基本设计完了，又开始做第一层具体实现方案。",
+            "point_id": "c0dcc35e-36ee-44e2-aab6-2d3fa8db905d",
+            "point_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 61,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "7380bf49547cd4e2427966516ac381fbe19b92ec489a84c7c0e45957266e247d"
+          },
+          {
+            "point_no": 2,
+            "quote": "用真实的千问模型实现设计的效果。",
+            "point_id": "94048dce-22d0-48d2-9f2e-72f89af89e7f",
+            "point_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 7,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "9e29636f310f61f27aa41d01a045978d2caf438b94eba4291dc4bcf683462f5d"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-5a0fc4472d1d8283",
+      "event_a_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从汽车定位失灵，想到科技便利也需要传统方式兜底”与“继续江西数据库设计，提供耕地保护接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5cf2e83d4496921f",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从等车位的人，跟小廖聊顾及别人和维护自己”与“继续江西数据库设计，提供耕地保护接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5da227db4d7ab487",
+      "event_a_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅提离职后又被安排去墨西哥，她心情很烦”与“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5eb7703e01cb0a89",
+      "event_a_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“找不到车时胃食管反流，后来解释清楚并不是在生她的气”与“带哒哒跑步，回家却又把瑜伽耽误了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5fd4e87b6360731d",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从等车位的人，跟小廖聊顾及别人和维护自己”与“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-64f95775c451b9ec",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“一天逛完永旺和山姆，也看到小廖会提出自己的条件了”与“颂梅和德华都不想要原定礼物，还得继续想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6538c67558021bf4",
+      "event_a_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从汽车定位失灵，想到科技便利也需要传统方式兜底”与“颂梅和德华都不想要原定礼物，还得继续想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-66459a2667656519",
+      "event_a_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“让AI排查工作问题，感觉自己成了中转站”与“找不到车时胃食管反流，后来解释清楚并不是在生她的气”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6651a10e041ebaf8",
+      "event_a_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "RELATED",
+      "reason": "江西例会后分工设计耕地保护和城镇开发边界，随后耕地保护接口已上线，城镇开发边界继续推进。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "江西例会后分工设计耕地保护和城镇开发边界，随后耕地保护接口已上线，城镇开发边界继续推进。",
+        "source_event_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+        "source_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我来设计新加这两块的数据库，设计完再跟他说，再分工。",
+            "point_id": "f0c2f136-0635-4ea2-89a9-b76c0b6d51f1",
+            "point_event_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 115,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5e8d8c241f7dd8a68d9e72280cfef3524d4b0f94f8de05667d9644915a9cd127"
+          }
+        ],
+        "target_event_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+        "target_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "耕地保护已设计出来，今天接口也已提供并更新到线上。",
+            "point_id": "324f35cb-99c7-432d-b7e8-b63d868a1a8e",
+            "point_event_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 26,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "d3301872f9c3b75f21c908974c1e82cf9ed4a657fa88e53641f060fef4882850"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-6658972e01b900ba",
+      "event_a_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "家务积压与胃反流烦躁为不同经历，没有具体回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-688e689f7568a833",
+      "event_a_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "RELATED",
+      "reason": "发现第二层心理活动设计跑偏后，继续梳理认知过程关系，第二层基本设计完成，再转向第一层实现。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "发现第二层心理活动设计跑偏后，继续梳理认知过程关系，第二层基本设计完成，再转向第一层实现。",
+        "source_event_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+        "source_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+        "source_evidence": [
+          {
+            "point_no": 7,
+            "quote": "我发现自己的设计确实偏了。",
+            "point_id": "f6a07a56-a419-4705-96d7-e03301fc9b49",
+            "point_event_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 8,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "7138f079e7d4e974c449fad3fbe5fb5fbe917bec670ddb8a49a5a2993a07a8bc"
+          }
+        ],
+        "target_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+        "target_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天下午主要还在搞日记管理平台第二层图谱设计，晚上下班前在理认知过程之间的关系",
+            "point_id": "c0dcc35e-36ee-44e2-aab6-2d3fa8db905d",
+            "point_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "7380bf49547cd4e2427966516ac381fbe19b92ec489a84c7c0e45957266e247d"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-6a59ae7012f4534b",
+      "event_a_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅去检查底盘没有问题，轮毂做了小修复”与“带哒哒跑步，回家却又把瑜伽耽误了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6ae651e01063e5e1",
+      "event_a_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”与“带哒哒跑步，回家却又把瑜伽耽误了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6c99400ab752a6eb",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“一天逛完永旺和山姆，也看到小廖会提出自己的条件了”与“让AI排查工作问题，感觉自己成了中转站”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6ea93cb74bce1104",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "66b3b71f-1099-4ef5-bd93-f5b5d67d73a0",
+      "event_b_run_id": "0389b042-9d95-4194-9de2-a338cb8c9e0d",
+      "status": "NO_RELATION",
+      "reason": "停车位人格类比与此前压线时防御反应不是同一具体经历，未引用前例。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-72553c8f8b13f6e7",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "当前AI行业警醒与此前AI职业不自信观点相近，但未引用具体前事，不能仅凭态度延续连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-728f4c1d650f6712",
+      "event_a_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "按摩后头晕与胃反流是不同身体不适。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7697b47209ee6df9",
+      "event_a_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "应用使用限制和科技失灵兜底是不同功能与问题，未具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-79b9125f93e5452f",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "家务消费争吵与拒绝生日礼物没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7a4a3d93fa197ede",
+      "event_a_id": "310a73d8-4ad8-4fd0-a73e-2201eea0c991",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "指标填报仍待核对的提法没有足够的新进展，耕地保护接口上线也不能替代指标事项进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7aef34f4d96b2310",
+      "event_a_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“颂梅提离职后又被安排去墨西哥，她心情很烦”与“颂梅被劝别离职，又接到急活，我想尽快给她续会员”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7b32ae2b2164fe43",
+      "event_a_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“买33块钱的榴莲，跟颂梅聊价格和期待”与“颂梅和德华都不想要原定礼物，还得继续想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7c47c9dbd08a8f2f",
+      "event_a_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅提离职后又被安排去墨西哥，她心情很烦”与“颂梅和德华都不想要原定礼物，还得继续想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-816f0df6e2f86def",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“一天逛完永旺和山姆，也看到小廖会提出自己的条件了”与“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8291dc7ef81dd425",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“颂梅和德华都不想要原定礼物，还得继续想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-82c24238d0a8b824",
+      "event_a_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "定位兜底与争吵复盘没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-84556f723771a97b",
+      "event_a_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "RELATED",
+      "reason": "重新梳理个人知识库实体关系后，第二层设计推进到基本完成，并转向第一层实现实验。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "重新梳理个人知识库实体关系后，第二层设计推进到基本完成，并转向第一层实现实验。",
+        "source_event_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+        "source_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "让 Codex 从头分析如何用日记构建个人知识库，一起确认实体、实体属性、关系及关系属性。",
+            "point_id": "abd0818d-4b5d-48a0-90ab-a016576e2589",
+            "point_event_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+            "point_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+            "offset": 13,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "a74694a7fe18273aad2e6b72648f9e43d0a224d064f18ca16469a55671051675"
+          }
+        ],
+        "target_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+        "target_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "第二层基本设计完了，又开始做第一层具体实现方案。",
+            "point_id": "c0dcc35e-36ee-44e2-aab6-2d3fa8db905d",
+            "point_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 61,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "7380bf49547cd4e2427966516ac381fbe19b92ec489a84c7c0e45957266e247d"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-850e21daa6baaf08",
+      "event_a_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅和德华都不想要原定礼物，还得继续想”与“继续江西数据库设计，提供耕地保护接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-85b81b17a3de5de8",
+      "event_a_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“找不到车时胃食管反流，后来解释清楚并不是在生她的气”与“颂梅和德华都不想要原定礼物，还得继续想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-882e240822da6ba0",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "47a3d4fb-d7fd-4c37-8554-5bf330f81c83",
+      "event_b_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "status": "NO_RELATION",
+      "reason": "永旺购物车及山姆采购没有引用九月家务积压的具体经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8a971a3b652c2360",
+      "event_a_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅提离职后又被安排去墨西哥，她心情很烦”与“带哒哒跑步，回家却又把瑜伽耽误了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8b9f3747fd07c5a4",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "RELATED",
+      "reason": "约好的学姐夫妻午餐实际举行，颂梅带去回礼。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "约好的学姐夫妻午餐实际举行，颂梅带去回礼。",
+        "source_event_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+        "source_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最后约了明天中午，她带老公，我带小廖，在东方宝泰吃潮汕牛肉火锅。",
+            "point_id": "9e82c8ec-7155-4af4-9e07-46beeca7420a",
+            "point_event_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 46,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b9ae3c3d25cd42ac353fde09548f80ad8ad2c8819b7aa78f44eeb230fcb9e8f5"
+          }
+        ],
+        "target_event_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+        "target_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天十一点半出门，先去东方宝泰朝发开桌、点菜，等学姐和她老公、小廖来。",
+            "point_id": "64b52926-899b-490f-aee4-d4810b333c6e",
+            "point_event_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ef985b5cbe27b7c75a38255d14a12a615273c74fc68e5e7ece1a5cf73a3d7a84"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-90c74348915c8468",
+      "event_a_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“让AI排查工作问题，感觉自己成了中转站”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-91d7f84488374904",
+      "event_a_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“让AI排查工作问题，感觉自己成了中转站”与“继续江西数据库设计，提供耕地保护接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-94aced1f1ccda05c",
+      "event_a_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+      "event_a_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "event_b_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "父母沟通策略与汽车定位兜底反思无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-97e554df1b45304b",
+      "event_a_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“继续江西数据库设计，提供耕地保护接口”与“图谱设计继续推进，第一层真实模型实验效果不理想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9a17937bc7308846",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "弄脏枕头争吵与胃不适找车为不同经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9a742cf98252493c",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从等车位的人，跟小廖聊顾及别人和维护自己”与“让AI排查工作问题，感觉自己成了中转站”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9e1d448091b0099e",
+      "event_a_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "汽车检查与KTV赶路为不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a274853c86d2919b",
+      "event_a_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "底盘检查与此前买饭玩游戏无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a5f35df859436ab1",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从等车位的人，跟小廖聊顾及别人和维护自己”与“图谱设计继续推进，第一层真实模型实验效果不理想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a8943b4a668dd3a4",
+      "event_a_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从汽车定位失灵，想到科技便利也需要传统方式兜底”与“带哒哒跑步，回家却又把瑜伽耽误了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ae914382de801ee4",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "家务争吵与墨西哥出差安排是不同触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b13e4645c34ca1e5",
+      "event_a_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“从汽车定位失灵，想到科技便利也需要传统方式兜底”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b24f372359ed61bf",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从等车位的人，跟小廖聊顾及别人和维护自己”与“颂梅和德华都不想要原定礼物，还得继续想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b417d43673d3e205",
+      "event_a_id": "aad8dc74-c788-4f21-80b4-51472a8cccad",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "此前人口及全域土地利用表与当前耕地保护、城镇边界是不同数据模块，未确认同一接口后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b52a3c94e4daaabf",
+      "event_a_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "两次身体不适影响语气，但药膏和胃反流为不同事件，未具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b54571b412f3e0dc",
+      "event_a_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅提离职后又被安排去墨西哥，她心情很烦”与“从汽车定位失灵，想到科技便利也需要传统方式兜底”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b8f74ba05cfb9f63",
+      "event_a_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "RELATED",
+      "reason": "找车时定位失灵的经历，促使我思考科技改变习惯及重要事项的传统方法兜底。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "找车时定位失灵的经历，促使我思考科技改变习惯及重要事项的传统方法兜底。",
+        "source_event_id": "bfc2009a-7316-4104-a414-839f4c898479",
+        "source_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最后在负一找到车，开回去。",
+            "point_id": "446cc60b-f57f-467c-836c-25f55e094e0d",
+            "point_event_id": "bfc2009a-7316-4104-a414-839f4c898479",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 131,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "6f555e3d81db3f2755c4f70046a255a68ecf6065c80463a17383feb4d944a9da"
+          }
+        ],
+        "target_event_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+        "target_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "找车后，我跟小廖说科技会改变习惯",
+            "point_id": "c44d2bf9-e5d1-4d5c-8c30-00e388e3cbb4",
+            "point_event_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "da151fd8110f09338626568b452e0d6c34f74515132351b72b4050a66f557210"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-bbc4012cd037a88b",
+      "event_a_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“让AI排查工作问题，感觉自己成了中转站”与“颂梅去检查底盘没有问题，轮毂做了小修复”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bd0fdb0d7ade9e20",
+      "event_a_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“颂梅去检查底盘没有问题，轮毂做了小修复”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bf0134277e748d10",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“一天逛完永旺和山姆，也看到小廖会提出自己的条件了”与“带哒哒跑步，回家却又把瑜伽耽误了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bfbc79794f05bd8b",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从等车位的人，跟小廖聊顾及别人和维护自己”与“颂梅提离职后又被安排去墨西哥，她心情很烦”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c3a0a2f52b377973",
+      "event_a_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "游戏手腕疼与胃反流找车为不同不适。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c5b016b4a9a9339e",
+      "event_a_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅去检查底盘没有问题，轮毂做了小修复”与“颂梅和德华都不想要原定礼物，还得继续想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c8369bdda14f0f68",
+      "event_a_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅和德华都不想要原定礼物，还得继续想”与“图谱设计继续推进，第一层真实模型实验效果不理想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d1d2ce64cf822211",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "RELATED",
+      "reason": "山姆采购结束准备回家时找不到车，之后逐层寻找并回家收拾采购物品。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "山姆采购结束准备回家时找不到车，之后逐层寻找并回家收拾采购物品。",
+        "source_event_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+        "source_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "我们又去山姆买了一千多元的东西",
+            "point_id": "ae8c88dc-2ed6-44b1-a26c-c3a22c4c36ce",
+            "point_event_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 6,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "18d03627537985377b69d20128ff607e8bdd0027062abf40c91c604444e5cdc5"
+          }
+        ],
+        "target_event_id": "bfc2009a-7316-4104-a414-839f4c898479",
+        "target_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "山姆买完准备回家，找不到车了。",
+            "point_id": "446cc60b-f57f-467c-836c-25f55e094e0d",
+            "point_event_id": "bfc2009a-7316-4104-a414-839f4c898479",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "6f555e3d81db3f2755c4f70046a255a68ecf6065c80463a17383feb4d944a9da"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-d33471fbd16dcbf9",
+      "event_a_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "RELATED",
+      "reason": "同次4S店维修中定位被关闭而未重开，影响了之后在山姆依赖定位找车。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "同次4S店维修中定位被关闭而未重开，影响了之后在山姆依赖定位找车。",
+        "source_event_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+        "source_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "颂梅今天下午去4S店检查。",
+            "point_id": "7bee310c-94c3-421f-acd5-6420f886f36b",
+            "point_event_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 12,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "97b1f4dcfcf42b64fe54f9ae3321209b12e66d3a37422ec66bb0698e45f462da"
+          }
+        ],
+        "target_event_id": "bfc2009a-7316-4104-a414-839f4c898479",
+        "target_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "车平时有定位，但今天4S店维修时关了，没重新开，小廖不知道，还以为能定位。",
+            "point_id": "446cc60b-f57f-467c-836c-25f55e094e0d",
+            "point_event_id": "bfc2009a-7316-4104-a414-839f4c898479",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 22,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "6f555e3d81db3f2755c4f70046a255a68ecf6065c80463a17383feb4d944a9da"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-d5c15fab7cd22d37",
+      "event_a_id": "18b7236f-d927-4581-a087-a814a6bc63b7",
+      "event_a_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "event_b_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "CBB工程化维护方法与此次江西耕地保护接口是不同工作单元，当前未引用该方法论。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d63f5114c814d266",
+      "event_a_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从汽车定位失灵，想到科技便利也需要传统方式兜底”与“图谱设计继续推进，第一层真实模型实验效果不理想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d73dc573f5f9cf15",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从等车位的人，跟小廖聊顾及别人和维护自己”与“带哒哒跑步，回家却又把瑜伽耽误了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d808f118d4056659",
+      "event_a_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”与“继续江西数据库设计，提供耕地保护接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-da0075166e4b8162",
+      "event_a_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”与“找不到车时胃食管反流，后来解释清楚并不是在生她的气”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dbde5114365c9707",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从等车位的人，跟小廖聊顾及别人和维护自己”与“颂梅去检查底盘没有问题，轮毂做了小修复”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dc4d57b8fc519da2",
+      "event_a_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "eecd27fa-5c26-4e20-bcaa-1491ac6b0a6d",
+      "event_b_run_id": "aab5b0c9-df11-4ef4-b14b-e2fe40797437",
+      "status": "NO_RELATION",
+      "reason": "AI排错与八月南通出差申请无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-df153b1ba275a8a0",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“一天逛完永旺和山姆，也看到小廖会提出自己的条件了”与“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-df234f7dd170eedf",
+      "event_a_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“让AI排查工作问题，感觉自己成了中转站”与“图谱设计继续推进，第一层真实模型实验效果不理想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-df3980be255e60c7",
+      "event_a_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "fee55ed1-6696-4d61-9a50-d7163857b39a",
+      "event_b_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "status": "NO_RELATION",
+      "reason": "学姐牛肉火锅与详妹婚前牛肉火锅是不同饭局。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dfd0a9ea93ad5a9c",
+      "event_a_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅去检查底盘没有问题，轮毂做了小修复”与“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e05de29309d749f0",
+      "event_a_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "97ab1e4a-fb66-4ff6-914c-b7031678ad0a",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "墨西哥出差烦躁与驱虫时争吵是不同事情。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e08c3b6b32a616f5",
+      "event_a_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“带哒哒跑步，回家却又把瑜伽耽误了”与“图谱设计继续推进，第一层真实模型实验效果不理想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e0e19b0b097141e7",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“一天逛完永旺和山姆，也看到小廖会提出自己的条件了”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e115efdbdf25375c",
+      "event_a_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从汽车定位失灵，想到科技便利也需要传统方式兜底”与“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e2cf389bd2557dfd",
+      "event_a_id": "5010713e-68b8-49d8-a074-cb7b810aba8d",
+      "event_a_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "event_b_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“从虎门销烟的说法，想到自给自足和全球协作”与“从汽车定位失灵，想到科技便利也需要传统方式兜底”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e4758ee006143378",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“一天逛完永旺和山姆，也看到小廖会提出自己的条件了”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e4a1298200337c8c",
+      "event_a_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "争吵复盘与拒绝生日礼物没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e4ef1ac877d43e09",
+      "event_a_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“找不到车时胃食管反流，后来解释清楚并不是在生她的气”与“继续江西数据库设计，提供耕地保护接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e8591d59b75bd013",
+      "event_a_id": "54fbf0a3-4698-4e81-9f3d-45f10ba0af17",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "8b9d0edf-b2b8-4da1-90b9-ace797e1081a",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“颂梅去检查底盘没有问题，轮毂做了小修复”与“从汽车定位失灵，想到科技便利也需要传统方式兜底”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-eb391e5a40ee022a",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“一天逛完永旺和山姆，也看到小廖会提出自己的条件了”与“图谱设计继续推进，第一层真实模型实验效果不理想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-eb7501ff006b2f53",
+      "event_a_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "两次玩僵尸影响安排，但未明确定位同一游戏进度或引用前事。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ec0c216f94f07313",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“带哒哒跑步，回家却又把瑜伽耽误了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f405506e3280cf0e",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“一天逛完永旺和山姆，也看到小廖会提出自己的条件了”与“着急买礼品卡续会员，才发现原会员还没到期”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f4e100dcc53d3c2d",
+      "event_a_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“让AI排查工作问题，感觉自己成了中转站”与“带哒哒跑步，回家却又把瑜伽耽误了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f537ac085c240fc0",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "等车位利益讨论与争吵复盘未具体互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f608a98e3ce47b14",
+      "event_a_id": "5c18836c-b4cf-47aa-886b-7f91c84f9bef",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "陪颂梅清牙周与学姐聚餐无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f9575987fa7fd1d5",
+      "event_a_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”与“图谱设计继续推进，第一层真实模型实验效果不理想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fba4b257b10a063c",
+      "event_a_id": "45bf44d7-c4eb-4f84-9c1b-6ac4eb6cd166",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "九月三线监测笼统修改与当前新增耕地保护接口未定位同一待修改接口，不能只按项目连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ff7ee7eac5fe846c",
+      "event_a_id": "28fc02fd-cda6-4455-b02f-e4d83bb061fa",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "江西部署迁移与数据源Excel用错不是同一具体故障。",
+      "relation": null
+    }
+  ]
+}

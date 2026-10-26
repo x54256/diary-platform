@@ -1,0 +1,1369 @@
+{
+  "package_sha256": "902758ee9746c6bad2062d8eb240e2eec2f8a33d10bdeaba1415e0a428a96a3e",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "902758ee9746c6bad2062d8eb240e2eec2f8a33d10bdeaba1415e0a428a96a3e",
+    "verified_at": "2026-10-26T07:39:57.750447+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-04b6566e0570537c",
+      "event_a_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "摄影学习与母亲劝学不同对象、不同事件。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-08bd7f0b18f48441",
+      "event_a_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "RELATED",
+      "reason": "目标明确引用日记方案并报告执行。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前想到让母亲就催生问题问豆包，后来在通话中实际采用日记里的方案。",
+        "source_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+        "source_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "比如我妈想催生，可以让她去问豆包",
+            "point_id": "889cf0ae-0d6a-4675-ad3d-f057bbcc3af8",
+            "point_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+            "point_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+            "offset": 40,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "50971ee0f5670d3b96506a247b14638a19f398fd8d536f9eab01d74509bfe0c1"
+          }
+        ],
+        "target_event_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "后来想到日记中的方案，让她用豆包，希望借 AI 对齐认知。",
+            "point_id": "3d0403c7-4c22-458d-82ec-a301f6108f69",
+            "point_event_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 70,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "9cd6c8909b7713bfac4a08dfb13ff049531ae711256296bdd0d64175f7510a11"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-09ef8a51f8d93624",
+      "event_a_id": "34967156-9666-431a-8e0b-504a0b015ae5",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "日志接口与发展移民不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0abaa13ef6245843",
+      "event_a_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "离职安排与旧买饭游戏不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0b7d88a548e8cfff",
+      "event_a_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "中外发展视频与心理学课程不同材料。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0d63063b2a11b27c",
+      "event_a_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "95ec9c7b-ae87-41c1-8723-19f992379da6",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "父亲条目回顾早期把AI当搜索引擎，没有定位此前许益龙比较或后台编码经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0fd21503364eb766",
+      "event_a_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "旧下班采购游戏与中午做饭不是同一餐食。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-13e9ea438f28cb12",
+      "event_a_id": "34967156-9666-431a-8e0b-504a0b015ae5",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "日志接口与母亲劝学不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1b0cd72ad8e4ac7e",
+      "event_a_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "RELATED",
+      "reason": "在学完第二章并准备继续第三章后，进一步把同一心理学课程安排在中午或空闲时间学习；这是形成新时段安排，不表示该安排已经执行。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "在学完第二章并准备继续第三章后，进一步把同一心理学课程安排在中午或空闲时间学习；这是形成新时段安排，不表示该安排已经执行。",
+        "source_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+        "source_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今早学心理学不太专心，常玩手机，但最终学完第二章“神经系统的结构和功能”，笔记也整理好，还是有成就感，后面计划继续第三章。明天看心情，愿意学就听听。",
+            "point_id": "c39173a6-44c4-4881-8668-d667610c5392",
+            "point_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "f65c4eaedcf5a29f28cc43a727825a7ab847d9dc1fca87834409d03f14c50d74"
+          }
+        ],
+        "target_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我重新规划：早上英语、新闻打卡，新闻一部分 AI 汇集、一部分南方周末；LeetCode 看心情。中午或空闲学《简单心理学》",
+            "point_id": "729a21ac-fccf-44ce-b4b2-5e888848e6c7",
+            "point_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "df508f406c5e1f664946eeefe5babe4e1f5b4446cf14cad27e686edbcb3ca254"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-1cdbf9ff1cb2f6d5",
+      "event_a_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "泛论日记作用没有定位此前恢复日记计划的实际记录或新安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1fb8ab42f2e0b1a6",
+      "event_a_id": "1e8bba57-0712-4752-98f3-0643612d5b04",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "老梁认知改变里回顾妈妈就医，本次催生劝学不同，不定位同次对话。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1fcece6ade153a2b",
+      "event_a_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "日记讨论与催生劝学没有具体相互引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-216272eb5f048b58",
+      "event_a_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "母亲拒学没有被日程条目表达为重排作息的原因。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2f69f30e1c354650",
+      "event_a_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "记日记作用与离职时间无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3091c49ebe4c49be",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵与伴侣离职计划不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-350afcf72bfa6bb9",
+      "event_a_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "政治视频观点与神经系统课程不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3762dd5943e874aa",
+      "event_a_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "RELATED",
+      "reason": "学习引发联想由来源明确表达，解释仍是本人推测而非母亲的确定事实。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "学习前额叶和注意力、阅读自制力内容，启发我用注意力受干扰等可能解释理解妈妈的抗拒学习和聊天跑偏。",
+        "source_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+        "source_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "里面说前额叶负责推理、决策，也控制注意力、自制力，恰好接上刚学的内容",
+            "point_id": "70a47ece-adfb-4f53-bd84-07727fffc6e1",
+            "point_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 71,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b2bb18a9ef3f4ee27d9fd112b751b63bde3c8da9595c609f7ca0e58da0d84606"
+          }
+        ],
+        "target_event_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 4,
+            "quote": "我觉得可能与智力有关，也可能是注意力受其他思维干扰，既学不进去又聊天跑偏。最近自制力书里谈注意力，让我联系到她。",
+            "point_id": "859a50c6-2523-43e9-8e1f-ce947f473e2b",
+            "point_event_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 77,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "dbd14b5c7f373acf17f4a0ccd5b7941592a7144c3220823ba355e37c95746a41"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-3bb2ea548fdcd072",
+      "event_a_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "RELATED",
+      "reason": "相同具体活动有新的执行状态和时间要求。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前恢复瑜伽的计划仍未稳定执行，后来在每日安排中再次明确今天一定要做。",
+        "source_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下周准备继续看心理学课、做瑜伽。",
+            "point_id": "0b7b8237-cb6f-4b04-a131-55f233656dce",
+            "point_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 119,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "3d2840efa4cfbc836171d81788c83e1ff6ea1eb04ce856f6791f1fbc34a3ab2f"
+          }
+        ],
+        "target_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "昨天又没瑜伽，今天不管什么理由都一定做",
+            "point_id": "729a21ac-fccf-44ce-b4b2-5e888848e6c7",
+            "point_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 89,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "df508f406c5e1f664946eeefe5babe4e1f5b4446cf14cad27e686edbcb3ca254"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-3cdbd3aa4c69d519",
+      "event_a_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "政治人物访谈与铿锵节目不同材料。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4078bc8ffb78ea8c",
+      "event_a_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "摄影课程与普通心理学不同，不因同日学习连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-423cdbdf8ad24963",
+      "event_a_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "催生劝学与离职日期无明确互相触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-480942ad9e6855cf",
+      "event_a_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "RELATED",
+      "reason": "同一明确课程安排有具体进度成果。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "利用居家空闲学普通心理学的打算，后来落实到第三章感觉及三节课笔记。",
+        "source_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+        "source_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "完全可以用这些时间学普通心理学，继续整理笔记、看视频",
+            "point_id": "90cc07db-d7ec-42b0-a9d9-e8de58b0264f",
+            "point_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+            "point_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+            "offset": 93,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "77a8094090fc78affab9048a344bb4c1e78074331de1d1425ca04dcda6a647e1"
+          }
+        ],
+        "target_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今早继续学第三章感觉，整理三节课笔记。",
+            "point_id": "754bf242-29f8-494b-8092-75bbca617284",
+            "point_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 112,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "294897b3ebc1b65794d37544b8c0c8c2d61b535bb089895a096286dd9a1ac59a"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-4c9ee75fda6cc331",
+      "event_a_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "中午做饭摄影没有明确被每日学习日程纳入具体安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4d3b87ac36b3efc3",
+      "event_a_id": "34967156-9666-431a-8e0b-504a0b015ae5",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "RELATED",
+      "reason": "同日第三章三节笔记的完成可以定位，非因果判断。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "记录下班前查看日志和消息中心文档时，提到当天已完成第三节心理学课笔记。",
+        "source_event_id": "34967156-9666-431a-8e0b-504a0b015ae5",
+        "source_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天快下班，整理完第三节课笔记",
+            "point_id": "67ffe8e1-cfbd-54a3-bd7f-cae349fde9dd",
+            "point_event_id": "34967156-9666-431a-8e0b-504a0b015ae5",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "6fa49635c44b97cf83aa33cb048407b78c2ac3ed707d6ea9c529726da2cdc3ba"
+          }
+        ],
+        "target_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今早继续学第三章感觉，整理三节课笔记。",
+            "point_id": "754bf242-29f8-494b-8092-75bbca617284",
+            "point_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 112,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "294897b3ebc1b65794d37544b8c0c8c2d61b535bb089895a096286dd9a1ac59a"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-56cd2de4daba8abf",
+      "event_a_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "离职出行与洗牙咬合垫不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5a15f571c6666b38",
+      "event_a_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "每日新闻阅读与移民节目的观看未定位同一新闻材料。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6062aa6669315d0b",
+      "event_a_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "移民及孩子未来教育规划没有定位为本次催生冲突的新决定。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-629f8909b7c68d08",
+      "event_a_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "RELATED",
+      "reason": "此前重新开始普通心理学课程但尚未进入正轨，后来重新规划将同一课程放在中午或空闲时间学习，形成具体学习安排。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前重新开始普通心理学课程但尚未进入正轨，后来重新规划将同一课程放在中午或空闲时间学习，形成具体学习安排。",
+        "source_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "source_evidence": [
+          {
+            "point_no": 4,
+            "quote": "发现自己又沉迷视频、光看不做后，这两天我重新开始看普通心理学课程，不过还没有进入正轨。",
+            "point_id": "d1067cee-e55e-47dd-912d-ddc56b5df1ad",
+            "point_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "048a1fcd519931166676284de1064ffc7c80c6a7e007f36b1f350637085f2313"
+          }
+        ],
+        "target_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我重新规划：早上英语、新闻打卡，新闻一部分 AI 汇集、一部分南方周末；LeetCode 看心情。中午或空闲学《简单心理学》",
+            "point_id": "729a21ac-fccf-44ce-b4b2-5e888848e6c7",
+            "point_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "df508f406c5e1f664946eeefe5babe4e1f5b4446cf14cad27e686edbcb3ca254"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-64661d7a7361e93a",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "RELATED",
+      "reason": "目标明确说听进之前的话并开始具体学习。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前劝小廖培养摄影爱好、尚未见她学习，随后看到她开始在B站看摄影课程。",
+        "source_event_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+        "source_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "她说想学摄影，可买相机只用一次便收起，没见怎么学。",
+            "point_id": "a5314122-ab87-4709-8416-0a89a9609573",
+            "point_event_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 137,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b4a37be301a6c9e513f29c8b4d62f020b2fbaf8dadd9d6d35080c7dde8c84da4"
+          }
+        ],
+        "target_event_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "下午见颂梅听进之前的话，开始看摄影相关课程，在 B 站买的课堂上看视频。",
+            "point_id": "8ca6a043-a1b4-4c1e-9994-f3d20fdc9ed7",
+            "point_event_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "2570c840ecb42bac1889e9be60d9a4f67c4e4629268ed85551e9632fd35f1fcc"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-6b2c4929234d1e1c",
+      "event_a_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "RELATED",
+      "reason": "同一课程有明确新进度。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "普通心理学初步重启后，已继续到第三章并整理笔记。",
+        "source_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "source_evidence": [
+          {
+            "point_no": 4,
+            "quote": "这两天我重新开始看普通心理学课程，不过还没有进入正轨。",
+            "point_id": "d1067cee-e55e-47dd-912d-ddc56b5df1ad",
+            "point_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 16,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "048a1fcd519931166676284de1064ffc7c80c6a7e007f36b1f350637085f2313"
+          }
+        ],
+        "target_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今早继续学第三章感觉，整理三节课笔记。",
+            "point_id": "754bf242-29f8-494b-8092-75bbca617284",
+            "point_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 112,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "294897b3ebc1b65794d37544b8c0c8c2d61b535bb089895a096286dd9a1ac59a"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-6f84e3576ed82456",
+      "event_a_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "早前李强李克强评论与中外发展节目不同材料，未具体回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7260b827fb45222d",
+      "event_a_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "KTV改约与离职出行不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-729c2c1abef9f1c5",
+      "event_a_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "父亲就医与伴侣离职不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-738f09e0f3580a33",
+      "event_a_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "RELATED",
+      "reason": "每日安排条目回顾昨天听书所记的方法，与学习普通心理学条目中昨晚听解读、建立知识联系的是同一次听书。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "每日安排条目回顾昨天听书所记的方法，与学习普通心理学条目中昨晚听解读、建立知识联系的是同一次听书。",
+        "source_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+        "source_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "昨天听《自控力》，记下想做一件事先强行打断、想十分钟，检查是否违背目标；若仍想做，就考虑多久、设时限，能不做尽量不做。因为睡着听，不知记得准不准。也觉得书中某些做法太理想，自己身上不容易直接奏效。",
+            "point_id": "ad751f98-385a-4b1f-b250-7b45f874b881",
+            "point_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "22e45ecf971a50a9cfd99b1bfb02916222467b326240601b254748b11818e277"
+          }
+        ],
+        "target_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最近学普通心理学的神经系统，知道前额叶联合区比较重要。昨天中午在小廖爸妈家、她旧房间看到《自制力》，晚上去 B 站听三十分钟读完一本书的解读。里面说前额叶负责推理、决策，也控制注意力、自制力，恰好接上刚学的内容，知识连起来很有意思。",
+            "point_id": "70a47ece-adfb-4f53-bd84-07727fffc6e1",
+            "point_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b2bb18a9ef3f4ee27d9fd112b751b63bde3c8da9595c609f7ca0e58da0d84606"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-74ead452824f727a",
+      "event_a_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "RELATED",
+      "reason": "父亲持续拒医状态与新事物抗拒的具体比较由两侧表达。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "记录母亲抗拒学习时，把父亲同样不愿尝试就医的状态作为比较。",
+        "source_event_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+        "source_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我理解对新事物的抗拒，爸爸不愿就医也类似，需要慢慢心理建设。",
+            "point_id": "61e1f829-7236-4507-a05a-41e08ed11e3f",
+            "point_event_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 53,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "c7c09b467ed2a534b69a20edf1fd199eb558955689458cf14f9d9666edf54492"
+          }
+        ],
+        "target_event_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "他不愿用豆包也不愿去医院，我觉得佐证了对新鲜、未尝试事物的抗拒",
+            "point_id": "5a073988-f592-4929-a7c0-198fbb540e49",
+            "point_event_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 136,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ff067df4ff2c0fa4e11f29670e827c4f9a07096e07de83a17677e3202a5523ed"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-78a4761c3f91b998",
+      "event_a_id": "23c145bd-8435-40b2-92e1-023b76daa7f1",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "RELATED",
+      "reason": "同一瑜伽恢复承诺出现未执行反馈和新的明确日期安排。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前要求自己明天不能再拖瑜伽，后来仍报告昨天没做，并重新要求今天一定做。",
+        "source_event_id": "23c145bd-8435-40b2-92e1-023b76daa7f1",
+        "source_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "明天是最后一个明天，不能再拖",
+            "point_id": "21d6338e-b791-502e-af69-562c62345012",
+            "point_event_id": "23c145bd-8435-40b2-92e1-023b76daa7f1",
+            "point_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+            "offset": 66,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ac9360cefca95adc3ff963ef8d30c142bc00dc26619aefc3ab4c0f7b7fb987e6"
+          }
+        ],
+        "target_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "昨天又没瑜伽，今天不管什么理由都一定做，它也是重要活动。",
+            "point_id": "729a21ac-fccf-44ce-b4b2-5e888848e6c7",
+            "point_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 89,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "df508f406c5e1f664946eeefe5babe4e1f5b4446cf14cad27e686edbcb3ca254"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-7d35c787e6f5d311",
+      "event_a_id": "34967156-9666-431a-8e0b-504a0b015ae5",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "下载接口文档不是每日新闻学习计划的执行。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7ee14e151cce3957",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "专业价值反思与父亲AI就医未具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8005a32e595ae202",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "共同家庭学习计划与母亲老年大学倡议不同对象，不是同一学习任务。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-838402ec8b0c593c",
+      "event_a_id": "5c18836c-b4cf-47aa-886b-7f91c84f9bef",
+      "event_a_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "event_b_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "陪牙周清洁与开始摄影学习不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-83d0064053699200",
+      "event_a_id": "34967156-9666-431a-8e0b-504a0b015ae5",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "45bf44d7-c4eb-4f84-9c1b-6ac4eb6cd166",
+      "event_b_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "status": "NO_RELATION",
+      "reason": "日志消息中心与三线监测接口不同功能。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-83fbe30e95567e8a",
+      "event_a_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "摄影学习与发展移民节目无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-89cf1b5850ec2aab",
+      "event_a_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "父亲就医与本人日程规划无明确互相触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8a08906b0f627cf6",
+      "event_a_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "status": "RELATED",
+      "reason": "章节进度从计划到执行。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "学完第二章并计划继续第三章后，已学习第三章感觉并整理三节课笔记。",
+        "source_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+        "source_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最终学完第二章“神经系统的结构和功能”，笔记也整理好，还是有成就感，后面计划继续第三章。",
+            "point_id": "c39173a6-44c4-4881-8668-d667610c5392",
+            "point_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 17,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "f65c4eaedcf5a29f28cc43a727825a7ab847d9dc1fca87834409d03f14c50d74"
+          }
+        ],
+        "target_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今早继续学第三章感觉，整理三节课笔记。",
+            "point_id": "754bf242-29f8-494b-8092-75bbca617284",
+            "point_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 112,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "294897b3ebc1b65794d37544b8c0c8c2d61b535bb089895a096286dd9a1ac59a"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-8bf65a6890f2e1d1",
+      "event_a_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "RELATED",
+      "reason": "同一瑜伽恢复事项有具体新的时间安排。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前想恢复荒废的瑜伽后，后来明确报告昨日没做，并给今天安排强制执行要求。",
+        "source_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "心理学学习和瑜伽，这四项都荒废了很长时间。我想恢复",
+            "point_id": "87d786c0-7a15-4d3a-ae87-12b4bbef8d5e",
+            "point_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 12,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5665b422af9df7760d740376e3a12243385cedec5670c91ff0555bdab79aa6e0"
+          }
+        ],
+        "target_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "昨天又没瑜伽，今天不管什么理由都一定做",
+            "point_id": "729a21ac-fccf-44ce-b4b2-5e888848e6c7",
+            "point_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 89,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "df508f406c5e1f664946eeefe5babe4e1f5b4446cf14cad27e686edbcb3ca254"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-8cc0295b989f7ecd",
+      "event_a_id": "47e206be-40b9-4ed5-82dd-ccfc0448dd3d",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "伴侣建议指责与母亲催生劝学是不同对话。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8d6314d9d7308ec7",
+      "event_a_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "老梁视频与铿锵节目不是同一材料，也未定位具体旧视频。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8feaacaaa5db4a63",
+      "event_a_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "家务烦躁与母亲催生劝学不同对话。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-937e4b1c548628ea",
+      "event_a_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "摄影课程与父亲就医不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9440d56371af85a1",
+      "event_a_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "c896a8b6-37fe-4170-963b-723171b3df41",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "同讨论劳工制度和移民，但本次UP主工运材料未定位为昨日那两条美国法治视频，不能仅由观点接近认定具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9532a0e50ed266ed",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵没有被摄影开始学习条目回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9691d586d53605e9",
+      "event_a_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "早前餐厅与这次午饭不同餐食。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-98f6e40d13ee5462",
+      "event_a_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "status": "NO_RELATION",
+      "reason": "日记作用只作一般论述，未定位枕头争吵那次复盘。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-99ee8c25ec6033e4",
+      "event_a_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "父亲就医与移民节目不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a0e141e50417b359",
+      "event_a_id": "34967156-9666-431a-8e0b-504a0b015ae5",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "日志中心与父亲AI就医不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b23522d6966e48ea",
+      "event_a_id": "1e8bba57-0712-4752-98f3-0643612d5b04",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "RELATED",
+      "reason": "同一腰病就医事项出现新劝说行动；同要点引文后续合并。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "父亲答应看腰却仍拖延后，我进一步让他把逃避就医的问题问豆包，希望帮助他愿意就医。",
+        "source_event_id": "1e8bba57-0712-4752-98f3-0643612d5b04",
+        "source_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+        "source_evidence": [
+          {
+            "point_no": 4,
+            "quote": "爸爸答应这个月去医院看腰，到现在仍没去，还开始逃避跟我打电话",
+            "point_id": "b118a357-bb32-47c2-b4a3-0b22a5616942",
+            "point_event_id": "1e8bba57-0712-4752-98f3-0643612d5b04",
+            "point_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+            "offset": 42,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "7cc494a016eb67de0d70adfcaf271dfa3d3a07b658001eeb373fa5ef84061801"
+          }
+        ],
+        "target_event_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我让爸爸有事问 AI，他说每天两点一线没问题。我说不可能，给他举个可问豆包的问题：腰很疼，答应儿子去医院却一拖再拖，可能怕花钱、觉得老了只是腰肌劳损，去了也看不好；应不应该看、若该看，怎样克服逃避？\n\n我让他问，AI 说了几句，不知听进去没。仍想争取改变心理、让他愿就医。他不愿用豆包也不愿去医院，我觉得佐证了对新鲜、未尝试事物的抗拒，认为没用就不做，让我无奈。",
+            "point_id": "5a073988-f592-4929-a7c0-198fbb540e49",
+            "point_event_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ff067df4ff2c0fa4e11f29670e827c4f9a07096e07de83a17677e3202a5523ed"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-b468a2b50d8f7b1a",
+      "event_a_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "重新开始写日记与泛论价值没有具体同次笔记引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ba5d58ee73b09afd",
+      "event_a_id": "34967156-9666-431a-8e0b-504a0b015ae5",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "日记价值讨论与日志中心接口文档不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c0090b8fe4aa6342",
+      "event_a_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "本人学习作息与伴侣离职工资安排不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c0e619be12fb4399",
+      "event_a_id": "1e8bba57-0712-4752-98f3-0643612d5b04",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "老梁大学讲课与本次移民节目不同材料。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c2d0bf6522e8d4fb",
+      "event_a_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "出行离职与长期移民价值观没有具体行程对应。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c6fce3d22dbac247",
+      "event_a_id": "28fc02fd-cda6-4455-b02f-e4d83bb061fa",
+      "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "event_b_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "江西部署与伴侣离职日期不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c8e3659744e5632f",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "RELATED",
+      "reason": "双方具体学习内容、伴侣和离职前情境可定位同次劝学。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "讨论日记作用时，回顾前两天劝小廖补售前理论、学习摄影并反思的谈话。",
+        "source_event_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+        "source_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "前两天劝小廖学售前理论、结合实践，或学摄影爱好时，我也说她不习惯自省复盘",
+            "point_id": "af9943ec-63e2-4df0-b34d-6441f5fc735d",
+            "point_event_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "f706a5df23baa9d71d81c004f8fc4730f42f4448354d6aeb11c334a51803dc28"
+          }
+        ],
+        "target_event_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+        "target_evidence": [
+          {
+            "point_no": 3,
+            "quote": "此前已与小廖谈，离职前余下工作时间可继续丰富业务知识、能力，别因有些实践就觉得很厉害。现在可能是“平庸之谷”，懂越多越觉得不会；懂得少才觉得“我都已经会了，还学这个干啥”。\n\n还是要重实践，但已有实践，可再系统学理论，把两者结合。我不清楚她做产品经理或售前具体该学哪些科目。她说想学摄影，可买相机只用一次便收起，没见怎么学。等她打卡回来再提。",
+            "point_id": "a5314122-ab87-4709-8416-0a89a9609573",
+            "point_event_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b4a37be301a6c9e513f29c8b4d62f020b2fbaf8dadd9d6d35080c7dde8c84da4"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-c8f3a9494cf324a5",
+      "event_a_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "日记反思与父亲就医不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d10e10c9794440d6",
+      "event_a_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "摄影开始学习未说由本次日记作用讨论触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d23e8e008d7ddbb2",
+      "event_a_id": "34967156-9666-431a-8e0b-504a0b015ae5",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "日志接口与伴侣离职不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d38624f066532e44",
+      "event_a_id": "34967156-9666-431a-8e0b-504a0b015ae5",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "日志接口与做饭摄影不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-de30335fa032cedb",
+      "event_a_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "RELATED",
+      "reason": "同一就医AI沟通设想实际执行，保留效果未知。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前想到让父亲问AI检视看腰的想法，后来实际让他询问豆包，但仍不知道是否听进去。",
+        "source_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+        "source_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "我想到，也可以让他问问 AI，自己的这个想法、观点是否正确，借助外部力量改变他的认知。",
+            "point_id": "1fa0fea3-44dd-46ba-a414-07456bd90413",
+            "point_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+            "point_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+            "offset": 57,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "3649efe436e0d52cac702eb6cad4c3c1ec72608a90d530c6fa56b305c34b0c2f"
+          }
+        ],
+        "target_event_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我让他问，AI 说了几句，不知听进去没。仍想争取改变心理、让他愿就医。",
+            "point_id": "5a073988-f592-4929-a7c0-198fbb540e49",
+            "point_event_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 101,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ff067df4ff2c0fa4e11f29670e827c4f9a07096e07de83a17677e3202a5523ed"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-e059fa5d85a438b5",
+      "event_a_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "日记反思与神经系统学习不同具体内容，未引用具体笔记。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e38614a05b42acd9",
+      "event_a_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "工作文档复盘类比日记与当前抽象日记价值相近，未回顾具体旧文档。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e774ae8f79ed7714",
+      "event_a_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "event_a_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "event_b_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "RELATED",
+      "reason": "同一普通心理学课程的章节进度和知识联系有新结果。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前学习神经系统脑区后，继续学习第三章感觉并整理三节课笔记，还把书和实验视频与所学联系起来。",
+        "source_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+        "source_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天主要讲大脑的许多区域",
+            "point_id": "cd658f47-126e-4e5c-b5fa-369078d0722c",
+            "point_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+            "point_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+            "offset": 59,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "67639834242386606cf806fde58767871b59e9cf5fef935a7d53152a6771ee85"
+          }
+        ],
+        "target_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最近学普通心理学的神经系统，知道前额叶联合区比较重要。",
+            "point_id": "70a47ece-adfb-4f53-bd84-07727fffc6e1",
+            "point_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b2bb18a9ef3f4ee27d9fd112b751b63bde3c8da9595c609f7ca0e58da0d84606"
+          },
+          {
+            "point_no": 2,
+            "quote": "今早继续学第三章感觉，整理三节课笔记。",
+            "point_id": "754bf242-29f8-494b-8092-75bbca617284",
+            "point_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+            "offset": 112,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "294897b3ebc1b65794d37544b8c0c8c2d61b535bb089895a096286dd9a1ac59a"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-e864f379524238aa",
+      "event_a_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "伴侣学摄影未报告离职日期或工作安排的新结果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-eb5c0b0e6102a44e",
+      "event_a_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "父亲就医条目未说心理学前额叶知识引发这次劝说，不能借母亲条目补因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f09ae8d6169928f2",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "枕头争吵与父亲AI就医不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fa79d7f7550710f7",
+      "event_a_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "日记作用与移民节目无联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fd0c24e7ec721540",
+      "event_a_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "离职时间与心理学课程不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ff25889ad52ddf4c",
+      "event_a_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "每日学习作息计划未包括具体记日记新安排，不能由主题补进展。",
+      "relation": null
+    }
+  ]
+}

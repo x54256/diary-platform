@@ -1,0 +1,855 @@
+{
+  "package_sha256": "2e7fbcff671bf6881ecd4f77940cf56a83214e4277f276157bcdbc3ad898f240",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "2e7fbcff671bf6881ecd4f77940cf56a83214e4277f276157bcdbc3ad898f240",
+    "verified_at": "2026-10-26T02:01:24.343161+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-07ea45f8029f986f",
+      "event_a_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "f67365e8-eec0-462e-8a40-ed0f90c81c8e",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "劝母亲学习与自己体检饮食安排没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0ba886088ce13a9d",
+      "event_a_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "9d518eb5-1054-401e-a070-44c39203373e",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "RELATED",
+      "reason": "同日早晨爸爸去做核磁，下午核磁结果出来，我又查看结果并觉得放心一些。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "同日早晨爸爸去做核磁，下午核磁结果出来，我又查看结果并觉得放心一些。",
+        "source_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+        "source_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "他今天去做核磁共振",
+            "point_id": "7fd8212a-9b93-467a-a331-de1d29b75d31",
+            "point_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 14,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "fb4910ac73d2bfa5bb86a52a4b8e47ce596d4791f1b74885eaa3d6ad4d509716"
+          }
+        ],
+        "target_event_id": "9d518eb5-1054-401e-a070-44c39203373e",
+        "target_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我爸今天早晨去医院做核磁共振，下午出了结果",
+            "point_id": "3fc28a0e-db40-4867-9e51-956ab4dd39c2",
+            "point_event_id": "9d518eb5-1054-401e-a070-44c39203373e",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "4501da4c8bafb8c6c99b7300798be421c60b96d36ae35925d94f5992e2cea404"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-0e77314e9c61b023",
+      "event_a_id": "9d518eb5-1054-401e-a070-44c39203373e",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "f67365e8-eec0-462e-8a40-ed0f90c81c8e",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "爸爸核磁结果与我重新看体检报告无明确触发；我查看报告明确由爸爸高血脂引起，不能换成核磁结果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-108abca45df585c2",
+      "event_a_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "f67365e8-eec0-462e-8a40-ed0f90c81c8e",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "与母亲因生病不治发火和自己调整饮食没有明确触发或具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-151a2b60929196fa",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "与小廖因家务消费的沟通和爸爸心脏血脂检查是不同事项；狗粮油脂话题没有指向爸爸的饮食。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-162059a4d4f01c00",
+      "event_a_id": "9d518eb5-1054-401e-a070-44c39203373e",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "爸爸核磁结果与知识图谱设计无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-188de650d255c584",
+      "event_a_id": "90072bec-a536-4325-964e-c8b22a30680e",
+      "event_a_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "event_b_id": "9d518eb5-1054-401e-a070-44c39203373e",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "RELATED",
+      "reason": "担心爸爸的腰部情况不明确、以老陆的案例催他检查后，爸爸完成核磁，我理解结果没有此前担心的压迫情况，因而放心一些。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "担心爸爸的腰部情况不明确、以老陆的案例催他检查后，爸爸完成核磁，我理解结果没有此前担心的压迫情况，因而放心一些。",
+        "source_event_id": "90072bec-a536-4325-964e-c8b22a30680e",
+        "source_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "不想一直像“量子态”，好坏不知道",
+            "point_id": "416baa67-4db7-4c42-bfd6-89baf217fb00",
+            "point_event_id": "90072bec-a536-4325-964e-c8b22a30680e",
+            "point_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+            "offset": 55,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5b3e1fa12feb08e73bd02043b03d05afd9626c5705f1eb5a4cb1b2b461364d98"
+          },
+          {
+            "point_no": 3,
+            "quote": "爸爸也受触动说准备去",
+            "point_id": "adbe65bd-69f5-46d5-bf35-33d1c07e1dd3",
+            "point_event_id": "90072bec-a536-4325-964e-c8b22a30680e",
+            "point_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+            "offset": 30,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "d385d5ac16d6df586fbd6f638eec8fcccbbbf3bef7c088cb26e36786f627f9e2"
+          }
+        ],
+        "target_event_id": "9d518eb5-1054-401e-a070-44c39203373e",
+        "target_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "之前想到老陆有压到神经的情况，我也担心，万一我爸同样压到了神经却一直不知道，到时候出事就不好了。现在做了检查，报告看着还可以",
+            "point_id": "bfe36e65-a44b-45f9-adeb-a6779fbac2cb",
+            "point_event_id": "9d518eb5-1054-401e-a070-44c39203373e",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "98b0452420174d7582b34da5cf0c64c66761671cf5ab6808f2a536e3668ae675"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-1f82ca470a0cb7b8",
+      "event_a_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "90072bec-a536-4325-964e-c8b22a30680e",
+      "event_b_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "status": "RELATED",
+      "reason": "此前以老陆的案例催爸爸检查、提醒拍核磁，之后爸爸已去做核磁，我也安排他顺道询问心脏科。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前以老陆的案例催爸爸检查、提醒拍核磁，之后爸爸已去做核磁，我也安排他顺道询问心脏科。",
+        "source_event_id": "90072bec-a536-4325-964e-c8b22a30680e",
+        "source_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "至少拍片，大家有底。",
+            "point_id": "416baa67-4db7-4c42-bfd6-89baf217fb00",
+            "point_event_id": "90072bec-a536-4325-964e-c8b22a30680e",
+            "point_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+            "offset": 81,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5b3e1fa12feb08e73bd02043b03d05afd9626c5705f1eb5a4cb1b2b461364d98"
+          },
+          {
+            "point_no": 3,
+            "quote": "爸爸也受触动说准备去",
+            "point_id": "adbe65bd-69f5-46d5-bf35-33d1c07e1dd3",
+            "point_event_id": "90072bec-a536-4325-964e-c8b22a30680e",
+            "point_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+            "offset": 30,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "d385d5ac16d6df586fbd6f638eec8fcccbbbf3bef7c088cb26e36786f627f9e2"
+          }
+        ],
+        "target_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+        "target_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "他今天去做核磁共振，上周又听他说在吃阿司匹林，我便让他去心脏科问问阿司匹林能不能停，顺道看看高血压的问题",
+            "point_id": "7fd8212a-9b93-467a-a331-de1d29b75d31",
+            "point_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 14,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "fb4910ac73d2bfa5bb86a52a4b8e47ce596d4791f1b74885eaa3d6ad4d509716"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-23a28ba52ff59857",
+      "event_a_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "爸爸看病与知识图谱设计是不同事项，使用AI不是事件联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-26f36409610177fa",
+      "event_a_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "7f93db3d-60b3-465c-b10d-0952ba706189",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "借AI与父母沟通和我考虑配眼镜的经历没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-31d70af7ba031990",
+      "event_a_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "f67365e8-eec0-462e-8a40-ed0f90c81c8e",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "图谱设计与个人体检饮食安排无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-35af5abb17522eba",
+      "event_a_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "7f93db3d-60b3-465c-b10d-0952ba706189",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "爸爸的检查与我准备配镜没有直接触发或引用；不能借第三事件中自己的报告建立传递因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-44e2e09bb9bc496d",
+      "event_a_id": "7f93db3d-60b3-465c-b10d-0952ba706189",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "9d518eb5-1054-401e-a070-44c39203373e",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "自己配镜计划与爸爸核磁结果无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4b4c1913fc42f4fd",
+      "event_a_id": "99724fcf-f62d-426a-abf4-3b86bd731340",
+      "event_a_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "event_b_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "学习视觉课程与知识图谱第二层心理活动设计不是同一具体学习事项，未表达前者促使后者。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4e9a48df7075ba03",
+      "event_a_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "9d518eb5-1054-401e-a070-44c39203373e",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "RELATED",
+      "reason": "此前爸爸打算等腰疼再就医，之后已完成核磁检查，我看过结果后觉得放心一些。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前爸爸打算等腰疼再就医，之后已完成核磁检查，我看过结果后觉得放心一些。",
+        "source_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+        "source_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "我爸说，要等腰疼起来再去医院看腰肌劳损这些问题",
+            "point_id": "1fa0fea3-44dd-46ba-a414-07456bd90413",
+            "point_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+            "point_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "3649efe436e0d52cac702eb6cad4c3c1ec72608a90d530c6fa56b305c34b0c2f"
+          }
+        ],
+        "target_event_id": "9d518eb5-1054-401e-a070-44c39203373e",
+        "target_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我爸今天早晨去医院做核磁共振，下午出了结果",
+            "point_id": "3fc28a0e-db40-4867-9e51-956ab4dd39c2",
+            "point_event_id": "9d518eb5-1054-401e-a070-44c39203373e",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "4501da4c8bafb8c6c99b7300798be421c60b96d36ae35925d94f5992e2cea404"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-5429fd765a8d1445",
+      "event_a_id": "7f93db3d-60b3-465c-b10d-0952ba706189",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "event_b_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "status": "NO_RELATION",
+      "reason": "准备配镜与母亲看病时的沟通方法没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-55401c7ba210ebe3",
+      "event_a_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+      "event_b_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+      "status": "RELATED",
+      "reason": "事件关系测试效果不佳后，个人知识图谱继续推进，梳理第一层并探索第二层设计。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "事件关系测试效果不佳后，个人知识图谱继续推进，梳理第一层并探索第二层设计。",
+        "source_event_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+        "source_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "早上测试事件关系的建立，效果非常糟糕",
+            "point_id": "242a675a-c4fd-4022-a2cc-9cf193d4f16e",
+            "point_event_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+            "point_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "69dcc236d9af846eafc3dc57070ab13b416ff605f766802751f1e0d32384a0da"
+          }
+        ],
+        "target_event_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+        "target_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我继续做日记管理平台的个人知识图谱，把从日记提取知识图谱最简单的第一层梳理清楚了",
+            "point_id": "71b68c49-0a62-4f33-a469-216a04e29233",
+            "point_event_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 5,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "8728d3bee19c61d54745571e88eeadf905c1f228ecbff5d027e3be61e7b57da6"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-5b8859048a152491",
+      "event_a_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "RELATED",
+      "reason": "此前准备提醒爸爸去医院检查，之后爸爸已去做核磁，并顺道到心脏科询问用药及高血压问题。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前准备提醒爸爸去医院检查，之后爸爸已去做核磁，并顺道到心脏科询问用药及高血压问题。",
+        "source_event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+        "source_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "顺便提醒爸爸明天早点去医院检查、别忘了",
+            "point_id": "3d16ea11-bb2a-4ba6-b53c-09e93b3c8917",
+            "point_event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+            "offset": 28,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5d2d23f804809968da418d863c65f5b4b4f2e8f1c20af071a2fac441d351ca3c"
+          }
+        ],
+        "target_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+        "target_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "他今天去做核磁共振，上周又听他说在吃阿司匹林，我便让他去心脏科问问阿司匹林能不能停，顺道看看高血压的问题",
+            "point_id": "7fd8212a-9b93-467a-a331-de1d29b75d31",
+            "point_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 14,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "fb4910ac73d2bfa5bb86a52a4b8e47ce596d4791f1b74885eaa3d6ad4d509716"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-73300fad5d2ab28d",
+      "event_a_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
+      "event_b_id": "f67365e8-eec0-462e-8a40-ed0f90c81c8e",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "借AI与父母沟通与自己查看体检报告，虽都用AI，但未表达具体事件间的触发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7a914f1b47761850",
+      "event_a_id": "5650eb49-c358-43c9-b00a-8580a3e3e0dc",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "经济危机视频与心理活动图谱设计是不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7b587503b03f4889",
+      "event_a_id": "7f93db3d-60b3-465c-b10d-0952ba706189",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "f67365e8-eec0-462e-8a40-ed0f90c81c8e",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "RELATED",
+      "reason": "请AI查看自己的体检报告时，它还指出视力问题，使我考虑更换眼镜并请小廖帮忙找配镜地点。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "请AI查看自己的体检报告时，它还指出视力问题，使我考虑更换眼镜并请小廖帮忙找配镜地点。",
+        "source_event_id": "f67365e8-eec0-462e-8a40-ed0f90c81c8e",
+        "source_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我把今年的体检报告下载下来给AI看",
+            "point_id": "49361c7f-bf8f-409f-b063-066408425422",
+            "point_event_id": "f67365e8-eec0-462e-8a40-ed0f90c81c8e",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "e507062f2e25e5d1741c8f21243a048cd96ea1ef37af4233d16aef6f45a33f22"
+          }
+        ],
+        "target_event_id": "7f93db3d-60b3-465c-b10d-0952ba706189",
+        "target_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "AI看体检报告时还说，我的视力不太行，眼镜应该换了",
+            "point_id": "a4ff09ab-56e5-4f76-8559-c582d89c5965",
+            "point_event_id": "7f93db3d-60b3-465c-b10d-0952ba706189",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "6df8b69bbbbc33b3ebf58519ab3f1a6b6ec594bd8e5194f3b6737d8969af28ac"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-7b85de35005b6386",
+      "event_a_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+      "event_a_run_id": "aab5b0c9-df11-4ef4-b14b-e2fe40797437",
+      "event_b_id": "9d518eb5-1054-401e-a070-44c39203373e",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "哒哒洗牙手术与爸爸核磁检查属于不同对象的医疗事项，未具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7c0e5801c1b9fcb8",
+      "event_a_id": "5650eb49-c358-43c9-b00a-8580a3e3e0dc",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "经济危机与爸爸的心脏血脂检查是不同事项，没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7c1f91b842cc0503",
+      "event_a_id": "9d518eb5-1054-401e-a070-44c39203373e",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "ba5492a9-875c-49b3-9e07-c70975675ec5",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "爸爸核磁结果与我按摩后头晕是不同对象、不同经历；颈椎主题不足建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-80b6d596250769c6",
+      "event_a_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "争吵复盘与知识图谱拆解心理活动虽主题相近，但后者没有引用这次争吵，不能由心理学主题自动建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-815d1a8a5be30c7b",
+      "event_a_id": "5650eb49-c358-43c9-b00a-8580a3e3e0dc",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "9d518eb5-1054-401e-a070-44c39203373e",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "经济危机视频思考与爸爸核磁结果无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8872aaa77d11acba",
+      "event_a_id": "7f93db3d-60b3-465c-b10d-0952ba706189",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "准备配镜与知识图谱第二层设计没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a0e5e5158a63829e",
+      "event_a_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "爸爸血脂干预与自己较早因肝钙化灶调整饮食属于不同对象的健康事项，没有明确引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a1ed9bb5d509e46e",
+      "event_a_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "7f93db3d-60b3-465c-b10d-0952ba706189",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "争吵中买拖鞋的请求与准备配眼镜是不同购买事项，没有具体延续或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a37577901fb755d1",
+      "event_a_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "f67365e8-eec0-462e-8a40-ed0f90c81c8e",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "较早因肝钙化灶注意饮食和这次复查自己高血脂都提到饮食干预，但后者未提及或更新前一次具体安排，不能仅凭长期健康目标连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a824f2fa706a3daf",
+      "event_a_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "劝父亲使用AI和知识图谱第二层设计都包含对AI的认识，但并非同一事项，也未明确互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a95836b5abe53fad",
+      "event_a_id": "5650eb49-c358-43c9-b00a-8580a3e3e0dc",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "软着陆成本转移与实名票黄牛门槛都涉及权力利益观点，未具体引用彼此经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a9e4e404a1f6fb6b",
+      "event_a_id": "5650eb49-c358-43c9-b00a-8580a3e3e0dc",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "f67365e8-eec0-462e-8a40-ed0f90c81c8e",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "经济危机视频与自己体检饮食安排无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-aec69a5365d26917",
+      "event_a_id": "00f249de-d76f-40a0-80ad-0410a0d00e2a",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "5650eb49-c358-43c9-b00a-8580a3e3e0dc",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "苹果发布会引出的集中力量与创新文化讨论，与经济危机视频引出的软着陆代价讨论，涉及相近体制观点，但未引用彼此具体经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b23133a1602119c2",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "RELATED",
+      "reason": "此前准备先结构化日记、提取事件要点再建关系，之后继续梳理人物事件第一层，并尝试第二层心理活动设计。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前准备先结构化日记、提取事件要点再建关系，之后继续梳理人物事件第一层，并尝试第二层心理活动设计。",
+        "source_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "应该先结构化整理事件原文，弄清楚一个事件讲了哪几件事、有哪些内容和要点，再建立这些点之间的关系",
+            "point_id": "90bf00f0-4bfd-499d-a360-51b482baadaa",
+            "point_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 150,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "1c29e135f70286aa49898283985417563d9b20e2a509ba01508ed89b82a9f95a"
+          }
+        ],
+        "target_event_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+        "target_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "把从日记提取知识图谱最简单的第一层梳理清楚了，主要是人物和事件。今天想做第二层",
+            "point_id": "71b68c49-0a62-4f33-a469-216a04e29233",
+            "point_event_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 23,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "8728d3bee19c61d54745571e88eeadf905c1f228ecbff5d027e3be61e7b57da6"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-b681f288f6efc7ed",
+      "event_a_id": "5650eb49-c358-43c9-b00a-8580a3e3e0dc",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "b38262b1-de44-4111-9da9-9d6f06f2c6be",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "对既得利益者的总体看法与李克强访谈中的个人评价有观点对照，但未明确引用或修正那次访谈经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c1b7049a1dfd4c58",
+      "event_a_id": "7f93db3d-60b3-465c-b10d-0952ba706189",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "自己担心配镜贵与小廖消费盘点不是同一笔支出，也未互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c4bb4f524579defe",
+      "event_a_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+      "event_a_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "event_b_id": "7f93db3d-60b3-465c-b10d-0952ba706189",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "与母亲讨论手机伤眼和自己配镜都涉及眼睛，但当前未把配镜联系到那次谈话。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c5e4291deeda063a",
+      "event_a_id": "5650eb49-c358-43c9-b00a-8580a3e3e0dc",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "两个视频带来对制度和底层处境的相近思考，但未表达第二次引用前一次节目或继续同一具体事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cec2908558c2c5e2",
+      "event_a_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "fef8cb25-1834-4583-99c2-9b92c5efa3e6",
+      "event_b_run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+      "status": "RELATED",
+      "reason": "约好爸爸拍核磁时到心脏科评估阿司匹林用药后，爸爸实际接受心脏相关检查，并收到医生的用药建议。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "约好爸爸拍核磁时到心脏科评估阿司匹林用药后，爸爸实际接受心脏相关检查，并收到医生的用药建议。",
+        "source_event_id": "fef8cb25-1834-4583-99c2-9b92c5efa3e6",
+        "source_run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+        "source_evidence": [
+          {
+            "point_no": 5,
+            "quote": "我便约他们周三拍完核磁再挂心脏科，告知高血压、自行服阿司匹林四五年，请医生决定能否停",
+            "point_id": "16bb7387-1dd2-406b-80d5-d1f4d6329fd6",
+            "point_event_id": "fef8cb25-1834-4583-99c2-9b92c5efa3e6",
+            "point_run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+            "offset": 39,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "d22403a085d1276b2e0c132df60a15250150fbcf7d2557f853bf884873cdeb8e"
+          }
+        ],
+        "target_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+        "target_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我便让他去心脏科问问阿司匹林能不能停，顺道看看高血压的问题",
+            "point_id": "7fd8212a-9b93-467a-a331-de1d29b75d31",
+            "point_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 37,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "fb4910ac73d2bfa5bb86a52a4b8e47ce596d4791f1b74885eaa3d6ad4d509716"
+          },
+          {
+            "point_no": 3,
+            "quote": "他拿报告复诊后，医生让他吃他汀，降压药也继续吃",
+            "point_id": "d733e82d-d2ee-41f7-8edb-706bced18a13",
+            "point_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 14,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "cb1f0c4f44eadfc879aede76c7e6d3705ca4a3ee7ec71f97bc54f85237f8f48d"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-dedc77228bc035d8",
+      "event_a_id": "9d518eb5-1054-401e-a070-44c39203373e",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "fef8cb25-1834-4583-99c2-9b92c5efa3e6",
+      "event_b_run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+      "status": "RELATED",
+      "reason": "爸爸此前已预约周三早上的核磁，之后检查完成并出结果，我看过报告后觉得放心一些。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "爸爸此前已预约周三早上的核磁，之后检查完成并出结果，我看过报告后觉得放心一些。",
+        "source_event_id": "fef8cb25-1834-4583-99c2-9b92c5efa3e6",
+        "source_run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "最后约下周三早上",
+            "point_id": "135bdd51-a667-42c3-bc17-b481ac0b4068",
+            "point_event_id": "fef8cb25-1834-4583-99c2-9b92c5efa3e6",
+            "point_run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+            "offset": 77,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ee6296852e969566f7711703e2ab3f716727af9ab5cead9fd289cb6016589c31"
+          }
+        ],
+        "target_event_id": "9d518eb5-1054-401e-a070-44c39203373e",
+        "target_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我爸今天早晨去医院做核磁共振，下午出了结果",
+            "point_id": "3fc28a0e-db40-4867-9e51-956ab4dd39c2",
+            "point_event_id": "9d518eb5-1054-401e-a070-44c39203373e",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "4501da4c8bafb8c6c99b7300798be421c60b96d36ae35925d94f5992e2cea404"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-e2009ff8b16dcd7e",
+      "event_a_id": "f67365e8-eec0-462e-8a40-ed0f90c81c8e",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "fef8cb25-1834-4583-99c2-9b92c5efa3e6",
+      "event_b_run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+      "status": "NO_RELATION",
+      "reason": "爸爸自行服药争论与我自己评估是否服他汀，不能仅因用药主题认定后续或直接触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e89b7cf2052d81b3",
+      "event_a_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "f67365e8-eec0-462e-8a40-ed0f90c81c8e",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "RELATED",
+      "reason": "爸爸查出高血脂、被医生建议服他汀，让我想到自己的多年高血脂，重新查看自己的体检报告并考虑干预方式。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "爸爸查出高血脂、被医生建议服他汀，让我想到自己的多年高血脂，重新查看自己的体检报告并考虑干预方式。",
+        "source_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+        "source_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "生化检查查出我爸有些高血脂。他拿报告复诊后，医生让他吃他汀",
+            "point_id": "d733e82d-d2ee-41f7-8edb-706bced18a13",
+            "point_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "cb1f0c4f44eadfc879aede76c7e6d3705ca4a3ee7ec71f97bc54f85237f8f48d"
+          }
+        ],
+        "target_event_id": "f67365e8-eec0-462e-8a40-ed0f90c81c8e",
+        "target_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "听说我爸高血脂，医生都让他吃他汀了，我也想到了自己",
+            "point_id": "32c00c2e-12b3-496f-a264-b57195257735",
+            "point_event_id": "f67365e8-eec0-462e-8a40-ed0f90c81c8e",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "936dcbb0f4beddbc8b0544af28431031a5440d9df3d090c44f8a231feccee04c"
+          },
+          {
+            "point_no": 2,
+            "quote": "我把今年的体检报告下载下来给AI看",
+            "point_id": "49361c7f-bf8f-409f-b063-066408425422",
+            "point_event_id": "f67365e8-eec0-462e-8a40-ed0f90c81c8e",
+            "point_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "e507062f2e25e5d1741c8f21243a048cd96ea1ef37af4233d16aef6f45a33f22"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-e9f977a4524afa5a",
+      "event_a_id": "5650eb49-c358-43c9-b00a-8580a3e3e0dc",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "7f93db3d-60b3-465c-b10d-0952ba706189",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "经济危机视频思考与准备配镜无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-eea230f3b5843e3c",
+      "event_a_id": "5650eb49-c358-43c9-b00a-8580a3e3e0dc",
+      "event_a_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "event_b_id": "90072bec-a536-4325-964e-c8b22a30680e",
+      "event_b_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "status": "NO_RELATION",
+      "reason": "经济危机视频思考与老陆手术、催爸爸检查无具体联系。",
+      "relation": null
+    }
+  ]
+}

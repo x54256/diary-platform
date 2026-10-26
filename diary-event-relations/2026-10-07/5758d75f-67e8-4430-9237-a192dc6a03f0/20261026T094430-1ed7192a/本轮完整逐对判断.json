@@ -1,0 +1,931 @@
+{
+  "package_sha256": "e762b17f8de3f9e04730f8d954a4356f44db44e7b2a7714d0c0099ccf1c6ba42",
+  "results": [
+    {
+      "pair_id": "P-58ba763d10efc5e8",
+      "status": "NO_RELATION",
+      "reason": "更换买菜平台与柳州买榴莲为不同消费事项，未互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-deef440b79427624",
+      "status": "NO_RELATION",
+      "reason": "清远酒店与桂林梯田属于两次不同出游，未表达具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-38c6f2bd198559e4",
+      "status": "NO_RELATION",
+      "reason": "清远酒店与桂林雨中骑行是不同旅行，亲近自然的体验相似不足建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-90cb7db4947feacc",
+      "status": "NO_RELATION",
+      "reason": "清远出行照顾例假不适与桂林旅行后腿部按摩是不同不适及行程。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7f671162daea07f9",
+      "status": "NO_RELATION",
+      "reason": "哒哒误咬洁厕灵与桂林市区还车、回旅店是不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a139dd2cb1fce07e",
+      "status": "NO_RELATION",
+      "reason": "此前醉酒遛狗与旅行后劝留及急活电话无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f117ba019ef04eac",
+      "status": "NO_RELATION",
+      "reason": "醉酒遛狗与桂林拼船、问水果不是同一经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f8e0a971ecc5a12f",
+      "status": "NO_RELATION",
+      "reason": "此前例假肚痛与本次开车爬山后腿不适为不同不适，没有明确延续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a786141f876adfbb",
+      "status": "NO_RELATION",
+      "reason": "被罚款后转移话题和拼船时鼓励开口不是同一沟通事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ffd45937aa394673",
+      "status": "NO_RELATION",
+      "reason": "同为植物大战僵尸，但清远无尽通关和梯田回忆之旅是不同游戏过程，未互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-19a7e327d063e5d9",
+      "status": "NO_RELATION",
+      "reason": "香蕉售后争议与榴莲不包售后为不同购买，未引用旧纠纷。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-de9f630b5db06fee",
+      "status": "NO_RELATION",
+      "reason": "母亲催生与督促父亲带饭没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-aa0cfe224b90c7da",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“4号晚上去桂林市区，还共享电动车特别折腾”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-41f672708796345a",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“4号骑车看山，雨里游了一幅幅水墨画”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-a73d13289125ac3d",
+      "status": "RELATED",
+      "reason": "此前安排十一去桂林阳朔，之后实际在5、6号游览梯田并带哒哒爬山，完成桂林行程。",
+      "relation": {
+        "source_event": "E018",
+        "target_event": "E042",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前安排十一去桂林阳朔，之后实际在5、6号游览梯田并带哒哒爬山，完成桂林行程。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "准备十月三号带我们去广西桂林、阳朔玩一圈，到时带哒哒放松。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "5号去看梯田"
+          },
+          {
+            "point_no": 6,
+            "quote": "吃完出发去柳州，桂林之行就结束了。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-7a469f38caeda917",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“颂梅被劝别离职，又接到急活，我想尽快给她续会员”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-c799b79725b6faab",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“6、7号去柳州吃喝，体验茶麸洗头”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-1d26b63793cf56dc",
+      "status": "NO_RELATION",
+      "reason": "梯田旅游与此前回家玩游戏遛狗是不同经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d82b93b22e4fbe41",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“从桂林和柳州的体验，看到自己对地区差距的误判”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-4c8d77cd2e169cc7",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-9644ad37d754a1ab",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-5512af3a6605048b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-60dadb43a6817095",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-c3f44f3f3f54b19e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-661c0c0c6919d4cf",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E042",
+        "target_event": "E046",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "旅行中开车爬山造成颂梅腿不适，回程后预约按摩，她反馈明显舒服了。",
+        "source_evidence": [
+          {
+            "point_no": 6,
+            "quote": "这次路上都是颂梅开车，再爬山，腿累坏了，不太舒服。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "回程也是颂梅开车，她的腿很不舒服，我在车上约了以前找过的师傅，安排晚上八点按摩，七点二十左右遛完狗就带她去。师傅问上次是否按疼了，告诉她可以调整力度、不舒服就来，别害怕。我觉得虽是推销，说得也对。按完颂梅说师傅很厉害，感觉好多了"
+          }
+        ]
+      },
+      "reason": "旅行中开车爬山造成颂梅腿不适，回程后预约按摩，她反馈明显舒服了。"
+    },
+    {
+      "pair_id": "P-7f1f1e50d7df1225",
+      "status": "NO_RELATION",
+      "reason": "梯田旅游与KTV早场为不同娱乐事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9fe769456fa1b227",
+      "status": "NO_RELATION",
+      "reason": "哒哒洗澡护理与桂林回旅店兴奋不是同一具体事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0686152194ef7dfd",
+      "status": "RELATED",
+      "reason": "国庆因票价和行程搁置回乡后，继续考虑颂梅离职后回丹东扫墓，并进一步确定等合适票价、必要时春节再回的优先级。",
+      "relation": {
+        "source_event": "E024",
+        "target_event": "E047",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "国庆因票价和行程搁置回乡后，继续考虑颂梅离职后回丹东扫墓，并进一步确定等合适票价、必要时春节再回的优先级。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "国庆回乡计划先搁置，实在不行春节早些回去，或者等她辞职、离职后，再找时间回一趟。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最近想等颂梅离职以后，提前几天回丹东，给爷爷奶奶扫扫墓。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-c6474c5442060615",
+      "status": "RELATED",
+      "reason": "此前小廖已提离职却仍承受工作压力，旅行回来后又接到劝留电话和次日交付的急活，我尝试给她续会员以帮助处理。",
+      "relation": {
+        "source_event": "E019",
+        "target_event": "E037",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前小廖已提离职却仍承受工作压力，旅行回来后又接到劝留电话和次日交付的急活，我尝试给她续会员以帮助处理。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "明明已提离职，还不放人，要干到十月之后。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "后来对方还给她安排了明早要交的PPT"
+          },
+          {
+            "point_no": 2,
+            "quote": "我想着赶紧给她把Codex会员充上，明天好用。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-07739c30a8bd2783",
+      "status": "NO_RELATION",
+      "reason": "离职压力沟通与桂林游船露营没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-910be108440eda9b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“4号骑车看山，雨里游了一幅幅水墨画”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-85712dafa6ed7843",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“颂梅被劝别离职，又接到急活，我想尽快给她续会员”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-bf145b0b81d15b6b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“6、7号去柳州吃喝，体验茶麸洗头”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-74f9eff21cf3cef7",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“从桂林和柳州的体验，看到自己对地区差距的误判”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-9d982d2449e5cd9a",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-d004e9ac6b203e01",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-8dcc4060b9d296d3",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-1103cb22eb5b0f0e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-1c88b90ead6b4ab5",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-2635ef68ef197617",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号晚上去桂林市区，还共享电动车特别折腾”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-630b23e0631779e2",
+      "status": "NO_RELATION",
+      "reason": "清远退房逛园区与桂林还车、回旅店为不同旅程。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dbc1127b01bfa7fc",
+      "status": "NO_RELATION",
+      "reason": "桂林还车与早场KTV赶路不是同一事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b633eb26fa3d051b",
+      "status": "NO_RELATION",
+      "reason": "多多半夜跑酷与哒哒在旅店玩耍是不同动物和经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-773dde6140989ae9",
+      "status": "NO_RELATION",
+      "reason": "早前家务消费争吵与当前离职劝留急活电话是不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0b1f3039c8bda81e",
+      "status": "NO_RELATION",
+      "reason": "争吵中消费囤积与榴莲价格期待讨论没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8969c00656a46c2e",
+      "status": "NO_RELATION",
+      "reason": "争吵复盘与陌生人拼船交流不是同一沟通经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b4398e6bf4792ad3",
+      "status": "NO_RELATION",
+      "reason": "家务消费争吵与桂林租车露营没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-647e902a215449e3",
+      "status": "NO_RELATION",
+      "reason": "家务消费争吵与腿部按摩没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-be38a0500b1ffe1c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“颂梅被劝别离职，又接到急活，我想尽快给她续会员”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-f35d3d5099948255",
+      "status": "NO_RELATION",
+      "reason": "桂林雨中骑行与此前做饭、学摄影是不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-db83b52a0215625e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“6、7号去柳州吃喝，体验茶麸洗头”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-6b69db1476956aa5",
+      "status": "NO_RELATION",
+      "reason": "桂林骑行与永旺买饭回家是不同经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9a08bc49d295474a",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“从桂林和柳州的体验，看到自己对地区差距的误判”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-84434e3cb6d376bf",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-fd9713273321135d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-50e6e272d6d86db0",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-e4f7e9b7f33126eb",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E039",
+        "target_event": "E040",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "第一晚在营地露营后，次晨在营地吃粉并租电动车观山，继续同一次营地游玩。",
+        "source_evidence": [
+          {
+            "point_no": 5,
+            "quote": "第一晚就在那睡了。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "第二天早晨在营地吃了粉，印象也就一般。之后租他们的电动车去骑车观景"
+          }
+        ]
+      },
+      "reason": "第一晚在营地露营后，次晨在营地吃粉并租电动车观山，继续同一次营地游玩。"
+    },
+    {
+      "pair_id": "P-8e94f4155022be0f",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-4ed80d4bb444feb1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“4号骑车看山，雨里游了一幅幅水墨画”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-7d9cb4aa78e24eea",
+      "status": "NO_RELATION",
+      "reason": "两次都淋雨骑车，但桂林游山与广州做咬合垫是不同经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-07b5aabba52be074",
+      "status": "NO_RELATION",
+      "reason": "桂林雨中骑行与八月暴雨积水回家是不同经历，未具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d60e9ad184a0bb84",
+      "status": "NO_RELATION",
+      "reason": "桂林出游计划与丹东扫墓计划是不同旅行。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f5dbfc2fd81ccbee",
+      "status": "RELATED",
+      "reason": "此前安排10月2日演唱会、3日带哒哒去桂林阳朔，之后演唱会和3日出游实际发生，并记录游船、租车及露营。",
+      "relation": {
+        "source_event": "E018",
+        "target_event": "E039",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前安排10月2日演唱会、3日带哒哒去桂林阳朔，之后演唱会和3日出游实际发生，并记录游船、租车及露营。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "颂梅抢到十月二号汪苏泷演唱会票，还准备十月三号带我们去广西桂林、阳朔玩一圈"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "2号晚上颂梅去看汪苏泷演唱会，赶上下雨，淋了个透心凉。3号我们挺早出发，开了七个多小时车，到桂林那边的景点坐船。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-7df0dae4c1c3eeb9",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从虎门销烟的说法，想到自给自足和全球协作”与“从桂林和柳州的体验，看到自己对地区差距的误判”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-c2c1c0ab445c3c30",
+      "status": "NO_RELATION",
+      "reason": "陪颂梅清洁牙周与我因牙磨损吃不了酸，不是同一对象或治疗进程。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f21de2cbf0d3b6d5",
+      "status": "NO_RELATION",
+      "reason": "此次旅行劳累后休息与此前早醒玩手机补觉为不同经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8fd253b24e8003ad",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“6、7号去柳州吃喝，体验茶麸洗头”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-1873c964c058851c",
+      "status": "NO_RELATION",
+      "reason": "劝留急活电话与此前回家玩游戏没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-eb8c9dce6ecb358a",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“从桂林和柳州的体验，看到自己对地区差距的误判”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-a69b63f7e60d2a43",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-5cb5e9d16c048fb1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-3fd7fb59b0406fd8",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-62a173bbf3801458",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-e3da2de2915c2e55",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-7338af6730bba2fd",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-f0bcfd15e5a0e845",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E035",
+        "target_event": "E036",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前父亲答应带饭，后来继续提醒明天带饭，并把携带方式简化为只带内胆。",
+        "source_evidence": [
+          {
+            "point_no": 6,
+            "quote": "最后他松口答应带饭了。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "主要督促我爸明天上班带饭。他那个饭盒有加热底盒和内胆，我让他只带饭盒内胆"
+          }
+        ]
+      },
+      "reason": "此前父亲答应带饭，后来继续提醒明天带饭，并把携带方式简化为只带内胆。"
+    },
+    {
+      "pair_id": "P-5e723140f886ee05",
+      "status": "NO_RELATION",
+      "reason": "做饭和学习摄影与丹东扫墓计划没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-acb413551240dc0d",
+      "status": "NO_RELATION",
+      "reason": "柳州吃粉与此前做小龙虾为不同饮食事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dc9f0f8c1081ead8",
+      "status": "NO_RELATION",
+      "reason": "柳州吃喝与永旺买饭回家为不同消费及行程。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b03634d3d77dd324",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“6、7号去柳州吃喝，体验茶麸洗头”与“从桂林和柳州的体验，看到自己对地区差距的误判”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-8893ea9474377076",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“6、7号去柳州吃喝，体验茶麸洗头”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-bc8b148abc683d6c",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E044",
+        "target_event": "E043",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "柳州返程买下便宜榴莲后，回酒店实际吃了榴莲和其他水果。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "总共33块，我第一次买33块钱的榴莲。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 4,
+            "quote": "回酒店后吃了榴莲和这些水果。"
+          }
+        ]
+      },
+      "reason": "柳州返程买下便宜榴莲后，回酒店实际吃了榴莲和其他水果。"
+    },
+    {
+      "pair_id": "P-48156942b23bf74f",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E043",
+        "target_event": "E038",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "柳州洗头记录再次提到向老板娘问水果并照推荐购买，指向同一次柳州询问水果的经历。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "结束后问老板娘水果的事，照她推荐去买了柚子"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 4,
+            "quote": "我再问有什么应季、好吃、值得推荐的水果。店主说当季主要是橘子和柚子"
+          }
+        ]
+      },
+      "reason": "柳州洗头记录再次提到向老板娘问水果并照推荐购买，指向同一次柳州询问水果的经历。"
+    },
+    {
+      "pair_id": "P-c0583df493cd47df",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“6、7号去柳州吃喝，体验茶麸洗头”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-426e0a3a32f23168",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“6、7号去柳州吃喝，体验茶麸洗头”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-5ef288bb0e4e1047",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“6、7号去柳州吃喝，体验茶麸洗头”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-22217a61a0cd4dc3",
+      "status": "NO_RELATION",
+      "reason": "柳州手机掉落与此前电动车倒下为不同事故。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b6bff975bd57df97",
+      "status": "NO_RELATION",
+      "reason": "柳州吃喝手机掉落与八月暴雨回家无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4a39ad6bb59f13a7",
+      "status": "NO_RELATION",
+      "reason": "买小龙虾和买榴莲是不同购买，价格讨论不足以建立事件联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6db8165a69cdd175",
+      "status": "NO_RELATION",
+      "reason": "玩游戏手腕疼与颂梅开车爬山腿疼是不同对象和不适。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9c9a909fbb63c3b8",
+      "status": "NO_RELATION",
+      "reason": "母亲催生劝学与父亲带饭、母亲饮食提醒不是同一具体事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-76de87c1db93e950",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从桂林和柳州的体验，看到自己对地区差距的误判”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-93097027b455d8e8",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从桂林和柳州的体验，看到自己对地区差距的误判”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-254bed99b4ee4d1b",
+      "status": "NO_RELATION",
+      "reason": "中外发展视频与广西地区设施体验虽都比较软硬件差异，当前未引用该视频。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1a7110e2e04af462",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从桂林和柳州的体验，看到自己对地区差距的误判”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-784fc8e22927ec1c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从桂林和柳州的体验，看到自己对地区差距的误判”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-0122840504ca78b6",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从桂林和柳州的体验，看到自己对地区差距的误判”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-1d12b61ebf1d0908",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从桂林和柳州的体验，看到自己对地区差距的误判”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-924e90c0c949a6c1",
+      "status": "NO_RELATION",
+      "reason": "优先级观点相近，但回乡计划没有明确引用那次家务积压经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-47365a2dc33cd9c3",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-50a5a3fcd69888db",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-a192d35cc04cce41",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-d2c5dca625863d28",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-b0986af19cf53d1f",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-f29ed99b085582cb",
+      "status": "NO_RELATION",
+      "reason": "机票等价与演唱会实名票黄牛讨论不是同一购票事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4a45f03635385f88",
+      "status": "NO_RELATION",
+      "reason": "家务积压烦躁与桂林出游攻略反思未引用同一争吵或具体经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4fe17fa3dcbafc75",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“买33块钱的榴莲，跟颂梅聊价格和期待”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-e39c3fba8d60dd18",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“买33块钱的榴莲，跟颂梅聊价格和期待”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-2e7fbe5572a65e11",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“买33块钱的榴莲，跟颂梅聊价格和期待”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-c5c4d58966e99983",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“买33块钱的榴莲，跟颂梅聊价格和期待”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-9419032a63e66608",
+      "status": "NO_RELATION",
+      "reason": "榴莲价格期待与清远蛤蟆进房是不同旅行中的不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b7a4a8592a9641d5",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E039",
+        "target_event": "E038",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "游船露营记录中明确回顾颂梅主动询问拼船，并以此肯定她的成长。",
+        "source_evidence": [
+          {
+            "point_no": 5,
+            "quote": "今天主动问人拼船，能打9.8分"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我又让颂梅问前面的小姐姐，人家也很爽快地同意了。"
+          }
+        ]
+      },
+      "reason": "游船露营记录中明确回顾颂梅主动询问拼船，并以此肯定她的成长。"
+    },
+    {
+      "pair_id": "P-dd0c19fbc8afa2b8",
+      "status": "NO_RELATION",
+      "reason": "桂林拼船与二沙岛找狗是不同经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-643d632d19e1d111",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“换纸币、拼船和问水果，发现开口比内耗更有价值”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-8601d0b5b5bf2006",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“换纸币、拼船和问水果，发现开口比内耗更有价值”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-557e449f8d0590d5",
+      "status": "NO_RELATION",
+      "reason": "问水果及拼船与KTV安排没有具体延续或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e468b8daee2b1cce",
+      "status": "NO_RELATION",
+      "reason": "此前是我按摩后不适；本次是颂梅按摩，师傅提的上次按疼无法据此定位为我的那次，不能仅凭同一师傅建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1f669d50d03bfadb",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“3号游船、租车和露营，觉得省精力的钱值得花”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-1b231e70f464a2db",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“3号游船、租车和露营，觉得省精力的钱值得花”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-99357e2fbf35f40f",
+      "status": "NO_RELATION",
+      "reason": "KTV与桂林游船露营不是同一具体预订或行程。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-67e8bb6ab8b906b7",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“提醒我爸上班带饭，也再跟我妈说说饮食限制”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-b7b3af0794a988d4",
+      "status": "NO_RELATION",
+      "reason": "父亲带饭与我自己体检食谱为不同对象，没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a56dac3df09868b2",
+      "status": "NO_RELATION",
+      "reason": "当前带饭与较早自行服药评估是父亲不同干预事项；没有引用那次服药争论，不因同一人的健康主题自动连边。",
+      "relation": null
+    }
+  ]
+}

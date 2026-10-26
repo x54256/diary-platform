@@ -1,0 +1,13 @@
+..usage: python -m unittest [-h] [--backend-dir BACKEND_DIR]
+                          {find,prepare,read,record,status,check,render,verify,convert,schema,prepare-storage,save,storage-status}
+                          ...
+python -m unittest: error: unrecognized arguments: --history-mode replay
+usage: python -m unittest [-h] [--backend-dir BACKEND_DIR]
+                          {find,prepare,read,record,status,check,render,verify,convert,schema,prepare-storage,save,storage-status}
+                          ...
+python -m unittest: error: unrecognized arguments: --completed-run /tmp/old
+.............................ssss.............
+----------------------------------------------------------------------
+Ran 48 tests in 0.402s
+
+OK (skipped=4)

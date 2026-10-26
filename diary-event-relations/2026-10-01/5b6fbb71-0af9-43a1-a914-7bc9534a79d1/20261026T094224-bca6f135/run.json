@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "package_sha256": "33b43ca279102a188010ffa8537203eb4f843c740376ff903193cf8b6e5f169e",
+  "created_at": "2026-10-26T01:42:24.297206+00:00",
+  "batches": [
+    {
+      "batch_id": "B001",
+      "pair_ids": [
+        "P-aca01cd87c362967",
+        "P-282e5b11d5dec3c1",
+        "P-d52f0da7792c59c7",
+        "P-51e725aefe1d333e",
+        "P-8c46d047cc15137e",
+        "P-88a16a5d9562a9f0"
+      ]
+    },
+    {
+      "batch_id": "B002",
+      "pair_ids": [
+        "P-75dc974f7299d6b9",
+        "P-4a36b5eb20b6a638",
+        "P-89e23ad45d409abb",
+        "P-c245d29aadce01c2",
+        "P-526be95d372d6015",
+        "P-f4a4abb6f04cb36b",
+        "P-472fcf8eb6ccc045",
+        "P-713c6ba153d5b549",
+        "P-4162b5f5d619d18a",
+        "P-dee23f127e39c997"
+      ]
+    },
+    {
+      "batch_id": "B003",
+      "pair_ids": [
+        "P-81aa0c86e6d965d6",
+        "P-b679dbcc45ea17e8",
+        "P-3b8d7f4d7183f0c9",
+        "P-3a7bdd62a089bd47",
+        "P-58fce75487340ab3",
+        "P-66b17b714c744f5c",
+        "P-e648c292127e8c2e"
+      ]
+    },
+    {
+      "batch_id": "B004",
+      "pair_ids": [
+        "P-b82852682dea6013",
+        "P-0634320d43e338f9",
+        "P-dfee8e7333609041",
+        "P-74ef3d85e4d3e2ad",
+        "P-3d571ddd7786c542",
+        "P-70f67e2f4d86c008",
+        "P-bfd0351a28979c65",
+        "P-fdecdb0f2abe5937",
+        "P-6dbabb11324793a3",
+        "P-90a26fab776d4925",
+        "P-d6cf642a8f9226b7",
+        "P-235f991eaddc9324"
+      ]
+    },
+    {
+      "batch_id": "B005",
+      "pair_ids": [
+        "P-b10a198977e275b7",
+        "P-4ff7c50aa9177df0",
+        "P-7d9d66e0fd97d1f8",
+        "P-04e8f4a8d8446a42",
+        "P-22601d51b63d72b1",
+        "P-d23b7ae7c2909e32",
+        "P-49b495a49fb9e1ed",
+        "P-bd20a7eca6dfe3bb",
+        "P-d5ab49ccb2323fc8",
+        "P-803a911a02f82f2d"
+      ]
+    }
+  ],
+  "files": {
+    "B002.json": "e0632eedac6ebfaeb2cbf4ce69853be7740ae18e632b90bcddfc53f96e1d4df8",
+    "B003.json": "a8072456a72fb9b9c24e5dd2105ff62b2b672934ca989129a3bdcd87ecaa5c3a",
+    "source.json": "575e2006f57b6379f893f88c8f93ed8a7e97e9d9a3a899514fc0ec4a146527fc",
+    "B004.json": "7a6c13e8f4d24890187c5b4b8c15699d7c7102715415d69e3772d2115ea24d0b",
+    "B005.json": "0f45cb1debbee0c39926191c246afbb68151ec325dbbc640858a15640d44cf51",
+    "B001.json": "09942a8ce424b1075cb9d2b6669fe19dfe430e86d79dea1ded0f63ee73847e8d"
+  }
+}

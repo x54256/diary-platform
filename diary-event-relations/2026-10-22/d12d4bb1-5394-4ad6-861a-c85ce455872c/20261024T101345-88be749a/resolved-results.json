@@ -1,0 +1,1847 @@
+{
+  "package_sha256": "9564b7d1fa93b920e7f37e9157ca5b9f0b0c980336cede35e999453ba60a84ea",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "9564b7d1fa93b920e7f37e9157ca5b9f0b0c980336cede35e999453ba60a84ea",
+    "verified_at": "2026-10-24T02:13:47.168647+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-0271cbfc39793f9f",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司不断加AI和测试要求，工具使用成本让我很烦”与“要点提取继续试验，事件关系skill做到一半等额度恢复”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-03a1d9866fdde6d0",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司不断加AI和测试要求，工具使用成本让我很烦”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-042c8c48721fffd7",
+      "event_a_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“从反贪腐视频想到尊重人性，也想继续多读书”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-04e4494b505321cd",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“读《非暴力沟通》，拿我妈催生的事试着复盘”与“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-061c4f1a4ba8230d",
+      "event_a_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“提醒颂梅控制离职前后的花销，又给她转了5000块”与“给我妈挂复查号，继续倾听才发现她并不是想停药”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0638a73b842793ce",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“读《非暴力沟通》，拿我妈催生的事试着复盘”与“小廖生日改成抽奖，定下六样东西”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-08b883adc4b7cf5f",
+      "event_a_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "a5329c5a-9b24-47f9-b21f-3c4739a65abf",
+      "event_b_run_id": "43e74242-261c-4458-855d-dbbc1de316a7",
+      "status": "NO_RELATION",
+      "reason": "“要点提取继续试验，事件关系skill做到一半等额度恢复”与“做出日记整理skill，用九月日记验证、修复 skill 存在的问题”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-090623e091d1099f",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司不断加AI和测试要求，工具使用成本让我很烦”与“从反贪腐视频想到尊重人性，也想继续多读书”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0ad1337a25b2c605",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“读《非暴力沟通》，拿我妈催生的事试着复盘”与“小廖总替别人考虑，也可能和家庭里的道德要求有关”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0d07c10ce92531dd",
+      "event_a_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“要点提取继续试验，事件关系skill做到一半等额度恢复”与“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1009a58ae4a8b766",
+      "event_a_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "UNRESOLVED",
+      "reason": "22日确实回顾上周末许成钢视频，但18日要点主要记软预算约束和领导理念，22日引用人本主义发展内容；现有两侧无法确认是同一次观看或同一段视频，保留具体来源定位未决。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1503a46626ce766a",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "RELATED",
+      "reason": "讨论测试统计和考核成本时，明确类比当天AI代码率未统计却用于考核的问题。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "讨论测试统计和考核成本时，明确类比当天AI代码率未统计却用于考核的问题。",
+        "source_event_id": "1b27be66-512d-4590-b855-19505246ada3",
+        "source_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "就像AI代码率统计不上却考核。",
+            "point_id": "6ed3d18a-b2f7-4934-a4a4-fca1c18b74fa",
+            "point_event_id": "1b27be66-512d-4590-b855-19505246ada3",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 141,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "cf463ca1e437b0e741a95f70803f53a610bb2e473384d92d105a3b30856448b0"
+          }
+        ],
+        "target_event_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+        "target_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "AI写的代码没统计上，公司却要按AI代码率考核",
+            "point_id": "01906b7a-a17e-4110-854d-24961b2cf25f",
+            "point_event_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 98,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "73f9b548fbe9a9ac17e92209bf0cfc7382079ec24d97ce148e11e2dcd2ae4841"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-19522b300b8324de",
+      "event_a_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“我妈嫌我们花钱多，讲消费占比还是讲不通”与“小廖总替别人考虑，也可能和家庭里的道德要求有关”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1e738d4942382165",
+      "event_a_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司AI工具额度出错，代码统计还要拿来考核”与“给我妈挂复查号，继续倾听才发现她并不是想停药”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1edb2ef9e17b05db",
+      "event_a_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "e0b6c651-23f2-4333-8349-a48b95c47225",
+      "event_b_run_id": "d42eceab-3c42-42b5-9018-39fb2092d793",
+      "status": "NO_RELATION",
+      "reason": "“我妈嫌我们花钱多，讲消费占比还是讲不通”与“读《非暴力沟通》，不全认同也可以吸收别人的想法”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-20f955dc706f8e85",
+      "event_a_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”与“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-23a4f95c8d4313df",
+      "event_a_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“从反贪腐视频想到尊重人性，也想继续多读书”与“小廖总替别人考虑，也可能和家庭里的道德要求有关”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-249febb43757ca16",
+      "event_a_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“小廖生日改成抽奖，定下六样东西”与“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-262bad4a47f000e8",
+      "event_a_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-295466ae5483841d",
+      "event_a_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“小廖总替别人考虑，也可能和家庭里的道德要求有关”与“给我妈挂复查号，继续倾听才发现她并不是想停药”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2a86d6fbb245ca4d",
+      "event_a_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“小廖生日改成抽奖，定下六样东西”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2c16ad7b3767e43a",
+      "event_a_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“买手机的钱小廖收了两份，又聊到航班延误索赔”与“我妈嫌我们花钱多，讲消费占比还是讲不通”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2cfae3f718abc50c",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“读《非暴力沟通》，拿我妈催生的事试着复盘”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2f0ea8e8b0e1348c",
+      "event_a_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“从反贪腐视频想到尊重人性，也想继续多读书”与“给我妈挂复查号，继续倾听才发现她并不是想停药”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-32349e2c2ed628ee",
+      "event_a_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“要点提取继续试验，事件关系skill做到一半等额度恢复”与“给我妈挂复查号，继续倾听才发现她并不是想停药”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-332df5695b2fb227",
+      "event_a_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f8683458-76ea-4f81-a63b-f7efdc48d365",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“给我妈挂复查号，继续倾听才发现她并不是想停药”与“从我爸乱吃药这件事，看到事情的两面性”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-33eb0d0aa92afb6d",
+      "event_a_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“买手机的钱小廖收了两份，又聊到航班延误索赔”与“我妈果然给我爸煮了鸡蛋过生日”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3405b76541439409",
+      "event_a_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“我妈嫌我们花钱多，讲消费占比还是讲不通”与“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-34cd5f2f376a31c2",
+      "event_a_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“买33块钱的榴莲，跟颂梅聊价格和期待”与“小廖生日改成抽奖，定下六样东西”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-39f8c24050fcb052",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3c0a83552e67cb71",
+      "event_a_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“买手机的钱小廖收了两份，又聊到航班延误索赔”与“不小心踢到别人的小狗，道歉后仍被念叨，很烦躁”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3c8c60ea2da5ed9c",
+      "event_a_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“找不到车时胃食管反流，后来解释清楚并不是在生她的气”与“不小心踢到别人的小狗，道歉后仍被念叨，很烦躁”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3f0b68aeaee9b284",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“读《非暴力沟通》，拿我妈催生的事试着复盘”与“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3fac4930491d37fa",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“读《非暴力沟通》，拿我妈催生的事试着复盘”与“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-420e53527ee76e67",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "e0b6c651-23f2-4333-8349-a48b95c47225",
+      "event_b_run_id": "d42eceab-3c42-42b5-9018-39fb2092d793",
+      "status": "RELATED",
+      "reason": "非暴力沟通读完引言及第一章部分后，继续读第一章后半，并尝试用母亲催生事件作事后复盘。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "非暴力沟通读完引言及第一章部分后，继续读第一章后半，并尝试用母亲催生事件作事后复盘。",
+        "source_event_id": "e0b6c651-23f2-4333-8349-a48b95c47225",
+        "source_run_id": "d42eceab-3c42-42b5-9018-39fb2092d793",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天看了《非暴力沟通》前面的引言、序，还有第一章的一部分。",
+            "point_id": "fc8cc13f-12d8-4982-8bc0-f708252c1ce3",
+            "point_event_id": "e0b6c651-23f2-4333-8349-a48b95c47225",
+            "point_run_id": "d42eceab-3c42-42b5-9018-39fb2092d793",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "4b7a233630618d18dfd91973e45a2cda6e784957e127dbaec3756b2f69a57cdd"
+          }
+        ],
+        "target_event_id": "145224c1-0971-427b-bb1c-9678867aad88",
+        "target_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天看《非暴力沟通》第一章后半部分。",
+            "point_id": "4ec00ed9-3d68-446f-a0de-10cc0f274370",
+            "point_event_id": "145224c1-0971-427b-bb1c-9678867aad88",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "0946fd178b4153f4795c333df52272066d7a61c05a118e8fd1b9d36923fd8d0f"
+          },
+          {
+            "point_no": 2,
+            "quote": "现在是在事后复盘。",
+            "point_id": "b3e8da9a-7c12-4766-b2c6-36a7577dc890",
+            "point_event_id": "145224c1-0971-427b-bb1c-9678867aad88",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 42,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "3ea3fbaf95907712b2c7b29d5af208f30090bafef57474607e0f3ab22f0005aa"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-4300c437ee698036",
+      "event_a_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司AI工具额度出错，代码统计还要拿来考核”与“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-44eb8c957c0546f4",
+      "event_a_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“多多不让抱，跟小廖聊养育付出和亲近的关系”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-44f2bba749399f11",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "284b13a1-77d1-45d0-9f87-763973d63031",
+      "event_b_run_id": "d42eceab-3c42-42b5-9018-39fb2092d793",
+      "status": "NO_RELATION",
+      "reason": "“读《非暴力沟通》，拿我妈催生的事试着复盘”与“读《理想国》，感觉苏格拉底有时在偷换概念，还是准备慢慢看”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-45814acf392a38f9",
+      "event_a_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“从反贪腐视频想到尊重人性，也想继续多读书”与“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-45ca9dba4fc5a6d5",
+      "event_a_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“小廖总替别人考虑，也可能和家庭里的道德要求有关”与“不小心踢到别人的小狗，道歉后仍被念叨，很烦躁”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-47453191e7901cd7",
+      "event_a_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“买手机的钱小廖收了两份，又聊到航班延误索赔”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-47e8eb573ebdf9f7",
+      "event_a_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“小廖总替别人考虑，也可能和家庭里的道德要求有关”与“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4a0670c4e3c5f837",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "284b13a1-77d1-45d0-9f87-763973d63031",
+      "event_b_run_id": "d42eceab-3c42-42b5-9018-39fb2092d793",
+      "status": "NO_RELATION",
+      "reason": "“公司不断加AI和测试要求，工具使用成本让我很烦”与“读《理想国》，感觉苏格拉底有时在偷换概念，还是准备慢慢看”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4a669ed4552e3251",
+      "event_a_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司AI工具额度出错，代码统计还要拿来考核”与“小廖生日改成抽奖，定下六样东西”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4a80af5dcfb2dcf8",
+      "event_a_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“从反贪腐视频想到尊重人性，也想继续多读书”与“不小心踢到别人的小狗，道歉后仍被念叨，很烦躁”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4ad3eaf0dd07f691",
+      "event_a_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“要点提取继续试验，事件关系skill做到一半等额度恢复”与“本地还原数据库后，又停机重新备份”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4d17f9a490109be3",
+      "event_a_id": "03107cc0-da4d-4752-8b2a-aa275a1607d6",
+      "event_a_run_id": "43e74242-261c-4458-855d-dbbc1de316a7",
+      "event_b_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“日记平台切换技术路线，让Codex承担主要AI工作”与“要点提取继续试验，事件关系skill做到一半等额度恢复”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5287e7557540829f",
+      "event_a_id": "e0b6c651-23f2-4333-8349-a48b95c47225",
+      "event_a_run_id": "d42eceab-3c42-42b5-9018-39fb2092d793",
+      "event_b_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“读《非暴力沟通》，不全认同也可以吸收别人的想法”与“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-553402ee3d1ac183",
+      "event_a_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“公司AI工具额度出错，代码统计还要拿来考核”与“让AI排查工作问题，感觉自己成了中转站”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5687b6d53b66bfbe",
+      "event_a_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-58445499dfc71123",
+      "event_a_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“要点提取继续试验，事件关系skill做到一半等额度恢复”与“图谱设计继续推进，第一层真实模型实验效果不理想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-59f1cd79fe5b38a2",
+      "event_a_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“从反贪腐视频想到尊重人性，也想继续多读书”与“小廖生日改成抽奖，定下六样东西”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5d665801592dc715",
+      "event_a_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“多多不让抱，跟小廖聊养育付出和亲近的关系”与“小廖总替别人考虑，也可能和家庭里的道德要求有关”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5eb99b5905c71f6b",
+      "event_a_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“从反贪腐视频想到尊重人性，也想继续多读书”与“我妈嫌我们花钱多，讲消费占比还是讲不通”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5f766fb73e915881",
+      "event_a_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "fca046cb-a4de-4678-9f4e-c25103d07645",
+      "event_b_run_id": "d42eceab-3c42-42b5-9018-39fb2092d793",
+      "status": "RELATED",
+      "reason": "前一天开始要点skill试验并计划做关系，次日继续九月要点测试并开发验证关系skill。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "前一天开始要点skill试验并计划做关系，次日继续九月要点测试并开发验证关系skill。",
+        "source_event_id": "fca046cb-a4de-4678-9f4e-c25103d07645",
+        "source_run_id": "d42eceab-3c42-42b5-9018-39fb2092d793",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下午又做了知识库沉淀里的事件要点提取skill",
+            "point_id": "fe7aab06-891e-493b-88e1-9e10607226ab",
+            "point_event_id": "fca046cb-a4de-4678-9f4e-c25103d07645",
+            "point_run_id": "d42eceab-3c42-42b5-9018-39fb2092d793",
+            "offset": 57,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "5b522ab2d4293bf7929f18e9d9a885c2890b08666b0ed902e0ac8b49bff3ad45"
+          }
+        ],
+        "target_event_id": "92af1400-ae10-4708-8747-5a3120b61813",
+        "target_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "早上用九月数据试了一遍日记平台的要点提取skill。\n\n下午继续让ChatGPT做知识库第一层后半部分，识别、提取事件关系。",
+            "point_id": "0c29af3b-999d-4f58-a99c-b36d8e6e4d33",
+            "point_event_id": "92af1400-ae10-4708-8747-5a3120b61813",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "67632b218f8438b99bfee347d797a60099fbf984b17d20b753d052ea02e078e0"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-5f82bd19f17553fc",
+      "event_a_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“小廖生日改成抽奖，定下六样东西”与“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-617ea6f33810e58b",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "RELATED",
+      "reason": "发现继续倾听母亲有用后，明确回顾催生复盘尚未解决问题的尝试。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "发现继续倾听母亲有用后，明确回顾催生复盘尚未解决问题的尝试。",
+        "source_event_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+        "source_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "拿催生、花钱和踢到小狗这三件事复盘，都没很好地解决问题",
+            "point_id": "97c23c0d-e7ca-4215-8e28-49384b70d067",
+            "point_event_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 141,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "7777acc54ddb5b959e7484add35cd5e5d7d5e1c480d9f17c142063cd8bafbe1c"
+          }
+        ],
+        "target_event_id": "145224c1-0971-427b-bb1c-9678867aad88",
+        "target_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "“观察”是我妈转述大姨让她多催生。",
+            "point_id": "b3e8da9a-7c12-4766-b2c6-36a7577dc890",
+            "point_event_id": "145224c1-0971-427b-bb1c-9678867aad88",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 181,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "3ea3fbaf95907712b2c7b29d5af208f30090bafef57474607e0f3ab22f0005aa"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-6203905b04ad7fa2",
+      "event_a_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“我爸觉得加热饭盒好用，想把这份正反馈传给全家”与“小廖总替别人考虑，也可能和家庭里的道德要求有关”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-629ab62f31c548dc",
+      "event_a_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“买手机的钱小廖收了两份，又聊到航班延误索赔”与“小廖生日改成抽奖，定下六样东西”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-63dfe38b119d51fa",
+      "event_a_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“小廖生日改成抽奖，定下六样东西”与“给我妈挂复查号，继续倾听才发现她并不是想停药”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-65cb2d37546775b9",
+      "event_a_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "RELATED",
+      "reason": "颂梅拒绝多个生日礼物选项后，最终定下含一万元现金在内的六样抽奖礼物。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "颂梅拒绝多个生日礼物选项后，最终定下含一万元现金在内的六样抽奖礼物。",
+        "source_event_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+        "source_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "首饰、金项链、换手表都不要，我很纠结。",
+            "point_id": "9c6d9492-409c-4986-9796-8fb68f3be743",
+            "point_event_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 68,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "7dcf1e240dc3945e4261e167f216a21cff7a900d5fa0461083a385a9bff19224"
+          }
+        ],
+        "target_event_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+        "target_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "六样定为20张刮刮乐、大闸蟹、一万元现金",
+            "point_id": "c6ca1338-1339-4d68-90c5-64506007d016",
+            "point_event_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 82,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "a76a1a86e134e5cba0ce9b167396f1f214287be3687168c52f7e02c087e771c2"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-69f6a51eb0ae74b8",
+      "event_a_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”与“小廖总替别人考虑，也可能和家庭里的道德要求有关”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6b1dbc3711b9d753",
+      "event_a_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“不小心踢到别人的小狗，道歉后仍被念叨，很烦躁”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6cd4146c16e17c14",
+      "event_a_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "RELATED",
+      "reason": "墨西哥去程延误导致重买机票后，小廖尝试向国泰索赔，被告知开延误证明找保险。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "墨西哥去程延误导致重买机票后，小廖尝试向国泰索赔，被告知开延误证明找保险。",
+        "source_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+        "source_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "前段飞机延误，到得晚，后面的机票用不了",
+            "point_id": "fdf99bad-3639-4cd4-8648-c7a7ace0a4f9",
+            "point_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 72,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "abba577744c7f5a3e1acca93338c8155d9381ea7a4c8f3f3b8ae36fd2e7f8fd4"
+          }
+        ],
+        "target_event_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+        "target_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "她还想找国泰航空看看能不能赔，赔给她就算两头赚，跟手机钱收两份一样。国泰说不给赔，让开延误证明，自己找保险。",
+            "point_id": "df994cff-6a81-4873-a004-11d5a35ba704",
+            "point_event_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 33,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "8a2c92abcde441d52e890340350e3adacbfcb21d63facce61efc8355708756db"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-6d0b6c7bc698e76b",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "RELATED",
+      "reason": "误踢小狗复盘总结时，明确把催生列为此前未解决的案例。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "误踢小狗复盘总结时，明确把催生列为此前未解决的案例。",
+        "source_event_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+        "source_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "加上催生和消费争执，三个案例都没解决",
+            "point_id": "ff33ee35-664b-4988-a7fd-0c95cd5144bd",
+            "point_event_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 64,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "9d578b3b0bb13ea752100718bd3552540d396b4e28e403d5d90fd240129663c5"
+          }
+        ],
+        "target_event_id": "145224c1-0971-427b-bb1c-9678867aad88",
+        "target_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "“观察”是我妈转述大姨让她多催生。",
+            "point_id": "b3e8da9a-7c12-4766-b2c6-36a7577dc890",
+            "point_event_id": "145224c1-0971-427b-bb1c-9678867aad88",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 181,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "3ea3fbaf95907712b2c7b29d5af208f30090bafef57474607e0f3ab22f0005aa"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-6d4609b94a36f012",
+      "event_a_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“多多不让抱，跟小廖聊养育付出和亲近的关系”与“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6f3b7d7f0e02bc2a",
+      "event_a_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“要点提取继续试验，事件关系skill做到一半等额度恢复”与“小廖生日改成抽奖，定下六样东西”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6f7b5818bc9897cf",
+      "event_a_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“颂梅最终要去墨西哥，我对她的压力和消费也很烦心”与“我妈嫌我们花钱多，讲消费占比还是讲不通”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-70d1d7affc4cf846",
+      "event_a_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“哒哒越来越会开门，今天索性在家工作”与“不小心踢到别人的小狗，道歉后仍被念叨，很烦躁”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-74800765b2aecb3d",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司不断加AI和测试要求，工具使用成本让我很烦”与“小廖生日改成抽奖，定下六样东西”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-75f8723f3a7d57ff",
+      "event_a_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“我爸觉得加热饭盒好用，想把这份正反馈传给全家”与“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-78f0a74975f53c5f",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司不断加AI和测试要求，工具使用成本让我很烦”与“给我妈挂复查号，继续倾听才发现她并不是想停药”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7a022aaa429afbae",
+      "event_a_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "5010713e-68b8-49d8-a074-cb7b810aba8d",
+      "event_b_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "status": "NO_RELATION",
+      "reason": "“从反贪腐视频想到尊重人性，也想继续多读书”与“从虎门销烟的说法，想到自给自足和全球协作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7bc2386c28e30421",
+      "event_a_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“我妈果然给我爸煮了鸡蛋过生日”与“小廖生日改成抽奖，定下六样东西”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7d3a4a88b1aca5bd",
+      "event_a_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "ed61114e-6f64-4de1-9a02-1432df088f33",
+      "event_b_run_id": "b621e11a-d6e4-4ce2-8bfd-a31dabd9f6fd",
+      "status": "NO_RELATION",
+      "reason": "“公司AI工具额度出错，代码统计还要拿来考核”与“指标填报按新需求修改设计，继续让AI开发导入接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7d4d2ea919aebda4",
+      "event_a_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“公司AI工具额度出错，代码统计还要拿来考核”与“跟同事聊AI替代开发，先抱着车到山前的心态”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7ee0625c0af5fe38",
+      "event_a_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“要点提取继续试验，事件关系skill做到一半等额度恢复”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-822e033e71d9b904",
+      "event_a_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“小廖生日改成抽奖，定下六样东西”与“不小心踢到别人的小狗，道歉后仍被念叨，很烦躁”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-82b492a839c76acb",
+      "event_a_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“我妈嫌我们花钱多，讲消费占比还是讲不通”与“小廖生日改成抽奖，定下六样东西”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-83a812f770a84fa7",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司不断加AI和测试要求，工具使用成本让我很烦”与“不小心踢到别人的小狗，道歉后仍被念叨，很烦躁”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-83dc818387098b13",
+      "event_a_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“从反贪腐视频想到尊重人性，也想继续多读书”与“和AI聊观念的代际传递，想到未来的家庭教育”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-88862f4729c823b3",
+      "event_a_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司AI工具额度出错，代码统计还要拿来考核”与“我妈嫌我们花钱多，讲消费占比还是讲不通”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-894198dd3ff2c8c5",
+      "event_a_id": "e852057d-9166-423f-bdac-3c6cd9e2cc23",
+      "event_a_run_id": "b621e11a-d6e4-4ce2-8bfd-a31dabd9f6fd",
+      "event_b_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“发现哒哒急着回家，是被灭蚊设备的响声吓到了”与“不小心踢到别人的小狗，道歉后仍被念叨，很烦躁”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8a299cb72c6b926b",
+      "event_a_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“从反贪腐视频想到尊重人性，也想继续多读书”与“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8b7664d0681cb422",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“读《非暴力沟通》，拿我妈催生的事试着复盘”与“要点提取继续试验，事件关系skill做到一半等额度恢复”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8c2fa1b16ce45ac7",
+      "event_a_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“从反贪腐视频想到尊重人性，也想继续多读书”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8f1d23420c763d7f",
+      "event_a_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "RELATED",
+      "reason": "倾听母亲的记录明确回顾误踢小狗后的沟通复盘。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "倾听母亲的记录明确回顾误踢小狗后的沟通复盘。",
+        "source_event_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+        "source_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "拿催生、花钱和踢到小狗这三件事复盘，都没很好地解决问题",
+            "point_id": "97c23c0d-e7ca-4215-8e28-49384b70d067",
+            "point_event_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 141,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "7777acc54ddb5b959e7484add35cd5e5d7d5e1c480d9f17c142063cd8bafbe1c"
+          }
+        ],
+        "target_event_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+        "target_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "哒哒拽了我一下，我不小心踢到一只小狗，不是故意的。",
+            "point_id": "e732a1c7-f660-41d6-9cb0-ce7cbe6fa6dd",
+            "point_event_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 10,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "c7618e0c80dccaa7b053fe7b93a34229c4711e98d9d4ac14f8b9ecbd2f59bf57"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-8f5746aec8d198bd",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司不断加AI和测试要求，工具使用成本让我很烦”与“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-922a8c77d6327933",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“读《非暴力沟通》，拿我妈催生的事试着复盘”与“公司AI工具额度出错，代码统计还要拿来考核”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-95250b286b5f3e0e",
+      "event_a_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”与“不小心踢到别人的小狗，道歉后仍被念叨，很烦躁”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-96826ed17aaa67b9",
+      "event_a_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“要点提取继续试验，事件关系skill做到一半等额度恢复”与“小廖总替别人考虑，也可能和家庭里的道德要求有关”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-98324fab04581204",
+      "event_a_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司AI工具额度出错，代码统计还要拿来考核”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9cf253243b8cae3f",
+      "event_a_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“从反贪腐视频想到尊重人性，也想继续多读书”与“买手机的钱小廖收了两份，又聊到航班延误索赔”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9d253c80753503fb",
+      "event_a_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“我爸觉得加热饭盒好用，想把这份正反馈传给全家”与“给我妈挂复查号，继续倾听才发现她并不是想停药”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a10b064f2ce62052",
+      "event_a_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“买手机的钱小廖收了两份，又聊到航班延误索赔”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a14fd6c274399315",
+      "event_a_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”与“给我妈挂复查号，继续倾听才发现她并不是想停药”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a22e071a3fa4fd31",
+      "event_a_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”与“给我妈挂复查号，继续倾听才发现她并不是想停药”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a2d697fceb43842f",
+      "event_a_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司AI工具额度出错，代码统计还要拿来考核”与“小廖总替别人考虑，也可能和家庭里的道德要求有关”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a5089ee91d65a4d1",
+      "event_a_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“买手机的钱小廖收了两份，又聊到航班延误索赔”与“给我妈挂复查号，继续倾听才发现她并不是想停药”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a925ca433c0096a9",
+      "event_a_id": "1b9d5c53-123d-4426-881a-d89bbe3cfaa7",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“从等车位的人，跟小廖聊顾及别人和维护自己”与“小廖总替别人考虑，也可能和家庭里的道德要求有关”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-aa726787a4ef5bf9",
+      "event_a_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“从反贪腐视频想到尊重人性，也想继续多读书”与“要点提取继续试验，事件关系skill做到一半等额度恢复”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ab19c3c2a2e6cb1a",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司不断加AI和测试要求，工具使用成本让我很烦”与“买手机的钱小廖收了两份，又聊到航班延误索赔”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-adca9f12919e3927",
+      "event_a_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“买手机的钱小廖收了两份，又聊到航班延误索赔”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b2adec6ccfc17200",
+      "event_a_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“3号游船、租车和露营，觉得省精力的钱值得花”与“不小心踢到别人的小狗，道歉后仍被念叨，很烦躁”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b6594353d92f27c1",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“公司不断加AI和测试要求，工具使用成本让我很烦”与“跟同事聊AI替代开发，先抱着车到山前的心态”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b674756368f7204b",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“读《非暴力沟通》，拿我妈催生的事试着复盘”与“买手机的钱小廖收了两份，又聊到航班延误索赔”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b7ea51bd9f91de38",
+      "event_a_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“我妈嫌我们花钱多，讲消费占比还是讲不通”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b938da7c9c789aee",
+      "event_a_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“买手机的钱小廖收了两份，又聊到航班延误索赔”与“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b9ffc58608f22d55",
+      "event_a_id": "926dde26-3291-4ccd-879c-7290108475e4",
+      "event_a_run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
+      "event_b_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“颂梅不想要吐司吊坠，大礼物还是直接给钱”与“我妈嫌我们花钱多，讲消费占比还是讲不通”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bc0143b575ba2078",
+      "event_a_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司AI工具额度出错，代码统计还要拿来考核”与“要点提取继续试验，事件关系skill做到一半等额度恢复”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bc4f71db76c33c5c",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "UNRESOLVED",
+      "reason": "消费争执明确涉及给父亲买舒化奶，但本月有不止一次购买与口味调整；两侧未指出这次争执对应9日首次订单还是后续购买，不能把泛指购奶锁定为本对的具体订单。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c13eed09d51dfa96",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“读《非暴力沟通》，拿我妈催生的事试着复盘”与“我妈嫌我们花钱多，讲消费占比还是讲不通”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c5ddf4bf657b196e",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "21bd262b-9e4a-4f61-b41e-a39226fdc512",
+      "event_b_run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
+      "status": "NO_RELATION",
+      "reason": "“公司不断加AI和测试要求，工具使用成本让我很烦”与“颂梅在墨西哥又累又无聊，出差却没什么事可做”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c723c8bd205d9cfa",
+      "event_a_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“买手机的钱小廖收了两份，又聊到航班延误索赔”与“要点提取继续试验，事件关系skill做到一半等额度恢复”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c749d94467810efe",
+      "event_a_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司AI工具额度出错，代码统计还要拿来考核”与“不小心踢到别人的小狗，道歉后仍被念叨，很烦躁”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c9b60759a3788929",
+      "event_a_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cf6cecaf41a5075a",
+      "event_a_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司AI工具额度出错，代码统计还要拿来考核”与“从反贪腐视频想到尊重人性，也想继续多读书”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cfa3d9a93afbbb99",
+      "event_a_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“公司AI工具额度出错，代码统计还要拿来考核”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d1552d78054bf423",
+      "event_a_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”与“给我妈挂复查号，继续倾听才发现她并不是想停药”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d155a4579abd7747",
+      "event_a_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "RELATED",
+      "reason": "误踢小狗复盘总结时，明确把消费争执列为同批复盘案例。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "误踢小狗复盘总结时，明确把消费争执列为同批复盘案例。",
+        "source_event_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+        "source_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "加上催生和消费争执，三个案例都没解决",
+            "point_id": "ff33ee35-664b-4988-a7fd-0c95cd5144bd",
+            "point_event_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 64,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "9d578b3b0bb13ea752100718bd3552540d396b4e28e403d5d90fd240129663c5"
+          }
+        ],
+        "target_event_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+        "target_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "用非暴力沟通复盘，我不是一听“少花钱”就生气",
+            "point_id": "7bf1d4ff-a814-4f16-bbe7-b766e6dce891",
+            "point_event_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "050a1b91634391025e8870804ec3549ff4b07a2efb16ece7a33d6746e558ae01"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-d1d126f133623ca8",
+      "event_a_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“我妈嫌我们花钱多，讲消费占比还是讲不通”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d4c59bd56c3d3c98",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“买手机的钱小廖收了两份，又聊到航班延误索赔”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dd3c43d5d4ae02fa",
+      "event_a_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“小廖总替别人考虑，也可能和家庭里的道德要求有关”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dd56c0c3f7b415bc",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司不断加AI和测试要求，工具使用成本让我很烦”与“小廖总替别人考虑，也可能和家庭里的道德要求有关”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-de178aef2447b33d",
+      "event_a_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司AI工具额度出错，代码统计还要拿来考核”与“买手机的钱小廖收了两份，又聊到航班延误索赔”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-df4ff790281d4a87",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "377ea534-c236-4032-b0ed-238e2e4bd293",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“读《非暴力沟通》，拿我妈催生的事试着复盘”与“从反贪腐视频想到尊重人性，也想继续多读书”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e09deef98b29c95e",
+      "event_a_id": "3256def4-0a14-49ed-84ab-3f5b8026181f",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“公司AI工具额度出错，代码统计还要拿来考核”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e0f4b649a950380f",
+      "event_a_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "RELATED",
+      "reason": "倾听母亲的记录明确回顾此前消费争执复盘未解决问题。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "倾听母亲的记录明确回顾此前消费争执复盘未解决问题。",
+        "source_event_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+        "source_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "拿催生、花钱和踢到小狗这三件事复盘，都没很好地解决问题",
+            "point_id": "97c23c0d-e7ca-4215-8e28-49384b70d067",
+            "point_event_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 141,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "7777acc54ddb5b959e7484add35cd5e5d7d5e1c480d9f17c142063cd8bafbe1c"
+          }
+        ],
+        "target_event_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+        "target_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "用非暴力沟通复盘，我不是一听“少花钱”就生气",
+            "point_id": "7bf1d4ff-a814-4f16-bbe7-b766e6dce891",
+            "point_event_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "050a1b91634391025e8870804ec3549ff4b07a2efb16ece7a33d6746e558ae01"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-e2bc8ba441e69e7c",
+      "event_a_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“小廖生日改成抽奖，定下六样东西”与“小廖总替别人考虑，也可能和家庭里的道德要求有关”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e2f3d17a79a65592",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“公司不断加AI和测试要求，工具使用成本让我很烦”与“我妈嫌我们花钱多，讲消费占比还是讲不通”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e4c3482f1d4384d4",
+      "event_a_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“多多不让抱，跟小廖聊养育付出和亲近的关系”与“不小心踢到别人的小狗，道歉后仍被念叨，很烦躁”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e4c86348a723091e",
+      "event_a_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“要点提取继续试验，事件关系skill做到一半等额度恢复”与“我妈嫌我们花钱多，讲消费占比还是讲不通”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e7b3ee8ffbd079bc",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“公司不断加AI和测试要求，工具使用成本让我很烦”与“颂梅提离职后又被安排去墨西哥，她心情很烦”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ec9ae996f7963d3b",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“读《非暴力沟通》，拿我妈催生的事试着复盘”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ed6f8a79967365d6",
+      "event_a_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“公司不断加AI和测试要求，工具使用成本让我很烦”与“让AI排查工作问题，感觉自己成了中转站”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f3200782e34f7fab",
+      "event_a_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“要点提取继续试验，事件关系skill做到一半等额度恢复”与“不小心踢到别人的小狗，道歉后仍被念叨，很烦躁”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f34da11359ead1a5",
+      "event_a_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "RELATED",
+      "reason": "原先六件生日盲盒继续调整，手机被替换为现金，盒子不合适又改撕拉卡抽奖。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "原先六件生日盲盒继续调整，手机被替换为现金，盒子不合适又改撕拉卡抽奖。",
+        "source_event_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+        "source_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "想做个能戳开的盲盒，让她戳出礼物",
+            "point_id": "c7e50623-3483-4157-b8f3-ce7661aab9dc",
+            "point_event_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 18,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "976bc2e8e1c11a36a76e056e88986ee273dd5cf1fbb4ea7349b30fd71cc29980"
+          }
+        ],
+        "target_event_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+        "target_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "盲盒装不下，改抽奖，已买12张撕拉卡",
+            "point_id": "c6ca1338-1339-4d68-90c5-64506007d016",
+            "point_event_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 162,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "a76a1a86e134e5cba0ce9b167396f1f214287be3687168c52f7e02c087e771c2"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-f400e53c2056f240",
+      "event_a_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“小廖总替别人考虑，也可能和家庭里的道德要求有关”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f49bb6f0d200fb43",
+      "event_a_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "f0926f72-b602-4ba1-959a-86bb213713d7",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“我爸觉得加热饭盒好用，想把这份正反馈传给全家”与“同样是找话说，催婚、老人聊天和小廖爸爸上课的目的不同”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f55a9bb4aab1d18c",
+      "event_a_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“想到愧疚式教育，也看到自己曾经让别人觉得亏欠”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f6540c2ce006ad2d",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "RELATED",
+      "reason": "母亲此前及时就医后，后续安排甲亢复查，并听到她肯定两个月治疗带来的身体改善。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "母亲此前及时就医后，后续安排甲亢复查，并听到她肯定两个月治疗带来的身体改善。",
+        "source_event_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+        "source_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我妈那次心跳155，在我看来真是救命。",
+            "point_id": "b0e6f36e-6365-4066-bded-0e8807857815",
+            "point_event_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 89,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "371d1ca54034e6fd28e4acb3918d7cb1fa75a008c425a395645ff7b46e5e6b97"
+          }
+        ],
+        "target_event_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+        "target_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下午给我妈挂甲亢复查",
+            "point_id": "1c739010-e8b0-4b28-8118-8703ddab5da0",
+            "point_event_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "959bea720ea4519faae04632c8f6877aeaa1ec8d90af49b5bfb9ba5d4c020149"
+          },
+          {
+            "point_no": 2,
+            "quote": "她想说的是短短两个月看病，得到的回报有价值",
+            "point_id": "97c23c0d-e7ca-4215-8e28-49384b70d067",
+            "point_event_id": "f662c139-0cb4-4e72-bd24-d33b4ea725f1",
+            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+            "offset": 80,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "7777acc54ddb5b959e7484add35cd5e5d7d5e1c480d9f17c142063cd8bafbe1c"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-fc60140acacf005e",
+      "event_a_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "d4a7acc2-fb6d-486b-9c12-117c7a84298d",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“买手机的钱小廖收了两份，又聊到航班延误索赔”与“小廖总替别人考虑，也可能和家庭里的道德要求有关”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fdc95e295e8614d8",
+      "event_a_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "event_a_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "event_b_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
+      "status": "NO_RELATION",
+      "reason": "“读《非暴力沟通》，拿我妈催生的事试着复盘”与“公司不断加AI和测试要求，工具使用成本让我很烦”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    }
+  ]
+}

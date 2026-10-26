@@ -1,0 +1,359 @@
+{
+  "package_sha256": "511e5684d1534ef63946738544e3433a4c9fe713f6ebeb7816fbb9ef087ea6bd",
+  "results": [
+    {
+      "pair_id": "P-0eb6d0f2f6cb4616",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E020",
+        "target_event": "E023",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "因知识沉淀质量纠结而考虑Codex方案后，正式决定切换到Codex和skill，平台保留基础能力。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "如果走Codex的方案，可能用它的云电脑功能"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "现在改成用skill，让Codex直接读取日记文本、解析处理。"
+          }
+        ]
+      },
+      "reason": "因知识沉淀质量纠结而考虑Codex方案后，正式决定切换到Codex和skill，平台保留基础能力。"
+    },
+    {
+      "pair_id": "P-a01f3f89a367447b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“日记平台切换技术路线，让Codex承担主要AI工作”与“想让AI主动追问日记里的逻辑问题，减少逐篇检查”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-4d4a9c1b75055487",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“日记平台切换技术路线，让Codex承担主要AI工作”与“给小廖买AirpodsPro，后来让她在京东买，退了淘宝订单”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-40428b82978c7321",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“日记平台切换技术路线，让Codex承担主要AI工作”与“跟同事聊AI替代开发，先抱着车到山前的心态”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-021b716e5cb79775",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“日记平台切换技术路线，让Codex承担主要AI工作”与“哒哒越来越会开门，今天索性在家工作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-5d66f277b617ca8c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“日记平台切换技术路线，让Codex承担主要AI工作”与“语音转文字暂时借用小廖的工具”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-e0c8f23b6dcd3029",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E023",
+        "target_event": "E024",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "采用现成Codex和skill的新路线后，先落地日记整理skill并逐篇试验修改。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "现在改成用skill，让Codex直接读取日记文本、解析处理。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "先让Codex看原来的日记整理代码，提炼出一个日记整理skill"
+          }
+        ]
+      },
+      "reason": "采用现成Codex和skill的新路线后，先落地日记整理skill并逐篇试验修改。"
+    },
+    {
+      "pair_id": "P-2bae99737f491849",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“日记平台切换技术路线，让Codex承担主要AI工作”与“让AI继续做规划传导和江西接口，指标填报今天没动”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-71e3fb9374c8dc5e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“日记平台切换技术路线，让Codex承担主要AI工作”与“图谱设计继续推进，第一层真实模型实验效果不理想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-dde1e5a57745e268",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“知识图谱页面还行，但知识沉淀的准确性让我纠结”与“做出日记整理skill，用九月日记验证、修复 skill 存在的问题”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-59d9615f608f7104",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“一天逛完永旺和山姆，也看到小廖会提出自己的条件了”与“给小廖买AirpodsPro，后来让她在京东买，退了淘宝订单”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-fae3f12fced15d2e",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E016",
+        "target_event": "E024",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "希望AI检查日记逻辑并主动提问的想法，进展到从旧代码提炼整理skill、用九月日记验证澄清功能。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我想让ChatGPT先读取检查、修改正文，有逻辑问题再问我。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最后做出了一个差不多能用、支持提问的skill。"
+          }
+        ]
+      },
+      "reason": "希望AI检查日记逻辑并主动提问的想法，进展到从旧代码提炼整理skill、用九月日记验证澄清功能。"
+    },
+    {
+      "pair_id": "P-b1fc93814c146c68",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“明天还是以工作为主，空闲先做知识图谱可视化”与“做出日记整理skill，用九月日记验证、修复 skill 存在的问题”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-950b6bf6194c7692",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E015",
+        "target_event": "E022",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "计划推进规划传导Cube改CBB服务管理后，继续让AI实现；AI表示已做好，我已通知莫菲找前端对接，尚不等于测试验收通过。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "主要是规划传导Cube改CBB服务管理、指标填报"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "早晨继续昨天工作，让AI完成Cube改CBB服务管理，它说已做好，我通知莫菲去找前端对接。"
+          }
+        ]
+      },
+      "reason": "计划推进规划传导Cube改CBB服务管理后，继续让AI实现；AI表示已做好，我已通知莫菲找前端对接，尚不等于测试验收通过。"
+    },
+    {
+      "pair_id": "P-74ff5a8aef2fe4aa",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“给小廖买AirpodsPro，后来让她在京东买，退了淘宝订单”与“扫地机上下水坏了，想先试试自己每周拖地”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-9b04771cfb282507",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“给小廖买AirpodsPro，后来让她在京东买，退了淘宝订单”与“着急买礼品卡续会员，才发现原会员还没到期”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-b67848fc08f1e591",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“给小廖买AirpodsPro，后来让她在京东买，退了淘宝订单”与“语音转文字暂时借用小廖的工具”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-26edda5b34a511b1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“给小廖买AirpodsPro，后来让她在京东买，退了淘宝订单”与“做出日记整理skill，用九月日记验证、修复 skill 存在的问题”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-cb805601b63a4d21",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“给小廖买AirpodsPro，后来让她在京东买，退了淘宝订单”与“用元宝筛选手机，颂梅帮我爸抢券下单”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-425cccd7fa2838f4",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E002",
+        "target_event": "E021",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前计划给颂梅换AirpodsPro，后来双十一实际下单，并因京东更便宜取消淘宝订单。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "就想给她换成AirpodsPro。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我让她在京东买，自己退掉淘宝订单。"
+          }
+        ]
+      },
+      "reason": "此前计划给颂梅换AirpodsPro，后来双十一实际下单，并因京东更便宜取消淘宝订单。"
+    },
+    {
+      "pair_id": "P-cda0a8518dbd7074",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“给小廖买AirpodsPro，后来让她在京东买，退了淘宝订单”与“让AI继续做规划传导和江西接口，指标填报今天没动”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-911339bd6a3f74bc",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E018",
+        "target_event": "E022",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "规划传导Cube改CBB先交AI分析，次日AI称完成，已通知莫菲安排前端对接。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "让AI分析如何转为CBB服务管理接口。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "它说已做好，我通知莫菲去找前端对接。"
+          }
+        ]
+      },
+      "reason": "规划传导Cube改CBB先交AI分析，次日AI称完成，已通知莫菲安排前端对接。"
+    },
+    {
+      "pair_id": "P-258708ee66769c8f",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“哒哒越来越会开门，今天索性在家工作”与“做出日记整理skill，用九月日记验证、修复 skill 存在的问题”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-20709cae804fdc47",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“语音转文字暂时借用小廖的工具”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-6b8ad7f1e652f3ee",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“着急买礼品卡续会员，才发现原会员还没到期”与“语音转文字暂时借用小廖的工具”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-23a9fdc854de6802",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E019",
+        "target_event": "E022",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "江西城镇开发边界决定采用原中间库同步后，继续让AI推进模型数据接口对接。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "最后仍按原流程：我调接口启动，他完成后通知，我再从中间库同步。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "江西城镇开发边界模型数据也继续让AI对接"
+          }
+        ]
+      },
+      "reason": "江西城镇开发边界决定采用原中间库同步后，继续让AI推进模型数据接口对接。"
+    },
+    {
+      "pair_id": "P-90dcdb2166b41f3d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“语音转文字暂时借用小廖的工具”与“做出日记整理skill，用九月日记验证、修复 skill 存在的问题”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-900af3521d0aee3a",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“语音转文字暂时借用小廖的工具”与“找不到车时胃食管反流，后来解释清楚并不是在生她的气”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-5394c0729bee657c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“语音转文字暂时借用小廖的工具”与“本地还原数据库后，又停机重新备份”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-4f2fe17b9463f4f8",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“语音转文字暂时借用小廖的工具”与“让AI继续做规划传导和江西接口，指标填报今天没动”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-f137ca4481de3d8f",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“语音转文字暂时借用小廖的工具”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-ea6c9414baecbb6d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“做出日记整理skill，用九月日记验证、修复 skill 存在的问题”与“让AI继续做规划传导和江西接口，指标填报今天没动”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-9b57c8525c276e13",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“做出日记整理skill，用九月日记验证、修复 skill 存在的问题”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-92106cb6aa5e9894",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E005",
+        "target_event": "E022",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "城镇开发边界接口持续开发后，进一步继续推进模型计算数据对接。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下午继续做城镇开发边界接口"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "江西城镇开发边界模型数据也继续让AI对接"
+          }
+        ]
+      },
+      "reason": "城镇开发边界接口持续开发后，进一步继续推进模型计算数据对接。"
+    },
+    {
+      "pair_id": "P-f1f69a9575e58979",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“让AI继续做规划传导和江西接口，指标填报今天没动”与“指标填报按新需求修改设计，继续让AI开发导入接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    }
+  ]
+}

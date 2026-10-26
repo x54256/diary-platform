@@ -1,0 +1,70 @@
+{
+  "at": "2026-10-26T02:09:46.604737+00:00",
+  "answers": {
+    "Q01": "就是18日日记所记的那次观看",
+    "Q02": "主要指18日记载的半脱脂奶"
+  },
+  "before": {
+    "P-1009a58ae4a8b766": {
+      "pair_id": "P-1009a58ae4a8b766",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "reason": "22日确实回顾上周末许成钢视频，但18日要点主要记软预算约束和领导理念，22日引用人本主义发展内容；现有两侧无法确认是同一次观看或同一段视频，保留具体来源定位未决。"
+    },
+    "P-bc4f71db76c33c5c": {
+      "pair_id": "P-bc4f71db76c33c5c",
+      "status": "UNRESOLVED",
+      "relation": null,
+      "reason": "消费争执明确涉及给父亲买舒化奶，但本月有不止一次购买与口味调整；两侧未指出这次争执对应9日首次订单还是后续购买，不能把泛指购奶锁定为本对的具体订单。"
+    }
+  },
+  "after": {
+    "P-1009a58ae4a8b766": {
+      "pair_id": "P-1009a58ae4a8b766",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E048",
+        "target_event": "E042",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "22日听反贪腐评论时，回顾18日记载的周末观看许成钢视频经历，将人本主义的理解与当下讨论联系起来。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "这也串起上周末看许成钢教授的视频。按我当时听到的理解，中国对人性、人本主义的认识有缺失。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "起来就去收拾小房间，收拾的时候，放着许成钢讲软预算约束的视频"
+          }
+        ]
+      },
+      "reason": "22日听反贪腐评论时，回顾18日记载的周末观看许成钢视频经历，将人本主义的理解与当下讨论联系起来。"
+    },
+    "P-bc4f71db76c33c5c": {
+      "pair_id": "P-bc4f71db76c33c5c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "澄清后，本次消费争执主要指向18日记载的半脱脂舒化奶购买；现有材料没有具体回顾9日给父亲和姥姥的首次订单，不建立本对关系。"
+    }
+  },
+  "counts": {
+    "NO_RELATION": 121,
+    "RELATED": 22
+  },
+  "verification": {
+    "verified_against_database": true,
+    "package_sha256": "29804c8f725b5ae2bb0fb573d0e813c3aa9ee97fad998bf3d548a24d067e348e",
+    "verified_at": "2026-10-26T02:09:46.466617+00:00",
+    "stored_in_database": false
+  },
+  "relations_published": false,
+  "followup": {
+    "date": "2026-10-22",
+    "confirmed_reference_date": "2026-10-18",
+    "status": "NEEDS_FORMAL_POINT_REFERENCE_AND_NEW_CANDIDATE",
+    "reason": "若建立明确指向18日半脱脂订单的关系，应先将具体指向纳入正式要点，再新建包含该事件对的识别运行；当前稿及冻结来源不被改写。"
+  }
+}

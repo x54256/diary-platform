@@ -1,0 +1,262 @@
+{
+  "completed_at": "2026-10-23T16:19:59.680089+00:00",
+  "days": 15,
+  "current_events": 129,
+  "pairs": 1086,
+  "same_day_pairs": 571,
+  "cross_day_recalled_pairs": 515,
+  "counts": {
+    "NO_RELATION": 986,
+    "RELATED": 98,
+    "UNRESOLVED": 2
+  },
+  "relation_types": {
+    "提及事件": 20,
+    "后续事件": 72,
+    "引发事件": 6
+  },
+  "stored_in_database": false,
+  "rows": [
+    {
+      "date": "2026-10-01",
+      "pairs": 15,
+      "counts": {
+        "NO_RELATION": 12,
+        "RELATED": 3
+      },
+      "verification": {
+        "verified_against_database": true,
+        "package_sha256": "6631035fae6a1ce4fcf1755bddc81b32b3f7c373c112b120b54d2779c2c482b3",
+        "verified_at": "2026-10-23T16:05:48.499217+00:00",
+        "stored_in_database": false
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-01/5b6fbb71-0af9-43a1-a914-7bc9534a79d1/20261024T000439-00e17c86",
+      "markdown_sha256": "757049cac8fdd15fe9acb7aa1210c68ef9a19fb8cebab0388724e54212d541e7"
+    },
+    {
+      "date": "2026-10-02",
+      "pairs": 12,
+      "counts": {
+        "NO_RELATION": 11,
+        "RELATED": 1
+      },
+      "verification": {
+        "verified_against_database": true,
+        "package_sha256": "09406cd0a6b47b869d17a984ed932b82b147c5334e060a53440834472c095699",
+        "verified_at": "2026-10-23T16:06:20.581910+00:00",
+        "stored_in_database": false
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-02/4333bd59-ebab-485a-a156-774bc5e64e22/20261024T000552-9bd12cf1",
+      "markdown_sha256": "ea161b26f3427104d80b8c0629065169e8fbf52ad37045f79f5749db48328830"
+    },
+    {
+      "date": "2026-10-07",
+      "pairs": 89,
+      "counts": {
+        "NO_RELATION": 83,
+        "RELATED": 6
+      },
+      "verification": {
+        "verified_against_database": true,
+        "package_sha256": "14c00f892b2947c91d4655ccde2bbe393f44d5ac36893c064fcd2bebef620fa5",
+        "verified_at": "2026-10-23T16:07:18.481524+00:00",
+        "stored_in_database": false
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-07/5758d75f-67e8-4430-9237-a192dc6a03f0/20261024T000621-53a81168",
+      "markdown_sha256": "464b058a351703b665983cf27f9074c8b8c12418fc48c451f1760ffc5ec59f4a"
+    },
+    {
+      "date": "2026-10-09",
+      "pairs": 140,
+      "counts": {
+        "NO_RELATION": 133,
+        "RELATED": 7
+      },
+      "verification": {
+        "verified_against_database": true,
+        "package_sha256": "25d4a410c085816bbdf5f443004746dd08dc85931715873c5fc429f66b5db555",
+        "verified_at": "2026-10-23T16:18:02.745208+00:00",
+        "stored_in_database": false
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-09/118b1c69-adf1-41b1-b638-483e5f5947c2/20261024T001801-660f9777",
+      "markdown_sha256": "4ccaf00430ebf1af0677c57348d212f245ab8dec6b7a049963b9156b57aa3349"
+    },
+    {
+      "date": "2026-10-10",
+      "pairs": 119,
+      "counts": {
+        "RELATED": 8,
+        "NO_RELATION": 111
+      },
+      "verification": {
+        "verified_against_database": true,
+        "package_sha256": "487a42329d7d6da224af869b4584056b6d12f0bc8fd72c25e563ec765ef3084a",
+        "verified_at": "2026-10-23T16:18:04.567745+00:00",
+        "stored_in_database": false
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-10/a1b8df2f-3fba-4260-85cf-16b5430cd279/20261024T001803-8d7c065d",
+      "markdown_sha256": "bf8e99102dbf6de23a4a45eb0498ef1568159762e1d3a9c1d8af182546c05200"
+    },
+    {
+      "date": "2026-10-12",
+      "pairs": 64,
+      "counts": {
+        "NO_RELATION": 60,
+        "RELATED": 4
+      },
+      "verification": {
+        "verified_against_database": true,
+        "package_sha256": "a2a5069cd2f81095e0e34f1529e46b681521bd3b5dc72219b9d32af8e890c675",
+        "verified_at": "2026-10-23T16:18:06.565241+00:00",
+        "stored_in_database": false
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-12/516c323f-5c01-4dfc-85a9-b9c4536204f2/20261024T001805-5534c9b5",
+      "markdown_sha256": "a3438f88a37756daaab24c924695c9ed806b46c3c29930ee48ed94be8433c266"
+    },
+    {
+      "date": "2026-10-14",
+      "pairs": 104,
+      "counts": {
+        "NO_RELATION": 94,
+        "RELATED": 10
+      },
+      "verification": {
+        "verified_against_database": true,
+        "package_sha256": "1ea140dc0176d94a733e487ace1fe63167bc921d1ba8a036a0f0f5373fb758cb",
+        "verified_at": "2026-10-23T16:18:08.735126+00:00",
+        "stored_in_database": false
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-14/0be3874e-29d1-482f-930a-9fb182d25e11/20261024T001807-665d6c99",
+      "markdown_sha256": "04f77193fef079fd3bf6c605bfadc1ea362e93042e64137ebe34b3eceb7b0859"
+    },
+    {
+      "date": "2026-10-15",
+      "pairs": 35,
+      "counts": {
+        "NO_RELATION": 33,
+        "RELATED": 2
+      },
+      "verification": {
+        "verified_against_database": true,
+        "package_sha256": "c1b6f84a4ce2e29a856210ce623d316fdd0b1e7dd6ecefa01c52360931828735",
+        "verified_at": "2026-10-23T16:18:10.919430+00:00",
+        "stored_in_database": false
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-15/196c1478-ce60-4fc3-ae78-2edd3b0d309f/20261024T001809-7832bcc7",
+      "markdown_sha256": "539731aa13a72a51ca90d92f70b8c6e9fda93aafff21c44717e93208eaa51d05"
+    },
+    {
+      "date": "2026-10-17",
+      "pairs": 79,
+      "counts": {
+        "NO_RELATION": 71,
+        "RELATED": 8
+      },
+      "verification": {
+        "verified_against_database": true,
+        "package_sha256": "8ebac649ffd3e1955b8e4aee31ecf9cc6b27fa5afc977d50a99aeeaf22a9585b",
+        "verified_at": "2026-10-23T16:18:13.369548+00:00",
+        "stored_in_database": false
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-17/c9a2e9de-bf99-4cd4-8600-95e3925cff8e/20261024T001812-c1565ef0",
+      "markdown_sha256": "bb003a77c1620e53855ae421aac744ff64554f406eba129c126ee90aceb1f053"
+    },
+    {
+      "date": "2026-10-18",
+      "pairs": 95,
+      "counts": {
+        "NO_RELATION": 88,
+        "RELATED": 7
+      },
+      "verification": {
+        "verified_against_database": true,
+        "package_sha256": "a7573a8400dbfbffc62b1fdcf177a6370c76555f67fd519a77b5d579cb9ba4cb",
+        "verified_at": "2026-10-23T16:18:16.012483+00:00",
+        "stored_in_database": false
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-18/71182016-2d93-4bb6-beaf-3afc470c6415/20261024T001814-a152fb8c",
+      "markdown_sha256": "68ef0eb56588464dff7b06228f653efa99fb5fab7d190f4e8112d8622f82ae61"
+    },
+    {
+      "date": "2026-10-19",
+      "pairs": 86,
+      "counts": {
+        "NO_RELATION": 77,
+        "RELATED": 9
+      },
+      "verification": {
+        "verified_against_database": true,
+        "package_sha256": "5d6c68892da482aaa92c70eaf49cd40e91f6c022da668e11f220ac58e2506058",
+        "verified_at": "2026-10-23T16:18:19.001380+00:00",
+        "stored_in_database": false
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-19/eace7c4c-abba-4512-b22c-a0b4ce848de0/20261024T001817-02e0f2f2",
+      "markdown_sha256": "7cad3c55d632f80d160d93e8b75a52e462ad7c4523e075771cb59d10c07b0591"
+    },
+    {
+      "date": "2026-10-20",
+      "pairs": 35,
+      "counts": {
+        "RELATED": 7,
+        "NO_RELATION": 28
+      },
+      "verification": {
+        "verified_against_database": true,
+        "package_sha256": "a97583e9ccff5f7be956510d56b7de9b61965bff0b24ed4d84df5a9a95f36ae7",
+        "verified_at": "2026-10-23T16:18:22.045427+00:00",
+        "stored_in_database": false
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-20/ab767235-6ca0-4e7d-a770-938884a251c9/20261024T001820-d905544f",
+      "markdown_sha256": "af7eb989844c0b03fc488521cf2a824d9fc86623063b50eac75ac5655bc722a6"
+    },
+    {
+      "date": "2026-10-21",
+      "pairs": 35,
+      "counts": {
+        "NO_RELATION": 30,
+        "RELATED": 5
+      },
+      "verification": {
+        "verified_against_database": true,
+        "package_sha256": "704c91511410520569d52a2dfd54cd602fbed9f9f9fe8cf6d145a6374f844066",
+        "verified_at": "2026-10-23T16:18:25.291730+00:00",
+        "stored_in_database": false
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-21/09cf0bb7-21c9-4f30-bba9-920043d6ffef/20261024T001824-87961ef4",
+      "markdown_sha256": "0dedf435a4c6eb775f3bb517071005a8bac644277e82bcfa92206524ef1abbf7"
+    },
+    {
+      "date": "2026-10-22",
+      "pairs": 143,
+      "counts": {
+        "NO_RELATION": 129,
+        "RELATED": 12,
+        "UNRESOLVED": 2
+      },
+      "verification": {
+        "verified_against_database": true,
+        "package_sha256": "0b01490e1c69c1853fb6cb84a8cca3b235a3bf1f3e1dac37fc0e2483c685b2f0",
+        "verified_at": "2026-10-23T16:18:29.126014+00:00",
+        "stored_in_database": false
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-22/d12d4bb1-5394-4ad6-861a-c85ce455872c/20261024T001827-c60a4dfa",
+      "markdown_sha256": "c3440470ad4b57b4b47badb92bc8089b086446ca7671e9f6a54eb9696ce5d9f3"
+    },
+    {
+      "date": "2026-10-23",
+      "pairs": 35,
+      "counts": {
+        "RELATED": 9,
+        "NO_RELATION": 26
+      },
+      "verification": {
+        "verified_against_database": true,
+        "package_sha256": "32e9951f7f776d092682cf4913cfe7fa8a2adeb3c9edb093b887e9510fbfd28c",
+        "verified_at": "2026-10-23T16:18:32.977999+00:00",
+        "stored_in_database": false
+      },
+      "run_dir": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-23/0cef75fc-19cc-48da-a311-2a2aa0e6a7f3/20261024T001831-869af9a6",
+      "markdown_sha256": "6d5e7182ec0957f46c9f0bd5e53ae92c5f7dab874e6e5ec4b19f5e646bf0ff83"
+    }
+  ]
+}

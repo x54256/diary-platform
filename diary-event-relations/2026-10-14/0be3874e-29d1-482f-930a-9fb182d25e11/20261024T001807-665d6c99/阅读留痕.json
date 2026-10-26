@@ -1,0 +1,5 @@
+{
+  "read_basis": "旧运行各批完整要点已读取，复核新来源事件、要点、候选、召回与旧包完全相同；仅依赖路径及来源包指纹改变。复用已有逐对语义判断并应用明确的复核修正。",
+  "original_run": "/Users/x5456/Documents/workspace/XDATA-Project/0个人/diary-platform/diary-event-relations/2026-10-14/0be3874e-29d1-482f-930a-9fb182d25e11/20261024T000921-60cfa365",
+  "events_pairs_recall_exact_match": true
+}

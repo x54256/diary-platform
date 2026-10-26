@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "package_sha256": "c1b6f84a4ce2e29a856210ce623d316fdd0b1e7dd6ecefa01c52360931828735",
+  "created_at": "2026-10-23T16:18:09.974979+00:00",
+  "batches": [
+    {
+      "batch_id": "B001",
+      "pair_ids": [
+        "P-8caae674256aab10",
+        "P-e61be68c885054bf",
+        "P-72650854b69a34af",
+        "P-8a322a7d068ac242",
+        "P-e441c79ee2796604",
+        "P-c047ce399641ec7e",
+        "P-3581c69cd8ec705d",
+        "P-ff49a178a4d86844",
+        "P-b7ed28f904f820d1",
+        "P-ce205da57ad97413",
+        "P-131f8362818d4219",
+        "P-cb717d2618b8dd1b"
+      ]
+    },
+    {
+      "batch_id": "B002",
+      "pair_ids": [
+        "P-290cb44f81e05749",
+        "P-76096f363211ecac",
+        "P-de6787169a9a2ceb",
+        "P-736f91e659a44fb4",
+        "P-8bab4d40fa4834f3",
+        "P-96e537f20288fe87",
+        "P-8d6e33b928f3a0a8",
+        "P-dc983cfecfd9b1d7",
+        "P-9e9b7464ef6397eb",
+        "P-c0bd1ff19fcdcc87",
+        "P-d6dd5172056ec484",
+        "P-000cac44bff8f87f"
+      ]
+    },
+    {
+      "batch_id": "B003",
+      "pair_ids": [
+        "P-a7a7e4ce2a01e536",
+        "P-2cc18c2d75adaf99",
+        "P-232622185909e600",
+        "P-8f8d202c264b21e7",
+        "P-7b57e749d6d48c49",
+        "P-fa7e65e25960a25e",
+        "P-63909c9bbdb6dac6",
+        "P-c354a381f1b5b1ec",
+        "P-1dd2bcef3ff16427",
+        "P-4bada92e1297c999",
+        "P-f31dfbb9a9337d91"
+      ]
+    }
+  ],
+  "files": {
+    "B002.json": "25229398adee136e5e23b538515b4b4423484d4cad7ad20c5a94ea3b9ac8e39d",
+    "B003.json": "7e300adf8a170839c0bdbacc524bd920554adf5222ddae5cc7666519bace70b8",
+    "source.json": "f361cb8e4ff7439d027e05809d5ee7c4ef08d2e9272b4d96334f4bdd756ea338",
+    "B001.json": "a0d6cb55db597c12de6dbc7a4b7c886975d856c860b6412064102e2234bbf60c"
+  }
+}

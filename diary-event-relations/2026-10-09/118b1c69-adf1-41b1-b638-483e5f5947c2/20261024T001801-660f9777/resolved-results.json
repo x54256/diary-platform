@@ -1,0 +1,1647 @@
+{
+  "package_sha256": "25d4a410c085816bbdf5f443004746dd08dc85931715873c5fc429f66b5db555",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "25d4a410c085816bbdf5f443004746dd08dc85931715873c5fc429f66b5db555",
+    "verified_at": "2026-10-23T16:18:02.745208+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-051d9aa2943e11c4",
+      "event_a_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“提醒颂梅控制离职前后的花销，又给她转了5000块”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-076199602a7741b7",
+      "event_a_id": "4ae2bd0c-2a26-40a7-a11e-e9ba0af50917",
+      "event_a_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "event_b_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“追问国内外油价对比，思考只说一半真话的叙事”与“跟小豪聊华工新闻，发现自己对“卷”的理解变了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-09de9b5ddb912799",
+      "event_a_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“着急买礼品卡续会员，才发现原会员还没到期”与“提醒颂梅控制离职前后的花销，又给她转了5000块”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0d42d143194e2d9d",
+      "event_a_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“南通项目久拖的问题，最后发现是现场配置不对”与“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0dc29b824a31eaac",
+      "event_a_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“提醒颂梅控制离职前后的花销，又给她转了5000块”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0e3c703e3d64c178",
+      "event_a_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“知识图谱需求不清时，让AI调研、实验，小步拼出方案”与“跟小豪聊华工新闻，发现自己对“卷”的理解变了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0e660233a29b6397",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-14eb930bdf6aa971",
+      "event_a_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“找到免费的姿势提醒应用，也推荐给身边人”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-15ba328b67c87c36",
+      "event_a_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“找到免费的姿势提醒应用，也推荐给身边人”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1c264dd67ac9b191",
+      "event_a_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“跟小豪聊华工新闻，发现自己对“卷”的理解变了”与“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1cd419cdba29e35a",
+      "event_a_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“知识图谱需求不清时，让AI调研、实验，小步拼出方案”与“提醒颂梅控制离职前后的花销，又给她转了5000块”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1eb69b567d7eebc7",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“着急买礼品卡续会员，才发现原会员还没到期”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-24101553c2487290",
+      "event_a_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "917b3787-67ca-4d41-a6fc-8f853c13376a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“南通项目久拖的问题，最后发现是现场配置不对”与“颂梅向宠物医院询问哒哒的牙龈问题，我们决定先保守处理”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-29cef9e287863c9d",
+      "event_a_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2ae17f26c412cdf8",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2c9c7032cdb51f04",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“知识图谱需求不清时，让AI调研、实验，小步拼出方案”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2dc0abfa2517e517",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“着急买礼品卡续会员，才发现原会员还没到期”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2de823daa5f0de02",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2e0e5d54208ecf91",
+      "event_a_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“找到免费的姿势提醒应用，也推荐给身边人”与“知识图谱需求不清时，让AI调研、实验，小步拼出方案”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2fb8d426a24b0f74",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“6、7号去柳州吃喝，体验茶麸洗头”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-31281b23515b5a55",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“再看爸妈就医后的变化，觉得这趟医院确实有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-32a4ab0fa6fea5a8",
+      "event_a_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“提醒颂梅控制离职前后的花销，又给她转了5000块”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-32fe0e559b869a04",
+      "event_a_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“着急买礼品卡续会员，才发现原会员还没到期”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-348146dddcac63a1",
+      "event_a_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "f8683458-76ea-4f81-a63b-f7efdc48d365",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“我爸觉得加热饭盒好用，想把这份正反馈传给全家”与“从我爸乱吃药这件事，看到事情的两面性”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-349a2a0d26b5777a",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“小廖反复提议给父母当导游，我建议先停下来再决定”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3806bc018e011986",
+      "event_a_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“找到免费的姿势提醒应用，也推荐给身边人”与“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3ac0c113ef5c1c2d",
+      "event_a_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“知识图谱需求不清时，让AI调研、实验，小步拼出方案”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3d269a737b81d7c7",
+      "event_a_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“南通项目久拖的问题，最后发现是现场配置不对”与“跟小豪聊华工新闻，发现自己对“卷”的理解变了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3dcddcf987903090",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“找到免费的姿势提醒应用，也推荐给身边人”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4117983def4b0461",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-418770cd7a756ed6",
+      "event_a_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“提醒颂梅控制离职前后的花销，又给她转了5000块”与“带颂梅按摩，缓解开车和爬山后的腿部不适”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-443bebf05dde39bb",
+      "event_a_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“南通项目久拖的问题，最后发现是现场配置不对”与“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-448b1d8d141ee83c",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“提醒我爸上班带饭，也再跟我妈说说饮食限制”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4b2f8ea3ddb4f0f9",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "f8683458-76ea-4f81-a63b-f7efdc48d365",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“从我爸乱吃药这件事，看到事情的两面性”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5035b154d3803845",
+      "event_a_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“着急买礼品卡续会员，才发现原会员还没到期”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5118d7488935e74a",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-52a381876fb9cad8",
+      "event_a_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“南通项目久拖的问题，最后发现是现场配置不对”与“提醒颂梅控制离职前后的花销，又给她转了5000块”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5739a04836bd1d9f",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“知识图谱需求不清时，让AI调研、实验，小步拼出方案”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5870e409353ddcc6",
+      "event_a_id": "917b3787-67ca-4d41-a6fc-8f853c13376a",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“颂梅向宠物医院询问哒哒的牙龈问题，我们决定先保守处理”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-58a29a8e82a07dd6",
+      "event_a_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“换纸币、拼船和问水果，发现开口比内耗更有价值”与“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-59dcea65855463f4",
+      "event_a_id": "917b3787-67ca-4d41-a6fc-8f853c13376a",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“颂梅向宠物医院询问哒哒的牙龈问题，我们决定先保守处理”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6007f073419e22a6",
+      "event_a_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“着急买礼品卡续会员，才发现原会员还没到期”与“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-608193c7126f7305",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“南通项目久拖的问题，最后发现是现场配置不对”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-624f12f4ac0062b6",
+      "event_a_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“着急买礼品卡续会员，才发现原会员还没到期”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-625a93321d361553",
+      "event_a_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“我爸觉得加热饭盒好用，想把这份正反馈传给全家”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-63a7b6b4e9a75737",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“提醒颂梅控制离职前后的花销，又给她转了5000块”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-640f6b6eafb14450",
+      "event_a_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“找到免费的姿势提醒应用，也推荐给身边人”与“跟小豪聊华工新闻，发现自己对“卷”的理解变了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-64ec63de6a2c931a",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-66fd3ffcbff5efa9",
+      "event_a_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”与“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-68042370a18041eb",
+      "event_a_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "917b3787-67ca-4d41-a6fc-8f853c13376a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“着急买礼品卡续会员，才发现原会员还没到期”与“颂梅向宠物医院询问哒哒的牙龈问题，我们决定先保守处理”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6916bb035021af94",
+      "event_a_id": "917b3787-67ca-4d41-a6fc-8f853c13376a",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“颂梅向宠物医院询问哒哒的牙龈问题，我们决定先保守处理”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6928b2e8c28629a9",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-699e784f16fc4965",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "a4f83e52-96a4-4e31-bff3-12513ea37c30",
+      "event_b_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“用了低头提醒App，想让AI帮我做一个”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-70e9ed2c765dcf9a",
+      "event_a_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "917b3787-67ca-4d41-a6fc-8f853c13376a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“跟小豪聊华工新闻，发现自己对“卷”的理解变了”与“颂梅向宠物医院询问哒哒的牙龈问题，我们决定先保守处理”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-762353dfb55adc5b",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“提醒颂梅控制离职前后的花销，又给她转了5000块”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-782b5f0174f53c19",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "6102239a-30d3-4684-8abf-aa3e12f3512d",
+      "event_b_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“设想用AI自动分析视频观点和推荐视频”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7a38ee7fc16bdcc5",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“提醒颂梅控制离职前后的花销，又给她转了5000块”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7adc5683bd96547a",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7b83c43b1c526ccd",
+      "event_a_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“跟小豪聊华工新闻，发现自己对“卷”的理解变了”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7c8cb8c0c56d50fc",
+      "event_a_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“提醒颂梅控制离职前后的花销，又给她转了5000块”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7d18f0cec213a571",
+      "event_a_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-82ab86ea0a175e7a",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“跟小豪聊华工新闻，发现自己对“卷”的理解变了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-82b24d8c0a6dc940",
+      "event_a_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“找到免费的姿势提醒应用，也推荐给身边人”与“提醒颂梅控制离职前后的花销，又给她转了5000块”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-83990354a27c1fc9",
+      "event_a_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“找到免费的姿势提醒应用，也推荐给身边人”与“颂梅被劝别离职，又接到急活，我想尽快给她续会员”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-846b15349b640115",
+      "event_a_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "RELATED",
+      "reason": "此前提醒父亲明天带饭并简化携带，后来父亲反馈已经吃上热饭。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前提醒父亲明天带饭并简化携带，后来父亲反馈已经吃上热饭。",
+        "source_event_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+        "source_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "主要督促我爸明天上班带饭。",
+            "point_id": "4a0d0070-7fed-4c22-a436-bf8fc69094e8",
+            "point_event_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+            "point_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+            "offset": 9,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ef5641cfcf5dc5d7874f6520001fee164fc4b928d287fc0c7a17bfd7d3215c0c"
+          }
+        ],
+        "target_event_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+        "target_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "他说挺好，饭吃得热乎。",
+            "point_id": "f322db9c-7e7c-4421-9f25-739b37c4c2a4",
+            "point_event_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 29,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "d1916f0bd67e50ceb5ad2c4bdd48430fed9c9ad4327b565130244b61b765cef4"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-84b7c9321dd42a69",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "917b3787-67ca-4d41-a6fc-8f853c13376a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“颂梅向宠物医院询问哒哒的牙龈问题，我们决定先保守处理”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8984aeb08cf40645",
+      "event_a_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "917b3787-67ca-4d41-a6fc-8f853c13376a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“知识图谱需求不清时，让AI调研、实验，小步拼出方案”与“颂梅向宠物医院询问哒哒的牙龈问题，我们决定先保守处理”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8b175222f42cfd69",
+      "event_a_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8c4cc5c151f24fe0",
+      "event_a_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "6102239a-30d3-4684-8abf-aa3e12f3512d",
+      "event_b_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "status": "NO_RELATION",
+      "reason": "“找到免费的姿势提醒应用，也推荐给身边人”与“设想用AI自动分析视频观点和推荐视频”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8d50f6289843e5d9",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“着急买礼品卡续会员，才发现原会员还没到期”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8d89ccb2df52070e",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "RELATED",
+      "reason": "劝父亲干预三高后，后续记录其带饭、少喝酒和运动，并评价及时就医有益。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "劝父亲干预三高后，后续记录其带饭、少喝酒和运动，并评价及时就医有益。",
+        "source_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+        "source_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+        "source_evidence": [
+          {
+            "point_no": 10,
+            "quote": "借儿媳妇的孝心，给一点“道德绑架”或家属责任的压力，让他先行动。",
+            "point_id": "67b1b808-ff3f-40a6-9ad3-e4d4adf46b2f",
+            "point_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+            "point_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+            "offset": 138,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b284a7c3dafe87d0eda18ea953143c9a3fb44eff84947da80cc23995b8416c4e"
+          }
+        ],
+        "target_event_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+        "target_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "现在知道有问题，也在带盒饭、少喝酒、多运动，对自己有好处。",
+            "point_id": "b0e6f36e-6365-4066-bded-0e8807857815",
+            "point_event_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 58,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "371d1ca54034e6fd28e4acb3918d7cb1fa75a008c425a395645ff7b46e5e6b97"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-8e18651ef2d903ec",
+      "event_a_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“跟小豪聊华工新闻，发现自己对“卷”的理解变了”与“提醒颂梅控制离职前后的花销，又给她转了5000块”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-931c2b21cae9d279",
+      "event_a_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“提醒颂梅控制离职前后的花销，又给她转了5000块”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-94a6691be92e7241",
+      "event_a_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“南通项目久拖的问题，最后发现是现场配置不对”与“知识图谱需求不清时，让AI调研、实验，小步拼出方案”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-96fab5c948c7df2f",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-973cd2394b1339ad",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-993529f2f5723b12",
+      "event_a_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“知识图谱需求不清时，让AI调研、实验，小步拼出方案”与“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-99cdc79bcef8f50d",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "917b3787-67ca-4d41-a6fc-8f853c13376a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“颂梅向宠物医院询问哒哒的牙龈问题，我们决定先保守处理”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-99ea4932cc9603c5",
+      "event_a_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "RELATED",
+      "reason": "为颂梅赶急活续会员的想法得到执行，买并绑定礼品卡后才发现原会员尚未到期。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "为颂梅赶急活续会员的想法得到执行，买并绑定礼品卡后才发现原会员尚未到期。",
+        "source_event_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+        "source_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "想着赶紧给她把Codex会员充上，明天好用。",
+            "point_id": "4070521a-e2cf-4a14-a31c-b47e21ccb2c1",
+            "point_event_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+            "point_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+            "offset": 28,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ce4664da72d6352ca78638cb23aad3c505a4a0fc1bd21b98c4f0f8330ee3ac44"
+          }
+        ],
+        "target_event_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+        "target_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我想着她急用，麻烦也接受，就把十张卡一张张绑定了。\n\n问她现在开会员吗，她却说不急，上个月会员到10号才过期。",
+            "point_id": "7eacdb6c-2480-4bfe-9690-5e42518ed3dc",
+            "point_event_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 118,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "295f5c633a4ad7501da9186658bbccd0a73f8c2630be1efb4aaa78fd859aca50"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-9db53b9250ce62c9",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9f5cca5bab9d0715",
+      "event_a_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“着急买礼品卡续会员，才发现原会员还没到期”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9fd86d02de46e38a",
+      "event_a_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“提醒颂梅控制离职前后的花销，又给她转了5000块”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a0da85eee4c423d0",
+      "event_a_id": "6102239a-30d3-4684-8abf-aa3e12f3512d",
+      "event_a_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“设想用AI自动分析视频观点和推荐视频”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a0dc85b6e6a8cf32",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a1a39bbf109248f3",
+      "event_a_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“我爸觉得加热饭盒好用，想把这份正反馈传给全家”与“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a3524a98a81ff5e5",
+      "event_a_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“跟小豪聊华工新闻，发现自己对“卷”的理解变了”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a55458a662e6582b",
+      "event_a_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“南通项目久拖的问题，最后发现是现场配置不对”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a586d9c79cebe1d2",
+      "event_a_id": "241f4e2c-8305-4b49-a344-f1e673361aea",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“从核磁共振想通数学研究的价值，以及知识怎样变成认知”与“南通项目久拖的问题，最后发现是现场配置不对”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a6c63c72d2fb4a38",
+      "event_a_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“找到免费的姿势提醒应用，也推荐给身边人”与“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a7114629e41d0f09",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a8ca308fb144e716",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-aed421f474355e23",
+      "event_a_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“买33块钱的榴莲，跟颂梅聊价格和期待”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b0504cfa8c51e9a1",
+      "event_a_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "917b3787-67ca-4d41-a6fc-8f853c13376a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“找到免费的姿势提醒应用，也推荐给身边人”与“颂梅向宠物医院询问哒哒的牙龈问题，我们决定先保守处理”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b4b976b5577ee881",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b65c80612c7fac42",
+      "event_a_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“南通项目久拖的问题，最后发现是现场配置不对”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b7fac63b7aa439f1",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“小廖反复提议给父母当导游，我建议先停下来再决定”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b829eff94a2afc4c",
+      "event_a_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“南通项目久拖的问题，最后发现是现场配置不对”与“颂梅被劝别离职，又接到急活，我想尽快给她续会员”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ba14dff31eaaf46d",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“南通项目久拖的问题，最后发现是现场配置不对”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bde39f3af18883ee",
+      "event_a_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“知识图谱需求不清时，让AI调研、实验，小步拼出方案”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-beffc7af63b5dd77",
+      "event_a_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "a4f83e52-96a4-4e31-bff3-12513ea37c30",
+      "event_b_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "status": "RELATED",
+      "reason": "此前因姿势提醒App收费想自行制作，后来寻找现成替代品，找到免费开源应用并推荐身边人。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前因姿势提醒App收费想自行制作，后来寻找现成替代品，找到免费开源应用并推荐身边人。",
+        "source_event_id": "a4f83e52-96a4-4e31-bff3-12513ea37c30",
+        "source_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我觉得这个功能很好，但它收费，便想趁现在AI能力强，让AI帮我做一个。",
+            "point_id": "0198632b-37d5-4fdf-930b-c0f39fb66a3a",
+            "point_event_id": "a4f83e52-96a4-4e31-bff3-12513ea37c30",
+            "point_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+            "offset": 41,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "e8ff767f58b1b8f5ccc72b7d9248f8797babf8d84b21afe2564fdf4e105d683b"
+          }
+        ],
+        "target_event_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+        "target_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "原本也想用AI做类似应用。看到他用，说明应该有现成软件；再想到老陆因颈椎病做了手术，还在养着，还是希望自己的情况别恶化，就去找。\n\n网上试了好几个，最后找到一个开源、免费应用，体验挺好。",
+            "point_id": "52aeb9ae-f731-48b1-866d-75879d22cfff",
+            "point_event_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 107,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "04c1844f69c938a9807380fb3486d6ae71d8e1f07b32b7889e6afd664eaf2d07"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-c0e163ba50785fd4",
+      "event_a_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c121c9ce506b32d3",
+      "event_a_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“南通项目久拖的问题，最后发现是现场配置不对”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c2fba647c61389e3",
+      "event_a_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c3eefdac998d2e67",
+      "event_a_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“找到免费的姿势提醒应用，也推荐给身边人”与“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c428ebc87f5231dc",
+      "event_a_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“我爸觉得加热饭盒好用，想把这份正反馈传给全家”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c5873b5654ad9e0b",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "RELATED",
+      "reason": "提醒父亲带饭后，后续记录其已带盒饭、少喝酒并运动。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "提醒父亲带饭后，后续记录其已带盒饭、少喝酒并运动。",
+        "source_event_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+        "source_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "主要督促我爸明天上班带饭。",
+            "point_id": "4a0d0070-7fed-4c22-a436-bf8fc69094e8",
+            "point_event_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+            "point_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+            "offset": 9,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "ef5641cfcf5dc5d7874f6520001fee164fc4b928d287fc0c7a17bfd7d3215c0c"
+          }
+        ],
+        "target_event_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+        "target_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "现在知道有问题，也在带盒饭、少喝酒、多运动，对自己有好处。",
+            "point_id": "b0e6f36e-6365-4066-bded-0e8807857815",
+            "point_event_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 58,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "371d1ca54034e6fd28e4acb3918d7cb1fa75a008c425a395645ff7b46e5e6b97"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-ca054e7f4f2c3c31",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“找到免费的姿势提醒应用，也推荐给身边人”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cad9ab8f2782da19",
+      "event_a_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“南通项目久拖的问题，最后发现是现场配置不对”与“找到免费的姿势提醒应用，也推荐给身边人”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-caffbaed2a57e39d",
+      "event_a_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“南通项目久拖的问题，最后发现是现场配置不对”与“着急买礼品卡续会员，才发现原会员还没到期”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cda7bbfdcf98989f",
+      "event_a_id": "917b3787-67ca-4d41-a6fc-8f853c13376a",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“颂梅向宠物医院询问哒哒的牙龈问题，我们决定先保守处理”与“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d269fb50ceddb2d9",
+      "event_a_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“着急买礼品卡续会员，才发现原会员还没到期”与“跟小豪聊华工新闻，发现自己对“卷”的理解变了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d2faadb0caf2166d",
+      "event_a_id": "3af98a26-bb47-42c0-ae63-d422338a5811",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“南通项目久拖的问题，最后发现是现场配置不对”与“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d3f752a3a65fa0de",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“提醒颂梅控制离职前后的花销，又给她转了5000块”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d51160dbc26b6af8",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "f8683458-76ea-4f81-a63b-f7efdc48d365",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "RELATED",
+      "reason": "就医价值反思明确回顾阿司匹林话题促成父亲检查并发现三高的链条。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "就医价值反思明确回顾阿司匹林话题促成父亲检查并发现三高的链条。",
+        "source_event_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+        "source_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "若不是她提到阿司匹林能停，我就不会想到父亲也在吃，不会催他去医院，也就查不出三高。",
+            "point_id": "2531eaf5-150e-46ef-a367-f7b925422dce",
+            "point_event_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 16,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "54a74735146af27caba4284cb4e22abfaabe91c4b6636b9914f8357352da2221"
+          }
+        ],
+        "target_event_id": "f8683458-76ea-4f81-a63b-f7efdc48d365",
+        "target_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "得知后，我让他到医院确认能否停药，意外查出三高，才有机会及时干预。",
+            "point_id": "6d815ad3-14ef-47b5-8e1e-59aac6c0d2f0",
+            "point_event_id": "f8683458-76ea-4f81-a63b-f7efdc48d365",
+            "point_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+            "offset": 118,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "0fe892b9934b769e1962c60df8a27cab78250ca905e1d3be3630fdd4167621c4"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-d8753c9ac81eb32e",
+      "event_a_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“着急买礼品卡续会员，才发现原会员还没到期”与“商量回丹东扫墓，觉得事情还是要分优先级”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d880a62a91b9ae06",
+      "event_a_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“跟小豪聊华工新闻，发现自己对“卷”的理解变了”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d8cf9771cbd3ad8b",
+      "event_a_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "RELATED",
+      "reason": "父亲从答应接受加热饭盒带饭，进展到实际使用后反馈饭菜热、方便，同事也想买。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "父亲从答应接受加热饭盒带饭，进展到实际使用后反馈饭菜热、方便，同事也想买。",
+        "source_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+        "source_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+        "source_evidence": [
+          {
+            "point_no": 6,
+            "quote": "最后他松口答应带饭了。",
+            "point_id": "c773cce8-62e0-4627-a540-8006b2baff7a",
+            "point_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+            "point_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b1514f93c4682096b6b516a9304c3b543920cfe7e5f532d214bd8df81c363d3e"
+          }
+        ],
+        "target_event_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+        "target_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "他说挺好，饭吃得热乎。",
+            "point_id": "f322db9c-7e7c-4421-9f25-739b37c4c2a4",
+            "point_event_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 29,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "d1916f0bd67e50ceb5ad2c4bdd48430fed9c9ad4327b565130244b61b765cef4"
+          },
+          {
+            "point_no": 3,
+            "quote": "同事觉得饭盒好，也想买。",
+            "point_id": "9a1294a4-e668-41b3-a526-1f3cd5978e5b",
+            "point_event_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 131,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "639a35b785e8719ccd00d74c397a706b892af3157c1f832ebcac0275be61e5e7"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-d9331066bebed650",
+      "event_a_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“换纸币、拼船和问水果，发现开口比内耗更有价值”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-da2300b52f9815a1",
+      "event_a_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“提醒颂梅控制离职前后的花销，又给她转了5000块”与“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-daaeadeaf88613c4",
+      "event_a_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“3号游船、租车和露营，觉得省精力的钱值得花”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-db8350b84aaaadd6",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“买33块钱的榴莲，跟颂梅聊价格和期待”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-df590b19ad1f6508",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-df9e608585beeb61",
+      "event_a_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e33024455c3c807b",
+      "event_a_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“知识图谱需求不清时，让AI调研、实验，小步拼出方案”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e381998631f6c669",
+      "event_a_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“跟小豪聊华工新闻，发现自己对“卷”的理解变了”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e6e62ba2feca3477",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“跟小豪聊华工新闻，发现自己对“卷”的理解变了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e91793d3776b604b",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“知识图谱需求不清时，让AI调研、实验，小步拼出方案”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e97470834767db4d",
+      "event_a_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“着急买礼品卡续会员，才发现原会员还没到期”与“颂梅的朋友抽中刘德华香港演唱会第二轮购票资格”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ec42929663f3064e",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "7dadc37f-6987-4ee0-92b8-89b8e071a6b5",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“跟小豪聊华工新闻，发现自己对“卷”的理解变了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f17a2199a9198c95",
+      "event_a_id": "241f4e2c-8305-4b49-a344-f1e673361aea",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“从核磁共振想通数学研究的价值，以及知识怎样变成认知”与“知识图谱需求不清时，让AI调研、实验，小步拼出方案”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f20cc1bce1f092ce",
+      "event_a_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "b5288dda-5a89-4d81-8590-9bed80ccd28b",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“着急买礼品卡续会员，才发现原会员还没到期”与“换纸币、拼船和问水果，发现开口比内耗更有价值”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f2f00cc3a5f6125b",
+      "event_a_id": "917b3787-67ca-4d41-a6fc-8f853c13376a",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“颂梅向宠物医院询问哒哒的牙龈问题，我们决定先保守处理”与“提醒颂梅控制离职前后的花销，又给她转了5000块”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f590237c4fa50b62",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“给我爸和姥姥买脱脂舒化奶，也想让老人感到被惦记”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f6c94a5cc6fa9989",
+      "event_a_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f701af4f7005df35",
+      "event_a_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "917b3787-67ca-4d41-a6fc-8f853c13376a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“6、7号去柳州吃喝，体验茶麸洗头”与“颂梅向宠物医院询问哒哒的牙龈问题，我们决定先保守处理”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f7e2dbf8e0da4509",
+      "event_a_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“知识图谱需求不清时，让AI调研、实验，小步拼出方案”与“着急买礼品卡续会员，才发现原会员还没到期”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fc11efe14acbeccb",
+      "event_a_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“找到免费的姿势提醒应用，也推荐给身边人”与“着急买礼品卡续会员，才发现原会员还没到期”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fc2a7b55d30d4bb8",
+      "event_a_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“找到免费的姿势提醒应用，也推荐给身边人”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fd4bb939451fac84",
+      "event_a_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“约大学学姐吃饭，期待见面，也有点抗拒社交”与“3号游船、租车和露营，觉得省精力的钱值得花”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fe9683f7e0b36f07",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "917b3787-67ca-4d41-a6fc-8f853c13376a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“颂梅向宠物医院询问哒哒的牙龈问题，我们决定先保守处理”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    }
+  ]
+}

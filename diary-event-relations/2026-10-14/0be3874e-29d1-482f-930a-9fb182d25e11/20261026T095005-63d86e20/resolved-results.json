@@ -1,0 +1,1593 @@
+{
+  "package_sha256": "9e349602099140dd3bf741484ac8ab97b5dd83dd3df1519a3fb29d0ac829d575",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "9e349602099140dd3bf741484ac8ab97b5dd83dd3df1519a3fb29d0ac829d575",
+    "verified_at": "2026-10-26T02:01:37.270086+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-017a674de65218cb",
+      "event_a_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
+      "event_b_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "九月居家学习计划与本次看YouTube没有明确回顾同次计划或具体执行成果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-01d39c35c87cf3fa",
+      "event_a_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“从工业革命想到AI和机器人，觉得普通人的机会越来越小”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-02bc29a99e93aedd",
+      "event_a_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "RELATED",
+      "reason": "此前知识图谱第一层实现仍在找方案，后续方向已确立，要求AI细化并执行，结果尚待检查。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前知识图谱第一层实现仍在找方案，后续方向已确立，要求AI细化并执行，结果尚待检查。",
+        "source_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+        "source_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "准备周末接着执行这个目标，让Codex自己找方案。",
+            "point_id": "94048dce-22d0-48d2-9f2e-72f89af89e7f",
+            "point_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 70,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "9e29636f310f61f27aa41d01a045978d2caf438b94eba4291dc4bcf683462f5d"
+          }
+        ],
+        "target_event_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+        "target_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今天让AI出详细方案并执行。下班时应该做完了，我还没看，明天再检查。",
+            "point_id": "a0cf5f6e-d7e1-48c6-b0b3-aa712644aea6",
+            "point_event_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 56,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "6cd57b0df4cb8eaaf70bbdc311f9ea36fc6c3c0e1d7a053c0200b595d04069f3"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-038898d2f735388b",
+      "event_a_id": "2bc4100d-71ed-4f77-a9ed-7a1398f88aa5",
+      "event_a_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "送表妹电脑与父亲换手机是不同礼物和对象。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-04071d032732ba88",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "RELATED",
+      "reason": "此前因AI浪潮对工作和面试失去自信，之后讨论更大替代风险时，态度转为暂不提前焦虑、先乐天应对。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前因AI浪潮对工作和面试失去自信，之后讨论更大替代风险时，态度转为暂不提前焦虑、先乐天应对。",
+        "source_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "AI 浪潮来了以后，连工作也没有把握了。",
+            "point_id": "9b936258-bae5-49e5-a64e-4226643aa84a",
+            "point_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+            "offset": 54,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "197d3ba4951713ab5aff9b787d7b860ebd096eb93c12ae0a9b205e483b941dd6"
+          }
+        ],
+        "target_event_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+        "target_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "有点“车到山前必有路”的心态，不提前焦虑。",
+            "point_id": "223feb8d-a879-4630-9bbe-d5e5e984c315",
+            "point_event_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 78,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "11a4487911028a36cfda121848d1405a089b04a22001e3045870f07924d5e7ed"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-06661a9168eb000d",
+      "event_a_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1133b8bd27af8cc1",
+      "event_a_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "九月江西指标映射混乱与本次AI替代讨论未引用该次需求经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-124e1ce323c1373d",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "RELATED",
+      "reason": "此前想检查父亲麦片并教父母用AI，后来实际教母亲拍配料询问豆包。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前想检查父亲麦片并教父母用AI，后来实际教母亲拍配料询问豆包。",
+        "source_event_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+        "source_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "让他拍配料表，我帮忙看看，有些可能加反式脂肪酸，对他的情况不好。他说等我妈来拍，也没剩几包了。\n\n我还想提醒他们用AI",
+            "point_id": "c7bc3993-980e-4eb2-afbb-0f96729fc2e3",
+            "point_event_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 34,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "94e1f74019f963b408ce2dd518b4cfa0fa8220ca0448917fd66045ff7d235d42"
+          }
+        ],
+        "target_event_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+        "target_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "一步步教我妈问麦片适不适合她和我爸喝。",
+            "point_id": "4963961e-95e8-487a-ba1d-be865bec08c2",
+            "point_event_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 52,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b761432e3b106330d442b12338a875306d104b388a1a863237bd0f8a0b134cf5"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-15325e2e09b83b94",
+      "event_a_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“哒哒越来越会开门，今天索性在家工作”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1622ae746d6fe8d3",
+      "event_a_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“本地还原数据库后，又停机重新备份”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-196a2257186513c5",
+      "event_a_id": "23847dd2-f778-4f37-b4ef-e95ed05df0f3",
+      "event_a_run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+      "event_b_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "当前游戏没意思是总体状态，未指向清远无尽模式那次通关，不把泛指当作具体引用或因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1c1c5452d2a1330c",
+      "event_a_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "以前玩游戏遛狗与当前居家办公无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1d1fafe104ef4bb1",
+      "event_a_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“本地还原数据库后，又停机重新备份”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1f2ea012734f22b3",
+      "event_a_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "RELATED",
+      "reason": "备份后计划本地还原验证，后来已完成还原检查，并因担心漏数据停库重备。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "备份后计划本地还原验证，后来已完成还原检查，并因担心漏数据停库重备。",
+        "source_event_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+        "source_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "明天想再备份数据库并本地还原，实际确认能否恢复",
+            "point_id": "02caaaf5-ce83-4417-88e0-24c92d21b450",
+            "point_event_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+            "point_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+            "offset": 24,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "74683f25bb3fef3eb718b157e6f8d62a719227c84a932a8e25428239e3f2629a"
+          }
+        ],
+        "target_event_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+        "target_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "日记平台数据库已在本地还原，查看数据没问题",
+            "point_id": "2547ef2c-7e48-4729-84d2-a7ae822fd394",
+            "point_event_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "8381553d464e040ac949d6ba3149e990df42890adf7fc1b0af199073d27e51e5"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-256109d3dc1b0a94",
+      "event_a_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
+      "event_b_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "劝小廖营造家庭学习氛围与自己再次看YouTube未互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-260c5414a3882755",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“哒哒越来越会开门，今天索性在家工作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2887dd1df3388e04",
+      "event_a_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "母亲有病不治引发争吵与诈骗提醒是不同话题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-30ba43712b3b9cd3",
+      "event_a_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“哒哒越来越会开门，今天索性在家工作”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3302181edd15b672",
+      "event_a_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "蒜香排骨与板栗炖鸡是不同做菜经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3508f4eb8f294f06",
+      "event_a_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-37950e7425814692",
+      "event_a_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "RELATED",
+      "reason": "给父亲买的脱脂奶已喝到，询问口味并考虑半脱脂替代。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "给父亲买的脱脂奶已喝到，询问口味并考虑半脱脂替代。",
+        "source_event_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+        "source_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "一箱我爸，一箱我姥。",
+            "point_id": "2e1f1b97-c425-467c-b22c-914bcd47a8eb",
+            "point_event_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 153,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "73095113329ae77d46370212b34f574a0382d8180d1aef5c0afe9376e0b5fd5f"
+          }
+        ],
+        "target_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+        "target_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我买的奶喝没有、好不好，他说还行。",
+            "point_id": "705223b6-5829-4c3b-a081-59ae07dc943a",
+            "point_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 63,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "51b4e4a6d83e9a9af7cd836eca1de4cec32d86d4ecb8b84ed18ccb5ec2e9173c"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-3a3053c19a06b35a",
+      "event_a_id": "0c33a94d-a933-4d14-a86e-5fab38012761",
+      "event_a_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "event_b_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "醉酒遛狗与哒哒开门黏人导致居家办公是不同经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3acb2757cfae5b07",
+      "event_a_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3b082441ebbfcad9",
+      "event_a_id": "3c7dd72c-9b00-40af-9567-0272bf2841be",
+      "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "event_b_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "记日记复盘价值与数据库备份恢复为不同功能事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3b9f82cf8c70ca8d",
+      "event_a_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3d0d836adbc4001d",
+      "event_a_id": "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "f26ffa6a-7b3f-4b31-b10b-4bf2bfd71b13",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“误点疑似诈骗链接，也提醒父母信息差的风险”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-420152b494372a00",
+      "event_a_id": "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "95ec9c7b-ae87-41c1-8723-19f992379da6",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "NO_RELATION",
+      "reason": "AI体验后考虑第二职业与宏观产业机会观点没有具体引用那次开发体验。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-47ffaa5286e4a1a9",
+      "event_a_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“哒哒越来越会开门，今天索性在家工作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-48d830bbc094e008",
+      "event_a_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "RELATED",
+      "reason": "父亲反馈加热饭盒好用后，后续再次确认仍坚持带饭并继续给正反馈。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "父亲反馈加热饭盒好用后，后续再次确认仍坚持带饭并继续给正反馈。",
+        "source_event_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+        "source_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "他说挺好，饭吃得热乎。",
+            "point_id": "f322db9c-7e7c-4421-9f25-739b37c4c2a4",
+            "point_event_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 29,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "d1916f0bd67e50ceb5ad2c4bdd48430fed9c9ad4327b565130244b61b765cef4"
+          }
+        ],
+        "target_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+        "target_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "饭一直带，酒每天少一个易拉罐。我夸我爸棒",
+            "point_id": "705223b6-5829-4c3b-a081-59ae07dc943a",
+            "point_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 28,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "51b4e4a6d83e9a9af7cd836eca1de4cec32d86d4ecb8b84ed18ccb5ec2e9173c"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-4a9fd8035ac3fb20",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "两次做饭是不同菜和不同日期，未引用旧事。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4f60b0ea4b9fd722",
+      "event_a_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“带哒哒跑步，回家却又把瑜伽耽误了”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-50e2146e5c3f3e7d",
+      "event_a_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“本地还原数据库后，又停机重新备份”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-51f712813aa39fde",
+      "event_a_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "status": "NO_RELATION",
+      "reason": "数据库还原与刷老梁视频无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-527e898800cc8035",
+      "event_a_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“又开始看YouTube，想把休闲时间控制一下”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-53c888fc71488b2e",
+      "event_a_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "RELATED",
+      "reason": "此前准备限制YouTube以把时间用来学心理学，之后又开始看YouTube，再次提出控制休闲时间、转向普通心理学。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前准备限制YouTube以把时间用来学心理学，之后又开始看YouTube，再次提出控制休闲时间、转向普通心理学。",
+        "source_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+        "source_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "YouTube 也要限时，不能全天一直看视频，有用的内容少，不如花时间学普心",
+            "point_id": "2c4e97eb-6d9a-5175-98fa-3f8c786480f8",
+            "point_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+            "point_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "4f99a31c8d3f0cd70ca2208706b3db3507dcd90f0668ac45b61cd4755c1202a0"
+          }
+        ],
+        "target_event_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+        "target_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天又开始看YouTube，不知道为何小廖一去墨西哥出差我就想看，也可能《植物大战僵尸》已没意思，转而看视频。我觉得以后应少看，偶尔听袁腾飞当休闲可以，不能一直看着浪费时间，有空不如学普通心理学。",
+            "point_id": "03b6d7eb-442e-412f-8b52-5b846ae61731",
+            "point_event_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "173ca3f8d5f3addf4c92404817b82918c639e8e0691650356da4ed2a79f9292d"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-54b74beebae8fdd8",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“本地还原数据库后，又停机重新备份”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-57dba0e826f2ebca",
+      "event_a_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "RELATED",
+      "reason": "颂梅赴墨西哥出差后不在家，少了帮忙拦哒哒的人；我在哒哒黏人、不让我出门的情况下决定当天在家工作。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "颂梅赴墨西哥出差后不在家，少了帮忙拦哒哒的人；我在哒哒黏人、不让我出门的情况下决定当天在家工作。",
+        "source_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+        "source_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天颂梅六点多出门，我帮她搬行李下楼，她打车去机场，先香港、再美国、再墨西哥",
+            "point_id": "45cbaadc-1083-4e63-882d-224829d71076",
+            "point_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b917e97b9c861e13882f9ba6534e778a1f033f967a3506e2bcf9f9d246d1bc43"
+          }
+        ],
+        "target_event_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+        "target_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "以前颂梅在家能帮忙拦，现在不在，他肯定更黏我。我想干脆在家，也能多睡一会儿。",
+            "point_id": "51af1946-f52c-42d9-9148-0f026cec4761",
+            "point_event_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 72,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "798221000546c7855e7c472bc11612cfff265341baf80350368037aa3a8b961f"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-5abcf537a7e82044",
+      "event_a_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "event_a_run_id": "dea8dad9-aaab-4cbc-a3d6-a3bdd0d87d24",
+      "event_b_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "小廖离职压力与本人同事讨论AI替代是不同具体工作事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-62b95d5234de322f",
+      "event_a_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“哒哒越来越会开门，今天索性在家工作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6492430b584d4300",
+      "event_a_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "RELATED",
+      "reason": "我把颂梅赴墨西哥出差与自己又想看YouTube联系起来，出差可能触发了这种念头，但原因仍未弄清，也可能只是《植物大战僵尸》玩腻了。",
+      "relation": {
+        "relation_type": "引发事件",
+        "certainty": "SPECULATIVE",
+        "description": "我把颂梅赴墨西哥出差与自己又想看YouTube联系起来，出差可能触发了这种念头，但原因仍未弄清，也可能只是《植物大战僵尸》玩腻了。",
+        "source_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+        "source_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天颂梅六点多出门，我帮她搬行李下楼，她打车去机场，先香港、再美国、再墨西哥",
+            "point_id": "45cbaadc-1083-4e63-882d-224829d71076",
+            "point_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b917e97b9c861e13882f9ba6534e778a1f033f967a3506e2bcf9f9d246d1bc43"
+          }
+        ],
+        "target_event_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+        "target_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天又开始看YouTube，不知道为何小廖一去墨西哥出差我就想看，也可能《植物大战僵尸》已没意思，转而看视频。",
+            "point_id": "03b6d7eb-442e-412f-8b52-5b846ae61731",
+            "point_event_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "173ca3f8d5f3addf4c92404817b82918c639e8e0691650356da4ed2a79f9292d"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-66ad12fa4d94f6c8",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-69753c5e813d995f",
+      "event_a_id": "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“从工业革命想到AI和机器人，觉得普通人的机会越来越小”与“本地还原数据库后，又停机重新备份”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6a99ff042570186f",
+      "event_a_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "event_b_id": "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "行业机会宏观判断与此前面试自信反思没有具体引用或同一行动进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6d587c42a168ab1c",
+      "event_a_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6d697b6bfe07067d",
+      "event_a_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "ed18298a-5db0-41bb-8598-b8fffa13b536",
+      "event_b_run_id": "3fb4d786-e5f9-4e05-94b0-0b92e5568796",
+      "status": "NO_RELATION",
+      "reason": "买黄金与黄牛购票门槛没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6dd067f702712ad9",
+      "event_a_id": "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“从工业革命想到AI和机器人，觉得普通人的机会越来越小”与“哒哒越来越会开门，今天索性在家工作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6fda4d624e107262",
+      "event_a_id": "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“从工业革命想到AI和机器人，觉得普通人的机会越来越小”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-75bf4270e3787655",
+      "event_a_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“哒哒越来越会开门，今天索性在家工作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7743cdafc35c8e55",
+      "event_a_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“本地还原数据库后，又停机重新备份”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-78369a5a1048334d",
+      "event_a_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "5650eb49-c358-43c9-b00a-8580a3e3e0dc",
+      "event_b_run_id": "5a59d2ff-3a44-4503-a5f3-81b09c73fc78",
+      "status": "NO_RELATION",
+      "reason": "买黄金和软预算约束判断未明确引用九月危机视频，经济主题相近不足建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-79062f01849fc1ca",
+      "event_a_id": "1e8bba57-0712-4752-98f3-0643612d5b04",
+      "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
+      "event_b_id": "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "老梁认知改变视频与诈骗链接风险提示没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7cf30f481f7265d6",
+      "event_a_id": "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "c896a8b6-37fe-4170-963b-723171b3df41",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "美国纽约视频与AI产业机会反思没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-82cb0aef8e3c26d9",
+      "event_a_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8401668af2ff34f4",
+      "event_a_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "fd9aa409-84d7-4aed-bdf0-92124c4cbe84",
+      "event_b_run_id": "8a453a4e-d787-4543-b5d5-71bb0c1ab59e",
+      "status": "NO_RELATION",
+      "reason": "父亲换手机、麦片教学与到小廖父母家午餐无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-85e3d62b9c58ad29",
+      "event_a_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-863629d5805f9612",
+      "event_a_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "60253ec4-e484-41ec-993f-356ab5c3cfd8",
+      "event_b_run_id": "ffd350e6-4639-4e1f-91f8-67dd9672dee3",
+      "status": "NO_RELATION",
+      "reason": "九月分享中实施可用AI开发与本次讨论指标页面不指向同一开发案例，类似职业判断不足对应具体事件。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-86b19c911c3cc105",
+      "event_a_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "event_b_id": "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "中秋聚餐问候与诈骗提醒是不同家庭沟通事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-881d0000408f57f7",
+      "event_a_id": "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“从工业革命想到AI和机器人，觉得普通人的机会越来越小”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-883765ce773d47f0",
+      "event_a_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "RELATED",
+      "reason": "准备于次日赴墨西哥出差的安排，已进展到实际启程并抵达墨西哥。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "准备于次日赴墨西哥出差的安排，已进展到实际启程并抵达墨西哥。",
+        "source_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+        "source_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+        "source_evidence": [
+          {
+            "point_no": 4,
+            "quote": "只去两周，应该没太大事，明天就走。",
+            "point_id": "52e454f7-1f30-4ea6-b944-52613fffdefe",
+            "point_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+            "point_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+            "offset": 86,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "8eeb1d7f74dae76103bf27b546cc0634040c04356bf671f609db1719bad2b6ab"
+          }
+        ],
+        "target_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+        "target_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天中午她到了墨西哥",
+            "point_id": "45cbaadc-1083-4e63-882d-224829d71076",
+            "point_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 43,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b917e97b9c861e13882f9ba6534e778a1f033f967a3506e2bcf9f9d246d1bc43"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-896a315d24e69368",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-896be4de7600eeb3",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9c5195ed88fa7e2a",
+      "event_a_id": "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“从工业革命想到AI和机器人，觉得普通人的机会越来越小”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9d115350a1db43cd",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "RELATED",
+      "reason": "父亲就医后已采取饮食与酒量干预，后续跟踪确认仍在带饭、减少酒量。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "父亲就医后已采取饮食与酒量干预，后续跟踪确认仍在带饭、减少酒量。",
+        "source_event_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+        "source_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "现在知道有问题，也在带盒饭、少喝酒、多运动，对自己有好处。",
+            "point_id": "b0e6f36e-6365-4066-bded-0e8807857815",
+            "point_event_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 58,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "371d1ca54034e6fd28e4acb3918d7cb1fa75a008c425a395645ff7b46e5e6b97"
+          }
+        ],
+        "target_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+        "target_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "饭一直带，酒每天少一个易拉罐。",
+            "point_id": "705223b6-5829-4c3b-a081-59ae07dc943a",
+            "point_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 28,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "51b4e4a6d83e9a9af7cd836eca1de4cec32d86d4ecb8b84ed18ccb5ec2e9173c"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-9d8a7deed17c3dfc",
+      "event_a_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "event_b_run_id": "399a2f27-c195-489f-ad2f-285e482287af",
+      "status": "NO_RELATION",
+      "reason": "哒哒开门与KTV早场无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9fc863f4ee5f95b6",
+      "event_a_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a056252a284f3db6",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“我爸继续带饭、少喝酒，又商量给他买牛奶”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a2162ee5ab1ccd01",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "8d074718-1a6e-4ae0-92e9-af44bd75c00b",
+      "event_b_run_id": "37e68412-5095-43a5-b1b2-e43b5a17cdba",
+      "status": "NO_RELATION",
+      "reason": "三斤小龙虾与板栗炖鸡是不同做菜事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a35ca276265e3d70",
+      "event_a_id": "08ebf16a-1744-46f7-9b44-a15778746ba7",
+      "event_a_run_id": "303c17c0-9f33-4d26-9fce-2acd7fef5e85",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "清远入住与墨西哥航班值机是不同旅行。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a3dabb36c306250d",
+      "event_a_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a4fcffa51cd08464",
+      "event_a_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“我爸继续带饭、少喝酒，又商量给他买牛奶”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a7504586e4d22b2b",
+      "event_a_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a847952889cca278",
+      "event_a_id": "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "98bb6f2a-1dbd-48bb-b2d0-76b8474d19bb",
+      "event_b_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "status": "NO_RELATION",
+      "reason": "AI Native接口设计与资本密集、就业机会讨论是不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ae6eee5a1a14dac8",
+      "event_a_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "event_b_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "status": "RELATED",
+      "reason": "父亲答应带饭、少喝酒后，后续电话确认饭一直带、酒量已减少。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "父亲答应带饭、少喝酒后，后续电话确认饭一直带、酒量已减少。",
+        "source_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+        "source_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+        "source_evidence": [
+          {
+            "point_no": 6,
+            "quote": "最后他松口答应带饭了。",
+            "point_id": "c773cce8-62e0-4627-a540-8006b2baff7a",
+            "point_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+            "point_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b1514f93c4682096b6b516a9304c3b543920cfe7e5f532d214bd8df81c363d3e"
+          },
+          {
+            "point_no": 7,
+            "quote": "我又劝他酒少喝一点，从一天两瓶降到一天一瓶",
+            "point_id": "83749bb0-fee6-45a6-99d2-1de27b4d1dff",
+            "point_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+            "point_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "f0161f4f79d6f7d2c5aa3728b34c1b74e437a0de46c0c40b668d27300d938306"
+          }
+        ],
+        "target_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+        "target_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "她说饭一直带，酒每天少一个易拉罐。",
+            "point_id": "705223b6-5829-4c3b-a081-59ae07dc943a",
+            "point_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 26,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "51b4e4a6d83e9a9af7cd836eca1de4cec32d86d4ecb8b84ed18ccb5ec2e9173c"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-b45bf8c9f2389277",
+      "event_a_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+      "event_a_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "换沟通方式的思考与教母亲看麦片没有明确延续某个原定AI教学行动。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b499d3e6043a891c",
+      "event_a_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“哒哒越来越会开门，今天索性在家工作”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b4c99e80b0938e25",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“从工业革命想到AI和机器人，觉得普通人的机会越来越小”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b7fce4ffdf6131b0",
+      "event_a_id": "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“从工业革命想到AI和机器人，觉得普通人的机会越来越小”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b88c5ab7b17eaece",
+      "event_a_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ba663a738eda87a2",
+      "event_a_id": "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“误点疑似诈骗链接，也提醒父母信息差的风险”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bb88724b1313e481",
+      "event_a_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“跟同事聊AI替代开发，先抱着车到山前的心态”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bcb01d8fa383d108",
+      "event_a_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bd363b32fc6f7a1b",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bf0f461884b2f5c3",
+      "event_a_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“本地还原数据库后，又停机重新备份”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bf924ffeb96131e8",
+      "event_a_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“从工业革命想到AI和机器人，觉得普通人的机会越来越小”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c1bff4e971f89812",
+      "event_a_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "5010713e-68b8-49d8-a074-cb7b810aba8d",
+      "event_b_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "status": "NO_RELATION",
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“从虎门销烟的说法，想到自给自足和全球协作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c8612fd4141132b3",
+      "event_a_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“从工业革命想到AI和机器人，觉得普通人的机会越来越小”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c88caed65ff4ebaa",
+      "event_a_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "95ec9c7b-ae87-41c1-8723-19f992379da6",
+      "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "status": "RELATED",
+      "reason": "此前AI开发体验使我开始考虑第二职业，之后继续与同事讨论开发替代，并表明对潜在失业暂不提前焦虑、先车到山前。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前AI开发体验使我开始考虑第二职业，之后继续与同事讨论开发替代，并表明对潜在失业暂不提前焦虑、先车到山前。",
+        "source_event_id": "95ec9c7b-ae87-41c1-8723-19f992379da6",
+        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "AI 已经能解决大部分问题，我也确实该考虑自己的第二职业了。",
+            "point_id": "1112467f-6f5a-4699-ac7a-45120d6a0321",
+            "point_event_id": "95ec9c7b-ae87-41c1-8723-19f992379da6",
+            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+            "offset": 90,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "8c72b711199a2416f978a85578e554d72165549bc014312a8bb19dde21f036c1"
+          }
+        ],
+        "target_event_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+        "target_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "AI太厉害，可能真面临失业。我现在倒有点无所谓，先混着。",
+            "point_id": "223feb8d-a879-4630-9bbe-d5e5e984c315",
+            "point_event_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 0,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "11a4487911028a36cfda121848d1405a089b04a22001e3045870f07924d5e7ed"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-cd201d1bd235bdc0",
+      "event_a_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
+      "status": "NO_RELATION",
+      "reason": "哒哒夜间走失与当前会开门黏人不是同一事件，未具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cdec6d6056396468",
+      "event_a_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+      "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
+      "event_b_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "江西Excel导入数据库问题与日记平台备份为不同系统。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cef14edc3faeb617",
+      "event_a_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cf575c898b2dbb9f",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d0d6df74f0f9bbb1",
+      "event_a_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d702750029f97358",
+      "event_a_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“哒哒越来越会开门，今天索性在家工作”与“本地还原数据库后，又停机重新备份”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d8ca10ee6b004e26",
+      "event_a_id": "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“误点疑似诈骗链接，也提醒父母信息差的风险”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d9cea0de81c25530",
+      "event_a_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dadcbcbee49cf8f1",
+      "event_a_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "RELATED",
+      "reason": "颂梅被要求去墨西哥出差后，实际启程并已抵达墨西哥。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "颂梅被要求去墨西哥出差后，实际启程并已抵达墨西哥。",
+        "source_event_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+        "source_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "让她去墨西哥出差",
+            "point_id": "ade76c2e-9f32-4c9b-a247-183c35c33ac4",
+            "point_event_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+            "offset": 14,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "d0f8c738b22b8371e2d304564eb097599f064430a6a74b687b3b10836c3bda67"
+          }
+        ],
+        "target_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+        "target_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天中午她到了墨西哥",
+            "point_id": "45cbaadc-1083-4e63-882d-224829d71076",
+            "point_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 43,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b917e97b9c861e13882f9ba6534e778a1f033f967a3506e2bcf9f9d246d1bc43"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-dcd15ec0095c21bf",
+      "event_a_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e1a3931443c7c487",
+      "event_a_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“本地还原数据库后，又停机重新备份”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e74311b7542c7ced",
+      "event_a_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“本地还原数据库后，又停机重新备份”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e7858c73a4273bc4",
+      "event_a_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“本地还原数据库后，又停机重新备份”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ebcab287cbb9ef69",
+      "event_a_id": "54933abf-93fc-4c7b-ba59-9cedf9ffcd02",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
+      "status": "NO_RELATION",
+      "reason": "移民节目与工业革命视频为不同信息来源，未彼此引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-eec699a4baa2dfcc",
+      "event_a_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“提醒颂梅控制离职前后的花销，又给她转了5000块”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f3ff89d272c6cf5a",
+      "event_a_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“我爸继续带饭、少喝酒，又商量给他买牛奶”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f92512f14024bd68",
+      "event_a_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fa4b94b56a9a7e8e",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fac6c915f7ecde73",
+      "event_a_id": "3867fe0e-b720-45f5-8d91-807153357da9",
+      "event_a_run_id": "ad3c72cd-cbeb-468a-ad5f-f6f0a334dfbe",
+      "event_b_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“我爸继续带饭、少喝酒，又商量给他买牛奶”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fafc85fd73c55b0f",
+      "event_a_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+      "event_a_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
+      "event_b_id": "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "父母沟通方式反思与诈骗风险提醒未引用同一问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fb49c439375d99bd",
+      "event_a_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "RELATED",
+      "reason": "教母亲用AI查麦片时，明确讲了豆包当天帮值机的例子作为使用示范。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "教母亲用AI查麦片时，明确讲了豆包当天帮值机的例子作为使用示范。",
+        "source_event_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+        "source_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "先讲早晨豆包帮我值机，他们认同",
+            "point_id": "4963961e-95e8-487a-ba1d-be865bec08c2",
+            "point_event_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 35,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "b761432e3b106330d442b12338a875306d104b388a1a863237bd0f8a0b134cf5"
+          }
+        ],
+        "target_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+        "target_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "就共享屏幕让豆包一步步指导，折腾很久才办好。",
+            "point_id": "fdf99bad-3639-4cd4-8648-c7a7ace0a4f9",
+            "point_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 39,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "abba577744c7f5a3e1acca93338c8155d9381ea7a4c8f3f3b8ae36fd2e7f8fd4"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-fda78db3f778cd3b",
+      "event_a_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "e9bf5d6f-d20f-4aac-863b-285944c367d5",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“又开始看YouTube，想把休闲时间控制一下”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    }
+  ]
+}

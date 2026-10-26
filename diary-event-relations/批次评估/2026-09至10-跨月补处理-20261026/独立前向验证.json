@@ -1,0 +1,51 @@
+{
+  "run_dir": "/tmp/history-forward-check/packages/2026-10-18/c291ee65-1c39-479d-8527-63f2971ec7a8/20261026T093622-5d5201db",
+  "history_selection": {
+    "source": "database_formal_points",
+    "before": "2026-10-18",
+    "states": [
+      "POINTS_READY",
+      "PUBLISHED"
+    ],
+    "month_boundary": false,
+    "run_count": 2,
+    "event_count": 7,
+    "point_count": 7
+  },
+  "history_inventory": [
+    {
+      "run_id": "29fbaf5e-25b0-46a7-a14e-6d1de1a018bc",
+      "diary_id": "e509775d-8254-47a1-a4bc-ad5b782742d3",
+      "diary_date": "2026-09-17",
+      "event_count": 3,
+      "point_count": 3,
+      "content_sha256": "476f91bcc38dc69304b2af0b4fe8693576e85e3efaf910cd6fa3f0cb38eef062"
+    },
+    {
+      "run_id": "a2b2c2f3-8ebf-4821-8f9e-781eb187ae4c",
+      "diary_id": "aeb8248f-68e7-4f00-a50d-f6850ac96a61",
+      "diary_date": "2026-10-04",
+      "event_count": 4,
+      "point_count": 4,
+      "content_sha256": "8da56905844345b9b45fa75cdebb2545a413f49283211cf7deae8becb41ace96"
+    }
+  ],
+  "selected_dates": [
+    "2026-09-17",
+    "2026-09-17",
+    "2026-10-04",
+    "2026-10-04",
+    "2026-10-04",
+    "2026-10-18"
+  ],
+  "pair_count": 5,
+  "unselected_changed": {
+    "day": "2026-09-17",
+    "eid": "b4f2a1f4-7964-46de-9236-16a6c5e32f1b",
+    "pid": "81ad274b-64c7-44b3-bd1a-85b8efbb5887",
+    "rid": "29fbaf5e-25b0-46a7-a14e-6d1de1a018bc",
+    "did": "e509775d-8254-47a1-a4bc-ad5b782742d3"
+  },
+  "receipt_initial": true,
+  "receipt_after_change": false
+}

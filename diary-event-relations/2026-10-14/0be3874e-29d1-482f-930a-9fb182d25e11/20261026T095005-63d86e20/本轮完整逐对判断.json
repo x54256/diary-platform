@@ -1,0 +1,933 @@
+{
+  "package_sha256": "9e349602099140dd3bf741484ac8ab97b5dd83dd3df1519a3fb29d0ac829d575",
+  "results": [
+    {
+      "pair_id": "P-a35ca276265e3d70",
+      "status": "NO_RELATION",
+      "reason": "清远入住与墨西哥航班值机是不同旅行。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3a3053c19a06b35a",
+      "status": "NO_RELATION",
+      "reason": "醉酒遛狗与哒哒开门黏人导致居家办公是不同经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-79062f01849fc1ca",
+      "status": "NO_RELATION",
+      "reason": "老梁认知改变视频与诈骗链接风险提示没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-196a2257186513c5",
+      "status": "NO_RELATION",
+      "reason": "当前游戏没意思是总体状态，未指向清远无尽模式那次通关，不把泛指当作具体引用或因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-256109d3dc1b0a94",
+      "status": "NO_RELATION",
+      "reason": "劝小廖营造家庭学习氛围与自己再次看YouTube未互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-038898d2f735388b",
+      "status": "NO_RELATION",
+      "reason": "送表妹电脑与父亲换手机是不同礼物和对象。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bb88724b1313e481",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“跟同事聊AI替代开发，先抱着车到山前的心态”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-cef14edc3faeb617",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-a4fcffa51cd08464",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“我爸继续带饭、少喝酒，又商量给他买牛奶”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-c1bff4e971f89812",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“从虎门销烟的说法，想到自给自足和全球协作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-01d39c35c87cf3fa",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“从工业革命想到AI和机器人，觉得普通人的机会越来越小”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-78369a5a1048334d",
+      "status": "NO_RELATION",
+      "reason": "买黄金和软预算约束判断未明确引用九月危机视频，经济主题相近不足建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-75bf4270e3787655",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“哒哒越来越会开门，今天索性在家工作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-3b9f82cf8c70ca8d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-1d1fafe104ef4bb1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“本地还原数据库后，又停机重新备份”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-bcb01d8fa383d108",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-6d587c42a168ab1c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-6d697b6bfe07067d",
+      "status": "NO_RELATION",
+      "reason": "买黄金与黄牛购票门槛没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3acb2757cfae5b07",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-85e3d62b9c58ad29",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-9d115350a1db43cd",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E040",
+        "target_event": "E058",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "父亲就医后已采取饮食与酒量干预，后续跟踪确认仍在带饭、减少酒量。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "现在知道有问题，也在带盒饭、少喝酒、多运动，对自己有好处。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "饭一直带，酒每天少一个易拉罐。"
+          }
+        ]
+      },
+      "reason": "父亲就医后已采取饮食与酒量干预，后续跟踪确认仍在带饭、减少酒量。"
+    },
+    {
+      "pair_id": "P-04071d032732ba88",
+      "status": "RELATED",
+      "reason": "此前因AI浪潮对工作和面试失去自信，之后讨论更大替代风险时，态度转为暂不提前焦虑、先乐天应对。",
+      "relation": {
+        "source_event": "E005",
+        "target_event": "E054",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前因AI浪潮对工作和面试失去自信，之后讨论更大替代风险时，态度转为暂不提前焦虑、先乐天应对。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "AI 浪潮来了以后，连工作也没有把握了。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "有点“车到山前必有路”的心态，不提前焦虑。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-6a99ff042570186f",
+      "status": "NO_RELATION",
+      "reason": "行业机会宏观判断与此前面试自信反思没有具体引用或同一行动进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3302181edd15b672",
+      "status": "NO_RELATION",
+      "reason": "蒜香排骨与板栗炖鸡是不同做菜经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5abcf537a7e82044",
+      "status": "NO_RELATION",
+      "reason": "小廖离职压力与本人同事讨论AI替代是不同具体工作事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fac6c915f7ecde73",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“小廖反复提议给父母当导游，我建议先停下来再决定”与“我爸继续带饭、少喝酒，又商量给他买牛奶”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-3b082441ebbfcad9",
+      "status": "NO_RELATION",
+      "reason": "记日记复盘价值与数据库备份恢复为不同功能事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a7504586e4d22b2b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-f3ff89d272c6cf5a",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“我爸继续带饭、少喝酒，又商量给他买牛奶”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-c8612fd4141132b3",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“从工业革命想到AI和机器人，觉得普通人的机会越来越小”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-62b95d5234de322f",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“哒哒越来越会开门，今天索性在家工作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-863629d5805f9612",
+      "status": "NO_RELATION",
+      "reason": "九月分享中实施可用AI开发与本次讨论指标页面不指向同一开发案例，类似职业判断不足对应具体事件。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1133b8bd27af8cc1",
+      "status": "NO_RELATION",
+      "reason": "九月江西指标映射混乱与本次AI替代讨论未引用该次需求经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c88caed65ff4ebaa",
+      "status": "RELATED",
+      "reason": "此前AI开发体验使我开始考虑第二职业，之后继续与同事讨论开发替代，并表明对潜在失业暂不提前焦虑、先车到山前。",
+      "relation": {
+        "source_event": "E003",
+        "target_event": "E054",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前AI开发体验使我开始考虑第二职业，之后继续与同事讨论开发替代，并表明对潜在失业暂不提前焦虑、先车到山前。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "AI 已经能解决大部分问题，我也确实该考虑自己的第二职业了。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "AI太厉害，可能真面临失业。我现在倒有点无所谓，先混着。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-50e2146e5c3f3e7d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“本地还原数据库后，又停机重新备份”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-a3dabb36c306250d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-d9cea0de81c25530",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-06661a9168eb000d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-dcd15ec0095c21bf",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“跟同事聊AI替代开发，先抱着车到山前的心态”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-86b19c911c3cc105",
+      "status": "NO_RELATION",
+      "reason": "中秋聚餐问候与诈骗提醒是不同家庭沟通事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a056252a284f3db6",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“我爸继续带饭、少喝酒，又商量给他买牛奶”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-b4c99e80b0938e25",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“从工业革命想到AI和机器人，觉得普通人的机会越来越小”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-260c5414a3882755",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“哒哒越来越会开门，今天索性在家工作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-4a9fd8035ac3fb20",
+      "status": "NO_RELATION",
+      "reason": "两次做饭是不同菜和不同日期，未引用旧事。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a2162ee5ab1ccd01",
+      "status": "NO_RELATION",
+      "reason": "三斤小龙虾与板栗炖鸡是不同做菜事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-896a315d24e69368",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-54b74beebae8fdd8",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“本地还原数据库后，又停机重新备份”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-66ad12fa4d94f6c8",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-fa4b94b56a9a7e8e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-896be4de7600eeb3",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-bd363b32fc6f7a1b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-cf575c898b2dbb9f",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-bf924ffeb96131e8",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“从工业革命想到AI和机器人，觉得普通人的机会越来越小”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-47ffaa5286e4a1a9",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“哒哒越来越会开门，今天索性在家工作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-37950e7425814692",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E041",
+        "target_event": "E058",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "给父亲买的脱脂奶已喝到，询问口味并考虑半脱脂替代。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "一箱我爸，一箱我姥。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我买的奶喝没有、好不好，他说还行。"
+          }
+        ]
+      },
+      "reason": "给父亲买的脱脂奶已喝到，询问口味并考虑半脱脂替代。"
+    },
+    {
+      "pair_id": "P-ae6eee5a1a14dac8",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E033",
+        "target_event": "E058",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "父亲答应带饭、少喝酒后，后续电话确认饭一直带、酒量已减少。",
+        "source_evidence": [
+          {
+            "point_no": 6,
+            "quote": "最后他松口答应带饭了。"
+          },
+          {
+            "point_no": 7,
+            "quote": "我又劝他酒少喝一点，从一天两瓶降到一天一瓶"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "她说饭一直带，酒每天少一个易拉罐。"
+          }
+        ]
+      },
+      "reason": "父亲答应带饭、少喝酒后，后续电话确认饭一直带、酒量已减少。"
+    },
+    {
+      "pair_id": "P-48d830bbc094e008",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E039",
+        "target_event": "E058",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "父亲反馈加热饭盒好用后，后续再次确认仍坚持带饭并继续给正反馈。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "他说挺好，饭吃得热乎。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "饭一直带，酒每天少一个易拉罐。我夸我爸棒"
+          }
+        ]
+      },
+      "reason": "父亲反馈加热饭盒好用后，后续再次确认仍坚持带饭并继续给正反馈。"
+    },
+    {
+      "pair_id": "P-e74311b7542c7ced",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“本地还原数据库后，又停机重新备份”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-9fc863f4ee5f95b6",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-f92512f14024bd68",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-3508f4eb8f294f06",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-b88c5ab7b17eaece",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-fafc85fd73c55b0f",
+      "status": "NO_RELATION",
+      "reason": "父母沟通方式反思与诈骗风险提醒未引用同一问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b45bf8c9f2389277",
+      "status": "NO_RELATION",
+      "reason": "换沟通方式的思考与教母亲看麦片没有明确延续某个原定AI教学行动。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cdec6d6056396468",
+      "status": "NO_RELATION",
+      "reason": "江西Excel导入数据库问题与日记平台备份为不同系统。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6dd067f702712ad9",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从工业革命想到AI和机器人，觉得普通人的机会越来越小”与“哒哒越来越会开门，今天索性在家工作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-420152b494372a00",
+      "status": "NO_RELATION",
+      "reason": "AI体验后考虑第二职业与宏观产业机会观点没有具体引用那次开发体验。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a847952889cca278",
+      "status": "NO_RELATION",
+      "reason": "AI Native接口设计与资本密集、就业机会讨论是不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ebcab287cbb9ef69",
+      "status": "NO_RELATION",
+      "reason": "移民节目与工业革命视频为不同信息来源，未彼此引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7cf30f481f7265d6",
+      "status": "NO_RELATION",
+      "reason": "美国纽约视频与AI产业机会反思没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-69753c5e813d995f",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从工业革命想到AI和机器人，觉得普通人的机会越来越小”与“本地还原数据库后，又停机重新备份”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-881d0000408f57f7",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从工业革命想到AI和机器人，觉得普通人的机会越来越小”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-9c5195ed88fa7e2a",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从工业革命想到AI和机器人，觉得普通人的机会越来越小”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-6fda4d624e107262",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从工业革命想到AI和机器人，觉得普通人的机会越来越小”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-b7fce4ffdf6131b0",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从工业革命想到AI和机器人，觉得普通人的机会越来越小”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-017a674de65218cb",
+      "status": "NO_RELATION",
+      "reason": "九月居家学习计划与本次看YouTube没有明确回顾同次计划或具体执行成果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2887dd1df3388e04",
+      "status": "NO_RELATION",
+      "reason": "母亲有病不治引发争吵与诈骗提醒是不同话题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cd201d1bd235bdc0",
+      "status": "NO_RELATION",
+      "reason": "哒哒夜间走失与当前会开门黏人不是同一事件，未具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1c1c5452d2a1330c",
+      "status": "NO_RELATION",
+      "reason": "以前玩游戏遛狗与当前居家办公无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d702750029f97358",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“哒哒越来越会开门，今天索性在家工作”与“本地还原数据库后，又停机重新备份”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-9d8a7deed17c3dfc",
+      "status": "NO_RELATION",
+      "reason": "哒哒开门与KTV早场无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b499d3e6043a891c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“哒哒越来越会开门，今天索性在家工作”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-30ba43712b3b9cd3",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“哒哒越来越会开门，今天索性在家工作”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-02bc29a99e93aedd",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E042",
+        "target_event": "E053",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前知识图谱第一层实现仍在找方案，后续方向已确立，要求AI细化并执行，结果尚待检查。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "准备周末接着执行这个目标，让Codex自己找方案。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今天让AI出详细方案并执行。下班时应该做完了，我还没看，明天再检查。"
+          }
+        ]
+      },
+      "reason": "此前知识图谱第一层实现仍在找方案，后续方向已确立，要求AI细化并执行，结果尚待检查。"
+    },
+    {
+      "pair_id": "P-57dba0e826f2ebca",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E056",
+        "target_event": "E053",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "description": "颂梅赴墨西哥出差后不在家，少了帮忙拦哒哒的人；我在哒哒黏人、不让我出门的情况下决定当天在家工作。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天颂梅六点多出门，我帮她搬行李下楼，她打车去机场，先香港、再美国、再墨西哥"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "以前颂梅在家能帮忙拦，现在不在，他肯定更黏我。我想干脆在家，也能多睡一会儿。"
+          }
+        ]
+      },
+      "reason": "颂梅赴墨西哥出差后不在家，少了帮忙拦哒哒的人；我在哒哒黏人、不让我出门的情况下决定当天在家工作。"
+    },
+    {
+      "pair_id": "P-15325e2e09b83b94",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“哒哒越来越会开门，今天索性在家工作”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-124e1ce323c1373d",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E041",
+        "target_event": "E059",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前想检查父亲麦片并教父母用AI，后来实际教母亲拍配料询问豆包。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "让他拍配料表，我帮忙看看，有些可能加反式脂肪酸，对他的情况不好。他说等我妈来拍，也没剩几包了。\n\n我还想提醒他们用AI"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "一步步教我妈问麦片适不适合她和我爸喝。"
+          }
+        ]
+      },
+      "reason": "此前想检查父亲麦片并教父母用AI，后来实际教母亲拍配料询问豆包。"
+    },
+    {
+      "pair_id": "P-883765ce773d47f0",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E048",
+        "target_event": "E056",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "准备于次日赴墨西哥出差的安排，已进展到实际启程并抵达墨西哥。",
+        "source_evidence": [
+          {
+            "point_no": 4,
+            "quote": "只去两周，应该没太大事，明天就走。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天中午她到了墨西哥"
+          }
+        ]
+      },
+      "reason": "准备于次日赴墨西哥出差的安排，已进展到实际启程并抵达墨西哥。"
+    },
+    {
+      "pair_id": "P-dadcbcbee49cf8f1",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E044",
+        "target_event": "E056",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "颂梅被要求去墨西哥出差后，实际启程并已抵达墨西哥。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "让她去墨西哥出差"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天中午她到了墨西哥"
+          }
+        ]
+      },
+      "reason": "颂梅被要求去墨西哥出差后，实际启程并已抵达墨西哥。"
+    },
+    {
+      "pair_id": "P-d0d6df74f0f9bbb1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅被劝别离职，又接到急活，我想尽快给她续会员”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-1f2ea012734f22b3",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E049",
+        "target_event": "E060",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "备份后计划本地还原验证，后来已完成还原检查，并因担心漏数据停库重备。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "明天想再备份数据库并本地还原，实际确认能否恢复"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "日记平台数据库已在本地还原，查看数据没问题"
+          }
+        ]
+      },
+      "reason": "备份后计划本地还原验证，后来已完成还原检查，并因担心漏数据停库重备。"
+    },
+    {
+      "pair_id": "P-53c888fc71488b2e",
+      "status": "RELATED",
+      "reason": "此前准备限制YouTube以把时间用来学心理学，之后又开始看YouTube，再次提出控制休闲时间、转向普通心理学。",
+      "relation": {
+        "source_event": "E012",
+        "target_event": "E050",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前准备限制YouTube以把时间用来学心理学，之后又开始看YouTube，再次提出控制休闲时间、转向普通心理学。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "YouTube 也要限时，不能全天一直看视频，有用的内容少，不如花时间学普心"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天又开始看YouTube，不知道为何小廖一去墨西哥出差我就想看，也可能《植物大战僵尸》已没意思，转而看视频。我觉得以后应少看，偶尔听袁腾飞当休闲可以，不能一直看着浪费时间，有空不如学普通心理学。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-82cb0aef8e3c26d9",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“商量回丹东扫墓，觉得事情还是要分优先级”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-eec699a4baa2dfcc",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“提醒颂梅控制离职前后的花销，又给她转了5000块”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-bf0f461884b2f5c3",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“本地还原数据库后，又停机重新备份”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-e1a3931443c7c487",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“本地还原数据库后，又停机重新备份”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-51f712813aa39fde",
+      "status": "NO_RELATION",
+      "reason": "数据库还原与刷老梁视频无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1622ae746d6fe8d3",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“本地还原数据库后，又停机重新备份”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-7743cdafc35c8e55",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“本地还原数据库后，又停机重新备份”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-e7858c73a4273bc4",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“本地还原数据库后，又停机重新备份”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-4f60b0ea4b9fd722",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“带哒哒跑步，回家却又把瑜伽耽误了”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-fda78db3f778cd3b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“又开始看YouTube，想把休闲时间控制一下”与“误点疑似诈骗链接，也提醒父母信息差的风险”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-6492430b584d4300",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E056",
+        "target_event": "E050",
+        "relation_type": "引发事件",
+        "certainty": "SPECULATIVE",
+        "description": "我把颂梅赴墨西哥出差与自己又想看YouTube联系起来，出差可能触发了这种念头，但原因仍未弄清，也可能只是《植物大战僵尸》玩腻了。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天颂梅六点多出门，我帮她搬行李下楼，她打车去机场，先香港、再美国、再墨西哥"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天又开始看YouTube，不知道为何小廖一去墨西哥出差我就想看，也可能《植物大战僵尸》已没意思，转而看视频。"
+          }
+        ]
+      },
+      "reason": "我把颂梅赴墨西哥出差与自己又想看YouTube联系起来，出差可能触发了这种念头，但原因仍未弄清，也可能只是《植物大战僵尸》玩腻了。"
+    },
+    {
+      "pair_id": "P-527e898800cc8035",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“又开始看YouTube，想把休闲时间控制一下”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-3d0d836adbc4001d",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“误点疑似诈骗链接，也提醒父母信息差的风险”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-ba663a738eda87a2",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“误点疑似诈骗链接，也提醒父母信息差的风险”与“帮颂梅办值机，航班延误、支付和软件问题折腾很久”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-d8ca10ee6b004e26",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“误点疑似诈骗链接，也提醒父母信息差的风险”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-fb49c439375d99bd",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E059",
+        "target_event": "E056",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "教母亲用AI查麦片时，明确讲了豆包当天帮值机的例子作为使用示范。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "先讲早晨豆包帮我值机，他们认同"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "就共享屏幕让豆包一步步指导，折腾很久才办好。"
+          }
+        ]
+      },
+      "reason": "教母亲用AI查麦片时，明确讲了豆包当天帮值机的例子作为使用示范。"
+    },
+    {
+      "pair_id": "P-8401668af2ff34f4",
+      "status": "NO_RELATION",
+      "reason": "父亲换手机、麦片教学与到小廖父母家午餐无具体联系。",
+      "relation": null
+    }
+  ]
+}

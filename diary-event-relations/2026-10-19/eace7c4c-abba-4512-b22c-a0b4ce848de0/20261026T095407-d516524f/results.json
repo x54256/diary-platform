@@ -1,0 +1,817 @@
+{
+  "package_sha256": "467eb272a1d7253317103afeb1a64fb562a99bf67892be0de51d9759fd58e983",
+  "results": [
+    {
+      "pair_id": "P-c570bc1e80773c66",
+      "status": "NO_RELATION",
+      "reason": "苹果创新文化与低空经济过热是不同具体讨论，未引用彼此。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-aad440ee71fd5431",
+      "status": "NO_RELATION",
+      "reason": "买菜平台与配置手机是不同产品事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d5a7991f2ed78775",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“知识图谱页面还行，但知识沉淀的准确性让我纠结”与“听到缴社保和贷款缴社保的新闻，产生三个疑问”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-aef978d85b770b3f",
+      "status": "NO_RELATION",
+      "reason": "Cspon数据导入与日记知识图谱不是同一系统实现。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1f5b68a80a547cac",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“知识图谱页面还行，但知识沉淀的准确性让我纠结”与“从低空经济降温想到政策导向和产业内卷”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-2fccec682dc10b0c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“知识图谱页面还行，但知识沉淀的准确性让我纠结”与“给我爸配置新手机，宣传里的功能没有那么好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-24857bc5ab766705",
+      "status": "RELATED",
+      "reason": "此前因领域知识不足而不断调整日记平台实现，之后对图谱沉淀准确性继续实验，考虑用Codex和skill，并意识到还需补充相关知识。",
+      "relation": {
+        "source_event": "E005",
+        "target_event": "E045",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前因领域知识不足而不断调整日记平台实现，之后对图谱沉淀准确性继续实验，考虑用Codex和skill，并意识到还需补充相关知识。",
+        "source_evidence": [
+          {
+            "point_no": 4,
+            "quote": "我只有不成熟的想法，连需求都算不上，更不知道如何实现。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 3,
+            "quote": "如果走Codex的方案，可能用它的云电脑功能：上传日记后，通过某种方式通知它，或者让它定时拉取，再走后面的流程，类似一个skill。\n\n感觉自己在这方面有知识盲区"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-95fc9c1422a7f09b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“知识图谱页面还行，但知识沉淀的准确性让我纠结”与“规划传导准备替换服务管理，先让AI分析接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-637a70acf26cec0a",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“知识图谱页面还行，但知识沉淀的准确性让我纠结”与“《植物大战僵尸》有点不想玩了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-774921fdccd6f068",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“知识图谱页面还行，但知识沉淀的准确性让我纠结”与“快递柜格口放不下手机，改约明天上门寄件”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-c9915780b31c43c7",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“知识图谱页面还行，但知识沉淀的准确性让我纠结”与“江西城镇开发边界计算，最后仍采用中间库同步”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-dfd777298f75be51",
+      "status": "RELATED",
+      "reason": "此前第二层设计跑偏、重新区分事实与推测后，知识图谱继续实现，但知识沉淀与校验准确性仍有问题，考虑调整流程。",
+      "relation": {
+        "source_event": "E023",
+        "target_event": "E045",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前第二层设计跑偏、重新区分事实与推测后，知识图谱继续实现，但知识沉淀与校验准确性仍有问题，考虑调整流程。",
+        "source_evidence": [
+          {
+            "point_no": 7,
+            "quote": "我发现自己的设计确实偏了。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "建立知识库的过程涉及很多环节，处理、验收、再处理、再验收，出了很多错"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-1ad9ad5f432f0055",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“知识图谱页面还行，但知识沉淀的准确性让我纠结”与“发现哒哒急着回家，是被灭蚊设备的响声吓到了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-6f2abd44d83f2684",
+      "status": "RELATED",
+      "reason": "早期事件关系测试效果差后，知识库继续推进到图谱页面，但沉淀与多轮校验仍出错，我考虑亲看真实返回和改走Codex流程。",
+      "relation": {
+        "source_event": "E002",
+        "target_event": "E045",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "早期事件关系测试效果差后，知识库继续推进到图谱页面，但沉淀与多轮校验仍出错，我考虑亲看真实返回和改走Codex流程。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "早上测试事件关系的建立，效果非常糟糕"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天早上也在用Codex做个人知识库的知识图谱页面。"
+          },
+          {
+            "point_no": 2,
+            "quote": "还是应该亲自看一下，模型第一次实际返回的结果到底是什么样，再判断是不是能力不够。"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-8311ddfacbd97910",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E030",
+        "target_event": "E045",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "第一层真实模型效果不理想后，继续检查知识沉淀质量，开始考虑换用Codex及skill路线。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "效果还是不理想，问题在哪，我也不太清楚。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "连校验环节给出的校验结果都有错。"
+          },
+          {
+            "point_no": 3,
+            "quote": "如果走Codex的方案，可能用它的云电脑功能"
+          }
+        ]
+      },
+      "reason": "第一层真实模型效果不理想后，继续检查知识沉淀质量，开始考虑换用Codex及skill路线。"
+    },
+    {
+      "pair_id": "P-47e88cdfb60547e3",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“知识图谱页面还行，但知识沉淀的准确性让我纠结”与“指标填报按新需求修改设计，继续让AI开发导入接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-67ef5b1b9ebce26b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“听到缴社保和贷款缴社保的新闻，产生三个疑问”与“从低空经济降温想到政策导向和产业内卷”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-1c93372451b24181",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“听到缴社保和贷款缴社保的新闻，产生三个疑问”与“给我爸配置新手机，宣传里的功能没有那么好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-27d712ef759c21dd",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“听到缴社保和贷款缴社保的新闻，产生三个疑问”与“规划传导准备替换服务管理，先让AI分析接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-1e371cc7a20a24e4",
+      "status": "NO_RELATION",
+      "reason": "社保制度质疑与多邻国机制讨论为不同信息，未引用前次。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2d44feb5057b18e3",
+      "status": "NO_RELATION",
+      "reason": "社保借款与软着陆视频为不同内容，没有具体指向前次观看。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e5934a3f472d84b6",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“听到缴社保和贷款缴社保的新闻，产生三个疑问”与“《植物大战僵尸》有点不想玩了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-facd9c380e8c9825",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“听到缴社保和贷款缴社保的新闻，产生三个疑问”与“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-e09c58e625c88b91",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“听到缴社保和贷款缴社保的新闻，产生三个疑问”与“快递柜格口放不下手机，改约明天上门寄件”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-4c909c731d24f161",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“听到缴社保和贷款缴社保的新闻，产生三个疑问”与“江西城镇开发边界计算，最后仍采用中间库同步”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-71529fe9a2d1226e",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“听到缴社保和贷款缴社保的新闻，产生三个疑问”与“发现哒哒急着回家，是被灭蚊设备的响声吓到了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-c8d57646c4e3bc7c",
+      "status": "NO_RELATION",
+      "reason": "社保贷款与小豪分手消费问题无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ea5f7a57861056e0",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“听到缴社保和贷款缴社保的新闻，产生三个疑问”与“指标填报按新需求修改设计，继续让AI开发导入接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-25c95f0576e3ba15",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“听到缴社保和贷款缴社保的新闻，产生三个疑问”与“看广告和骑手合同的新闻，跟小廖讨论制度、监管与利益”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-0f8e2c238a17c28e",
+      "status": "NO_RELATION",
+      "reason": "Cspon大屏导入与详规Cube替换为不同应用，不按CBB主题连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-53796215ea9544fd",
+      "status": "NO_RELATION",
+      "reason": "Cspon大屏导入与江西计算同步为不同业务。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6b4b0cc47dad64f5",
+      "status": "NO_RELATION",
+      "reason": "此前主线通关与当前探险植物、追击关卡是不同进度，不把同游戏所有过程都对应为同一事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b881843da8a97283",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从低空经济降温想到政策导向和产业内卷”与“给我爸配置新手机，宣传里的功能没有那么好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-81ff97889f6a2a50",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从低空经济降温想到政策导向和产业内卷”与“规划传导准备替换服务管理，先让AI分析接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-d151fa4e8c7c9e8b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从低空经济降温想到政策导向和产业内卷”与“追问国内外油价对比，思考只说一半真话的叙事”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-cc9cbcdb2b99e7a4",
+      "status": "NO_RELATION",
+      "reason": "低空经济政策与软着陆视频虽都论经济结构，但未具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-532cbbdda7f621d4",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从低空经济降温想到政策导向和产业内卷”与“问日本失落三十年，再比较软预算约束的两面性”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-3c8a9445e1edb22b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从低空经济降温想到政策导向和产业内卷”与“《植物大战僵尸》有点不想玩了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-9649dfd7cd359bc5",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从低空经济降温想到政策导向和产业内卷”与“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-bcc96e3813c7ea73",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从低空经济降温想到政策导向和产业内卷”与“快递柜格口放不下手机，改约明天上门寄件”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-6b11acf7f9426a93",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从低空经济降温想到政策导向和产业内卷”与“江西城镇开发边界计算，最后仍采用中间库同步”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-4cab5e686f6cfa92",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从低空经济降温想到政策导向和产业内卷”与“发现哒哒急着回家，是被灭蚊设备的响声吓到了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-da40be4084c8a800",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从低空经济降温想到政策导向和产业内卷”与“指标填报按新需求修改设计，继续让AI开发导入接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-8843c9283b16b9d8",
+      "status": "NO_RELATION",
+      "reason": "当前详规换CBB未明确使用或修订九月那套接口资产方法论，不只按技术相同建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-84478fa242061144",
+      "status": "NO_RELATION",
+      "reason": "江西计算跨库同步与CBB接口版本方法论不是同一具体设计问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1447d047c35e5c24",
+      "status": "NO_RELATION",
+      "reason": "此前无尽通关与当前探险培养、追击不想玩未确认同一植物或关卡进度。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b19d19875ed7ae21",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E040",
+        "target_event": "E043",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "昨日计划Cube改CBB服务管理，今天索取信息、抓包并让AI分析替换接口，结果还未检查。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "主要是规划传导Cube改CBB服务管理"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天在群里向肖静要服务和数据库连接信息，又从CBB页面抓几个包，让AI分析如何转为CBB服务管理接口。"
+          }
+        ]
+      },
+      "reason": "昨日计划Cube改CBB服务管理，今天索取信息、抓包并让AI分析替换接口，结果还未检查。"
+    },
+    {
+      "pair_id": "P-65a17007d7135d20",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E040",
+        "target_event": "E042",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "昨日把指标填报列为工作重点，今天实际按新需求改设计和代码并开发导入接口。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "指标填报"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "把莫非上周发的数据和最新需求复制进项目，让AI修改指标填报数据库设计文档、表设计及代码"
+          }
+        ]
+      },
+      "reason": "昨日把指标填报列为工作重点，今天实际按新需求改设计和代码并开发导入接口。"
+    },
+    {
+      "pair_id": "P-07a2f2daf1932003",
+      "status": "NO_RELATION",
+      "reason": "十四天秘境植物体验与当前探险培养及追击为不同模式和进度。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-450a6f4e59ee7bd7",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“给我爸配置新手机，宣传里的功能没有那么好用”与“规划传导准备替换服务管理，先让AI分析接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-e99f9a3676573c1f",
+      "status": "NO_RELATION",
+      "reason": "给父亲配置手机与小廖药膏沟通无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ad2f0c87d5c10284",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“给我爸配置新手机，宣传里的功能没有那么好用”与“《植物大战僵尸》有点不想玩了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-2cd83d37fde997d3",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E046",
+        "target_event": "E047",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "父亲手机配置好准备寄回后，因快递柜放不下，改约上门取件。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "已配好准备寄回。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "原想丰巢寄父亲手机，小格口太小，中格要加钱，便约明天18元上门取件。"
+          }
+        ]
+      },
+      "reason": "父亲手机配置好准备寄回后，因快递柜放不下，改约上门取件。"
+    },
+    {
+      "pair_id": "P-92325d6520b1d228",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“给我爸配置新手机，宣传里的功能没有那么好用”与“江西城镇开发边界计算，最后仍采用中间库同步”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-102013b32229413a",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E039",
+        "target_event": "E046",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "给父亲选定购买的手机到货后，按使用习惯卸软件、关广告、完成配置准备寄回。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "她帮忙抢了券，把手机买下来了。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "父亲新手机今天到了"
+          }
+        ]
+      },
+      "reason": "给父亲选定购买的手机到货后，按使用习惯卸软件、关广告、完成配置准备寄回。"
+    },
+    {
+      "pair_id": "P-4d30ef1cd3f6efaf",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E038",
+        "target_event": "E046",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "父亲生日安排让他挑新手机后，新手机已到并完成适用配置。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "准备把选好的发群里让他挑，喜欢就买。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "父亲新手机今天到了"
+          }
+        ]
+      },
+      "reason": "父亲生日安排让他挑新手机后，新手机已到并完成适用配置。"
+    },
+    {
+      "pair_id": "P-5380ca961ebed5a1",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“给我爸配置新手机，宣传里的功能没有那么好用”与“发现哒哒急着回家，是被灭蚊设备的响声吓到了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-f5beb9054131c776",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“给我爸配置新手机，宣传里的功能没有那么好用”与“指标填报按新需求修改设计，继续让AI开发导入接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-93195863ac0ec27d",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E036",
+        "target_event": "E046",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "发现父亲旧手机不好用并决定换机后，新手机到货，按习惯完成配置准备寄回。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "现用这部也五六年，之前进过水，屏幕看不清"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "父亲新手机今天到了"
+          }
+        ]
+      },
+      "reason": "发现父亲旧手机不好用并决定换机后，新手机到货，按习惯完成配置准备寄回。"
+    },
+    {
+      "pair_id": "P-dfc2302bdc7f235a",
+      "status": "RELATED",
+      "reason": "此前讨论指标填报技术方案但不清楚何时开工，之后已按最新需求修改数据库和代码，并开发指标体系、行政区划导入接口。",
+      "relation": {
+        "source_event": "E015",
+        "target_event": "E042",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前讨论指标填报技术方案但不清楚何时开工，之后已按最新需求修改数据库和代码，并开发指标体系、行政区划导入接口。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下午开会讨论指标填报技术方案"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "让AI修改指标填报数据库设计文档、表设计及代码，不对的地方沟通改好。下午继续开发指标体系、行政区划导入接口"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-fd8d2a82028ee81b",
+      "status": "NO_RELATION",
+      "reason": "九月三线监测笼统修改未明确定位当前城镇开发边界计算接口。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3a5bfbd3775368e6",
+      "status": "NO_RELATION",
+      "reason": "规划传导替换CBB与九月技术分享痛点是不同具体工作，未引用该分享。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-11e54321b4799054",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“规划传导准备替换服务管理，先让AI分析接口”与“《植物大战僵尸》有点不想玩了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-fd6fd808fc06f9ec",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“规划传导准备替换服务管理，先让AI分析接口”与“快递柜格口放不下手机，改约明天上门寄件”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-5b392787d2d9ae59",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“规划传导准备替换服务管理，先让AI分析接口”与“江西城镇开发边界计算，最后仍采用中间库同步”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-84ec8f61cfa66a93",
+      "status": "NO_RELATION",
+      "reason": "规划传导与广州分层分级入库是不同系统。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d26f67ea28eccbc7",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“规划传导准备替换服务管理，先让AI分析接口”与“发现哒哒急着回家，是被灭蚊设备的响声吓到了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-9d9eeba6b229be51",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“规划传导准备替换服务管理，先让AI分析接口”与“指标填报按新需求修改设计，继续让AI开发导入接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-2772f5a413081856",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“颂梅去检查底盘没有问题，轮毂做了小修复”与“快递柜格口放不下手机，改约明天上门寄件”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-b5f98496dc2fa792",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“哒哒越来越会开门，今天索性在家工作”与“发现哒哒急着回家，是被灭蚊设备的响声吓到了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-fb8052772120cc68",
+      "status": "NO_RELATION",
+      "reason": "技术分享中的指标管理设想没有明确指向当前指标填报项目，不能按指标主题猜配。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dad0b361a3903d0c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“《植物大战僵尸》有点不想玩了”与“快递柜格口放不下手机，改约明天上门寄件”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-32f0529d98ca1b2b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“《植物大战僵尸》有点不想玩了”与“江西城镇开发边界计算，最后仍采用中间库同步”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-3b5eaaf1f29dcdac",
+      "status": "NO_RELATION",
+      "reason": "九月秘境将通关与当前追击关卡打不过是不同具体进度。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-772b2f0c3c8ab679",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“《植物大战僵尸》有点不想玩了”与“发现哒哒急着回家，是被灭蚊设备的响声吓到了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-2b4d08d9f08588bc",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“《植物大战僵尸》有点不想玩了”与“指标填报按新需求修改设计，继续让AI开发导入接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-910719ac162b7217",
+      "status": "NO_RELATION",
+      "reason": "排斥对决和怕被观战，与当前探险植物用处少不是同一模式或触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0575ec73aaed8d5a",
+      "status": "NO_RELATION",
+      "reason": "九月狗走失担心跟别狗走，与当前怕响声急回家是不同原因，未具体回顾同次走失。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d49cff066a18c516",
+      "status": "NO_RELATION",
+      "reason": "九月评估指标数据映射与城镇开发边界计算是不同模块问题，未明确同一接口。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-479552c36679b4e0",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“快递柜格口放不下手机，改约明天上门寄件”与“江西城镇开发边界计算，最后仍采用中间库同步”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-3bec9191fb382a26",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“快递柜格口放不下手机，改约明天上门寄件”与“颂梅和德华都不想要原定礼物，还得继续想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-86f22580975feabc",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“快递柜格口放不下手机，改约明天上门寄件”与“我爸过生日，让颂梅先在群里送祝福”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-3fa2295eea5af8dc",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“快递柜格口放不下手机，改约明天上门寄件”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-96743147e61be8fd",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“快递柜格口放不下手机，改约明天上门寄件”与“发现哒哒急着回家，是被灭蚊设备的响声吓到了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-11d799cd84c2aeae",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“快递柜格口放不下手机，改约明天上门寄件”与“指标填报按新需求修改设计，继续让AI开发导入接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-fe5ca2a530638061",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“快递柜格口放不下手机，改约明天上门寄件”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-4fad9e4200de2dd1",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E029",
+        "target_event": "E044",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "江西城镇开发边界接口继续推进后，进一步讨论计算接口与跨库结果同步，仍采用原中间库方案。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下午继续做城镇开发边界接口"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下午对接江西城镇开发边界计算的GPA接口。"
+          }
+        ]
+      },
+      "reason": "江西城镇开发边界接口继续推进后，进一步讨论计算接口与跨库结果同步，仍采用原中间库方案。"
+    },
+    {
+      "pair_id": "P-d7fbf146a86bc732",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“江西城镇开发边界计算，最后仍采用中间库同步”与“发现哒哒急着回家，是被灭蚊设备的响声吓到了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-9549955a48bcfa70",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“江西城镇开发边界计算，最后仍采用中间库同步”与“指标填报按新需求修改设计，继续让AI开发导入接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-99cf49a3b737d093",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“3号游船、租车和露营，觉得省精力的钱值得花”与“发现哒哒急着回家，是被灭蚊设备的响声吓到了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-40a98aae1cd77ee4",
+      "status": "NO_RELATION",
+      "reason": "二沙岛走失与当前怕灭蚊响声是不同经历，没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-89ca4f982f33e50c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“继续江西数据库设计，提供耕地保护接口”与“指标填报按新需求修改设计，继续让AI开发导入接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-6bfe40d360e56a3f",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“发现哒哒急着回家，是被灭蚊设备的响声吓到了”与“指标填报按新需求修改设计，继续让AI开发导入接口”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-5a8e37ca64d8dae4",
+      "status": "RELATED",
+      "reason": "清远烟花时哒哒曾受惊跑回房间；后来发现它怕灭蚊设备响声，我推测这种胆小可能从中秋清远受惊时就开始。",
+      "relation": {
+        "source_event": "E021",
+        "target_event": "E041",
+        "relation_type": "引发事件",
+        "certainty": "SPECULATIVE",
+        "description": "清远烟花时哒哒曾受惊跑回房间；后来发现它怕灭蚊设备响声，我推测这种胆小可能从中秋清远受惊时就开始。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "第一声一响，小腿立刻飞快倒腾。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "哒哒十一节前就已胆小，抗拒去珠江，不一定是广西之行才开始。我估计可能中秋去清远时就受过惊"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-41e79793b1c3c6cf",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“指标填报按新需求修改设计，继续让AI开发导入接口”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    }
+  ]
+}

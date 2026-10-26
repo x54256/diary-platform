@@ -1,0 +1,1187 @@
+{
+  "package_sha256": "abccff264d32b3292546365f7f3736701b27f76c2721cde6919046d680dd2722",
+  "review_origin": "SKILL_AGENT_REVIEW",
+  "stored_in_database": false,
+  "database_verification": {
+    "verified_against_database": true,
+    "package_sha256": "abccff264d32b3292546365f7f3736701b27f76c2721cde6919046d680dd2722",
+    "verified_at": "2026-10-24T02:13:33.801226+00:00",
+    "stored_in_database": false
+  },
+  "results": [
+    {
+      "pair_id": "P-003f649f733073b4",
+      "event_a_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“睡得不好，白天昏沉，傍晚才补了一觉”与“用比价的方式给我爸再买两箱舒化奶”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0330c0d53c60e473",
+      "event_a_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“睡得不好，白天昏沉，傍晚才补了一觉”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0991382e2529a860",
+      "event_a_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“明天还是以工作为主，空闲先做知识图谱可视化”与“图谱设计继续推进，第一层真实模型实验效果不理想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0bb8df6aec342ede",
+      "event_a_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“从财政兜底的视频，想到债务、内需和《盐铁论》《国富论》”与“和AI聊观念的代际传递，想到未来的家庭教育”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0f2be080cf1456e3",
+      "event_a_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
+      "event_b_run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
+      "status": "RELATED",
+      "reason": "父亲生日时安排挑选新手机，之后通过AI提供候选，让父亲选定并下单。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "父亲生日时安排挑选新手机，之后通过AI提供候选，让父亲选定并下单。",
+        "source_event_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
+        "source_run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "准备把选好的发群里让他挑，喜欢就买。",
+            "point_id": "1ff36b40-b92e-425a-9931-cf4f6b99e90e",
+            "point_event_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
+            "point_run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
+            "offset": 113,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "94b96150bfcfcb44e336a2333e7addd854a7a0ad0c30e1106a1e3bbf604ec560"
+          }
+        ],
+        "target_event_id": "ba02a47f-411e-4217-81ae-976628b83827",
+        "target_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "他挑了荣耀X80 Pro Max。",
+            "point_id": "495c1bf4-f82a-4171-9236-840ac85c5178",
+            "point_event_id": "ba02a47f-411e-4217-81ae-976628b83827",
+            "point_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+            "offset": 74,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "f68770a70957a6ab1cd101a05c3327b343a11518156bc9355877333fcd490d55"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-0f734437f398df90",
+      "event_a_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“想让AI主动追问日记里的逻辑问题，减少逐篇检查”与“睡得不好，白天昏沉，傍晚才补了一觉”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0fc83e2c374dc641",
+      "event_a_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“明天还是以工作为主，空闲先做知识图谱可视化”与“马里奥拼图太难，后来把散架的食人花乐高拼好了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-108daf905a555b98",
+      "event_a_id": "57dc947a-2355-405b-92a7-7f7196d3965b",
+      "event_a_run_id": "5ef72fe7-2c77-4680-b12e-df482cf90f0e",
+      "event_b_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“问日本失落三十年，再比较软预算约束的两面性”与“和AI聊观念的代际传递，想到未来的家庭教育”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1118a65fd0c9af9f",
+      "event_a_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“我爸继续带饭、少喝酒，又商量给他买牛奶”与“我妈果然给我爸煮了鸡蛋过生日”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1405a8376e1eacb8",
+      "event_a_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "fe48919d-4256-448a-b2b6-1d9dc374f28e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“马里奥拼图太难，后来把散架的食人花乐高拼好了”与“收拾房间时扔掉过期宠物食品，想到自己对哒哒和多多的不同反应”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-14661cdb599fb4a4",
+      "event_a_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "RELATED",
+      "reason": "记录补觉前的日程时，明确回顾下午拼好乐高后躺床的经过。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "记录补觉前的日程时，明确回顾下午拼好乐高后躺床的经过。",
+        "source_event_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+        "source_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下午拼好乐高躺床想补觉",
+            "point_id": "0d65ede1-1f7b-4084-9c80-84bccac60685",
+            "point_event_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+            "point_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+            "offset": 71,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "e31c651d4e378c5217ab96e62af2c5d1a9ee2f924c5072beb3024d9e22876539"
+          }
+        ],
+        "target_event_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+        "target_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "便花时间收拾重拼好。",
+            "point_id": "ce4088d7-1a92-4285-8241-912a076613b3",
+            "point_event_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+            "point_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+            "offset": 131,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "13d548f0c330458f2b207b1325aedc47bf783b17c3c17dbbb6d07895505a7bca"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-19d2427f508c6b49",
+      "event_a_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "fe48919d-4256-448a-b2b6-1d9dc374f28e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“想让AI主动追问日记里的逻辑问题，减少逐篇检查”与“收拾房间时扔掉过期宠物食品，想到自己对哒哒和多多的不同反应”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-19eae820c1278261",
+      "event_a_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“马里奥拼图太难，后来把散架的食人花乐高拼好了”与“用元宝筛选手机，颂梅帮我爸抢券下单”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1a8159a194996134",
+      "event_a_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "fe48919d-4256-448a-b2b6-1d9dc374f28e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“明天还是以工作为主，空闲先做知识图谱可视化”与“收拾房间时扔掉过期宠物食品，想到自己对哒哒和多多的不同反应”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-23af896c2e203766",
+      "event_a_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“我妈果然给我爸煮了鸡蛋过生日”与“我爸觉得加热饭盒好用，想把这份正反馈传给全家”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-250b06655e3d11de",
+      "event_a_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+      "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "event_b_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "RELATED",
+      "reason": "观看许成钢软预算约束视频时，明确联系到此前马司库讲不会破产所以经济不会好的视频。",
+      "relation": {
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "观看许成钢软预算约束视频时，明确联系到此前马司库讲不会破产所以经济不会好的视频。",
+        "source_event_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+        "source_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "把它和这段时间看的马司库讲中国不会破产、所以经济不会好的视频联系起来。",
+            "point_id": "9221bb73-49fa-4b75-9a45-231595473eff",
+            "point_event_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+            "point_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+            "offset": 66,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "2c07df61e9b5135ce29e0651a065ba3c9b51f98cea75e2e1821a3b78141bf0e8"
+          }
+        ],
+        "target_event_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+        "target_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "它的观点是：中国经济不太容易好，因为经济不会崩溃。",
+            "point_id": "f7c69830-7391-474d-8362-1883a17e47c6",
+            "point_event_id": "6e605c60-7418-4a92-ba6f-dc2d3b357533",
+            "point_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+            "offset": 27,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "f0dc2c04ac1c538e2861d47a3cffa25e66bc291d204853e7f23b3fd1c3d4074b"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-2e762ff4ccdad000",
+      "event_a_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "event_a_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "event_b_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“5号看两个梯田，抱着受惊的哒哒爬山”与“睡得不好，白天昏沉，傍晚才补了一觉”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2fb10065ce9c2f2f",
+      "event_a_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“再看爸妈就医后的变化，觉得这趟医院确实有价值”与“我妈果然给我爸煮了鸡蛋过生日”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-33ec14fb796ee93b",
+      "event_a_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“想让AI主动追问日记里的逻辑问题，减少逐篇检查”与“用比价的方式给我爸再买两箱舒化奶”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3bc085341b52d0ff",
+      "event_a_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“想让AI主动追问日记里的逻辑问题，减少逐篇检查”与“哒哒越来越会开门，今天索性在家工作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3c12a869fe0089aa",
+      "event_a_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“马里奥拼图太难，后来把散架的食人花乐高拼好了”与“我妈果然给我爸煮了鸡蛋过生日”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3d709d4acccb6c81",
+      "event_a_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“明天还是以工作为主，空闲先做知识图谱可视化”与“睡得不好，白天昏沉，傍晚才补了一觉”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3f81c33d02c54c87",
+      "event_a_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“明天还是以工作为主，空闲先做知识图谱可视化”与“哒哒越来越会开门，今天索性在家工作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4a430d0a4647d64c",
+      "event_a_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“睡得不好，白天昏沉，傍晚才补了一觉”与“和AI聊观念的代际传递，想到未来的家庭教育”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4aa8e70f8bfd70aa",
+      "event_a_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“马里奥拼图太难，后来把散架的食人花乐高拼好了”与“教我妈用AI看麦片好不好，也发现我爸手机已经不好用”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4fccba57477251ec",
+      "event_a_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "fe48919d-4256-448a-b2b6-1d9dc374f28e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“跟学姐夫妻吃火锅，发现见面时的开心本身就有价值”与“收拾房间时扔掉过期宠物食品，想到自己对哒哒和多多的不同反应”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-50cf0c8cca5800e9",
+      "event_a_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“想让AI主动追问日记里的逻辑问题，减少逐篇检查”与“和AI聊观念的代际传递，想到未来的家庭教育”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-53663f749ed8eb10",
+      "event_a_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“用元宝筛选手机，颂梅帮我爸抢券下单”与“听软预算约束的视频，重新想领导人的能力和理念”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-53fa4f8f46076d4d",
+      "event_a_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "926dde26-3291-4ccd-879c-7290108475e4",
+      "event_b_run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
+      "status": "NO_RELATION",
+      "reason": "“马里奥拼图太难，后来把散架的食人花乐高拼好了”与“颂梅不想要吐司吊坠，大礼物还是直接给钱”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-56a140980fb6036e",
+      "event_a_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“马里奥拼图太难，后来把散架的食人花乐高拼好了”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-56e0a1455606a14c",
+      "event_a_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“睡得不好，白天昏沉，傍晚才补了一觉”与“我妈果然给我爸煮了鸡蛋过生日”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-586b97c04d143fd5",
+      "event_a_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“用比价的方式给我爸再买两箱舒化奶”与“用元宝筛选手机，颂梅帮我爸抢券下单”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-598255b436d28a76",
+      "event_a_id": "4ae2bd0c-2a26-40a7-a11e-e9ba0af50917",
+      "event_a_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "event_b_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“追问国内外油价对比，思考只说一半真话的叙事”与“听软预算约束的视频，重新想领导人的能力和理念”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5ad8719a61453ff7",
+      "event_a_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "fe48919d-4256-448a-b2b6-1d9dc374f28e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“睡得不好，白天昏沉，傍晚才补了一觉”与“收拾房间时扔掉过期宠物食品，想到自己对哒哒和多多的不同反应”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6326a80b498063c0",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“我妈果然给我爸煮了鸡蛋过生日”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-643f60cc94399396",
+      "event_a_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“明天还是以工作为主，空闲先做知识图谱可视化”与“我妈果然给我爸煮了鸡蛋过生日”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-669e55d7dd8784f3",
+      "event_a_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“我妈果然给我爸煮了鸡蛋过生日”与“用比价的方式给我爸再买两箱舒化奶”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-66beda17c7048dfe",
+      "event_a_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“想让AI主动追问日记里的逻辑问题，减少逐篇检查”与“本地还原数据库后，又停机重新备份”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6bab0599fc568ae7",
+      "event_a_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "event_b_run_id": "87746a08-6222-4fdb-9e8b-407399143a63",
+      "status": "NO_RELATION",
+      "reason": "“马里奥拼图太难，后来把散架的食人花乐高拼好了”与“6、7号去柳州吃喝，体验茶麸洗头”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6c1ec75d14441b54",
+      "event_a_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "ed307736-2ee2-42fc-ae69-1b140f4af0b3",
+      "event_b_run_id": "5ef72fe7-2c77-4680-b12e-df482cf90f0e",
+      "status": "NO_RELATION",
+      "reason": "“和AI聊观念的代际传递，想到未来的家庭教育”与“觉得国际新闻像流水线，还是想多学些知识”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-734b6cdfbbc79377",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "fe48919d-4256-448a-b2b6-1d9dc374f28e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“收拾房间时扔掉过期宠物食品，想到自己对哒哒和多多的不同反应”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-766b2448c45d9c34",
+      "event_a_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“明天还是以工作为主，空闲先做知识图谱可视化”与“让AI排查工作问题，感觉自己成了中转站”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-779a86b28db005e9",
+      "event_a_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“和AI聊观念的代际传递，想到未来的家庭教育”与“用比价的方式给我爸再买两箱舒化奶”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-79f005c21f5a7b98",
+      "event_a_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“马里奥拼图太难，后来把散架的食人花乐高拼好了”与“听软预算约束的视频，重新想领导人的能力和理念”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7dcbe615fc306191",
+      "event_a_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "fe48919d-4256-448a-b2b6-1d9dc374f28e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“哒哒越来越会开门，今天索性在家工作”与“收拾房间时扔掉过期宠物食品，想到自己对哒哒和多多的不同反应”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-813e032a5fc67dcd",
+      "event_a_id": "a4f83e52-96a4-4e31-bff3-12513ea37c30",
+      "event_a_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "event_b_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“用了低头提醒App，想让AI帮我做一个”与“用元宝筛选手机，颂梅帮我爸抢券下单”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8387b5c5307e8b51",
+      "event_a_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "fe48919d-4256-448a-b2b6-1d9dc374f28e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“用比价的方式给我爸再买两箱舒化奶”与“收拾房间时扔掉过期宠物食品，想到自己对哒哒和多多的不同反应”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-85d0e4f4bf1c3d6a",
+      "event_a_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“睡得不好，白天昏沉，傍晚才补了一觉”与“用元宝筛选手机，颂梅帮我爸抢券下单”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-86336cf0243250db",
+      "event_a_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“和AI聊观念的代际传递，想到未来的家庭教育”与“用元宝筛选手机，颂梅帮我爸抢券下单”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8ac6a3bd89d7fd1d",
+      "event_a_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“和AI聊观念的代际传递，想到未来的家庭教育”与“听软预算约束的视频，重新想领导人的能力和理念”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8c869afdd9bf4dea",
+      "event_a_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“想让AI主动追问日记里的逻辑问题，减少逐篇检查”与“用元宝筛选手机，颂梅帮我爸抢券下单”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-99b930674cb0addd",
+      "event_a_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“明天还是以工作为主，空闲先做知识图谱可视化”与“和AI聊观念的代际传递，想到未来的家庭教育”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9a0a8f3403cb536d",
+      "event_a_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“想让AI主动追问日记里的逻辑问题，减少逐篇检查”与“听软预算约束的视频，重新想领导人的能力和理念”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9b5bc508ef510d9f",
+      "event_a_id": "2c6d77e1-a1b6-4072-8c18-62f1e7831c28",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“对经济仍比较悲观，今天又买20克黄金”与“听软预算约束的视频，重新想领导人的能力和理念”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9f29ebcfacae487e",
+      "event_a_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“想让AI主动追问日记里的逻辑问题，减少逐篇检查”与“马里奥拼图太难，后来把散架的食人花乐高拼好了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a3236fe2a109db5a",
+      "event_a_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "RELATED",
+      "reason": "发现父亲手机破旧并计划换机后，确认需求、AI筛选比价，颂梅抢券完成购买。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "发现父亲手机破旧并计划换机后，确认需求、AI筛选比价，颂梅抢券完成购买。",
+        "source_event_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+        "source_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "到时挑个便宜、屏幕大的手机给他。",
+            "point_id": "4b49b390-ba46-4570-8910-da3113dcd0d6",
+            "point_event_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 114,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "c5559566f5e145449c7a9203c7ebdbd0453e24c4684e827ee0d4591418b449e9"
+          }
+        ],
+        "target_event_id": "ba02a47f-411e-4217-81ae-976628b83827",
+        "target_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "她帮忙抢了券，把手机买下来了。",
+            "point_id": "495c1bf4-f82a-4171-9236-840ac85c5178",
+            "point_event_id": "ba02a47f-411e-4217-81ae-976628b83827",
+            "point_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+            "offset": 195,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "f68770a70957a6ab1cd101a05c3327b343a11518156bc9355877333fcd490d55"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-a37ef31814d4b8cc",
+      "event_a_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "status": "NO_RELATION",
+      "reason": "“睡得不好，白天昏沉，傍晚才补了一觉”与“又开始看YouTube，想把休闲时间控制一下”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a3aa7d811597f1a6",
+      "event_a_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "event_a_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "event_b_id": "fe48919d-4256-448a-b2b6-1d9dc374f28e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“一天逛完永旺和山姆，也看到小廖会提出自己的条件了”与“收拾房间时扔掉过期宠物食品，想到自己对哒哒和多多的不同反应”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a4a4cbb8fc917b45",
+      "event_a_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "42cb87a5-96f1-4a7a-b145-afe19f436591",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“想让AI主动追问日记里的逻辑问题，减少逐篇检查”与“让AI排查工作问题，感觉自己成了中转站”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a9ad031ab1f63dd5",
+      "event_a_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "fe48919d-4256-448a-b2b6-1d9dc374f28e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“和AI聊观念的代际传递，想到未来的家庭教育”与“收拾房间时扔掉过期宠物食品，想到自己对哒哒和多多的不同反应”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ad007db0b1696148",
+      "event_a_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“明天还是以工作为主，空闲先做知识图谱可视化”与“用元宝筛选手机，颂梅帮我爸抢券下单”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ad32295b17af8148",
+      "event_a_id": "926dde26-3291-4ccd-879c-7290108475e4",
+      "event_a_run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
+      "event_b_id": "fe48919d-4256-448a-b2b6-1d9dc374f28e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“颂梅不想要吐司吊坠，大礼物还是直接给钱”与“收拾房间时扔掉过期宠物食品，想到自己对哒哒和多多的不同反应”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ae14461914b328fa",
+      "event_a_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“想让AI主动追问日记里的逻辑问题，减少逐篇检查”与“明天还是以工作为主，空闲先做知识图谱可视化”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-af9c24ae9b704150",
+      "event_a_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "fe48919d-4256-448a-b2b6-1d9dc374f28e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“听软预算约束的视频，重新想领导人的能力和理念”与“收拾房间时扔掉过期宠物食品，想到自己对哒哒和多多的不同反应”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b0516bdf6d1e4704",
+      "event_a_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“想让AI主动追问日记里的逻辑问题，减少逐篇检查”与“备份日记平台，准备在本地还原确认”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b0ca578d4f70a75b",
+      "event_a_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
+      "event_b_run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
+      "status": "RELATED",
+      "reason": "父亲生日时猜母亲会煮鸡蛋，后来电话确认确实煮了几个鸡蛋。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "父亲生日时猜母亲会煮鸡蛋，后来电话确认确实煮了几个鸡蛋。",
+        "source_event_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
+        "source_run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我开玩笑说煮两个鸡蛋",
+            "point_id": "1ff36b40-b92e-425a-9931-cf4f6b99e90e",
+            "point_event_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
+            "point_run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
+            "offset": 73,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "94b96150bfcfcb44e336a2333e7addd854a7a0ad0c30e1106a1e3bbf604ec560"
+          }
+        ],
+        "target_event_id": "82a63203-3fcb-4929-a044-8145af1611de",
+        "target_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "晚上打电话问，母亲果然煮了几个鸡蛋",
+            "point_id": "5a4cdc09-5696-4b1a-95da-71de1a99fa0b",
+            "point_event_id": "82a63203-3fcb-4929-a044-8145af1611de",
+            "point_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+            "offset": 61,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "25bd71a53f7f3a40aecf2fed42e0243b26c1fabb5bcd0ee55f26d2a910a76102"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-b2f57ecfa4fefa75",
+      "event_a_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“明天还是以工作为主，空闲先做知识图谱可视化”与“知识图谱需求不清时，让AI调研、实验，小步拼出方案”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b5890ef497d7a777",
+      "event_a_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "a016fb65-57ef-436c-8755-4a16d698c0f3",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“和AI聊观念的代际传递，想到未来的家庭教育”与“多多不让抱，跟小廖聊养育付出和亲近的关系”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b8e6b36bb806b09c",
+      "event_a_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“我妈果然给我爸煮了鸡蛋过生日”与“听软预算约束的视频，重新想领导人的能力和理念”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bf2bb51625bf3b5e",
+      "event_a_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "d2f5b14a-a332-407c-b699-87e5dbc60226",
+      "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
+      "status": "NO_RELATION",
+      "reason": "“睡得不好，白天昏沉，傍晚才补了一觉”与“带哒哒跑步，回家却又把瑜伽耽误了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c10cda7ffc726ff8",
+      "event_a_id": "926dde26-3291-4ccd-879c-7290108475e4",
+      "event_a_run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
+      "event_b_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“颂梅不想要吐司吊坠，大礼物还是直接给钱”与“用比价的方式给我爸再买两箱舒化奶”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c27379c676757aba",
+      "event_a_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“明天还是以工作为主，空闲先做知识图谱可视化”与“用比价的方式给我爸再买两箱舒化奶”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c399ea700d51a9bd",
+      "event_a_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“明天还是以工作为主，空闲先做知识图谱可视化”与“听软预算约束的视频，重新想领导人的能力和理念”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c53ac9c28f50301b",
+      "event_a_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "event_a_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "event_b_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "RELATED",
+      "reason": "首次给父亲买脱脂舒化奶后，再次比价购买半脱脂，让他试口味。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "首次给父亲买脱脂舒化奶后，再次比价购买半脱脂，让他试口味。",
+        "source_event_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+        "source_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "一箱我爸，一箱我姥。",
+            "point_id": "2e1f1b97-c425-467c-b22c-914bcd47a8eb",
+            "point_event_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+            "offset": 153,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "73095113329ae77d46370212b34f574a0382d8180d1aef5c0afe9376e0b5fd5f"
+          }
+        ],
+        "target_event_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+        "target_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "想让他和全脱脂都尝尝，喜欢哪款以后就买哪款。",
+            "point_id": "135886a2-1ba6-4781-82a5-b2c3f7de9192",
+            "point_event_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+            "point_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+            "offset": 31,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "583910a4742f908a6a66c4433011ef6e8ade916f32910fdfccc8d3b8f3ec06a5"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-cb8723334e6384ff",
+      "event_a_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "fe48919d-4256-448a-b2b6-1d9dc374f28e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“用元宝筛选手机，颂梅帮我爸抢券下单”与“收拾房间时扔掉过期宠物食品，想到自己对哒哒和多多的不同反应”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cf76534adae24eef",
+      "event_a_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“马里奥拼图太难，后来把散架的食人花乐高拼好了”与“用比价的方式给我爸再买两箱舒化奶”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d15fde2d197662de",
+      "event_a_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“想让AI主动追问日记里的逻辑问题，减少逐篇检查”与“我妈果然给我爸煮了鸡蛋过生日”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d301f1fbb5fad5a5",
+      "event_a_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“用比价的方式给我爸再买两箱舒化奶”与“听软预算约束的视频，重新想领导人的能力和理念”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d480f9d0364189f5",
+      "event_a_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "d7c54415-06f6-472d-8967-bd5a064dac46",
+      "event_b_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
+      "status": "NO_RELATION",
+      "reason": "“用比价的方式给我爸再买两箱舒化奶”与“烤羊排带去颂梅爸妈家，中午一起吃饭”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d6611bd0fdf03d18",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“睡得不好，白天昏沉，傍晚才补了一觉”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d87913027cc45857",
+      "event_a_id": "6102239a-30d3-4684-8abf-aa3e12f3512d",
+      "event_a_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "event_b_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“设想用AI自动分析视频观点和推荐视频”与“用元宝筛选手机，颂梅帮我爸抢券下单”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d9648e2b7b5cdbb1",
+      "event_a_id": "57dc947a-2355-405b-92a7-7f7196d3965b",
+      "event_a_run_id": "5ef72fe7-2c77-4680-b12e-df482cf90f0e",
+      "event_b_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“问日本失落三十年，再比较软预算约束的两面性”与“听软预算约束的视频，重新想领导人的能力和理念”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dc9aa015b0a23c45",
+      "event_a_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“用元宝筛选手机，颂梅帮我爸抢券下单”与“策划颂梅的生日盲盒，她不想要iPhone，大礼物得再想”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dddc332f13437150",
+      "event_a_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
+      "event_b_run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
+      "status": "NO_RELATION",
+      "reason": "“用比价的方式给我爸再买两箱舒化奶”与“我爸过生日，让颂梅先在群里送祝福”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-de77ffd960618cd6",
+      "event_a_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "fcc27e80-d9af-4cc9-bb7f-38bb837a84b1",
+      "event_b_run_id": "5ef72fe7-2c77-4680-b12e-df482cf90f0e",
+      "status": "NO_RELATION",
+      "reason": "“听软预算约束的视频，重新想领导人的能力和理念”与“想到经济发展之外，制度和劳动者权益也需要争取”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e20b49ebb136e7d4",
+      "event_a_id": "5dd525fa-b181-4d96-89ad-4264576795f1",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "f4549478-f7ec-4cd4-8ee0-2da790f8d49e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“睡得不好，白天昏沉，傍晚才补了一觉”与“听软预算约束的视频，重新想领导人的能力和理念”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e3b50d76ba08ee8b",
+      "event_a_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "RELATED",
+      "reason": "询问父亲脱脂奶口味并考虑半脱脂后，实际再买两箱半脱脂让他比较。",
+      "relation": {
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "询问父亲脱脂奶口味并考虑半脱脂后，实际再买两箱半脱脂让他比较。",
+        "source_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+        "source_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "不喜欢可以买半脱脂",
+            "point_id": "705223b6-5829-4c3b-a081-59ae07dc943a",
+            "point_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+            "offset": 90,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "51b4e4a6d83e9a9af7cd836eca1de4cec32d86d4ecb8b84ed18ccb5ec2e9173c"
+          }
+        ],
+        "target_event_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+        "target_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "又给父亲买了两箱半脱脂，预计明天到。",
+            "point_id": "135886a2-1ba6-4781-82a5-b2c3f7de9192",
+            "point_event_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+            "point_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+            "offset": 13,
+            "offset_unit": "unicode_codepoint",
+            "detail_sha256": "583910a4742f908a6a66c4433011ef6e8ade916f32910fdfccc8d3b8f3ec06a5"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-e5d9baa2e3d702de",
+      "event_a_id": "4ae2bd0c-2a26-40a7-a11e-e9ba0af50917",
+      "event_a_run_id": "71cfd3ff-482c-4d16-bb4b-60960605b8d4",
+      "event_b_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“追问国内外油价对比，思考只说一半真话的叙事”与“和AI聊观念的代际传递，想到未来的家庭教育”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e5e087577f928be6",
+      "event_a_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "fe48919d-4256-448a-b2b6-1d9dc374f28e",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“我妈果然给我爸煮了鸡蛋过生日”与“收拾房间时扔掉过期宠物食品，想到自己对哒哒和多多的不同反应”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e68ec67108426513",
+      "event_a_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“我妈果然给我爸煮了鸡蛋过生日”与“用元宝筛选手机，颂梅帮我爸抢券下单”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e78677c9fcd61e7a",
+      "event_a_id": "4c4d690a-1faf-4ee2-bb39-293d2526182c",
+      "event_a_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
+      "event_b_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“在家做饭，本想给小廖妈妈发板栗炖鸡照片，最后没发”与“马里奥拼图太难，后来把散架的食人花乐高拼好了”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e991030e4193eddb",
+      "event_a_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“明天还是以工作为主，空闲先做知识图谱可视化”与“江西例会被问到两个接口，重新梳理数据和数据库设计”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f5faf50d423219d8",
+      "event_a_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
+      "status": "NO_RELATION",
+      "reason": "“想让AI主动追问日记里的逻辑问题，减少逐篇检查”与“知识图谱需求不清时，让AI调研、实验，小步拼出方案”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f7edf3cda5ed3631",
+      "event_a_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“我妈果然给我爸煮了鸡蛋过生日”与“和AI聊观念的代际传递，想到未来的家庭教育”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fbbbf875b5a887fa",
+      "event_a_id": "752f4147-dd1a-4167-8ca9-e7ba9a490bc2",
+      "event_a_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "event_b_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "event_b_run_id": "50e49c61-0e05-42a0-b181-f50cfd26871d",
+      "status": "NO_RELATION",
+      "reason": "“马里奥拼图太难，后来把散架的食人花乐高拼好了”与“和AI聊观念的代际传递，想到未来的家庭教育”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。",
+      "relation": null
+    }
+  ]
+}

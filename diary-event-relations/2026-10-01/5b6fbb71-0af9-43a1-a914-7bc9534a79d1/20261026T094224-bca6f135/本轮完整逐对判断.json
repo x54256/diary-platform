@@ -1,0 +1,351 @@
+{
+  "package_sha256": "33b43ca279102a188010ffa8537203eb4f843c740376ff903193cf8b6e5f169e",
+  "results": [
+    {
+      "pair_id": "P-aca01cd87c362967",
+      "status": "NO_RELATION",
+      "reason": "苹果协同与自给自足分别引出合作观点，但没有明确引用同一具体经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-282e5b11d5dec3c1",
+      "status": "NO_RELATION",
+      "reason": "苹果产品协同与设想视频分析应用是不同产品事项，未明确表达触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d52f0da7792c59c7",
+      "status": "NO_RELATION",
+      "reason": "哒哒误咬洁厕灵与我验光配镜没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-51e725aefe1d333e",
+      "status": "NO_RELATION",
+      "reason": "此前政治评论偏差和本次英语教育思考只有信息与观点主题相近，没有指向同一视频或具体事件。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8c46d047cc15137e",
+      "status": "NO_RELATION",
+      "reason": "家庭学习氛围与全球产业协作没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-88a16a5d9562a9f0",
+      "status": "NO_RELATION",
+      "reason": "劝小廖学习与本人评价英语教育不是同一具体学习事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-75dc974f7299d6b9",
+      "status": "NO_RELATION",
+      "reason": "此前专业经验反思与制作低头提醒应用没有明确触发或具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4a36b5eb20b6a638",
+      "status": "NO_RELATION",
+      "reason": "离职压力沟通与油价信息核查没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-89e23ad45d409abb",
+      "status": "NO_RELATION",
+      "reason": "刷题学习与自给自足、全球协作讨论没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c245d29aadce01c2",
+      "status": "NO_RELATION",
+      "reason": "算法刷题和制作低头提醒应用没有明确联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-526be95d372d6015",
+      "status": "NO_RELATION",
+      "reason": "记日记复盘价值与设想视频推荐虽都涉及日记平台，后者未具体延续前者的复盘设计。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f4a4abb6f04cb36b",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“追问国内外油价对比，思考只说一半真话的叙事”与“眼镜度数不够了，准备去医院验光”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-472fcf8eb6ccc045",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E027",
+        "target_event": "E025",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "油价叙事反思明确比较了此前虎门销烟的例子，认为都涉及隐藏信息、引导情绪。",
+        "source_evidence": [
+          {
+            "point_no": 4,
+            "quote": "这和前面虎门销烟那个例子一样"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 4,
+            "quote": "后来我向ChatGPT核实，虎门销烟是否为了自己卖鸦片。它说不是"
+          }
+        ]
+      },
+      "reason": "油价叙事反思明确比较了此前虎门销烟的例子，认为都涉及隐藏信息、引导情绪。"
+    },
+    {
+      "pair_id": "P-713c6ba153d5b549",
+      "status": "NO_RELATION",
+      "reason": "油价与经济危机是不同视频信息，虽讨论利益及叙事，未具体引用彼此。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4162b5f5d619d18a",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“追问国内外油价对比，思考只说一半真话的叙事”与“设想用AI自动分析视频观点和推荐视频”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-dee23f127e39c997",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“追问国内外油价对比，思考只说一半真话的叙事”与“想到取消英语考试的观点，再想英语教育的意义”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-81aa0c86e6d965d6",
+      "status": "NO_RELATION",
+      "reason": "政治人物利益判断与李克强访谈中的评价没有具体引用或明确观点修订。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b679dbcc45ea17e8",
+      "status": "NO_RELATION",
+      "reason": "油价信息核查与对母亲的沟通方法没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3b8d7f4d7183f0c9",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“追问国内外油价对比，思考只说一半真话的叙事”与“用了低头提醒App，想让AI帮我做一个”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-3a7bdd62a089bd47",
+      "status": "NO_RELATION",
+      "reason": "油价信息核查与知识图谱第二层设计没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-58fce75487340ab3",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“眼镜度数不够了，准备去医院验光”与“从虎门销烟的说法，想到自给自足和全球协作”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-66b17b714c744f5c",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“眼镜度数不够了，准备去医院验光”与“设想用AI自动分析视频观点和推荐视频”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-e648c292127e8c2e",
+      "status": "NO_RELATION",
+      "reason": "自己验光与哒哒洗牙是不同对象的医疗事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b82852682dea6013",
+      "status": "RELATED",
+      "reason": "此前考虑换眼镜并请小廖找配镜地点，之后形成先去医院验光、再选择配镜渠道的具体安排。",
+      "relation": {
+        "source_event": "E022",
+        "target_event": "E030",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前考虑换眼镜并请小廖找配镜地点，之后形成先去医院验光、再选择配镜渠道的具体安排。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我打算到时候跟小廖说一下，让她帮我找个性价比还可以的配眼镜的地方"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "等哒哒遛完，我准备去医院验光，再配一副眼镜"
+          }
+        ]
+      }
+    },
+    {
+      "pair_id": "P-0634320d43e338f9",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“眼镜度数不够了，准备去医院验光”与“想到取消英语考试的观点，再想英语教育的意义”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-dfee8e7333609041",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“眼镜度数不够了，准备去医院验光”与“用了低头提醒App，想让AI帮我做一个”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-74ef3d85e4d3e2ad",
+      "status": "NO_RELATION",
+      "reason": "当前说最近哒哒跑得快看不清，未明确定位为二沙岛那次走失，不能把泛指对应到具体事件。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3d571ddd7786c542",
+      "status": "NO_RELATION",
+      "reason": "清远退房遛宠物与准备验光没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-70f67e2f4d86c008",
+      "status": "NO_RELATION",
+      "reason": "父亲使用AI就医与全球协作思考没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bfd0351a28979c65",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E025",
+        "target_event": "E029",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前提出借助小工具分析视频观点的设想，进一步具体化为读屏自动分析和结合日记认识推荐视频，仍在设想阶段。",
+        "source_evidence": [
+          {
+            "point_no": 5,
+            "quote": "或者做个小工具，分析这些视频里说的东西。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "不如做个应用，让它读取屏幕信息，自动帮我做这些分析。"
+          },
+          {
+            "point_no": 2,
+            "quote": "都还在设想阶段，是否实际做也不知道。"
+          }
+        ]
+      },
+      "reason": "此前提出借助小工具分析视频观点的设想，进一步具体化为读屏自动分析和结合日记认识推荐视频，仍在设想阶段。"
+    },
+    {
+      "pair_id": "P-fdecdb0f2abe5937",
+      "status": "RELATED",
+      "relation": {
+        "source_event": "E026",
+        "target_event": "E025",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "description": "英语教育反思引用虎门销烟说法被加工的例子，说明依赖转述的局限。",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "就像刚才那个虎门销烟的说法，国内自己卖鸦片的提议确实有，但它被否决了"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 4,
+            "quote": "确有官员提出国内种植、售卖以对抗外部鸦片流入和白银外流，但提议被否决"
+          }
+        ]
+      },
+      "reason": "英语教育反思引用虎门销烟说法被加工的例子，说明依赖转述的局限。"
+    },
+    {
+      "pair_id": "P-6dbabb11324793a3",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“从虎门销烟的说法，想到自给自足和全球协作”与“用了低头提醒App，想让AI帮我做一个”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-90a26fab776d4925",
+      "status": "NO_RELATION",
+      "reason": "两个视频的中外发展观点相近，但未明确指向同一节目或继续同一具体事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d6cf642a8f9226b7",
+      "status": "NO_RELATION",
+      "reason": "调整父母沟通方式与设想视频分析应用没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-235f991eaddc9324",
+      "status": "NO_RELATION",
+      "reason": "劝父亲用AI就医与自己制作低头提醒应用没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b10a198977e275b7",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“设想用AI自动分析视频观点和推荐视频”与“想到取消英语考试的观点，再想英语教育的意义”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-4ff7c50aa9177df0",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“设想用AI自动分析视频观点和推荐视频”与“用了低头提醒App，想让AI帮我做一个”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-7d9d66e0fd97d1f8",
+      "status": "NO_RELATION",
+      "reason": "心理学学习和视频分析推荐设想虽都涉及个人平台，但没有具体的事件延续或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-04e8f4a8d8446a42",
+      "status": "NO_RELATION",
+      "reason": "刷老梁视频沉迷与设想分析视频质量没有明确具体指代或触发，不能仅据观看视频主题连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-22601d51b63d72b1",
+      "status": "NO_RELATION",
+      "reason": "限制游戏油管与制作低头提醒应用不是同一应用或安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d23b7ae7c2909e32",
+      "status": "NO_RELATION",
+      "reason": "当前只重述在学多邻国及兴趣定位，未增加此前每日学习安排的具体新行动，也未明确引用那次规划。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-49b495a49fb9e1ed",
+      "status": "NO_RELATION",
+      "relation": null,
+      "reason": "“想到取消英语考试的观点，再想英语教育的意义”与“用了低头提醒App，想让AI帮我做一个”分别记录不同事项；完整要点未表达双方间同一具体事项的新进展、明确触发或对彼此经历的具体引用。人物、主题或时间接近不足以建立关系。"
+    },
+    {
+      "pair_id": "P-bd20a7eca6dfe3bb",
+      "status": "NO_RELATION",
+      "reason": "心理学学习目的与英语教育意义不是同一具体学习事项，类似学习价值观不足建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d5ab49ccb2323fc8",
+      "status": "NO_RELATION",
+      "reason": "此前设想英语练习与当前泛述多邻国学习兴趣，没有可定位的新安排或明确引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-803a911a02f82f2d",
+      "status": "NO_RELATION",
+      "reason": "争吵复盘与制作低头提醒应用没有具体联系。",
+      "relation": null
+    }
+  ]
+}
