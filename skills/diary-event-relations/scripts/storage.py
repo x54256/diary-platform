@@ -9,7 +9,7 @@ from uuid import UUID, uuid5
 
 from db_source import backend_engine, connection, load_run, object_value, query, readonly, run_identity
 from workflow import (PROJECT_ROOT, VERSION, WorkflowError, check_rows, digest, load_package,
-                      local_lock, progress, read_json, require, saved_results, skill_fingerprint,
+                      local_lock, progress, read_json, require, saved_results,
                       validate_events, write_json)
 
 STORAGE_VERSION = 2
@@ -105,7 +105,6 @@ def validate_packet(packet, *, current_skill=True):
     require(snapshot['package_sha256']==packet['source_package_sha256'] and snapshot['skill_sha256']==packet['skill_sha256'],'入库包与来源版本不一致')
     if current_skill:
         require(packet['schema_version']==STORAGE_VERSION,'旧版包仅支持状态查询，请用当前关系稿重新准备入库包')
-        require(packet['skill_sha256']==skill_fingerprint(),'Skill 已变化，须新建识别运行和入库包')
     for key in ('user_id','diary_id','diary_date','current_run_id'):
         require(packet[key]==snapshot[key],'用户、日期或运行归属不匹配')
     validate_events(list(snapshot['events'].values()),packet['user_id'])
@@ -179,38 +178,33 @@ def archive_for(conn, packet):
     return rows[0]['status'],checkpoint,checkpoint.get('skill_relations')
 
 
-def inspect_target(conn, packet, username):
-    """只读复验；准备阶段允许历史尚未发布，写入阶段必须全部就绪。"""
+def inspect_target(conn, packet, username, *, replace_published=False, accept_published_revisions=False):
+    """只读复验；历史仅要求有效正式要点，不要求关系已发布。"""
     owned(conn,packet,username)
-    snapshot=packet['snapshot'];missing=[]
+    snapshot=packet['snapshot']
     for rid in sorted({e['run_id']for e in snapshot['events'].values()}):
         events,_=load_run(conn,packet['user_id'],rid)
         actual={e['id']:run_identity(e)for e in events}
         expected={e['id']:run_identity(e)for e in snapshot['events'].values()if e['run_id']==rid}
         require(all(actual.get(eid)==e for eid,e in expected.items()),'数据库要点、向量或来源已变化')
         if rid==packet['current_run_id']:require(actual==expected,'当前运行事件覆盖不完整')
-        else:
-            row=query(conn,'SELECT status FROM graph_runs WHERE id=:rid',{'rid':rid})[0]
-            if row['status']!='PUBLISHED':missing.append(rid)
-            else:load_run(conn,packet['user_id'],rid,published=True)
+    # 旧包的回放依赖仅保留身份及来源有效性检查，不依赖关系发布状态或结果版本。
     for dep in packet['publication_dependencies']:
-        rows=query(conn,'SELECT diary_date,status,checkpoint FROM graph_runs WHERE id=:rid AND user_id=:uid',
+        rows=query(conn,'SELECT diary_date FROM graph_runs WHERE id=:rid AND user_id=:uid',
                    {'rid':dep['run_id'],'uid':packet['user_id']})
-        require(len(rows)==1 and str(rows[0]['diary_date'])<packet['diary_date'],'发布依赖不存在、跨用户或日期非法')
-        a=object_value(rows[0]['checkpoint']).get('skill_relations')
-        if rows[0]['status']!='PUBLISHED':missing.append(dep['run_id'])
-        else:
-            require(a and a.get('source_package_sha256')==dep['source_package_sha256'] and a.get('results_sha256')==dep['results_sha256'],'已发布回放依赖与冻结版本不一致')
-            load_run(conn,packet['user_id'],dep['run_id'],published=True)
+        require(len(rows)==1 and str(rows[0]['diary_date'])<packet['diary_date'],'历史依赖不存在、跨用户或日期非法')
+        load_run(conn,packet['user_id'],dep['run_id'])
     status,checkpoint,archive=archive_for(conn,packet)
     stored=bool(status=='PUBLISHED' and archive and archive.get('storage_sha256')==packet['storage_sha256'])
-    require(status=='POINTS_READY' or stored,'目标已发布其他结果或已失效，不支持覆盖重建')
+    replacing=bool(status=='PUBLISHED' and not stored and replace_published and archive)
+    require(status=='POINTS_READY' or stored or replacing,'目标已发布其他结果或已失效，不支持覆盖重建')
     if status=='POINTS_READY':
         require(archive is None,'目标存在其他 Skill 发布记录，不覆盖')
         require(not query(conn,'SELECT id FROM graph_event_relations WHERE run_id=:rid',{'rid':packet['current_run_id']}),'目标已有关系，不覆盖')
         require(not query(conn,"SELECT id FROM graph_runs WHERE user_id=:uid AND diary_id=:did AND status='PUBLISHED' AND id<>:rid",
                           {'uid':packet['user_id'],'did':packet['diary_id'],'rid':packet['current_run_id']}),'该日记已有另一有效已发布运行')
-    return {'stored':stored,'run_status':status,'missing_published_dependencies':sorted(set(missing)),
+    return {'stored':stored,'run_status':status,'replacing_published':replacing,
+            'accept_published_revisions':accept_published_revisions,'missing_published_dependencies':[],
             'skill_source_supported':schema_ready(conn),'relations':sum(r['status']=='RELATED'for r in packet['results']),
             'pairs':len(packet['results']),'storage_sha256':packet['storage_sha256'],'results_sha256':packet['results_sha256']}
 
@@ -239,17 +233,31 @@ def lock_inputs(conn, packet):
         query(conn,'SELECT id FROM graph_event_points WHERE run_id=:id ORDER BY id'+suffix,{'id':rid})
 
 
-def publish(conn, packet, username, confirmed_sha256):
+def publish(conn, packet, username, confirmed_sha256, *, replace_published=False, accept_published_revisions=False):
     """调用者必须使用一个短事务；任何失败由事务整体回滚。"""
     from sqlalchemy import text
     validate_packet(packet)
     require(confirmed_sha256==packet['storage_sha256'],'--confirmed-sha256 不对应当前完整入库包')
     owned(conn,packet,username);lock_inputs(conn,packet)
-    state=inspect_target(conn,packet,username)
+    state=inspect_target(conn,packet,username,replace_published=replace_published,
+                         accept_published_revisions=accept_published_revisions)
     require(state['skill_source_supported'],'数据库尚未支持 SKILL_AGENT，请先显式执行固定迁移')
-    require(not state['missing_published_dependencies'],'历史依赖尚未按冻结版本发布，请先处理较早日期')
     if state['stored']:return state
     stamp=datetime.now(timezone.utc).isoformat();ids={}
+    _,checkpoint,previous_archive=archive_for(conn,packet)
+    checkpoint=deepcopy(checkpoint)
+    if state['replacing_published']:
+        parameters={'rid':packet['current_run_id'],'uid':packet['user_id']}
+        old_edges=query(conn,'SELECT * FROM graph_event_relations WHERE run_id=:rid AND user_id=:uid ORDER BY id',parameters)
+        old_evidence=query(conn,'''SELECT e.* FROM graph_relation_evidence e
+            JOIN graph_event_relations r ON r.id=e.relation_id
+            WHERE r.run_id=:rid AND r.user_id=:uid ORDER BY e.relation_id,e.side,e.point_id''',parameters)
+        backup=json.loads(json.dumps({'replaced_at':stamp,'archive':previous_archive,
+            'relations':[dict(r)for r in old_edges],'evidence':[dict(e)for e in old_evidence]},default=str))
+        checkpoint.setdefault('skill_relations_history',[]).append(backup)
+        conn.execute(text('''DELETE FROM graph_relation_evidence WHERE relation_id IN
+            (SELECT id FROM graph_event_relations WHERE run_id=:rid AND user_id=:uid)'''),parameters)
+        conn.execute(text('DELETE FROM graph_event_relations WHERE run_id=:rid AND user_id=:uid'),parameters)
     for row in packet['resolved_results']:
         if row['status']!='RELATED':continue
         rel=row['relation'];rid=str(uuid5(UUID(packet['current_run_id']),packet['storage_sha256']+':'+row['pair_id']))
@@ -266,12 +274,11 @@ def publish(conn, packet, username, confirmed_sha256):
                 conn.execute(text('''INSERT INTO graph_relation_evidence
                     (relation_id,side,point_id,user_id,source_run_id,source_event_id,target_run_id,target_event_id,point_run_id,point_event_id)
                     VALUES (:relation_id,:side,:point_id,:user_id,:source_run_id,:source_event_id,:target_run_id,:target_event_id,:point_run_id,:point_event_id)'''),values)
-    _,checkpoint,_=archive_for(conn,packet)
-    checkpoint=deepcopy(checkpoint)
     checkpoint['skill_relations']={'schema_version':STORAGE_VERSION,'storage_sha256':packet['storage_sha256'],
         'source_package_sha256':packet['source_package_sha256'],'results_sha256':packet['results_sha256'],
         'skill_sha256':packet['skill_sha256'],'review_origin':packet['review_origin'],'final_source':FINAL_SOURCE,
         'published_at':stamp,'authorization':'EXPLICIT_CLI_WRITE_WITH_MATCHED_PACKET_SHA256',
+        'publication_options':{'replace_published':replace_published,'accept_published_revisions':accept_published_revisions},
         'snapshot':packet['snapshot'],'results':packet['resolved_results'],
         'publication_dependencies':packet['publication_dependencies'],'relation_ids':ids,'draft':packet['draft']}
     for event in packet['snapshot']['events'].values():
@@ -291,11 +298,13 @@ def execute(args):
         with readonly(engine)as conn:return schema(conn)
     if args.command=='prepare-storage':
         packet=build_packet(args.run_dir,args.username,getattr(args,'markdown',None))
-        with connection(args.backend_dir)as conn:state=inspect_target(conn,packet,args.username)
+        with connection(args.backend_dir)as conn:state=inspect_target(conn,packet,args.username,
+            replace_published=getattr(args,'replace_published',False),
+            accept_published_revisions=getattr(args,'accept_published_revisions',False))
         if args.output is None:args.output=args.run_dir/('入库包-事件关系-'+packet['storage_sha256'][:16]+'.json')
         require(not args.output.exists(),'入库包输出已存在，不能覆盖；可直接复验已有同包')
         with args.output.open('x',encoding='utf-8')as stream:json.dump(packet,stream,ensure_ascii=False,indent=2);stream.write('\n')
-        return {**state,'packet_file':str(args.output.resolve()),'ready_to_publish':state['skill_source_supported']and not state['missing_published_dependencies']}
+        return {**state,'packet_file':str(args.output.resolve()),'ready_to_publish':state['skill_source_supported']}
     packet=validate_packet(read_json(args.packet),current_skill=args.command!='storage-status')
     if args.command=='storage-status':
         with connection(args.backend_dir)as conn:
@@ -304,7 +313,10 @@ def execute(args):
                     'run_status':status,'storage_sha256':packet['storage_sha256'],
                     'archived':bool(archive and archive.get('storage_sha256')==packet['storage_sha256'])}
     if args.write:
-        with backend_engine(args.backend_dir).begin()as conn:return publish(conn,packet,args.username,args.confirmed_sha256)
+        with backend_engine(args.backend_dir).begin()as conn:return publish(conn,packet,args.username,args.confirmed_sha256,
+            replace_published=getattr(args,'replace_published',False),
+            accept_published_revisions=getattr(args,'accept_published_revisions',False))
     with connection(args.backend_dir)as conn:
-        state=inspect_target(conn,packet,args.username)
-        return {**state,'ready_to_publish':state['skill_source_supported']and not state['missing_published_dependencies']}
+        state=inspect_target(conn,packet,args.username,replace_published=getattr(args,'replace_published',False),
+            accept_published_revisions=getattr(args,'accept_published_revisions',False))
+        return {**state,'ready_to_publish':state['skill_source_supported']}

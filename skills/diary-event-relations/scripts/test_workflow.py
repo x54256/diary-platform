@@ -81,16 +81,41 @@ class WorkflowTest(unittest.TestCase):
         v=vectors([self.a,self.b]);v[self.b['points'][0]['id']]['model']='other'
         with self.assertRaises(w.WorkflowError):w.prepare_data([self.a,self.b],[],v,self.config)
 
-    def test_aggregate_before_top5_and_stable_order(self):
+    def test_aggregate_before_top_k_and_stable_order(self):
         current=event('2026-09-10',uid=self.a['user_id'])
-        history=[event(uid=current['user_id'])for _ in range(7)]
+        history=[event(uid=current['user_id'])for _ in range(13)]
         for _ in range(10):
             no=len(history[0]['points'])+1
             history[0]['points'].append({'id':str(uuid4()),'no':no,'summary':'相近要点','detail':'同一历史事件的额外信息。'})
+        for k in (5, self.config['top_k']):
+            with self.subTest(top_k=k):
+                s=self.prepare([current],history,config={**self.config,'top_k':k,'retain_all_min_similarity':None})
+                self.assertEqual(k,len(s['pairs']))
+                self.assertEqual(sorted(e['id']for e in history)[:k],s['recall'][0]['selected_event_ids'])
+                self.assertEqual(13,len(s['recall'][0]['hits']))
+
+    def test_top_k_union_high_scores_inclusive_and_deduplicated(self):
+        hits=[{'event_id':str(i),'score':score} for i,score in enumerate(
+            [.8]*11 + [.5,.499,.4,.399])]
+        selected=w.select_history_hits(hits,self.config)
+        self.assertEqual([str(i) for i in range(12)],[h['event_id']for h in selected])
+        self.assertEqual(12,len({h['event_id']for h in selected}))
+        # With fewer high scores, lower scores may still enter through Top K.
+        hits=[{'event_id':str(i),'score':score} for i,score in enumerate(
+            [.6,.5]+[.49]*10+[.399])]
+        selected=w.select_history_hits(hits,self.config)
+        self.assertEqual([str(i)for i in range(6)],[h['event_id']for h in selected])
+        self.assertEqual(2,len(w.select_history_hits(hits[:2],self.config)))
+
+    def test_high_score_union_aggregates_event_points_before_selection(self):
+        current=event('2026-09-10',uid=self.a['user_id'])
+        history=[event(uid=current['user_id'])for _ in range(13)]
+        for _ in range(3):
+            history[0]['points'].append({'id':str(uuid4()),'no':len(history[0]['points'])+1,
+                'summary':'同一事件补充','detail':'不会占用多个事件名额。'})
         s=self.prepare([current],history)
-        self.assertEqual(5,len(s['pairs']))
-        self.assertEqual(sorted(e['id']for e in history)[:5],s['recall'][0]['selected_event_ids'])
-        self.assertEqual(7,len(s['recall'][0]['hits']))
+        self.assertEqual(13,len(s['pairs']))
+        self.assertEqual(sorted(e['id']for e in history),s['recall'][0]['selected_event_ids'])
 
     def test_threshold_and_no_padding(self):
         current=event('2026-09-10',uid=self.a['user_id']);h=event(uid=current['user_id'])
@@ -134,11 +159,12 @@ class WorkflowTest(unittest.TestCase):
         b['results'][0]['relation']['source_evidence'][0]['quote']='好。'
         with self.assertRaises(w.WorkflowError):w.check_rows(s,b)
 
-    def test_snapshot_batch_tampering_and_version_change(self):
+    def test_skill_change_allows_existing_package_but_batch_tampering_fails(self):
         from unittest.mock import patch
         s=self.prepare();folder=w.write_package(s,self.root)
         with patch.object(w,'skill_fingerprint',return_value='changed'):
-            with self.assertRaises(w.WorkflowError):w.load_package(folder)
+            loaded,_=w.load_package(folder)
+            self.assertEqual(s['package_sha256'],loaded['package_sha256'])
         (folder/'B001.json').write_text('{}')
         with self.assertRaises(w.WorkflowError):w.load_package(folder)
 

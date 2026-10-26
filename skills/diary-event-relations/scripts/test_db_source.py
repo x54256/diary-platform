@@ -128,7 +128,7 @@ class DatabaseSourceTest(unittest.TestCase):
             with d.readonly(self.engine)as c:yield c
         with patch.object(d,'connection',isolated_connection):s=d.prepare(args)
         self.assertEqual(1,len(s['events']));self.assertEqual([],s['pairs'])
-        self.assertEqual('published',s['history_mode'])
+        self.assertEqual('database',s['history_mode'])
         self.update('DELETE FROM graph_event_points')
         with patch.object(d,'connection',isolated_connection):
             with self.assertRaises(w.WorkflowError):d.prepare(args)
@@ -155,6 +155,80 @@ class DatabaseSourceTest(unittest.TestCase):
     def test_find_lists_run_ids_for_unambiguous_selection(self):
         with d.readonly(self.engine)as c:listing=d.list_diaries(c,'isolated','2026-09-09')
         self.assertEqual(self.rid,listing['diaries'][0]['runs'][0]['id'])
+
+
+    def add_history(self, day, status='POINTS_READY', organized=True):
+        ids={name:str(uuid4())for name in ('did','oid','eid','rid','pid')}
+        source=deepcopy(self.source)
+        source.update(diary_id=ids['did'],diary_date=day,organized_id=ids['oid'])
+        source['events'][0]['event_id']=ids['eid']
+        with self.engine.begin()as c:
+            c.exec_driver_sql('PRAGMA query_only=OFF')
+            for table,key in [('diaries','did'),('diary_organized','oid'),('diary_events','eid'),('graph_runs','rid'),('graph_event_points','pid')]:
+                c.execute(text(f'INSERT INTO {table} SELECT * FROM {table} LIMIT 1'))
+                c.execute(text(f'UPDATE {table} SET id=:new WHERE rowid=(SELECT max(rowid) FROM {table})'),{'new':ids[key]})
+            c.execute(text('UPDATE diaries SET diary_date=:day,status=:status WHERE id=:did'),{**ids,'day':day,'status':'organized' if organized else 'saved'})
+            c.execute(text('UPDATE diary_organized SET diary_id=:did WHERE id=:oid'),ids)
+            c.execute(text('UPDATE diary_events SET diary_organized_id=:oid WHERE id=:eid'),ids)
+            c.execute(text('UPDATE graph_runs SET diary_id=:did,diary_date=:day,status=:status,source_organized_id=:oid,source_snapshot=:source,source_sha256=:sha WHERE id=:rid'),
+                {**ids,'day':day,'status':status,'source':json.dumps(source),'sha':w.digest(source)})
+            c.execute(text('INSERT INTO graph_run_events VALUES(:rid,:eid,:uid,0,NULL)'),{**ids,'uid':self.uid})
+            c.execute(text('UPDATE graph_event_points SET run_id=:rid,event_id=:eid WHERE id=:pid'),ids)
+        return ids
+
+    def test_database_history_cross_month_without_local_directories(self):
+        self.add_history('2026-08-31')
+        self.add_history('2026-09-01','PUBLISHED')
+        self.add_history('2026-10-01') # future, never loaded
+        self.add_history('2026-08-30',organized=False) # saved, never loaded
+        with d.readonly(self.engine)as c:
+            events,vs,inventory=d.database_history(c,self.uid,'2026-09-09')
+        self.assertEqual(['2026-08-31','2026-09-01'],[e['diary_date']for e in events])
+        self.assertEqual(2,len(inventory));self.assertEqual(2,len(vs))
+        with d.readonly(self.engine)as c:
+            self.assertEqual(([],{},[]),d.database_history(c,str(uuid4()),'2026-10-02'))
+
+    def test_database_history_missing_or_ambiguous_points_rejected(self):
+        ids=self.add_history('2026-09-01')
+        self.update("UPDATE graph_runs SET status='FAILED' WHERE id=:rid",ids)
+        with d.readonly(self.engine)as c:
+            events,vs,inventory=d.database_history(c,self.uid,'2026-09-09')
+        self.assertEqual([],events);self.assertEqual('NO_FORMAL_POINTS',inventory[0]['gap'])
+        self.update("UPDATE graph_runs SET status='POINTS_READY' WHERE id=:rid",ids)
+        self.update('INSERT INTO graph_runs SELECT * FROM graph_runs WHERE id=:rid',ids)
+        with d.readonly(self.engine)as c:
+            with self.assertRaisesRegex(w.WorkflowError,'多个有效运行'):
+                d.database_history(c,self.uid,'2026-09-09')
+
+    def test_database_inventory_verifies_unselected_event_and_new_history(self):
+        ids=self.add_history('2026-09-01')
+        # Orthogonal vector: valid history is present in inventory but absent from candidates.
+        self.update('UPDATE graph_event_points SET embedding=:v WHERE id=:pid',
+            {**ids,'v':json.dumps([0.,1.]+[0.]*1022)})
+        @contextmanager
+        def isolated_connection(_):
+            with d.readonly(self.engine)as c:yield c
+        args=SimpleNamespace(backend_dir=Path('.'),username='isolated',date='2026-09-09',diary_id=None,run_id=None)
+        with patch.object(d,'connection',isolated_connection):snapshot=d.prepare(args)
+        self.assertEqual(1,len(snapshot['events']));self.assertEqual(1,snapshot['history_selection']['event_count'])
+        with tempfile.TemporaryDirectory()as root:
+            folder=w.write_package(snapshot,root);args.run_dir=folder
+            with patch.object(d,'connection',isolated_connection):d.verify(args)
+            self.update("UPDATE graph_event_points SET detail='历史文字变更' WHERE id=:pid",ids)
+            with patch.object(d,'connection',isolated_connection):
+                with self.assertRaisesRegex(w.WorkflowError,'数据库历史范围'):d.verify(args)
+            self.assertFalse((folder/'verification.json').exists())
+            self.update("UPDATE graph_event_points SET detail='具体经历。' WHERE id=:pid",ids)
+            with patch.object(d,'connection',isolated_connection):d.verify(args)
+            self.add_history('2026-09-02')
+            with patch.object(d,'connection',isolated_connection):
+                with self.assertRaisesRegex(w.WorkflowError,'数据库历史范围'):d.verify(args)
+
+    def test_cli_rejects_removed_history_switches(self):
+        for extra in (['--history-mode','replay'],['--completed-run','/tmp/old']):
+            with self.assertRaises(SystemExit)as caught:
+                w.main(['prepare','--username','isolated','--date','2026-09-09',*extra])
+            self.assertEqual(2,caught.exception.code)
 
 
 if __name__=='__main__':unittest.main()

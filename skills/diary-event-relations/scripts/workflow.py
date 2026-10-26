@@ -60,6 +60,9 @@ def settings():
     require(type(value.get('top_k')) is int and value['top_k'] > 0, 'top_k 必须为正整数')
     require(type(value.get('min_similarity')) in (int, float) and math.isfinite(value['min_similarity'])
             and -1 <= value['min_similarity'] <= 1, '相似度阈值不合法')
+    keep = value.get('retain_all_min_similarity')
+    require(keep is None or (type(keep) in (int, float) and math.isfinite(keep)
+            and value['min_similarity'] <= keep <= 1), '全量保留阈值须不低于最低相似度且不大于1')
     for key in ('max_batch_chars', 'max_pairs_per_batch'):
         require(type(value.get(key)) is int and value[key] > 0, key + ' 必须为正整数')
     return value
@@ -96,7 +99,15 @@ def validate_events(events, user_id):
     require(len(set(point_ids)) == len(point_ids), '要点身份重复')
 
 
-def prepare_data(current, history, vectors, config, *, history_mode='published', completed=()):
+def select_history_hits(hits, config):
+    """输入按分数降序及事件ID升序排序；Top K与高分全保留取并集。"""
+    eligible = [h for h in hits if h['score'] >= config['min_similarity']]
+    keep = config.get('retain_all_min_similarity')
+    return [h for rank, h in enumerate(eligible)
+            if rank < config['top_k'] or (keep is not None and h['score'] >= keep)]
+
+
+def prepare_data(current, history, vectors, config, *, history_mode='database', completed=(), history_inventory=()):
     """纯计算入口；数据库来源校验由 db_source 完成，测试可以注入隔离来源。"""
     # 来源只保留本流程实际使用的身份、事实与向量指纹字段。
     event_fields={'id','user_id','run_id','run_status','diary_id','diary_date','occurred_on',
@@ -115,7 +126,7 @@ def prepare_data(current, history, vectors, config, *, history_mode='published',
     day = current[0]['diary_date']
     require(len({(e['diary_id'], e['diary_date'], e['run_id']) for e in current}) == 1, '当前范围必须是一篇日记的一个运行')
     require(all(e['diary_date'] < day for e in history), '历史必须早于当前日记日期')
-    require(history_mode in ('published', 'replay'), '历史模式不合法')
+    require(history_mode in ('database', 'published', 'replay'), '历史模式不合法')
     all_events = current + history
     normalized, models = {}, set()
     for e in all_events:
@@ -140,7 +151,7 @@ def prepare_data(current, history, vectors, config, *, history_mode='published',
             hits.append({'event_id': h['id'], 'run_id': h['run_id'], 'score': best[0],
                          'current_point_id': best[1], 'historic_point_id': best[2]})
         hits.sort(key=lambda x: (-x['score'], x['event_id']))
-        admitted = [h for h in hits if h['score'] >= config['min_similarity']][:config['top_k']]
+        admitted = select_history_hits(hits, config)
         for h in admitted:
             selected.add(h['event_id']); pair_ids.add(tuple(sorted((c['id'], h['event_id']))))
         recall.append({'current_event_id': c['id'], 'hits': hits,
@@ -157,6 +168,13 @@ def prepare_data(current, history, vectors, config, *, history_mode='published',
                 'config': config, 'embedding_model': next(iter(models)),
                 'events': events, 'pairs': pairs, 'recall': recall,
                 'completed_dependencies': list(completed), 'skill_sha256': skill_fingerprint()}
+    if history_mode == 'database':
+        snapshot['history_inventory'] = list(history_inventory)
+        snapshot['history_selection'] = {'source': 'database_formal_points', 'before': day,
+            'states': ['POINTS_READY', 'PUBLISHED'], 'month_boundary': False,
+            'run_count': sum('run_id' in h for h in history_inventory), 'event_count': len(history),
+            'gaps': [h for h in history_inventory if 'gap' in h],
+            'point_count': sum(len(e['points']) for e in history)}
     snapshot['package_sha256'] = digest(snapshot)
     return snapshot
 
@@ -215,7 +233,6 @@ def load_package(folder, *, check_dependencies=True):
     require(s.get('kind') == 'diary-event-relations-readonly' and s.get('schema_version') == VERSION, '来源包类型或版本错误')
     require(s.get('package_sha256') == digest({k:v for k,v in s.items() if k!='package_sha256'}), '来源包指纹不匹配')
     require(manifest.get('package_sha256') == s['package_sha256'], '运行与来源不匹配')
-    require(s['skill_sha256'] == skill_fingerprint(), 'Skill 或脚本已变化，请新建运行，不复用旧结果')
     expected = {'source.json'} | {b['batch_id']+'.json' for b in manifest['batches']}
     require(set(manifest['files']) == expected, '运行文件清单不完整')
     for name, sha in manifest['files'].items():
@@ -289,6 +306,7 @@ def progress(s, rows, manifest):
     finished={r['pair_id'] for r in rows}
     missing=[p['pair_id'] for p in s['pairs'] if p['pair_id'] not in finished]
     return {'package_sha256':s['package_sha256'],'history_mode':s['history_mode'],
+            'history_selection':s.get('history_selection'),
             'total_pairs':len(s['pairs']),'completed_pairs':len(rows),'complete':not missing,
             'counts':dict(Counter(r['status'] for r in rows)), 'pending_pair_ids':missing,
             'pending_batches':[b['batch_id'] for b in manifest['batches'] if set(b['pair_ids'])-finished],
@@ -360,8 +378,6 @@ def main(argv=None):
         target.add_argument('--date',type=date.fromisoformat);target.add_argument('--diary-id',type=UUID)
         if name=='prepare':
             cmd.add_argument('--run-id',type=UUID)
-            cmd.add_argument('--history-mode',choices=('published','replay'),default='published')
-            cmd.add_argument('--completed-run',type=Path,action='append',default=[])
     for name in ('read','record','status','check','render','verify'):
         cmd=commands.add_parser(name);cmd.add_argument('run_dir',type=Path)
         if name=='read':cmd.add_argument('--batch',required=True);cmd.add_argument('--pending-only',action='store_true')
@@ -374,10 +390,14 @@ def main(argv=None):
     cmd=commands.add_parser('schema');cmd.add_argument('--write',action='store_true')
     cmd=commands.add_parser('prepare-storage');cmd.add_argument('run_dir',type=Path)
     cmd.add_argument('--username',required=True);cmd.add_argument('--output',type=Path);cmd.add_argument('--markdown',type=Path)
+    cmd.add_argument('--replace-published',action='store_true')
+    cmd.add_argument('--accept-published-revisions',action='store_true')
     for name in ('save','storage-status'):
         cmd=commands.add_parser(name);cmd.add_argument('packet',type=Path);cmd.add_argument('--username',required=True)
         if name=='save':
             cmd.add_argument('--write',action='store_true');cmd.add_argument('--confirmed-sha256')
+            cmd.add_argument('--replace-published',action='store_true')
+            cmd.add_argument('--accept-published-revisions',action='store_true')
     args=parser.parse_args(argv)
     try:
         if args.command in ('schema','prepare-storage','save','storage-status'):

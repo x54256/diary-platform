@@ -66,12 +66,62 @@ class StorageTest(unittest.TestCase):
             row=c.execute(text('SELECT status,checkpoint FROM graph_runs')).one()
             return row[0],json.loads(row[1]),c.execute(text('SELECT count(*) FROM graph_event_relations')).scalar(),c.execute(text('SELECT count(*) FROM graph_relation_evidence')).scalar()
 
+    def history_packet(self):
+        f=self.fixture
+        ids=f.add_history('2026-09-08')
+        current,vs=f.load()
+        with self.engine.connect()as c:
+            history,hv=s.load_run(c,f.uid,ids['rid'])
+        snap=w.prepare_data(current,history,{**vs,**hv},w.settings())
+        folder=w.write_package(snap,self.root)
+        rows=[]
+        for pair in snap['pairs']:
+            a,b=(snap['events'][pair[k]] for k in ('event_a','event_b'))
+            relation=None
+            if a['run_id']!=b['run_id']:
+                relation={'source_event':pair['event_a'],'target_event':pair['event_b'],
+                    'relation_type':'后续事件','certainty':'EXPLICIT','description':'隔离测试的跨日关系。',
+                    'source_evidence':[{'point_no':1,'quote':a['points'][0]['detail']}],
+                    'target_evidence':[{'point_no':1,'quote':b['points'][0]['detail']}]}
+            rows.append({'pair_id':pair['pair_id'],'status':'RELATED' if relation else 'NO_RELATION',
+                         'reason':'隔离测试。','relation':relation})
+        incoming=self.root/'history-input.json'
+        w.write_json(incoming,{'package_sha256':snap['package_sha256'],'results':rows})
+        w.record(folder,incoming);w.render(folder)
+        return ids,s.build_packet(folder,'isolated')
+
+    def test_unpublished_history_allows_cross_day_publication(self):
+        ids,packet=self.history_packet()
+        with self.engine.connect()as c:
+            state=s.inspect_target(c,packet,'isolated')
+        self.assertEqual([],state['missing_published_dependencies'])
+        self.assertEqual(3,state['relations'])
+        self.assertTrue(self.transaction(packet)['stored'])
+        with self.engine.connect()as c:
+            self.assertEqual('POINTS_READY',c.execute(text('SELECT status FROM graph_runs WHERE id=:id'),{'id':ids['rid']}).scalar())
+
+    def test_unpublished_history_changed_vector_still_blocks_publication(self):
+        ids,packet=self.history_packet()
+        self.fixture.update('UPDATE graph_event_points SET embedding=:v WHERE id=:pid',
+                            {'pid':ids['pid'],'v':json.dumps([0.,1.]+[0.]*1022)})
+        with self.assertRaises(w.WorkflowError):self.transaction(packet)
+        with self.engine.connect()as c:
+            self.assertEqual(0,c.execute(text('SELECT count(*) FROM graph_event_relations')).scalar())
+
     def test_readonly_returns_connection_without_leaking_query_only(self):
         with s.readonly(self.engine)as c:
             with self.assertRaises(Exception):c.exec_driver_sql("UPDATE users SET username='wrong'")
         with self.engine.begin()as c:
             self.assertEqual(0,c.exec_driver_sql('PRAGMA query_only').scalar())
             self.assertTrue(s.publish(c,self.packet,'isolated',self.packet['storage_sha256'])['stored'])
+
+    def test_skill_change_allows_packet_validation_and_isolated_publication(self):
+        from unittest.mock import patch
+        with patch.object(w,'skill_fingerprint',return_value='changed'):
+            s.validate_packet(self.packet)
+            rebuilt=s.build_packet(self.folder,'isolated')
+            self.assertEqual(self.packet['skill_sha256'],rebuilt['skill_sha256'])
+            self.assertTrue(self.transaction()['stored'])
 
     def test_publish_all_judgments_idempotent_preserves_points(self):
         s.validate_packet(self.packet)
@@ -136,6 +186,49 @@ class StorageTest(unittest.TestCase):
         p['storage_sha256']=w.digest({k:v for k,v in p.items()if k!='storage_sha256'})
         self.transaction(p);self.assertEqual(('PUBLISHED',0,0),(self.state()[0],*self.state()[2:]))
         self.assertEqual(3,len(self.state()[1]['skill_relations']['results']))
+
+    def revised_packet(self):
+        from draft import render_text,text_sha
+        p=deepcopy(self.packet)
+        row=next(r for r in p['results']if r['relation'])
+        row['relation']['description']='同一具体事项出现了修订后的新进展。'
+        p['draft']['content']=render_text(p['snapshot'],p['results'])
+        p['draft']['sha256']=text_sha(p['draft']['content'])
+        p['resolved_results']=s.resolve(p['snapshot'],p['results'])
+        p['results_sha256']=s.result_digest(p['snapshot'],p['resolved_results'])
+        p['storage_sha256']=w.digest({k:v for k,v in p.items()if k!='storage_sha256'})
+        return p
+
+    def replace_transaction(self,packet):
+        with self.engine.begin()as c:
+            c.exec_driver_sql('PRAGMA query_only=OFF')
+            return s.publish(c,packet,'isolated',packet['storage_sha256'],
+                             replace_published=True,accept_published_revisions=True)
+
+    def test_explicit_replacement_archives_old_edges_and_is_idempotent(self):
+        self.transaction();old=self.state();p=self.revised_packet()
+        self.assertTrue(self.replace_transaction(p)['stored'])
+        state=self.state();self.assertEqual((1,2),state[2:])
+        history=state[1]['skill_relations_history']
+        self.assertEqual(1,len(history))
+        self.assertEqual(old[1]['skill_relations'],history[0]['archive'])
+        self.assertEqual(1,len(history[0]['relations']))
+        self.assertEqual(2,len(history[0]['evidence']))
+        self.assertEqual(p['storage_sha256'],state[1]['skill_relations']['storage_sha256'])
+        self.replace_transaction(p)
+        self.assertEqual(state,self.state())
+
+    def test_replacement_evidence_failure_rolls_back_deletion_and_archive(self):
+        self.transaction();before=self.state();p=self.revised_packet()
+        self.fixture.update("CREATE TRIGGER fail_replace BEFORE INSERT ON graph_relation_evidence BEGIN SELECT RAISE(ABORT,'isolated replacement failure'); END")
+        with self.assertRaises(Exception):self.replace_transaction(p)
+        self.assertEqual(before,self.state())
+
+    def test_replacement_does_not_bypass_changed_facts(self):
+        self.transaction();before=self.state();p=self.revised_packet()
+        self.fixture.update("UPDATE graph_event_points SET detail='来源已经变化'")
+        with self.assertRaises(w.WorkflowError):self.replace_transaction(p)
+        self.assertEqual(before,self.state())
 
 
 if __name__=='__main__':unittest.main()

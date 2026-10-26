@@ -166,8 +166,32 @@ def find(args):
         return list_diaries(conn,args.username,args.date,args.diary_id)
 
 
+def database_history(conn, uid, day):
+    """召回全部较早正式要点；另列尚无正式要点的历史日记，不依赖关系状态。"""
+    diaries=query(conn,"""SELECT id FROM diaries WHERE user_id=:uid AND deleted_at IS NULL
+        AND diary_date<:day AND status IN ('organized','analyzed') ORDER BY diary_date,id""",
+        {'uid':uid,'day':str(day)})
+    events=[];vectors={};inventory=[]
+    for diary in diaries:
+        did=str(diary['id'])
+        runs=query(conn,"""SELECT id FROM graph_runs WHERE user_id=:uid AND diary_id=:did
+            AND status IN ('POINTS_READY','PUBLISHED') ORDER BY created_at,id""",{'uid':uid,'did':did})
+        if not runs:
+            row=query(conn,'SELECT diary_date FROM diaries WHERE id=:did AND user_id=:uid',{'did':did,'uid':uid})[0]
+            inventory.append({'diary_id':did,'diary_date':str(row['diary_date']),
+                'gap':'NO_FORMAL_POINTS','event_count':0,'point_count':0})
+            continue
+        require(len(runs)==1, '历史日记存在多个有效运行：'+did)
+        rid=str(runs[0]['id']);loaded,vs=load_run(conn,uid,rid)
+        require(loaded, '历史正式要点为空：'+did)
+        inventory.append({'run_id':rid,'diary_id':did,'diary_date':loaded[0]['diary_date'],
+            'event_count':len(loaded),'point_count':sum(len(e['points'])for e in loaded),
+            'content_sha256':digest([run_identity(e)for e in loaded])})
+        events.extend(loaded);vectors.update(vs)
+    return events,vectors,inventory
+
+
 def prepare(args):
-    require(args.history_mode=='replay' or not args.completed_run,'--completed-run 仅用于显式 replay 模式')
     with connection(args.backend_dir)as conn:
         listing=list_diaries(conn,args.username,args.date,args.diary_id)
         require(len(listing['diaries'])==1,'日记定位不是唯一结果，请 find 后按 diary-id 选择')
@@ -178,27 +202,8 @@ def prepare(args):
         require(len(runs)==1,'有效要点运行不是唯一结果，请显式指定 run-id')
         current,vectors=load_run(conn,uid,runs[0]['id'])
         require(current,'当前日记没有正式事件要点')
-        history=[];completed=[]
-        if args.history_mode=='published':
-            historical=query(conn,"""SELECT id,diary_id FROM graph_runs WHERE user_id=:uid
-                  AND diary_date<:day AND status='PUBLISHED' ORDER BY diary_date,id""",{'uid':uid,'day':str(diary['diary_date'])})
-            require(len({str(r['diary_id'])for r in historical})==len(historical),'历史日记存在多个有效运行')
-            for r in historical:
-                events,vs=load_run(conn,uid,r['id'],published=True);history.extend(events);vectors.update(vs)
-        else:
-            seen=set()
-            for folder in args.completed_run:
-                prior,manifest=load_package(folder);rows=saved_results(folder,prior)
-                require(progress(prior,rows,manifest)['complete'],'前一日期本地识别尚未完成')
-                require(prior['user_id']==uid and prior['diary_date']<str(diary['diary_date']),'回放历史用户或日期不符')
-                rid=prior['current_run_id'];require(rid not in seen,'回放历史运行重复');seen.add(rid)
-                events,vs=load_run(conn,uid,rid)
-                frozen={e['id']:run_identity(e)for e in prior['events'].values()if e['run_id']==rid}
-                require({e['id']:run_identity(e)for e in events}==frozen,'回放历史要点内容或身份已变化')
-                history.extend(events);vectors.update(vs)
-                completed.append({'run_id':rid,'run_dir':str(Path(folder).resolve()),'package_sha256':prior['package_sha256'],
-                                  'results_sha256':digest(rows)})
-    return prepare_data(current,history,vectors,settings(),history_mode=args.history_mode,completed=completed)
+        history,vs,inventory=database_history(conn,uid,diary['diary_date']);vectors.update(vs)
+    return prepare_data(current,history,vectors,settings(),history_inventory=inventory)
 
 
 def verify(args):
@@ -208,6 +213,9 @@ def verify(args):
         receipt=Path(args.run_dir)/'verification.json'
         receipt.unlink(missing_ok=True)
         with connection(args.backend_dir)as conn:
+            if snapshot['history_mode']=='database':
+                _,_,inventory=database_history(conn,snapshot['user_id'],snapshot['diary_date'])
+                require(inventory==snapshot['history_inventory'],'数据库历史范围、正式要点或向量已变化，请新建运行')
             for rid in sorted({e['run_id']for e in snapshot['events'].values()}):
                 history=rid!=snapshot['current_run_id']
                 events,_=load_run(conn,snapshot['user_id'],rid,published=history and snapshot['history_mode']=='published')
