@@ -11,7 +11,7 @@
         <button v-if="focusId" type="button" class="min-h-11 px-2 text-sm text-primary-600" @click="restoreGraph">返回原图</button>
       </div>
       <div v-if="selectedEvent || selectedRelation" class="flex items-center justify-between gap-2 border-t border-neutral-100 pt-1 lg:hidden">
-        <p class="min-w-0 truncate text-xs text-neutral-600">已选：{{ selectedEvent?.title || relationLabel(selectedRelation!) }}</p>
+        <p class="min-w-0 truncate text-xs text-neutral-600">{{ selectedEvent?.title || relationLabel(selectedRelation!) }}</p>
         <button type="button" class="min-h-11 shrink-0 px-2 text-sm font-medium text-primary-700" @click="mobileDetailsOpen = true">查看详情 ›</button>
       </div>
     </div>

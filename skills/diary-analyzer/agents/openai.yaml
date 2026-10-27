@@ -1,0 +1,6 @@
+interface:
+  display_name: "日记分析"
+  short_description: "读取尚未分析的结构化日记，生成核心、认知与行动分析稿，确认后保存到项目数据库"
+  default_prompt: "使用 $diary-analyzer 分析指定日期尚未分析的日记，生成 Markdown，确认最终稿后入库。"
+policy:
+  allow_implicit_invocation: false

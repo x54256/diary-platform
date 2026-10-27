@@ -1,0 +1,11 @@
+{
+  "diary_id": "3daec46f-307b-4c1b-94eb-c0e0c189696b",
+  "events": 11,
+  "points": 34,
+  "local_source_matches_current_draft": true,
+  "markdown_json_match": true,
+  "database_original_matches_local_body": true,
+  "organized_markdown_sha256": "1dba080253595b57754c531f241df8c45c771c9e5a622cde4cee4e4527c4b81b",
+  "points_markdown_sha256": "5a1b60049b03e4ad296a5ba458444d270e3e8fe9a15d20355b0e155e4985d86d",
+  "status": "两稿核对完成；整理稿等待最终确认后首次保存；要点稿待正式事件ID绑定及预检"
+}

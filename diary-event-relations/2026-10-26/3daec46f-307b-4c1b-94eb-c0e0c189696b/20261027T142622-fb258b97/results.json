@@ -1,0 +1,2479 @@
+{
+  "package_sha256": "dd5b8ba82340856f21cf076d71aa6be9a74944a66b07a077e06a3782ca858386",
+  "results": [
+    {
+      "pair_id": "P-efcc0cc14fab2ffa",
+      "status": "NO_RELATION",
+      "reason": "咬合垫商业保险报销与颂梅离职前处理报销不同对象和事项，当前未提及口腔保险。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e3d81834f04fe399",
+      "status": "NO_RELATION",
+      "reason": "宠物收到玩具与此前骑车载人罚款没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3fe0032da3015d34",
+      "status": "NO_RELATION",
+      "reason": "给宠物带玩具和给颂梅准备生日蛋糕是不同赠礼事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b6eca90a5ee70c52",
+      "status": "NO_RELATION",
+      "reason": "宠物玩具开线与本人夜间被时差影响睡眠未表达因果或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-57379fcdbd2aac41",
+      "status": "NO_RELATION",
+      "reason": "此前洗澡驱虫和本次八爪鱼玩具开线不是同一护理或维修事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1ce0682f480bbd80",
+      "status": "NO_RELATION",
+      "reason": "玩具开线与按摩艾灸没有具体承接或触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-367bd6ae64970584",
+      "status": "NO_RELATION",
+      "reason": "玩具互动未提及此前枕头和家务沟通争执。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-92491ec105e46b8b",
+      "status": "NO_RELATION",
+      "reason": "颂梅回家后送玩具与准备午饭是不同目标，未表达一方引发另一方。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-23317523c5bb9f48",
+      "status": "NO_RELATION",
+      "reason": "宠物玩具与日记图谱开发互无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e00b96135de8f9cf",
+      "status": "NO_RELATION",
+      "reason": "柳州酒店送的玩具与本次颂梅带回的八爪鱼不同，本次未比较或回忆酒店玩具。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4df1c2d0d25927ab",
+      "status": "NO_RELATION",
+      "reason": "此前游戏手腕疼和遛狗与本次宠物玩具无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7a91c886d64dfec6",
+      "status": "NO_RELATION",
+      "reason": "接机回家与宠物收到礼物同在团聚背景下，但玩具事项未延续接机行程或引用其具体经过。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-93618a8743cbfbe7",
+      "status": "NO_RELATION",
+      "reason": "宠物玩具与指标填报接口开发互无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fc2caabba7c89899",
+      "status": "NO_RELATION",
+      "reason": "八爪鱼缝补与煮宠物食物、洗漱遛狗是不同照护事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c9ae9e5e5fefa9fc",
+      "status": "NO_RELATION",
+      "reason": "为颂梅筹备生日菠萝蜜与颂梅给宠物带玩具对象不同，没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7fa88c192932f1fd",
+      "status": "NO_RELATION",
+      "reason": "此前遛狗一度走失与本次玩具开线没有具体承接。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3021d134f4edc425",
+      "status": "NO_RELATION",
+      "reason": "清远园区遛宠物与本次玩具互动没有回忆或后续指向。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6ca6cc635d21f690",
+      "status": "NO_RELATION",
+      "reason": "清远蛤蟆进房与八爪鱼玩具无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-15c55b7a03ad0647",
+      "status": "NO_RELATION",
+      "reason": "生日盲盒里的礼物是送颂梅的，与她送宠物的礼物不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7bb5ae97724dc665",
+      "status": "NO_RELATION",
+      "reason": "鸡肉火锅用餐与宠物玩具事项没有相互触发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-849267acbe023575",
+      "status": "NO_RELATION",
+      "reason": "清远烟花受惊与本次玩具兴奋为不同经历，未作比较或回忆。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3757b0aea9102358",
+      "status": "NO_RELATION",
+      "reason": "清理过期宠物食品与玩具开线无具体联系，不能仅因同两只宠物建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-12deba2dcee8062e",
+      "status": "NO_RELATION",
+      "reason": "宠物玩具与Cube切CBB接口核对无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2451ad497b700fba",
+      "status": "RELATED",
+      "reason": "此前改为让Codex按skill处理日记、建立事件要点和关系，并考虑后续云电脑自动化；本次继续补关系召回、调整图谱展示，并计划探索不用电脑时按skill交互。",
+      "relation": {
+        "source_event": "E090",
+        "target_event": "E111",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "具体AI功能主要交给电脑端Codex来做，后面研究能不能利用云电脑自动化。"
+          },
+          {
+            "point_no": 2,
+            "quote": "之前设想的知识图谱，第一层先凝练要点、建立事件之间的关系；"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天九点多起来后，我继续看日记管理平台的关系提取情况，发现九月三十日的日记漏提取了，就让 AI 补上。十月的关系提取还没有召回九月份的内容，我让它接着处理，也跟着调整了 skill 和向量召回的额度。"
+          },
+          {
+            "point_no": 4,
+            "quote": "明天去公司，我准备继续做日记管理平台，看看不使用电脑时，怎么让 Codex 按照 skill 执行并跟我交互，再提升使用的方便性。"
+          }
+        ],
+        "description": "此前改为让Codex按skill处理日记、建立事件要点和关系，并考虑后续云电脑自动化；本次继续补关系召回、调整图谱展示，并计划探索不用电脑时按skill交互。"
+      }
+    },
+    {
+      "pair_id": "P-3559b53663aa7abc",
+      "status": "RELATED",
+      "reason": "此前个人知识图谱页面还有瑕疵，知识沉淀的准确性也让人纠结；本次发现关系召回遗漏并安排补提取，又因总览节点过多、展示效果不好而改用单篇日记图谱。",
+      "relation": {
+        "source_event": "E088",
+        "target_event": "E111",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天早上也在用Codex做个人知识库的知识图谱页面。页面看着还行，有些小瑕疵慢慢修。\n\n问题是，建立知识库的过程涉及很多环节，处理、验收、再处理、再验收，出了很多错，连校验环节给出的校验结果都有错。如果要求准确，感觉大模型还达不到我想要的程度。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天九点多起来后，我继续看日记管理平台的关系提取情况，发现九月三十日的日记漏提取了，就让 AI 补上。十月的关系提取还没有召回九月份的内容，我让它接着处理，也跟着调整了 skill 和向量召回的额度。"
+          },
+          {
+            "point_no": 3,
+            "quote": "下午，我让 Codex 继续做日记管理平台的关系入库，把提取的关系用图谱展示。本来想做一个能一次看到所有图的总览，再像 neo4j 界面那样探索，但节点实在太多，感觉没什么意义，展示上也踩了很多坑，最后没做得太好，就直接放弃了这个想法。现在改为在日记详情页提供单日图谱，用每篇日记自己的图就够了。对事件整体关系的探寻，放到日记回顾、分析场景中使用就可以，在前端展示的价值也不是很高。"
+          }
+        ],
+        "description": "此前个人知识图谱页面还有瑕疵，知识沉淀的准确性也让人纠结；本次发现关系召回遗漏并安排补提取，又因总览节点过多、展示效果不好而改用单篇日记图谱。"
+      }
+    },
+    {
+      "pair_id": "P-f7288111e5c5daaa",
+      "status": "NO_RELATION",
+      "reason": "清远度假行李食物准备与本次生日蛋糕讨论没有引用关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0981f249b76d5f52",
+      "status": "NO_RELATION",
+      "reason": "清远度假前的身体情况与本人本次睡眠不足不是同一症状或当事人。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6d1ed72a1021c837",
+      "status": "NO_RELATION",
+      "reason": "清远度假时来例假与本次出差后按摩没有明确关联，不能据健康主题连边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-493876f35a00f8ec",
+      "status": "NO_RELATION",
+      "reason": "清远度假备餐与本次锅包肉午饭是不同餐食，未定位同一食材。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fd4979edc9b774e8",
+      "status": "NO_RELATION",
+      "reason": "清远房间休息与本次夜间煮鸡胸肉为不同经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0dde43ca318b466d",
+      "status": "NO_RELATION",
+      "reason": "Cspon评估数据Excel导入与个人日记关系图谱为不同开发项目。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-792628060e9e2ffb",
+      "status": "NO_RELATION",
+      "reason": "哒哒误咬洁厕灵与本次煮鸡胸肉没有提及、症状或处理上的延续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-237f31f811936132",
+      "status": "NO_RELATION",
+      "reason": "主线游戏通关与本次午饭后玩游戏没有同一关卡进度指向。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9217db89e5afbcdd",
+      "status": "NO_RELATION",
+      "reason": "此前例假肚痛、本人喝醉与本次倒时差影响睡眠不是同一身体状态。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a28586f7572a9bb3",
+      "status": "NO_RELATION",
+      "reason": "此前例假肚痛与本次按摩师说法未互相引用，不能自行解释为同一问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f8c6f309f0e44b2f",
+      "status": "NO_RELATION",
+      "reason": "此前聚餐喝酒后遛狗与本次午饭、宠物食材准备是不同日常活动。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8c3e9320558f4e2d",
+      "status": "NO_RELATION",
+      "reason": "此前醉酒遛狗和本次疲劳后煮食遛狗为不同经历，当前未回顾醉酒事件。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2d7d3483d997a40d",
+      "status": "NO_RELATION",
+      "reason": "永旺山姆采购没有记载生日蛋糕或老婆饼，本次未引用购物车互动。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e2b9ceb35298edd7",
+      "status": "NO_RELATION",
+      "reason": "此前采购与本人本次睡眠不足没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-88ea9c66eb7d3a0b",
+      "status": "NO_RELATION",
+      "reason": "CBB工程化方法论与本次Cube迁移核对没有明确方法应用或引用，单凭CBB和接口文档不足以建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cffd3a6daf20de2e",
+      "status": "NO_RELATION",
+      "reason": "等车位的人格讨论与机场出租车排队服务是不同经历，本次没有比较。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-41e78611ec6d08e8",
+      "status": "NO_RELATION",
+      "reason": "生日蛋糕和兑换安排与本人睡眠不足没有表达因果或承接。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cd654b719e1c9653",
+      "status": "NO_RELATION",
+      "reason": "按摩结束只是生日蛋糕讨论的时间背景，生日事项没有继续处理按摩或艾灸问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a4b3e2d22b9633ed",
+      "status": "NO_RELATION",
+      "reason": "本次生日蛋糕玩笑未引用此前枕头、出差玩笑的争执。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9ac654797ceb9773",
+      "status": "NO_RELATION",
+      "reason": "桂林雨中骑行与本次生日蛋糕讨论没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3248db7b923a1f1c",
+      "status": "NO_RELATION",
+      "reason": "午饭后准备按摩与生日讨论属同日不同事项，没有表达触发或回忆该次午饭。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c84eb71010cb67f7",
+      "status": "NO_RELATION",
+      "reason": "用母亲生日卡的利口福采购与颂梅生日的蛋糕、老婆饼安排不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cd7c721bd87fe429",
+      "status": "RELATED",
+      "reason": "此前为颂梅生日考虑邮轮旅行；本次和她商量由她挑一顿能吃完的小蛋糕，并准备周五请假布置家里、给她过生日。",
+      "relation": {
+        "source_event": "E073",
+        "target_event": "E107",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "原本想给她送个大的生日礼物，就让她看看邮轮，实在不行去玩一次。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "按摩结束后，我们往体育西走，准备坐地铁去学姐推荐的店吃饭。我这周五在美团领了免费的好利来的老婆饼，想顺路去拿一下。想到颂梅快过生日，我让她自己挑喜欢的蛋糕，买一顿能吃完的，别太大，家里冰箱没地方放。她说：“怎么连我的礼物都要我自己挑，那还有什么惊喜？”我说，有时我买又怕她不喜欢，她挑好了我付钱就行，还开玩笑说：“那你要让我挑，那就是老婆饼了，就送你这个。”"
+          },
+          {
+            "point_no": 3,
+            "quote": "等周五，我准备请个假，把家里布置布置，给颂梅好好过个生日。"
+          }
+        ],
+        "description": "此前为颂梅生日考虑邮轮旅行；本次和她商量由她挑一顿能吃完的小蛋糕，并准备周五请假布置家里、给她过生日。"
+      }
+    },
+    {
+      "pair_id": "P-ca74a4ae1c103593",
+      "status": "NO_RELATION",
+      "reason": "续Codex会员以做PPT与本次生日蛋糕无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-17376ab14f2a9e3e",
+      "status": "NO_RELATION",
+      "reason": "颂梅以前送的乐高与本次给她过生日是不同赠礼事项，没有比较或回忆。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5311c922583fed10",
+      "status": "NO_RELATION",
+      "reason": "摄影学习和本次生日蛋糕选择没有表达具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-942c8cfbe7b1c51c",
+      "status": "NO_RELATION",
+      "reason": "父亲手机款和航班延误索赔与生日蛋糕无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d544ea0a204fcede",
+      "status": "NO_RELATION",
+      "reason": "此前火锅互动没有记载蛋糕或老婆饼计划，本次也未回顾火锅。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-279220616e99ae3b",
+      "status": "NO_RELATION",
+      "reason": "此前美国视频没有记载本次蛋糕或周五请假安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-69d1650aa83df1f2",
+      "status": "NO_RELATION",
+      "reason": "生日筹备与平台关系图谱开发互无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-15035a8e6f2de166",
+      "status": "NO_RELATION",
+      "reason": "柳州旅行吃喝与本次好利来兑换没有提及或延续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-46a1cbc443616309",
+      "status": "NO_RELATION",
+      "reason": "此前永旺买饭和游戏手腕疼与本次生日蛋糕无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d8e421d6ba41559b",
+      "status": "RELATED",
+      "reason": "此前决定生日大礼物直接给钱，其他礼物留待之后准备；本次和她商量由她挑一顿能吃完的小蛋糕，并准备周五请假布置家里、给她过生日。",
+      "relation": {
+        "source_event": "E079",
+        "target_event": "E107",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "不再研究大礼物，还是给钱，正好她离职后交社保、给多多看病都费钱。其他该买的等下周再准备，这周先不买，怕拆开不好却不能退货。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "按摩结束后，我们往体育西走，准备坐地铁去学姐推荐的店吃饭。我这周五在美团领了免费的好利来的老婆饼，想顺路去拿一下。想到颂梅快过生日，我让她自己挑喜欢的蛋糕，买一顿能吃完的，别太大，家里冰箱没地方放。她说：“怎么连我的礼物都要我自己挑，那还有什么惊喜？”我说，有时我买又怕她不喜欢，她挑好了我付钱就行，还开玩笑说：“那你要让我挑，那就是老婆饼了，就送你这个。”"
+          },
+          {
+            "point_no": 3,
+            "quote": "等周五，我准备请个假，把家里布置布置，给颂梅好好过个生日。"
+          }
+        ],
+        "description": "此前决定生日大礼物直接给钱，其他礼物留待之后准备；本次和她商量由她挑一顿能吃完的小蛋糕，并准备周五请假布置家里、给她过生日。"
+      }
+    },
+    {
+      "pair_id": "P-281a70d335025ce5",
+      "status": "NO_RELATION",
+      "reason": "接机返家与生日蛋糕讨论同有颂梅，但生日事项未引用接机经过。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-62ea4f964e64fa8e",
+      "status": "NO_RELATION",
+      "reason": "生日筹备与指标填报接口没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9c5470b8ab942a4b",
+      "status": "NO_RELATION",
+      "reason": "生日蛋糕讨论与夜间煮食洗漱无具体承接或触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-29f95c9f48570619",
+      "status": "NO_RELATION",
+      "reason": "回丹东扫墓的计划与生日布置不同，当前没有引用优先级讨论。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-296c9dd227e38935",
+      "status": "RELATED",
+      "reason": "此前考虑把菠萝蜜加入颂梅生日礼物，并调整Airpods的礼物计数；本次和她商量由她挑一顿能吃完的小蛋糕，并准备周五请假布置家里、给她过生日。",
+      "relation": {
+        "source_event": "E102",
+        "target_event": "E107",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今天中午遛完狗回到家，我想着，要不在拼多多给颂梅买一整个菠萝蜜，让她吃个够，刚好也算生日礼物之一，凑一份礼物。嘿嘿。"
+          },
+          {
+            "point_no": 3,
+            "quote": "如果再加上菠萝蜜，连同Airpods就有8个礼物了。之前本来想着Airpods不算礼物，直接给颂梅，现在还是把它算作一份礼物。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "按摩结束后，我们往体育西走，准备坐地铁去学姐推荐的店吃饭。我这周五在美团领了免费的好利来的老婆饼，想顺路去拿一下。想到颂梅快过生日，我让她自己挑喜欢的蛋糕，买一顿能吃完的，别太大，家里冰箱没地方放。她说：“怎么连我的礼物都要我自己挑，那还有什么惊喜？”我说，有时我买又怕她不喜欢，她挑好了我付钱就行，还开玩笑说：“那你要让我挑，那就是老婆饼了，就送你这个。”"
+          },
+          {
+            "point_no": 3,
+            "quote": "等周五，我准备请个假，把家里布置布置，给颂梅好好过个生日。"
+          }
+        ],
+        "description": "此前考虑把菠萝蜜加入颂梅生日礼物，并调整Airpods的礼物计数；本次和她商量由她挑一顿能吃完的小蛋糕，并准备周五请假布置家里、给她过生日。"
+      }
+    },
+    {
+      "pair_id": "P-f71365c7c95c65e8",
+      "status": "NO_RELATION",
+      "reason": "当前明确学姐推荐餐厅，但未把推荐定位在此前那次与学姐吃火锅的聚会。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e135b3c978ade1de",
+      "status": "NO_RELATION",
+      "reason": "桂林开口拼船询问水果与本次蛋糕讨论没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c01e94e72c6cc1f5",
+      "status": "NO_RELATION",
+      "reason": "本人此前按摩后不适与本次蛋糕、老婆饼无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4271a38a014dfb80",
+      "status": "NO_RELATION",
+      "reason": "国庆后颂梅腿部按摩与本次生日蛋糕讨论没有引用或承接。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0346a1c85230154f",
+      "status": "NO_RELATION",
+      "reason": "给父亲买饭盒、传递反馈与给颂梅准备蛋糕不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2fb19d5c1a4cde4b",
+      "status": "RELATED",
+      "reason": "此前因颂梅不要手机、首饰等生日礼物而继续考虑方案；本次和她商量由她挑一顿能吃完的小蛋糕，并准备周五请假布置家里、给她过生日。",
+      "relation": {
+        "source_event": "E070",
+        "target_event": "E107",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "颂梅快生日，原想买iPhone 18作大礼物，她说刚换过电池、手机好用，不用换。她也不想靠普拉提减肥，觉得投入产出比低，减肥会自己安排；首饰、金项链、换手表都不要，我很纠结。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "按摩结束后，我们往体育西走，准备坐地铁去学姐推荐的店吃饭。我这周五在美团领了免费的好利来的老婆饼，想顺路去拿一下。想到颂梅快过生日，我让她自己挑喜欢的蛋糕，买一顿能吃完的，别太大，家里冰箱没地方放。她说：“怎么连我的礼物都要我自己挑，那还有什么惊喜？”我说，有时我买又怕她不喜欢，她挑好了我付钱就行，还开玩笑说：“那你要让我挑，那就是老婆饼了，就送你这个。”"
+          },
+          {
+            "point_no": 3,
+            "quote": "等周五，我准备请个假，把家里布置布置，给颂梅好好过个生日。"
+          }
+        ],
+        "description": "此前因颂梅不要手机、首饰等生日礼物而继续考虑方案；本次和她商量由她挑一顿能吃完的小蛋糕，并准备周五请假布置家里、给她过生日。"
+      }
+    },
+    {
+      "pair_id": "P-b9fd28486d8ac5f7",
+      "status": "NO_RELATION",
+      "reason": "此前福建菜餐厅与生日蛋糕是不同用餐安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c0b4279479a539d1",
+      "status": "NO_RELATION",
+      "reason": "父亲生日与颂梅生日是不同庆祝事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a10b1d4fcdd3b9e9",
+      "status": "NO_RELATION",
+      "reason": "烤羊排去颂梅父母家吃饭与蛋糕、老婆饼安排没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3192594abed94676",
+      "status": "RELATED",
+      "reason": "此前为颂梅月底生日筹划盲盒，大礼物还没选定；本次和她商量由她挑一顿能吃完的小蛋糕，并准备周五请假布置家里、给她过生日。",
+      "relation": {
+        "source_event": "E058",
+        "target_event": "E107",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "聊到手机，我想到颂梅月底过生日。原本想做个能戳开的盲盒，让她戳出礼物，最大的礼物就买iPhone。"
+          },
+          {
+            "point_no": 5,
+            "quote": "现在她不要手机，大礼物送什么，我还没想好。反正还早，慢慢想吧。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "按摩结束后，我们往体育西走，准备坐地铁去学姐推荐的店吃饭。我这周五在美团领了免费的好利来的老婆饼，想顺路去拿一下。想到颂梅快过生日，我让她自己挑喜欢的蛋糕，买一顿能吃完的，别太大，家里冰箱没地方放。她说：“怎么连我的礼物都要我自己挑，那还有什么惊喜？”我说，有时我买又怕她不喜欢，她挑好了我付钱就行，还开玩笑说：“那你要让我挑，那就是老婆饼了，就送你这个。”"
+          },
+          {
+            "point_no": 3,
+            "quote": "等周五，我准备请个假，把家里布置布置，给颂梅好好过个生日。"
+          }
+        ],
+        "description": "此前为颂梅月底生日筹划盲盒，大礼物还没选定；本次和她商量由她挑一顿能吃完的小蛋糕，并准备周五请假布置家里、给她过生日。"
+      }
+    },
+    {
+      "pair_id": "P-d42bc9ce64ebebad",
+      "status": "RELATED",
+      "reason": "按摩后原准备去学姐推荐的店吃饭，途中想兑换老婆饼但因排队太长放弃；随后实际去了学姐推荐的店，吃了鸡肉火锅。",
+      "relation": {
+        "source_event": "E107",
+        "target_event": "E108",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "按摩结束后，我们往体育西走，准备坐地铁去学姐推荐的店吃饭。"
+          },
+          {
+            "point_no": 2,
+            "quote": "体育西地铁站和天河城是通的，我们就进天河城找好利来。但店里排队的人太多，只为换一个老婆饼排那么久，太不值当，我们就没去换。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我们坐地铁去学姐推荐的店，出站后又走了一段路才找到。店里的鸡很新鲜，一百八十多块钱一只，送汤底和蔬菜。鸡肉片成细长条，确实像颂梅说的，能像面条一样吃。鸡肉挺嫩，吃法跟潮汕牛肉火锅差不多，都是把新鲜肉放进锅里烫。这家也是潮汕做法，我估计路数差不多。我觉得挺好吃，不过味道和以前吃的桑拿鸡差不多，主要还是鸡肉新鲜、嫩就好吃。吃完我们溜达了一会儿，再坐地铁回家。"
+          }
+        ],
+        "description": "按摩后原准备去学姐推荐的店吃饭，途中想兑换老婆饼但因排队太长放弃；随后实际去了学姐推荐的店，吃了鸡肉火锅。"
+      }
+    },
+    {
+      "pair_id": "P-4dc41df5e79799e2",
+      "status": "NO_RELATION",
+      "reason": "生日筹备与工作接口核对互无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3423327d4a071ce1",
+      "status": "NO_RELATION",
+      "reason": "颂梅在墨西哥倒时差与本人本次睡眠不足涉及不同阶段，当前未把失眠指向此前在墨西哥的那次不适。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9b1b2cdd8ddc50eb",
+      "status": "NO_RELATION",
+      "reason": "此前想早点睡及瑜伽安排与本次受倒时差影响不同诱因，没有回顾前次计划。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-842ec10b11c00395",
+      "status": "NO_RELATION",
+      "reason": "桂林抱狗爬山疲劳与本次睡眠不足不是同一疲劳经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2ab9ebb3d12bf290",
+      "status": "NO_RELATION",
+      "reason": "试每周自己拖地与本次因睡眠不足留家没有明确因果或计划执行联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-46c9c8f92924a4fb",
+      "status": "NO_RELATION",
+      "reason": "此前买排骨安排与本次头晕补觉不是同一次做饭或休息。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-81b1a037c045a4d0",
+      "status": "NO_RELATION",
+      "reason": "此前刷题时晨间迷糊与本次夜间睡不好不是同次睡眠问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d02a20bcece17145",
+      "status": "NO_RELATION",
+      "reason": "公园热闹见闻与本次睡眠、报销没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-736b79453afdc24b",
+      "status": "NO_RELATION",
+      "reason": "桂林小床挤醒与本次倒时差影响睡眠不同，没有比较或回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-be6501eee93cbd07",
+      "status": "NO_RELATION",
+      "reason": "按摩事件中午睡倒时差与本次夜间被影响共享时差背景，但未表达按摩或该次午睡引发本人失眠。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0df23e33d0947b0a",
+      "status": "NO_RELATION",
+      "reason": "此前枕头和家务争执与本次受倒时差影响睡眠无具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-65835feb1f77245b",
+      "status": "RELATED",
+      "reason": "此前颂梅离职日期仍未确定，我想让她找领导确认以安排出行；本次日期已明确为这周五，后三天请假，今天去公司处理报销，明天在家遛狗。",
+      "relation": {
+        "source_event": "E031",
+        "target_event": "E110",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "颂梅八月底提离职，按时间九月底该走，具体仍未确定。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "颂梅这周五要离职，后面三天请了假，今天得去公司处理报销，就先出门了。明天她在家遛狗，我就不用留在家里陪着，准备去公司上班。"
+          }
+        ],
+        "description": "此前颂梅离职日期仍未确定，我想让她找领导确认以安排出行；本次日期已明确为这周五，后三天请假，今天去公司处理报销，明天在家遛狗。"
+      }
+    },
+    {
+      "pair_id": "P-af094b1307d7928e",
+      "status": "NO_RELATION",
+      "reason": "两天的疲劳、午睡和备餐为不同安排，当前未引用前一天午饭后游戏作为诱因。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-83a40db3a0b7c107",
+      "status": "RELATED",
+      "reason": "此前颂梅不在、哒哒黏人，我索性在家工作；本次安排颂梅明天在家遛狗，我就不用留家陪狗，准备去公司上班。",
+      "relation": {
+        "source_event": "E075",
+        "target_event": "E110",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "以前颂梅在家能帮忙拦，现在不在，他肯定更黏我。我想干脆在家，也能多睡一会儿。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "明天她在家遛狗，我就不用留在家里陪着，准备去公司上班。"
+          }
+        ],
+        "description": "此前颂梅不在、哒哒黏人，我索性在家工作；本次安排颂梅明天在家遛狗，我就不用留家陪狗，准备去公司上班。"
+      }
+    },
+    {
+      "pair_id": "P-bbe54e580f961f50",
+      "status": "NO_RELATION",
+      "reason": "牙周清洁后的采购与本次睡眠不足没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7c4823b50843ba8b",
+      "status": "NO_RELATION",
+      "reason": "此前疑因枕头高而睡不好与本次受颂梅倒时差影响不同，未回顾前次不适。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2b88b366cc84ec42",
+      "status": "RELATED",
+      "reason": "此前已提到颂梅提交离职、即将没有工资；本次离职日期已明确为这周五，并安排请假和离职前报销。",
+      "relation": {
+        "source_event": "E073",
+        "target_event": "E110",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "早知道已经提离职、马上没工资，多多还要五千多做手术，却还是买东西、出去玩、看演唱会，有钱就花光。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "颂梅这周五要离职，后面三天请了假，今天得去公司处理报销，就先出门了。"
+          }
+        ],
+        "description": "此前已提到颂梅提交离职、即将没有工资；本次离职日期已明确为这周五，并安排请假和离职前报销。"
+      }
+    },
+    {
+      "pair_id": "P-c8b5dbd4643b3ee0",
+      "status": "NO_RELATION",
+      "reason": "国庆后同事催PPT与本次离职前报销不同工作事项，当前没有引用那次电话。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-84dc4c77b2437b57",
+      "status": "NO_RELATION",
+      "reason": "颂梅此前晚睡早醒玩手机与本次倒时差不是同一次作息状况，未明确承接旧问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1c1e88905dc2ba08",
+      "status": "NO_RELATION",
+      "reason": "此前做饭、学摄影与本次睡眠不足无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-37803c89f6bac8af",
+      "status": "NO_RELATION",
+      "reason": "此前工作心累后恢复日记运动的计划与本次睡眠不足没有具体指向。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6d6eb4dc25e07deb",
+      "status": "NO_RELATION",
+      "reason": "24日火锅后午睡与本次26日补觉为不同睡眠经历，未回顾前次午睡。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e3d0e83b5af37c67",
+      "status": "NO_RELATION",
+      "reason": "24日预计返程与26日睡眠事件虽有归来背景，当前没有将自身失眠明确定位为该通美国视频事项的后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e47911b4d0a24d27",
+      "status": "NO_RELATION",
+      "reason": "头晕留家与查看平台关系任务仅为同日安排，未表达睡眠不足引发图谱方向调整。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b4275d3a4027bbac",
+      "status": "NO_RELATION",
+      "reason": "此前游戏手腕疼与本次头晕无症状处理或引用联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-36ca4756da292ff4",
+      "status": "NO_RELATION",
+      "reason": "接机与随后一夜受倒时差影响涉及不同目标；当前未说明接机行程或接机早起导致此次夜间多次醒来。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3b5d35794c0d5719",
+      "status": "NO_RELATION",
+      "reason": "睡眠事件与指标填报接口开发未表达具体触发或同事项进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9584f5ee7fa5ec65",
+      "status": "NO_RELATION",
+      "reason": "夜间洗漱遛狗后睡觉与随后多次醒来仅有顺序，未说明前项行为造成后项睡眠问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fb23e73f87ed6560",
+      "status": "NO_RELATION",
+      "reason": "扫墓优先级与本次睡眠不足没有引用联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7c8c4d4124cb5cc2",
+      "status": "NO_RELATION",
+      "reason": "家务烦躁与本次因倒时差睡不好为不同问题，未回顾先前争执。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e80d7b94f0f51345",
+      "status": "NO_RELATION",
+      "reason": "给颂梅转钱与本次离职前报销不同资金事项，没有记录转款后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-51638edcecb563a1",
+      "status": "NO_RELATION",
+      "reason": "与学姐吃火锅和本次头晕补觉没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-47c35e7986fbea2e",
+      "status": "NO_RELATION",
+      "reason": "此前按摩后头晕与本次睡眠不足导致头晕不同诱因，没有回顾或延续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-577e19c03bdb97f7",
+      "status": "NO_RELATION",
+      "reason": "此前胃食管反流与本次睡眠不足不同症状、诱因，未作比较。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-424bc68e38efe808",
+      "status": "NO_RELATION",
+      "reason": "颂梅此前腿部按摩与本人本次睡眠不足不同当事人和问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e0c518cba70e8969",
+      "status": "NO_RELATION",
+      "reason": "清远退房逛园区与本次头晕补觉不同出游、休息事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-731cddafd0d9b777",
+      "status": "NO_RELATION",
+      "reason": "赶早场KTV与本次不去公司没有具体承接或回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d1995c9e3c5875a1",
+      "status": "NO_RELATION",
+      "reason": "烤羊排当天疲劳午休与本次睡眠不足不同日期和安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a1999e86f249f5e7",
+      "status": "NO_RELATION",
+      "reason": "鸡肉火锅用餐与本次夜间多次醒来未表达因果，仅先后发生。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bdfbfaec7dc9187a",
+      "status": "NO_RELATION",
+      "reason": "此前无尽模式游戏与本次头晕没有来源表达的引发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f718ef57062588ce",
+      "status": "NO_RELATION",
+      "reason": "雨中赴朋友饭局听颈椎手术与本次睡眠不足不同经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6d7aa4db27923ff1",
+      "status": "NO_RELATION",
+      "reason": "午睡后核对接口只是活动顺序，工作事项未继续处理睡眠问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1fb0d3dcd7563c23",
+      "status": "RELATED",
+      "reason": "此前颂梅在墨西哥出差，身体精神状态不好、疲惫不适；本次明确因出差这段时间没休息好，请我约了回国后的按摩。",
+      "relation": {
+        "source_event": "E081",
+        "target_event": "E106",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "颂梅现在待在墨西哥挺无聊，我觉得她身体和精神状态都不太好。前段时间开车，再加上坐飞机，整个人很疲惫，腰酸背痛；过去还要倒时差，动不动头疼，确实烦。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "颂梅出差这段时间没休息好，让我给她约了昨天下午三点的按摩。"
+          }
+        ],
+        "description": "此前颂梅在墨西哥出差，身体精神状态不好、疲惫不适；本次明确因出差这段时间没休息好，请我约了回国后的按摩。"
+      }
+    },
+    {
+      "pair_id": "P-ce3c3ee50480b007",
+      "status": "RELATED",
+      "reason": "此前预计颂梅从墨西哥返程后周末到达，并计划去机场接她；本篇补记她昨天已回到广州，我坐地铁和大巴到T3接她，之后一起坐出租车回家。",
+      "relation": {
+        "source_event": "E081",
+        "target_event": "E103",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "下周应该是墨西哥当地23号往回走，相当于咱们这边24号，好像周末能到。到时候去机场接她。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天早上九点多，颂梅从墨西哥出差回到广州。我八点多起来，坐地铁去机场接她，起初坐错方向到了石牌桥，又往回坐了一站，之后再去机场北。她到达的是 T3，地铁最远只到 T2，还得换乘大巴去 T3。这段大概要二三十分钟，我记得坐了二十分钟左右。等我到了，她早已拿好行李，在外面等着我。"
+          },
+          {
+            "point_no": 2,
+            "quote": "我们干脆去坐出租车：出租车队离得近，可以少拎一会儿行李，反正公司报销。"
+          }
+        ],
+        "description": "此前预计颂梅从墨西哥返程后周末到达，并计划去机场接她；本篇补记她昨天已回到广州，我坐地铁和大巴到T3接她，之后一起坐出租车回家。"
+      }
+    },
+    {
+      "pair_id": "P-a99d70a7fa641cf2",
+      "status": "NO_RELATION",
+      "reason": "此前无尽模式通关与本次午饭后游戏没有同一轮进度指向。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0eb63f61d77b02af",
+      "status": "NO_RELATION",
+      "reason": "此前想早点睡和本次夜间煮食没有回顾或明确执行同次休息计划。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1544ffc6c85c9c96",
+      "status": "RELATED",
+      "reason": "此前将规划传导Cube改CBB服务管理列为工作重点；本次已和吴伟豪核对切换文档，发现缺接口、询问肖静并安排补全，准备明天检查。",
+      "relation": {
+        "source_event": "E085",
+        "target_event": "E112",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "主要是规划传导Cube改CBB服务管理、指标填报，其他应不多，可以让AI做。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "早上吴伟豪发消息，问从 Cube 切换为 CBB 的事情什么时候一起对一下。我说下午吧，早上先让 AI 整理切换文档，整理好发给伟豪，让他先看看。"
+          },
+          {
+            "point_no": 3,
+            "quote": "发现切换接口资料有遗漏后，我让伟豪先把缺哪些接口整理清楚，免得我基于文档做完，和代码还是有偏差。正好现在有 AI，可以直接让他用 AI 整理。过了一会儿，他把整理结果发给我，我又让他用 AI 补全这些接口。补全结果我还没看，准备明天检查有没有问题。"
+          }
+        ],
+        "description": "此前将规划传导Cube改CBB服务管理列为工作重点；本次已和吴伟豪核对切换文档，发现缺接口、询问肖静并安排补全，准备明天检查。"
+      }
+    },
+    {
+      "pair_id": "P-68e4aecc61396a1e",
+      "status": "NO_RELATION",
+      "reason": "此前秘境游戏休息更累与本次午饭后游戏未被联系起来，不能自行推断同一恶性循环。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-42f464997ffb2950",
+      "status": "NO_RELATION",
+      "reason": "培养学习习惯的建议与本次午饭后游戏未互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2074af3613579cb6",
+      "status": "NO_RELATION",
+      "reason": "亲戚聚餐回礼与颂梅本次按摩没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-43bf0e4c68efa5cd",
+      "status": "NO_RELATION",
+      "reason": "国庆爬山造成腿累与本次出差没休息好是不同诱因，当前没有延续那次腿部不适。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7b1782ace2cede40",
+      "status": "NO_RELATION",
+      "reason": "桂林爬山和游戏与本次在家午饭不同经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cec9513f36f47442",
+      "status": "NO_RELATION",
+      "reason": "哒哒此前洗澡驱虫与本次主人洗脚、短途遛狗不同护理事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-095cae4cf50fede2",
+      "status": "RELATED",
+      "reason": "此前已讨论指标填报技术方案，但何时实施仍不清楚；本次继续让AI开发的接口已完成，质量尚未检查，准备明天对接上传文件接口。",
+      "relation": {
+        "source_event": "E021",
+        "target_event": "E113",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下午开会讨论指标填报技术方案，我最后问什么时候做，仍没弄清。反正先拖着，有时间自己歇歇。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天我顺道让 AI 继续开发了一些指标填报接口，现在已经开发完，不过我还没检查到底做得怎么样。明天准备开始对接指标填报中上传文件的那些接口。"
+          }
+        ],
+        "description": "此前已讨论指标填报技术方案，但何时实施仍不清楚；本次继续让AI开发的接口已完成，质量尚未检查，准备明天对接上传文件接口。"
+      }
+    },
+    {
+      "pair_id": "P-5ed0c25910f59500",
+      "status": "NO_RELATION",
+      "reason": "此前每周拖地试行方案与本次临时没拖地缺少明确承接同一轮清洁计划的表达。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a01f0f07d6c6b630",
+      "status": "NO_RELATION",
+      "reason": "此前拖地方案与本次煮食洗漱未记载拖地执行或回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-24358cc138ff7c21",
+      "status": "NO_RELATION",
+      "reason": "公司coder额度异常与本人Codex额度耗光不同工具和额度事件，未互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-afc8a40d873f244c",
+      "status": "RELATED",
+      "reason": "此前在日记平台中从直接建图转向先整理事件要点、再建立关系；本次继续检查关系提取遗漏、调整skill和召回额度，并把展示方向改为单篇日记图谱。",
+      "relation": {
+        "source_event": "E007",
+        "target_event": "E111",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "做日记管理平台时，我很能体会不懂相关领域、只能不断试错的情况。最初我想呈现事项的发展、人的发展和心路历程，后来看到一个叫 LLMwiki 的知识库概念，又想做知识库。做着做着，我觉得直接做知识库不对，应该先建立事件图谱，确定事件之间的关系，再继续往下做。\n\n现在我又发现，直接建事件图谱的准确性很差，应该先结构化整理事件原文，弄清楚一个事件讲了哪几件事、有哪些内容和要点，再建立这些点之间的关系，这样准确性可能会高一些。这属于优化方面的问题。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天九点多起来后，我继续看日记管理平台的关系提取情况，发现九月三十日的日记漏提取了，就让 AI 补上。十月的关系提取还没有召回九月份的内容，我让它接着处理，也跟着调整了 skill 和向量召回的额度。"
+          },
+          {
+            "point_no": 3,
+            "quote": "下午，我让 Codex 继续做日记管理平台的关系入库，把提取的关系用图谱展示。本来想做一个能一次看到所有图的总览，再像 neo4j 界面那样探索，但节点实在太多，感觉没什么意义，展示上也踩了很多坑，最后没做得太好，就直接放弃了这个想法。现在改为在日记详情页提供单日图谱，用每篇日记自己的图就够了。对事件整体关系的探寻，放到日记回顾、分析场景中使用就可以，在前端展示的价值也不是很高。"
+          }
+        ],
+        "description": "此前在日记平台中从直接建图转向先整理事件要点、再建立关系；本次继续检查关系提取遗漏、调整skill和召回额度，并把展示方向改为单篇日记图谱。"
+      }
+    },
+    {
+      "pair_id": "P-9474f3d45dfbba5f",
+      "status": "NO_RELATION",
+      "reason": "AI职业自信和江西前端能力的反思未在Cube接口核对中被明确提及或表达为触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1b169dcb76f7be59",
+      "status": "NO_RELATION",
+      "reason": "此前排骨烹饪与颂梅本次按摩不是同一安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-445ad423bb8dba66",
+      "status": "NO_RELATION",
+      "reason": "蒜香排骨与锅包肉午饭为不同餐食，没有同一食材准备的后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d1cb01a8c3311f81",
+      "status": "NO_RELATION",
+      "reason": "先前腌排骨与本次鸡胸肉化冻烹煮是不同食材和时点。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ec4cb75f4a274524",
+      "status": "NO_RELATION",
+      "reason": "桂林骑车淋雨与本次出差后按摩没有明确症状或就医承接。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e6ab2d3444eb7474",
+      "status": "NO_RELATION",
+      "reason": "桂林雨中骑行与本次夜间煮食洗漱无具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6ef95913af3786d4",
+      "status": "NO_RELATION",
+      "reason": "本次按摩没有引用此前枕头、家务和沟通争执。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-33dd921691dabfa2",
+      "status": "NO_RELATION",
+      "reason": "桂林骑车旅行与本次按摩出行是不同活动。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3d0dfeb69449e966",
+      "status": "NO_RELATION",
+      "reason": "午饭休息与后来出门按摩仅为同日安排，按摩预约有出差休息不好的自身原因。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-27f337c8a03b873b",
+      "status": "NO_RELATION",
+      "reason": "颂梅出差后按摩与此前哒哒开门居家办公不同目标和当事人。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d41d2eb625370ed2",
+      "status": "NO_RELATION",
+      "reason": "烤鸡翅地瓜与本次按摩没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b221e0f9290e1dcb",
+      "status": "NO_RELATION",
+      "reason": "牙周清洁与按摩不同服务、问题，当前没有承接牙周处理。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cd4dcd79f562eabe",
+      "status": "NO_RELATION",
+      "reason": "本人此前睡不好与颂梅本次出差后按摩主体、诱因不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e682638f0ab8ef6a",
+      "status": "NO_RELATION",
+      "reason": "出差前提醒安全与回国后按摩有关联背景，但没有明确承接此前的具体身体症状或保健安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8e930000fa465ba1",
+      "status": "NO_RELATION",
+      "reason": "国庆后续会员以做PPT与本次按摩无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3ad59ace18961ece",
+      "status": "NO_RELATION",
+      "reason": "颂梅此前早醒刷手机与本次出差休息不好没有明确指向同一次睡眠问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a50c44b433cc41cd",
+      "status": "NO_RELATION",
+      "reason": "摄影学习和本次按摩无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f859fd86fc7e8d82",
+      "status": "NO_RELATION",
+      "reason": "24日火锅互动与本次按摩无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-81d773431e3cfb67",
+      "status": "NO_RELATION",
+      "reason": "身体按摩与日记图谱调整分属不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-450d997b8624a66a",
+      "status": "NO_RELATION",
+      "reason": "柳州茶麸洗头和本次按摩是不同服务，当前未回忆或比较洗头体验。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f3adbd275246a2e4",
+      "status": "NO_RELATION",
+      "reason": "此前游戏手腕疼与颂梅本次按摩不同当事人、问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-48bc9e3d668e8584",
+      "status": "NO_RELATION",
+      "reason": "同日接机和按摩有归来背景，但按摩原因是出差休息不好，未表达接机行程造成或推进按摩事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8ee6a714cb4f4899",
+      "status": "NO_RELATION",
+      "reason": "指标填报接口与按摩无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-88371711aeff996d",
+      "status": "NO_RELATION",
+      "reason": "夜间煮食洗漱未引用按摩师或艾灸，也没有执行颂梅的泡脚计划。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-16bf4d01001a8914",
+      "status": "NO_RELATION",
+      "reason": "此前家务清洁烦躁与本次按摩没有具体回顾或承接。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-92583f930c7ecee9",
+      "status": "NO_RELATION",
+      "reason": "菠萝蜜生日礼物与按摩艾灸不同目标，未表达互相引发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b3fdff414f2f2024",
+      "status": "NO_RELATION",
+      "reason": "酒店早餐与按摩不同事项，未引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c931040053651712",
+      "status": "NO_RELATION",
+      "reason": "与学姐吃火锅的聚会未记载鸡肉店推荐，不能仅凭学姐出现在两侧建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d98c5be5a2bb065b",
+      "status": "NO_RELATION",
+      "reason": "婚后聚餐与按摩不同活动，未引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-37155a097a95c3c7",
+      "status": "NO_RELATION",
+      "reason": "本人此前按摩后不适与颂梅本次按摩没有回顾或同一症状的延续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3aca7f3063329380",
+      "status": "NO_RELATION",
+      "reason": "此前胃食管反流、找车沟通与本次按摩不同经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-402af96a4f51ee41",
+      "status": "NO_RELATION",
+      "reason": "国庆后腿部按摩与本次出差后按摩不同诱因，当前未指向此前腿部问题的续治或回忆。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-17464a8ee95dc932",
+      "status": "NO_RELATION",
+      "reason": "此前福建菜餐厅与本次按摩不同活动，未引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9742f736ab0d6a9e",
+      "status": "NO_RELATION",
+      "reason": "清远蛤蟆进房与本次按摩无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-69362c0eb2f3da98",
+      "status": "NO_RELATION",
+      "reason": "本人跑步瑜伽习惯与颂梅按摩不同当事人和目标。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2e4cef5423e250ae",
+      "status": "NO_RELATION",
+      "reason": "早场KTV与本次按摩是不同预约，未引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-496b21961f350c16",
+      "status": "NO_RELATION",
+      "reason": "烤羊排去父母家与按摩不同出行，未引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-14fd76394dd1d89b",
+      "status": "NO_RELATION",
+      "reason": "赴墨西哥的值机票务与回国后按摩未表达直接触发或具体身体问题延续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8c797a36dbe12bee",
+      "status": "RELATED",
+      "reason": "出门按摩前就计划按完去学姐推荐的鸡肉店，因此选择坐地铁；后来实际到店吃了能像面条一样吃的细长鸡肉火锅。",
+      "relation": {
+        "source_event": "E106",
+        "target_event": "E108",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "她收拾好，我们就坐地铁出门，没有骑电动车，因为打算按完去学姐推荐的鸡肉店吃饭。听说那里的鸡肉好吃，可以像面条一样吃，她想吃，我就说想吃咱就去。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我们坐地铁去学姐推荐的店，出站后又走了一段路才找到。店里的鸡很新鲜，一百八十多块钱一只，送汤底和蔬菜。鸡肉片成细长条，确实像颂梅说的，能像面条一样吃。鸡肉挺嫩，吃法跟潮汕牛肉火锅差不多，都是把新鲜肉放进锅里烫。这家也是潮汕做法，我估计路数差不多。我觉得挺好吃，不过味道和以前吃的桑拿鸡差不多，主要还是鸡肉新鲜、嫩就好吃。吃完我们溜达了一会儿，再坐地铁回家。"
+          }
+        ],
+        "description": "出门按摩前就计划按完去学姐推荐的鸡肉店，因此选择坐地铁；后来实际到店吃了能像面条一样吃的细长鸡肉火锅。"
+      }
+    },
+    {
+      "pair_id": "P-31e75f163c433d06",
+      "status": "NO_RELATION",
+      "reason": "此前到颂梅父母家午饭与本次按摩无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a41a6fb527df30dd",
+      "status": "NO_RELATION",
+      "reason": "雨中赴朋友聚餐听颈椎手术与本次颂梅按摩不同经历、当事人。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a802e9bccb5c3491",
+      "status": "NO_RELATION",
+      "reason": "按摩艾灸与Cube接口核对无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1ed42dc7de3fd388",
+      "status": "NO_RELATION",
+      "reason": "此前家务争执与本次午饭没有被明确联系起来，不能据居家背景建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8152af7e547546a9",
+      "status": "NO_RELATION",
+      "reason": "本次洗脚只泛指避免家庭矛盾，未明确回忆此前脚碰枕头的具体争执。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-362943a24e3b0567",
+      "status": "NO_RELATION",
+      "reason": "十月日记批处理任务与本次午饭后游戏未表达因果或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-21a019a18459d7db",
+      "status": "RELATED",
+      "reason": "此前已让Codex处理十月事件要点及关系并简单查看效果；本次继续检查关系提取，发现九月三十日漏提取和十月未召回九月内容，安排补处理并调整召回。",
+      "relation": {
+        "source_event": "E098",
+        "target_event": "E111",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨晚睡觉前，我让Codex从10月份已经整理的事件中提取事件要点，并识别它们之间的关系。"
+          },
+          {
+            "point_no": 2,
+            "quote": "今天早上看了一下电脑上的任务效果，也没仔细看，就把电脑关上，带哒哒出去遛了。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天九点多起来后，我继续看日记管理平台的关系提取情况，发现九月三十日的日记漏提取了，就让 AI 补上。十月的关系提取还没有召回九月份的内容，我让它接着处理，也跟着调整了 skill 和向量召回的额度。"
+          }
+        ],
+        "description": "此前已让Codex处理十月事件要点及关系并简单查看效果；本次继续检查关系提取，发现九月三十日漏提取和十月未召回九月内容，安排补处理并调整召回。"
+      }
+    },
+    {
+      "pair_id": "P-e593e768a2c477ee",
+      "status": "NO_RELATION",
+      "reason": "Codex任务与本次夜间煮鸡胸肉无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d05ab226b95d7b74",
+      "status": "NO_RELATION",
+      "reason": "此前江西、东莞AI排障与本次Cube迁移不是同一问题或任务。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7b9d3b53781f62ae",
+      "status": "NO_RELATION",
+      "reason": "江西三线监测修改与指标填报接口为不同任务，当前未引用监测修改。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fcf0eef6a9421517",
+      "status": "NO_RELATION",
+      "reason": "桂林雨中骑行与本次在家午饭不同经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a92b6ea2c10d7e44",
+      "status": "RELATED",
+      "reason": "此前规划传导准备将Cube替换为CBB，并让AI分析接口转换；本次继续核对切换文档，发现资料分散和接口遗漏，安排补全并准备检查结果。",
+      "relation": {
+        "source_event": "E087",
+        "target_event": "E112",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "详规规划传导计划将Cube替换成CBB服务管理。今天在群里向肖静要服务和数据库连接信息，又从CBB页面抓几个包，让AI分析如何转为CBB服务管理接口。下午让它继续，结果还没看，明天再检查。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "下午两点多起来后，我找吴伟豪接着核对，有问题就一起看。他说也让 AI 看文档整理了一遍，发现还缺一些接口。我说这些接口在 Cube 上没看到，就把肖静拉进来问原因。肖静说接口分两部分，接口管理里的一些内容是后来才有的，最开始用文档管理，所以缺了一部分。"
+          },
+          {
+            "point_no": 3,
+            "quote": "发现切换接口资料有遗漏后，我让伟豪先把缺哪些接口整理清楚，免得我基于文档做完，和代码还是有偏差。正好现在有 AI，可以直接让他用 AI 整理。过了一会儿，他把整理结果发给我，我又让他用 AI 补全这些接口。补全结果我还没看，准备明天检查有没有问题。"
+          }
+        ],
+        "description": "此前规划传导准备将Cube替换为CBB，并让AI分析接口转换；本次继续核对切换文档，发现资料分散和接口遗漏，安排补全并准备检查结果。"
+      }
+    },
+    {
+      "pair_id": "P-66271dce62dfe445",
+      "status": "NO_RELATION",
+      "reason": "此前涂药膏和建议沟通与本次午饭没有回顾或承接。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-62dc8799f2264db8",
+      "status": "NO_RELATION",
+      "reason": "本次洗脚未明确指向此前药膏陈述或小狗冲脚建议。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ad7a9869b121eca4",
+      "status": "NO_RELATION",
+      "reason": "山姆牛肉、板栗炖鸡与本次锅包肉不同餐食，未定位为同一剩余食材。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3ab5f7789ea15375",
+      "status": "NO_RELATION",
+      "reason": "此前做板栗炖鸡与本次宠物鸡胸肉烹煮不同食材对象。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-568ae00943973027",
+      "status": "NO_RELATION",
+      "reason": "板栗炖鸡与鸡肉火锅没有明确比较，不能替换当前所说的桑拿鸡经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-596433fb218173c4",
+      "status": "NO_RELATION",
+      "reason": "此前居家办公与本次周末午饭不同安排，没有具体承接。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-675be1581181a2c9",
+      "status": "NO_RELATION",
+      "reason": "烤鸡翅地瓜与锅包肉午饭不同餐食，未引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-218a4fe3a63bd7ed",
+      "status": "NO_RELATION",
+      "reason": "牙周清洁后采购与本次午饭不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-afb92791c2971dc8",
+      "status": "NO_RELATION",
+      "reason": "此前因枕头睡不好、做饭补觉与本次午饭不同日期和诱因。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c05bfd64f4dbe92b",
+      "status": "NO_RELATION",
+      "reason": "出差前购物未记载本次锅包肉食材，不能据购物推定食材来源。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b24f433cbb0983ab",
+      "status": "NO_RELATION",
+      "reason": "此前三道菜、海鲜粥与本次锅包肉午饭不同食物。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-83da7ef8190dd369",
+      "status": "RELATED",
+      "reason": "此前中午吃火锅后将剩肉收进冰箱；本篇补记昨天午饭又把剩下的火锅肉卷热了，和锅包肉、鸡架等一起吃。",
+      "relation": {
+        "source_event": "E100",
+        "target_event": "E105",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "随后在美团上买了牛肉卷、羊肉卷、牛肉丸和毛肚，中午简单吃了一下。"
+          },
+          {
+            "point_no": 3,
+            "quote": "午饭后肚子饱饱的，我歇了一会儿，把剩下的肉收进冰箱，留着晚上吃。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "又把前天中午剩下的饭和火锅肉卷热了一下，一起吃了。"
+          }
+        ],
+        "description": "此前中午吃火锅后将剩肉收进冰箱；本篇补记昨天午饭又把剩下的火锅肉卷热了，和锅包肉、鸡架等一起吃。"
+      }
+    },
+    {
+      "pair_id": "P-03f85b5530c8b54d",
+      "status": "NO_RELATION",
+      "reason": "美国视频和本次午饭没有互相提及，不能只因颂梅归来背景建立联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-41b6d257b1f21487",
+      "status": "NO_RELATION",
+      "reason": "午饭和日记图谱调整互无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9cd75ce021d64b72",
+      "status": "NO_RELATION",
+      "reason": "此前永旺买饭与本次锅包肉午饭不同用餐，游戏也未指向同一关卡。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-89ffaa969c4e6cda",
+      "status": "RELATED",
+      "reason": "为去机场接颂梅，我昨天八点多就起床；午饭事件记载早起后有些累，回家先躺着休息，再起来做午饭。",
+      "relation": {
+        "source_event": "E103",
+        "target_event": "E105",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我八点多起来，坐地铁去机场接她，起初坐错方向到了石牌桥，又往回坐了一站，之后再去机场北。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天早上起得比较早，我有点累，回家先躺着歇了一会儿，之后起来收拾午饭。"
+          }
+        ],
+        "description": "为去机场接颂梅，我昨天八点多就起床；午饭事件记载早起后有些累，回家先躺着休息，再起来做午饭。"
+      }
+    },
+    {
+      "pair_id": "P-7b7a81ec9319cc2c",
+      "status": "NO_RELATION",
+      "reason": "准备午饭与指标填报开发不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-98ab733707682540",
+      "status": "RELATED",
+      "reason": "中午翻冷冻室时，已取出给哒哒和多多的鸡胸肉、鳕鱼放在外面化冻；晚上再次看到这些食材，担心不煮会坏，便起身把鸡胸肉煮了。",
+      "relation": {
+        "source_event": "E105",
+        "target_event": "E109",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "烤锅包肉时，有个调料找不到，我把冰箱冷冻室翻了一遍。正好给哒哒和多多拿出一份鸡胸肉和一份鳕鱼，准备煮给它们吃，先放在外面化冻。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "后来去厨房，准备把中午切的水果装好放进冰箱，看到地上还放着中午拿出来化冻的鸡胸肉和鳕鱼，怕不煮就坏了。那还是起来干吧，反正已经躺了一会儿，也没那么累了。我就把鸡胸肉煮了。"
+          }
+        ],
+        "description": "中午翻冷冻室时，已取出给哒哒和多多的鸡胸肉、鳕鱼放在外面化冻；晚上再次看到这些食材，担心不煮会坏，便起身把鸡胸肉煮了。"
+      }
+    },
+    {
+      "pair_id": "P-46f841a6f422ca12",
+      "status": "NO_RELATION",
+      "reason": "此前家务积压烦躁与本次没拖地、玩游戏没有明确引用或同次清洁事项进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d866c5eca17173e0",
+      "status": "NO_RELATION",
+      "reason": "酒店早餐与锅包肉午饭不同场景和餐食。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-944ceb51fc2012bc",
+      "status": "NO_RELATION",
+      "reason": "学姐夫妻火锅聚会与本次居家午饭不同用餐，未引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6b896c8338d481c7",
+      "status": "NO_RELATION",
+      "reason": "婚后聚餐与本次午饭不同活动，未引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-887371234c851357",
+      "status": "NO_RELATION",
+      "reason": "本人此前按摩后不适与本次午饭没有症状处理或回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fe7dfbfd883408a8",
+      "status": "NO_RELATION",
+      "reason": "此前胃食管反流与本次午饭无治疗、饮食安排或引用联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8c7ffd6a46583407",
+      "status": "NO_RELATION",
+      "reason": "此前秘境游戏与本次饭后游戏没有同一关卡、目标或预测的明确指向。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f2595d39195a0bae",
+      "status": "NO_RELATION",
+      "reason": "此前福建菜打包剩菜与本次火锅肉卷不同食物，不是同一次剩菜利用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-803d010242990bd7",
+      "status": "NO_RELATION",
+      "reason": "父亲生日和选手机与本次午饭无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-618bfaa26e978824",
+      "status": "NO_RELATION",
+      "reason": "此前跑步被游戏耽误瑜伽与本次午饭后游戏没有具体回顾或安排承接。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b0ee80cd505556d7",
+      "status": "NO_RELATION",
+      "reason": "早场KTV与本次午饭不同日期和用餐安排，未引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-809b712563204459",
+      "status": "NO_RELATION",
+      "reason": "此前羊排和玉米与本次锅包肉、火锅肉卷不同餐食，未定位同一食材。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8708e16e76249de0",
+      "status": "NO_RELATION",
+      "reason": "此前看YouTube的休闲选择与本次饭后游戏没有回顾或判断修正的表达。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-74368b322e6f9f6f",
+      "status": "NO_RELATION",
+      "reason": "本次午饭未描述执行此前牙线清洁方法，不能仅因用餐建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6bcd5336a10b555c",
+      "status": "NO_RELATION",
+      "reason": "17日烧烤和本次锅包肉午饭不同食物与烹饪安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-815feedb29f05970",
+      "status": "NO_RELATION",
+      "reason": "肝钙化灶的饮食作息计划未被本次午饭引用或说明为触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ee957e1ac150751e",
+      "status": "NO_RELATION",
+      "reason": "同日午饭与鸡肉火锅晚饭是两次独立用餐，未延续同一食材或烹饪事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a6f8688a5e486aea",
+      "status": "NO_RELATION",
+      "reason": "清远冬瓜鸡与本次居家锅包肉不是同次餐食。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cbdd289f2f67cb1d",
+      "status": "NO_RELATION",
+      "reason": "此前去颂梅父母家吃饭与本次居家午饭不同活动。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9c42f19edd6c65e6",
+      "status": "NO_RELATION",
+      "reason": "24日为阳光菇升级重打无尽模式，本次仅说饭后游戏，没有同一轮关卡进度。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3aee2a93ecd38845",
+      "status": "NO_RELATION",
+      "reason": "此前煮宠物鸡肉鳕鱼与本次取出化冻未明确指向同一批食材或延续此前喂食。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9f99f602b43ddaf2",
+      "status": "NO_RELATION",
+      "reason": "雨中与朋友牛肉火锅与本次居家午饭不同餐事。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b00fcb5fdd1df4b7",
+      "status": "NO_RELATION",
+      "reason": "午饭与Cube接口核对互无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8812b3f44445effc",
+      "status": "NO_RELATION",
+      "reason": "此前哒哒开门和居家工作与本次短途遛狗没有继续处理出门拦狗问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-900884aaeb6ef910",
+      "status": "NO_RELATION",
+      "reason": "此前烤鸡翅地瓜与本次宠物鸡胸肉不同对象、食材和用餐。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-128746f8df01da71",
+      "status": "NO_RELATION",
+      "reason": "陪牙周清洁与本次夜间煮食无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a62ceb12423c66f4",
+      "status": "NO_RELATION",
+      "reason": "18日睡不好后补觉与本次早起后的疲劳不同诱因、时点，未回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0ba3c05254eb3e99",
+      "status": "NO_RELATION",
+      "reason": "CBB技术分享的指标管理讨论与本次指标填报接口不是已明确对应的同一实施事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d6edf4d4cac9b0e1",
+      "status": "RELATED",
+      "reason": "此前确定颂梅去墨西哥出差两周，机票已买、准备出发；本篇补记她昨天已从墨西哥回到广州，我去机场接她并一起乘出租车回家。",
+      "relation": {
+        "source_event": "E073",
+        "target_event": "E103",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天领导还是非让颂梅去墨西哥出差两周。"
+          },
+          {
+            "point_no": 4,
+            "quote": "既然已经答应、机票也买好，就提醒安全，别什么都往心里放。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天早上九点多，颂梅从墨西哥出差回到广州。我八点多起来，坐地铁去机场接她，起初坐错方向到了石牌桥，又往回坐了一站，之后再去机场北。她到达的是 T3，地铁最远只到 T2，还得换乘大巴去 T3。这段大概要二三十分钟，我记得坐了二十分钟左右。等我到了，她早已拿好行李，在外面等着我。"
+          },
+          {
+            "point_no": 2,
+            "quote": "我们干脆去坐出租车：出租车队离得近，可以少拎一会儿行李，反正公司报销。"
+          }
+        ],
+        "description": "此前确定颂梅去墨西哥出差两周，机票已买、准备出发；本篇补记她昨天已从墨西哥回到广州，我去机场接她并一起乘出租车回家。"
+      }
+    },
+    {
+      "pair_id": "P-2efcee40806e2943",
+      "status": "NO_RELATION",
+      "reason": "为颂梅续会员的计划与本人当前Codex额度耗光不同任务、对象，没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c8d60c8298fae91a",
+      "status": "NO_RELATION",
+      "reason": "本次短途遛狗未提及是否放开哒哒，也未回顾此前走失担忧。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-60a26dc36992a6f0",
+      "status": "RELATED",
+      "reason": "此前事件关系图谱测试出现误连，准备逐步弄清关系并推进实现；本次继续修正关系提取和历史召回，还因总览效果不佳而调整为单篇日记图谱。",
+      "relation": {
+        "source_event": "E004",
+        "target_event": "E111",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "这周应该是周二，我花一天研究平台事件关系，在上周整理的图谱需求上继续细化，差不多后让 AI 用真实数据测试。不相关的事也被连起来，效果很差，想到投入那么多精力，我很失落。后来调整状态，觉得自己需求不清，跟 AI 只会越沟通越乱，首先得弄清要做什么、怎么做。"
+          },
+          {
+            "point_no": 2,
+            "quote": "我准备分三步推进事件关系图谱。第一步，根据每天日记整理出的事件，纯人工、没有系统参与地建立联系、画图谱，弄清事件、人物、经验、思考等实体，以及关系和关系类型。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天九点多起来后，我继续看日记管理平台的关系提取情况，发现九月三十日的日记漏提取了，就让 AI 补上。十月的关系提取还没有召回九月份的内容，我让它接着处理，也跟着调整了 skill 和向量召回的额度。"
+          },
+          {
+            "point_no": 3,
+            "quote": "下午，我让 Codex 继续做日记管理平台的关系入库，把提取的关系用图谱展示。本来想做一个能一次看到所有图的总览，再像 neo4j 界面那样探索，但节点实在太多，感觉没什么意义，展示上也踩了很多坑，最后没做得太好，就直接放弃了这个想法。现在改为在日记详情页提供单日图谱，用每篇日记自己的图就够了。对事件整体关系的探寻，放到日记回顾、分析场景中使用就可以，在前端展示的价值也不是很高。"
+          }
+        ],
+        "description": "此前事件关系图谱测试出现误连，准备逐步弄清关系并推进实现；本次继续修正关系提取和历史召回，还因总览效果不佳而调整为单篇日记图谱。"
+      }
+    },
+    {
+      "pair_id": "P-651e3c0d46d6db31",
+      "status": "NO_RELATION",
+      "reason": "恢复瑜伽和日记的长期意向未被本次煮食洗漱具体引用或定位为执行。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-da195557231fc0e4",
+      "status": "NO_RELATION",
+      "reason": "24日火锅与本次夜间煮宠物鸡胸肉不是同一食材事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-196c663736f44a75",
+      "status": "RELATED",
+      "reason": "此前关系skill仍在验证和完善，并安排提取九月关系；本次发现漏提取和历史召回问题，继续补处理、调整skill，并推进关系入库及图谱展示。",
+      "relation": {
+        "source_event": "E094",
+        "target_event": "E111",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下午继续让ChatGPT做知识库第一层后半部分，识别、提取事件关系。现在做出来，验证看着还行，但还没到能入库的阶段，继续让它做。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天九点多起来后，我继续看日记管理平台的关系提取情况，发现九月三十日的日记漏提取了，就让 AI 补上。十月的关系提取还没有召回九月份的内容，我让它接着处理，也跟着调整了 skill 和向量召回的额度。"
+          },
+          {
+            "point_no": 3,
+            "quote": "下午，我让 Codex 继续做日记管理平台的关系入库，把提取的关系用图谱展示。"
+          }
+        ],
+        "description": "此前关系skill仍在验证和完善，并安排提取九月关系；本次发现漏提取和历史召回问题，继续补处理、调整skill，并推进关系入库及图谱展示。"
+      }
+    },
+    {
+      "pair_id": "P-b0a5fff86ac36db6",
+      "status": "NO_RELATION",
+      "reason": "接机与日记图谱开发不同事项，未表达具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e9ca2fd3bdfe2154",
+      "status": "NO_RELATION",
+      "reason": "图谱开发和指标填报接口是不同项目，不能据都使用AI建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dd551fa0f44f0e0d",
+      "status": "NO_RELATION",
+      "reason": "此前日记整理skill的验证与本次关系召回、展示不同环节，未说明对同一整理skill的新修改。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d6a39cbbbd93aad3",
+      "status": "NO_RELATION",
+      "reason": "日记图谱开发与夜间煮食遛狗无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-20f2bb7784ab2ca3",
+      "status": "RELATED",
+      "reason": "此前重新梳理从日记构建个人知识库的实体和关系；本次推进到补关系提取、调整历史召回及关系图谱展示方案。",
+      "relation": {
+        "source_event": "E047",
+        "target_event": "E111",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天重新捡起日记管理平台，让 Codex 从头分析如何用日记构建个人知识库，一起确认实体、实体属性、关系及关系属性。今天仍继续，没有工作上的事时偶尔做一下。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天九点多起来后，我继续看日记管理平台的关系提取情况，发现九月三十日的日记漏提取了，就让 AI 补上。十月的关系提取还没有召回九月份的内容，我让它接着处理，也跟着调整了 skill 和向量召回的额度。"
+          },
+          {
+            "point_no": 3,
+            "quote": "下午，我让 Codex 继续做日记管理平台的关系入库，把提取的关系用图谱展示。本来想做一个能一次看到所有图的总览，再像 neo4j 界面那样探索，但节点实在太多，感觉没什么意义，展示上也踩了很多坑，最后没做得太好，就直接放弃了这个想法。现在改为在日记详情页提供单日图谱，用每篇日记自己的图就够了。对事件整体关系的探寻，放到日记回顾、分析场景中使用就可以，在前端展示的价值也不是很高。"
+          }
+        ],
+        "description": "此前重新梳理从日记构建个人知识库的实体和关系；本次推进到补关系提取、调整历史召回及关系图谱展示方案。"
+      }
+    },
+    {
+      "pair_id": "P-dc66ab33bb121a22",
+      "status": "NO_RELATION",
+      "reason": "考虑暂停订阅与本次额度耗光未互相引用，也未记载是否已落实暂停订阅。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-53594aba40f0509a",
+      "status": "NO_RELATION",
+      "reason": "此前工作接口和指标填报未动，与本次个人图谱开发不同目标，仅共享个人平台背景。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-421f1d949e700469",
+      "status": "RELATED",
+      "reason": "此前知识图谱设计后转向第一层实现实验，真实模型效果不理想，准备继续找方案；本次继续完善关系提取和召回，并调整实际图谱展示方向。",
+      "relation": {
+        "source_event": "E064",
+        "target_event": "E111",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "到今天早晨，第二层基本设计完了，又开始做第一层具体实现方案。"
+          },
+          {
+            "point_no": 2,
+            "quote": "下午回去继续，用真实的千问模型实现设计的效果。但给Codex设目标、跑了很久，效果还是不理想，问题在哪，我也不太清楚。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天九点多起来后，我继续看日记管理平台的关系提取情况，发现九月三十日的日记漏提取了，就让 AI 补上。十月的关系提取还没有召回九月份的内容，我让它接着处理，也跟着调整了 skill 和向量召回的额度。"
+          },
+          {
+            "point_no": 3,
+            "quote": "下午，我让 Codex 继续做日记管理平台的关系入库，把提取的关系用图谱展示。本来想做一个能一次看到所有图的总览，再像 neo4j 界面那样探索，但节点实在太多，感觉没什么意义，展示上也踩了很多坑，最后没做得太好，就直接放弃了这个想法。现在改为在日记详情页提供单日图谱，用每篇日记自己的图就够了。对事件整体关系的探寻，放到日记回顾、分析场景中使用就可以，在前端展示的价值也不是很高。"
+          }
+        ],
+        "description": "此前知识图谱设计后转向第一层实现实验，真实模型效果不理想，准备继续找方案；本次继续完善关系提取和召回，并调整实际图谱展示方向。"
+      }
+    },
+    {
+      "pair_id": "P-516825b9531a3fa7",
+      "status": "NO_RELATION",
+      "reason": "图谱展示与鸡肉火锅用餐没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-68e398e74e5a3288",
+      "status": "NO_RELATION",
+      "reason": "江西数据库任务中只是提到想搞个人图谱，未定位本次召回修订或总览方案的具体前序安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f55aae2c949e19c1",
+      "status": "RELATED",
+      "reason": "此前决定先做好知识库第一层，再完善页面交互展示、试用后继续；本次继续修正事件关系与历史召回，并将全量图谱总览改为单篇日记图谱。",
+      "relation": {
+        "source_event": "E092",
+        "target_event": "E111",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "做完第一层，我觉得先不往第二、第三层推进。先完善页面交互、展示，试用一段，确认地基没问题再继续。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天九点多起来后，我继续看日记管理平台的关系提取情况，发现九月三十日的日记漏提取了，就让 AI 补上。十月的关系提取还没有召回九月份的内容，我让它接着处理，也跟着调整了 skill 和向量召回的额度。"
+          },
+          {
+            "point_no": 3,
+            "quote": "下午，我让 Codex 继续做日记管理平台的关系入库，把提取的关系用图谱展示。本来想做一个能一次看到所有图的总览，再像 neo4j 界面那样探索，但节点实在太多，感觉没什么意义，展示上也踩了很多坑，最后没做得太好，就直接放弃了这个想法。现在改为在日记详情页提供单日图谱，用每篇日记自己的图就够了。对事件整体关系的探寻，放到日记回顾、分析场景中使用就可以，在前端展示的价值也不是很高。"
+          }
+        ],
+        "description": "此前决定先做好知识库第一层，再完善页面交互展示、试用后继续；本次继续修正事件关系与历史召回，并将全量图谱总览改为单篇日记图谱。"
+      }
+    },
+    {
+      "pair_id": "P-826a29b8ee8c36b9",
+      "status": "RELATED",
+      "reason": "此前九月关系提取尚未完成，十月日记也在整理审阅，并准备继续关系任务；本次继续检查，发现九月三十日遗漏及十月未召回九月内容，安排补处理并调整skill。",
+      "relation": {
+        "source_event": "E096",
+        "target_event": "E111",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天晚上回家，知道额度凌晨会重置，就直接建了任务，让它提取九月份现有事件之间的关系。结果只提取了几天的，说有几天的低重要性事件没有入库，不符合规范，所以没继续提取。"
+          },
+          {
+            "point_no": 2,
+            "quote": "半夜准备再留个任务，让它做要点入库和事件关系识别。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天九点多起来后，我继续看日记管理平台的关系提取情况，发现九月三十日的日记漏提取了，就让 AI 补上。十月的关系提取还没有召回九月份的内容，我让它接着处理，也跟着调整了 skill 和向量召回的额度。"
+          }
+        ],
+        "description": "此前九月关系提取尚未完成，十月日记也在整理审阅，并准备继续关系任务；本次继续检查，发现九月三十日遗漏及十月未召回九月内容，安排补处理并调整skill。"
+      }
+    },
+    {
+      "pair_id": "P-1d51a56a78584210",
+      "status": "NO_RELATION",
+      "reason": "日记图谱开发和Cube接口核对为不同项目，无具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-64e249111eb3ac0e",
+      "status": "NO_RELATION",
+      "reason": "此前下班买饭遛狗与本次接机不同活动。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bbcf98952e9cef90",
+      "status": "NO_RELATION",
+      "reason": "此前手腕疼赶去遛狗与本次疲劳后短途遛狗不同诱因，无回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ff75fd98bb56d4bc",
+      "status": "NO_RELATION",
+      "reason": "接机与指标填报接口互无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9cd4b1dfce2af0c4",
+      "status": "RELATED",
+      "reason": "昨天为接颂梅而八点多起床；当晚回家仍因早起、没休息好感到疲惫，一度想不再遛狗，后来休息后才继续煮食、洗漱和短途遛狗。",
+      "relation": {
+        "source_event": "E103",
+        "target_event": "E109",
+        "relation_type": "引发事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "我八点多起来，坐地铁去机场接她，起初坐错方向到了石牌桥，又往回坐了一站，之后再去机场北。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨晚回家，我因为早上起得太早、没休息好，挺累的。哒哒还没遛，我本想晚上就不遛了。"
+          }
+        ],
+        "description": "昨天为接颂梅而八点多起床；当晚回家仍因早起、没休息好感到疲惫，一度想不再遛狗，后来休息后才继续煮食、洗漱和短途遛狗。"
+      }
+    },
+    {
+      "pair_id": "P-1fc26f9c51c4bd4f",
+      "status": "NO_RELATION",
+      "reason": "扫墓回丹东与从墨西哥回广州是不同旅程，未表达同一机票或出行安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dc716539a1a6886f",
+      "status": "NO_RELATION",
+      "reason": "此前送学姐去地铁机场与本次接颂梅不同旅客和行程。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0d047dc7c6300415",
+      "status": "NO_RELATION",
+      "reason": "桂林换纸币拼船的沟通反思未被本次出租车经历引用或表达为触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0a18361cf40d8e30",
+      "status": "NO_RELATION",
+      "reason": "此前按摩后地铁回家与本次机场出租车不同交通经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-05a65879ea50e1d7",
+      "status": "NO_RELATION",
+      "reason": "国庆后腿部按摩与本次接机没有具体事项进展或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d7c56763c10393d0",
+      "status": "RELATED",
+      "reason": "此前颂梅经香港、美国抵达墨西哥，并预计十天后回来；本篇补记她昨天已从墨西哥回到广州，我去T3接她后一起乘出租车回家。",
+      "relation": {
+        "source_event": "E077",
+        "target_event": "E103",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天颂梅六点多出门，我帮她搬行李下楼，她打车去机场，先香港、再美国、再墨西哥，太折腾。今天中午她到了墨西哥，打了视频，状态还可以，待到24号，十天后能回来。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天早上九点多，颂梅从墨西哥出差回到广州。我八点多起来，坐地铁去机场接她，起初坐错方向到了石牌桥，又往回坐了一站，之后再去机场北。她到达的是 T3，地铁最远只到 T2，还得换乘大巴去 T3。这段大概要二三十分钟，我记得坐了二十分钟左右。等我到了，她早已拿好行李，在外面等着我。"
+          },
+          {
+            "point_no": 2,
+            "quote": "我们干脆去坐出租车：出租车队离得近，可以少拎一会儿行李，反正公司报销。"
+          }
+        ],
+        "description": "此前颂梅经香港、美国抵达墨西哥，并预计十天后回来；本篇补记她昨天已从墨西哥回到广州，我去T3接她后一起乘出租车回家。"
+      }
+    },
+    {
+      "pair_id": "P-7e344cf6c99a3eb9",
+      "status": "NO_RELATION",
+      "reason": "接机与晚间鸡肉火锅仅同日发生，未表达接机促使用餐或回顾其经过。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-82d9c9b382ff644b",
+      "status": "NO_RELATION",
+      "reason": "接机与Cube接口核对不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-64e5e0dddf7ea641",
+      "status": "NO_RELATION",
+      "reason": "指标填报接口与夜间宠物煮食无具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f6eb8fdcac35ba9b",
+      "status": "RELATED",
+      "reason": "此前工作安排中还需要核对指标填报需求；本次继续开发的指标填报接口已完成，尚未检查结果，准备明天开始对接上传文件接口。",
+      "relation": {
+        "source_event": "E062",
+        "target_event": "E113",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下午继续做城镇开发边界接口，还需核对指标填报需求；午饭回公司后也在继续这部分。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天我顺道让 AI 继续开发了一些指标填报接口，现在已经开发完，不过我还没检查到底做得怎么样。明天准备开始对接指标填报中上传文件的那些接口。"
+          }
+        ],
+        "description": "此前工作安排中还需要核对指标填报需求；本次继续开发的指标填报接口已完成，尚未检查结果，准备明天开始对接上传文件接口。"
+      }
+    },
+    {
+      "pair_id": "P-fa3a6e49ccd466c6",
+      "status": "RELATED",
+      "reason": "此前指标填报当天没有推进；本次已继续让AI完成部分指标填报接口开发，结果尚未检查，并计划明天开始对接上传文件接口。",
+      "relation": {
+        "source_event": "E089",
+        "target_event": "E113",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "指标填报今天没动，我主要在做自己的日记管理平台。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天我顺道让 AI 继续开发了一些指标填报接口，现在已经开发完，不过我还没检查到底做得怎么样。明天准备开始对接指标填报中上传文件的那些接口。"
+          }
+        ],
+        "description": "此前指标填报当天没有推进；本次已继续让AI完成部分指标填报接口开发，结果尚未检查，并计划明天开始对接上传文件接口。"
+      }
+    },
+    {
+      "pair_id": "P-d596f27b466d46b5",
+      "status": "RELATED",
+      "reason": "此前按新需求修改指标填报设计和代码，继续开发导入等接口；本次继续开发的接口已完成但尚未检查，准备明天对接上传文件接口。",
+      "relation": {
+        "source_event": "E086",
+        "target_event": "E113",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "把莫非上周发的数据和最新需求复制进项目，让AI修改指标填报数据库设计文档、表设计及代码，不对的地方沟通改好。下午继续开发指标体系、行政区划导入接口，明天应接着做任务下发等。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天我顺道让 AI 继续开发了一些指标填报接口，现在已经开发完，不过我还没检查到底做得怎么样。明天准备开始对接指标填报中上传文件的那些接口。"
+          }
+        ],
+        "description": "此前按新需求修改指标填报设计和代码，继续开发导入等接口；本次继续开发的接口已完成但尚未检查，准备明天对接上传文件接口。"
+      }
+    },
+    {
+      "pair_id": "P-f8afe28a4d257f86",
+      "status": "NO_RELATION",
+      "reason": "指标接口与鸡肉火锅不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d38cc1ac63a1c66c",
+      "status": "NO_RELATION",
+      "reason": "指标填报接口和Cube切CBB是两项不同工作，当前没有接口依赖或引用的说明。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-139147f17e6e5f38",
+      "status": "NO_RELATION",
+      "reason": "泛指为避免家庭矛盾洗脚未明确回顾此前家务积压、洗碗机的具体争执。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-eb581c371536fd62",
+      "status": "NO_RELATION",
+      "reason": "此前找车胃食管反流与本次洗漱煮食不同经历和身体状况。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9e647cf59c5617e4",
+      "status": "NO_RELATION",
+      "reason": "清远退房遛宠物与本次夜间遛狗不同地点日期，无引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1a278e095b2d9f04",
+      "status": "NO_RELATION",
+      "reason": "此前餐厅打包食物与本次宠物鸡胸肉不同餐食对象。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-357a82aef336b211",
+      "status": "NO_RELATION",
+      "reason": "清远蛤蟆进房与本次煮食遛狗没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4c2296494044ff74",
+      "status": "NO_RELATION",
+      "reason": "此前跑步被游戏耽误瑜伽与本次夜间短途遛狗并非同一运动或安排，未回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3be3ef24c530324b",
+      "status": "NO_RELATION",
+      "reason": "此前羊排与本次鸡胸肉不同烹饪事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-822949493401dc30",
+      "status": "NO_RELATION",
+      "reason": "本次只记刷牙，没有记载牙线清洁操作，不能视为此前方法的新进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7540f3e0f683e61f",
+      "status": "NO_RELATION",
+      "reason": "本次刷牙洗脚没有处理水牙线故障、洗牙或咬合垫计划。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1ffe562227ee7c8d",
+      "status": "NO_RELATION",
+      "reason": "晚饭回家后煮食洗漱只是活动顺序，未延续餐厅用餐事项或回顾其口味。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8c83c5ee540e6880",
+      "status": "NO_RELATION",
+      "reason": "清远看烟花泡澡和本次洗脚遛狗不同经历，未比较或回忆。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b47aa4f3530ceb97",
+      "status": "NO_RELATION",
+      "reason": "24日游戏与本次夜间煮食没有具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8de1817f0a243594",
+      "status": "NO_RELATION",
+      "reason": "此前过期鳕鱼喂食与本次鸡胸肉烹煮未明确同一批食品，不能推定是继续处理那批过期食物。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fa2f0310428636af",
+      "status": "NO_RELATION",
+      "reason": "夜间煮食洗漱与接口核对不同事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-30f8f930fd2ed846",
+      "status": "NO_RELATION",
+      "reason": "当前说学姐推荐鸡肉店，但此前聚会未记载该推荐，不能将推荐定位到那次聚会。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9ea810b06e31baae",
+      "status": "NO_RELATION",
+      "reason": "此前福建菜与当前比较的桑拿鸡不是同一餐食，不能因都是外出就餐建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-b3e8f189ba1d3be6",
+      "status": "RELATED",
+      "reason": "此前AI称Cube改CBB已做好，我已通知莫菲找前端对接；本次进一步与吴伟豪核对文档，发现接口遗漏，安排补全并准备明天检查。",
+      "relation": {
+        "source_event": "E089",
+        "target_event": "E112",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "早晨继续昨天工作，让AI完成Cube改CBB服务管理，它说已做好，我通知莫菲去找前端对接。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "下午两点多起来后，我找吴伟豪接着核对，有问题就一起看。他说也让 AI 看文档整理了一遍，发现还缺一些接口。我说这些接口在 Cube 上没看到，就把肖静拉进来问原因。肖静说接口分两部分，接口管理里的一些内容是后来才有的，最开始用文档管理，所以缺了一部分。"
+          },
+          {
+            "point_no": 3,
+            "quote": "发现切换接口资料有遗漏后，我让伟豪先把缺哪些接口整理清楚，免得我基于文档做完，和代码还是有偏差。正好现在有 AI，可以直接让他用 AI 整理。过了一会儿，他把整理结果发给我，我又让他用 AI 补全这些接口。补全结果我还没看，准备明天检查有没有问题。"
+          }
+        ],
+        "description": "此前AI称Cube改CBB已做好，我已通知莫菲找前端对接；本次进一步与吴伟豪核对文档，发现接口遗漏，安排补全并准备明天检查。"
+      }
+    },
+    {
+      "pair_id": "P-24a55b6a6639b71d",
+      "status": "NO_RELATION",
+      "reason": "清远冬瓜鸡与当前用餐比较的桑拿鸡名称、做法不同，未明确回忆清远那顿饭。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-30e61a25d566fc9e",
+      "status": "NO_RELATION",
+      "reason": "此前颂梅父母家午饭与本次鸡肉火锅不同餐事，无引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5d7d14ef5fea0442",
+      "status": "NO_RELATION",
+      "reason": "此前八合里牛肉火锅与当前泛称潮汕牛肉火锅的吃法比较不足以定位为那次具体聚餐。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-593c70060f33a9a1",
+      "status": "NO_RELATION",
+      "reason": "鸡肉火锅与Cube接口工作不同事项。",
+      "relation": null
+    }
+  ]
+}

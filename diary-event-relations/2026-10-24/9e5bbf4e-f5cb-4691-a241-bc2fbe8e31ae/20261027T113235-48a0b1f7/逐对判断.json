@@ -1,0 +1,981 @@
+{
+  "package_sha256": "5deeeabe336542608b5c9d0c133db46882a5409aa9659ce5932ab256b51d67d4",
+  "results": [
+    {
+      "pair_id": "P-8d6ebdacaeba3cda",
+      "status": "RELATED",
+      "reason": "此前考虑将日记知识沉淀改用Codex与skill，本次已向Codex布置十月事件处理任务，方案出现实际执行进展。",
+      "relation": {
+        "source_event": "E054",
+        "target_event": "E064",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "如果走Codex的方案，可能用它的云电脑功能：上传日记后，通过某种方式通知它，或者让它定时拉取，再走后面的流程，类似一个skill。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨晚睡觉前，我让Codex从10月份已经整理的事件中提取事件要点，并识别它们之间的关系。"
+          },
+          {
+            "point_no": 2,
+            "quote": "今天早上看了一下电脑上的任务效果，也没仔细看，就把电脑关上，带哒哒出去遛了。"
+          }
+        ],
+        "description": "此前考虑用Codex按skill处理日记知识沉淀；本次已给Codex布置十月事件要点提取与关系识别任务，并简单查看了效果。"
+      }
+    },
+    {
+      "pair_id": "P-ffaf281c60914aa4",
+      "status": "NO_RELATION",
+      "reason": "清远度假的食物和行李准备与本日在家火锅是不同餐食，未指向同一食材或安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c0526320dd8921f4",
+      "status": "NO_RELATION",
+      "reason": "清远度假准备没有记载出差前永旺菠萝蜜的购买，不能定位为本次回忆中的购买经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c60d41910e5adf21",
+      "status": "NO_RELATION",
+      "reason": "Cspon大屏Excel导入与日记事件要点和关系识别分属不同任务，使用AI不足以建立联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c1eb441728adc1ce",
+      "status": "NO_RELATION",
+      "reason": "主线简单模式通关与本次为升级阳光菇重打无尽模式不是同一关卡事项，未表达承接或回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1a2e64d236ecece8",
+      "status": "NO_RELATION",
+      "reason": "此前永旺山姆采购未记载这次火锅底料或上周烧烤蘸料，不能据采购主题关联食材。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e237220ec2a02a90",
+      "status": "NO_RELATION",
+      "reason": "永旺山姆采购未记载菠萝蜜，无法将本次对出差前菠萝蜜的回忆定位到该次采购。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e16dc23bf92ef9c4",
+      "status": "NO_RELATION",
+      "reason": "此前记录墨西哥出差及预计返程，本日公园消息只说她在飞机上，未在这一对中交代该航段与墨西哥返程的对应关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-874c46094ee70c04",
+      "status": "RELATED",
+      "reason": "墨西哥出差记录中已有当地23号返程计划，本次报告她到了美国且明天能回来，形成返程进展。",
+      "relation": {
+        "source_event": "E049",
+        "target_event": "E065",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "下周应该是墨西哥当地23号往回走，相当于咱们这边24号，好像周末能到。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "颂梅跟我说她到美国了，问我要不要视频。我答应了，虽然手机已经没电了，还是简单聊了一会儿。我告诉她，我爸收到手机了，挺高兴的，又聊了一些昨天遛狗的事。颂梅明天就能回来了。"
+          }
+        ],
+        "description": "颂梅此前仍在墨西哥，并预计当地23号往回走；本次她已到美国，与我视频，预计明天回来。"
+      }
+    },
+    {
+      "pair_id": "P-b2ed09c2308043a2",
+      "status": "NO_RELATION",
+      "reason": "出差中的疲惫和返程安排，与因想吃菠萝蜜而新增生日礼物的打算没有表达具体触发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5bd26f00a6a27e57",
+      "status": "NO_RELATION",
+      "reason": "颂梅的出差压力与本人程序员节的就业感慨涉及不同人的处境，双方没有互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-096ff8a914fb1235",
+      "status": "NO_RELATION",
+      "reason": "此前无尽模式通关与本次重置升级阳光菇缺少对同一轮进度的承接，重复玩同一模式不足以建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cea7f027f2c1785d",
+      "status": "NO_RELATION",
+      "reason": "限时体验植物和秘境关卡，与本次升级阳光菇的无尽模式任务不同，没有表达延续同一次体验活动。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0c0fa5ae8acc8498",
+      "status": "NO_RELATION",
+      "reason": "桂林梯田出游和本日珠江边遛狗、视频是不同经历，没有回忆或因果指向。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0369660777bf2b3c",
+      "status": "NO_RELATION",
+      "reason": "桂林梯田经历未记载永旺买菠萝蜜，不能支持本次对该次购买的回忆。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e6d768afff724c88",
+      "status": "NO_RELATION",
+      "reason": "回乡探亲计划与程序员节的经济就业感慨没有相互引用或触发说明。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3fae13539b0032e8",
+      "status": "NO_RELATION",
+      "reason": "晚间公园观察与查看Codex任务没有具体事项上的承接，只有同日发生。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e40ff5dd177e3a48",
+      "status": "NO_RELATION",
+      "reason": "同在桥下公园遛狗，但本日没有记载放狗方式变化或回顾此前走失担忧。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cc57f5ee967a053e",
+      "status": "NO_RELATION",
+      "reason": "晚饭后出门遛狗只是当日活动顺序，未体现火锅事项的新状态或明确回忆该次火锅。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ba092db90984decc",
+      "status": "NO_RELATION",
+      "reason": "上午与晚间是两次日常遛狗，晚间没有回顾上午视频或延续上午的具体待解决事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e143abdcc9d9baa5",
+      "status": "NO_RELATION",
+      "reason": "晚间公园见闻与菠萝蜜生日礼物方案没有表达具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-83ee58b587034ea2",
+      "status": "NO_RELATION",
+      "reason": "两次二沙岛遛狗的经过不同，本日未引用此前一度找不到哒哒的经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2930fe9d20d1dc5f",
+      "status": "NO_RELATION",
+      "reason": "清远酒店园区遛宠物与本日晚间公园观察是不同外出活动，没有相互引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-25d415545bd86f1f",
+      "status": "NO_RELATION",
+      "reason": "看牙途中在桥下躲雨与晚间公园遛狗仅地点相近，没有具体经历联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-bc8dee1a8bab1401",
+      "status": "NO_RELATION",
+      "reason": "程序员节的经济就业感慨与公园热闹产生的经济上行期感受各有触发，未明确互相比较或引发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-89045aed38a70611",
+      "status": "NO_RELATION",
+      "reason": "此前找KTV时在二沙岛遛狗与本日公园见闻没有引用或后续事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-62b263be62f933f0",
+      "status": "NO_RELATION",
+      "reason": "本日玩游戏与晚间公园观察没有来源表达的因果或事项延续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-37009e7220f62285",
+      "status": "NO_RELATION",
+      "reason": "本日视频没有提及此前枕头、出差玩笑和焦虑沟通的争执，也未延续该次复盘。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c20bdcaead32098d",
+      "status": "NO_RELATION",
+      "reason": "菠萝蜜礼物打算未引用此前的家务、狗粮和沟通争执，不能因同一伴侣建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c7d33618607b521b",
+      "status": "NO_RELATION",
+      "reason": "此前让AI执行知识库实现方案，本日给Codex布置的是十月事件批处理，双方未定位为同一执行任务的检查或续跑。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-d559b8ca1fe76120",
+      "status": "NO_RELATION",
+      "reason": "查看Codex任务与在家吃火锅为不同事项，未表达触发或回忆联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c287c181aaef2923",
+      "status": "NO_RELATION",
+      "reason": "关电脑后遛狗只是活动切换，视频事件未继续处理Codex任务，缺少同一事项的进展。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6ddeb322a0e5d9e9",
+      "status": "NO_RELATION",
+      "reason": "此前下班后游戏和遛狗没有涉及本次十月日记关系识别任务，不能按生活场景建立联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a103c53f13dec2c1",
+      "status": "RELATED",
+      "reason": "此前试验九月关系识别并计划效果好推广全部日记，本次安排处理十月事件，是处理范围的后续推进。",
+      "relation": {
+        "source_event": "E059",
+        "target_event": "E064",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "明天继续检验事件关系skill，效果好就推广到全部日记，把整个图谱建出来。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨晚睡觉前，我让Codex从10月份已经整理的事件中提取事件要点，并识别它们之间的关系。"
+          }
+        ],
+        "description": "此前试验九月事件要点与关系识别，并打算效果好时推广到全部日记；本次已让Codex处理十月事件的要点与关系。"
+      }
+    },
+    {
+      "pair_id": "P-4bac1f4ec54b4d5f",
+      "status": "NO_RELATION",
+      "reason": "此前创建日记整理skill并验证九月，本日执行要点及关系任务，未记载对同一个整理skill的修订或验证。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6c8d4bd9279c81e9",
+      "status": "NO_RELATION",
+      "reason": "Codex批处理任务与菠萝蜜生日礼物打算没有具体因果、承接或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0841d1eaa53a87cf",
+      "status": "NO_RELATION",
+      "reason": "程序员节感慨未提及关系识别任务，Codex任务也未被表达为该感慨的触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ab3c01fe30d0477e",
+      "status": "NO_RELATION",
+      "reason": "此前跑步后被游戏耽误瑜伽，与本日查看Codex关系识别不是同一具体事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c0d3a03a61a47e85",
+      "status": "NO_RELATION",
+      "reason": "开始阅读和提醒量化的经历，与本日查看关系识别任务没有表达互相引发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7a44e592659fda32",
+      "status": "NO_RELATION",
+      "reason": "此前第一层实现方案的千问实验与本次Codex处理十月事件，未明确为同一次模型实验的后续结果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3ff9be6aaf407dd2",
+      "status": "RELATED",
+      "reason": "此前完成九月整理并测试要点skill，明确计划继续事件关系提取，本次已安排十月要点及关系任务。",
+      "relation": {
+        "source_event": "E058",
+        "target_event": "E064",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下午又做了知识库沉淀里的事件要点提取skill，用一篇日记试了一下。明天接着拿九月其他日记的事件测试，没问题再做事件关系提取，把知识库第一层彻底做出来。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨晚睡觉前，我让Codex从10月份已经整理的事件中提取事件要点，并识别它们之间的关系。"
+          }
+        ],
+        "description": "九月日记整理入库、要点提取skill初步试验后，原计划继续事件关系提取；本次已把十月事件要点和关系识别任务交给Codex执行。"
+      }
+    },
+    {
+      "pair_id": "P-1667124664f11492",
+      "status": "NO_RELATION",
+      "reason": "上午玩游戏与检查Codex任务只是当日的不同活动，没有表达等任务时玩游戏或其他触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9428ee111f6cc0e8",
+      "status": "RELATED",
+      "reason": "23日明确计划半夜留要点入库和关系识别任务，24日记载睡前已布置十月任务并查看效果，时间、对象和动作对应。",
+      "relation": {
+        "source_event": "E061",
+        "target_event": "E064",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "半夜准备再留个任务，让它做要点入库和事件关系识别。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨晚睡觉前，我让Codex从10月份已经整理的事件中提取事件要点，并识别它们之间的关系。"
+          },
+          {
+            "point_no": 2,
+            "quote": "今天早上看了一下电脑上的任务效果，也没仔细看，就把电脑关上，带哒哒出去遛了。"
+          }
+        ],
+        "description": "23日整理审阅十月日记后，计划半夜留下要点入库和事件关系识别任务；24日记载睡前已把十月事件要点与关系识别任务交给Codex，早上简单查看了效果。"
+      }
+    },
+    {
+      "pair_id": "P-6cc6857544b2834a",
+      "status": "RELATED",
+      "reason": "本次与颂梅视频明确讲到父亲已收到手机且高兴，对应前一天新手机到货和父亲喜欢的具体经历；没有继续迁移或教学进展。",
+      "relation": {
+        "source_event": "E065",
+        "target_event": "E060",
+        "relation_type": "提及事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我告诉她，我爸收到手机了，挺高兴的，又聊了一些昨天遛狗的事。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "今天给我爸买的手机到了。我妈给他拍视频，想发给我和小廖，让我们高兴高兴（给我们正向反馈）。她拍视频问我爸喜不喜欢这个手机，他说喜欢，然后说“谢谢儿子儿媳妇”，却没有感谢我妈，毕竟手机钱是我妈出的。"
+          }
+        ],
+        "description": "与颂梅视频时，我向她提起父亲收到新手机、挺高兴的事，对应23日手机到货及父亲喜欢新手机的经历。"
+      }
+    },
+    {
+      "pair_id": "P-3c1574eb9d0dbf86",
+      "status": "NO_RELATION",
+      "reason": "此前做牛肉饭、板栗炖鸡与本日火锅不是同次做饭，发送照片的对象和内容也不同。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-06ee47ca0742985f",
+      "status": "NO_RELATION",
+      "reason": "此前哒哒开门使本人在家工作，本日视频未讨论或延续开门和在家工作的安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1b87b792af52f0fe",
+      "status": "NO_RELATION",
+      "reason": "此前烤鸡翅地瓜与本日火锅是不同餐食，没有同一食材或烹饪安排的后续证据。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-31479de137536271",
+      "status": "NO_RELATION",
+      "reason": "此前休息后烤鸡翅与本日游戏没有具体事项联系，仅包含居家休息。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1da11832fd37d605",
+      "status": "NO_RELATION",
+      "reason": "牙周清洁后的利口福采购与本日火锅食材采购不同，未记载相同食材或安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-2c03f098a94475f3",
+      "status": "NO_RELATION",
+      "reason": "牙周清洁和使用母亲生日卡，与颂梅生日的菠萝蜜礼物不是同一送礼事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e50f8105ddae7384",
+      "status": "NO_RELATION",
+      "reason": "此前枕头导致睡不好和做饭补觉，与本日火锅午睡是不同日期，未说明延续同次睡眠问题。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-69c9149cd9dfacdc",
+      "status": "NO_RELATION",
+      "reason": "此前买便宜西瓜与本日想买菠萝蜜是不同水果及购买动机，没有回忆该次西瓜购买。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e512fd3e35d9b7d8",
+      "status": "NO_RELATION",
+      "reason": "此前签到领奖与本次升级阳光菇重打无尽模式是不同游戏活动，未表达同一任务推进。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cafe038f796b37d2",
+      "status": "NO_RELATION",
+      "reason": "此前觉得游戏没意思，本次记录具体游玩，没有回顾该判断或说明态度变化，不能仅按同一游戏串成一段转变。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f23a4c8d44286aa3",
+      "status": "NO_RELATION",
+      "reason": "出差前购物未明确包含这次喝的莫吉托或火锅用料，不能据同一伴侣和购物推定食材来源。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0520857e6a9e9f2a",
+      "status": "RELATED",
+      "reason": "此前已确定墨西哥两周出差、机票买好且次日出发，本次到美国并预计次日回来，属于同次出差行程的新状态。",
+      "relation": {
+        "source_event": "E041",
+        "target_event": "E065",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天领导还是非让颂梅去墨西哥出差两周。"
+          },
+          {
+            "point_no": 4,
+            "quote": "也还好，只去两周，应该没太大事，明天就走。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "颂梅跟我说她到美国了，问我要不要视频。我答应了，虽然手机已经没电了，还是简单聊了一会儿。我告诉她，我爸收到手机了，挺高兴的，又聊了一些昨天遛狗的事。颂梅明天就能回来了。"
+          }
+        ],
+        "description": "颂梅此前已确定去墨西哥出差两周并准备出发；本次她已到美国，与我视频，预计明天回来。"
+      }
+    },
+    {
+      "pair_id": "P-759eb93d3d82916d",
+      "status": "RELATED",
+      "reason": "此前为颂梅即将到来的生日考虑邮轮礼物，本次同一生日筹备又形成菠萝蜜礼物打算和礼物计数的新安排。",
+      "relation": {
+        "source_event": "E041",
+        "target_event": "E068",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "原本想给她送个大的生日礼物，就让她看看邮轮，实在不行去玩一次。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今天中午遛完狗回到家，我想着，要不在拼多多给颂梅买一整个菠萝蜜，让她吃个够，刚好也算生日礼物之一，凑一份礼物。嘿嘿。"
+          },
+          {
+            "point_no": 3,
+            "quote": "如果再加上菠萝蜜，连同Airpods就有8个礼物了。之前本来想着Airpods不算礼物，直接给颂梅，现在还是把它算作一份礼物。"
+          }
+        ],
+        "description": "此前考虑给颂梅送邮轮旅行作为生日大礼物；本次生日筹备中又考虑加入整只菠萝蜜，并把Airpods计作一份礼物，若加上菠萝蜜共8份。"
+      }
+    },
+    {
+      "pair_id": "P-3cfad24abf2dc3ac",
+      "status": "NO_RELATION",
+      "reason": "为颂梅续ChatGPT会员与本人收到程序员节祝福不是同一次礼物或节日安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-8c29bec6a39e35e9",
+      "status": "NO_RELATION",
+      "reason": "颂梅此前的睡眠作息与本人本日午睡吃饭主体不同，没有来源表达的联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4cae41ac14748c68",
+      "status": "NO_RELATION",
+      "reason": "重拼颂梅送的生日乐高与给颂梅准备生日礼物属于不同对象和事项，本日没有引用那份乐高礼物。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-fe4406063e47ad2d",
+      "status": "NO_RELATION",
+      "reason": "此前遛狗后做三道菜与本日火锅是不同餐食，没有具体食材或做饭安排的延续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-edee49050008acb1",
+      "status": "NO_RELATION",
+      "reason": "此前颂梅学习摄影与本日视频无相互引用，日常遛狗也不是同一次。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-623998c194e1cc45",
+      "status": "NO_RELATION",
+      "reason": "摄影学习和当日做饭均未在菠萝蜜礼物计划中被引用或表达为触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f9c90a7bd85d0465",
+      "status": "NO_RELATION",
+      "reason": "遛狗后研究午饭仅构成活动顺序，本次视频没有为火锅购买提供具体指令或触发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-72ecd77bc9d92705",
+      "status": "NO_RELATION",
+      "reason": "此前永旺买饭与本日在家火锅是不同用餐，未引用此前购买。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4e7c8bfb9146a710",
+      "status": "NO_RELATION",
+      "reason": "火锅照片互动与菠萝蜜礼物打算涉及同一人，但没有互相触发或承接的表达。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-450d26cdfef7891e",
+      "status": "NO_RELATION",
+      "reason": "酒店早餐丰盛与颂梅调侃本日火锅丰盛只是评价相近，没有比较或引用该次早餐。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a5c51ca16875c0a5",
+      "status": "NO_RELATION",
+      "reason": "朋友婚后聚餐与本日独自吃火锅是不同餐事，没有承接或回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-441a4291e0de9445",
+      "status": "NO_RELATION",
+      "reason": "按摩回程的头晕和进食问题未在本日火锅中被提及，不能推断本次饮食由此前不适引发。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-e50c61922944443d",
+      "status": "NO_RELATION",
+      "reason": "此前找车时因未吃晚饭出现反流，本日火锅并未引用此经历或记录其后续治疗。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5a67f8cf7317ad48",
+      "status": "NO_RELATION",
+      "reason": "父亲加热饭盒的使用与本人热晚饭不同主体和器具，未表达具体联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c504ffec58709b87",
+      "status": "NO_RELATION",
+      "reason": "此前餐厅打包晚饭与本日火锅剩肉是不同餐食，不能仅因剩菜加热建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-a447647b2f844723",
+      "status": "NO_RELATION",
+      "reason": "本日火锅与程序员节祝福分属不同事项，没有表达互相引发或引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cef7d7481d306cf3",
+      "status": "NO_RELATION",
+      "reason": "此前烤羊排与本日火锅不同，未明确本次牛羊肉来自此前山姆采购。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9a244ee14877fa26",
+      "status": "NO_RELATION",
+      "reason": "本日火锅未提及此前牙齿清洁安排或执行情况，不能只凭饭后活动建立联系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ff0ef3d862fa69cd",
+      "status": "NO_RELATION",
+      "reason": "此前关注肝钙化灶并谈饮食睡眠，本日莫吉托饮料未引用该经历，也不能自行判定饮料含酒并建立因果。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-45d44a23459e6b9e",
+      "status": "NO_RELATION",
+      "reason": "火锅与午饭后游戏记录都含收剩肉进冰箱，但这是共享的当日生活背景，游戏未延续或回顾火锅事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-840d93d8730e2b15",
+      "status": "NO_RELATION",
+      "reason": "此前宠物食品清理和喂食与本日给自己准备火锅是不同食物、对象，没有明确引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-12bed8cd37eb1671",
+      "status": "NO_RELATION",
+      "reason": "此前赶在颂梅回来前遛狗与本日珠江边遛狗不是同一次活动，也未回顾手腕疼。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-25530009fa1d9eb6",
+      "status": "NO_RELATION",
+      "reason": "回丹东扫墓的机票计划与颂梅从出差返程不同，未表达同一行程。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-dce4e914b953e4b0",
+      "status": "NO_RELATION",
+      "reason": "本日到美国的视频与想吃菠萝蜜所指的应该是昨天的视频并非同一通话，双方未互相提及。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-0dbd32f0db69cdf8",
+      "status": "RELATED",
+      "reason": "此前已帮父亲选定并由颂梅抢券买下手机，本次报告父亲收到手机，是同一换机事项的新状态。",
+      "relation": {
+        "source_event": "E050",
+        "target_event": "E065",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今天早上淘宝要抢券，她帮忙抢了券，把手机买下来了。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我告诉她，我爸收到手机了，挺高兴的，又聊了一些昨天遛狗的事。"
+          }
+        ],
+        "description": "此前父亲选定手机后，颂梅帮忙抢券买下；本次与颂梅视频时，我告诉她父亲已收到手机、挺高兴的。"
+      }
+    },
+    {
+      "pair_id": "P-419f8ccbcaa58227",
+      "status": "NO_RELATION",
+      "reason": "此前二沙岛一度找不到狗与本日遛狗没有具体承接或回忆，地点相近不足以建边。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-ac0478e1133dda77",
+      "status": "NO_RELATION",
+      "reason": "颂梅国庆后腿部按摩与本日回程视频没有引用或症状、处理的后续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-09fc169d8c6a3683",
+      "status": "NO_RELATION",
+      "reason": "清远退房遛宠物与本日珠江边遛狗是不同活动，本日未提到清远经历。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cfefa661511feb35",
+      "status": "RELATED",
+      "reason": "此前父亲生日计划让他挑新手机，本次报告已经收到，属于同一为父亲换手机的进展。",
+      "relation": {
+        "source_event": "E047",
+        "target_event": "E065",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "下午还想看手机，父亲那部用多年、又进过水，准备把选好的发群里让他挑，喜欢就买。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我告诉她，我爸收到手机了，挺高兴的，又聊了一些昨天遛狗的事。"
+          }
+        ],
+        "description": "父亲生日时原计划把选好的新手机发给他挑、喜欢就买；本次视频中，我已向颂梅报告父亲收到手机、挺高兴的。"
+      }
+    },
+    {
+      "pair_id": "P-39daaba3f6c8ad71",
+      "status": "NO_RELATION",
+      "reason": "同日两次与颂梅互动分属节日祝福和视频近况，未表明祝福在该通视频中发生。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-5257595dad59927c",
+      "status": "NO_RELATION",
+      "reason": "此前带羊排到颂梅父母家吃饭与本日遛狗视频没有具体引用或承接。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3a363f9bf9acba41",
+      "status": "NO_RELATION",
+      "reason": "颂梅生日盲盒里的iPhone方案与父亲收到的手机对象不同，当前视频也没有讨论盲盒。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-4b1e2af1e34f9863",
+      "status": "RELATED",
+      "reason": "此前赴墨西哥出差的转机和值机经历，与本次到美国、预计次日回来对应同次行程的返程进展。",
+      "relation": {
+        "source_event": "E044",
+        "target_event": "E065",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "昨天颂梅六点多出门，我帮她搬行李下楼，她打车去机场，先香港、再美国、再墨西哥，太折腾。今天中午她到了墨西哥，打了视频，状态还可以，待到24号，十天后能回来。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "颂梅跟我说她到美国了，问我要不要视频。我答应了，虽然手机已经没电了，还是简单聊了一会儿。我告诉她，我爸收到手机了，挺高兴的，又聊了一些昨天遛狗的事。颂梅明天就能回来了。"
+          }
+        ],
+        "description": "此前颂梅经香港、美国到墨西哥出差；本次她已到美国并与我视频，预计明天回来。"
+      }
+    },
+    {
+      "pair_id": "P-52240e41b163b71f",
+      "status": "RELATED",
+      "reason": "此前发现父亲手机老旧损坏并提出换机，本次报告已收到手机，体现同一换机事项的新状态。",
+      "relation": {
+        "source_event": "E045",
+        "target_event": "E065",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我说到时挑个便宜、屏幕大的手机给他。他没否认，刚好过生日，买一个也行。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我告诉她，我爸收到手机了，挺高兴的，又聊了一些昨天遛狗的事。"
+          }
+        ],
+        "description": "此前发现父亲旧手机屏幕和通话都不好用，提出挑一部便宜、大屏的新手机；本次已向颂梅报告父亲收到手机、挺高兴的。"
+      }
+    },
+    {
+      "pair_id": "P-1826c8466d00da52",
+      "status": "NO_RELATION",
+      "reason": "此前遛狗遇颂梅父亲后到其家吃饭，本日珠江边遛狗没有回顾或后续安排。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-20e5255c32c41183",
+      "status": "NO_RELATION",
+      "reason": "玩游戏与遛狗视频只是同日活动，来源没有表达游戏触发视频或延续同一事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-7137f1c9bd3741d1",
+      "status": "NO_RELATION",
+      "reason": "此前永旺买饭、手腕疼和赶去遛狗，与本次菠萝蜜生日礼物没有具体引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cd7be837d463097c",
+      "status": "NO_RELATION",
+      "reason": "两次游玩同一游戏但本次没有处理此前手腕疼或回顾其经历，也未说明是同一轮任务。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-58c9910edd8e243b",
+      "status": "RELATED",
+      "reason": "此前确定生日大礼物直接给钱、其他小礼物下周准备，本次新增整只菠萝蜜礼物打算并确定Airpods的计数。",
+      "relation": {
+        "source_event": "E046",
+        "target_event": "E068",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "不再研究大礼物，还是给钱，正好她离职后交社保、给多多看病都费钱。其他该买的等下周再准备，这周先不买，怕拆开不好却不能退货。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今天中午遛完狗回到家，我想着，要不在拼多多给颂梅买一整个菠萝蜜，让她吃个够，刚好也算生日礼物之一，凑一份礼物。嘿嘿。"
+          },
+          {
+            "point_no": 3,
+            "quote": "如果再加上菠萝蜜，连同Airpods就有8个礼物了。之前本来想着Airpods不算礼物，直接给颂梅，现在还是把它算作一份礼物。"
+          }
+        ],
+        "description": "此前颂梅生日大礼物决定直接给钱，其他礼物留待下周准备；本次又考虑把整只菠萝蜜列为生日礼物，并把Airpods计为一份，若加入菠萝蜜共8份。"
+      }
+    },
+    {
+      "pair_id": "P-26ddf009fce3fea1",
+      "status": "NO_RELATION",
+      "reason": "颂梅送本人的演唱会生日礼物，与本日程序员节祝福是不同节日事项，本日未引用门票。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f498a9157be47e0c",
+      "status": "NO_RELATION",
+      "reason": "清远早餐和本次菠萝蜜礼物的食物、场景不同，没有具体回忆。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-36b33cc5d2b6f0bd",
+      "status": "NO_RELATION",
+      "reason": "柳州便宜榴莲的价格讨论与想买整只菠萝蜜不同，没有将价格判断应用于本次选择的表达。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-cf9a2f3837229411",
+      "status": "NO_RELATION",
+      "reason": "柳州开口询问水果与出差前永旺菠萝蜜不是同一购买经历，本次未引用开口交流的心得。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-26c67948327b9022",
+      "status": "NO_RELATION",
+      "reason": "父亲饭盒和龙舌兰礼物与颂梅生日菠萝蜜不同对象和事项，没有明确引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-c01bd2cb99d811a1",
+      "status": "RELATED",
+      "reason": "此前颂梅拒绝多种生日礼物后仍待继续想，本次出现同一生日的新礼物打算和数量安排。",
+      "relation": {
+        "source_event": "E039",
+        "target_event": "E068",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 1,
+            "quote": "颂梅快生日，原想买iPhone 18作大礼物，她说刚换过电池、手机好用，不用换。她也不想靠普拉提减肥，觉得投入产出比低，减肥会自己安排；首饰、金项链、换手表都不要，我很纠结。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今天中午遛完狗回到家，我想着，要不在拼多多给颂梅买一整个菠萝蜜，让她吃个够，刚好也算生日礼物之一，凑一份礼物。嘿嘿。"
+          },
+          {
+            "point_no": 3,
+            "quote": "如果再加上菠萝蜜，连同Airpods就有8个礼物了。之前本来想着Airpods不算礼物，直接给颂梅，现在还是把它算作一份礼物。"
+          }
+        ],
+        "description": "此前颂梅不想要手机、首饰等生日礼物，还需要继续想；本次又考虑新增一整只菠萝蜜，并把Airpods算作生日礼物，若加上菠萝蜜共8份。"
+      }
+    },
+    {
+      "pair_id": "P-cff004e22a740912",
+      "status": "NO_RELATION",
+      "reason": "此前带哒哒到餐厅吃饭与本次菠萝蜜礼物不是同次用餐或送礼事项。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-9535b8276e11130b",
+      "status": "NO_RELATION",
+      "reason": "父亲生日与颂梅生日不同，不能因生日、礼物等共同词语建立关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-87110f0e36cdb505",
+      "status": "NO_RELATION",
+      "reason": "程序员节收到祝福时对买礼物的疑问，没有明确指向颂梅的生日方案，不能据此建立引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-1b6ee9542bf6fe0d",
+      "status": "RELATED",
+      "reason": "此前为颂梅月底生日筹划六件礼物盲盒，本次该生日筹备加入菠萝蜜打算，并重新确定Airpods是否计入及总数。",
+      "relation": {
+        "source_event": "E032",
+        "target_event": "E068",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "source_evidence": [
+          {
+            "point_no": 5,
+            "quote": "我一开始想给颂梅追被个礼物盲盒，里面一个大礼物、三个小一点的、两个闹着玩的，凑六个礼物放进盒子。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "今天中午遛完狗回到家，我想着，要不在拼多多给颂梅买一整个菠萝蜜，让她吃个够，刚好也算生日礼物之一，凑一份礼物。嘿嘿。"
+          },
+          {
+            "point_no": 3,
+            "quote": "如果再加上菠萝蜜，连同Airpods就有8个礼物了。之前本来想着Airpods不算礼物，直接给颂梅，现在还是把它算作一份礼物。"
+          }
+        ],
+        "description": "此前颂梅生日盲盒打算凑六件礼物；本次考虑新增整只菠萝蜜，并把Airpods算作一份，若加上菠萝蜜共8份。新增菠萝蜜仍是购买打算。"
+      }
+    },
+    {
+      "pair_id": "P-cf90fc704a48cc89",
+      "status": "NO_RELATION",
+      "reason": "本日游戏和菠萝蜜礼物打算互无具体因果、承接或回顾。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-24c07639b469ce9a",
+      "status": "NO_RELATION",
+      "reason": "此前等江西项目AI开发时玩游戏，与本次阳光菇升级未明确为同一任务或等AI时的玩法。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-13f0e72d470c4a8e",
+      "status": "NO_RELATION",
+      "reason": "此前秘境通关预期与本次阳光菇升级的无尽模式不同，本次没有引用原预测或推进同一秘境关卡。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6fc9e8d4cb91fae2",
+      "status": "NO_RELATION",
+      "reason": "父亲生日祝福和本人程序员节祝福对象与节日不同，未互相引用。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-3c91d572e128f11b",
+      "status": "NO_RELATION",
+      "reason": "颂梅生日iPhone计划与程序员节收到祝福时的泛泛礼物疑问没有具体指向关系。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-6b8c80273aaf00f1",
+      "status": "NO_RELATION",
+      "reason": "节日就业感慨与玩游戏没有来源表达的引发、回顾或同事项延续。",
+      "relation": null
+    },
+    {
+      "pair_id": "P-f6a8ff394014466d",
+      "status": "NO_RELATION",
+      "reason": "此前跑步后游戏耽误瑜伽与本次阳光菇升级没有具体承接，本次事件也未提及瑜伽。",
+      "relation": null
+    }
+  ]
+}
