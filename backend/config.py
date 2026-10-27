@@ -42,7 +42,6 @@ class Settings(BaseSettings):
     GRAPH_HEARTBEAT_SECONDS: int = Field(default=30, ge=5)
 
     # Fun-ASR 录音文件识别运行参数。模型、API 地址和密钥由管理端模型配置维护。
-    TRANSCRIPTION_PUBLIC_BASE_URL: str = "http://localhost"
     TRANSCRIPTION_MAX_FILE_SIZE: int = 314572800
     TRANSCRIPTION_MAX_CONCURRENCY: int = 3
     TRANSCRIPTION_FAILED_RETENTION_DAYS: int = 7
