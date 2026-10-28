@@ -2,12 +2,7 @@
   "package_sha256": "56f7756845514b9c69135606161b0a3250d75880f678504f90fada0107430ed7",
   "review_origin": "SKILL_AGENT_REVIEW",
   "stored_in_database": false,
-  "database_verification": {
-    "verified_against_database": true,
-    "package_sha256": "56f7756845514b9c69135606161b0a3250d75880f678504f90fada0107430ed7",
-    "verified_at": "2026-10-23T02:55:07.974258+00:00",
-    "stored_in_database": false
-  },
+  "database_verification": null,
   "results": [
     {
       "pair_id": "P-01b5f77c875ee052",
@@ -35,41 +30,9 @@
       "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
       "event_b_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
       "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-      "status": "RELATED",
-      "reason": "同一游戏控制事项出现仍沉迷的新状态，不把计划当执行。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前打算隐藏PVZ2控制使用，后来仍主要玩秘境并觉得快通关；现有要点没有说明隐藏措施是否已实行。",
-        "source_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
-        "source_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "今天玩《植物大战僵尸 2》仍有点沉迷。我准备先增加使用成本，把 App 隐藏起来",
-            "point_id": "4f9c342e-6f61-5dc2-8c0f-ce6fc3b60646",
-            "point_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
-            "point_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "fd4b51d2ee1e9fb6d4f7dd0d0ceda3bcda764be5744ea1ecc37cf79774c0f38e"
-          }
-        ],
-        "target_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
-        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "今天主要时间还是打《植物大战僵尸》，确实沉迷，但感觉快通关，秘境没几关",
-            "point_id": "c1c6ec48-d0a7-48ea-9409-4dfb7fc8ebd9",
-            "point_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
-            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "2181c11ae46ddfd404167e78e15844ff6f11147cd472cd2c140e86af7e8dccdb"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点1与目标事件要点1承接同一事项“此前打算隐藏PVZ2控制使用，后来仍主要玩秘境并觉得快通关；现有要点没有说明隐藏措施是否已实行。”；替代路径依次为“此前准备限制游戏使用，后来仍因限时体验植物投入特殊关卡；未声称隐藏或卸载计划已经执行。；开始借十四天植物体验打秘境后，又认为秘境剩余关卡不多、估计再几天可打完。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:8afbeeb0-b2a5-59dc-8784-b23fe502aee2 → C:P-543db8339599a61a",
+      "relation": null
     },
     {
       "pair_id": "P-127b4eba079bc642",
@@ -107,41 +70,9 @@
       "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
       "event_b_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
       "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-      "status": "RELATED",
-      "reason": "同一课程恢复事项出现明确执行成果。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "恢复心理学课的计划随后有了完成第二章和笔记的结果。",
-        "source_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
-        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "下周准备继续看心理学课、做瑜伽。",
-            "point_id": "0b7b8237-cb6f-4b04-a131-55f233656dce",
-            "point_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
-            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-            "offset": 119,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "3d2840efa4cfbc836171d81788c83e1ff6ea1eb04ce856f6791f1fbc34a3ab2f"
-          }
-        ],
-        "target_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
-        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "最终学完第二章“神经系统的结构和功能”，笔记也整理好",
-            "point_id": "c39173a6-44c4-4881-8668-d667610c5392",
-            "point_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
-            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-            "offset": 17,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "f65c4eaedcf5a29f28cc43a727825a7ab847d9dc1fca87834409d03f14c50d74"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点1与目标事件要点1承接同一事项“恢复心理学课的计划随后有了完成第二章和笔记的结果。”；替代路径依次为“此前打算恢复心理学课，随后实际投入较多时间看普通心理学并整理笔记。；此前学习大脑区域并整理笔记后，完成普通心理学第二章神经系统结构和功能，准备继续第三章。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:65773fd9-2e75-5c85-8f83-fd3be9a08827 → H:35d7b56f-6191-5098-b388-a4d74a81725f → H:03969356-3730-5a15-95be-c91f07dd798a → C:P-5bfb42f8104b9622",
+      "relation": null
     },
     {
       "pair_id": "P-30f0a2433dcb9e7f",
@@ -325,41 +256,9 @@
       "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
       "event_b_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
       "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-      "status": "RELATED",
-      "reason": "同一游戏出现明确新模式进度。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "主线简单模式通关之后，又推进秘境关卡，估计再几天能打完。",
-        "source_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
-        "source_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "今天还通关了《植物大战僵尸 2》的主线简单模式，之后每天打卡就行。",
-            "point_id": "c18ac905-0654-5e5e-9487-0e87525f58dd",
-            "point_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
-            "point_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "9b96594226f4de68ca41a6def4982380a647de82b5461c5eddf5f85c83ec0be5"
-          }
-        ],
-        "target_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
-        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "感觉快通关，秘境没几关，估计再几天就能打完",
-            "point_id": "c1c6ec48-d0a7-48ea-9409-4dfb7fc8ebd9",
-            "point_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
-            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-            "offset": 24,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "2181c11ae46ddfd404167e78e15844ff6f11147cd472cd2c140e86af7e8dccdb"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点1与目标事件要点1承接同一事项“主线简单模式通关之后，又推进秘境关卡，估计再几天能打完。”；替代路径依次为“主线简单模式通关后，又因秘境和限时植物体验继续沉迷，并未转为只做日常。；开始借十四天植物体验打秘境后，又认为秘境剩余关卡不多、估计再几天可打完。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:285550b5-4732-51c5-8fc2-49c363a331ef → H:8afbeeb0-b2a5-59dc-8784-b23fe502aee2 → C:P-543db8339599a61a",
+      "relation": null
     },
     {
       "pair_id": "P-79b5f6ccca304380",
@@ -439,41 +338,9 @@
       "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
       "event_b_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
       "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-      "status": "RELATED",
-      "reason": "双方独立支持同一游戏及新的具体关卡状态。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前持续玩植物大战僵尸后，后来秘境关卡接近打完。",
-        "source_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
-        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "最近玩 PVZ《植物大战僵尸》有些上瘾",
-            "point_id": "67d55bc2-738b-50e6-bfca-92d101f1a9a0",
-            "point_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
-            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "5df12d0f1fb4dc15169efef2ba23d59e586424340ce1c39158e6179eea5d1da8"
-          }
-        ],
-        "target_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
-        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "秘境没几关，估计再几天就能打完",
-            "point_id": "c1c6ec48-d0a7-48ea-9409-4dfb7fc8ebd9",
-            "point_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
-            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-            "offset": 30,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "2181c11ae46ddfd404167e78e15844ff6f11147cd472cd2c140e86af7e8dccdb"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点1与目标事件要点1承接同一事项“此前持续玩植物大战僵尸后，后来秘境关卡接近打完。”；替代路径依次为“此前估计植物大战僵尸之后只刷日常，随后又开始秘境及十四天植物体验，预期继续投入时间。；开始借十四天植物体验打秘境后，又认为秘境剩余关卡不多、估计再几天可打完。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:6fde12d3-a441-5b87-b76d-d12c5e75f476 → H:285550b5-4732-51c5-8fc2-49c363a331ef → H:8afbeeb0-b2a5-59dc-8784-b23fe502aee2 → C:P-543db8339599a61a",
+      "relation": null
     },
     {
       "pair_id": "P-8f8b5dee5fc9570a",
@@ -603,41 +470,9 @@
       "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
       "event_b_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
       "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-      "status": "RELATED",
-      "reason": "相同学习恢复事项有新结果。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前想恢复荒废的心理学学习，随后完成第二章和笔记。",
-        "source_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
-        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "心理学学习和瑜伽，这四项都荒废了很长时间。我想恢复",
-            "point_id": "87d786c0-7a15-4d3a-ae87-12b4bbef8d5e",
-            "point_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
-            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-            "offset": 12,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "5665b422af9df7760d740376e3a12243385cedec5670c91ff0555bdab79aa6e0"
-          }
-        ],
-        "target_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
-        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "最终学完第二章“神经系统的结构和功能”，笔记也整理好",
-            "point_id": "c39173a6-44c4-4881-8668-d667610c5392",
-            "point_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
-            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-            "offset": 17,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "f65c4eaedcf5a29f28cc43a727825a7ab847d9dc1fca87834409d03f14c50d74"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点1与目标事件要点1承接同一事项“此前想恢复荒废的心理学学习，随后完成第二章和笔记。”；替代路径依次为“此前心理学学习荒废、想恢复，随后已重新持续看普通心理学和整理笔记。；此前学习大脑区域并整理笔记后，完成普通心理学第二章神经系统结构和功能，准备继续第三章。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:5fa3239b-18ee-5b07-ab3a-0730578ae32b → C:P-5bfb42f8104b9622",
+      "relation": null
     },
     {
       "pair_id": "P-efcf804ccb7a1955",
@@ -645,41 +480,9 @@
       "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
       "event_b_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
       "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-      "status": "RELATED",
-      "reason": "具名游戏持续事项有新的具体模式进展，不表述手腕症状变化。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "持续玩PVZ2后，新增秘境关卡接近打完的进度。",
-        "source_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
-        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-        "source_evidence": [
-          {
-            "point_no": 2,
-            "quote": "最近玩《植物大战僵尸 2》有点上瘾",
-            "point_id": "d8805646-c3cf-57f8-9e0a-ea85c42db952",
-            "point_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
-            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "73dcfe421b0bb493a9d2a2df3edde32e6d4988db9a450e893f9db063a546df47"
-          }
-        ],
-        "target_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
-        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "秘境没几关，估计再几天就能打完",
-            "point_id": "c1c6ec48-d0a7-48ea-9409-4dfb7fc8ebd9",
-            "point_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
-            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-            "offset": 30,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "2181c11ae46ddfd404167e78e15844ff6f11147cd472cd2c140e86af7e8dccdb"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点2与目标事件要点1承接同一事项“持续玩PVZ2后，新增秘境关卡接近打完的进度。”；替代路径依次为“持续玩植物大战僵尸2后，已通关主线简单模式，打算之后只做日常打卡。；主线简单模式通关后，又因秘境和限时植物体验继续沉迷，并未转为只做日常。；开始借十四天植物体验打秘境后，又认为秘境剩余关卡不多、估计再几天可打完。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:6cb2b16f-f161-531c-a61d-1a9dfdabe216 → H:6fde12d3-a441-5b87-b76d-d12c5e75f476 → H:285550b5-4732-51c5-8fc2-49c363a331ef → H:8afbeeb0-b2a5-59dc-8784-b23fe502aee2 → C:P-543db8339599a61a",
+      "relation": null
     },
     {
       "pair_id": "P-f0b468a167440bbf",
@@ -697,41 +500,9 @@
       "event_a_run_id": "e1128c51-51be-4782-b234-297454ce2846",
       "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
       "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-      "status": "RELATED",
-      "reason": "同一课程有明确完成状态。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "普通心理学初步重启后，继续学完第二章并整理笔记。",
-        "source_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
-        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-        "source_evidence": [
-          {
-            "point_no": 4,
-            "quote": "这两天我重新开始看普通心理学课程，不过还没有进入正轨。",
-            "point_id": "d1067cee-e55e-47dd-912d-ddc56b5df1ad",
-            "point_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
-            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-            "offset": 16,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "048a1fcd519931166676284de1064ffc7c80c6a7e007f36b1f350637085f2313"
-          }
-        ],
-        "target_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
-        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "最终学完第二章“神经系统的结构和功能”，笔记也整理好",
-            "point_id": "c39173a6-44c4-4881-8668-d667610c5392",
-            "point_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
-            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-            "offset": 17,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "f65c4eaedcf5a29f28cc43a727825a7ab847d9dc1fca87834409d03f14c50d74"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点4与目标事件要点1承接同一事项“普通心理学初步重启后，继续学完第二章并整理笔记。”；替代路径依次为“普通心理学初步重启但未进入正轨后，继续发展为连续两天看课和整理笔记。；此前学习大脑区域并整理笔记后，完成普通心理学第二章神经系统结构和功能，准备继续第三章。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:35d7b56f-6191-5098-b388-a4d74a81725f → H:03969356-3730-5a15-95be-c91f07dd798a → C:P-5bfb42f8104b9622",
+      "relation": null
     },
     {
       "pair_id": "P-f179ac951c26a2f0",
@@ -781,41 +552,9 @@
       "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
       "event_b_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
       "event_b_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-      "status": "RELATED",
-      "reason": "具体课程与学习目标一致，新增实际完成结果。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前利用空闲学习普心的打算，发展为第二章及笔记的完成。",
-        "source_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
-        "source_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
-        "source_evidence": [
-          {
-            "point_no": 2,
-            "quote": "完全可以用这些时间学普通心理学，继续整理笔记、看视频",
-            "point_id": "90cc07db-d7ec-42b0-a9d9-e8de58b0264f",
-            "point_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
-            "point_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
-            "offset": 93,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "77a8094090fc78affab9048a344bb4c1e78074331de1d1425ca04dcda6a647e1"
-          }
-        ],
-        "target_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
-        "target_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "最终学完第二章“神经系统的结构和功能”，笔记也整理好",
-            "point_id": "c39173a6-44c4-4881-8668-d667610c5392",
-            "point_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
-            "point_run_id": "e1128c51-51be-4782-b234-297454ce2846",
-            "offset": 17,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "f65c4eaedcf5a29f28cc43a727825a7ab847d9dc1fca87834409d03f14c50d74"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点2与目标事件要点1承接同一事项“此前利用空闲学习普心的打算，发展为第二章及笔记的完成。”；替代路径依次为“此前想到用居家办公空闲学普心和整理笔记，随后已连续两天在工作空闲中看课程并做笔记。；此前学习大脑区域并整理笔记后，完成普通心理学第二章神经系统结构和功能，准备继续第三章。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:03969356-3730-5a15-95be-c91f07dd798a → C:P-5bfb42f8104b9622",
+      "relation": null
     },
     {
       "pair_id": "P-fd6200ca269e2a13",

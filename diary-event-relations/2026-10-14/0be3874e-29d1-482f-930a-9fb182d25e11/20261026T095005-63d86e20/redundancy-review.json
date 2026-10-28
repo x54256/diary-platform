@@ -1,0 +1,29 @@
+{
+  "context_sha256": "67a104dcf9a9c73883a7d96cb2e22305b620e720771a93d35eae7525e48b2a5f",
+  "decisions": [
+    {
+      "pair_id": "P-ae6eee5a1a14dac8",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接父亲答应带饭少酒后持续执行；路径先记录带饭少酒和运动，再跟踪确认持续带饭、减少饮酒，完整覆盖。 证据编号：直连 SOURCE要点[6, 7]、TARGET要点[1]。 替代路径逐边核对：H:2c8d4694-d18f-5a4a-947e-266aca95b111 SOURCE要点[10]→TARGET要点[2]；C:P-9d115350a1db43cd SOURCE要点[2]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:2c8d4694-d18f-5a4a-947e-266aca95b111",
+        "C:P-9d115350a1db43cd"
+      ]
+    },
+    {
+      "pair_id": "P-c88caed65ff4ebaa",
+      "decision": "KEEP",
+      "reason": "保留：直连起点包含 AI 开发体验让本人考虑第二职业，目标是讨论替代风险并改变焦虑态度；替代路径只覆盖专业经验价值与失业态度，遗漏“考虑第二职业”这一独立后续内容。 证据编号：直连 SOURCE要点[3]、TARGET要点[2]。 已核对替代路径（AI 使用体验缓解了原来的焦虑，也让我想到第二职业→AI 带来的职业不自信，与专业经验仍然有用的认识；AI 带来的职业不自信，与专业经验仍然有用的认识→跟同事聊AI替代开发，先抱着车到山前的心态），其证据不含直连所述事項。",
+      "replacement_path": []
+    },
+    {
+      "pair_id": "P-dadcbcbee49cf8f1",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连仅承接被安排墨西哥出差后实际启程抵达；路径从拒绝未果、买票准备出发接到实际抵达，覆盖该承接范围。目标事件中的值机延误和支付软件问题是目标自身新增细节，不属于直连承接事项。 证据编号：直连 SOURCE要点[1]、TARGET要点[1]。 替代路径逐边核对：H:cdbf11ff-e4a0-5e27-8747-70fd55d6bf41 SOURCE要点[1]→TARGET要点[4, 1]；C:P-883765ce773d47f0 SOURCE要点[4]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:cdbf11ff-e4a0-5e27-8747-70fd55d6bf41",
+        "C:P-883765ce773d47f0"
+      ]
+    }
+  ]
+}

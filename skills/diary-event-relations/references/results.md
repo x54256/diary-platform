@@ -128,3 +128,9 @@ backend/venv/bin/python skills/diary-event-relations/scripts/workflow.py convert
 向用户展示当前完整关系稿或可阅读链接，完成只读预检后等待整稿确认，再执行已约定的入库。用户明确说“按当前稿入库”同时表达当前稿确认及写入授权，无需重复询问；确认局部修改或回答澄清问题不代表整稿确认。确认后内容或范围变化须确认新版本。
 
 事实澄清按 [澄清说明](clarifications.md) 执行。实际问题及回答放在独立 `澄清记录.md`，不把问答小节加入可解析关系稿。回答触及来源外事实时先走要点修订；明确跳过且缺口仍在则保留未决。完成澄清后展示当前完整稿，回答问题不算整稿确认。
+
+## 间接延续
+
+后续关系冗余检查完成后支持`INDIRECT_FOLLOWUP`，`relation=null`，理由说明同一事项的替代路径和间接依据。完整初步关系及证据保存在`redundancy-final.json`归档中。不得将间接延续记成`NO_RELATION`。
+
+Markdown以`## 间接延续 1`、仅含pair_id的隐藏注释、事件甲／乙和判断依据组织，放入`<summary>间接延续（N 对）</summary>`的独立details区，位于无关系区之前。由`redundancy.py finalize`生成，用户无需独立逐条审核。入库包必须绑定全部复核决定及最终保留路径，当前稿改动后须重新复核。

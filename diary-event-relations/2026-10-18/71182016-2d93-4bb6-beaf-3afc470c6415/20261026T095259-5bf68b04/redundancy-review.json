@@ -1,0 +1,23 @@
+{
+  "context_sha256": "4029acb76ac2860fb6b09a6a21c4efc451c9ff528d5ce4954bf016afb301fbb4",
+  "decisions": [
+    {
+      "pair_id": "P-a3236fe2a109db5a",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接父亲旧机损坏、换机计划到确认需求、AI筛选、购买；路径记录换机计划，再记录父亲选择并下单，完整覆盖。 证据编号：直连 SOURCE要点[2]、TARGET要点[2]。 替代路径逐边核对：H:100868f7-c8d9-539f-967f-f154f88d75c8 SOURCE要点[2]→TARGET要点[1]；C:P-0f2be080cf1456e3 SOURCE要点[1]→TARGET要点[2]。",
+      "replacement_path": [
+        "H:100868f7-c8d9-539f-967f-f154f88d75c8",
+        "C:P-0f2be080cf1456e3"
+      ]
+    },
+    {
+      "pair_id": "P-c53ac9c28f50301b",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接首次买脱脂奶后再次购买半脱脂试口味；路径先问口味并考虑替代，再实际购买两箱比较，完整覆盖。 证据编号：直连 SOURCE要点[2]、TARGET要点[1]。 替代路径逐边核对：H:3adb3038-32bf-57a8-a7d7-d083e1582a63 SOURCE要点[2]→TARGET要点[1]；C:P-e3b50d76ba08ee8b SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:3adb3038-32bf-57a8-a7d7-d083e1582a63",
+        "C:P-e3b50d76ba08ee8b"
+      ]
+    }
+  ]
+}

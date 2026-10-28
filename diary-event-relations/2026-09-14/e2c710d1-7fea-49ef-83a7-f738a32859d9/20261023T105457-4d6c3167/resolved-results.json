@@ -2,12 +2,7 @@
   "package_sha256": "14c041d9e871d3869863606cfc199231acdad5bd7f3b0e35f219532a5df305e7",
   "review_origin": "SKILL_AGENT_REVIEW",
   "stored_in_database": false,
-  "database_verification": {
-    "verified_against_database": true,
-    "package_sha256": "14c041d9e871d3869863606cfc199231acdad5bd7f3b0e35f219532a5df305e7",
-    "verified_at": "2026-10-23T02:54:59.280966+00:00",
-    "stored_in_database": false
-  },
+  "database_verification": null,
   "results": [
     {
       "pair_id": "P-0010ec5d9d16aeb5",
@@ -45,41 +40,9 @@
       "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
       "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
       "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-      "status": "RELATED",
-      "reason": "同一游戏出现明确完成结果。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "持续玩植物大战僵尸2后，已通关主线简单模式，打算之后只做日常打卡。",
-        "source_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
-        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-        "source_evidence": [
-          {
-            "point_no": 2,
-            "quote": "最近玩《植物大战僵尸 2》有点上瘾，回家又玩了一段",
-            "point_id": "d8805646-c3cf-57f8-9e0a-ea85c42db952",
-            "point_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
-            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "73dcfe421b0bb493a9d2a2df3edde32e6d4988db9a450e893f9db063a546df47"
-          }
-        ],
-        "target_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
-        "target_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "今天还通关了《植物大战僵尸 2》的主线简单模式，之后每天打卡就行。",
-            "point_id": "c18ac905-0654-5e5e-9487-0e87525f58dd",
-            "point_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
-            "point_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "9b96594226f4de68ca41a6def4982380a647de82b5461c5eddf5f85c83ec0be5"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点2与目标事件要点1承接同一事项“持续玩植物大战僵尸2后，已通关主线简单模式，打算之后只做日常打卡。”；替代路径依次为“持续玩植物大战僵尸之后，已基本打过自己能打过的关卡，并估计之后主要刷每日任务和活动。；此前已打过大部分能过的关卡，随后明确完成PVZ2主线简单模式。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:6cb2b16f-f161-531c-a61d-1a9dfdabe216 → C:P-3a0a058712f05ccf",
+      "relation": null
     },
     {
       "pair_id": "P-0c4be4336f75a0b9",
@@ -261,41 +224,9 @@
       "event_a_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
       "event_b_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
       "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-      "status": "RELATED",
-      "reason": "双方独立指向相同磨牙咬合垫事项和新就诊行动。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前想为夜间磨牙做咬合垫，之后到修复科向医生提出并讨论制作。",
-        "source_event_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
-        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-        "source_evidence": [
-          {
-            "point_no": 3,
-            "quote": "我觉得，防止睡觉磨牙的咬合垫，也要找时间做一下。",
-            "point_id": "b4b430f7-a20f-421f-aa23-9df3113d8ee5",
-            "point_event_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
-            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "ba10eca772b4b53262536a645ec72db8b46169d19b31fc5c37a856ebedf4d185"
-          }
-        ],
-        "target_event_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
-        "target_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
-        "target_evidence": [
-          {
-            "point_no": 2,
-            "quote": "我说刘佳医生提过磨牙要做咬合垫，他说夜间磨牙要做",
-            "point_id": "c0d1faae-a8d8-4fb9-86f8-bb1fba5e3774",
-            "point_event_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
-            "point_run_id": "3f4e784a-14bc-4dd7-84c6-dc3580c06189",
-            "offset": 68,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "36a85c454f9553670e9c7d6de0622facf0e71e04749f5bb2f0f42a7edc3c4ac1"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点3与目标事件要点2承接同一事项“此前想为夜间磨牙做咬合垫，之后到修复科向医生提出并讨论制作。”；替代路径依次为“此前想找时间做咬合垫，随后把计划具体到下周一去修复科。；此前计划周一去修复科做咬合垫，随后实际就诊、决定制作并完成取模。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:d17954d5-259c-5d5f-88f9-455a75dff0f3 → C:P-57111a9465407e6b",
+      "relation": null
     },
     {
       "pair_id": "P-4cd2ddf2a345787e",

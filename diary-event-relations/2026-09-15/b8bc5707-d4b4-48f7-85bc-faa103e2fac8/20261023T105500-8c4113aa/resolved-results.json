@@ -2,12 +2,7 @@
   "package_sha256": "d9e9da7e06a813397e36f4ca4aa0c30b4a9d59fc58d802303579335cd88a3a25",
   "review_origin": "SKILL_AGENT_REVIEW",
   "stored_in_database": false,
-  "database_verification": {
-    "verified_against_database": true,
-    "package_sha256": "d9e9da7e06a813397e36f4ca4aa0c30b4a9d59fc58d802303579335cd88a3a25",
-    "verified_at": "2026-10-23T02:55:01.906659+00:00",
-    "stored_in_database": false
-  },
+  "database_verification": null,
   "results": [
     {
       "pair_id": "P-072d634ee00a4b04",
@@ -97,41 +92,9 @@
       "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
       "event_b_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
       "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-      "status": "RELATED",
-      "reason": "相同具体游戏使用问题有新的干预计划。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前玩PVZ2上瘾，后来决定隐藏App增加使用成本，必要时卸载。",
-        "source_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
-        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-        "source_evidence": [
-          {
-            "point_no": 2,
-            "quote": "最近玩《植物大战僵尸 2》有点上瘾",
-            "point_id": "d8805646-c3cf-57f8-9e0a-ea85c42db952",
-            "point_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
-            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "73dcfe421b0bb493a9d2a2df3edde32e6d4988db9a450e893f9db063a546df47"
-          }
-        ],
-        "target_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
-        "target_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "今天玩《植物大战僵尸 2》仍有点沉迷。我准备先增加使用成本，把 App 隐藏起来；如果还是一直玩，就卸载。",
-            "point_id": "4f9c342e-6f61-5dc2-8c0f-ce6fc3b60646",
-            "point_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
-            "point_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "fd4b51d2ee1e9fb6d4f7dd0d0ceda3bcda764be5744ea1ecc37cf79774c0f38e"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点2与目标事件要点1承接同一事项“此前玩PVZ2上瘾，后来决定隐藏App增加使用成本，必要时卸载。”；替代路径依次为“持续玩植物大战僵尸2后，已通关主线简单模式，打算之后只做日常打卡。；通关主线简单模式、打算只做日常后仍沉迷PVZ2，又决定隐藏App，必要时卸载。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:6cb2b16f-f161-531c-a61d-1a9dfdabe216 → H:6fde12d3-a441-5b87-b76d-d12c5e75f476 → C:P-7eceabab9535212f",
+      "relation": null
     },
     {
       "pair_id": "P-21043b865cc07fe9",
@@ -169,41 +132,9 @@
       "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
       "event_b_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
       "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-      "status": "RELATED",
-      "reason": "双方独立支持持续游戏问题和新安排。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "居家办公时沉迷植物大战僵尸的情况延续，随后形成隐藏App及必要时卸载的打算。",
-        "source_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
-        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "最近玩 PVZ《植物大战僵尸》有些上瘾，在家办公也没好好上班",
-            "point_id": "67d55bc2-738b-50e6-bfca-92d101f1a9a0",
-            "point_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
-            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "5df12d0f1fb4dc15169efef2ba23d59e586424340ce1c39158e6179eea5d1da8"
-          }
-        ],
-        "target_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
-        "target_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "今天玩《植物大战僵尸 2》仍有点沉迷。我准备先增加使用成本，把 App 隐藏起来；如果还是一直玩，就卸载。",
-            "point_id": "4f9c342e-6f61-5dc2-8c0f-ce6fc3b60646",
-            "point_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
-            "point_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "fd4b51d2ee1e9fb6d4f7dd0d0ceda3bcda764be5744ea1ecc37cf79774c0f38e"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点1与目标事件要点1承接同一事项“居家办公时沉迷植物大战僵尸的情况延续，随后形成隐藏App及必要时卸载的打算。”；替代路径依次为“此前已打过大部分能过的关卡，随后明确完成PVZ2主线简单模式。；通关主线简单模式、打算只做日常后仍沉迷PVZ2，又决定隐藏App，必要时卸载。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:6fde12d3-a441-5b87-b76d-d12c5e75f476 → C:P-7eceabab9535212f",
+      "relation": null
     },
     {
       "pair_id": "P-3a9901cdaea4a7ca",

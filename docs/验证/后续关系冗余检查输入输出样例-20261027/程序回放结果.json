@@ -1,0 +1,107 @@
+{
+  "note": "从现有数据库只读构造入库前回放；排除10月26日本次运行已发布边，再加入其32条候选后续边。历史边取本次冻结历史运行集合当前已发布版本，不宣称精确恢复历史时点。",
+  "all_pairs": 288,
+  "initial_related": 35,
+  "followup_candidates": 32,
+  "other_type_relations": 3,
+  "history_followup_edges": 272,
+  "with_alternative_path": 20,
+  "without_alternative_path": 12,
+  "cube_history": [
+    {
+      "edge": "A→B",
+      "relation_id": "55f9678c-7580-544b-9aad-e41356e20c83",
+      "description": "昨日计划Cube改CBB服务管理，今天索取信息、抓包并让AI分析替换接口，结果还未检查。",
+      "evidence": [
+        {
+          "side": "SOURCE",
+          "point_id": "8d9a39e2-e2b7-44c7-9018-436a21b0e663",
+          "point_no": 1,
+          "detail": "明天想早起遛狗再上班，最近没好好工作，再不做有点过分，应把工作放前面。主要是规划传导Cube改CBB服务管理、指标填报，其他应不多，可以让AI做。空闲本想学普通心理学，后来决定先继续日记平台知识图谱可视化，心理学慢慢学。"
+        },
+        {
+          "side": "TARGET",
+          "point_id": "e853f16f-3093-402d-aa31-4c92ec796092",
+          "point_no": 1,
+          "detail": "详规规划传导计划将Cube替换成CBB服务管理。今天在群里向肖静要服务和数据库连接信息，又从CBB页面抓几个包，让AI分析如何转为CBB服务管理接口。下午让它继续，结果还没看，明天再检查。"
+        }
+      ]
+    },
+    {
+      "edge": "B→C",
+      "relation_id": "03c64f90-176a-5f0b-98ec-cfb1781b1534",
+      "description": "规划传导Cube改CBB先交AI分析，次日AI称完成，已通知莫菲安排前端对接。",
+      "evidence": [
+        {
+          "side": "SOURCE",
+          "point_id": "e853f16f-3093-402d-aa31-4c92ec796092",
+          "point_no": 1,
+          "detail": "详规规划传导计划将Cube替换成CBB服务管理。今天在群里向肖静要服务和数据库连接信息，又从CBB页面抓几个包，让AI分析如何转为CBB服务管理接口。下午让它继续，结果还没看，明天再检查。"
+        },
+        {
+          "side": "TARGET",
+          "point_id": "2c2154f4-6710-4c9a-af93-b65d39d160b5",
+          "point_no": 1,
+          "detail": "早晨继续昨天工作，让AI完成Cube改CBB服务管理，它说已做好，我通知莫菲去找前端对接。江西城镇开发边界模型数据也继续让AI对接；指标填报今天没动，我主要在做自己的日记管理平台。"
+        }
+      ]
+    },
+    {
+      "edge": "A→C",
+      "relation_id": "5d52f79d-8cf4-5153-a8cb-2666579f6a20",
+      "description": "计划推进规划传导Cube改CBB服务管理后，继续让AI实现；AI表示已做好，我已通知莫菲找前端对接，尚不等于测试验收通过。",
+      "evidence": [
+        {
+          "side": "SOURCE",
+          "point_id": "8d9a39e2-e2b7-44c7-9018-436a21b0e663",
+          "point_no": 1,
+          "detail": "明天想早起遛狗再上班，最近没好好工作，再不做有点过分，应把工作放前面。主要是规划传导Cube改CBB服务管理、指标填报，其他应不多，可以让AI做。空闲本想学普通心理学，后来决定先继续日记平台知识图谱可视化，心理学慢慢学。"
+        },
+        {
+          "side": "TARGET",
+          "point_id": "2c2154f4-6710-4c9a-af93-b65d39d160b5",
+          "point_no": 1,
+          "detail": "早晨继续昨天工作，让AI完成Cube改CBB服务管理，它说已做好，我通知莫菲去找前端对接。江西城镇开发边界模型数据也继续让AI对接；指标填报今天没动，我主要在做自己的日记管理平台。"
+        }
+      ]
+    }
+  ],
+  "cube_current": [
+    {
+      "edge": "A→D",
+      "pair_id": "P-1544ffc6c85c9c96",
+      "source_event_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "target_event_id": "ff8b7fb3-0efb-4ef1-9e4f-e288e3e02615"
+    },
+    {
+      "edge": "B→D",
+      "pair_id": "P-a92b6ea2c10d7e44",
+      "source_event_id": "479a72f1-08b6-4b3e-9687-33d3c56bc6f4",
+      "target_event_id": "ff8b7fb3-0efb-4ef1-9e4f-e288e3e02615"
+    },
+    {
+      "edge": "C→D",
+      "pair_id": "P-b3e8f189ba1d3be6",
+      "source_event_id": "e62e00f7-b157-494f-be7d-e4eb2ae74800",
+      "target_event_id": "ff8b7fb3-0efb-4ef1-9e4f-e288e3e02615"
+    }
+  ],
+  "cube_alternatives": [
+    {
+      "edge": "A→D",
+      "path": [
+        "A",
+        "B",
+        "D"
+      ]
+    },
+    {
+      "edge": "B→D",
+      "path": [
+        "B",
+        "C",
+        "D"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "context_sha256": "5d22ca1904a422edf1f82655813f79383a7c07d4fdb0753185f0e6f84362ee51",
+  "decisions": [
+    {
+      "pair_id": "P-25e5200deb4165f9",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接非暴力沟通方法从伴侣争执复盘迁移到母亲消费争执；路径先复盘并练习该方法，再明确应用到母亲消费争执，方法和应用对象均连续。 证据编号：直连 SOURCE要点[10]、TARGET要点[2]。 替代路径逐边核对：H:265783b1-7e43-59bc-b9d7-9bb2f3b29110 SOURCE要点[1]→TARGET要点[2]；C:P-fa0db887d662ab05 SOURCE要点[9]→TARGET要点[2]。",
+      "replacement_path": [
+        "H:265783b1-7e43-59bc-b9d7-9bb2f3b29110",
+        "C:P-fa0db887d662ab05"
+      ]
+    },
+    {
+      "pair_id": "P-2e22d6ce2dcc0889",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接早期事件关系效果差后开发并验证关系 skill；路径记录改为先整理要点及第一层落地，再推进关系 skill 开发和九月关系任务，覆盖改进流程。 证据编号：直连 SOURCE要点[1]、TARGET要点[1]。 替代路径逐边核对：H:0f7b6440-aa65-530b-9519-febf9510c4be SOURCE要点[1]→TARGET要点[3]；H:0cf93455-1f07-58cc-86c5-0658fd57ca0f SOURCE要点[3]→TARGET要点[2, 1]；C:P-5f766fb73e915881 SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:a2fbf2d4-12e7-5279-a788-d620ed13526c",
+        "H:805bc92f-74e9-5597-bd8a-c7de85107932",
+        "H:c3bfb105-e4cd-5232-b992-ac5f6269efaf",
+        "H:68dbea60-b9eb-52af-be27-badd3e883d88",
+        "H:83328381-3b6a-556b-9e73-63f7f0ea0525",
+        "H:012dea55-6ef9-5776-bf6f-f963c4ea3ca0",
+        "C:P-5f766fb73e915881"
+      ]
+    },
+    {
+      "pair_id": "P-42159c48b2850a4d",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接个人知识库设计转入第一层要点/关系 skill 并试验；路径从实体关系与第二层设计、准确性问题，到 Codex/skill、九月整理及关系 skill，完整呈现第一层实施演进。 证据编号：直连 SOURCE要点[1]、TARGET要点[1]。 替代路径逐边核对：H:b0e4a64f-b88b-54bb-b7f7-96b486d1cd61 SOURCE要点[1]→TARGET要点[1]；H:d26f0e69-4f53-55c9-b849-50df098e2ff1 SOURCE要点[2]→TARGET要点[1, 3]；H:79317c48-217a-5870-b069-18875505d75f SOURCE要点[3]→TARGET要点[1]；H:83328381-3b6a-556b-9e73-63f7f0ea0525 SOURCE要点[1]→TARGET要点[1]；H:012dea55-6ef9-5776-bf6f-f963c4ea3ca0 SOURCE要点[2]→TARGET要点[1]；C:P-5f766fb73e915881 SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:b0e4a64f-b88b-54bb-b7f7-96b486d1cd61",
+        "H:d26f0e69-4f53-55c9-b849-50df098e2ff1",
+        "H:79317c48-217a-5870-b069-18875505d75f",
+        "H:83328381-3b6a-556b-9e73-63f7f0ea0525",
+        "H:012dea55-6ef9-5776-bf6f-f963c4ea3ca0",
+        "C:P-5f766fb73e915881"
+      ]
+    },
+    {
+      "pair_id": "P-d9159a0b9125a5fe",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接伴侣争吵后学习非暴力沟通，并把方法用于母亲催生复盘；路径从争吵复盘和四步练习，推进到读书并应用于催生案例，完整覆盖。 证据编号：直连 SOURCE要点[10]、TARGET要点[1]。 替代路径逐边核对：H:265783b1-7e43-59bc-b9d7-9bb2f3b29110 SOURCE要点[1]→TARGET要点[2]；C:P-2860a5413466df1e SOURCE要点[9]→TARGET要点[2]。",
+      "replacement_path": [
+        "H:265783b1-7e43-59bc-b9d7-9bb2f3b29110",
+        "C:P-2860a5413466df1e"
+      ]
+    },
+    {
+      "pair_id": "P-f34da11359ead1a5",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接生日盲盒从大礼物未定到替换为现金并定下六件抽奖；路径先记录礼物被拒，再记录现金方案和六件抽奖，完整覆盖。 证据编号：直连 SOURCE要点[2]、TARGET要点[1]。 替代路径逐边核对：H:c4d06079-69bb-599c-a77a-3cb13169dc53 SOURCE要点[5]→TARGET要点[1]；C:P-65cb2d37546775b9 SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:c4d06079-69bb-599c-a77a-3cb13169dc53",
+        "C:P-65cb2d37546775b9"
+      ]
+    }
+  ]
+}

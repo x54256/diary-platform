@@ -2,12 +2,7 @@
   "package_sha256": "902758ee9746c6bad2062d8eb240e2eec2f8a33d10bdeaba1415e0a428a96a3e",
   "review_origin": "SKILL_AGENT_REVIEW",
   "stored_in_database": false,
-  "database_verification": {
-    "verified_against_database": true,
-    "package_sha256": "902758ee9746c6bad2062d8eb240e2eec2f8a33d10bdeaba1415e0a428a96a3e",
-    "verified_at": "2026-10-26T07:39:57.750447+00:00",
-    "stored_in_database": false
-  },
+  "database_verification": null,
   "results": [
     {
       "pair_id": "P-04b6566e0570537c",
@@ -281,41 +276,9 @@
       "event_a_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
       "event_b_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
       "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
-      "status": "RELATED",
-      "reason": "相同具体活动有新的执行状态和时间要求。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前恢复瑜伽的计划仍未稳定执行，后来在每日安排中再次明确今天一定要做。",
-        "source_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
-        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "下周准备继续看心理学课、做瑜伽。",
-            "point_id": "0b7b8237-cb6f-4b04-a131-55f233656dce",
-            "point_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
-            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-            "offset": 119,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "3d2840efa4cfbc836171d81788c83e1ff6ea1eb04ce856f6791f1fbc34a3ab2f"
-          }
-        ],
-        "target_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
-        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
-        "target_evidence": [
-          {
-            "point_no": 2,
-            "quote": "昨天又没瑜伽，今天不管什么理由都一定做",
-            "point_id": "729a21ac-fccf-44ce-b4b2-5e888848e6c7",
-            "point_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
-            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
-            "offset": 89,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "df508f406c5e1f664946eeefe5babe4e1f5b4446cf14cad27e686edbcb3ca254"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点1与目标事件要点2承接同一事项“此前恢复瑜伽的计划仍未稳定执行，后来在每日安排中再次明确今天一定要做。”；替代路径依次为“此前准备恢复瑜伽，随后因困倦今晚仍打算推迟，并给自己定下明天不能再拖的要求。；此前要求自己明天不能再拖瑜伽，后来仍报告昨天没做，并重新要求今天一定做。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:0340b23e-a642-5b89-b365-1aca7fae72dc → C:P-78a4761c3f91b998",
+      "relation": null
     },
     {
       "pair_id": "P-3cdbd3aa4c69d519",
@@ -353,41 +316,9 @@
       "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
       "event_b_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
       "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
-      "status": "RELATED",
-      "reason": "同一明确课程安排有具体进度成果。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "利用居家空闲学普通心理学的打算，后来落实到第三章感觉及三节课笔记。",
-        "source_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
-        "source_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
-        "source_evidence": [
-          {
-            "point_no": 2,
-            "quote": "完全可以用这些时间学普通心理学，继续整理笔记、看视频",
-            "point_id": "90cc07db-d7ec-42b0-a9d9-e8de58b0264f",
-            "point_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
-            "point_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
-            "offset": 93,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "77a8094090fc78affab9048a344bb4c1e78074331de1d1425ca04dcda6a647e1"
-          }
-        ],
-        "target_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
-        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
-        "target_evidence": [
-          {
-            "point_no": 2,
-            "quote": "今早继续学第三章感觉，整理三节课笔记。",
-            "point_id": "754bf242-29f8-494b-8092-75bbca617284",
-            "point_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
-            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
-            "offset": 112,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "294897b3ebc1b65794d37544b8c0c8c2d61b535bb089895a096286dd9a1ac59a"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点2与目标事件要点2承接同一事项“利用居家空闲学普通心理学的打算，后来落实到第三章感觉及三节课笔记。”；替代路径依次为“此前利用空闲学习普心的打算，发展为第二章及笔记的完成。；学完第二章并计划继续第三章后，已学习第三章感觉并整理三节课笔记。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:03969356-3730-5a15-95be-c91f07dd798a → C:P-e774ae8f79ed7714",
+      "relation": null
     },
     {
       "pair_id": "P-4c9ee75fda6cc331",
@@ -477,41 +408,9 @@
       "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
       "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
       "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-      "status": "RELATED",
-      "reason": "此前重新开始普通心理学课程但尚未进入正轨，后来重新规划将同一课程放在中午或空闲时间学习，形成具体学习安排。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前重新开始普通心理学课程但尚未进入正轨，后来重新规划将同一课程放在中午或空闲时间学习，形成具体学习安排。",
-        "source_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
-        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-        "source_evidence": [
-          {
-            "point_no": 4,
-            "quote": "发现自己又沉迷视频、光看不做后，这两天我重新开始看普通心理学课程，不过还没有进入正轨。",
-            "point_id": "d1067cee-e55e-47dd-912d-ddc56b5df1ad",
-            "point_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
-            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "048a1fcd519931166676284de1064ffc7c80c6a7e007f36b1f350637085f2313"
-          }
-        ],
-        "target_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
-        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
-        "target_evidence": [
-          {
-            "point_no": 2,
-            "quote": "我重新规划：早上英语、新闻打卡，新闻一部分 AI 汇集、一部分南方周末；LeetCode 看心情。中午或空闲学《简单心理学》",
-            "point_id": "729a21ac-fccf-44ce-b4b2-5e888848e6c7",
-            "point_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
-            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "df508f406c5e1f664946eeefe5babe4e1f5b4446cf14cad27e686edbcb3ca254"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点4与目标事件要点2承接同一事项“此前重新开始普通心理学课程但尚未进入正轨，后来重新规划将同一课程放在中午或空闲时间学习，形成具体学习安排。”；替代路径依次为“普通心理学初步重启后，继续学完第二章并整理笔记。；在学完第二章并准备继续第三章后，进一步把同一心理学课程安排在中午或空闲时间学习；这是形成新时段安排，不表示该安排已经执行。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:35d7b56f-6191-5098-b388-a4d74a81725f → H:03969356-3730-5a15-95be-c91f07dd798a → H:0d3affdd-5392-565f-bae4-1478ef0fea6e → C:P-1b0cd72ad8e4ac7e",
+      "relation": null
     },
     {
       "pair_id": "P-64661d7a7361e93a",
@@ -561,41 +460,9 @@
       "event_a_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
       "event_b_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
       "event_b_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-      "status": "RELATED",
-      "reason": "同一课程有明确新进度。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "普通心理学初步重启后，已继续到第三章并整理笔记。",
-        "source_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
-        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-        "source_evidence": [
-          {
-            "point_no": 4,
-            "quote": "这两天我重新开始看普通心理学课程，不过还没有进入正轨。",
-            "point_id": "d1067cee-e55e-47dd-912d-ddc56b5df1ad",
-            "point_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
-            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-            "offset": 16,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "048a1fcd519931166676284de1064ffc7c80c6a7e007f36b1f350637085f2313"
-          }
-        ],
-        "target_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
-        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
-        "target_evidence": [
-          {
-            "point_no": 2,
-            "quote": "今早继续学第三章感觉，整理三节课笔记。",
-            "point_id": "754bf242-29f8-494b-8092-75bbca617284",
-            "point_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
-            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
-            "offset": 112,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "294897b3ebc1b65794d37544b8c0c8c2d61b535bb089895a096286dd9a1ac59a"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点4与目标事件要点2承接同一事项“普通心理学初步重启后，已继续到第三章并整理笔记。”；替代路径依次为“普通心理学初步重启后，继续学完第二章并整理笔记。；学完第二章并计划继续第三章后，已学习第三章感觉并整理三节课笔记。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:35d7b56f-6191-5098-b388-a4d74a81725f → H:03969356-3730-5a15-95be-c91f07dd798a → C:P-e774ae8f79ed7714",
+      "relation": null
     },
     {
       "pair_id": "P-6f84e3576ed82456",
@@ -871,41 +738,9 @@
       "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
       "event_b_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
       "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
-      "status": "RELATED",
-      "reason": "同一瑜伽恢复事项有具体新的时间安排。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前想恢复荒废的瑜伽后，后来明确报告昨日没做，并给今天安排强制执行要求。",
-        "source_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
-        "source_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "心理学学习和瑜伽，这四项都荒废了很长时间。我想恢复",
-            "point_id": "87d786c0-7a15-4d3a-ae87-12b4bbef8d5e",
-            "point_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
-            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-            "offset": 12,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "5665b422af9df7760d740376e3a12243385cedec5670c91ff0555bdab79aa6e0"
-          }
-        ],
-        "target_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
-        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
-        "target_evidence": [
-          {
-            "point_no": 2,
-            "quote": "昨天又没瑜伽，今天不管什么理由都一定做",
-            "point_id": "729a21ac-fccf-44ce-b4b2-5e888848e6c7",
-            "point_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
-            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
-            "offset": 89,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "df508f406c5e1f664946eeefe5babe4e1f5b4446cf14cad27e686edbcb3ca254"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点1与目标事件要点2承接同一事项“此前想恢复荒废的瑜伽后，后来明确报告昨日没做，并给今天安排强制执行要求。”；替代路径依次为“此前想恢复荒废的瑜伽后，进一步给自己定下明天不能再推迟的要求。；此前要求自己明天不能再拖瑜伽，后来仍报告昨天没做，并重新要求今天一定做。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:cd4cfad1-62a8-51c9-ae1c-85fe0ab18dcb → C:P-78a4761c3f91b998",
+      "relation": null
     },
     {
       "pair_id": "P-8cc0295b989f7ecd",
@@ -1197,41 +1032,9 @@
       "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
       "event_b_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
       "event_b_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
-      "status": "RELATED",
-      "reason": "同一就医AI沟通设想实际执行，保留效果未知。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前想到让父亲问AI检视看腰的想法，后来实际让他询问豆包，但仍不知道是否听进去。",
-        "source_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
-        "source_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
-        "source_evidence": [
-          {
-            "point_no": 3,
-            "quote": "我想到，也可以让他问问 AI，自己的这个想法、观点是否正确，借助外部力量改变他的认知。",
-            "point_id": "1fa0fea3-44dd-46ba-a414-07456bd90413",
-            "point_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
-            "point_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
-            "offset": 57,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "3649efe436e0d52cac702eb6cad4c3c1ec72608a90d530c6fa56b305c34b0c2f"
-          }
-        ],
-        "target_event_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
-        "target_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "我让他问，AI 说了几句，不知听进去没。仍想争取改变心理、让他愿就医。",
-            "point_id": "5a073988-f592-4929-a7c0-198fbb540e49",
-            "point_event_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
-            "point_run_id": "4c04cc79-e137-46dc-a783-def3920c419c",
-            "offset": 101,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "ff067df4ff2c0fa4e11f29670e827c4f9a07096e07de83a17677e3202a5523ed"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点3与目标事件要点1承接同一事项“此前想到让父亲问AI检视看腰的想法，后来实际让他询问豆包，但仍不知道是否听进去。”；替代路径依次为“此前父亲认为腰疼才需就医，随后虽答应本月去看腰，仍未去并开始躲避通话。；父亲答应看腰却仍拖延后，我进一步让他把逃避就医的问题问豆包，希望帮助他愿意就医。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:8cb915e4-cf0f-5f5c-acee-ce208e5fadb9 → C:P-b23522d6966e48ea",
+      "relation": null
     },
     {
       "pair_id": "P-e059fa5d85a438b5",

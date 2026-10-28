@@ -84,6 +84,12 @@ def build_packet(folder, username, markdown=None):
                 'draft':{'format_version':FORMAT_VERSION,'path':str(markdown.resolve()),'content':content,'sha256':text_sha(content)},
                 'results_sha256':result_digest(snapshot,resolved),
                 'publication_dependencies':sorted(dependencies,key=lambda d:d['run_id'])}
+        from redundancy import CONTEXT, REPORT, check_report
+        review_path=Path(folder)/REPORT
+        needs_review=snapshot.get('requires_redundancy_review') or (Path(folder)/CONTEXT).exists() or any(r['status']=='INDIRECT_FOLLOWUP'for r in rows)
+        if needs_review:
+            require(review_path.exists(),'必须先完成全部后续冗余复核并finalize，不能只交付样例')
+            packet['redundancy']=check_report(snapshot,rows,read_json(review_path))
         packet['storage_sha256']=digest(packet)
         return packet
 
@@ -94,6 +100,7 @@ def validate_packet(packet, *, current_skill=True):
             'resolved_results','results_sha256','publication_dependencies','storage_sha256'}
     require(isinstance(packet,dict),'入库包必须为对象')
     if packet.get('schema_version')==2:fields.add('draft')
+    if 'redundancy' in packet:fields.add('redundancy')
     require(set(packet)==fields,'入库包字段不完整或含未知字段')
     require(packet['schema_version']in (1,STORAGE_VERSION) and packet['kind']=='diary-event-relations-storage','入库包协议版本不支持')
     require(packet['storage_sha256']==digest({k:v for k,v in packet.items()if k!='storage_sha256'}),'入库包内容指纹不匹配')
@@ -125,6 +132,10 @@ def validate_packet(packet, *, current_skill=True):
         require(draft['format_version']==FORMAT_VERSION and isinstance(draft['content'],str)and isinstance(draft['path'],str),'稿件快照格式不合法')
         require(draft['sha256']==text_sha(draft['content']),'稿件内容指纹不匹配')
         require(canonical_rows(parse_text(draft['content'],snapshot))==packet['results'],'入库结果与关系稿不一致')
+    from redundancy import check_report
+    if snapshot.get('requires_redundancy_review') or 'redundancy' in packet or any(r['status']=='INDIRECT_FOLLOWUP'for r in packet['results']):
+        require('redundancy' in packet,'入库包缺少完整冗余复核')
+        check_report(snapshot,packet['results'],packet['redundancy'])
     expected=resolve(snapshot,packet['results'])
     require(expected==packet['resolved_results'] and digest({'schema_version':packet['schema_version'],'source_package_sha256':snapshot['package_sha256'],'results':expected})==packet['results_sha256'],'最终结果指纹或身份映射不一致')
     require(isinstance(packet['publication_dependencies'],list),'发布依赖结构不合法')
@@ -182,6 +193,10 @@ def inspect_target(conn, packet, username, *, replace_published=False, accept_pu
     """只读复验；历史仅要求有效正式要点，不要求关系已发布。"""
     owned(conn,packet,username)
     snapshot=packet['snapshot']
+    if 'redundancy' in packet:
+        from redundancy import history_context
+        require(history_context(conn,snapshot)==packet['redundancy']['context']['history'],
+                '历史关系上下文已新增、删除或变化，须重新进行冗余复核')
     for rid in sorted({e['run_id']for e in snapshot['events'].values()}):
         events,_=load_run(conn,packet['user_id'],rid)
         actual={e['id']:run_identity(e)for e in events}
@@ -217,6 +232,7 @@ def lock_inputs(conn, packet):
     require(not query(conn,"SELECT id FROM graph_tasks WHERE user_id=:uid AND status IN ('QUEUED','RUNNING')",{'uid':packet['user_id']}),'该用户已有活动图谱任务')
     require(not query(conn,"SELECT id FROM organize_tasks WHERE user_id=:uid AND status='running'",{'uid':packet['user_id']}),'该用户已有活动整理或分析任务')
     events=list(packet['snapshot']['events'].values())
+    if 'redundancy' in packet:events+=list(packet['redundancy']['context']['history']['events'].values())
     run_ids={e['run_id']for e in events}|{d['run_id']for d in packet['publication_dependencies']}
     diary_ids={e['diary_id']for e in events}
     for rid in sorted(run_ids):
@@ -281,6 +297,7 @@ def publish(conn, packet, username, confirmed_sha256, *, replace_published=False
         'publication_options':{'replace_published':replace_published,'accept_published_revisions':accept_published_revisions},
         'snapshot':packet['snapshot'],'results':packet['resolved_results'],
         'publication_dependencies':packet['publication_dependencies'],'relation_ids':ids,'draft':packet['draft']}
+    if 'redundancy' in packet:checkpoint['skill_relations']['redundancy']=packet['redundancy']
     for event in packet['snapshot']['events'].values():
         if event['run_id']==packet['current_run_id']:
             conn.execute(text('UPDATE diary_events SET is_in_graph=true WHERE id=:id'),{'id':event['id']})

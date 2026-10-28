@@ -1,0 +1,50 @@
+{
+  "context_sha256": "cde1b78648605012192a7b582e08377ebd6a659719db2a38e84a46a6a223717c",
+  "decisions": [
+    {
+      "pair_id": "P-69360861afed149e",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接整理日记成本高、动力不足到制作能主动澄清的整理 skill 并逐篇验证；路径先提出 AI 主动检查提问，再抽取 skill 并用九月日记验证，完整覆盖。 证据编号：直连 SOURCE要点[2]、TARGET要点[1]。 替代路径逐边核对：H:a43f6f6a-dbe4-5d35-aeee-3e049030efc6 SOURCE要点[2]→TARGET要点[1]；C:P-fae3f12fced15d2e SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:a43f6f6a-dbe4-5d35-aeee-3e049030efc6",
+        "C:P-fae3f12fced15d2e"
+      ]
+    },
+    {
+      "pair_id": "P-92106cb6aa5e9894",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接江西城镇开发边界接口持续推进；路径先记录接口/跨库结果同步方案，再记录继续推进模型数据对接，覆盖该项持续开发。 证据编号：直连 SOURCE要点[1]、TARGET要点[1]。 替代路径逐边核对：H:a313a0e6-8e97-5fbb-b205-f94094ec2142 SOURCE要点[1]→TARGET要点[1]；C:P-23a9fdc854de6802 SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:a313a0e6-8e97-5fbb-b205-f94094ec2142",
+        "C:P-23a9fdc854de6802"
+      ]
+    },
+    {
+      "pair_id": "P-950b6bf6194c7692",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接 Cube 改 CBB 从计划/分析到 AI 报称完成并通知前端；路径先记录取资料和分析且未检查，再记录 AI 报完成、通知对接，完整覆盖且保留未验收状态。 证据编号：直连 SOURCE要点[1]、TARGET要点[1]。 替代路径逐边核对：H:55f9678c-7580-544b-9aad-e41356e20c83 SOURCE要点[1]→TARGET要点[1]；C:P-911339bd6a3f74bc SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:55f9678c-7580-544b-9aad-e41356e20c83",
+        "C:P-911339bd6a3f74bc"
+      ]
+    },
+    {
+      "pair_id": "P-a4183acaa6316d12",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接日记平台反复试错后切换 Codex/skill 并把知识库方案串起来。替代路径先推进第一、二层设计，再记录第一层准确性问题、考虑 Codex，最后完成切换；它沿平台实现路线连续推进，未引入不同事项。 直连证据：SOURCE要点[3, 4]、TARGET要点[3]。 替代路径逐边核对：H:c3bfb105-e4cd-5232-b992-ac5f6269efaf（AI 带来的职业不自信，与专业经验仍然有用的认识→梳理个人知识图谱第二层，发现自己被设计带偏了；SOURCE要点[3]、TARGET要点[1]）；H:79d88aa1-0cb5-59ac-8aba-44cc411987aa（梳理个人知识图谱第二层，发现自己被设计带偏了→知识图谱需求不清时，让AI调研、实验，小步拼出方案；SOURCE要点[7]、TARGET要点[1]）；H:a3e52986-a22d-595e-96fa-b1d3ec86d48a（知识图谱需求不清时，让AI调研、实验，小步拼出方案→图谱设计继续推进，第一层真实模型实验效果不理想；SOURCE要点[2]、TARGET要点[1, 2]）；H:d26f0e69-4f53-55c9-b849-50df098e2ff1（图谱设计继续推进，第一层真实模型实验效果不理想→知识图谱页面还行，但知识沉淀的准确性让我纠结；SOURCE要点[2]、TARGET要点[1, 3]）；C:P-0eb6d0f2f6cb4616（知识图谱页面还行，但知识沉淀的准确性让我纠结→日记平台切换技术路线，让Codex承担主要AI工作；SOURCE要点[3]、TARGET要点[1]）。",
+      "replacement_path": [
+        "H:c3bfb105-e4cd-5232-b992-ac5f6269efaf",
+        "H:79d88aa1-0cb5-59ac-8aba-44cc411987aa",
+        "H:a3e52986-a22d-595e-96fa-b1d3ec86d48a",
+        "H:d26f0e69-4f53-55c9-b849-50df098e2ff1",
+        "C:P-0eb6d0f2f6cb4616"
+      ]
+    },
+    {
+      "pair_id": "P-c4d2145edfedecce",
+      "decision": "KEEP",
+      "reason": "10/20 直连源要点7与目标要点2承接发现设计偏差后形成的第一层、第二层知识图谱内容架构；替代路径转向工具和实现方式，未覆盖该架构，故保留直连。",
+      "replacement_path": []
+    }
+  ]
+}

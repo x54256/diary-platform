@@ -2,12 +2,7 @@
   "package_sha256": "a39fc8c7f5b08f1c9dd775f6e7ff4304394d2f7a43e92bafbb7821ea08e6c908",
   "review_origin": "SKILL_AGENT_REVIEW",
   "stored_in_database": false,
-  "database_verification": {
-    "verified_against_database": true,
-    "package_sha256": "a39fc8c7f5b08f1c9dd775f6e7ff4304394d2f7a43e92bafbb7821ea08e6c908",
-    "verified_at": "2026-10-23T02:40:11.469405+00:00",
-    "stored_in_database": false
-  },
+  "database_verification": null,
   "results": [
     {
       "pair_id": "P-170329445e832f8e",
@@ -311,41 +306,9 @@
       "event_a_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
       "event_b_id": "7af81962-8de3-455f-8557-b06efdf5e185",
       "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-      "status": "RELATED",
-      "reason": "同一课程恢复任务形成更具体时间场景安排，不写成已落实。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前打算恢复心理学课后，又形成利用居家办公空闲学习普通心理学、减少玩僵尸时间的具体安排。",
-        "source_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
-        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "下周准备继续看心理学课、做瑜伽。",
-            "point_id": "0b7b8237-cb6f-4b04-a131-55f233656dce",
-            "point_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
-            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-            "offset": 119,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "3d2840efa4cfbc836171d81788c83e1ff6ea1eb04ce856f6791f1fbc34a3ab2f"
-          }
-        ],
-        "target_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
-        "target_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
-        "target_evidence": [
-          {
-            "point_no": 2,
-            "quote": "现在既然在家，正好可以学习普通心理学，不要把时间浪费在打僵尸上。",
-            "point_id": "90cc07db-d7ec-42b0-a9d9-e8de58b0264f",
-            "point_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
-            "point_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
-            "offset": 168,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "77a8094090fc78affab9048a344bb4c1e78074331de1d1425ca04dcda6a647e1"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点1与目标事件要点2承接同一事项“此前打算恢复心理学课后，又形成利用居家办公空闲学习普通心理学、减少玩僵尸时间的具体安排。”；替代路径依次为“此前打算下周恢复心理学课程，随后已重新开始看普通心理学并记日记，但尚未进入正轨。；普通心理学课程已初步恢复但未进入正轨后，又想到利用居家办公空闲继续整理笔记和看视频。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:65773fd9-2e75-5c85-8f83-fd3be9a08827 → C:P-86b7ef8b807c9061",
+      "relation": null
     },
     {
       "pair_id": "P-cea5485b06127067",

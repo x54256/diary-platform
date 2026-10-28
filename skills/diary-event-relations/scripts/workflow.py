@@ -262,11 +262,11 @@ def check_rows(s, value):
     for r in rows:
         require(isinstance(r, dict) and set(r) == {'pair_id','status','reason','relation'}, '逐对结果字段不合法')
         require(r['pair_id'] in pairs, '包含本次清单以外的事件对')
-        require(r['status'] in ('RELATED','NO_RELATION','UNRESOLVED'), '结果状态不合法')
+        require(r['status'] in ('RELATED','NO_RELATION','UNRESOLVED','INDIRECT_FOLLOWUP'), '结果状态不合法')
         require(isinstance(r['reason'], str) and r['reason'].strip(), '判断理由不能为空')
         rel = r['relation']
         if r['status'] != 'RELATED':
-            require(rel is None, '无关系或未决的 relation 必须为 null'); continue
+            require(rel is None, '非正式关系的 relation 必须为 null'); continue
         fields = {'source_event','target_event','relation_type','certainty','source_evidence','target_evidence','description'}
         require(isinstance(rel, dict) and set(rel) == fields, '关系字段不合法')
         pair = pairs[r['pair_id']]
@@ -353,6 +353,10 @@ def render(folder):
         state=progress(snapshot,rows,manifest)
         require(state['complete'],'仍有未完成事件对，不能生成完整关系稿')
         path=Path(folder)/'关系结果.md'
+        from redundancy import CONTEXT, REPORT, check_report
+        if snapshot.get('requires_redundancy_review') or (Path(folder)/CONTEXT).exists() or any(r['status']=='INDIRECT_FOLLOWUP'for r in rows):
+            require((Path(folder)/REPORT).exists(),'请先完成后续冗余复核并执行redundancy.py finalize')
+            check_report(snapshot,rows,read_json(Path(folder)/REPORT))
         if path.exists():
             # 稿件已是可编辑主稿，重复 render 只校验，不覆盖用户的当前文字。
             read_draft(path,snapshot)

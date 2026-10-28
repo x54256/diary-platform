@@ -1,0 +1,11 @@
+{
+  "context_sha256": "d8023290b3ecb37680df4077f75a65ebf6685d5eb15c71db30f54b4780e8f3e2",
+  "decisions": [
+    {
+      "pair_id": "P-1b8af0805de81af5",
+      "decision": "KEEP",
+      "reason": "9/11 直连源要点1与目标要点1还承接了“只是应付技术分享、对工作慵懒无兴趣”的自我反思；替代路径只覆盖分享问答、反馈与声音评价，未覆盖该工作态度内容，故保留直连。",
+      "replacement_path": []
+    }
+  ]
+}

@@ -2,12 +2,7 @@
   "package_sha256": "385162d08fd8875606441e77b42959d3e3bdbca7cf16bef5be7c0bc3e4f7000c",
   "review_origin": "SKILL_AGENT_REVIEW",
   "stored_in_database": false,
-  "database_verification": {
-    "verified_against_database": true,
-    "package_sha256": "385162d08fd8875606441e77b42959d3e3bdbca7cf16bef5be7c0bc3e4f7000c",
-    "verified_at": "2026-10-26T06:27:02.776059+00:00",
-    "stored_in_database": false
-  },
+  "database_verification": null,
   "results": [
     {
       "pair_id": "P-000a2b19d31e6781",
@@ -381,41 +376,9 @@
       "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
       "event_b_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
       "event_b_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-      "status": "RELATED",
-      "reason": "双方独立支持同一器具与新完成结果。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前想找时间做磨牙咬合垫，后来已拿到做好的垫。",
-        "source_event_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
-        "source_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-        "source_evidence": [
-          {
-            "point_no": 3,
-            "quote": "防止睡觉磨牙的咬合垫，也要找时间做一下。",
-            "point_id": "b4b430f7-a20f-421f-aa23-9df3113d8ee5",
-            "point_event_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
-            "point_run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
-            "offset": 4,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "ba10eca772b4b53262536a645ec72db8b46169d19b31fc5c37a856ebedf4d185"
-          }
-        ],
-        "target_event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
-        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "周三早上去口腔医院拿之前做好的咬合垫",
-            "point_id": "4f8ba310-cc68-497f-a845-e0f8c8e35e1b",
-            "point_event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
-            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "cfe8eeb4e5a803781020b09109fbf8b0f63675b48ae473c932e40feae46f498a"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点3与目标事件要点1承接同一事项“此前想找时间做磨牙咬合垫，后来已拿到做好的垫。”；替代路径依次为“此前想为夜间磨牙做咬合垫，之后到修复科向医生提出并讨论制作。；此前到修复科决定做咬合垫并完成取模，随后去医院取到做好的垫。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:d17954d5-259c-5d5f-88f9-455a75dff0f3 → H:4846cffb-d957-5f1c-9b6c-adf677ffd45b → C:P-9e95dcc5f22642c4",
+      "relation": null
     },
     {
       "pair_id": "P-2e0feeed69942127",
@@ -679,41 +642,9 @@
       "event_a_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
       "event_b_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
       "event_b_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
-      "status": "RELATED",
-      "reason": "同一具名指标填报功能有新的需求确认结果。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前讨论指标填报方案却未明确开展时间，后来继续梳理需求并确认尚缺原型、数据和模板。",
-        "source_event_id": "310a73d8-4ad8-4fd0-a73e-2201eea0c991",
-        "source_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "下午开会讨论指标填报技术方案，我最后问什么时候做，仍没弄清。",
-            "point_id": "23dc18af-3531-552a-a2ef-3fe399de4724",
-            "point_event_id": "310a73d8-4ad8-4fd0-a73e-2201eea0c991",
-            "point_run_id": "7d984114-8cef-4c74-bf8d-8f3bb2ee920a",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "57c90ba3b08ba750deec1a251ee39a997e8eb70a6f41611c32786353a2175aa7"
-          }
-        ],
-        "target_event_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
-        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "借 AI 梳理指标填报需求，与需求人员开会确认问题，但原型、数据及导入导出模板都没提供、确定，无法真正推进。",
-            "point_id": "850ad7c5-3888-4b69-af4d-919dccae5b74",
-            "point_event_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
-            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
-            "offset": 37,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "a64c733d74599be98a58bc192057af6e0d3e2e951a6a74a8ca04a37fbe825af6"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点1与目标事件要点1承接同一事项“此前讨论指标填报方案却未明确开展时间，后来继续梳理需求并确认尚缺原型、数据和模板。”；替代路径依次为“此前指标填报方案讨论后开工时间仍不清楚，后来形成拿该事项与AI讨论设计的新安排。；此前决定暂停心理学、拿指标填报与AI聊设计，随后转做该需求梳理并与需求人员开会确认。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:4dec400d-4d10-56d1-8606-9ce7b11c782f → C:P-cd99bc51f443286d",
+      "relation": null
     },
     {
       "pair_id": "P-63e6e8ecb58a7c02",
@@ -1981,41 +1912,9 @@
       "event_a_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
       "event_b_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
       "event_b_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
-      "status": "RELATED",
-      "reason": "同一咬合垫计划出现取件结果。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前计划做咬合垫，后来取到做好的垫和病历，准备申请保险报销。",
-        "source_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
-        "source_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
-        "source_evidence": [
-          {
-            "point_no": 5,
-            "quote": "下周一准备去修复科做一下咬合垫，应该就是这样。",
-            "point_id": "91a89995-6c52-4609-97d2-bba29677423a",
-            "point_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
-            "point_run_id": "04ed2198-cbec-44bd-a2a7-11398fba10c6",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "195ccbbf50d1ad690c61b11ec1f8dc3c161f91460fbfcfc0acb760d227e65253"
-          }
-        ],
-        "target_event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
-        "target_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "周三早上去口腔医院拿之前做好的咬合垫，也请医生开病历并打印。拿完就回家，准备之后找空闲时间申请商业保险报销。",
-            "point_id": "4f8ba310-cc68-497f-a845-e0f8c8e35e1b",
-            "point_event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
-            "point_run_id": "ba62698e-1c95-4709-9acf-48e142f01602",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "cfe8eeb4e5a803781020b09109fbf8b0f63675b48ae473c932e40feae46f498a"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点5与目标事件要点1承接同一事项“此前计划做咬合垫，后来取到做好的垫和病历，准备申请保险报销。”；替代路径依次为“此前计划周一去修复科做咬合垫，随后实际就诊、决定制作并完成取模。；此前到修复科决定做咬合垫并完成取模，随后去医院取到做好的垫。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:4846cffb-d957-5f1c-9b6c-adf677ffd45b → C:P-9e95dcc5f22642c4",
+      "relation": null
     },
     {
       "pair_id": "P-eb9756d422abd412",

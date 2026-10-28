@@ -1,0 +1,23 @@
+{
+  "context_sha256": "4ca498969da36aca104017cf77c49a57b62c4076b8220606ea450b6f6fe5beeb",
+  "decisions": [
+    {
+      "pair_id": "P-01cb0ef853924611",
+      "decision": "KEEP",
+      "reason": "直连从水牙线、洗牙与咬合垫安排推进到牙齿清洁操作；替代路径只覆盖牙线和后牙清洁，未覆盖咬合垫及水牙线安排，保留直连。",
+      "replacement_path": []
+    },
+    {
+      "pair_id": "P-1dd9014d9fb62142",
+      "decision": "KEEP",
+      "reason": "9/12 直连源要点3与目标要点2还承接了“发现能清后牙、找到清洁方法”的结果；替代路径只覆盖重新学习和安排清洁，未覆盖这一结果，故保留直连。",
+      "replacement_path": []
+    },
+    {
+      "pair_id": "P-644571d495f9608d",
+      "decision": "KEEP",
+      "reason": "直连承接枕头争执后实际分担家务（换床单、装碗筷并提醒开洗碗机）；替代路径转向完美主义反思，遗漏这些家务行动，保留直连。",
+      "replacement_path": []
+    }
+  ]
+}

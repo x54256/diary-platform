@@ -1,0 +1,1799 @@
+{
+  "scope": "10月26日本批后续边入库前回放",
+  "historical_followup_edges": [
+    {
+      "relation_id": "c0282edc-93e3-4969-bdca-ab21edacbf19",
+      "source_event_id": "0ac9cf57-e0c3-4ddb-95ad-de82b1f519bf",
+      "target_event_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+      "description": "前日完成体检并预约次日诊疗服务，后续在同一次就诊中执行洗牙并处理新增的拔牙方案"
+    },
+    {
+      "relation_id": "456605c6-9bda-5229-b32b-acd139336919",
+      "source_event_id": "6b745863-5538-408d-baed-f6c86379916f",
+      "target_event_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "description": "此前看不明白的江西需求和数据继续梳理，语音沟通后确认省县指标项数及错误数据问题。"
+    },
+    {
+      "relation_id": "a2fbf2d4-12e7-5279-a788-d620ed13526c",
+      "source_event_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+      "target_event_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "description": "关系测试效果很差后，形成先线下人工、再系统人工、最后自动建图的三步推进打算。"
+    },
+    {
+      "relation_id": "805bc92f-74e9-5597-bd8a-c7de85107932",
+      "source_event_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "target_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "description": "此前提出先人工建立事件图谱后，又进一步提出先结构化事件原文、提取内容要点再建立关系的优化设想。"
+    },
+    {
+      "relation_id": "6cb2b16f-f161-531c-a61d-1a9dfdabe216",
+      "source_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "target_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "description": "持续玩植物大战僵尸之后，已基本打过自己能打过的关卡，并估计之后主要刷每日任务和活动。"
+    },
+    {
+      "relation_id": "392edcb9-36af-5cf5-9417-20435f73a9c3",
+      "source_event_id": "95ec9c7b-ae87-41c1-8723-19f992379da6",
+      "target_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "description": "江西项目让前端借AI生成后台功能后，我继续从解决试错问题中认识到自己的专业经验仍有价值。"
+    },
+    {
+      "relation_id": "65773fd9-2e75-5c85-8f83-fd3be9a08827",
+      "source_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "target_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "description": "此前打算下周恢复心理学课程，随后已重新开始看普通心理学并记日记，但尚未进入正轨。"
+    },
+    {
+      "relation_id": "7f52ae28-7374-5013-af4e-8af65965a62d",
+      "source_event_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "target_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "description": "江西评估工作在梳理计算逻辑和样例数据后，继续使用AI开发成效评估模块。"
+    },
+    {
+      "relation_id": "0f7b6440-aa65-530b-9519-febf9510c4be",
+      "source_event_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+      "target_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "description": "早期测试使我怀疑建图路径，随后针对同一准确性问题提出先整理原文要点、再建立点间关系的设想。"
+    },
+    {
+      "relation_id": "d17954d5-259c-5d5f-88f9-455a75dff0f3",
+      "source_event_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "target_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+      "description": "此前想找时间做咬合垫，随后把计划具体到下周一去修复科。"
+    },
+    {
+      "relation_id": "35d7b56f-6191-5098-b388-a4d74a81725f",
+      "source_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "target_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "description": "普通心理学课程已初步恢复但未进入正轨后，又想到利用居家办公空闲继续整理笔记和看视频。"
+    },
+    {
+      "relation_id": "5fd81afd-e7f3-5bd9-be98-242a30f79a8d",
+      "source_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "target_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "description": "此前打算恢复心理学课后，又形成利用居家办公空闲学习普通心理学、减少玩僵尸时间的具体安排。"
+    },
+    {
+      "relation_id": "265783b1-7e43-59bc-b9d7-9bb2f3b29110",
+      "source_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "target_event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "description": "脚碰枕头引起争吵后，我发出当晚录音，小廖向ChatGPT询问并发来分析截图，两人继续复盘和讨论。"
+    },
+    {
+      "relation_id": "cb5c6a4f-f670-5182-874e-b3a25f5948c1",
+      "source_event_id": "18b7236f-d927-4581-a087-a814a6bc63b7",
+      "target_event_id": "572a7733-0f29-4730-9963-44397d2fa4a1",
+      "description": "为下午技术分享整理方法文档后，分享结束得到于福豪关于声线的反馈，并反思自己只是应付工作的心态。"
+    },
+    {
+      "relation_id": "8747d62f-78a8-5bd1-8fb5-b55a2f352934",
+      "source_event_id": "18b7236f-d927-4581-a087-a814a6bc63b7",
+      "target_event_id": "60253ec4-e484-41ec-993f-356ab5c3cfd8",
+      "description": "整理CBB工程化方法后，在宣讲中回应数据库设计和指标管理的疑问，结束后得到实际经历过现场迁移者的认可。"
+    },
+    {
+      "relation_id": "aea50536-c7b7-5deb-880a-0b0fea48940b",
+      "source_event_id": "60253ec4-e484-41ec-993f-356ab5c3cfd8",
+      "target_event_id": "572a7733-0f29-4730-9963-44397d2fa4a1",
+      "description": "技术宣讲中的讨论结束后，于福豪又对我的声音作出评价。"
+    },
+    {
+      "relation_id": "8a5bb375-df58-57fb-ac9a-ed2dec556686",
+      "source_event_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "target_event_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "description": "此前觉得牙线难用、想试水牙线，之后继续尝试普通牙线，开始找到自己清洁后牙的方法。"
+    },
+    {
+      "relation_id": "f49765e9-3515-5958-b065-d3761e35c06e",
+      "source_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+      "target_event_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "description": "重新学习牙线后，继续尝试并开始找到自己清洁后牙的方法。"
+    },
+    {
+      "relation_id": "48d219e1-3ec8-5207-ac9d-5e6138a4a16a",
+      "source_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+      "target_event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "description": "就诊后重新学习并开始用牙线，随后晚间清洁仍遇到后牙难清、牙缝刷疼和耗时的困难。"
+    },
+    {
+      "relation_id": "17e9116b-6a31-52d6-8a77-1202bec6afd8",
+      "source_event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "target_event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "description": "此前借ChatGPT复盘枕头争吵、讨论对失败的难以接受后，我进一步结合家务执行情况，对完美主义解释提出疑问。"
+    },
+    {
+      "relation_id": "219fe9fd-63a7-5831-b01c-412a75737905",
+      "source_event_id": "d5205078-0204-4a9b-899a-a1bd12ba6f76",
+      "target_event_id": "cd071b89-150d-4bd2-ac26-5277ed127e62",
+      "description": "早场KTV顺利唱完后，两人商量午饭，决定回家收拾再带哒哒去惦记已久的餐厅。"
+    },
+    {
+      "relation_id": "aeecf7ce-6d43-5a9b-b575-b1cad14e920a",
+      "source_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "target_event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "description": "枕头争吵后讨论家务分担，随后我换了床单、装了碗筷，并提醒颂梅开洗碗机。"
+    },
+    {
+      "relation_id": "0820828e-e077-5015-b599-9dfa6463aa12",
+      "source_event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "target_event_id": "ef76efe3-cf08-467d-b88c-2a16e7f996d5",
+      "description": "昨晚睡前集中清洁引发烦躁后，今天把牙线、牙缝刷清洁提前到晚饭后进行。"
+    },
+    {
+      "relation_id": "222b614e-9cbf-5942-88ed-0960fa8123cd",
+      "source_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "target_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "description": "持续玩植物大战僵尸2后，已通关主线简单模式，打算之后只做日常打卡。"
+    },
+    {
+      "relation_id": "6fde12d3-a441-5b87-b76d-d12c5e75f476",
+      "source_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "target_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "description": "此前已打过大部分能过的关卡，随后明确完成PVZ2主线简单模式。"
+    },
+    {
+      "relation_id": "2ed4b828-fbda-59de-ae39-3b79f08c2822",
+      "source_event_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "target_event_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "description": "此前想为夜间磨牙做咬合垫，之后到修复科向医生提出并讨论制作。"
+    },
+    {
+      "relation_id": "4846cffb-d957-5f1c-9b6c-adf677ffd45b",
+      "source_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+      "target_event_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "description": "此前计划周一去修复科做咬合垫，随后实际就诊、决定制作并完成取模。"
+    },
+    {
+      "relation_id": "5f75660c-4d17-5633-b12f-f8f2a0cf33f0",
+      "source_event_id": "18b7236f-d927-4581-a087-a814a6bc63b7",
+      "target_event_id": "0a580700-09e0-428c-bbe0-24da0155d251",
+      "description": "整理CBB工程化方法后，将其应用到Cspon大屏，建立骨架项目和Excel入库功能。"
+    },
+    {
+      "relation_id": "ebaff0ea-68c9-59c4-b072-674600d3a835",
+      "source_event_id": "898777af-c284-43e3-8f1b-fe05aa004808",
+      "target_event_id": "51ee2c0b-7143-4414-a5b5-f1b5027a4657",
+      "description": "江西评估数据的Excel导入流程继续推进，出现缺表报错后通过删表重建解决。"
+    },
+    {
+      "relation_id": "1ed2b15a-308a-5042-8b5a-7b85c7fd5235",
+      "source_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+      "target_event_id": "edf693f2-900d-4848-8f13-ca815ca0d139",
+      "description": "开始执行医生建议用牙线后，继续在吃骨头后清洁，发现后牙塞肉严重，打算以后吃此类肉食留意。"
+    },
+    {
+      "relation_id": "6d7197e8-427c-51fb-a47a-d564296998b7",
+      "source_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "target_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "description": "此前玩PVZ2上瘾，后来决定隐藏App增加使用成本，必要时卸载。"
+    },
+    {
+      "relation_id": "11d8708c-fb01-5ea6-b076-4f279ed83753",
+      "source_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "target_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "description": "居家办公时沉迷植物大战僵尸的情况延续，随后形成隐藏App及必要时卸载的打算。"
+    },
+    {
+      "relation_id": "0340b23e-a642-5b89-b365-1aca7fae72dc",
+      "source_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "target_event_id": "23c145bd-8435-40b2-92e1-023b76daa7f1",
+      "description": "此前准备恢复瑜伽，随后因困倦今晚仍打算推迟，并给自己定下明天不能再拖的要求。"
+    },
+    {
+      "relation_id": "8cb915e4-cf0f-5f5c-acee-ce208e5fadb9",
+      "source_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "target_event_id": "1e8bba57-0712-4752-98f3-0643612d5b04",
+      "description": "此前父亲认为腰疼才需就医，随后虽答应本月去看腰，仍未去并开始躲避通话。"
+    },
+    {
+      "relation_id": "285550b5-4732-51c5-8fc2-49c363a331ef",
+      "source_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "target_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "description": "通关主线简单模式、打算只做日常后仍沉迷PVZ2，又决定隐藏App，必要时卸载。"
+    },
+    {
+      "relation_id": "cd4cfad1-62a8-51c9-ae1c-85fe0ab18dcb",
+      "source_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "target_event_id": "23c145bd-8435-40b2-92e1-023b76daa7f1",
+      "description": "此前想恢复荒废的瑜伽后，进一步给自己定下明天不能再推迟的要求。"
+    },
+    {
+      "relation_id": "cedebc9d-6da8-5211-a7f8-6a26128c220a",
+      "source_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "target_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "description": "普通心理学初步重启但未进入正轨后，继续发展为连续两天看课和整理笔记。"
+    },
+    {
+      "relation_id": "542cf513-df89-5437-a091-970028aa3711",
+      "source_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "target_event_id": "0e60e356-b0b7-4b4c-ab76-d727f256fd05",
+      "description": "此前打算限制YouTube时间后，今天已控制观看、没有看太多油管。"
+    },
+    {
+      "relation_id": "5fa3239b-18ee-5b07-ab3a-0730578ae32b",
+      "source_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "target_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "description": "此前心理学学习荒废、想恢复，随后已重新持续看普通心理学和整理笔记。"
+    },
+    {
+      "relation_id": "637d156c-1569-5a95-900b-9a61daf65b76",
+      "source_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "target_event_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "description": "主线简单模式通关后，又因秘境和限时植物体验继续沉迷，并未转为只做日常。"
+    },
+    {
+      "relation_id": "8afbeeb0-b2a5-59dc-8784-b23fe502aee2",
+      "source_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "target_event_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "description": "此前准备限制游戏使用，后来仍因限时体验植物投入特殊关卡；未声称隐藏或卸载计划已经执行。"
+    },
+    {
+      "relation_id": "3fbc128b-f675-530c-97ac-81350e25cf12",
+      "source_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "target_event_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "description": "此前估计植物大战僵尸之后只刷日常，随后又开始秘境及十四天植物体验，预期继续投入时间。"
+    },
+    {
+      "relation_id": "e2d8c57c-b4bb-5d8c-a393-576b3ffc8e91",
+      "source_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "target_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "description": "此前打算恢复心理学课，随后实际投入较多时间看普通心理学并整理笔记。"
+    },
+    {
+      "relation_id": "8469066b-e1f5-5047-b8c9-f07da82558a9",
+      "source_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "target_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "description": "此前打算减少YouTube、把时间用于普心，随后实际看课并做笔记。"
+    },
+    {
+      "relation_id": "03969356-3730-5a15-95be-c91f07dd798a",
+      "source_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "target_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "description": "此前想到用居家办公空闲学普心和整理笔记，随后已连续两天在工作空闲中看课程并做笔记。"
+    },
+    {
+      "relation_id": "015ea46b-2eb4-57b1-83e5-5efc257ebfab",
+      "source_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "target_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "description": "此前打算隐藏PVZ2控制使用，后来仍主要玩秘境并觉得快通关；现有要点没有说明隐藏措施是否已实行。"
+    },
+    {
+      "relation_id": "c78a11e6-fde0-593b-9235-d82c55ee8e09",
+      "source_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "target_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "description": "恢复心理学课的计划随后有了完成第二章和笔记的结果。"
+    },
+    {
+      "relation_id": "3e2a713d-44d8-582a-9dc3-bc2da0460514",
+      "source_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "target_event_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "description": "此前想到把居家空闲从游戏转为学习，随后与小廖讨论共同培养学习习惯、建立家庭学习环境。"
+    },
+    {
+      "relation_id": "bff2b536-9e6a-5625-a983-29b256526c48",
+      "source_event_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "target_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "description": "开始借十四天植物体验打秘境后，又认为秘境剩余关卡不多、估计再几天可打完。"
+    },
+    {
+      "relation_id": "0d3affdd-5392-565f-bae4-1478ef0fea6e",
+      "source_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "target_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "description": "此前学习大脑区域并整理笔记后，完成普通心理学第二章神经系统结构和功能，准备继续第三章。"
+    },
+    {
+      "relation_id": "0ddfb99d-d3ed-54db-a5dc-a039b80a327a",
+      "source_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "target_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "description": "主线简单模式通关之后，又推进秘境关卡，估计再几天能打完。"
+    },
+    {
+      "relation_id": "69b38f75-9b17-59bc-a77e-3d66c9425300",
+      "source_event_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+      "target_event_id": "aad8dc74-c788-4f21-80b4-51472a8cccad",
+      "description": "江西新数据整理出来、安排继续处理后，完成总览人口和全域土地利用数据的表设计与导入。"
+    },
+    {
+      "relation_id": "89fbdbfe-a00a-5926-8255-56ed3bbf40d8",
+      "source_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "target_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "description": "此前持续玩植物大战僵尸后，后来秘境关卡接近打完。"
+    },
+    {
+      "relation_id": "6aa60dde-6eaa-58c4-8944-65aa58441ce6",
+      "source_event_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+      "target_event_id": "369da41c-1100-41f0-84c6-b4d6d7d0c7e8",
+      "description": "此前想用英语和力扣充实闲暇，随后早晨实际完成英语打卡，并查看LeetCode打卡题及题解。"
+    },
+    {
+      "relation_id": "d9e3e12a-1534-57da-a759-67c50e04607a",
+      "source_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "target_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "description": "此前想恢复荒废的心理学学习，随后完成第二章和笔记。"
+    },
+    {
+      "relation_id": "5cef52ec-fda6-514a-84e0-c6fbf06b239b",
+      "source_event_id": "8de29bd8-ecfa-4386-b11d-a48a588dc19a",
+      "target_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "description": "持续玩PVZ2后，新增秘境关卡接近打完的进度。"
+    },
+    {
+      "relation_id": "3a2cdf6f-39ce-596a-94bb-4c9854196c7e",
+      "source_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "target_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "description": "普通心理学初步重启后，继续学完第二章并整理笔记。"
+    },
+    {
+      "relation_id": "d5e7557c-0713-5a5b-9740-6ba14347ad48",
+      "source_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "target_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "description": "此前利用空闲学习普心的打算，发展为第二章及笔记的完成。"
+    },
+    {
+      "relation_id": "4e2f2008-3cb0-5001-ad70-83c64233427d",
+      "source_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "target_event_id": "51378961-204a-4566-8930-5d28c65abb8f",
+      "description": "此前打算限制游戏和YouTube，后来有一晚没怎么玩僵尸而用投影看电影，并想到以后以电影作休息消遣、减少短视频。"
+    },
+    {
+      "relation_id": "5f94bb6e-cf1e-535c-8672-99bc32c279ff",
+      "source_event_id": "f4fb59b3-78c7-4a57-92c7-be1ca6872a09",
+      "target_event_id": "583be2e0-acbb-4132-b348-171b63f8f173",
+      "description": "此前觉得炸鸡柳油腻、打算不再吃，后来放弃购买鸡柳大人，改为自己烤鸡翅和地瓜。"
+    },
+    {
+      "relation_id": "8a7e0d7f-d132-5d83-ac2d-a8b5271e9f0a",
+      "source_event_id": "51378961-204a-4566-8930-5d28c65abb8f",
+      "target_event_id": "c896a8b6-37fe-4170-963b-723171b3df41",
+      "description": "看过星际穿越、想到用电影休息后，下一晚本想继续看盗梦空间，却先转去看美国法治视频。"
+    },
+    {
+      "relation_id": "52ba5e03-660b-5b4f-955f-761b7daada4c",
+      "source_event_id": "263d2593-9661-4814-a3e8-b7a3850e0a8b",
+      "target_event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "description": "与母亲催生争论后的对话进一步失控，随后反思应及时结束对话、稳定情绪。"
+    },
+    {
+      "relation_id": "36f514a3-edd9-51ed-805e-e528ae1289d4",
+      "source_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "target_event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "description": "此前玩植物大战僵尸影响午休，后来将pvz2列入多邻国打卡后的应用使用限制。"
+    },
+    {
+      "relation_id": "3d831f0f-37eb-5b21-afd7-67c059bdf05b",
+      "source_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "target_event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "description": "此前准备限制游戏和YouTube，后来在多邻国的应用限制功能中选中pvz2、B站和YouTube。"
+    },
+    {
+      "relation_id": "9ba19fb5-3951-5ab7-b3d6-ef92a3d0cb28",
+      "source_event_id": "263d2593-9661-4814-a3e8-b7a3850e0a8b",
+      "target_event_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "description": "母亲催生争吵后的反思进一步形成先共情、再引导的“豆包式回应”总结。"
+    },
+    {
+      "relation_id": "0774af03-fffa-5ad4-8ba6-bcb3b960d3d0",
+      "source_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "target_event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "description": "此前早晨英语打卡已坚持几天，后来看到多邻国连续七天记录，受到鼓励继续打卡。"
+    },
+    {
+      "relation_id": "22324c26-3105-5084-a84f-94fbce6834de",
+      "source_event_id": "e8de307e-d89f-40c7-9709-f27d3ac431b3",
+      "target_event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "description": "此前想到用多邻国练英语，后来已连续打卡七天，并因反馈想继续保持。"
+    },
+    {
+      "relation_id": "e4d9f5e3-be33-5de0-832c-c690475317fe",
+      "source_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "target_event_id": "4924af19-fc97-455c-8df6-2d167e99acd9",
+      "description": "此前开发等待时沉迷植物大战僵尸，后来把pvz2列入打卡后才可使用的应用限制。"
+    },
+    {
+      "relation_id": "7954a12a-16bc-5f36-aeed-bb04c5752d36",
+      "source_event_id": "553beea5-1c4e-458c-931c-75bc92717952",
+      "target_event_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "description": "昨天与母亲因生育话题争吵并带着情绪继续聊后，今天进一步总结豆包式回应。"
+    },
+    {
+      "relation_id": "b1feca73-1b8b-52f1-9a95-c337b8bae7f6",
+      "source_event_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+      "target_event_id": "a05e8164-781d-4187-bdbd-c2c00046eb5c",
+      "description": "昨天形成先顺着母亲的想法后，今天进一步总结先共情、再逐步引导的豆包式回应。"
+    },
+    {
+      "relation_id": "affe459d-1930-57d5-b2dc-82df15fa7cdc",
+      "source_event_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "target_event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "description": "伴侣提出离职而日期未定的事项，发展为公司继续安排工作，并出现要求明确月底离开的具体建议。"
+    },
+    {
+      "relation_id": "a415c1b6-566d-536c-8385-603e9c756b18",
+      "source_event_id": "f056637b-89ef-41de-83e6-8e9c07b77113",
+      "target_event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "description": "此前想找时间做磨牙咬合垫，后来已拿到做好的垫。"
+    },
+    {
+      "relation_id": "bc04a43c-9baf-588a-984a-26bb36b7c4f9",
+      "source_event_id": "689118c5-c385-4cd9-ac07-fcde9ef0ec6e",
+      "target_event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "description": "此前提醒小廖盘点存欠款、得到仍有结余的反馈，后来又因盘算近期支出打算再次提醒核算资产。"
+    },
+    {
+      "relation_id": "2569c5bf-7321-539e-bd98-2d840c71a523",
+      "source_event_id": "90072bec-a536-4325-964e-c8b22a30680e",
+      "target_event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "description": "用老陆病例催父亲并讨论中秋周末就医后，中秋当天又打算提醒父亲明天早去检查。"
+    },
+    {
+      "relation_id": "1913cc96-c0b3-5dfb-ad1f-12f71abd6476",
+      "source_event_id": "310a73d8-4ad8-4fd0-a73e-2201eea0c991",
+      "target_event_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "description": "此前讨论指标填报方案却未明确开展时间，后来继续梳理需求并确认尚缺原型、数据和模板。"
+    },
+    {
+      "relation_id": "100ca0ab-b6e0-5808-b759-60bb53ed2fd2",
+      "source_event_id": "79045aea-7680-4891-80e5-b0f45f2a6a4b",
+      "target_event_id": "1465865a-3b12-4227-b99b-9ccfb33fccce",
+      "description": "周三找到哒哒后继续同次二沙岛遛狗行程，骑车带人途中被罚五十元。"
+    },
+    {
+      "relation_id": "98463244-d6e6-558f-b617-1e0b98d6b21a",
+      "source_event_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "target_event_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "description": "此前考虑结合离职把中秋和十一连成十三天，后来在回乡方案中因票价和行程冲突搁置这一长假出行打算。"
+    },
+    {
+      "relation_id": "fc0ce341-e56c-56bf-b908-5b62afbabfb1",
+      "source_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "target_event_id": "6bfc79dc-d286-47ab-a481-6e86534353b7",
+      "description": "此前沉迷游戏占用开发等待时间，后来提出在日记平台日程中加入限制僵尸等应用使用的机制。"
+    },
+    {
+      "relation_id": "e3da72fa-9cbc-5442-8f9f-ff8973d916bc",
+      "source_event_id": "cd04de84-8355-4498-8df8-47d0dc91386a",
+      "target_event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "description": "此前到修复科决定做咬合垫并完成取模，随后去医院取到做好的垫。"
+    },
+    {
+      "relation_id": "a12958a9-dfc5-573a-8f38-44ce905e0d07",
+      "source_event_id": "99724fcf-f62d-426a-abf4-3b86bd731340",
+      "target_event_id": "7f32c6f8-3a6d-4ca5-bc6a-099558ec4096",
+      "description": "此前决定暂停心理学、拿指标填报与AI聊设计，随后转做该需求梳理并与需求人员开会确认。"
+    },
+    {
+      "relation_id": "1125f268-8664-535b-8568-7151e8729162",
+      "source_event_id": "965fa31b-c03e-4f93-b232-9816aeb05c05",
+      "target_event_id": "014e32e5-88ce-40d5-b36d-46ab8451b175",
+      "description": "此前计划做咬合垫，后来取到做好的垫和病历，准备申请保险报销。"
+    },
+    {
+      "relation_id": "56751722-ab79-518f-be9f-6f8d4ce0592c",
+      "source_event_id": "90072bec-a536-4325-964e-c8b22a30680e",
+      "target_event_id": "fef8cb25-1834-4583-99c2-9b92c5efa3e6",
+      "description": "此前用老陆案例促使父亲准备就医后，父亲实际到骨科，并约下周三做核磁。"
+    },
+    {
+      "relation_id": "4a502023-a867-57f8-bf0e-40456486075e",
+      "source_event_id": "08ebf16a-1744-46f7-9b44-a15778746ba7",
+      "target_event_id": "c681d74c-6761-4fe8-b89a-8802f5f68947",
+      "description": "两人带猫狗入住清远酒店后，次日收拾退房，再带宠物逛园区准备返程。"
+    },
+    {
+      "relation_id": "e174d951-feb9-5c97-8084-c35c8e70e723",
+      "source_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "target_event_id": "23847dd2-f778-4f37-b4ef-e95ed05df0f3",
+      "description": "此前准备限制游戏使用，后来又因适合无尽模式的植物持续游玩并通关；未将限用计划写成已执行。"
+    },
+    {
+      "relation_id": "6326131c-01eb-5b5f-a6ae-702ad3046fa1",
+      "source_event_id": "08ebf16a-1744-46f7-9b44-a15778746ba7",
+      "target_event_id": "fb514bed-9e00-4727-a29b-889e58a31122",
+      "description": "出发入住清远酒店后，带哒哒去吃当地冬瓜鸡，继续本次度假行程。"
+    },
+    {
+      "relation_id": "f84bd72c-ea24-51d1-b8ca-d41f28e61744",
+      "source_event_id": "c80946cd-fc57-410d-8bc8-8c79fcaba019",
+      "target_event_id": "23847dd2-f778-4f37-b4ef-e95ed05df0f3",
+      "description": "此前秘境接近打完后，又转入无尽模式并通关。"
+    },
+    {
+      "relation_id": "0dbe07d2-a434-531f-ae19-2e91523ab522",
+      "source_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "target_event_id": "fef8cb25-1834-4583-99c2-9b92c5efa3e6",
+      "description": "此前父亲打算等腰疼再就医，后来已到骨科咨询并排定核磁检查，预约不写成已完成检查。"
+    },
+    {
+      "relation_id": "bef02d80-8142-5e28-9efe-5954fb0a3a82",
+      "source_event_id": "c681d74c-6761-4fe8-b89a-8802f5f68947",
+      "target_event_id": "23847dd2-f778-4f37-b4ef-e95ed05df0f3",
+      "description": "退房逛完园区、回车准备返程后，在回程车上继续玩游戏，到家后又玩到通关。"
+    },
+    {
+      "relation_id": "435ba13b-2822-5390-8f56-4b912d5082f9",
+      "source_event_id": "0bdbd9cf-dfb5-40db-ae50-a05f7a434e04",
+      "target_event_id": "23847dd2-f778-4f37-b4ef-e95ed05df0f3",
+      "description": "此前通关主线简单模式，后来又玩无尽模式，并持续到回家后通关。"
+    },
+    {
+      "relation_id": "87537f3c-ed92-522c-8409-a056bb2c1c74",
+      "source_event_id": "33e698c9-b07b-4b1b-b6c2-65770dec3efd",
+      "target_event_id": "08ebf16a-1744-46f7-9b44-a15778746ba7",
+      "description": "此前买排骨准备做蒜香排骨后，次日清远出发前又热了前一天剩的蒜香排骨吃。"
+    },
+    {
+      "relation_id": "d4eda1f8-42d5-5ec0-9274-162ceb847e46",
+      "source_event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "target_event_id": "c681d74c-6761-4fe8-b89a-8802f5f68947",
+      "description": "原本计划去清远泡温泉，实际因身体和设施、时间条件未去，改为射箭。"
+    },
+    {
+      "relation_id": "45fb6bbe-e17e-5031-b8ef-2ab57f1e81b6",
+      "source_event_id": "08ebf16a-1744-46f7-9b44-a15778746ba7",
+      "target_event_id": "d17f8daf-e60c-46d8-9d8e-1a8021cc59bb",
+      "description": "入住带院子和阳台的酒店房间后，次日开阳台让哒哒出去时，蛤蟆跳入房间。"
+    },
+    {
+      "relation_id": "f833bc82-87c4-5c29-ba15-7bab348cba09",
+      "source_event_id": "b6b75509-fec7-4145-9c96-44e1116e38d8",
+      "target_event_id": "23847dd2-f778-4f37-b4ef-e95ed05df0f3",
+      "description": "持续玩植物大战僵尸之后，又推进无尽模式并打通。"
+    },
+    {
+      "relation_id": "6f380236-7517-518b-bb0d-d98e6b341d23",
+      "source_event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "target_event_id": "fb514bed-9e00-4727-a29b-889e58a31122",
+      "description": "预订宠物友好房间的清远度假计划落实后，入住当晚带哒哒吃饭，回房泡浴池看电影。"
+    },
+    {
+      "relation_id": "c33eb27b-eb6c-538c-ac4f-4b7c85dafa62",
+      "source_event_id": "29d7279b-eccb-4fe9-a558-8001b3620f17",
+      "target_event_id": "23847dd2-f778-4f37-b4ef-e95ed05df0f3",
+      "description": "此前沉迷秘境关卡，后来又开始无尽模式并通关。"
+    },
+    {
+      "relation_id": "429de3cb-9dd1-5f73-bd84-5583eff2cb7b",
+      "source_event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "target_event_id": "08ebf16a-1744-46f7-9b44-a15778746ba7",
+      "description": "此前订好可带猫狗的清远酒店并准备次日出发，后来在九月二十六日实际带宠物出发并入住。"
+    },
+    {
+      "relation_id": "f5cd798d-d41e-5846-a915-243dfc0bb64d",
+      "source_event_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "target_event_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "description": "此前提出先弄清事件等实体和关系类型，后来重新推进平台，实际与Codex确认知识库实体、属性与关系属性。"
+    },
+    {
+      "relation_id": "a3e4a996-d43e-5478-93c2-fd224ba59013",
+      "source_event_id": "fee55ed1-6696-4d61-9a50-d7163857b39a",
+      "target_event_id": "b881c988-aa42-49e2-ab60-1214f49b39ef",
+      "description": "此前朋友约颂梅下周一帮忙领证婚事并提前请吃饭，随后到周一她实际去帮忙，结束后参加婚后聚餐。"
+    },
+    {
+      "relation_id": "d22c76c5-6765-55d0-907c-1654da66f215",
+      "source_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "target_event_id": "9d518eb5-1054-401e-a070-44c39203373e",
+      "description": "同日早晨爸爸去做核磁，下午核磁结果出来，我又查看结果并觉得放心一些。"
+    },
+    {
+      "relation_id": "33a27509-047a-5c79-a1bb-0f881c886863",
+      "source_event_id": "90072bec-a536-4325-964e-c8b22a30680e",
+      "target_event_id": "9d518eb5-1054-401e-a070-44c39203373e",
+      "description": "担心爸爸的腰部情况不明确、以老陆的案例催他检查后，爸爸完成核磁，我理解结果没有此前担心的压迫情况，因而放心一些。"
+    },
+    {
+      "relation_id": "3b7c0952-aa4c-55f6-a475-4c981b5fc3f9",
+      "source_event_id": "90072bec-a536-4325-964e-c8b22a30680e",
+      "target_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "description": "此前以老陆的案例催爸爸检查、提醒拍核磁，之后爸爸已去做核磁，我也安排他顺道询问心脏科。"
+    },
+    {
+      "relation_id": "4663aa4e-823e-56af-b3db-03318c6133cd",
+      "source_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "target_event_id": "9d518eb5-1054-401e-a070-44c39203373e",
+      "description": "此前爸爸打算等腰疼再就医，之后已完成核磁检查，我看过结果后觉得放心一些。"
+    },
+    {
+      "relation_id": "d1f6b9ae-daef-5d34-8d8f-811590e182c1",
+      "source_event_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+      "target_event_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "description": "事件关系测试效果不佳后，个人知识图谱继续推进，梳理第一层并探索第二层设计。"
+    },
+    {
+      "relation_id": "de27b444-5cef-53ea-8cee-8a8b1c8fe683",
+      "source_event_id": "402aa9a1-1768-4d08-b48a-44b1c27221ec",
+      "target_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "description": "此前准备提醒爸爸去医院检查，之后爸爸已去做核磁，并顺道到心脏科询问用药及高血压问题。"
+    },
+    {
+      "relation_id": "c3bfb105-e4cd-5232-b992-ac5f6269efaf",
+      "source_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "target_event_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "description": "此前准备先结构化日记、提取事件要点再建关系，之后继续梳理人物事件第一层，并尝试第二层心理活动设计。"
+    },
+    {
+      "relation_id": "c319c2a4-eb51-5116-80f5-f47325837752",
+      "source_event_id": "fef8cb25-1834-4583-99c2-9b92c5efa3e6",
+      "target_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "description": "约好爸爸拍核磁时到心脏科评估阿司匹林用药后，爸爸实际接受心脏相关检查，并收到医生的用药建议。"
+    },
+    {
+      "relation_id": "352d1aea-af52-51ef-9e79-fffa5723b26f",
+      "source_event_id": "fef8cb25-1834-4583-99c2-9b92c5efa3e6",
+      "target_event_id": "9d518eb5-1054-401e-a070-44c39203373e",
+      "description": "爸爸此前已预约周三早上的核磁，之后检查完成并出结果，我看过报告后觉得放心一些。"
+    },
+    {
+      "relation_id": "d031e7f3-951f-5842-a411-91663732c391",
+      "source_event_id": "7f93db3d-60b3-465c-b10d-0952ba706189",
+      "target_event_id": "4c6994e7-a4f3-49ae-9d4c-eaa715adb5ec",
+      "description": "此前考虑换眼镜并请小廖找配镜地点，之后形成先去医院验光、再选择配镜渠道的具体安排。"
+    },
+    {
+      "relation_id": "c580b6be-9868-5b68-99e0-78dff323823c",
+      "source_event_id": "5010713e-68b8-49d8-a074-cb7b810aba8d",
+      "target_event_id": "6102239a-30d3-4684-8abf-aa3e12f3512d",
+      "description": "此前提出借助小工具分析视频观点的设想，进一步具体化为读屏自动分析和结合日记认识推荐视频，仍在设想阶段。"
+    },
+    {
+      "relation_id": "368bd343-719b-5c81-a222-cc77f3054a5e",
+      "source_event_id": "9d518eb5-1054-401e-a070-44c39203373e",
+      "target_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "description": "看过爸爸的核磁结果后，我进一步在电话里向他解释腰部问题、提醒姿势与搬重物，并回应他不疼就没事的说法。"
+    },
+    {
+      "relation_id": "79f2d657-176e-5b12-bea4-ca03de5c82f3",
+      "source_event_id": "fef8cb25-1834-4583-99c2-9b92c5efa3e6",
+      "target_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "description": "此前约好让心脏科评估爸爸自行服药的问题，之后得知医生允许停阿司匹林并要求降压药每天服用，我继续与父母讨论落实。"
+    },
+    {
+      "relation_id": "ecee7bc5-1559-509f-908e-6d9faef6defb",
+      "source_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "target_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "description": "此前爸爸查出高血脂、讨论先尝试生活干预，之后我进一步意识到他已有三高，并继续落实饮食和带饭安排。"
+    },
+    {
+      "relation_id": "59f9b367-8bca-5d3c-b0b9-215838414240",
+      "source_event_id": "3373ba48-84f9-4ef0-8108-bcbf5e13105f",
+      "target_event_id": "a6086f61-fdd2-4247-8e28-a61f4929c828",
+      "description": "国庆因票价和行程搁置回乡后，继续考虑颂梅离职后回丹东扫墓，并进一步确定等合适票价、必要时春节再回的优先级。"
+    },
+    {
+      "relation_id": "80b757a2-caac-5b65-897f-595f7a58d50b",
+      "source_event_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "target_event_id": "c4dd4a0f-07b4-4915-8f97-f8f73e6de7c2",
+      "description": "旅行中开车爬山造成颂梅腿不适，回程后预约按摩，她反馈明显舒服了。"
+    },
+    {
+      "relation_id": "fa22c2f1-4379-59a8-9a5b-7360130da55b",
+      "source_event_id": "47a3d4fb-d7fd-4c37-8554-5bf330f81c83",
+      "target_event_id": "2e65613a-7f88-43f6-9063-29dc8629fb68",
+      "description": "此前安排十一去桂林阳朔，之后实际在5、6号游览梯田并带哒哒爬山，完成桂林行程。"
+    },
+    {
+      "relation_id": "049c10bc-cc6b-5d29-ac3a-50b85ccdae89",
+      "source_event_id": "ae6d3be1-c1f1-4a1e-914c-bd2148a5c7bb",
+      "target_event_id": "869f680e-bc4d-44c2-a4d1-ea6ce101b6d2",
+      "description": "柳州返程买下便宜榴莲后，回酒店实际吃了榴莲和其他水果。"
+    },
+    {
+      "relation_id": "a9155c12-9544-5b73-be5a-b26fe4a3ccbc",
+      "source_event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "target_event_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "description": "此前小廖已提离职却仍承受工作压力，旅行回来后又接到劝留电话和次日交付的急活，我尝试给她续会员以帮助处理。"
+    },
+    {
+      "relation_id": "f4f2e862-9164-5721-9092-a1023913425a",
+      "source_event_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "target_event_id": "46eeb6e8-a435-4892-9235-523e1797ee41",
+      "description": "第一晚在营地露营后，次晨在营地吃粉并租电动车观山，继续同一次营地游玩。"
+    },
+    {
+      "relation_id": "a9d69494-d536-5dee-9cee-c4d347770e80",
+      "source_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "target_event_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "description": "此前父亲答应带饭，后来继续提醒明天带饭，并把携带方式简化为只带内胆。"
+    },
+    {
+      "relation_id": "4cdaf841-61b0-5fd0-a984-25c554113250",
+      "source_event_id": "47a3d4fb-d7fd-4c37-8554-5bf330f81c83",
+      "target_event_id": "bd4958a8-bb40-4acc-8c7e-883835dc885f",
+      "description": "此前安排10月2日演唱会、3日带哒哒去桂林阳朔，之后演唱会和3日出游实际发生，并记录游船、租车及露营。"
+    },
+    {
+      "relation_id": "defa9e00-3e55-59df-9d52-30a01520f2ac",
+      "source_event_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "target_event_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "description": "此前图谱实验效果差、准备积累具体样例再推进，之后第二层设计继续探索，改用AI逐项调研和真实日记实验来形成方案。"
+    },
+    {
+      "relation_id": "b7b62ed8-30b8-598b-91fc-071a8501ae67",
+      "source_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "target_event_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "description": "爸爸检查出血脂问题并讨论生活干预后，进一步记录他已带盒饭、少喝酒、多运动，并肯定就医的价值。"
+    },
+    {
+      "relation_id": "4bba77dc-8922-5e63-913a-1d78743367a3",
+      "source_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "target_event_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "description": "父亲查出高血脂并开始考虑生活干预后，我进一步查看早餐麦片、给他购买脱脂舒化奶，并考虑教父母用AI问饮食。"
+    },
+    {
+      "relation_id": "e0ae7a5b-d24d-5ec1-8dd3-72a90876386d",
+      "source_event_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+      "target_event_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "description": "早期事件关系测试不佳后，个人知识图谱继续推进到第一层建成及第二层重设计，并改进调研实验方式。"
+    },
+    {
+      "relation_id": "a49ab26f-39d2-5865-b298-6d19d665e521",
+      "source_event_id": "c2e97d94-ca64-4a74-bafe-bef8aefa41cd",
+      "target_event_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "description": "此前提醒父亲明天带饭并简化携带，后来父亲反馈已经吃上热饭。"
+    },
+    {
+      "relation_id": "8cdc9857-da3f-57c0-bb84-f664b9918c18",
+      "source_event_id": "4204f64b-29a6-412b-8397-bc0e16b3ee06",
+      "target_event_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "description": "此前准备与王振洲核对江西数据，之后例会发现两块接口尚未开发，再与王振州、童姐核数据并分工设计新数据库。"
+    },
+    {
+      "relation_id": "79d88aa1-0cb5-59ac-8aba-44cc411987aa",
+      "source_event_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "target_event_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "description": "发现第二层设计把推测误当事实、拆解方式偏离目标后，重新让AI调研并以日记小案例逐步设计第二层。"
+    },
+    {
+      "relation_id": "2c8d4694-d18f-5a4a-947e-266aca95b111",
+      "source_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "target_event_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "description": "劝父亲干预三高后，后续记录其带饭、少喝酒和运动，并评价及时就医有益。"
+    },
+    {
+      "relation_id": "8c7c3a3d-f9f3-515d-a3f3-f0052366558a",
+      "source_event_id": "67f98c37-6d4d-4533-bfdd-2a53cc079db3",
+      "target_event_id": "6b93a2a9-131e-46e2-8d93-abb9e5ce89fa",
+      "description": "为颂梅赶急活续会员的想法得到执行，买并绑定礼品卡后才发现原会员尚未到期。"
+    },
+    {
+      "relation_id": "28678bb3-c5aa-51d9-88f5-2268eae05255",
+      "source_event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "target_event_id": "b26c89fb-4887-4842-84e8-6b93d5cf237a",
+      "description": "此前担心颂梅临近离职仍花钱多、准备提醒盘点资产，之后借多多治疗费提醒控制支出，并给她转了5000元。"
+    },
+    {
+      "relation_id": "6e8d0852-c294-5509-9c5b-b8b3a7e749da",
+      "source_event_id": "7cdc2a1e-9c10-4074-8dfe-28d15be32584",
+      "target_event_id": "917b3787-67ca-4d41-a6fc-8f853c13376a",
+      "description": "哒哒此前在宠物医院洗牙并拔松动牙，之后因牙龈仍红肿出血再向原洗牙医院咨询，选择继续用药、暂不手术。"
+    },
+    {
+      "relation_id": "c8be4c87-30ad-5f4d-99fe-e5c7796a6420",
+      "source_event_id": "a4f83e52-96a4-4e31-bff3-12513ea37c30",
+      "target_event_id": "465b99e7-1735-4f32-ab67-512687eeaead",
+      "description": "此前因姿势提醒App收费想自行制作，后来寻找现成替代品，找到免费开源应用并推荐身边人。"
+    },
+    {
+      "relation_id": "662fd6c8-cfde-5ed0-b966-a61562347f67",
+      "source_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "target_event_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "description": "父亲从答应接受加热饭盒带饭，进展到实际使用后反馈饭菜热、方便，同事也想买。"
+    },
+    {
+      "relation_id": "6b188aa1-8142-5d51-a94f-c1db17cfeb4e",
+      "source_event_id": "6cbc8505-710e-4f15-9565-1b52f1f5f3df",
+      "target_event_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "description": "此前爸爸午饭油腻且单位没微波炉、解决办法不明，后来使用小廖买的加热饭盒并反馈方便、饭热，午饭干预有了可行方案。"
+    },
+    {
+      "relation_id": "e2fb044f-dd59-543c-bdc2-fd9c39aafd0e",
+      "source_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "target_event_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "description": "此前做日记平台时因缺少心理学及AI知识而难以提出明确需求，之后针对仍不清楚的图谱需求，改为让AI先调研再逐步实验。"
+    },
+    {
+      "relation_id": "e1e748a6-269c-52d7-8a36-d88d808f17c1",
+      "source_event_id": "a06ad927-792e-4c51-ae88-b64700f4e187",
+      "target_event_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "description": "此前请朋友抢刘德华香港跨年演唱会票，抢票失败后又参加抽签，颂梅朋友取得第二轮购票资格，是否有票仍未知。"
+    },
+    {
+      "relation_id": "a3e52986-a22d-595e-96fa-b1d3ec86d48a",
+      "source_event_id": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "target_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "description": "知识图谱按小步调研实验的第二层设计继续推进，转向第一层实现及真实千问实验。"
+    },
+    {
+      "relation_id": "bde1d2e4-60af-5417-9b5a-852378565816",
+      "source_event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "target_event_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "description": "此前小廖已提离职却仍被安排工作，之后又被不想合作的销售要求去墨西哥出差，继续面临离职后的工作压力。"
+    },
+    {
+      "relation_id": "c4d06079-69bb-599c-a77a-3cb13169dc53",
+      "source_event_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "target_event_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "description": "颂梅不想换手机后，又拒绝其他礼物选项，大礼物仍未决定。"
+    },
+    {
+      "relation_id": "0bf78463-fcf7-5b89-94e0-53a08d2f12cb",
+      "source_event_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "target_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "description": "早期图谱真实数据实验不理想并计划分步推进后，继续完成第二层设计，转回第一层实现调研和真实千问实验，仍需完善。"
+    },
+    {
+      "relation_id": "85368749-3316-5317-9f68-9ca22f63c5b4",
+      "source_event_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "target_event_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "description": "江西例会后分工设计耕地保护和城镇开发边界，随后耕地保护接口已上线，城镇开发边界继续推进。"
+    },
+    {
+      "relation_id": "4f985a38-a74a-59e9-86e5-cfd3d645767d",
+      "source_event_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "target_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "description": "发现第二层心理活动设计跑偏后，继续梳理认知过程关系，第二层基本设计完成，再转向第一层实现。"
+    },
+    {
+      "relation_id": "b0e4a64f-b88b-54bb-b7f7-96b486d1cd61",
+      "source_event_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "target_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "description": "重新梳理个人知识库实体关系后，第二层设计推进到基本完成，并转向第一层实现实验。"
+    },
+    {
+      "relation_id": "54bb67f3-aa22-5722-b4d6-2189def625f9",
+      "source_event_id": "0ac08592-0b63-46ce-b12e-eac5921d1bf5",
+      "target_event_id": "b52461e6-6c00-46c2-8076-e270bc335cae",
+      "description": "约好的学姐夫妻午餐实际举行，颂梅带去回礼。"
+    },
+    {
+      "relation_id": "eb905c42-6be1-5658-9ac6-e4b94ca9f59d",
+      "source_event_id": "0f1119d5-4e0e-4f85-abb7-d1c931fe9a64",
+      "target_event_id": "bfc2009a-7316-4104-a414-839f4c898479",
+      "description": "山姆采购结束准备回家时找不到车，之后逐层寻找并回家收拾采购物品。"
+    },
+    {
+      "relation_id": "2fad6632-ce1c-5f8b-a62f-07e2955c9467",
+      "source_event_id": "e8c71220-00b3-4392-a990-314368bc386e",
+      "target_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "description": "此前担心小廖临近离职仍消费较多、可能负资产，之后她因出差和想去的旅行付不起而哭泣，我继续为她的消费与经济压力烦心。"
+    },
+    {
+      "relation_id": "cdbf11ff-e4a0-5e27-8747-70fd55d6bf41",
+      "source_event_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "target_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "description": "此前被安排出差但尝试拒绝，后来向更高领导沟通仍未获准，已经收行李买票准备出发。"
+    },
+    {
+      "relation_id": "4ff59a86-81c8-50f8-ba31-b288bc24c394",
+      "source_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "target_event_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "description": "此前知识图谱第一层实现仍在找方案，后续方向已确立，要求AI细化并执行，结果尚待检查。"
+    },
+    {
+      "relation_id": "1c7223ee-91ab-5357-9ceb-3568810eb986",
+      "source_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "target_event_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "description": "此前因AI浪潮对工作和面试失去自信，之后讨论更大替代风险时，态度转为暂不提前焦虑、先乐天应对。"
+    },
+    {
+      "relation_id": "5c9cbbc0-7057-566a-8891-674a21216f17",
+      "source_event_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "target_event_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "description": "此前想检查父亲麦片并教父母用AI，后来实际教母亲拍配料询问豆包。"
+    },
+    {
+      "relation_id": "f776f9fe-c8b0-560a-9362-67bf8388b3bd",
+      "source_event_id": "7c8b1d1b-fdc6-4414-b33b-52dd8b21b7f5",
+      "target_event_id": "cdccd835-c51b-4962-9fd3-3d01ae06c414",
+      "description": "备份后计划本地还原验证，后来已完成还原检查，并因担心漏数据停库重备。"
+    },
+    {
+      "relation_id": "3adb3038-32bf-57a8-a7d7-d083e1582a63",
+      "source_event_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "target_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "description": "给父亲买的脱脂奶已喝到，询问口味并考虑半脱脂替代。"
+    },
+    {
+      "relation_id": "d5617400-3f16-5d76-9cec-d03dd7324685",
+      "source_event_id": "c55731eb-2b96-4097-bcf2-d10674440d3b",
+      "target_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "description": "父亲反馈加热饭盒好用后，后续再次确认仍坚持带饭并继续给正反馈。"
+    },
+    {
+      "relation_id": "d30c3da6-9daf-56cc-97ef-1f82eff35e29",
+      "source_event_id": "7e6ccf23-922f-4e8a-bf00-9b9081d7ea2a",
+      "target_event_id": "e73987cc-b5d4-47e6-89c9-2e8a90740127",
+      "description": "此前准备限制YouTube以把时间用来学心理学，之后又开始看YouTube，再次提出控制休闲时间、转向普通心理学。"
+    },
+    {
+      "relation_id": "c63a8976-5147-5e91-87d0-e60eebf0847a",
+      "source_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "target_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "description": "准备于次日赴墨西哥出差的安排，已进展到实际启程并抵达墨西哥。"
+    },
+    {
+      "relation_id": "8e09f50a-ca58-5268-9057-839a51b6c418",
+      "source_event_id": "31440706-862a-4ff4-a44f-ef7efbcce5fc",
+      "target_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "description": "父亲就医后已采取饮食与酒量干预，后续跟踪确认仍在带饭、减少酒量。"
+    },
+    {
+      "relation_id": "c4ba24f1-7108-5fbb-8327-c15e74c2348f",
+      "source_event_id": "74b36aae-49f2-455f-95c4-c8f1b681913b",
+      "target_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "description": "父亲答应带饭、少喝酒后，后续电话确认饭一直带、酒量已减少。"
+    },
+    {
+      "relation_id": "ba8cab12-86d3-578e-b9f6-92de434a42e8",
+      "source_event_id": "95ec9c7b-ae87-41c1-8723-19f992379da6",
+      "target_event_id": "3fa1079d-7301-4f5b-802d-74aa187eac4a",
+      "description": "此前AI开发体验使我开始考虑第二职业，之后继续与同事讨论开发替代，并表明对潜在失业暂不提前焦虑、先车到山前。"
+    },
+    {
+      "relation_id": "448052a9-6d5e-506a-b57d-d450784280e6",
+      "source_event_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "target_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "description": "颂梅被要求去墨西哥出差后，实际启程并已抵达墨西哥。"
+    },
+    {
+      "relation_id": "67b3d402-689e-5cad-90f5-6e607c06ac24",
+      "source_event_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "target_event_id": "926dde26-3291-4ccd-879c-7290108475e4",
+      "description": "颂梅拒绝手机等多个礼物选项后，又拒吐司吊坠，大礼物改为现金。"
+    },
+    {
+      "relation_id": "86f30dea-ce1d-5e89-a578-62a6be3b04ad",
+      "source_event_id": "a06ad927-792e-4c51-ae88-b64700f4e187",
+      "target_event_id": "a142e54a-320b-4f02-a7a4-493885cf8966",
+      "description": "此前请朋友帮抢刘德华香港演唱会票，之后经朋友取得的第二轮购票资格，成功买到1月8日晚的门票。"
+    },
+    {
+      "relation_id": "432fc3e5-658e-5a09-818a-feda91b50f0b",
+      "source_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "target_event_id": "21bd262b-9e4a-4f61-b41e-a39226fdc512",
+      "description": "墨西哥出差抵达后，后续记录颂梅身体疲惫、需要倒时差，并在旅店无事可做。"
+    },
+    {
+      "relation_id": "96c6b96a-1480-555a-9e44-e90dff075f93",
+      "source_event_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "target_event_id": "926dde26-3291-4ccd-879c-7290108475e4",
+      "description": "手机大礼物被拒后继续找替代品，吐司吊坠也被拒，最终决定改送钱。"
+    },
+    {
+      "relation_id": "f28c16d5-f123-50ff-9946-00a5ee892068",
+      "source_event_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "target_event_id": "784c36a9-6887-4266-a857-9c74fc9f61d0",
+      "description": "德华不想要剃须刀、礼物未定后，生日时实际送了礼包、香薰和零食。"
+    },
+    {
+      "relation_id": "c15ec739-c5cb-593d-9df3-d7237124f51e",
+      "source_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "target_event_id": "21bd262b-9e4a-4f61-b41e-a39226fdc512",
+      "description": "已答应出差并买票的安排变成墨西哥在地经历，发现实际并无多少工作。"
+    },
+    {
+      "relation_id": "07f6de95-2f40-5f81-8f74-6375a36dfd6d",
+      "source_event_id": "34a6697e-050b-432f-8880-dc9686a074e0",
+      "target_event_id": "21bd262b-9e4a-4f61-b41e-a39226fdc512",
+      "description": "此前小廖提离职后仍被安排工作、感到压力，之后又被要求赴墨西哥，实际抵达后疲惫且暂无事可做，并计划回程接机。"
+    },
+    {
+      "relation_id": "317fcbd2-5ff2-5f6e-9e69-7e971b4430d7",
+      "source_event_id": "dff3b825-b3e7-4b93-a6bf-5e2aa144f29f",
+      "target_event_id": "a142e54a-320b-4f02-a7a4-493885cf8966",
+      "description": "朋友取得第二轮购票资格后，实际买到了1月8日晚刘德华演唱会门票。"
+    },
+    {
+      "relation_id": "100868f7-c8d9-539f-967f-f154f88d75c8",
+      "source_event_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "target_event_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
+      "description": "发现父亲旧手机不好用、打算给他换机后，生日当天进一步计划把选好的手机发群里，让父亲挑喜欢的再买。"
+    },
+    {
+      "relation_id": "2e2e358b-e394-5db8-ad72-43017c280e29",
+      "source_event_id": "67cfcb4c-7c32-4b7d-8480-3bd305361544",
+      "target_event_id": "21bd262b-9e4a-4f61-b41e-a39226fdc512",
+      "description": "被销售安排去墨西哥的出差，进展到已在当地小半周，却尚未见到安排者、没多少事可做。"
+    },
+    {
+      "relation_id": "922da9f6-ea63-54fc-8631-dad2b1eae808",
+      "source_event_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
+      "target_event_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "description": "父亲生日时安排挑选新手机，之后通过AI提供候选，让父亲选定并下单。"
+    },
+    {
+      "relation_id": "f63c0669-25ca-5498-832a-78d29d9db660",
+      "source_event_id": "600b3ddc-e835-40dd-b417-b05b85aedcac",
+      "target_event_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "description": "此前更换模型解决整理准确率及输入限制、恢复功能，之后仍发现整理正文逻辑问题，进一步考虑AI主动检查和提问。"
+    },
+    {
+      "relation_id": "e0cfa614-7cb8-521f-8332-667561be8ebe",
+      "source_event_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "target_event_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "description": "发现父亲手机破旧并计划换机后，确认需求、AI筛选比价，颂梅抢券完成购买。"
+    },
+    {
+      "relation_id": "5992cdca-2e1d-55ea-99d0-afc97a77822b",
+      "source_event_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
+      "target_event_id": "82a63203-3fcb-4929-a044-8145af1611de",
+      "description": "父亲生日时猜母亲会煮鸡蛋，后来电话确认确实煮了几个鸡蛋。"
+    },
+    {
+      "relation_id": "a43f6f6a-dbe4-5d35-aeee-3e049030efc6",
+      "source_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "target_event_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "description": "此前日记整理结果需逐篇重读修改、成本高且削弱动力，之后提出让AI先检查正文逻辑并主动提问，以减少手动查阅。"
+    },
+    {
+      "relation_id": "d205b864-4de1-5cae-aef2-aeafe7c00595",
+      "source_event_id": "59e4cae4-9817-4354-872a-3e0f6e060546",
+      "target_event_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "description": "首次给父亲买脱脂舒化奶后，再次比价购买半脱脂，让他试口味。"
+    },
+    {
+      "relation_id": "d4e71b52-8b6c-5c34-90da-f6d0ce02485d",
+      "source_event_id": "4db4ac43-c67b-4f09-9ff0-3d5d6034b6d1",
+      "target_event_id": "a2858b02-4c5c-4d1e-965e-d38ac5f5ca14",
+      "description": "询问父亲脱脂奶口味并考虑半脱脂后，实际再买两箱半脱脂让他比较。"
+    },
+    {
+      "relation_id": "784c2403-c59c-594a-abe1-78b64294819d",
+      "source_event_id": "a6f61591-ad9c-4028-b0f9-8cf54b732a89",
+      "target_event_id": "fe48919d-4256-448a-b2b6-1d9dc374f28e",
+      "description": "此前扫地机拖地功能故障、家务积压影响情绪，之后实际收拾小房间并拖地，同时清理过期宠物食品。"
+    },
+    {
+      "relation_id": "92edc109-833c-527b-947a-308c8ff3fe5e",
+      "source_event_id": "b1877f8d-f28f-4ba0-8a93-7947df935175",
+      "target_event_id": "93d08f00-f92c-4124-99fa-42eb33748202",
+      "description": "此前设想培养未来孩子的价值观、辩证和独立思考能力，之后与AI讨论观念代际传递，进一步提出家庭中允许孩子质疑父母及尊重平等的方法。"
+    },
+    {
+      "relation_id": "534c3e77-8e62-5e19-94fe-a4a262cdfcec",
+      "source_event_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "target_event_id": "2e640b8f-13df-4ec5-ac33-6482db94ce38",
+      "description": "给父亲选定购买的手机到货后，按使用习惯卸软件、关广告、完成配置准备寄回。"
+    },
+    {
+      "relation_id": "ef5172da-09ed-5faf-8c31-4e3eaf7e7e7e",
+      "source_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "target_event_id": "05718a02-902a-4660-ac1a-eac3bd3b4bf2",
+      "description": "此前因领域知识不足而不断调整日记平台实现，之后对图谱沉淀准确性继续实验，考虑用Codex和skill，并意识到还需补充相关知识。"
+    },
+    {
+      "relation_id": "1e6a8e28-cc03-5766-adbf-24e1635ec3b0",
+      "source_event_id": "2e640b8f-13df-4ec5-ac33-6482db94ce38",
+      "target_event_id": "8e513ca7-533f-47b5-b718-33c4737bfc08",
+      "description": "父亲手机配置好准备寄回后，因快递柜放不下，改约上门取件。"
+    },
+    {
+      "relation_id": "f95e0770-ddf2-51a5-b312-729e812f5357",
+      "source_event_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
+      "target_event_id": "2e640b8f-13df-4ec5-ac33-6482db94ce38",
+      "description": "父亲生日安排让他挑新手机后，新手机已到并完成适用配置。"
+    },
+    {
+      "relation_id": "a313a0e6-8e97-5fbb-b205-f94094ec2142",
+      "source_event_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "target_event_id": "9858ebb3-5e5e-44d0-bda7-77b5b01108cf",
+      "description": "江西城镇开发边界接口继续推进后，进一步讨论计算接口与跨库结果同步，仍采用原中间库方案。"
+    },
+    {
+      "relation_id": "cc21425e-cbcf-5649-8154-c57b625d16b1",
+      "source_event_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "target_event_id": "ed61114e-6f64-4de1-9a02-1432df088f33",
+      "description": "昨日把指标填报列为工作重点，今天实际按新需求改设计和代码并开发导入接口。"
+    },
+    {
+      "relation_id": "02790f7f-3ca9-53be-b831-8d6e42b96d9c",
+      "source_event_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+      "target_event_id": "05718a02-902a-4660-ac1a-eac3bd3b4bf2",
+      "description": "早期事件关系测试效果差后，知识库继续推进到图谱页面，但沉淀与多轮校验仍出错，我考虑亲看真实返回和改走Codex流程。"
+    },
+    {
+      "relation_id": "d26f0e69-4f53-55c9-b849-50df098e2ff1",
+      "source_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "target_event_id": "05718a02-902a-4660-ac1a-eac3bd3b4bf2",
+      "description": "第一层真实模型效果不理想后，继续检查知识沉淀质量，开始考虑换用Codex及skill路线。"
+    },
+    {
+      "relation_id": "06b397ab-8189-559f-9b00-6f2a2100de80",
+      "source_event_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "target_event_id": "2e640b8f-13df-4ec5-ac33-6482db94ce38",
+      "description": "发现父亲旧手机不好用并决定换机后，新手机到货，按习惯完成配置准备寄回。"
+    },
+    {
+      "relation_id": "55f9678c-7580-544b-9aad-e41356e20c83",
+      "source_event_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "target_event_id": "479a72f1-08b6-4b3e-9687-33d3c56bc6f4",
+      "description": "昨日计划Cube改CBB服务管理，今天索取信息、抓包并让AI分析替换接口，结果还未检查。"
+    },
+    {
+      "relation_id": "96f78362-2398-5455-8cf4-f3dbfe9c6b78",
+      "source_event_id": "310a73d8-4ad8-4fd0-a73e-2201eea0c991",
+      "target_event_id": "ed61114e-6f64-4de1-9a02-1432df088f33",
+      "description": "此前讨论指标填报技术方案但不清楚何时开工，之后已按最新需求修改数据库和代码，并开发指标体系、行政区划导入接口。"
+    },
+    {
+      "relation_id": "2bd30b7e-4fed-5e3c-8fe9-ea14cf335d2e",
+      "source_event_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "target_event_id": "05718a02-902a-4660-ac1a-eac3bd3b4bf2",
+      "description": "此前第二层设计跑偏、重新区分事实与推测后，知识图谱继续实现，但知识沉淀与校验准确性仍有问题，考虑调整流程。"
+    },
+    {
+      "relation_id": "79317c48-217a-5870-b069-18875505d75f",
+      "source_event_id": "05718a02-902a-4660-ac1a-eac3bd3b4bf2",
+      "target_event_id": "03107cc0-da4d-4752-8b2a-aa275a1607d6",
+      "description": "因知识沉淀质量纠结而考虑Codex方案后，正式决定切换到Codex和skill，平台保留基础能力。"
+    },
+    {
+      "relation_id": "44313712-c363-57eb-8175-f705309e6522",
+      "source_event_id": "9858ebb3-5e5e-44d0-bda7-77b5b01108cf",
+      "target_event_id": "e62e00f7-b157-494f-be7d-e4eb2ae74800",
+      "description": "江西城镇开发边界决定采用原中间库同步后，继续让AI推进模型数据接口对接。"
+    },
+    {
+      "relation_id": "8d556a3b-e096-5f31-a231-6034e54d02a3",
+      "source_event_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "target_event_id": "2b7ac0db-a348-4966-9325-6dfbac2b895a",
+      "description": "此前计划给颂梅换AirpodsPro，后来双十一实际下单，并因京东更便宜取消淘宝订单。"
+    },
+    {
+      "relation_id": "7d9ba881-4ec3-50ad-b11e-495b4914fe42",
+      "source_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "target_event_id": "a5329c5a-9b24-47f9-b21f-3c4739a65abf",
+      "description": "此前整理日记仍需长时间逐篇看稿修改、执行成本高，之后做出支持澄清提问的整理skill并用九月日记逐篇验证，感觉减少了修改负担。"
+    },
+    {
+      "relation_id": "03c64f90-176a-5f0b-98ec-cfb1781b1534",
+      "source_event_id": "479a72f1-08b6-4b3e-9687-33d3c56bc6f4",
+      "target_event_id": "e62e00f7-b157-494f-be7d-e4eb2ae74800",
+      "description": "规划传导Cube改CBB先交AI分析，次日AI称完成，已通知莫菲安排前端对接。"
+    },
+    {
+      "relation_id": "ad879939-8273-5507-a2d9-bc7bee4e1dbe",
+      "source_event_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "target_event_id": "e62e00f7-b157-494f-be7d-e4eb2ae74800",
+      "description": "城镇开发边界接口持续开发后，进一步继续推进模型计算数据对接。"
+    },
+    {
+      "relation_id": "5d52f79d-8cf4-5153-a8cb-2666579f6a20",
+      "source_event_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "target_event_id": "e62e00f7-b157-494f-be7d-e4eb2ae74800",
+      "description": "计划推进规划传导Cube改CBB服务管理后，继续让AI实现；AI表示已做好，我已通知莫菲找前端对接，尚不等于测试验收通过。"
+    },
+    {
+      "relation_id": "e6607df2-f733-5f6a-a116-9ac6e01399f8",
+      "source_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "target_event_id": "03107cc0-da4d-4752-8b2a-aa275a1607d6",
+      "description": "此前日记平台在知识与需求不清中不断试错，之后明确止损自行调用模型的路线，改由Codex和skill承担AI工作，并串起知识库体系。"
+    },
+    {
+      "relation_id": "68dbea60-b9eb-52af-be27-badd3e883d88",
+      "source_event_id": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "target_event_id": "03107cc0-da4d-4752-8b2a-aa275a1607d6",
+      "description": "此前第二层心理活动设计跑偏，之后整体重新串联要点、事件关系、心理过程与认知特质发展，并切换为Codex执行。"
+    },
+    {
+      "relation_id": "83328381-3b6a-556b-9e73-63f7f0ea0525",
+      "source_event_id": "03107cc0-da4d-4752-8b2a-aa275a1607d6",
+      "target_event_id": "a5329c5a-9b24-47f9-b21f-3c4739a65abf",
+      "description": "采用现成Codex和skill的新路线后，先落地日记整理skill并逐篇试验修改。"
+    },
+    {
+      "relation_id": "d3db9464-4432-5b2b-a7e8-09012ec55176",
+      "source_event_id": "1fbbd48a-a129-4d53-8217-bb9935d5b96c",
+      "target_event_id": "a5329c5a-9b24-47f9-b21f-3c4739a65abf",
+      "description": "希望AI检查日记逻辑并主动提问的想法，进展到从旧代码提炼整理skill、用九月日记验证澄清功能。"
+    },
+    {
+      "relation_id": "8658462e-c9bd-5c6d-95ac-e49b468ef015",
+      "source_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "target_event_id": "e0b6c651-23f2-4333-8349-a48b95c47225",
+      "description": "此前争吵后尝试非暴力沟通、只记得部分步骤，之后正式阅读《非暴力沟通》的引言与第一章，并借AI理解其理念。"
+    },
+    {
+      "relation_id": "a8450718-7975-5dfa-9a62-a91182b471bc",
+      "source_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "target_event_id": "e3ae8984-3190-4df4-bf87-00db8f77cf3a",
+      "description": "此前把练阅读纳入每日学习安排，之后调整为看书十页的具体提醒，并实际开始阅读，想用它替代刷手机。"
+    },
+    {
+      "relation_id": "012dea55-6ef9-5776-bf6f-f963c4ea3ca0",
+      "source_event_id": "a5329c5a-9b24-47f9-b21f-3c4739a65abf",
+      "target_event_id": "fca046cb-a4de-4678-9f4e-c25103d07645",
+      "description": "昨日用九月日记试验整理skill并计划继续，今天已把九月整理入库，并开始要点提取测试。"
+    },
+    {
+      "relation_id": "1e84229e-6f57-5a3f-a3e4-a199b26e84b8",
+      "source_event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "target_event_id": "e0b6c651-23f2-4333-8349-a48b95c47225",
+      "description": "此前与小廖复盘争吵并练习非暴力沟通，之后进一步读这本书，询问豆包并形成对其理念的理解。"
+    },
+    {
+      "relation_id": "8ab71901-9d56-585f-b61a-a81e43244cbc",
+      "source_event_id": "e62e00f7-b157-494f-be7d-e4eb2ae74800",
+      "target_event_id": "b9051008-a711-4492-b7f2-3024a20600a5",
+      "description": "江西城镇开发边界模型数据继续对接后，今日因结果有多个版本而修改前端接口并发对接文档，计算对接本身尚未测试。"
+    },
+    {
+      "relation_id": "0cf93455-1f07-58cc-86c5-0658fd57ca0f",
+      "source_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "target_event_id": "fca046cb-a4de-4678-9f4e-c25103d07645",
+      "description": "此前日记平台考虑先结构化事件和要点再建立关系，之后已整理九月日记，并做出要点提取skill，计划继续关系提取、先试用第一层。"
+    },
+    {
+      "relation_id": "9083df8e-f4e6-5b72-8559-103404cb5801",
+      "source_event_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "target_event_id": "b9051008-a711-4492-b7f2-3024a20600a5",
+      "description": "城镇开发边界接口开发后，因计算结果产生多版本，进一步调整前端接口并发出改动文档。"
+    },
+    {
+      "relation_id": "b66c856b-67db-5bbf-8354-760717c587d1",
+      "source_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "target_event_id": "e3ae8984-3190-4df4-bf87-00db8f77cf3a",
+      "description": "此前日记、日程、心理学和瑜伽长期荒废、缺少推动力，之后以十页阅读提醒开始行动，并觉得跑步与瑜伽等拖延事项也被带动。"
+    },
+    {
+      "relation_id": "cb4bf080-a23e-56ae-afa9-f368c87fefed",
+      "source_event_id": "fc69097a-a2c0-4617-bcca-cecca29ef98a",
+      "target_event_id": "b9051008-a711-4492-b7f2-3024a20600a5",
+      "description": "例会后设计城镇开发边界数据库的事项，后续推进到计算结果版本化和前端接口改造。"
+    },
+    {
+      "relation_id": "2d34a81f-1aa0-581a-8663-aa7cd77d7bca",
+      "source_event_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "target_event_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "description": "此前母亲反复催生、借豆包沟通仍无果，之后她又转述大姨催生，我改在事后尝试用非暴力沟通区分双方需要和请求。"
+    },
+    {
+      "relation_id": "05340e98-fd01-5778-ad82-cacc99777c98",
+      "source_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "target_event_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "description": "此前学习用非暴力沟通表达感受诉求，之后进一步用它复盘与母亲的消费争执，辨认烦躁来自解释不被理解。"
+    },
+    {
+      "relation_id": "73f67df8-0619-5f12-8cdf-5982a0a59dcb",
+      "source_event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "target_event_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "description": "此前和小廖练习非暴力沟通四步，之后继续读书并把同一方法用于母亲催生的事后复盘，仍在摸索其适用边界。"
+    },
+    {
+      "relation_id": "8b7636ea-ab99-546b-8d37-6e774653bc30",
+      "source_event_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
+      "target_event_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "description": "此前事件关系测试效果很差，之后改用skill推进关系提取并验证，当前看着还行但尚未到能入库阶段。"
+    },
+    {
+      "relation_id": "998e369b-cd6d-54c3-8952-f16b4a2648a5",
+      "source_event_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "target_event_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "description": "重新梳理个人知识库实体关系后，第一层继续落地为要点及事件关系skill，已试验九月数据，计划继续验证和推广。"
+    },
+    {
+      "relation_id": "eb144620-7917-5641-b09d-d28d4e1ed55c",
+      "source_event_id": "fca046cb-a4de-4678-9f4e-c25103d07645",
+      "target_event_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "description": "前一天开始要点skill试验并计划做关系，次日继续九月要点测试并开发验证关系skill。"
+    },
+    {
+      "relation_id": "9140c292-69ff-5ed0-babf-fe6b2c3564b7",
+      "source_event_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "target_event_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "description": "颂梅拒绝多个生日礼物选项后，最终定下含一万元现金在内的六样抽奖礼物。"
+    },
+    {
+      "relation_id": "9b1ddff1-f00f-53fd-9185-277b2dbe4743",
+      "source_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "target_event_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "description": "墨西哥去程延误导致重买机票后，小廖尝试向国泰索赔，被告知开延误证明找保险。"
+    },
+    {
+      "relation_id": "d8de0383-0353-5d73-bedf-3b49dd171b0f",
+      "source_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "target_event_id": "efa0adad-de68-40bd-a96f-c2f1d442c450",
+      "description": "此前开始尝试非暴力沟通，之后继续用事实、感受和请求复盘误踢小狗的冲突，尚未找到合适请求，决定继续学习。"
+    },
+    {
+      "relation_id": "86bf132f-8455-5f9e-91fa-9c1aae135e6b",
+      "source_event_id": "98bb6f2a-1dbd-48bb-b2d0-76b8474d19bb",
+      "target_event_id": "1b27be66-512d-4590-b855-19505246ada3",
+      "description": "此前讨论公司面向AI开发及AI Native接口，之后公司进一步提出每月交skill或MCP的要求，我认为应由上面提供统一架构规范。"
+    },
+    {
+      "relation_id": "c6c4d670-63f1-5163-8f44-1117b4907680",
+      "source_event_id": "3a490c44-c339-48ad-b890-7718a051e660",
+      "target_event_id": "145224c1-0971-427b-bb1c-9678867aad88",
+      "description": "此前争吵后尝试非暴力沟通并只记得部分步骤，之后读第一章后半部分，进一步理解觉察事实、感受、需要和请求，并用母亲催生案例复盘。"
+    },
+    {
+      "relation_id": "d8c56156-d755-5c66-b6cc-9ea28dbc203e",
+      "source_event_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "target_event_id": "cbc93bf3-1e12-4af0-844f-167816015ae5",
+      "description": "原先六件生日盲盒继续调整，手机被替换为现金，盒子不合适又改撕拉卡抽奖。"
+    },
+    {
+      "relation_id": "44baf298-b537-5ec9-a49e-fbdebcd67839",
+      "source_event_id": "99392f74-a819-4f3e-bcbe-b43e5199285a",
+      "target_event_id": "c02f3e9a-6a5b-4ae2-8364-d44dc90221e8",
+      "description": "此前练习非暴力沟通并讨论先识别激动，之后在母亲消费争执的新案例中继续试用该方法，发现理念冲突仍难解决。"
+    },
+    {
+      "relation_id": "3b6f58ca-0d76-5b97-a0c4-91fc8d159eb9",
+      "source_event_id": "8501f3ee-cfc6-4c97-852c-0d74aebf173a",
+      "target_event_id": "db9479f4-10cb-40f7-8ae7-db810be93070",
+      "description": "下水道此前暂用气压疏通后仍反复堵塞，随后请专业师傅疏通毛发油污。"
+    },
+    {
+      "relation_id": "0f63ecd0-8a31-5e21-b2b0-83910bc1d625",
+      "source_event_id": "fca046cb-a4de-4678-9f4e-c25103d07645",
+      "target_event_id": "ff1067e2-8a09-4be3-a0cb-56246a2a71a9",
+      "description": "九月日记整理入库后计划继续要点和关系提取，后续实际推进九月关系任务并处理十月日记。"
+    },
+    {
+      "relation_id": "acf7cdd9-846a-5864-9093-0d4ccb4ad7f8",
+      "source_event_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "target_event_id": "4079501f-c7b6-4b76-94be-3ffefea5c71d",
+      "description": "发现父亲手机陈旧并计划换机后，新手机已送到，帮助迁移微信、通讯录并教AI功能。"
+    },
+    {
+      "relation_id": "443a4eac-5d54-542a-a79d-8a2435b5f34e",
+      "source_event_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "target_event_id": "ff1067e2-8a09-4be3-a0cb-56246a2a71a9",
+      "description": "前晚准备让任务提取九月关系，次日发现只做了几天且有缺失事件，继续推进并整理审阅十月日记。"
+    },
+    {
+      "relation_id": "852b63aa-2102-516d-837a-cb7ef4741864",
+      "source_event_id": "7ebe7442-d7e2-4cb1-ad5a-968951dee92b",
+      "target_event_id": "4079501f-c7b6-4b76-94be-3ffefea5c71d",
+      "description": "给父亲购机的款项由母亲再次付给小廖后，后续记录父亲已收到新手机，并开始在协助下迁移微信和通讯录。"
+    },
+    {
+      "relation_id": "4266d2a3-f057-5ff5-89ff-e14488dc0e51",
+      "source_event_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "target_event_id": "b610c05d-344c-472b-ad6c-b8b6248706f0",
+      "description": "此前母亲催生、用豆包沟通仍未改观，之后改聊愧疚式教育，让父母继续问豆包；母亲承认催生后悔却仍忍不住，通话最终因烦躁结束。"
+    },
+    {
+      "relation_id": "78fba552-3fac-5ab6-8d26-38f05853b993",
+      "source_event_id": "a5329c5a-9b24-47f9-b21f-3c4739a65abf",
+      "target_event_id": "ff1067e2-8a09-4be3-a0cb-56246a2a71a9",
+      "description": "用九月验证修复的日记整理skill，继续用于十月转文字后的日记整理与人工审阅。"
+    },
+    {
+      "relation_id": "b27d2196-c14a-5c6f-b0b3-40676ec8cf9d",
+      "source_event_id": "263d2593-9661-4814-a3e8-b7a3850e0a8b",
+      "target_event_id": "b610c05d-344c-472b-ad6c-b8b6248706f0",
+      "description": "此前反复催生时已明确自己的生育立场，之后母亲承认事后后悔却仍反复，我尝试用愧疚式教育概念继续沟通，仍未解决。"
+    },
+    {
+      "relation_id": "f40c812d-5249-5db8-8293-5e2daef5c2c7",
+      "source_event_id": "600b3ddc-e835-40dd-b417-b05b85aedcac",
+      "target_event_id": "ff1067e2-8a09-4be3-a0cb-56246a2a71a9",
+      "description": "此前修复整理功能使其可用，之后进一步以整理skill批量处理十月录音转写日记、人工审阅，并准备继续要点与关系任务。"
+    },
+    {
+      "relation_id": "1c6fe5d2-3c1d-56c5-83ba-04b53650ff74",
+      "source_event_id": "e4b5510f-5bdc-4a6d-9732-529a41fc886a",
+      "target_event_id": "b610c05d-344c-472b-ad6c-b8b6248706f0",
+      "description": "反思愧疚式教育及自己曾让别人亏欠后，实际与父母讨论，让他们询问豆包并观察母亲仍沿用的表达。"
+    },
+    {
+      "relation_id": "3ed67c52-c94b-5d2c-84ba-f07497c83d78",
+      "source_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "target_event_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "description": "此前想到让母亲就催生问题问豆包，后来在通话中实际采用日记里的方案。"
+    },
+    {
+      "relation_id": "5ed6de35-ab73-57a2-8780-53946080f645",
+      "source_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "target_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "description": "在学完第二章并准备继续第三章后，进一步把同一心理学课程安排在中午或空闲时间学习；这是形成新时段安排，不表示该安排已经执行。"
+    },
+    {
+      "relation_id": "4848535f-7771-591a-8f87-113e747fe281",
+      "source_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "target_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "description": "此前恢复瑜伽的计划仍未稳定执行，后来在每日安排中再次明确今天一定要做。"
+    },
+    {
+      "relation_id": "187c72dc-aba2-5c29-8072-dc4c75f96f54",
+      "source_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "target_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "description": "利用居家空闲学普通心理学的打算，后来落实到第三章感觉及三节课笔记。"
+    },
+    {
+      "relation_id": "0959e2ce-f38f-502b-b326-1abb77fb2c76",
+      "source_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "target_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "description": "此前重新开始普通心理学课程但尚未进入正轨，后来重新规划将同一课程放在中午或空闲时间学习，形成具体学习安排。"
+    },
+    {
+      "relation_id": "45e516fb-1c31-5670-a9bd-6fc916c1170b",
+      "source_event_id": "2a5df759-efbb-4989-9aee-bc20812ca892",
+      "target_event_id": "7559ac0a-134c-48ff-a9b2-b80f9664c801",
+      "description": "此前劝小廖培养摄影爱好、尚未见她学习，随后看到她开始在B站看摄影课程。"
+    },
+    {
+      "relation_id": "e345681a-e7fa-50cc-97cb-563c17e6b8bc",
+      "source_event_id": "ee97ba68-3c5c-4768-bbc9-abca24de650a",
+      "target_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "description": "普通心理学初步重启后，已继续到第三章并整理笔记。"
+    },
+    {
+      "relation_id": "a7badb93-dab3-550b-a7b5-613de5284972",
+      "source_event_id": "23c145bd-8435-40b2-92e1-023b76daa7f1",
+      "target_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "description": "此前要求自己明天不能再拖瑜伽，后来仍报告昨天没做，并重新要求今天一定做。"
+    },
+    {
+      "relation_id": "5a4a6c7c-9454-50b1-92d3-db2abf2128b4",
+      "source_event_id": "a883d37d-a41e-4528-94df-65fcb05e5d0f",
+      "target_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "description": "学完第二章并计划继续第三章后，已学习第三章感觉并整理三节课笔记。"
+    },
+    {
+      "relation_id": "4b9c29e2-7181-52fb-8460-6a6598192db0",
+      "source_event_id": "8049b5d3-1ef4-4c26-9f7f-aa695048acf6",
+      "target_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "description": "此前想恢复荒废的瑜伽后，后来明确报告昨日没做，并给今天安排强制执行要求。"
+    },
+    {
+      "relation_id": "0ae38bff-913e-5558-aaca-d889d9bfcf8b",
+      "source_event_id": "1e8bba57-0712-4752-98f3-0643612d5b04",
+      "target_event_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "description": "父亲答应看腰却仍拖延后，我进一步让他把逃避就医的问题问豆包，希望帮助他愿意就医。"
+    },
+    {
+      "relation_id": "dc7ccf62-c054-5683-9206-300e82cc97ff",
+      "source_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "target_event_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "description": "此前想到让父亲问AI检视看腰的想法，后来实际让他询问豆包，但仍不知道是否听进去。"
+    },
+    {
+      "relation_id": "3c20dc67-faaa-5af9-8acd-d5c873bb12c6",
+      "source_event_id": "111027b5-2583-4a56-b9e1-c999ef319141",
+      "target_event_id": "4117d05a-2dc3-447f-9946-1647084aeb90",
+      "description": "此前学习神经系统脑区后，继续学习第三章感觉并整理三节课笔记，还把书和实验视频与所学联系起来。"
+    },
+    {
+      "relation_id": "6079f0b9-f730-5887-9e25-93ec651d694a",
+      "source_event_id": "263d2593-9661-4814-a3e8-b7a3850e0a8b",
+      "target_event_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+      "description": "与母亲反复争论催生无效后，转而形成非原则问题先顺着、再引导的新沟通打算。"
+    },
+    {
+      "relation_id": "4dec400d-4d10-56d1-8606-9ce7b11c782f",
+      "source_event_id": "310a73d8-4ad8-4fd0-a73e-2201eea0c991",
+      "target_event_id": "99724fcf-f62d-426a-abf4-3b86bd731340",
+      "description": "此前指标填报方案讨论后开工时间仍不清楚，后来形成拿该事项与AI讨论设计的新安排。"
+    },
+    {
+      "relation_id": "ed4d5248-07e8-50d2-bc23-83e50b9ef3fb",
+      "source_event_id": "54c4fb8d-481c-4b16-bedb-244d8de016c5",
+      "target_event_id": "99724fcf-f62d-426a-abf4-3b86bd731340",
+      "description": "此前打算利用空闲学心理学，后来继续学习视觉过程，并决定明天把时间转回工作。"
+    },
+    {
+      "relation_id": "eb43d123-dada-5254-99d7-3623a3d97796",
+      "source_event_id": "533cdacf-5b59-42e4-a67b-bc3adef62b36",
+      "target_event_id": "90072bec-a536-4325-964e-c8b22a30680e",
+      "description": "此前借AI劝父亲仍不愿就医，后来用老陆案例提醒，父亲表示准备去检查。"
+    },
+    {
+      "relation_id": "7a487fdf-f641-54fb-be9b-4171b6c4e416",
+      "source_event_id": "7af81962-8de3-455f-8557-b06efdf5e185",
+      "target_event_id": "99724fcf-f62d-426a-abf4-3b86bd731340",
+      "description": "此前恢复心理学学习的打算，随后持续推进到视觉系统和视觉过程的内容。"
+    },
+    {
+      "relation_id": "65f283f2-16a9-5b1e-9df8-1678eec702ea",
+      "source_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "target_event_id": "263d2593-9661-4814-a3e8-b7a3850e0a8b",
+      "description": "此前计划让母亲问豆包看待催生，后来继续在新通话中让她问豆包，但仍反复催生并引发争论。"
+    },
+    {
+      "relation_id": "aad62cd4-690a-5bfb-a180-66ac998bd36a",
+      "source_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "target_event_id": "90072bec-a536-4325-964e-c8b22a30680e",
+      "description": "此前父亲拖延看腰，后来在老陆病例提醒后表示准备就医，并讨论把时间安排在中秋周末。"
+    },
+    {
+      "relation_id": "931c23df-1a69-50c0-a35c-c001a37f7b95",
+      "source_event_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "target_event_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+      "description": "此前对母亲理解、注意力困难的推测，进一步促使我反思继续争论的效果并考虑调整沟通方式。"
+    },
+    {
+      "relation_id": "5e1e26fb-97bb-551f-bf6f-0d05d16308e9",
+      "source_event_id": "34967156-9666-431a-8e0b-504a0b015ae5",
+      "target_event_id": "99724fcf-f62d-426a-abf4-3b86bd731340",
+      "description": "此前查看并下载日志中心、消息中心的对接文档后，两中心已经接好，日志仍有收尾工作。"
+    },
+    {
+      "relation_id": "15c7882f-eaf3-55d8-9f2f-012357761112",
+      "source_event_id": "93b2cfb4-b129-4316-b769-c52b86b8f1e9",
+      "target_event_id": "263d2593-9661-4814-a3e8-b7a3850e0a8b",
+      "description": "此前母亲承诺不再反复催生却仍重复，后续通话继续催生，并被总结为本月三次电话次次提及。"
+    },
+    {
+      "relation_id": "e3dc9f0d-dab5-5ff5-ad05-7a7d326db11d",
+      "source_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
+      "target_event_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
+      "description": "借豆包辅助母亲理解催生问题后，又因沟通仍无效而考虑改为先顺着、再引导。"
+    },
+    {
+      "relation_id": "753fc3f2-e461-5cbe-b00f-490d221dfe20",
+      "source_event_id": "9f0a2ab0-b794-4a1d-9414-5d33747b20de",
+      "target_event_id": "99724fcf-f62d-426a-abf4-3b86bd731340",
+      "description": "在形成中午或空闲学习该心理学课程的安排后，后来记录了视觉系统、视觉过程的继续学习及对不明白内容的梳理；不据此认定学习只发生在计划时段。"
+    },
+    {
+      "relation_id": "11012bd5-45aa-59b5-ba50-1e5d82d6ae2d",
+      "source_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "target_event_id": "8129e239-7345-4bc4-8a3c-4c371f87d7d2",
+      "description": "颂梅此前已确定去墨西哥出差两周并准备出发；本次她已到美国，与我视频，预计明天回来。"
+    },
+    {
+      "relation_id": "9640906b-b678-5587-b543-00eff6f37036",
+      "source_event_id": "ba02a47f-411e-4217-81ae-976628b83827",
+      "target_event_id": "8129e239-7345-4bc4-8a3c-4c371f87d7d2",
+      "description": "此前父亲选定手机后，颂梅帮忙抢券买下；本次与颂梅视频时，我告诉她父亲已收到手机、挺高兴的。"
+    },
+    {
+      "relation_id": "e0f713d7-8661-5374-bfcc-a8f07b4a8adf",
+      "source_event_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "target_event_id": "a7044b2d-da44-4b5c-8592-1a5f95658b30",
+      "description": "此前颂梅生日盲盒打算凑六件礼物；本次考虑新增整只菠萝蜜，并把Airpods算作一份，若加上菠萝蜜共8份。新增菠萝蜜仍是购买打算。"
+    },
+    {
+      "relation_id": "f9249018-ab8f-51c9-8150-4635ef75cc94",
+      "source_event_id": "fca046cb-a4de-4678-9f4e-c25103d07645",
+      "target_event_id": "3e227c62-b757-4c31-9d3c-79caf5b7753b",
+      "description": "九月日记整理入库、要点提取skill初步试验后，原计划继续事件关系提取；本次已把十月事件要点和关系识别任务交给Codex执行。"
+    },
+    {
+      "relation_id": "749b89b0-f9fd-53af-9d69-4e4153a40254",
+      "source_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "target_event_id": "8129e239-7345-4bc4-8a3c-4c371f87d7d2",
+      "description": "此前颂梅经香港、美国到墨西哥出差；本次她已到美国并与我视频，预计明天回来。"
+    },
+    {
+      "relation_id": "9b535384-79d1-5e83-b208-21cebc089ed8",
+      "source_event_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
+      "target_event_id": "8129e239-7345-4bc4-8a3c-4c371f87d7d2",
+      "description": "此前发现父亲旧手机屏幕和通话都不好用，提出挑一部便宜、大屏的新手机；本次已向颂梅报告父亲收到手机、挺高兴的。"
+    },
+    {
+      "relation_id": "4e4ef491-b9e9-57e6-a863-b9baf71311c9",
+      "source_event_id": "926dde26-3291-4ccd-879c-7290108475e4",
+      "target_event_id": "a7044b2d-da44-4b5c-8592-1a5f95658b30",
+      "description": "此前颂梅生日大礼物决定直接给钱，其他礼物留待下周准备；本次又考虑把整只菠萝蜜列为生日礼物，并把Airpods计为一份，若加入菠萝蜜共8份。"
+    },
+    {
+      "relation_id": "74570e7f-0b64-5bae-8d48-5797bfab56f2",
+      "source_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "target_event_id": "a7044b2d-da44-4b5c-8592-1a5f95658b30",
+      "description": "此前考虑给颂梅送邮轮旅行作为生日大礼物；本次生日筹备中又考虑加入整只菠萝蜜，并把Airpods计作一份礼物，若加上菠萝蜜共8份。"
+    },
+    {
+      "relation_id": "f69a042d-70c2-5626-97d9-e3dce8a22aee",
+      "source_event_id": "21bd262b-9e4a-4f61-b41e-a39226fdc512",
+      "target_event_id": "8129e239-7345-4bc4-8a3c-4c371f87d7d2",
+      "description": "颂梅此前仍在墨西哥，并预计当地23号往回走；本次她已到美国，与我视频，预计明天回来。"
+    },
+    {
+      "relation_id": "3d985883-b7d3-5bfd-a20f-86bf9ca82b70",
+      "source_event_id": "05718a02-902a-4660-ac1a-eac3bd3b4bf2",
+      "target_event_id": "3e227c62-b757-4c31-9d3c-79caf5b7753b",
+      "description": "此前考虑用Codex按skill处理日记知识沉淀；本次已给Codex布置十月事件要点提取与关系识别任务，并简单查看了效果。"
+    },
+    {
+      "relation_id": "1178e94d-ea8a-54d6-8b64-ee985c9fb03b",
+      "source_event_id": "ff1067e2-8a09-4be3-a0cb-56246a2a71a9",
+      "target_event_id": "3e227c62-b757-4c31-9d3c-79caf5b7753b",
+      "description": "23日整理审阅十月日记后，计划半夜留下要点入库和事件关系识别任务；24日记载睡前已把十月事件要点与关系识别任务交给Codex，早上简单查看了效果。"
+    },
+    {
+      "relation_id": "f7de374d-38d7-5448-b95a-dbe50e3d4db0",
+      "source_event_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "target_event_id": "3e227c62-b757-4c31-9d3c-79caf5b7753b",
+      "description": "此前试验九月事件要点与关系识别，并打算效果好时推广到全部日记；本次已让Codex处理十月事件的要点与关系。"
+    },
+    {
+      "relation_id": "3ab801ff-bdf9-5cf8-9cf4-2059fb98e7e5",
+      "source_event_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "target_event_id": "a7044b2d-da44-4b5c-8592-1a5f95658b30",
+      "description": "此前颂梅不想要手机、首饰等生日礼物，还需要继续想；本次又考虑新增一整只菠萝蜜，并把Airpods算作生日礼物，若加上菠萝蜜共8份。"
+    },
+    {
+      "relation_id": "a4ea5f54-7d68-50f4-8a26-e3b0d7bd5d69",
+      "source_event_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
+      "target_event_id": "8129e239-7345-4bc4-8a3c-4c371f87d7d2",
+      "description": "父亲生日时原计划把选好的新手机发给他挑、喜欢就买；本次视频中，我已向颂梅报告父亲收到手机、挺高兴的。"
+    }
+  ],
+  "current_followup_candidates": [
+    {
+      "pair_id": "P-095cae4cf50fede2",
+      "source_event_id": "310a73d8-4ad8-4fd0-a73e-2201eea0c991",
+      "target_event_id": "9ab49f0f-1de2-46f9-9d8b-da955aefd842"
+    },
+    {
+      "pair_id": "P-1544ffc6c85c9c96",
+      "source_event_id": "293d3e96-ecd9-4f4e-a99d-96d53d528fe8",
+      "target_event_id": "ff8b7fb3-0efb-4ef1-9e4f-e288e3e02615"
+    },
+    {
+      "pair_id": "P-196c663736f44a75",
+      "source_event_id": "92af1400-ae10-4708-8747-5a3120b61813",
+      "target_event_id": "836206c5-5018-4016-b2ad-b9ac16b68ed2"
+    },
+    {
+      "pair_id": "P-20f2bb7784ab2ca3",
+      "source_event_id": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "target_event_id": "836206c5-5018-4016-b2ad-b9ac16b68ed2"
+    },
+    {
+      "pair_id": "P-21a019a18459d7db",
+      "source_event_id": "3e227c62-b757-4c31-9d3c-79caf5b7753b",
+      "target_event_id": "836206c5-5018-4016-b2ad-b9ac16b68ed2"
+    },
+    {
+      "pair_id": "P-2451ad497b700fba",
+      "source_event_id": "03107cc0-da4d-4752-8b2a-aa275a1607d6",
+      "target_event_id": "836206c5-5018-4016-b2ad-b9ac16b68ed2"
+    },
+    {
+      "pair_id": "P-296c9dd227e38935",
+      "source_event_id": "a7044b2d-da44-4b5c-8592-1a5f95658b30",
+      "target_event_id": "1c0d3f15-34ab-486e-b439-23f2b7a4599c"
+    },
+    {
+      "pair_id": "P-2b88b366cc84ec42",
+      "source_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "target_event_id": "1f9781bf-ef44-4933-9742-30dbf04b7438"
+    },
+    {
+      "pair_id": "P-2fb19d5c1a4cde4b",
+      "source_event_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
+      "target_event_id": "1c0d3f15-34ab-486e-b439-23f2b7a4599c"
+    },
+    {
+      "pair_id": "P-3192594abed94676",
+      "source_event_id": "dc97a003-9ff3-474a-afa5-779809004f88",
+      "target_event_id": "1c0d3f15-34ab-486e-b439-23f2b7a4599c"
+    },
+    {
+      "pair_id": "P-3559b53663aa7abc",
+      "source_event_id": "05718a02-902a-4660-ac1a-eac3bd3b4bf2",
+      "target_event_id": "836206c5-5018-4016-b2ad-b9ac16b68ed2"
+    },
+    {
+      "pair_id": "P-421f1d949e700469",
+      "source_event_id": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "target_event_id": "836206c5-5018-4016-b2ad-b9ac16b68ed2"
+    },
+    {
+      "pair_id": "P-60a26dc36992a6f0",
+      "source_event_id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "target_event_id": "836206c5-5018-4016-b2ad-b9ac16b68ed2"
+    },
+    {
+      "pair_id": "P-65835feb1f77245b",
+      "source_event_id": "3d3e1dc5-2f5e-41d7-8f14-966d405c642d",
+      "target_event_id": "1f9781bf-ef44-4933-9742-30dbf04b7438"
+    },
+    {
+      "pair_id": "P-826a29b8ee8c36b9",
+      "source_event_id": "ff1067e2-8a09-4be3-a0cb-56246a2a71a9",
+      "target_event_id": "836206c5-5018-4016-b2ad-b9ac16b68ed2"
+    },
+    {
+      "pair_id": "P-83a40db3a0b7c107",
+      "source_event_id": "58017e95-8a2b-4ccc-9f37-62eb661c026f",
+      "target_event_id": "1f9781bf-ef44-4933-9742-30dbf04b7438"
+    },
+    {
+      "pair_id": "P-83da7ef8190dd369",
+      "source_event_id": "80e01c28-77df-44eb-a183-6c8720dc9375",
+      "target_event_id": "55463738-c7fd-43f4-9605-9b04a38ddca7"
+    },
+    {
+      "pair_id": "P-8c797a36dbe12bee",
+      "source_event_id": "38bb9d8f-b8e6-4022-a982-bb11ff0004bd",
+      "target_event_id": "f8f16e1d-8ff6-4fd1-89c9-8d892a09ea51"
+    },
+    {
+      "pair_id": "P-98ab733707682540",
+      "source_event_id": "55463738-c7fd-43f4-9605-9b04a38ddca7",
+      "target_event_id": "a5ee2d02-cc98-4938-9f69-ebf83d2a3dcc"
+    },
+    {
+      "pair_id": "P-a92b6ea2c10d7e44",
+      "source_event_id": "479a72f1-08b6-4b3e-9687-33d3c56bc6f4",
+      "target_event_id": "ff8b7fb3-0efb-4ef1-9e4f-e288e3e02615"
+    },
+    {
+      "pair_id": "P-afc8a40d873f244c",
+      "source_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "target_event_id": "836206c5-5018-4016-b2ad-b9ac16b68ed2"
+    },
+    {
+      "pair_id": "P-b3e8f189ba1d3be6",
+      "source_event_id": "e62e00f7-b157-494f-be7d-e4eb2ae74800",
+      "target_event_id": "ff8b7fb3-0efb-4ef1-9e4f-e288e3e02615"
+    },
+    {
+      "pair_id": "P-cd7c721bd87fe429",
+      "source_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "target_event_id": "1c0d3f15-34ab-486e-b439-23f2b7a4599c"
+    },
+    {
+      "pair_id": "P-ce3c3ee50480b007",
+      "source_event_id": "21bd262b-9e4a-4f61-b41e-a39226fdc512",
+      "target_event_id": "9a085f96-c8fb-475e-8516-328901dfc0e5"
+    },
+    {
+      "pair_id": "P-d42bc9ce64ebebad",
+      "source_event_id": "1c0d3f15-34ab-486e-b439-23f2b7a4599c",
+      "target_event_id": "f8f16e1d-8ff6-4fd1-89c9-8d892a09ea51"
+    },
+    {
+      "pair_id": "P-d596f27b466d46b5",
+      "source_event_id": "ed61114e-6f64-4de1-9a02-1432df088f33",
+      "target_event_id": "9ab49f0f-1de2-46f9-9d8b-da955aefd842"
+    },
+    {
+      "pair_id": "P-d6edf4d4cac9b0e1",
+      "source_event_id": "661670a2-3852-4424-a664-330049c46c6e",
+      "target_event_id": "9a085f96-c8fb-475e-8516-328901dfc0e5"
+    },
+    {
+      "pair_id": "P-d7c56763c10393d0",
+      "source_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
+      "target_event_id": "9a085f96-c8fb-475e-8516-328901dfc0e5"
+    },
+    {
+      "pair_id": "P-d8e421d6ba41559b",
+      "source_event_id": "926dde26-3291-4ccd-879c-7290108475e4",
+      "target_event_id": "1c0d3f15-34ab-486e-b439-23f2b7a4599c"
+    },
+    {
+      "pair_id": "P-f55aae2c949e19c1",
+      "source_event_id": "fca046cb-a4de-4678-9f4e-c25103d07645",
+      "target_event_id": "836206c5-5018-4016-b2ad-b9ac16b68ed2"
+    },
+    {
+      "pair_id": "P-f6eb8fdcac35ba9b",
+      "source_event_id": "e6297c84-d423-4874-aeca-989f3be5b61f",
+      "target_event_id": "9ab49f0f-1de2-46f9-9d8b-da955aefd842"
+    },
+    {
+      "pair_id": "P-fa3a6e49ccd466c6",
+      "source_event_id": "e62e00f7-b157-494f-be7d-e4eb2ae74800",
+      "target_event_id": "9ab49f0f-1de2-46f9-9d8b-da955aefd842"
+    }
+  ]
+}

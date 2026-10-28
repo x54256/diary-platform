@@ -1,0 +1,56 @@
+{
+  "context_sha256": "4ce39114a0fc8652c58e421fddd45fab38772b2789651769e5a63aad6649213d",
+  "decisions": [
+    {
+      "pair_id": "P-24857bc5ab766705",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接领域知识不足导致平台摸索，到第一层准确性问题和考虑 Codex/skill。替代路径记录第一、二层设计及按真实案例重做，再到第一层实验、准确性问题及 Codex/skill 考虑，覆盖同一开发摸索链。 直连证据：SOURCE要点[4]、TARGET要点[3]。 替代路径逐边核对：H:c3bfb105-e4cd-5232-b992-ac5f6269efaf（AI 带来的职业不自信，与专业经验仍然有用的认识→梳理个人知识图谱第二层，发现自己被设计带偏了；SOURCE要点[3]、TARGET要点[1]）；H:79d88aa1-0cb5-59ac-8aba-44cc411987aa（梳理个人知识图谱第二层，发现自己被设计带偏了→知识图谱需求不清时，让AI调研、实验，小步拼出方案；SOURCE要点[7]、TARGET要点[1]）；H:a3e52986-a22d-595e-96fa-b1d3ec86d48a（知识图谱需求不清时，让AI调研、实验，小步拼出方案→图谱设计继续推进，第一层真实模型实验效果不理想；SOURCE要点[2]、TARGET要点[1, 2]）；C:P-8311ddfacbd97910（图谱设计继续推进，第一层真实模型实验效果不理想→知识图谱页面还行，但知识沉淀的准确性让我纠结；SOURCE要点[2]、TARGET要点[1, 3]）。",
+      "replacement_path": [
+        "H:c3bfb105-e4cd-5232-b992-ac5f6269efaf",
+        "H:79d88aa1-0cb5-59ac-8aba-44cc411987aa",
+        "H:a3e52986-a22d-595e-96fa-b1d3ec86d48a",
+        "C:P-8311ddfacbd97910"
+      ]
+    },
+    {
+      "pair_id": "P-4d30ef1cd3f6efaf",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接父亲生日计划挑选新手机到新机到货配置；路径记录父亲选定下单，再记录到货并按习惯完成配置，完整覆盖。 证据编号：直连 SOURCE要点[1]、TARGET要点[1]。 替代路径逐边核对：H:922da9f6-ea63-54fc-8631-dad2b1eae808 SOURCE要点[1]→TARGET要点[2]；C:P-102013b32229413a SOURCE要点[2]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:922da9f6-ea63-54fc-8631-dad2b1eae808",
+        "C:P-102013b32229413a"
+      ]
+    },
+    {
+      "pair_id": "P-6f2abd44d83f2684",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接早期关系测试差后持续改进图谱，并发展到页面和知识沉淀准确性问题。替代路径从按原文要点建关系的改进设想，推进第一、二层设计和真实实验，最后落到准确性及 Codex/skill 顾虑，完整覆盖该开发问题。 直连证据：SOURCE要点[1]、TARGET要点[1, 2]。 替代路径逐边核对：H:0f7b6440-aa65-530b-9519-febf9510c4be（事件关系建立的测试效果很糟糕→AI 带来的职业不自信，与专业经验仍然有用的认识；SOURCE要点[1]、TARGET要点[3]）；H:c3bfb105-e4cd-5232-b992-ac5f6269efaf（AI 带来的职业不自信，与专业经验仍然有用的认识→梳理个人知识图谱第二层，发现自己被设计带偏了；SOURCE要点[3]、TARGET要点[1]）；H:79d88aa1-0cb5-59ac-8aba-44cc411987aa（梳理个人知识图谱第二层，发现自己被设计带偏了→知识图谱需求不清时，让AI调研、实验，小步拼出方案；SOURCE要点[7]、TARGET要点[1]）；H:a3e52986-a22d-595e-96fa-b1d3ec86d48a（知识图谱需求不清时，让AI调研、实验，小步拼出方案→图谱设计继续推进，第一层真实模型实验效果不理想；SOURCE要点[2]、TARGET要点[1, 2]）；C:P-8311ddfacbd97910（图谱设计继续推进，第一层真实模型实验效果不理想→知识图谱页面还行，但知识沉淀的准确性让我纠结；SOURCE要点[2]、TARGET要点[1, 3]）。",
+      "replacement_path": [
+        "H:a2fbf2d4-12e7-5279-a788-d620ed13526c",
+        "H:f5cd798d-d41e-5846-a915-243dfc0bb64d",
+        "H:b0e4a64f-b88b-54bb-b7f7-96b486d1cd61",
+        "C:P-8311ddfacbd97910"
+      ]
+    },
+    {
+      "pair_id": "P-93195863ac0ec27d",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接旧手机损坏、计划换机到新机到货并配置。替代路径记录父亲选机下单，继而新机到货及配置，完整覆盖换机事项。 直连证据：SOURCE要点[2]、TARGET要点[1]。 替代路径逐边核对：H:100868f7-c8d9-539f-967f-f154f88d75c8（教我妈用AI看麦片好不好，也发现我爸手机已经不好用→我爸过生日，让颂梅先在群里送祝福；SOURCE要点[2]、TARGET要点[1]）；H:922da9f6-ea63-54fc-8631-dad2b1eae808（我爸过生日，让颂梅先在群里送祝福→用元宝筛选手机，颂梅帮我爸抢券下单；SOURCE要点[1]、TARGET要点[2]）；C:P-102013b32229413a（用元宝筛选手机，颂梅帮我爸抢券下单→给我爸配置新手机，宣传里的功能没有那么好用；SOURCE要点[2]、TARGET要点[1]）。",
+      "replacement_path": [
+        "H:100868f7-c8d9-539f-967f-f154f88d75c8",
+        "H:922da9f6-ea63-54fc-8631-dad2b1eae808",
+        "C:P-102013b32229413a"
+      ]
+    },
+    {
+      "pair_id": "P-dfd777298f75be51",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接第二层设计偏差后转入第一层实现、继而发现准确性问题；路径先记录设计后续推进至第一层，再记录真实效果及准确性顾虑，完整覆盖。 证据编号：直连 SOURCE要点[7]、TARGET要点[1]。 替代路径逐边核对：H:4f985a38-a74a-59e9-86e5-cfd3d645767d SOURCE要点[7]→TARGET要点[1]；C:P-8311ddfacbd97910 SOURCE要点[2]→TARGET要点[1, 3]。",
+      "replacement_path": [
+        "H:79d88aa1-0cb5-59ac-8aba-44cc411987aa",
+        "H:a3e52986-a22d-595e-96fa-b1d3ec86d48a",
+        "C:P-8311ddfacbd97910"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "execution": "NOT_EXECUTED_DESIGN_EXAMPLE",
+  "requires": "整篇关系重评完成、最终稿确认和实际发布预检",
+  "store_current_edges": [
+    "C→D"
+  ],
+  "archive_indirect_edges": [
+    "A→D",
+    "B→D"
+  ],
+  "modify_historical_edges": [],
+  "actual_database_changes": 0
+}

@@ -2,12 +2,7 @@
   "package_sha256": "0c359f73cb077b480a49d3dbda6783e0384248223532c4fda0a7173f5b8298b8",
   "review_origin": "SKILL_AGENT_REVIEW",
   "stored_in_database": false,
-  "database_verification": {
-    "verified_against_database": true,
-    "package_sha256": "0c359f73cb077b480a49d3dbda6783e0384248223532c4fda0a7173f5b8298b8",
-    "verified_at": "2026-10-26T07:39:59.172836+00:00",
-    "stored_in_database": false
-  },
+  "database_verification": null,
   "results": [
     {
       "pair_id": "P-059e1270a3071d89",
@@ -587,41 +582,9 @@
       "event_a_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
       "event_b_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
       "event_b_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
-      "status": "RELATED",
-      "reason": "同一催生AI沟通策略有实际尝试和新反馈。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前计划让母亲问豆包看待催生，后来继续在新通话中让她问豆包，但仍反复催生并引发争论。",
-        "source_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
-        "source_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "比如我妈想催生，可以让她去问豆包",
-            "point_id": "889cf0ae-0d6a-4675-ad3d-f057bbcc3af8",
-            "point_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
-            "point_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
-            "offset": 40,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "50971ee0f5670d3b96506a247b14638a19f398fd8d536f9eab01d74509bfe0c1"
-          }
-        ],
-        "target_event_id": "263d2593-9661-4814-a3e8-b7a3850e0a8b",
-        "target_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "这个月给爸妈打三次电话，每次都催生。第一次妈妈说我们不考虑她，现已五十六，难道五十八才抱孩子、还抱得动吗？第二次说今年不生算了、明年必须生。我让她问豆包，希望她明白取决于我们。\n\n今天她看甲亢，医生说至少吃三四年药，爸爸让赶紧吃、四年后好抱孙，她说六十岁治好也抱不动，骂我们自私、不考虑父母。我起初没生气，一直请她跟豆包聊，可怎么拦都要讲、比较别人。我刚说老陆大我两岁已有两个孩子，她也拿来催，后来我生气。讲过的道理，下次仍说，真烦。",
-            "point_id": "f5b2072b-1557-4337-90c0-1e0e29522435",
-            "point_event_id": "263d2593-9661-4814-a3e8-b7a3850e0a8b",
-            "point_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "bc355d9dab955a83dffc7b74342b0db7f508b1c9304b4179f68aeeeba31f92f8"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点1与目标事件要点1承接同一事项“此前计划让母亲问豆包看待催生，后来继续在新通话中让她问豆包，但仍反复催生并引发争论。”；替代路径依次为“此前想到让母亲就催生问题问豆包，后来在通话中实际采用日记里的方案。；此前母亲承诺不再反复催生却仍重复，后续通话继续催生，并被总结为本月三次电话次次提及。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:3ed67c52-c94b-5d2c-84ba-f07497c83d78 → C:P-6f6ee98a08009341",
+      "relation": null
     },
     {
       "pair_id": "P-623ca25816ee06bf",
@@ -857,41 +820,9 @@
       "event_a_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
       "event_b_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
       "event_b_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
-      "status": "RELATED",
-      "reason": "同一具体催生沟通策略出现调整；同要点引用需连续合并。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "借豆包辅助母亲理解催生问题后，又因沟通仍无效而考虑改为先顺着、再引导。",
-        "source_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
-        "source_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "我想到，可以借助第三方的力量改变父母的认知，也培养他们用 AI 解决问题的思维。比如我妈想催生，可以让她去问豆包：父母想让孩子生孩子，担心自己年纪再大些就没办法帮忙照顾，交给别人又不放心，但孩子不想生，这种情况怎么办？让她自己听豆包的回答，相当于多了一股外部力量。",
-            "point_id": "889cf0ae-0d6a-4675-ad3d-f057bbcc3af8",
-            "point_event_id": "4e38ea30-22b2-49ec-b50f-c5a3143cf07b",
-            "point_run_id": "c5d68d7d-42df-404b-8c91-4f4633fc9332",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "50971ee0f5670d3b96506a247b14638a19f398fd8d536f9eab01d74509bfe0c1"
-          }
-        ],
-        "target_event_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
-        "target_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
-        "target_evidence": [
-          {
-            "point_no": 2,
-            "quote": "我以前觉得妈妈脑子、价值观有些问题，忽然想，既然觉得她智商、认知不足，注意力又易被琐事带走，很难对齐，为何还一直争论？上次她与豆包聊生育很久，豆包说一年提两三回，她本月已三回，每次又说不再提。\n\n她心里也许懂，可见别人抱孙又想要，反复讲让人烦。我觉得一些观念扭曲、很难对齐变正常，甚至说“我觉得我好贱呀，我明明知道你听不懂这些东西，但是我还要硬给你讲，一直忍不住跟你讲”。既然没用还不愉快，干脆换方式，先顺着。",
-            "point_id": "9a907c4f-9bef-4059-9a5e-3cbd77d0b4b4",
-            "point_event_id": "5084f639-7fd1-4064-a3f6-a4d9f27906d3",
-            "point_run_id": "3acff90d-30e3-4bd6-967d-b5815defcf46",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "5f5b43639e46cf50ba5d44fb6d31bde873b332c5e37a38f5e4c2178dd5c621f6"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点1与目标事件要点2承接同一事项“借豆包辅助母亲理解催生问题后，又因沟通仍无效而考虑改为先顺着、再引导。”；替代路径依次为“此前想到让母亲就催生问题问豆包，后来在通话中实际采用日记里的方案。；此前母亲承诺不再反复催生却仍重复，后续通话继续催生，并被总结为本月三次电话次次提及。；与母亲反复争论催生无效后，转而形成非原则问题先顺着、再引导的新沟通打算。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:3ed67c52-c94b-5d2c-84ba-f07497c83d78 → C:P-6f6ee98a08009341 → C:P-06d38287f8ee800d",
+      "relation": null
     },
     {
       "pair_id": "P-7dad3375bbf05785",

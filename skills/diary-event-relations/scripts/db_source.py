@@ -203,7 +203,10 @@ def prepare(args):
         current,vectors=load_run(conn,uid,runs[0]['id'])
         require(current,'当前日记没有正式事件要点')
         history,vs,inventory=database_history(conn,uid,diary['diary_date']);vectors.update(vs)
-    return prepare_data(current,history,vectors,settings(),history_inventory=inventory)
+    snapshot=prepare_data(current,history,vectors,settings(),history_inventory=inventory)
+    snapshot['requires_redundancy_review']=True
+    snapshot['package_sha256']=digest({k:v for k,v in snapshot.items()if k!='package_sha256'})
+    return snapshot
 
 
 def verify(args):

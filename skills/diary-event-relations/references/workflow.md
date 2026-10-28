@@ -65,3 +65,7 @@ backend/venv/bin/python skills/diary-event-relations/scripts/workflow.py render 
 PostgreSQL 查询在可重复读、只读事务中进行；SQLite 只用于隔离测试，启用 `query_only`。本页识别命令均不写数据库；入库写操作另见 [入库协议](storage.md)，不启动原分析管线。网络权限错误按项目权限流程处理；异常不回显连接串、SQL 参数或认证信息。
 
 稿件结构及不访问数据库的转换命令见 [结果协议](results.md#可编辑关系稿与转换)。`render` 不覆盖已有人工稿；`prepare-storage --markdown ...` 从当前稿件转换，不要求 Agent 同步 JSON。
+
+## 生成最终稿前的必经检查
+
+数据库prepare创建的新运行标记`requires_redundancy_review=true`。全部初步配对record完成后，先按[冗余检查说明](redundancy.md)执行prepare/read/record/finalize，当前agent完成所有语义决定及路径修正，再check/verify/render。不得把本批待复核数量当作过滤数量，不得只交付样例后等待用户独立审核。旧运行只在显式执行冗余检查后应用该步骤，原历史指纹和结果保持可追溯。

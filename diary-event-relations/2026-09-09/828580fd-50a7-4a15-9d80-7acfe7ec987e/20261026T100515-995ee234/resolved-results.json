@@ -2,12 +2,7 @@
   "package_sha256": "749c549dad6a14a534616525f17a05ee0dea12ed93fdb73a1d77a2c0731315d7",
   "review_origin": "SKILL_AGENT_REVIEW",
   "stored_in_database": false,
-  "database_verification": {
-    "verified_against_database": true,
-    "package_sha256": "749c549dad6a14a534616525f17a05ee0dea12ed93fdb73a1d77a2c0731315d7",
-    "verified_at": "2026-10-26T06:26:57.711063+00:00",
-    "stored_in_database": false
-  },
+  "database_verification": null,
   "results": [
     {
       "pair_id": "P-008f1c1c927514c4",
@@ -895,41 +890,9 @@
       "event_a_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
       "event_b_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
       "event_b_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
-      "status": "RELATED",
-      "reason": "双方独立支持同一建图准确性问题及新方案，不依赖中间第三事件。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "早期测试使我怀疑建图路径，随后针对同一准确性问题提出先整理原文要点、再建立点间关系的设想。",
-        "source_event_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
-        "source_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "测试效果让我怀疑，不知道这条路径是不是正确的。",
-            "point_id": "242a675a-c4fd-4022-a2cc-9cf193d4f16e",
-            "point_event_id": "e9fc7ff1-c59b-4e41-97b3-b01b420db34e",
-            "point_run_id": "6141c86c-c5e6-4214-af04-0f144ff64519",
-            "offset": 105,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "69dcc236d9af846eafc3dc57070ab13b416ff605f766802751f1e0d32384a0da"
-          }
-        ],
-        "target_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
-        "target_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-        "target_evidence": [
-          {
-            "point_no": 3,
-            "quote": "现在我又发现，直接建事件图谱的准确性很差，应该先结构化整理事件原文，弄清楚一个事件讲了哪几件事、有哪些内容和要点，再建立这些点之间的关系，这样准确性可能会高一些。",
-            "point_id": "90bf00f0-4bfd-499d-a360-51b482baadaa",
-            "point_event_id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
-            "point_run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
-            "offset": 129,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "1c29e135f70286aa49898283985417563d9b20e2a509ba01508ed89b82a9f95a"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连依据源事件要点1与目标事件要点3承接同一事项“早期测试使我怀疑建图路径，随后针对同一准确性问题提出先整理原文要点、再建立点间关系的设想。”；替代路径依次为“关系测试效果很差后，形成先线下人工、再系统人工、最后自动建图的三步推进打算。；此前提出先人工建立事件图谱后，又进一步提出先结构化事件原文、提取内容要点再建立关系的优化设想。”，逐段覆盖该事项的后续阶段，未发现直连额外承接的独立事项。\n\n已核对的保留路径：H:a2fbf2d4-12e7-5279-a788-d620ed13526c → C:P-27e3db07e7c259f0",
+      "relation": null
     },
     {
       "pair_id": "P-d0fe86a80e94fb12",

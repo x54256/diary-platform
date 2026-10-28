@@ -1,0 +1,163 @@
+{
+  "context_sha256": "370ecbf3aec0668ba524d230d10e347d3ad236bd3a8fbefd516ae0830e7bb708",
+  "decisions": [
+    {
+      "pair_id": "P-095cae4cf50fede2",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "指标填报从E021讨论技术方案、开工未定，到E086按新需求修改设计并开发导入接口，再到E113继续开发完成但未检查、计划上传接口对接。路径完整表达同一开发事项，直连没有独立信息，记为间接延续。",
+      "replacement_path": [
+        "H:96f78362-2398-5455-8cf4-f3dbfe9c6b78",
+        "C:P-d596f27b466d46b5"
+      ]
+    },
+    {
+      "pair_id": "P-1544ffc6c85c9c96",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "同一Cube改CBB事项已有从E085列入工作重点，到E089由AI报告完成并通知前端对接，再到E112核对接口、发现遗漏和补全的连续进展。直连没有额外承接事项，记为间接延续。",
+      "replacement_path": [
+        "H:55f9678c-7580-544b-9aad-e41356e20c83",
+        "H:03c64f90-176a-5f0b-98ec-cfb1781b1534",
+        "C:P-b3e8f189ba1d3be6"
+      ]
+    },
+    {
+      "pair_id": "P-196c663736f44a75",
+      "decision": "KEEP",
+      "reason": "10/26 直连目标还承接关系入库与图谱展示（目标要点3）；现有替代路径只到召回修正（目标要点1），未覆盖入库和展示，故保留直连。",
+      "replacement_path": []
+    },
+    {
+      "pair_id": "P-20f2bb7784ab2ca3",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "E047梳理日记知识库实体与关系，E094将第一层推进为要点和关系skill并安排推广，E098执行十月任务，E111修正关系召回并展示结果。路径表达从设计到实现、应用修正的连续推进，直连无独立旧方案恢复或具体事项承接，记为间接延续。",
+      "replacement_path": [
+        "H:b0e4a64f-b88b-54bb-b7f7-96b486d1cd61",
+        "C:P-421f1d949e700469"
+      ]
+    },
+    {
+      "pair_id": "P-2451ad497b700fba",
+      "decision": "KEEP",
+      "reason": "直连还承接独立的非电脑端使用事项：E090要点1提出研究云电脑自动化，E111要点4进一步计划探索不用电脑时按skill执行和交互。替代路径E090→E091→E092→E098→E111承接的是整理skill、要点与关系任务及召回修正，没有传递非电脑端使用这一事项，保留直连。",
+      "replacement_path": []
+    },
+    {
+      "pair_id": "P-2fb19d5c1a4cde4b",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "颂梅拒绝原定礼物后，E102已有继续筹备并调整礼物清单的中间进展，随后E107讨论蛋糕与布置。E107没有重新处理被拒绝的手机首饰等方案，沿生日筹备路径即可表达承接，直连为间接延续。",
+      "replacement_path": [
+        "H:67b3d402-689e-5cad-90f5-6e607c06ac24",
+        "H:4e4ef491-b9e9-57e6-a863-b9baf71311c9",
+        "C:P-296c9dd227e38935"
+      ]
+    },
+    {
+      "pair_id": "P-3192594abed94676",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "E058提出生日盲盒并未定大礼物，E102继续同一次生日礼物的清单和数量安排，E107再推进蛋糕与布置。没有跨阶段恢复E058旧方案的独立信息，现有路径充分，直连为间接延续。",
+      "replacement_path": [
+        "H:c4d06079-69bb-599c-a77a-3cb13169dc53",
+        "H:67b3d402-689e-5cad-90f5-6e607c06ac24",
+        "H:4e4ef491-b9e9-57e6-a863-b9baf71311c9",
+        "C:P-296c9dd227e38935"
+      ]
+    },
+    {
+      "pair_id": "P-3559b53663aa7abc",
+      "decision": "KEEP",
+      "reason": "直连的独立内容是图谱页面的持续改进：E088要点1记录已做图谱页面且有瑕疵，E111要点3记录总览展示失败并改为单篇图谱。经E098的路径仅承接Codex执行要点、关系任务及结果修正，没有表达页面展示的承接。经E090再到E111的路径承接技术路线及非电脑端使用，也不能覆盖页面事项，保留直连。",
+      "replacement_path": []
+    },
+    {
+      "pair_id": "P-421f1d949e700469",
+      "decision": "KEEP",
+      "reason": "E064的真实模型效果不理想经E088、E098推进到E111的关系提取及召回修正，路径覆盖第一层关系实现。但E111要点3另记录总览失败后改为单日图谱展示，替代路径未承接该展示方案变化，保留直连。",
+      "replacement_path": []
+    },
+    {
+      "pair_id": "P-60a26dc36992a6f0",
+      "decision": "KEEP",
+      "reason": "直连从E004测试误连及人工建立关系、绘图的计划，承接到E111关系召回修正和单日图谱展示。替代路径覆盖关系提取和历史召回，没有承接人工绘图计划如何推进为展示调整，目标还包含独立的展示方案变化，保留直连。",
+      "replacement_path": []
+    },
+    {
+      "pair_id": "P-65835feb1f77245b",
+      "decision": "KEEP",
+      "reason": "直连表达离职日期从未定到明确周五的独立状态变化。替代路径在H025→H063→E073部分承接的是离职前被安排工作、赴墨西哥出差及成行，随后E073→E110又转回离职日期；这些边各自成立，但整条路径未连续承接离职日期确认，保留直连。",
+      "replacement_path": []
+    },
+    {
+      "pair_id": "P-826a29b8ee8c36b9",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "E096继续九月关系任务并安排十月要点和关系识别，E098确认已交给Codex执行十月任务，E111进一步检查遗漏和跨月份召回。现有路径覆盖同一批关系处理工作的推进，直连为间接延续。",
+      "replacement_path": [
+        "H:1178e94d-ea8a-54d6-8b64-ee985c9fb03b",
+        "C:P-21a019a18459d7db"
+      ]
+    },
+    {
+      "pair_id": "P-a92b6ea2c10d7e44",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "Cube改CBB从E087收集连接信息、抓包交AI分析，到E089报告完成并通知对接，再到E112核对接口遗漏和补全。路径连续且覆盖直连的全部承接意义，记为间接延续。",
+      "replacement_path": [
+        "H:03c64f90-176a-5f0b-98ec-cfb1781b1534",
+        "C:P-b3e8f189ba1d3be6"
+      ]
+    },
+    {
+      "pair_id": "P-afc8a40d873f244c",
+      "decision": "KEEP",
+      "reason": "此前第一层方案转向结构化要点和关系提取，替代路径覆盖关系任务及召回修正，但E111要点3新增总览失败后改为单日图谱展示的独立方案调整，路径未承接展示方案，保留直连。",
+      "replacement_path": []
+    },
+    {
+      "pair_id": "P-cd7c721bd87fe429",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "同一次生日筹备从考虑邮轮大礼物，发展到E102调整礼物清单，再到E107商量蛋糕及请假布置。E107没有恢复邮轮方案或对该方案作独立处置，现有生日筹备路径已表达承接，直连为间接延续。",
+      "replacement_path": [
+        "H:74570e7f-0b64-5bae-8d48-5797bfab56f2",
+        "C:P-296c9dd227e38935"
+      ]
+    },
+    {
+      "pair_id": "P-d6edf4d4cac9b0e1",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "同一次墨西哥出差从E073答应成行，到E081在当地经历并明确返程接机计划，再到E103实际接机返家。直连没有新增独立于该出差返程链的承接信息，记为间接延续。",
+      "replacement_path": [
+        "H:c63a8976-5147-5e91-87d0-e60eebf0847a",
+        "H:432fc3e5-658e-5a09-818a-feda91b50f0b",
+        "C:P-ce3c3ee50480b007"
+      ]
+    },
+    {
+      "pair_id": "P-d7c56763c10393d0",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "E077记录同次出差抵达墨西哥和预计回来，E081进一步记录在地状态及返程接机计划，E103落实接机。路径连续表达出差返程进展，直连没有额外承接信息，记为间接延续。",
+      "replacement_path": [
+        "H:432fc3e5-658e-5a09-818a-feda91b50f0b",
+        "C:P-ce3c3ee50480b007"
+      ]
+    },
+    {
+      "pair_id": "P-d8e421d6ba41559b",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "E079决定大礼物给钱并留待后续准备其他礼物，E102继续调整该次生日的礼物清单，E107继续商量蛋糕和生日布置。E107没有新增对给钱方案的独立处理，路径已覆盖筹备推进，直连为间接延续。",
+      "replacement_path": [
+        "H:4e4ef491-b9e9-57e6-a863-b9baf71311c9",
+        "C:P-296c9dd227e38935"
+      ]
+    },
+    {
+      "pair_id": "P-f55aae2c949e19c1",
+      "decision": "KEEP",
+      "reason": "E092要点2明确安排完善页面交互和展示，E111要点3落实为图谱展示试验并选定单日图谱。经E098的路径使用E092要点1，承接要点、关系提取任务，没有覆盖要点2中的页面试用安排及落实，直连具有独立承接意义，保留。",
+      "replacement_path": []
+    },
+    {
+      "pair_id": "P-f6eb8fdcac35ba9b",
+      "decision": "KEEP",
+      "reason": "E062→E089的历史边承接江西城镇开发边界接口和模型数据对接，E089→E113承接指标填报，路径在E089切换了具体事项。E062要点1另有尚需核对指标填报需求的事实，直接承接E113的指标填报开发进展；江西接口路径不能替代，保留直连。",
+      "replacement_path": []
+    }
+  ]
+}

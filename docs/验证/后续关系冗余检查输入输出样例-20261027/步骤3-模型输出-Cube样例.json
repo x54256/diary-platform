@@ -1,0 +1,34 @@
+{
+  "scope": "仅Cube切换的两条冗余候选演示，不是整篇20条的正式重评",
+  "decisions": [
+    {
+      "edge": "A→D",
+      "decision": "INDIRECT_FOLLOWUP",
+      "same_matter": "规划传导从Cube切换为CBB",
+      "independent_direct_meaning": false,
+      "reason": "A仅记录把切换列入工作计划；D是接口实现后核对文档、发现遗漏和安排补全。A→D未增加独立于中间推进阶段的承接内容。",
+      "approved_retained_path": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    {
+      "edge": "B→D",
+      "decision": "INDIRECT_FOLLOWUP",
+      "same_matter": "规划传导从Cube切换为CBB",
+      "independent_direct_meaning": false,
+      "reason": "B为接口转换分析，C记载AI称已做好并安排对接，D继续核对接口并补漏。B→D可由该连续推进完整表达。",
+      "approved_retained_path": [
+        "B",
+        "C",
+        "D"
+      ]
+    }
+  ],
+  "keep_current_edges": [
+    "C→D"
+  ],
+  "execution": "当前模型基于真实要点给出的样例语义判断；未调用外部模型服务，未执行正式发布"
+}

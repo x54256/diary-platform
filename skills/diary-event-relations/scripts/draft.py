@@ -6,7 +6,7 @@ import re
 from workflow import check_rows, require
 
 FORMAT_VERSION=1
-HEADER=re.compile(r'## (关系|未决|无关系) ([1-9][0-9]*)$')
+HEADER=re.compile(r'## (关系|未决|间接延续|无关系) ([1-9][0-9]*)$')
 IDENTITY=re.compile(r'<!-- pair_id: (P-[a-f0-9]+)(?:; source_event: (E[0-9]+); target_event: (E[0-9]+))? -->$')
 
 
@@ -24,9 +24,11 @@ def render_text(snapshot,rows):
     require(len(rows)==len(snapshot['pairs']),'全部事件对完成后才能生成完整关系稿')
     pairs={p['pair_id']:p for p in snapshot['pairs']}
     lines=[f"# {snapshot['diary_date']} 事件关系",'',f"<!-- relations_format: {FORMAT_VERSION}; package_sha256: {snapshot['package_sha256']} -->",'']
-    for status,kind in (('RELATED','关系'),('UNRESOLVED','未决'),('NO_RELATION','无关系')):
+    for status,kind in (('RELATED','关系'),('UNRESOLVED','未决'),('INDIRECT_FOLLOWUP','间接延续'),('NO_RELATION','无关系')):
         group=[r for r in rows if r['status']==status]
-        if status=='NO_RELATION'and group:lines+=['<details>',f'<summary>无关系判断（{len(group)} 对）</summary>','']
+        if status in ('NO_RELATION','INDIRECT_FOLLOWUP')and group:
+            name='无关系判断'if status=='NO_RELATION'else'间接延续'
+            lines+=['<details>',f'<summary>{name}（{len(group)} 对）</summary>','']
         for i,row in enumerate(group,1):
             lines += [f'## {kind} {i}','']
             if status=='RELATED':
@@ -45,7 +47,7 @@ def render_text(snapshot,rows):
                 p=pairs[row['pair_id']]
                 lines += [f"<!-- pair_id: {row['pair_id']} -->",'', '事件甲：'+label(snapshot,p['event_a']),
                           '事件乙：'+label(snapshot,p['event_b']),'','### 判断依据','',row['reason'],'']
-        if status=='NO_RELATION'and group:lines+=['</details>','']
+        if status in ('NO_RELATION','INDIRECT_FOLLOWUP')and group:lines+=['</details>','']
     return '\n'.join(lines)+'\n'
 
 
@@ -86,26 +88,31 @@ def parse_text(text,snapshot,*,complete=True):
     require(isinstance(text,str),'关系稿必须为文本')
     reader=Reader(text.splitlines());reader.exact(f"# {snapshot['diary_date']} 事件关系")
     reader.exact(f"<!-- relations_format: {FORMAT_VERSION}; package_sha256: {snapshot['package_sha256']} -->")
-    pairs={p['pair_id']:p for p in snapshot['pairs']};rows=[];fold=False;closed=False;fold_count=None
-    counters={'关系':0,'未决':0,'无关系':0}
+    pairs={p['pair_id']:p for p in snapshot['pairs']};rows=[];fold=None;closed=set();fold_count={}
+    counters={'关系':0,'未决':0,'间接延续':0,'无关系':0}
     while True:
         reader.blank()
         if reader.pos==len(reader.lines):break
         token=reader.take()
         if token=='<details>':
-            require(not fold and not closed,'无关系折叠区重复');fold=True
-            match=re.fullmatch(r'<summary>无关系判断（([1-9][0-9]*) 对）</summary>',reader.take())
-            require(match,'无关系折叠区标题非法');fold_count=int(match[1]);continue
+            require(fold is None and '无关系' not in closed,'折叠区重复或顺序错误')
+            match=re.fullmatch(r'<summary>(无关系判断|间接延续)（([1-9][0-9]*) 对）</summary>',reader.take())
+            require(match,'折叠区标题非法')
+            fold='无关系'if match[1]=='无关系判断'else'间接延续'
+            require(fold not in closed,'折叠区重复')
+            fold_count[fold]=int(match[2]);continue
         if token=='</details>':
-            require(fold and not closed,'无关系折叠区闭合错误');closed=True;fold=False;continue
-        require(not closed,'无关系折叠区后不能附加其他内容')
+            require(fold is not None,'折叠区闭合错误')
+            require(counters[fold]==fold_count[fold],'折叠区数量不符')
+            closed.add(fold);fold=None;continue
+        require('无关系' not in closed,'无关系折叠区后不能附加其他内容')
         match=HEADER.fullmatch(token);require(match,'关系稿包含未知标题或正文：'+token[:60])
         kind=match[1];counters[kind]+=1
         require(int(match[2])==counters[kind],'同类关系稿条目须从 1 连续编号')
-        require((kind=='无关系')==fold,'无关系须位于折叠区，关系及未决须位于正文')
+        require((fold==kind)if kind in ('无关系','间接延续')else fold is None,'间接延续、无关系须分别折叠；关系及未决须位于正文')
         identity=IDENTITY.fullmatch(reader.take());require(identity,'缺少合法事件对及方向标识')
         pid,a,b=identity.groups();require(pid in pairs,'事件对不属于本次来源')
-        row={'pair_id':pid,'status':{'关系':'RELATED','未决':'UNRESOLVED','无关系':'NO_RELATION'}[kind],'relation':None}
+        row={'pair_id':pid,'status':{'关系':'RELATED','未决':'UNRESOLVED','无关系':'NO_RELATION','间接延续':'INDIRECT_FOLLOWUP'}[kind],'relation':None}
         if kind=='关系':
             require(a in snapshot['events']and b in snapshot['events'],'关系端点标识不存在')
             reader.exact('来源：'+label(snapshot,a));reader.exact('目标：'+label(snapshot,b))
@@ -131,8 +138,7 @@ def parse_text(text,snapshot,*,complete=True):
             reason=Reader(reader.lines[start:reader.pos]);row['reason']=reason.prose();reason.blank()
             require(reason.pos==len(reason.lines),'判断依据中含未知标题')
         rows.append(row)
-    require(not fold,'无关系折叠区未闭合')
-    if fold_count is not None:require(closed and counters['无关系']==fold_count,'无关系数量与折叠标题不符')
+    require(fold is None,'折叠区未闭合')
     check_rows(snapshot,{'package_sha256':snapshot['package_sha256'],'results':rows})
     if complete:require({r['pair_id']for r in rows}==set(pairs),'关系稿必须完整覆盖全部候选；删除关系不代表无关系，请显式更改状态')
     byid={r['pair_id']:r for r in rows}

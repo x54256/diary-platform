@@ -1,0 +1,46 @@
+{
+  "scope": "仅Cube样例",
+  "historical_edges_unchanged": [
+    "A→B",
+    "A→C",
+    "B→C"
+  ],
+  "current_edges_to_store": [
+    "C→D"
+  ],
+  "current_edges_to_archive_as_indirect": [
+    "A→D",
+    "B→D"
+  ],
+  "retained_graph_edges": [
+    "A→B",
+    "A→C",
+    "B→C",
+    "C→D"
+  ],
+  "checks": [
+    {
+      "edge": "A→D",
+      "retained_path": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "all_hops_retained": true,
+      "matches_model_approved_path": true
+    },
+    {
+      "edge": "B→D",
+      "retained_path": [
+        "B",
+        "C",
+        "D"
+      ],
+      "all_hops_retained": true,
+      "matches_model_approved_path": true
+    }
+  ],
+  "result": "PASS",
+  "note": "仅验证模型已认可路径的存在和保留状态；程序未自行证明语义，未修改数据库。历史A→C仍然保留。"
+}

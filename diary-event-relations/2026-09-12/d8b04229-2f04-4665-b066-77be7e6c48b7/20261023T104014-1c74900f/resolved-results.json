@@ -2,12 +2,7 @@
   "package_sha256": "06cc21cfceadacdcfb7629f435fdf9a51c532fee354d548798f531451e9d2940",
   "review_origin": "SKILL_AGENT_REVIEW",
   "stored_in_database": false,
-  "database_verification": {
-    "verified_against_database": true,
-    "package_sha256": "06cc21cfceadacdcfb7629f435fdf9a51c532fee354d548798f531451e9d2940",
-    "verified_at": "2026-10-23T02:54:54.800429+00:00",
-    "stored_in_database": false
-  },
+  "database_verification": null,
   "results": [
     {
       "pair_id": "P-01cb0ef853924611",

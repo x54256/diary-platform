@@ -2,12 +2,7 @@
   "package_sha256": "5deeeabe336542608b5c9d0c133db46882a5409aa9659ce5932ab256b51d67d4",
   "review_origin": "SKILL_AGENT_REVIEW",
   "stored_in_database": false,
-  "database_verification": {
-    "verified_against_database": true,
-    "package_sha256": "5deeeabe336542608b5c9d0c133db46882a5409aa9659ce5932ab256b51d67d4",
-    "verified_at": "2026-10-27T03:37:48.426847+00:00",
-    "stored_in_database": false
-  },
+  "database_verification": null,
   "results": [
     {
       "pair_id": "P-0369660777bf2b3c",
@@ -25,51 +20,9 @@
       "event_a_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
       "event_b_id": "8129e239-7345-4bc4-8a3c-4c371f87d7d2",
       "event_b_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-      "status": "RELATED",
-      "reason": "此前已确定墨西哥两周出差、机票买好且次日出发，本次到美国并预计次日回来，属于同次出差行程的新状态。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "颂梅此前已确定去墨西哥出差两周并准备出发；本次她已到美国，与我视频，预计明天回来。",
-        "source_event_id": "661670a2-3852-4424-a664-330049c46c6e",
-        "source_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "昨天领导还是非让颂梅去墨西哥出差两周。",
-            "point_id": "926fbe1c-ee0b-4ead-9ba8-7f4f2a536893",
-            "point_event_id": "661670a2-3852-4424-a664-330049c46c6e",
-            "point_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "af3cf42401609ad31f79a3455acd76574eb300d661173e65bd73389e5acf2cde"
-          },
-          {
-            "point_no": 4,
-            "quote": "也还好，只去两周，应该没太大事，明天就走。",
-            "point_id": "52e454f7-1f30-4ea6-b944-52613fffdefe",
-            "point_event_id": "661670a2-3852-4424-a664-330049c46c6e",
-            "point_run_id": "2cd929de-cf2e-48d2-8b7b-98ffbd8d4927",
-            "offset": 82,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "8eeb1d7f74dae76103bf27b546cc0634040c04356bf671f609db1719bad2b6ab"
-          }
-        ],
-        "target_event_id": "8129e239-7345-4bc4-8a3c-4c371f87d7d2",
-        "target_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-        "target_evidence": [
-          {
-            "point_no": 2,
-            "quote": "颂梅跟我说她到美国了，问我要不要视频。我答应了，虽然手机已经没电了，还是简单聊了一会儿。我告诉她，我爸收到手机了，挺高兴的，又聊了一些昨天遛狗的事。颂梅明天就能回来了。",
-            "point_id": "a9e134b1-3f13-48f0-96ab-efdd22e1a9bb",
-            "point_event_id": "8129e239-7345-4bc4-8a3c-4c371f87d7d2",
-            "point_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "42b25ac3c960726af2266aa577f45688702a734f7a8a595657ae4de4c2a0f10f"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接墨西哥出差从成行到返程并已到美国；路径从当地出差进展到返程预期，再到抵美视频，覆盖同一行程的后续阶段。 证据编号：直连 SOURCE要点[1, 4]、TARGET要点[2]。 替代路径逐边核对：H:c15ec739-c5cb-593d-9df3-d7237124f51e SOURCE要点[4]→TARGET要点[1]；C:P-874c46094ee70c04 SOURCE要点[2]→TARGET要点[2]。\n\n已核对的保留路径：H:c63a8976-5147-5e91-87d0-e60eebf0847a → H:432fc3e5-658e-5a09-818a-feda91b50f0b → C:P-874c46094ee70c04",
+      "relation": null
     },
     {
       "pair_id": "P-06ee47ca0742985f",
@@ -219,51 +172,9 @@
       "event_a_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
       "event_b_id": "dc97a003-9ff3-474a-afa5-779809004f88",
       "event_b_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
-      "status": "RELATED",
-      "reason": "此前为颂梅月底生日筹划六件礼物盲盒，本次该生日筹备加入菠萝蜜打算，并重新确定Airpods是否计入及总数。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前颂梅生日盲盒打算凑六件礼物；本次考虑新增整只菠萝蜜，并把Airpods算作一份，若加上菠萝蜜共8份。新增菠萝蜜仍是购买打算。",
-        "source_event_id": "dc97a003-9ff3-474a-afa5-779809004f88",
-        "source_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
-        "source_evidence": [
-          {
-            "point_no": 5,
-            "quote": "我一开始想给颂梅追被个礼物盲盒，里面一个大礼物、三个小一点的、两个闹着玩的，凑六个礼物放进盒子。",
-            "point_id": "4c8472be-0c61-4f5e-ad83-1c080f86776b",
-            "point_event_id": "dc97a003-9ff3-474a-afa5-779809004f88",
-            "point_run_id": "8a48d378-551d-42bd-b821-076ba0875713",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "a5375c0bed646ece72018295c5884dc9834cb8d43dfd223b26708c891a7860cc"
-          }
-        ],
-        "target_event_id": "a7044b2d-da44-4b5c-8592-1a5f95658b30",
-        "target_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-        "target_evidence": [
-          {
-            "point_no": 2,
-            "quote": "今天中午遛完狗回到家，我想着，要不在拼多多给颂梅买一整个菠萝蜜，让她吃个够，刚好也算生日礼物之一，凑一份礼物。嘿嘿。",
-            "point_id": "24be6c15-b730-4b7e-82db-f257bdd5b7c3",
-            "point_event_id": "a7044b2d-da44-4b5c-8592-1a5f95658b30",
-            "point_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "bc32b90e66e0621f1bcfebd612d8b3516257d949520d7fa83faf5d9e86c2d0db"
-          },
-          {
-            "point_no": 3,
-            "quote": "如果再加上菠萝蜜，连同Airpods就有8个礼物了。之前本来想着Airpods不算礼物，直接给颂梅，现在还是把它算作一份礼物。",
-            "point_id": "b3e57d97-de76-434c-b4ab-b5f46f816a4a",
-            "point_event_id": "a7044b2d-da44-4b5c-8592-1a5f95658b30",
-            "point_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "fcdc716fda3c1c545f1f351fa6b49cf14c870a8a466ddc9e901e80b390a4a26b"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接生日盲盒由六件礼物构想延展到新增菠萝蜜、将 AirPods 计入礼物；路径记录大礼物改为现金，再记录继续增加礼物，覆盖完整清单演进。 证据编号：直连 SOURCE要点[5]、TARGET要点[2, 3]。 替代路径逐边核对：H:96c6b96a-1480-555a-9e44-e90dff075f93 SOURCE要点[5]→TARGET要点[1]；C:P-58c9910edd8e243b SOURCE要点[1]→TARGET要点[2, 3]。\n\n已核对的保留路径：H:c4d06079-69bb-599c-a77a-3cb13169dc53 → H:67b3d402-689e-5cad-90f5-6e607c06ac24 → C:P-58c9910edd8e243b",
+      "relation": null
     },
     {
       "pair_id": "P-1b87b792af52f0fe",
@@ -461,41 +372,9 @@
       "event_a_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
       "event_b_id": "fca046cb-a4de-4678-9f4e-c25103d07645",
       "event_b_run_id": "d42eceab-3c42-42b5-9018-39fb2092d793",
-      "status": "RELATED",
-      "reason": "此前完成九月整理并测试要点skill，明确计划继续事件关系提取，本次已安排十月要点及关系任务。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "九月日记整理入库、要点提取skill初步试验后，原计划继续事件关系提取；本次已把十月事件要点和关系识别任务交给Codex执行。",
-        "source_event_id": "fca046cb-a4de-4678-9f4e-c25103d07645",
-        "source_run_id": "d42eceab-3c42-42b5-9018-39fb2092d793",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "下午又做了知识库沉淀里的事件要点提取skill，用一篇日记试了一下。明天接着拿九月其他日记的事件测试，没问题再做事件关系提取，把知识库第一层彻底做出来。",
-            "point_id": "fe7aab06-891e-493b-88e1-9e10607226ab",
-            "point_event_id": "fca046cb-a4de-4678-9f4e-c25103d07645",
-            "point_run_id": "d42eceab-3c42-42b5-9018-39fb2092d793",
-            "offset": 57,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "5b522ab2d4293bf7929f18e9d9a885c2890b08666b0ed902e0ac8b49bff3ad45"
-          }
-        ],
-        "target_event_id": "3e227c62-b757-4c31-9d3c-79caf5b7753b",
-        "target_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "昨晚睡觉前，我让Codex从10月份已经整理的事件中提取事件要点，并识别它们之间的关系。",
-            "point_id": "16288488-f836-4100-8bec-d89bfd770f13",
-            "point_event_id": "3e227c62-b757-4c31-9d3c-79caf5b7753b",
-            "point_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "1d81f4c526366de55faf66376cdac50feaae33c9b9000153523cb5f7e949916c"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接九月整理入库、要点试验后继续关系提取到实际布置十月任务；路径记录九月关系工作和十月日记审阅，再执行十月任务，完整覆盖。 证据编号：直连 SOURCE要点[1]、TARGET要点[1]。 替代路径逐边核对：H:0f63ecd0-8a31-5e21-b2b0-83910bc1d625 SOURCE要点[1]→TARGET要点[1]；C:P-9428ee111f6cc0e8 SOURCE要点[2]→TARGET要点[1, 2]。\n\n已核对的保留路径：H:eb144620-7917-5641-b09d-d28d4e1ed55c → H:443a4eac-5d54-542a-a79d-8a2435b5f34e → C:P-9428ee111f6cc0e8",
+      "relation": null
     },
     {
       "pair_id": "P-419f8ccbcaa58227",
@@ -543,41 +422,9 @@
       "event_a_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
       "event_b_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
       "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
-      "status": "RELATED",
-      "reason": "此前赴墨西哥出差的转机和值机经历，与本次到美国、预计次日回来对应同次行程的返程进展。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前颂梅经香港、美国到墨西哥出差；本次她已到美国并与我视频，预计明天回来。",
-        "source_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
-        "source_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "昨天颂梅六点多出门，我帮她搬行李下楼，她打车去机场，先香港、再美国、再墨西哥，太折腾。今天中午她到了墨西哥，打了视频，状态还可以，待到24号，十天后能回来。",
-            "point_id": "45cbaadc-1083-4e63-882d-224829d71076",
-            "point_event_id": "f8ef8d6c-67da-4718-ae6e-12f694d3f5e7",
-            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "b917e97b9c861e13882f9ba6534e778a1f033f967a3506e2bcf9f9d246d1bc43"
-          }
-        ],
-        "target_event_id": "8129e239-7345-4bc4-8a3c-4c371f87d7d2",
-        "target_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-        "target_evidence": [
-          {
-            "point_no": 2,
-            "quote": "颂梅跟我说她到美国了，问我要不要视频。我答应了，虽然手机已经没电了，还是简单聊了一会儿。我告诉她，我爸收到手机了，挺高兴的，又聊了一些昨天遛狗的事。颂梅明天就能回来了。",
-            "point_id": "a9e134b1-3f13-48f0-96ab-efdd22e1a9bb",
-            "point_event_id": "8129e239-7345-4bc4-8a3c-4c371f87d7d2",
-            "point_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "42b25ac3c960726af2266aa577f45688702a734f7a8a595657ae4de4c2a0f10f"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接墨西哥出差从在地经历到返程抵美并视频；路径记录墨西哥当地状态，再记录返程、抵美和视频，完整覆盖。 证据编号：直连 SOURCE要点[1]、TARGET要点[2]。 替代路径逐边核对：H:432fc3e5-658e-5a09-818a-feda91b50f0b SOURCE要点[1]→TARGET要点[1]；C:P-874c46094ee70c04 SOURCE要点[2]→TARGET要点[2]。\n\n已核对的保留路径：H:432fc3e5-658e-5a09-818a-feda91b50f0b → C:P-874c46094ee70c04",
+      "relation": null
     },
     {
       "pair_id": "P-4bac1f4ec54b4d5f",
@@ -615,41 +462,9 @@
       "event_a_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
       "event_b_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
       "event_b_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
-      "status": "RELATED",
-      "reason": "此前发现父亲手机老旧损坏并提出换机，本次报告已收到手机，体现同一换机事项的新状态。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前发现父亲旧手机屏幕和通话都不好用，提出挑一部便宜、大屏的新手机；本次已向颂梅报告父亲收到手机、挺高兴的。",
-        "source_event_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
-        "source_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
-        "source_evidence": [
-          {
-            "point_no": 2,
-            "quote": "我说到时挑个便宜、屏幕大的手机给他。他没否认，刚好过生日，买一个也行。",
-            "point_id": "4b49b390-ba46-4570-8910-da3113dcd0d6",
-            "point_event_id": "fc006bac-c57c-4712-96a6-a8a2d1c35026",
-            "point_run_id": "4371f9fc-abc4-4641-925f-7fe21cc72fa6",
-            "offset": 112,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "c5559566f5e145449c7a9203c7ebdbd0453e24c4684e827ee0d4591418b449e9"
-          }
-        ],
-        "target_event_id": "8129e239-7345-4bc4-8a3c-4c371f87d7d2",
-        "target_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-        "target_evidence": [
-          {
-            "point_no": 2,
-            "quote": "我告诉她，我爸收到手机了，挺高兴的，又聊了一些昨天遛狗的事。",
-            "point_id": "a9e134b1-3f13-48f0-96ab-efdd22e1a9bb",
-            "point_event_id": "8129e239-7345-4bc4-8a3c-4c371f87d7d2",
-            "point_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-            "offset": 44,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "42b25ac3c960726af2266aa577f45688702a734f7a8a595657ae4de4c2a0f10f"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接父亲旧手机损坏、选购换机到父亲收到后反馈高兴。替代路径记录旧机问题、选机下单，最后确认手机已收并高兴，完整覆盖。 直连证据：SOURCE要点[2]、TARGET要点[2]。 替代路径逐边核对：H:100868f7-c8d9-539f-967f-f154f88d75c8（教我妈用AI看麦片好不好，也发现我爸手机已经不好用→我爸过生日，让颂梅先在群里送祝福；SOURCE要点[2]、TARGET要点[1]）；H:922da9f6-ea63-54fc-8631-dad2b1eae808（我爸过生日，让颂梅先在群里送祝福→用元宝筛选手机，颂梅帮我爸抢券下单；SOURCE要点[1]、TARGET要点[2]）；C:P-0dbd32f0db69cdf8（用元宝筛选手机，颂梅帮我爸抢券下单→遛哒哒时和到美国的颂梅视频；SOURCE要点[2]、TARGET要点[2]）。\n\n已核对的保留路径：H:100868f7-c8d9-539f-967f-f154f88d75c8 → H:922da9f6-ea63-54fc-8631-dad2b1eae808 → C:P-0dbd32f0db69cdf8",
+      "relation": null
     },
     {
       "pair_id": "P-5257595dad59927c",
@@ -1025,51 +840,9 @@
       "event_a_run_id": "b621e11a-d6e4-4ce2-8bfd-a31dabd9f6fd",
       "event_b_id": "3e227c62-b757-4c31-9d3c-79caf5b7753b",
       "event_b_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-      "status": "RELATED",
-      "reason": "此前考虑将日记知识沉淀改用Codex与skill，本次已向Codex布置十月事件处理任务，方案出现实际执行进展。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前考虑用Codex按skill处理日记知识沉淀；本次已给Codex布置十月事件要点提取与关系识别任务，并简单查看了效果。",
-        "source_event_id": "05718a02-902a-4660-ac1a-eac3bd3b4bf2",
-        "source_run_id": "b621e11a-d6e4-4ce2-8bfd-a31dabd9f6fd",
-        "source_evidence": [
-          {
-            "point_no": 3,
-            "quote": "如果走Codex的方案，可能用它的云电脑功能：上传日记后，通过某种方式通知它，或者让它定时拉取，再走后面的流程，类似一个skill。",
-            "point_id": "e7f185a1-88d9-4329-b1a0-7aa635707275",
-            "point_event_id": "05718a02-902a-4660-ac1a-eac3bd3b4bf2",
-            "point_run_id": "b621e11a-d6e4-4ce2-8bfd-a31dabd9f6fd",
-            "offset": 13,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "ee6f5e22921986a487b02f46a1be2bb434a2920e3a1c835e287c8ea14f84c0c1"
-          }
-        ],
-        "target_event_id": "3e227c62-b757-4c31-9d3c-79caf5b7753b",
-        "target_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "昨晚睡觉前，我让Codex从10月份已经整理的事件中提取事件要点，并识别它们之间的关系。",
-            "point_id": "16288488-f836-4100-8bec-d89bfd770f13",
-            "point_event_id": "3e227c62-b757-4c31-9d3c-79caf5b7753b",
-            "point_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "1d81f4c526366de55faf66376cdac50feaae33c9b9000153523cb5f7e949916c"
-          },
-          {
-            "point_no": 2,
-            "quote": "今天早上看了一下电脑上的任务效果，也没仔细看，就把电脑关上，带哒哒出去遛了。",
-            "point_id": "ef173030-bdda-446e-846e-440224384514",
-            "point_event_id": "3e227c62-b757-4c31-9d3c-79caf5b7753b",
-            "point_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "bc40454cd2bce381836b2851c7ddee2bb8c8a4e4504b95bc2bd67fba8813ce5b"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接从考虑用 Codex/skill 沉淀知识到布置十月事件要点和关系任务。替代路径记录转用 Codex、落地整理 skill、九月入库/要点试验、关系任务及十月审阅，最后接到十月实际任务，覆盖完整工作流。 直连证据：SOURCE要点[3]、TARGET要点[1, 2]。 替代路径逐边核对：H:79317c48-217a-5870-b069-18875505d75f（知识图谱页面还行，但知识沉淀的准确性让我纠结→日记平台切换技术路线，让Codex承担主要AI工作；SOURCE要点[3]、TARGET要点[1]）；H:83328381-3b6a-556b-9e73-63f7f0ea0525（日记平台切换技术路线，让Codex承担主要AI工作→做出日记整理skill，用九月日记验证、修复 skill 存在的问题；SOURCE要点[1]、TARGET要点[1]）；H:012dea55-6ef9-5776-bf6f-f963c4ea3ca0（做出日记整理skill，用九月日记验证、修复 skill 存在的问题→九月日记已整理入库，知识库先做好第一层再试用；SOURCE要点[2]、TARGET要点[1]）；H:eb144620-7917-5641-b09d-d28d4e1ed55c（九月日记已整理入库，知识库先做好第一层再试用→要点提取继续试验，事件关系skill做到一半等额度恢复；SOURCE要点[1]、TARGET要点[1]）；H:443a4eac-5d54-542a-a79d-8a2435b5f34e（要点提取继续试验，事件关系skill做到一半等额度恢复→继续提取九月事件关系，主要时间用来整理、审阅十月日记；SOURCE要点[1]、TARGET要点[1]）；C:P-9428ee111f6cc0e8（继续提取九月事件关系，主要时间用来整理、审阅十月日记→查看昨晚交给Codex的事件要点与关系识别任务；SOURCE要点[2]、TARGET要点[1, 2]）。\n\n已核对的保留路径：H:79317c48-217a-5870-b069-18875505d75f → H:83328381-3b6a-556b-9e73-63f7f0ea0525 → H:012dea55-6ef9-5776-bf6f-f963c4ea3ca0 → H:eb144620-7917-5641-b09d-d28d4e1ed55c → H:443a4eac-5d54-542a-a79d-8a2435b5f34e → C:P-9428ee111f6cc0e8",
+      "relation": null
     },
     {
       "pair_id": "P-9428ee111f6cc0e8",
@@ -1149,41 +922,9 @@
       "event_a_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
       "event_b_id": "92af1400-ae10-4708-8747-5a3120b61813",
       "event_b_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
-      "status": "RELATED",
-      "reason": "此前试验九月关系识别并计划效果好推广全部日记，本次安排处理十月事件，是处理范围的后续推进。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前试验九月事件要点与关系识别，并打算效果好时推广到全部日记；本次已让Codex处理十月事件的要点与关系。",
-        "source_event_id": "92af1400-ae10-4708-8747-5a3120b61813",
-        "source_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
-        "source_evidence": [
-          {
-            "point_no": 2,
-            "quote": "明天继续检验事件关系skill，效果好就推广到全部日记，把整个图谱建出来。",
-            "point_id": "f2d92a6a-6201-4f31-b393-b6d23e9e7d7b",
-            "point_event_id": "92af1400-ae10-4708-8747-5a3120b61813",
-            "point_run_id": "8bafc1ad-4032-41c6-ac25-d33554250124",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "ce25a3d62e8492c91b04023d229442c11c3f54529119ef9ff3c7270436bbe1fc"
-          }
-        ],
-        "target_event_id": "3e227c62-b757-4c31-9d3c-79caf5b7753b",
-        "target_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-        "target_evidence": [
-          {
-            "point_no": 1,
-            "quote": "昨晚睡觉前，我让Codex从10月份已经整理的事件中提取事件要点，并识别它们之间的关系。",
-            "point_id": "16288488-f836-4100-8bec-d89bfd770f13",
-            "point_event_id": "3e227c62-b757-4c31-9d3c-79caf5b7753b",
-            "point_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "1d81f4c526366de55faf66376cdac50feaae33c9b9000153523cb5f7e949916c"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接九月事件关系试验到给 Codex 布置十月要点及关系任务；路径记录继续关系识别并处理十月日记，再实际布置十月任务，完整覆盖。 证据编号：直连 SOURCE要点[2]、TARGET要点[1]。 替代路径逐边核对：H:443a4eac-5d54-542a-a79d-8a2435b5f34e SOURCE要点[1]→TARGET要点[1]；C:P-9428ee111f6cc0e8 SOURCE要点[2]→TARGET要点[1, 2]。\n\n已核对的保留路径：H:443a4eac-5d54-542a-a79d-8a2435b5f34e → C:P-9428ee111f6cc0e8",
+      "relation": null
     },
     {
       "pair_id": "P-a447647b2f844723",
@@ -1261,51 +1002,9 @@
       "event_a_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
       "event_b_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
       "event_b_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
-      "status": "RELATED",
-      "reason": "此前颂梅拒绝多种生日礼物后仍待继续想，本次出现同一生日的新礼物打算和数量安排。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "此前颂梅不想要手机、首饰等生日礼物，还需要继续想；本次又考虑新增一整只菠萝蜜，并把Airpods算作生日礼物，若加上菠萝蜜共8份。",
-        "source_event_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
-        "source_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "颂梅快生日，原想买iPhone 18作大礼物，她说刚换过电池、手机好用，不用换。她也不想靠普拉提减肥，觉得投入产出比低，减肥会自己安排；首饰、金项链、换手表都不要，我很纠结。",
-            "point_id": "9c6d9492-409c-4986-9796-8fb68f3be743",
-            "point_event_id": "cc0bf568-a98f-46db-8c97-015462e508d4",
-            "point_run_id": "ffdad8a2-f8c4-430b-beb7-c1f2981fc493",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "7dcf1e240dc3945e4261e167f216a21cff7a900d5fa0461083a385a9bff19224"
-          }
-        ],
-        "target_event_id": "a7044b2d-da44-4b5c-8592-1a5f95658b30",
-        "target_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-        "target_evidence": [
-          {
-            "point_no": 2,
-            "quote": "今天中午遛完狗回到家，我想着，要不在拼多多给颂梅买一整个菠萝蜜，让她吃个够，刚好也算生日礼物之一，凑一份礼物。嘿嘿。",
-            "point_id": "24be6c15-b730-4b7e-82db-f257bdd5b7c3",
-            "point_event_id": "a7044b2d-da44-4b5c-8592-1a5f95658b30",
-            "point_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "bc32b90e66e0621f1bcfebd612d8b3516257d949520d7fa83faf5d9e86c2d0db"
-          },
-          {
-            "point_no": 3,
-            "quote": "如果再加上菠萝蜜，连同Airpods就有8个礼物了。之前本来想着Airpods不算礼物，直接给颂梅，现在还是把它算作一份礼物。",
-            "point_id": "b3e57d97-de76-434c-b4ab-b5f46f816a4a",
-            "point_event_id": "a7044b2d-da44-4b5c-8592-1a5f95658b30",
-            "point_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-            "offset": 0,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "fcdc716fda3c1c545f1f351fa6b49cf14c870a8a466ddc9e901e80b390a4a26b"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接生日礼物被拒后继续扩充礼物清单；路径记录礼物选项被拒、改送现金，再记录后续新增菠萝蜜及 AirPods 计入礼物，事项连续。 证据编号：直连 SOURCE要点[1]、TARGET要点[2, 3]。 替代路径逐边核对：H:67b3d402-689e-5cad-90f5-6e607c06ac24 SOURCE要点[1]→TARGET要点[1]；C:P-58c9910edd8e243b SOURCE要点[1]→TARGET要点[2, 3]。\n\n已核对的保留路径：H:67b3d402-689e-5cad-90f5-6e607c06ac24 → C:P-58c9910edd8e243b",
+      "relation": null
     },
     {
       "pair_id": "P-c0526320dd8921f4",
@@ -1463,41 +1162,9 @@
       "event_a_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
       "event_b_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
       "event_b_run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
-      "status": "RELATED",
-      "reason": "此前父亲生日计划让他挑新手机，本次报告已经收到，属于同一为父亲换手机的进展。",
-      "relation": {
-        "relation_type": "后续事件",
-        "certainty": "EXPLICIT",
-        "description": "父亲生日时原计划把选好的新手机发给他挑、喜欢就买；本次视频中，我已向颂梅报告父亲收到手机、挺高兴的。",
-        "source_event_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
-        "source_run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
-        "source_evidence": [
-          {
-            "point_no": 1,
-            "quote": "下午还想看手机，父亲那部用多年、又进过水，准备把选好的发群里让他挑，喜欢就买。",
-            "point_id": "1ff36b40-b92e-425a-9931-cf4f6b99e90e",
-            "point_event_id": "d124e8e3-4987-4396-a2ae-80d188f88c0f",
-            "point_run_id": "a4b7439f-e048-434c-92b9-1f77bcc057ea",
-            "offset": 92,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "94b96150bfcfcb44e336a2333e7addd854a7a0ad0c30e1106a1e3bbf604ec560"
-          }
-        ],
-        "target_event_id": "8129e239-7345-4bc4-8a3c-4c371f87d7d2",
-        "target_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-        "target_evidence": [
-          {
-            "point_no": 2,
-            "quote": "我告诉她，我爸收到手机了，挺高兴的，又聊了一些昨天遛狗的事。",
-            "point_id": "a9e134b1-3f13-48f0-96ab-efdd22e1a9bb",
-            "point_event_id": "8129e239-7345-4bc4-8a3c-4c371f87d7d2",
-            "point_run_id": "e0ac2ecd-6281-4b59-b10b-0992cf2278e8",
-            "offset": 44,
-            "offset_unit": "unicode_codepoint",
-            "detail_sha256": "42b25ac3c960726af2266aa577f45688702a734f7a8a595657ae4de4c2a0f10f"
-          }
-        ]
-      }
+      "status": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接父亲生日时计划选新手机到父亲已收到手机；路径记录父亲挑选、下单，再记录收到手机，完整覆盖。 证据编号：直连 SOURCE要点[1]、TARGET要点[2]。 替代路径逐边核对：H:922da9f6-ea63-54fc-8631-dad2b1eae808 SOURCE要点[1]→TARGET要点[2]；C:P-0dbd32f0db69cdf8 SOURCE要点[2]→TARGET要点[2]。\n\n已核对的保留路径：H:922da9f6-ea63-54fc-8631-dad2b1eae808 → C:P-0dbd32f0db69cdf8",
+      "relation": null
     },
     {
       "pair_id": "P-cff004e22a740912",
