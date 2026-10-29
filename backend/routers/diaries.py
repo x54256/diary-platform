@@ -7,7 +7,7 @@ from typing import Optional
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
-from sqlalchemy import or_
+from sqlalchemy import func, or_
 from sqlalchemy.orm import Session
 
 from database import get_db
@@ -28,6 +28,8 @@ from models.transcription import TranscriptionBatch
 from models.user import User
 from schemas.diary import (
     DiaryCalendarItem,
+    DiaryCalendarDay,
+    DiaryBrowseItem,
     DiaryCreate,
     DiaryOrganizedResponse,
     DiaryOrganizedUpdate,
@@ -528,6 +530,130 @@ def list_diaries(
     return [serialize_diary(diary, db, current_user.id) for diary in query.all()]
 
 
+@router.get("/browse", response_model=list[DiaryBrowseItem])
+def browse_diaries(
+    view: str = Query("timeline", pattern="^(timeline|dates|favorites)$"),
+    limit: int = Query(20, ge=1, le=100),
+    offset: int = Query(0, ge=0),
+    start_date: Optional[date] = None,
+    end_date: Optional[date] = None,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """首页时间线、日期筛选和收藏统一使用概要字段查询。"""
+    if view == "favorites":
+        diary_rows = (
+            db.query(
+                Favorite.id.label("favorite_id"), Favorite.created_at.label("favorite_created_at"),
+                Diary.id, Diary.diary_date, Diary.status, Diary.created_at,
+                DiaryOrganized.title, DiaryOrganized.summary, DiaryOrganized.mood,
+                DiaryOrganized.location, func.substr(Diary.original_text, 1, 240),
+            )
+            .join(Diary, Diary.id == Favorite.diary_id)
+            .outerjoin(DiaryOrganized, DiaryOrganized.diary_id == Diary.id)
+            .filter(Favorite.user_id == current_user.id, Favorite.diary_id.is_not(None), Diary.deleted_at.is_(None))
+            .all()
+        )
+        event_rows = (
+            db.query(
+                Favorite.id.label("favorite_id"), Favorite.created_at.label("favorite_created_at"),
+                Diary.id, Diary.diary_date, Diary.status, Diary.created_at,
+                DiaryOrganized.title, DiaryOrganized.summary, DiaryOrganized.mood,
+                DiaryOrganized.location, DiaryEvent.id.label("event_id"), DiaryEvent.event_title,
+                DiaryEvent.body, DiaryEvent.feeling,
+            )
+            .join(DiaryEvent, DiaryEvent.id == Favorite.event_id)
+            .join(DiaryOrganized, DiaryOrganized.id == DiaryEvent.diary_organized_id)
+            .join(Diary, Diary.id == DiaryOrganized.diary_id)
+            .filter(Favorite.user_id == current_user.id, Favorite.event_id.is_not(None), Diary.deleted_at.is_(None))
+            .all()
+        )
+        items = []
+        for row in diary_rows:
+            items.append(DiaryBrowseItem(
+                id=row.id, diary_date=row.diary_date,
+                status=row.status.value if hasattr(row.status, "value") else str(row.status),
+                created_at=row.created_at, title=row.title, summary=row.summary,
+                mood=row.mood, location=row.location, preview=row[10],
+                favorite_id=row.favorite_id, favorite_type="diary",
+            ))
+        for row in event_rows:
+            body = parse_json_value(row.body, [])
+            feeling = parse_json_value(row.feeling, [])
+            preview = " ".join(str(value) for value in (body or []) + (feeling or []))[:240]
+            items.append(DiaryBrowseItem(
+                id=row.id, diary_date=row.diary_date,
+                status=row.status.value if hasattr(row.status, "value") else str(row.status),
+                created_at=row.created_at, title=row.title, summary=row.summary,
+                mood=row.mood, location=row.location, favorite_id=row.favorite_id,
+                favorite_type="event", event_id=row.event_id,
+                event_title=row.event_title, event_preview=preview,
+            ))
+        return sorted(items, key=lambda item: (item.diary_date, item.created_at), reverse=True)
+
+    if view == "dates":
+        query = db.query(Diary.id, Diary.diary_date, Diary.status, Diary.created_at).filter(
+            Diary.user_id == current_user.id, Diary.deleted_at.is_(None)
+        )
+        if start_date:
+            query = query.filter(Diary.diary_date >= start_date)
+        if end_date:
+            query = query.filter(Diary.diary_date <= end_date)
+        rows = query.order_by(Diary.diary_date.desc(), Diary.created_at.desc()).all()
+        return [
+            DiaryBrowseItem(
+                id=row.id, diary_date=row.diary_date,
+                status=row.status.value if hasattr(row.status, "value") else str(row.status),
+                created_at=row.created_at,
+            )
+            for row in rows
+        ]
+
+    rows = (
+        db.query(
+            Diary.id, Diary.diary_date, Diary.status, Diary.created_at,
+            DiaryOrganized.title, DiaryOrganized.summary, DiaryOrganized.mood,
+            DiaryOrganized.location, func.substr(Diary.original_text, 1, 240),
+            db.query(TranscriptionBatch.status)
+            .filter(TranscriptionBatch.diary_id == Diary.id)
+            .order_by(TranscriptionBatch.created_at.desc())
+            .limit(1).correlate(Diary).scalar_subquery(),
+        )
+        .outerjoin(DiaryOrganized, DiaryOrganized.diary_id == Diary.id)
+        .filter(Diary.user_id == current_user.id, Diary.deleted_at.is_(None))
+        .order_by(Diary.diary_date.desc(), Diary.created_at.desc())
+        .offset(offset).limit(limit).all()
+    )
+    ids = [row.id for row in rows]
+    tags_by_diary: dict[UUID, list[dict]] = {diary_id: [] for diary_id in ids}
+    if ids:
+        tag_rows = (
+            db.query(diary_tags.c.diary_id, Tag.id, Tag.name, Tag.type)
+            .join(Tag, Tag.id == diary_tags.c.tag_id)
+            .filter(diary_tags.c.diary_id.in_(ids), Tag.user_id == current_user.id)
+            .all()
+        )
+        for diary_id, tag_id, name, tag_type in tag_rows:
+            tags_by_diary[diary_id].append({"id": tag_id, "name": name, "type": tag_type})
+    return [
+        DiaryBrowseItem(
+            id=row.id, diary_date=row.diary_date,
+            status=row.status.value if hasattr(row.status, "value") else str(row.status),
+            created_at=row.created_at, title=row.title, summary=row.summary,
+            mood=row.mood, location=row.location, preview=row[8],
+            transcription_status={
+                "COLLECTING": "audio_uploaded",
+                "QUEUED": "transcribing",
+                "PROCESSING": "transcribing",
+                "FINALIZING": "transcribing",
+                "PARTIAL_FAILED": "partial_failed",
+            }.get(row[9]),
+            tags=tags_by_diary[row.id],
+        )
+        for row in rows
+    ]
+
+
 @router.get("/calendar", response_model=list[DiaryCalendarItem])
 def get_calendar(
     year: int = Query(..., ge=1, le=9999),
@@ -570,6 +696,50 @@ def get_calendar(
             )
         )
     return result
+
+
+@router.get("/calendar/days", response_model=list[DiaryCalendarDay])
+def get_calendar_days(
+    year: int = Query(..., ge=1, le=9999),
+    month: int = Query(..., ge=1, le=12),
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """按天返回日记数量，仅对单篇日期返回跳转所需的日记 ID。"""
+    start = date(year, month, 1)
+    end = date(year, 12, 31) if month == 12 else date(year, month + 1, 1) - timedelta(days=1)
+    counts = (
+        db.query(Diary.diary_date, func.count(Diary.id).label("diary_count"))
+        .filter(
+            Diary.user_id == current_user.id,
+            Diary.deleted_at.is_(None),
+            Diary.diary_date >= start,
+            Diary.diary_date <= end,
+        )
+        .group_by(Diary.diary_date)
+        .order_by(Diary.diary_date)
+        .all()
+    )
+    single_dates = [diary_date for diary_date, count in counts if count == 1]
+    single_ids = {}
+    if single_dates:
+        single_ids = dict(
+            db.query(Diary.diary_date, Diary.id)
+            .filter(
+                Diary.user_id == current_user.id,
+                Diary.deleted_at.is_(None),
+                Diary.diary_date.in_(single_dates),
+            )
+            .all()
+        )
+    return [
+        DiaryCalendarDay(
+            diary_date=diary_date,
+            diary_count=count,
+            single_diary_id=single_ids.get(diary_date),
+        )
+        for diary_date, count in counts
+    ]
 
 
 @router.get("/search", response_model=SearchListResponse)

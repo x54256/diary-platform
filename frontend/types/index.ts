@@ -60,6 +60,24 @@ export interface Diary {
   is_favorite: boolean
 }
 
+export interface DiaryBrowseItem {
+  id: string
+  diary_date: string
+  status: DiaryStatus
+  created_at: string
+  title: string | null
+  summary: string | null
+  preview: string | null
+  mood: string | null
+  location: string | null
+  tags: Tag[]
+  favorite_id?: string | null
+  favorite_type?: 'diary' | 'event' | null
+  event_id?: string | null
+  event_title?: string | null
+  event_preview?: string | null
+}
+
 // 标签类型
 export type TagType = 'domain' | 'topic' | 'person_object' | 'psychological' | 'knowledge'
 
@@ -258,6 +276,12 @@ export interface DiaryCalendarItem {
   diary_date: string
   mood: string | null
   status: string
+}
+
+export interface DiaryCalendarDay {
+  diary_date: string
+  diary_count: number
+  single_diary_id: string | null
 }
 
 export type ScheduleStatus = 'pending' | 'completed' | 'deleted'

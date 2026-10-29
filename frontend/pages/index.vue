@@ -1,5 +1,14 @@
 <template>
-  <div class="min-h-dvh flex flex-col">
+  <div ref="homeRefreshRoot" class="min-h-dvh flex flex-col">
+    <div
+      class="fixed inset-x-0 top-0 z-50 flex justify-center overflow-hidden pointer-events-none"
+      :style="{ height: `${Math.min(refreshDistance, 72)}px`, opacity: refreshDistance ? 1 : 0 }"
+      aria-live="polite"
+    >
+      <span class="mt-2 h-8 rounded-full bg-white/95 px-3 py-1 text-xs text-neutral-500 shadow">
+        {{ refreshing ? '正在刷新…' : refreshDistance >= 72 ? '松开刷新' : '下拉刷新' }}
+      </span>
+    </div>
     <!-- 顶部月份导航 -->
     <div class="sticky top-0 z-30 bg-white border-b border-neutral-200">
       <div class="flex items-center justify-between px-4 h-nav">
@@ -159,29 +168,29 @@
       <div v-else class="space-y-3">
         <NuxtLink
           v-for="item in filteredFavorites"
-          :key="item.id"
+          :key="item.favorite_id || item.id"
           :to="favoriteLink(item)"
           class="block bg-white rounded-lg p-3 active:bg-neutral-50"
         >
           <template v-if="item.favorite_type === 'diary'">
             <div class="flex items-center justify-between gap-3">
               <span class="text-xs font-medium text-amber-600">★ 日记</span>
-              <span class="text-xs text-neutral-400">{{ item.diary.diary_date }}</span>
+              <span class="text-xs text-neutral-400">{{ item.diary_date }}</span>
             </div>
-            <div class="mt-1 text-sm font-medium text-neutral-800">{{ item.diary.organized?.title || '无标题日记' }}</div>
-            <div v-if="item.diary.organized?.summary" class="mt-1 text-xs text-neutral-500 line-clamp-2">
-              {{ item.diary.organized.summary }}
+            <div class="mt-1 text-sm font-medium text-neutral-800">{{ item.title || '无标题日记' }}</div>
+            <div v-if="item.summary" class="mt-1 text-xs text-neutral-500 line-clamp-2">
+              {{ item.summary }}
             </div>
-            <div v-else class="mt-1 text-xs text-neutral-500 line-clamp-2">{{ item.diary.original_text }}</div>
+            <div v-else class="mt-1 text-xs text-neutral-500 line-clamp-2">{{ item.preview }}</div>
           </template>
-          <template v-else-if="item.event">
+          <template v-else-if="item.favorite_type === 'event'">
             <div class="flex items-center justify-between gap-3">
               <span class="text-xs font-medium text-amber-600">★ 事件</span>
-              <span class="text-xs text-neutral-400">{{ item.diary.diary_date }}</span>
+              <span class="text-xs text-neutral-400">{{ item.diary_date }}</span>
             </div>
-            <div class="mt-1 text-sm font-medium text-neutral-800">{{ item.event.event_title || '未命名事件' }}</div>
-            <div class="mt-1 text-xs text-neutral-500 line-clamp-2">{{ eventPreview(item.event) }}</div>
-            <div class="mt-2 text-xs text-neutral-400">来自《{{ item.diary.organized?.title || '无标题日记' }}》</div>
+            <div class="mt-1 text-sm font-medium text-neutral-800">{{ item.event_title || '未命名事件' }}</div>
+            <div class="mt-1 text-xs text-neutral-500 line-clamp-2">{{ item.event_preview }}</div>
+            <div class="mt-2 text-xs text-neutral-400">来自《{{ item.title || '无标题日记' }}》</div>
           </template>
         </NuxtLink>
       </div>
@@ -250,13 +259,13 @@
             <span class="text-xs text-neutral-400">{{ formatTime(item.created_at) }}</span>
           </div>
           <!-- 已整理/已分析：显示标题+摘要 -->
-          <template v-if="item.organized">
-            <div class="text-sm font-medium text-neutral-800">{{ item.organized.title || '无标题' }}</div>
-            <div v-if="item.organized.summary" class="text-xs text-neutral-500 mt-1 line-clamp-2">{{ item.organized.summary }}</div>
+          <template v-if="item.title">
+            <div class="text-sm font-medium text-neutral-800">{{ item.title || '无标题' }}</div>
+            <div v-if="item.summary" class="text-xs text-neutral-500 mt-1 line-clamp-2">{{ item.summary }}</div>
           </template>
           <!-- 已保存：显示原文预览 -->
           <template v-else>
-            <p class="text-sm text-neutral-600 line-clamp-2">{{ item.original_text || '录音已上传，等待转写内容' }}</p>
+            <p class="text-sm text-neutral-600 line-clamp-2">{{ item.preview || '录音已上传，等待转写内容' }}</p>
           </template>
           <!-- 状态标签 -->
           <div class="flex items-center gap-2 mt-2">
@@ -271,8 +280,8 @@
             >
               {{ statusLabel(item.transcription_status || item.status) }}
             </span>
-            <span v-if="item.organized?.mood" class="text-xs text-primary-600">{{ item.organized.mood }}</span>
-            <span v-if="item.organized?.location" class="text-xs text-neutral-400">{{ item.organized.location }}</span>
+            <span v-if="item.mood" class="text-xs text-primary-600">{{ item.mood }}</span>
+            <span v-if="item.location" class="text-xs text-neutral-400">{{ item.location }}</span>
           </div>
           <!-- 已分析卡片标签 -->
           <div v-if="item.status === 'analyzed' && topicDiaryTags(item.tags).length > 0" class="flex flex-wrap mt-2">
@@ -299,7 +308,7 @@
 <script setup lang="ts">
 // 日记浏览页（主页）：使用 default 布局（带 Tab 栏）
 import { addDaysToDateKey, dateKeyInAppTimeZone, formatDateInAppTimeZone, formatDateTimeInAppTimeZone, weekDayInAppTimeZone } from '~/utils/datetime'
-import type { ReviewDailyDigest, ReviewDailyDigestList } from '~/types'
+import type { Diary, DiaryBrowseItem, DiaryCalendarDay, ReviewDailyDigest, ReviewDailyDigestList } from '~/types'
 import { useSearch } from '~/composables/useSearch'
 import { splitSearchSnippet } from '~/utils/search-highlight'
 definePageMeta({
@@ -309,6 +318,12 @@ definePageMeta({
 })
 
 const { api } = useApi()
+const homeRefreshRoot = ref<HTMLElement | null>(null)
+const refreshDistance = ref(0)
+const refreshing = ref(false)
+let refreshStartY = 0
+let refreshStartX = 0
+let refreshTracking = false
 
 // 当前年月
 const todayParts = dateKeyInAppTimeZone().split('-').map(Number)
@@ -388,20 +403,20 @@ const viewModes = [
 // 星期标题
 const weekDays = ['日', '一', '二', '三', '四', '五', '六']
 
-// 日历数据：dateStr → Diary[]（同一天可能多条，存完整 Diary 以显示标题/摘要）
-const calendarData = ref<Map<string, Diary[]>>(new Map())
+// 日历数据：dateStr → 当日数量及单篇日记 ID
+const calendarData = ref<Map<string, DiaryCalendarDay>>(new Map())
 
 // 当月日记总数
 const totalMonthCount = computed(() => {
   let total = 0
-  for (const items of calendarData.value.values()) {
-    total += items.length
+  for (const day of calendarData.value.values()) {
+    total += day.diary_count
   }
   return total
 })
 
 // 时间线日记列表
-const diaries = ref<Diary[]>([])
+const diaries = ref<DiaryBrowseItem[]>([])
 const timelineLoading = ref(false)
 const timelineLoadingMore = ref(false)
 const timelineHasMore = ref(true)
@@ -413,15 +428,16 @@ const dailyDigests = ref<ReviewDailyDigest[]>([])
 const dailyDigestLoading = ref(false)
 const dailyDigestLoadingMore = ref(false)
 const dailyDigestHasMore = ref(true)
+const dailyDigestLoaded = ref(false)
 const dailyDigestCursor = ref<string | null>(null)
 const dailyDigestSentinel = ref<HTMLElement | null>(null)
 let dailyDigestObserver: IntersectionObserver | null = null
 const pageStateKey = 'diary-platform:diary-index-state'
 const browseCache = useState<{
   calendarKey: string | null
-  calendarItems: Diary[]
+  calendarItems: DiaryCalendarDay[]
   calendarLoaded: boolean
-  timelineItems: Diary[]
+  timelineItems: DiaryBrowseItem[]
   timelineLoaded: boolean
   timelineHasMore: boolean
   timelineOffset: number
@@ -434,8 +450,9 @@ const browseCache = useState<{
   timelineHasMore: true,
   timelineOffset: 0,
 }))
-const favorites = ref<FavoriteItem[]>([])
+const favorites = ref<DiaryBrowseItem[]>([])
 const favoritesLoading = ref(false)
+const favoritesLoaded = ref(false)
 const favoriteFilter = ref<'all' | 'diary' | 'event'>('all')
 const favoriteFilters = [
   { key: 'all' as const, label: '全部' },
@@ -465,8 +482,8 @@ const calendarCells = computed(() => {
   // 日期
   for (let d = 1; d <= daysInMonth; d++) {
     const dateStr = `${year}-${String(month).padStart(2, '0')}-${String(d).padStart(2, '0')}`
-    const items = calendarData.value.get(dateStr) || []
-    cells.push({ day: d, hasDiary: items.length > 0, diaryCount: items.length })
+    const calendarDay = calendarData.value.get(dateStr)
+    cells.push({ day: d, hasDiary: !!calendarDay && calendarDay.diary_count > 0, diaryCount: calendarDay?.diary_count || 0 })
   }
 
   return cells
@@ -488,28 +505,25 @@ const changeMonth = (delta: number) => {
   loadCalendar()
 }
 
-// 加载日历数据（获取完整 Diary 对象以显示标题/摘要）
+// 日历只加载每日计数和单篇日记 ID，按日期展示数量并支持点击跳转
 const loadCalendar = async () => {
   const year = currentYear.value
   const month = currentMonth.value
-  const startDate = `${year}-${String(month).padStart(2, '0')}-01`
-  const lastDay = new Date(year, month, 0).getDate()
-  const endDate = `${year}-${String(month).padStart(2, '0')}-${String(lastDay).padStart(2, '0')}`
-  const cacheKey = `${startDate}:${endDate}`
+  const cacheKey = `${year}-${String(month).padStart(2, '0')}`
 
   if (browseCache.value.calendarLoaded && browseCache.value.calendarKey === cacheKey) {
-    calendarData.value = groupDiariesByDate(browseCache.value.calendarItems)
+    calendarData.value = groupCalendarDaysByDate(browseCache.value.calendarItems)
     return
   }
 
   try {
-    const items = await api<Diary[]>('/diaries', {
-      params: { start_date: startDate, end_date: endDate },
+    const items = await api<DiaryCalendarDay[]>('/diaries/calendar/days', {
+      params: { year, month },
     })
     browseCache.value.calendarKey = cacheKey
     browseCache.value.calendarItems = items
     browseCache.value.calendarLoaded = true
-    calendarData.value = groupDiariesByDate(items)
+    calendarData.value = groupCalendarDaysByDate(items)
   } catch (err) {
     console.error('加载日历失败', err)
     calendarData.value = new Map()
@@ -528,7 +542,7 @@ const loadTimeline = async () => {
   timelineOffset.value = 0
   timelineHasMore.value = true
   try {
-    diaries.value = await api<Diary[]>('/diaries', {
+    diaries.value = await api<DiaryBrowseItem[]>('/diaries/browse', {
       params: { limit: timelinePageSize, offset: 0 },
     })
     timelineOffset.value = diaries.value.length
@@ -546,10 +560,10 @@ const loadTimeline = async () => {
 }
 
 const loadMoreTimeline = async () => {
-  if (timelineLoading.value || timelineLoadingMore.value || !timelineHasMore.value) return
+  if (!browseCache.value.timelineLoaded || timelineLoading.value || timelineLoadingMore.value || !timelineHasMore.value) return
   timelineLoadingMore.value = true
   try {
-    const items = await api<Diary[]>('/diaries', {
+    const items = await api<DiaryBrowseItem[]>('/diaries/browse', {
       params: { limit: timelinePageSize, offset: timelineOffset.value },
     })
     diaries.value.push(...items)
@@ -573,6 +587,7 @@ const loadDailyDigests = async () => {
   try {
     const page = await api<ReviewDailyDigestList>('/daily-digests', { params: { limit: 10 } })
     dailyDigests.value = page.items
+    dailyDigestLoaded.value = true
     dailyDigestCursor.value = page.next_cursor
     dailyDigestHasMore.value = !!page.next_cursor
   } catch (err) {
@@ -602,9 +617,11 @@ const loadMoreDailyDigests = async () => {
 }
 
 const loadFavorites = async () => {
+  if (favoritesLoading.value || favoritesLoaded.value) return
   favoritesLoading.value = true
   try {
-    favorites.value = await api<FavoriteItem[]>('/diaries/favorites')
+    favorites.value = await api<DiaryBrowseItem[]>('/diaries/browse', { params: { view: 'favorites' } })
+    favoritesLoaded.value = true
   } catch (err) {
     console.error('加载收藏失败', err)
     favorites.value = []
@@ -613,21 +630,13 @@ const loadFavorites = async () => {
   }
 }
 
-const eventPreview = (event: DiaryEvent) => event.body?.join(' ') || event.feeling?.join(' ') || '暂无事件正文'
-
-const groupDiariesByDate = (items: Diary[]) => {
-  const map = new Map<string, Diary[]>()
-  for (const item of items) {
-    const list = map.get(item.diary_date)
-    if (list) list.push(item)
-    else map.set(item.diary_date, [item])
-  }
-  return map
+const groupCalendarDaysByDate = (items: DiaryCalendarDay[]) => {
+  return new Map(items.map(item => [item.diary_date, item] as const))
 }
 
-const favoriteLink = (item: FavoriteItem) => item.favorite_type === 'event' && item.event
-  ? `/diary/${item.diary.id}?event=${item.event.id}`
-  : `/diary/${item.diary.id}`
+const favoriteLink = (item: DiaryBrowseItem) => item.favorite_type === 'event' && item.event_id
+  ? `/diary/${item.id}?event=${item.event_id}`
+  : `/diary/${item.id}`
 
 const dateStringForDay = (day: number) => {
   return `${currentYear.value}-${String(currentMonth.value).padStart(2, '0')}-${String(day).padStart(2, '0')}`
@@ -638,13 +647,13 @@ const handleDateClick = (day: number) => {
   const dateStr = dateStringForDay(day)
 
   const cached = calendarData.value.get(dateStr)
-  if (!cached || cached.length === 0) {
+  if (!cached || cached.diary_count === 0) {
     navigateTo(`/diary/new?date=${dateStr}`)
     return
   }
 
-  if (cached.length === 1) {
-    navigateTo(`/diary/${cached[0].id}`)
+  if (cached.diary_count === 1 && cached.single_diary_id) {
+    navigateTo(`/diary/${cached.single_diary_id}`)
   } else {
     navigateTo(`/diary/date/${dateStr}`)
   }
@@ -700,8 +709,8 @@ const getFilterRange = (key: FilterKey): { start: string; end: string } => {
 const toggleFilter = async (key: FilterKey) => {
   try {
     const { start, end } = getFilterRange(key)
-    const data = await api<Diary[]>('/diaries', {
-      params: { start_date: start, end_date: end },
+    const data = await api<DiaryBrowseItem[]>('/diaries/browse', {
+      params: { view: 'dates', start_date: start, end_date: end },
     })
     const analyzed = data.filter(d => d.status === 'analyzed')
     if (analyzed.length === 0) return
@@ -782,13 +791,13 @@ const statusLabel = (status: string) => {
 
 // 监听视图模式切换
 watch(viewMode, (newMode) => {
-  if (newMode === 'timeline' && diaries.value.length === 0) {
+  if (newMode === 'timeline' && !browseCache.value.timelineLoaded) {
     loadTimeline()
   }
   if (newMode === 'favorites') {
     loadFavorites()
   }
-  if (newMode === 'daily-digests' && dailyDigests.value.length === 0) {
+  if (newMode === 'daily-digests' && !dailyDigestLoaded.value) {
     loadDailyDigests()
   }
 })
@@ -819,7 +828,7 @@ onMounted(() => {
       sessionStorage.removeItem(pageStateKey)
     }
   }
-  loadCalendar()
+  if (viewMode.value === 'calendar') loadCalendar()
   timelineObserver = new IntersectionObserver(entries => {
     if (entries.some(entry => entry.isIntersecting)) loadMoreTimeline()
   })
@@ -833,6 +842,10 @@ onMounted(() => {
   })
   if (dailyDigestSentinel.value) dailyDigestObserver.observe(dailyDigestSentinel.value)
   window.addEventListener('scroll', savePageState, { passive: true })
+  homeRefreshRoot.value?.addEventListener('touchstart', onRefreshTouchStart, { passive: true })
+  homeRefreshRoot.value?.addEventListener('touchmove', onRefreshTouchMove, { passive: false })
+  homeRefreshRoot.value?.addEventListener('touchend', onRefreshTouchEnd, { passive: true })
+  homeRefreshRoot.value?.addEventListener('touchcancel', onRefreshTouchCancel, { passive: true })
 })
 
 watch(timelineSentinel, element => {
@@ -853,5 +866,69 @@ onBeforeUnmount(() => {
   dailyDigestObserver?.disconnect()
   searchObserver?.disconnect()
   window.removeEventListener('scroll', savePageState)
+  homeRefreshRoot.value?.removeEventListener('touchstart', onRefreshTouchStart)
+  homeRefreshRoot.value?.removeEventListener('touchmove', onRefreshTouchMove)
+  homeRefreshRoot.value?.removeEventListener('touchend', onRefreshTouchEnd)
+  homeRefreshRoot.value?.removeEventListener('touchcancel', onRefreshTouchCancel)
 })
+
+const atPageTop = () => window.scrollY <= 0 && document.documentElement.scrollTop <= 0
+const onRefreshTouchStart = (event: TouchEvent) => {
+  if (refreshing.value || !atPageTop() || event.touches.length !== 1) return
+  if (event.target instanceof Element && event.target.closest('input, textarea, select, button, a, [role="button"]')) return
+  refreshStartY = event.touches[0].clientY
+  refreshStartX = event.touches[0].clientX
+  refreshTracking = true
+}
+const onRefreshTouchMove = (event: TouchEvent) => {
+  if (!refreshTracking || event.touches.length !== 1) return
+  const touch = event.touches[0]
+  const distance = touch.clientY - refreshStartY
+  if (Math.abs(touch.clientX - refreshStartX) > distance) {
+    refreshTracking = false
+    refreshDistance.value = 0
+    return
+  }
+  if (distance <= 0) {
+    refreshDistance.value = 0
+    return
+  }
+  refreshDistance.value = Math.min(distance * 0.8, 90)
+  if (event.cancelable) event.preventDefault()
+}
+const onRefreshTouchEnd = () => {
+  if (!refreshTracking) return
+  refreshTracking = false
+  if (refreshDistance.value >= 72) void refreshHome()
+  else refreshDistance.value = 0
+}
+const onRefreshTouchCancel = () => {
+  refreshTracking = false
+  refreshDistance.value = 0
+}
+const refreshHome = async () => {
+  if (refreshing.value) return
+  refreshing.value = true
+  try {
+    if (searchActive.value) {
+      await doSearch(true)
+    } else if (viewMode.value === 'calendar') {
+      browseCache.value.calendarLoaded = false
+      await loadCalendar()
+    } else if (viewMode.value === 'timeline') {
+      browseCache.value.timelineLoaded = false
+      await loadTimeline()
+    } else if (viewMode.value === 'favorites') {
+      favoritesLoaded.value = false
+      await loadFavorites()
+    } else {
+      dailyDigestLoaded.value = false
+      dailyDigests.value = []
+      await loadDailyDigests()
+    }
+  } finally {
+    refreshing.value = false
+    refreshDistance.value = 0
+  }
+}
 </script>

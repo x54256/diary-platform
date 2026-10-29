@@ -4,7 +4,7 @@ from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import or_
-from sqlalchemy.orm import Session, aliased
+from sqlalchemy.orm import Session, aliased, load_only
 
 from database import get_db
 from models.diary import Diary, DiaryEvent
@@ -127,8 +127,24 @@ def graph_result(db, run, diary_id, *, history=False, focus_event_id=None):
     all_nodes = db.query(GraphRunEvent).filter(GraphRunEvent.user_id == run.user_id,
         GraphRunEvent.event_id.in_(extra_ids)).all() if extra_ids else []
     all_nodes = [node for node in all_nodes if (node.run_id, node.event_id) in endpoint_keys]
-    runs = {item.id: item for item in db.query(GraphRun).filter(GraphRun.user_id == run.user_id,
-        GraphRun.id.in_({node.run_id for node in all_nodes})).all()} if all_nodes else {}
+    runs = {}
+    event_titles = {}
+    if all_nodes:
+        run_ids = {node.run_id for node in all_nodes}
+        if history:
+            run_rows = db.query(GraphRun).options(load_only(
+                GraphRun.id, GraphRun.user_id, GraphRun.diary_id, GraphRun.diary_date,
+                GraphRun.source_snapshot,
+            )).filter(GraphRun.user_id == run.user_id, GraphRun.id.in_(run_ids)).all()
+            runs = {item.id: item for item in run_rows}
+        else:
+            run_rows = db.query(GraphRun.id, GraphRun.diary_id, GraphRun.diary_date).filter(
+                GraphRun.user_id == run.user_id, GraphRun.id.in_(run_ids)
+            ).all()
+            runs = {item.id: item for item in run_rows}
+            event_titles = dict(db.query(DiaryEvent.id, DiaryEvent.event_title).filter(
+                DiaryEvent.id.in_(extra_ids)
+            ).all())
     point_map = {}
     if all_nodes:
         for point in db.query(GraphEventPoint.id, GraphEventPoint.run_id, GraphEventPoint.event_id,
@@ -140,10 +156,14 @@ def graph_result(db, run, diary_id, *, history=False, focus_event_id=None):
     for node in sorted(all_nodes, key=lambda node: (node.run_id != run.id,
             runs[node.run_id].diary_date, node.source_order, str(node.event_id))):
         owner_run = runs[node.run_id]
-        source = next((item for item in (owner_run.source_snapshot or {}).get("events", [])
-                       if item["event_id"] == str(node.event_id)), {})
+        if history:
+            source = next((item for item in (owner_run.source_snapshot or {}).get("events", [])
+                           if item["event_id"] == str(node.event_id)), {})
+            title = source.get("title", "")
+        else:
+            title = event_titles.get(node.event_id) or ""
         events.append({"event_id": node.event_id, "run_id": node.run_id, "diary_id": owner_run.diary_id,
-            "title": source.get("title", ""), "diary_date": owner_run.diary_date,
+            "title": title, "diary_date": owner_run.diary_date,
             "occurred_on": node.occurred_on, "points": point_map.get((node.run_id, node.event_id), [])})
     return {"diary_id": diary_id, "run": {"id": run.id, "status": run.status,
         "published_at": run.published_at, "obsolete_at": run.obsolete_at, "analysis_run_id": run.analysis_run_id},
@@ -154,21 +174,30 @@ def graph_result(db, run, diary_id, *, history=False, focus_event_id=None):
 def current_graph(diary_id: UUID, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
     diary = db.query(Diary).filter(Diary.id == diary_id, Diary.user_id == user.id, Diary.deleted_at.is_(None)).first()
     if not diary: raise HTTPException(404, detail="日记不存在")
-    run = db.query(GraphRun).filter(GraphRun.diary_id == diary_id, GraphRun.user_id == user.id,
+    run = db.query(GraphRun).options(load_only(
+        GraphRun.id, GraphRun.user_id, GraphRun.diary_id, GraphRun.diary_date, GraphRun.status,
+        GraphRun.published_at, GraphRun.obsolete_at, GraphRun.analysis_run_id,
+    )).filter(GraphRun.diary_id == diary_id, GraphRun.user_id == user.id,
         GraphRun.status.in_(("PUBLISHED", "POINTS_READY"))).order_by(GraphRun.created_at.desc(), GraphRun.id.desc()).first()
     return graph_result(db, run, diary_id)
 
 
 @router.get("/runs/{run_id}", response_model=GraphResultResponse)
 def historical_graph(run_id: UUID, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
-    run = db.query(GraphRun).filter(GraphRun.id == run_id, GraphRun.user_id == user.id).first()
+    run = db.query(GraphRun).options(load_only(
+        GraphRun.id, GraphRun.user_id, GraphRun.diary_id, GraphRun.diary_date, GraphRun.status,
+        GraphRun.published_at, GraphRun.obsolete_at, GraphRun.analysis_run_id,
+    )).filter(GraphRun.id == run_id, GraphRun.user_id == user.id).first()
     if not run: raise HTTPException(404, detail="运行不存在")
     return graph_result(db, run, run.diary_id, history=True)
 
 
 @router.get("/events/{event_id}/neighbors", response_model=GraphResultResponse)
 def event_neighbors(event_id: UUID, db: Session = Depends(get_db), user: User = Depends(get_current_user)):
-    run = db.query(GraphRun).join(GraphRunEvent, GraphRunEvent.run_id == GraphRun.id).join(
+    run = db.query(GraphRun).options(load_only(
+        GraphRun.id, GraphRun.user_id, GraphRun.diary_id, GraphRun.diary_date, GraphRun.status,
+        GraphRun.published_at, GraphRun.obsolete_at, GraphRun.analysis_run_id,
+    )).join(GraphRunEvent, GraphRunEvent.run_id == GraphRun.id).join(
         Diary, Diary.id == GraphRun.diary_id).join(DiaryEvent, DiaryEvent.id == GraphRunEvent.event_id).filter(
         GraphRun.user_id == user.id, GraphRun.status.in_(("PUBLISHED", "POINTS_READY")), GraphRunEvent.event_id == event_id,
         Diary.deleted_at.is_(None), or_(GraphRun.status == "POINTS_READY", DiaryEvent.is_in_graph.is_(True))).order_by(

@@ -253,6 +253,39 @@ class DiaryCalendarItem(BaseModel):
     is_dirty: bool = False
 
 
+class DiaryCalendarDay(BaseModel):
+    """日历每日计数及单篇日记跳转信息"""
+
+    diary_date: date
+    diary_count: int
+    single_diary_id: Optional[UUID] = None
+
+
+class DiaryBrowseItem(BaseModel):
+    """首页时间线卡片概要，不包含日记正文和事件详情。"""
+
+    id: UUID
+    diary_date: date
+    status: str
+    created_at: datetime
+    transcription_status: Optional[str] = None
+    title: Optional[str] = None
+    summary: Optional[str] = None
+    preview: Optional[str] = None
+    mood: Optional[str] = None
+    location: Optional[str] = None
+    tags: list = []
+    favorite_id: Optional[UUID] = None
+    favorite_type: Optional[Literal["diary", "event"]] = None
+    event_id: Optional[UUID] = None
+    event_title: Optional[str] = None
+    event_preview: Optional[str] = None
+
+    @field_serializer("created_at")
+    def serialize_created_at(self, value: datetime):
+        return serialize_utc_datetime(value)
+
+
 class DiaryTagsUpdate(BaseModel):
     """更新日记标签的请求体"""
 
