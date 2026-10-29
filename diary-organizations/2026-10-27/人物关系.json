@@ -1,0 +1,181 @@
+{
+  "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+  "username": "x5456",
+  "people": [
+    {
+      "id": "52954c19-eec4-4c4e-9bce-1ab338d641f9",
+      "name": "万世威",
+      "common_names": [
+        "小万"
+      ],
+      "gender": "male",
+      "relation": "同事"
+    },
+    {
+      "id": "af7f6511-6dfd-4547-9f41-251e24c68a8e",
+      "name": "于海昕",
+      "common_names": [
+        "小于",
+        "于总"
+      ],
+      "gender": "male",
+      "relation": "直属实权领导"
+    },
+    {
+      "id": "ce52a51a-144b-4eba-bc96-a7287f0980a8",
+      "name": "于福豪",
+      "common_names": [],
+      "gender": "male",
+      "relation": "同事"
+    },
+    {
+      "id": "aac08249-9443-4ccc-8637-4275b03e5f39",
+      "name": "何沐霖",
+      "common_names": [],
+      "gender": "male",
+      "relation": "高中同学"
+    },
+    {
+      "id": "feffe742-d1c2-43cc-96ad-a545b8b1705b",
+      "name": "刘凡成",
+      "common_names": [],
+      "gender": "male",
+      "relation": "同事，做前端开发的，现在也在同时做AI应用开发"
+    },
+    {
+      "id": "5e751661-3470-48d4-abde-304cf1ef73d3",
+      "name": "哒哒",
+      "common_names": [],
+      "gender": "male",
+      "relation": "宠物狗"
+    },
+    {
+      "id": "ebde2c2d-f09a-4aec-a9bf-19230260fc11",
+      "name": "多多",
+      "common_names": [],
+      "gender": "male",
+      "relation": "宠物猫"
+    },
+    {
+      "id": "a18eb404-198f-4d57-92ce-f1dd2d841fcd",
+      "name": "廖颂梅",
+      "common_names": [
+        "小廖",
+        "媳妇",
+        "颂梅"
+      ],
+      "gender": "female",
+      "relation": "妻子"
+    },
+    {
+      "id": "47cbbca9-9313-45ae-ba5c-9b290726d5f9",
+      "name": "张宝岩",
+      "common_names": [],
+      "gender": "male",
+      "relation": "高中同学"
+    },
+    {
+      "id": "220fd97d-396f-4a04-accb-5c2770016d1c",
+      "name": "张永朋",
+      "common_names": [
+        "小张"
+      ],
+      "gender": "male",
+      "relation": "前任直属领导，小杨出去把他给带走了"
+    },
+    {
+      "id": "1363704c-6134-4f61-8b2f-6113c6082f21",
+      "name": "杨龙",
+      "common_names": [
+        "小杨"
+      ],
+      "gender": "male",
+      "relation": "前领导，现离职去其他公司当老总"
+    },
+    {
+      "id": "f6403df4-3fd0-4900-9791-9650352814ac",
+      "name": "武剑",
+      "common_names": [],
+      "gender": "male",
+      "relation": "同事"
+    },
+    {
+      "id": "8f812aad-b366-4412-8c1b-0b802f0d08ff",
+      "name": "殷萧鹏",
+      "common_names": [],
+      "gender": "male",
+      "relation": "同事，工作上的导师"
+    },
+    {
+      "id": "8066c187-1c16-44aa-a6d6-c08854b97823",
+      "name": "田银伟",
+      "common_names": [
+        "田总",
+        "小田"
+      ],
+      "gender": "male",
+      "relation": "直属领导"
+    },
+    {
+      "id": "86984d5a-37c5-42b7-8d3b-01565b482e5c",
+      "name": "童春秀",
+      "common_names": [],
+      "gender": "female",
+      "relation": "同事"
+    },
+    {
+      "id": "0c72db93-ed44-4a3b-b9e8-db0de5a2a0ef",
+      "name": "肖雨晨",
+      "common_names": [],
+      "gender": "male",
+      "relation": "同事"
+    },
+    {
+      "id": "ac8855af-4d2f-41b1-aac3-206b23abec53",
+      "name": "胡飞玲",
+      "common_names": [],
+      "gender": "female",
+      "relation": "同事"
+    },
+    {
+      "id": "98f1e255-d2f5-4839-87c9-59f663fd9447",
+      "name": "许成刚",
+      "common_names": [],
+      "gender": "male",
+      "relation": "经济学的教授"
+    },
+    {
+      "id": "6bb33f7b-7d73-49d5-92c6-93f13defd491",
+      "name": "许益龙",
+      "common_names": [],
+      "gender": "male",
+      "relation": "一个讨厌的同事"
+    },
+    {
+      "id": "8d014b0b-2ac6-4bf0-a755-e71fc1013bba",
+      "name": "邓德华",
+      "common_names": [
+        "德华",
+        "德宝"
+      ],
+      "gender": "male",
+      "relation": "前任同事"
+    },
+    {
+      "id": "90b1eae2-0f13-4da2-80c6-c9cb4e017d94",
+      "name": "陆俊翔",
+      "common_names": [
+        "老陆"
+      ],
+      "gender": "male",
+      "relation": "前任同事"
+    },
+    {
+      "id": "9d6a5aca-4e4c-4464-abb3-a53e5a38512a",
+      "name": "马司库",
+      "common_names": [],
+      "gender": "unknown",
+      "relation": "YouTube 频道名"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+[
+  {
+    "alias": "P1",
+    "source_key": "plan:0:f6cee0af860b",
+    "text": "明天实际用一篇日记跑通完整流程：在平台上传录音、转成文字，切换到云端 Codex，通过 skill 完成整理和分析、入库，再回平台查看结果。"
+  },
+  {
+    "alias": "P2",
+    "source_key": "plan:1:3339a68b5e34",
+    "text": "下周四如果颂梅需要我陪同，我可以和她一起送多多去做手术。"
+  },
+  {
+    "alias": "P3",
+    "source_key": "plan:2:9e8570a6f2ee",
+    "text": "继续读《非暴力沟通》，慢慢加深理解。"
+  },
+  {
+    "alias": "P4",
+    "source_key": "plan:3:deb03f83c859",
+    "text": "回头查看第一次记日记的时间，希望能把记日记坚持一年以上。"
+  },
+  {
+    "alias": "E1-S1",
+    "event_id": "03d5f652-6067-4b2d-99f6-890629a21d73",
+    "source_key": "suggestion:event:0:6c4d5c4e1873",
+    "text": "检查哒哒能接触到的垃圾桶，把鸡架等食物残渣改放到他无法翻到的位置。"
+  },
+  {
+    "alias": "E2-S1",
+    "event_id": "d07993e9-acad-416b-8fd9-6485647e4a30",
+    "source_key": "suggestion:event:1:9b6dee5d6fa1",
+    "text": "问颂梅下周四是否需要你陪同送多多做手术，以及希望你具体帮哪一件事，再据此安排时间。"
+  },
+  {
+    "alias": "E3-S1",
+    "event_id": "d00cfe56-c2c2-4e03-9582-b722c14b987f",
+    "source_key": "suggestion:event:2:fc5684477ae3",
+    "text": "用风扇争执写一句可直接使用的话：说明自己没有阻止开风扇，表达被责怪时的委屈，再请求对方先问清发生了什么；删去对人的评价和让对方学书的要求。"
+  },
+  {
+    "alias": "E4-S1",
+    "event_id": "67cef5e8-7f93-4010-a1e3-ca72928d4e57",
+    "source_key": "suggestion:event:3:b484bea5d61e",
+    "text": "用本篇日记固定三类检查样例：重要内容是否遗漏、标题中的人物与判断是否准确、后续连线是否承接同一事项；把正确结果写清楚，再用它们检查下一次输出。"
+  },
+  {
+    "alias": "E5-S1",
+    "event_id": "0c1ca074-d038-4dcd-8dfb-100b390bfe78",
+    "source_key": "suggestion:event:4:6d9cbff07d2b",
+    "text": "试用一篇日记时记录手机入口、上传转写、澄清问答、保存和结果查看各步是否完成，以及实际手工耗时，作为后续订阅和方案选择的依据。"
+  },
+  {
+    "alias": "E6-S1",
+    "event_id": "f0f8b005-71c7-4f4d-b7b1-5ec3e43f55ac",
+    "source_key": "suggestion:event:5:11610e2b69f6",
+    "text": "把此次恢复服务所用的镜像来源、版本和部署命令记到部署文档，并保留可用的配置记录。"
+  },
+  {
+    "alias": "E8-S1",
+    "event_id": "09816753-1fdd-47a4-8aae-081e8fa1bd9c",
+    "source_key": "suggestion:event:7:ff069ae69e8f",
+    "text": "选视频里大众或奔驰的一项具体说法，查看企业官方股权或业务资料，分别记录在华投资、股权出售和生产转移各自实际发生了什么，再回看原结论。"
+  },
+  {
+    "alias": "E9-S1",
+    "event_id": "9ca0d4e0-1840-414b-abab-094aab66be8e",
+    "source_key": "suggestion:event:8:71653d9b0242",
+    "text": "给每日记录设一个最低完成标准：忙时只记一件事及当时的想法，详细复盘有余力再补。"
+  }
+]

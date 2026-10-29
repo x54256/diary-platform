@@ -1,0 +1,14 @@
+{
+  "status": "已提交并只读复核通过",
+  "diary_date": "2026-10-26",
+  "diary_id": "3daec46f-307b-4c1b-94eb-c0e0c189696b",
+  "analysis_run_id": "d8025184-776d-4ca2-9e6d-e92ed4b10cd4",
+  "task_id": "06ed101b-1cda-4522-a0d8-5b1a6111d980",
+  "events": 11,
+  "analysis_items": 33,
+  "actions": 8,
+  "action_event_links": 6,
+  "structured_source_unchanged": true,
+  "formal_schedules_created": false,
+  "confirmation_sha256": "6b154733c7282100e048186a58207313a97bb31939e15b2702d4a65dc2aa0259"
+}

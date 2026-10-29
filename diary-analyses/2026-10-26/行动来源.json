@@ -1,0 +1,106 @@
+[
+  {
+    "alias": "P1",
+    "source_key": "plan:0:c976dbbc7088",
+    "text": "给哒哒开线的八爪鱼玩具再缝一下，针线盒还没找到。"
+  },
+  {
+    "alias": "P2",
+    "source_key": "plan:1:857b401bd406",
+    "text": "颂梅准备周五去看中医，调理身体，打算挂治未病科。"
+  },
+  {
+    "alias": "P3",
+    "source_key": "plan:2:d84b778448d8",
+    "text": "督促颂梅泡脚，之后再找其他 AI 问问相关问题。"
+  },
+  {
+    "alias": "P4",
+    "source_key": "plan:3:69e1038f3907",
+    "text": "一会儿回家做瑜伽、洗澡；有心情、时间也够的话拖地，不过估计不一定有时间。"
+  },
+  {
+    "alias": "P5",
+    "source_key": "plan:4:9a6feb29ea80",
+    "text": "明天去公司上班。颂梅明天在家遛狗，我就不用留在家里陪着。"
+  },
+  {
+    "alias": "P6",
+    "source_key": "plan:5:19223e13053f",
+    "text": "明天继续做日记管理平台，探索不使用电脑时如何让 Codex 按照 skill 执行并与我交互，提高使用的方便性。"
+  },
+  {
+    "alias": "P7",
+    "source_key": "plan:6:0044e5516061",
+    "text": "明天开始对接指标填报中上传文件的接口。"
+  },
+  {
+    "alias": "P8",
+    "source_key": "plan:7:8c5d76bdf134",
+    "text": "明天检查从 Cube 切换为 CBB 时补充的那些接口，看看有没有问题。"
+  },
+  {
+    "alias": "P9",
+    "source_key": "plan:8:ca095c442b51",
+    "text": "周五准备请假，布置一下家里，给颂梅好好过个生日。"
+  },
+  {
+    "alias": "E2-S1",
+    "event_id": "02ef1f5b-5b43-4f25-a53e-8f477da7bc08",
+    "source_key": "suggestion:event:1:af503873ae0c",
+    "text": "缝好八爪鱼玩具后检查开口和填充物是否固定牢靠，确认修好前继续收起。"
+  },
+  {
+    "alias": "E3-S1",
+    "event_id": "55463738-c7fd-43f4-9605-9b04a38ddca7",
+    "source_key": "suggestion:event:2:2b3aa4cb751b",
+    "text": "把下一次宠物食材的解冻安排改为冰箱冷藏解冻，避免拿出后长时间留在室温下。"
+  },
+  {
+    "alias": "E4-S1",
+    "event_id": "38bb9d8f-b8e6-4022-a982-bb11ff0004bd",
+    "source_key": "suggestion:event:3:7e744e075ade",
+    "text": "与颂梅确认周五就诊安排，协助她整理实际不适和要向医生核实的问题。"
+  },
+  {
+    "alias": "E5-S1",
+    "event_id": "1c0d3f15-34ab-486e-b439-23f2b7a4599c",
+    "source_key": "suggestion:event:4:6c906b3b2adf",
+    "text": "确认颂梅的蛋糕口味和合适分量后，由你完成蛋糕选择，保留具体款式作为惊喜。"
+  },
+  {
+    "alias": "E7-S1",
+    "event_id": "a5ee2d02-cc98-4938-9f69-ebf83d2a3dcc",
+    "source_key": "suggestion:event:6:2b3aa4cb751b",
+    "text": "把下一次宠物食材的解冻安排改为冰箱冷藏解冻，避免拿出后长时间留在室温下。"
+  },
+  {
+    "alias": "E9-S1",
+    "event_id": "836206c5-5018-4016-b2ad-b9ac16b68ed2",
+    "source_key": "suggestion:event:8:7000ced53ce2",
+    "text": "用已漏提取的 9 月 30 日日记和缺失的九月关联，复核补提取及召回调整是否已补齐。"
+  },
+  {
+    "alias": "E9-S2",
+    "event_id": "836206c5-5018-4016-b2ad-b9ac16b68ed2",
+    "source_key": "suggestion:event:8:1629b77f2d3c",
+    "text": "选一个不操作电脑的真实场景，验证从发起日记任务、回答问题到拿到结果的完整流程。"
+  },
+  {
+    "alias": "E10-S1",
+    "event_id": "ff8b7fb3-0efb-4ef1-9e4f-e288e3e02615",
+    "source_key": "suggestion:event:9:61f56a34ec32",
+    "text": "逐项核对 Cube 切换 CBB 的补全接口与原始资料、实际代码是否一致，记录仍缺失或不一致的条目。"
+  },
+  {
+    "alias": "E11-S1",
+    "event_id": "9ab49f0f-1de2-46f9-9d8b-da955aefd842",
+    "source_key": "suggestion:event:10:a0342f0a5d23",
+    "text": "对接指标填报的上传文件接口，先走通一条真实调用，再核对输入、响应和失败分支并记录结果。"
+  },
+  {
+    "alias": "D-S1",
+    "source_key": "suggestion:diary:d73dfb943dbf",
+    "text": "分别用实际资料和真实调用验收 Cube 切换 CBB 的补全接口、指标填报的上传接口，记录仍未通过的具体问题。"
+  }
+]
