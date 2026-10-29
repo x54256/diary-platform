@@ -163,7 +163,7 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 cd frontend
 NUXT_APP_BASE_URL=/secret/ \
-NUXT_PUBLIC_API_BASE=http://192.168.31.60:8000/diary/api \
+NUXT_PUBLIC_API_BASE=http://192.168.0.65:8000/diary/api \
 npx nuxt dev --host 0.0.0.0 --port 3000
 
 http://192.168.0.65:3000/secret/
