@@ -1,0 +1,11 @@
+{
+  "published": true,
+  "relations": 20,
+  "followup": 17,
+  "causal": 3,
+  "removed_redundant_followup": 15,
+  "old_relations_archived": 35,
+  "history_edges_unchanged": 272,
+  "review_decisions_archived": 20,
+  "storage_sha256": "80afb2fd6d00a279e5b05cdfd885a8514b25ead7604574ef3263f3deeed7d560"
+}

@@ -1,0 +1,48 @@
+{
+  "context_sha256": "08c1b7b0c6ae88117744815e4d9e5739b9352e4ce6b975a84b422cd66aea43dd",
+  "decisions": [
+    {
+      "pair_id": "P-2cb243915b6aeabe",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接争吵后练习非暴力沟通到正式阅读并借 AI 理解；路径先记录争吵复盘/方法练习，再记录开始读书和理解理念，方法学习连续。 证据编号：直连 SOURCE要点[9]、TARGET要点[1]。 替代路径逐边核对：H:265783b1-7e43-59bc-b9d7-9bb2f3b29110 SOURCE要点[1]→TARGET要点[2]；C:P-8dde8c7cc1fcfb96 SOURCE要点[9]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:265783b1-7e43-59bc-b9d7-9bb2f3b29110",
+        "C:P-8dde8c7cc1fcfb96"
+      ]
+    },
+    {
+      "pair_id": "P-a52fd8c4111d3799",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接日记知识库第一层从路线调整到九月整理入库、要点提取和关系提取计划；路径记录转用 Codex/skill、整理 skill 落地及九月入库和要点试验，覆盖同一实施链。 证据编号：直连 SOURCE要点[3]、TARGET要点[1, 2]。 替代路径逐边核对：H:e6607df2-f733-5f6a-a116-9ac6e01399f8 SOURCE要点[3, 4]→TARGET要点[3]；H:83328381-3b6a-556b-9e73-63f7f0ea0525 SOURCE要点[1]→TARGET要点[1]；C:P-7301c482247a44f6 SOURCE要点[2]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:e6607df2-f733-5f6a-a116-9ac6e01399f8",
+        "H:83328381-3b6a-556b-9e73-63f7f0ea0525",
+        "C:P-7301c482247a44f6"
+      ]
+    },
+    {
+      "pair_id": "P-a88a8c7dcfb4788b",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接城镇开发边界接口开发到因多版本结果调整前端接口；路径从持续开发进入模型数据对接，再记录多版本和接口改动，完整覆盖。 证据编号：直连 SOURCE要点[1]、TARGET要点[1]。 替代路径逐边核对：H:ad879939-8273-5507-a2d9-bc7bee4e1dbe SOURCE要点[1]→TARGET要点[1]；C:P-9ca8b8ee6a04ffbd SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:ad879939-8273-5507-a2d9-bc7bee4e1dbe",
+        "C:P-9ca8b8ee6a04ffbd"
+      ]
+    },
+    {
+      "pair_id": "P-f97b13fca2262d05",
+      "decision": "KEEP",
+      "reason": "保留：直连把日记平台、日程、心理学和瑜伽等长期停滞，与阅读启动并带动跑步/瑜伽联系起来；替代路径只讲瑜伽计划未执行及阅读安排，遗漏平台、日程、学习等停滞事项和整体动力恢复。 证据编号：直连 SOURCE要点[1]、TARGET要点[2]。 已核对替代路径（日记平台等事情荒废后，仍不知道怎样恢复动力→规划每日学习与作息安排；规划每日学习与作息安排→把“看书”变成“看十页书”，今天终于开始了），其证据不含直连所述事項。",
+      "replacement_path": []
+    },
+    {
+      "pair_id": "P-fa094402bc3593f3",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接江西例会后城镇开发边界数据库/接口设计到多版本计算结果引发前端接口调整；路径先记录该接口推进，再记录多版本及调整，完整覆盖。 证据编号：直连 SOURCE要点[1, 2]、TARGET要点[1]。 替代路径逐边核对：H:85368749-3316-5317-9f68-9ca22f63c5b4 SOURCE要点[2]→TARGET要点[1]；C:P-a88a8c7dcfb4788b SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:85368749-3316-5317-9f68-9ca22f63c5b4",
+        "C:P-a88a8c7dcfb4788b"
+      ]
+    }
+  ]
+}

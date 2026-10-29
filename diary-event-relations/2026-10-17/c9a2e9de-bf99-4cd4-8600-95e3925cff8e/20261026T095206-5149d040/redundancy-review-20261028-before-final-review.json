@@ -1,0 +1,52 @@
+{
+  "context_sha256": "1a075b05623377f11cc3df4935d1a908de20ee98fa73ee2e61bce3ee9fee0303",
+  "decisions": [
+    {
+      "pair_id": "P-2cf3ad5634981120",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接请朋友抢票到获得购票资格并成功买票；路径记录抢票失败后取得第二轮资格，再记录实际购票成功，结果连续。 证据编号：直连 SOURCE要点[1]、TARGET要点[1]。 替代路径逐边核对：H:e1e748a6-269c-52d7-8a36-d88d808f17c1 SOURCE要点[1]→TARGET要点[1]；C:P-b3cb5c3e50c9c71a SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:e1e748a6-269c-52d7-8a36-d88d808f17c1",
+        "C:P-b3cb5c3e50c9c71a"
+      ]
+    },
+    {
+      "pair_id": "P-494f17c35f5dfc5b",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接手机等生日礼物被拒后继续寻找替代，最终改送钱；路径先记录多个选项被拒，再记录改为现金，完整覆盖。 证据编号：直连 SOURCE要点[5]、TARGET要点[1]。 替代路径逐边核对：H:c4d06079-69bb-599c-a77a-3cb13169dc53 SOURCE要点[5]→TARGET要点[1]；C:P-2a45831ed5a8fc21 SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:c4d06079-69bb-599c-a77a-3cb13169dc53",
+        "C:P-2a45831ed5a8fc21"
+      ]
+    },
+    {
+      "pair_id": "P-780ea2fe1db5bf03",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接已答应出差并购票到在墨西哥实际出差、发现工作不多；路径记录实际抵达，再记录疲惫和无事可做，完整覆盖。 证据编号：直连 SOURCE要点[4]、TARGET要点[1]。 替代路径逐边核对：H:c63a8976-5147-5e91-87d0-e60eebf0847a SOURCE要点[4]→TARGET要点[1]；C:P-3838255e2aeb84e3 SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:c63a8976-5147-5e91-87d0-e60eebf0847a",
+        "C:P-3838255e2aeb84e3"
+      ]
+    },
+    {
+      "pair_id": "P-92a3adb1d63646f4",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接离职后仍被安排工作、赴墨西哥后疲惫无事可做。替代路径经过被派出差、尝试拒绝未果并准备出发、实际抵达，再到目标点的疲惫与无事可做，完整覆盖压力升级和行程阶段。 直连证据：SOURCE要点[1]、TARGET要点[1]。 替代路径逐边核对：H:bde1d2e4-60af-5417-9b5a-852378565816（因情绪不佳未能用非暴力沟通引导小廖处理离职后工作压力→颂梅提离职后又被安排去墨西哥，她心情很烦；SOURCE要点[1]、TARGET要点[1]）；H:cdbf11ff-e4a0-5e27-8747-70fd55d6bf41（颂梅提离职后又被安排去墨西哥，她心情很烦→颂梅最终要去墨西哥，我对她的压力和消费也很烦心；SOURCE要点[1]、TARGET要点[1, 4]）；H:c63a8976-5147-5e91-87d0-e60eebf0847a（颂梅最终要去墨西哥，我对她的压力和消费也很烦心→帮颂梅办值机，航班延误、支付和软件问题折腾很久；SOURCE要点[4]、TARGET要点[1]）；C:P-3838255e2aeb84e3（帮颂梅办值机，航班延误、支付和软件问题折腾很久→颂梅在墨西哥又累又无聊，出差却没什么事可做；SOURCE要点[1]、TARGET要点[1]）。",
+      "replacement_path": [
+        "H:bde1d2e4-60af-5417-9b5a-852378565816",
+        "H:cdbf11ff-e4a0-5e27-8747-70fd55d6bf41",
+        "H:c63a8976-5147-5e91-87d0-e60eebf0847a",
+        "C:P-3838255e2aeb84e3"
+      ]
+    },
+    {
+      "pair_id": "P-d8785eb764825044",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接被安排去墨西哥后已在当地且疲惫、无事可做；路径记录实际抵达，再记录身体状态与无事可做，完整覆盖。 证据编号：直连 SOURCE要点[1]、TARGET要点[1]。 替代路径逐边核对：H:448052a9-6d5e-506a-b57d-d450784280e6 SOURCE要点[1]→TARGET要点[1]；C:P-3838255e2aeb84e3 SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:448052a9-6d5e-506a-b57d-d450784280e6",
+        "C:P-3838255e2aeb84e3"
+      ]
+    }
+  ]
+}

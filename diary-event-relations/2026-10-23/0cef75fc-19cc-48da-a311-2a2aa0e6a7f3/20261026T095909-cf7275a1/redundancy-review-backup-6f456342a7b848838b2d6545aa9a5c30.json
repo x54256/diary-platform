@@ -1,0 +1,42 @@
+{
+  "context_sha256": "b80c951f32e563c09c0af7abe261a2f36cada91e1d291cdbe61cf35f3575cbb0",
+  "decisions": [
+    {
+      "pair_id": "P-3920af02fd7f1864",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接九月日记入库后继续关系提取并整理十月日记；路径从要点试验进入关系 skill 开发，再到九月关系任务和十月日记审阅，计划及执行均覆盖。 证据编号：直连 SOURCE要点[1]、TARGET要点[1]。 替代路径逐边核对：H:eb144620-7917-5641-b09d-d28d4e1ed55c SOURCE要点[1]→TARGET要点[1]；C:P-6ebded10869b3365 SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:eb144620-7917-5641-b09d-d28d4e1ed55c",
+        "C:P-6ebded10869b3365"
+      ]
+    },
+    {
+      "pair_id": "P-c10e677d1cc7c27e",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接母亲反复催生、尝试沟通后继续讨论愧疚式教育且问题仍在；路径记录催生反复及母亲承认后悔仍重复，再记录继续以愧疚式教育沟通，承接同一沟通困境。 证据编号：直连 SOURCE要点[1]、TARGET要点[2]。 替代路径逐边核对：H:15c7882f-eaf3-55d8-9f2f-012357761112 SOURCE要点[1]→TARGET要点[1]；C:P-e59038cd44ffbb1c SOURCE要点[1]→TARGET要点[2]。",
+      "replacement_path": [
+        "H:15c7882f-eaf3-55d8-9f2f-012357761112",
+        "C:P-e59038cd44ffbb1c"
+      ]
+    },
+    {
+      "pair_id": "P-e2054d31fa9ee2d5",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接整理 skill 从九月验证到用于十月整理审阅；路径先记录九月入库及要点试验，再记录继续关系识别和十月日记审阅，覆盖后续使用。 证据编号：直连 SOURCE要点[1]、TARGET要点[2]。 替代路径逐边核对：H:012dea55-6ef9-5776-bf6f-f963c4ea3ca0 SOURCE要点[2]→TARGET要点[1]；C:P-3920af02fd7f1864 SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:012dea55-6ef9-5776-bf6f-f963c4ea3ca0",
+        "C:P-3920af02fd7f1864"
+      ]
+    },
+    {
+      "pair_id": "P-f0f6323e64726a4c",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接整理功能恢复到整理 skill 批量处理十月日记及人工审阅；路径从准确率/输入限制问题进入主动澄清设想、skill 验证，再用于十月日记，完整覆盖。 证据编号：直连 SOURCE要点[1]、TARGET要点[2]。 替代路径逐边核对：H:f63c0669-25ca-5498-832a-78d29d9db660 SOURCE要点[1]→TARGET要点[1]；H:d3db9464-4432-5b2b-a7e8-09012ec55176 SOURCE要点[1]→TARGET要点[1]；C:P-e2054d31fa9ee2d5 SOURCE要点[1]→TARGET要点[2]。",
+      "replacement_path": [
+        "H:f63c0669-25ca-5498-832a-78d29d9db660",
+        "H:d3db9464-4432-5b2b-a7e8-09012ec55176",
+        "C:P-e2054d31fa9ee2d5"
+      ]
+    }
+  ]
+}

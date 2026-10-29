@@ -1,0 +1,62 @@
+{
+  "context_sha256": "98dd88d6a03c05d52f3261b065658e246cab5b36850f59b32cb1684ed9e6c963",
+  "decisions": [
+    {
+      "pair_id": "P-0287b8a4e98b92d1",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接早期图谱测试差、拟积累具体样例后，继续探索第二层并采用 AI 调研/真实日记实验。替代路径先形成结构化要点方案，再继续第一、二层设计，最后到按小案例实验，覆盖方案演进。 直连证据：SOURCE要点[1, 2]、TARGET要点[1, 2]。 替代路径逐边核对：H:805bc92f-74e9-5597-bd8a-c7de85107932（事件关系图谱测试不理想，准备从人工到自动化分三步推进→AI 带来的职业不自信，与专业经验仍然有用的认识；SOURCE要点[2]、TARGET要点[3]）；H:c3bfb105-e4cd-5232-b992-ac5f6269efaf（AI 带来的职业不自信，与专业经验仍然有用的认识→梳理个人知识图谱第二层，发现自己被设计带偏了；SOURCE要点[3]、TARGET要点[1]）；C:P-88d6af0a01645f5a（梳理个人知识图谱第二层，发现自己被设计带偏了→知识图谱需求不清时，让AI调研、实验，小步拼出方案；SOURCE要点[7]、TARGET要点[1]）。",
+      "replacement_path": [
+        "H:805bc92f-74e9-5597-bd8a-c7de85107932",
+        "H:c3bfb105-e4cd-5232-b992-ac5f6269efaf",
+        "C:P-88d6af0a01645f5a"
+      ]
+    },
+    {
+      "pair_id": "P-501bf5db5af51bcd",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接父亲高血脂/三高生活干预到带饭少酒运动并认可就医；路径先落实三高饮食，再记录带饭、少酒、运动及就医价值，完整覆盖。 证据编号：直连 SOURCE要点[3]、TARGET要点[2]。 替代路径逐边核对：H:ecee7bc5-1559-509f-908e-6d9faef6defb SOURCE要点[3]→TARGET要点[6, 1]；C:P-8d89ccb2df52070e SOURCE要点[10]→TARGET要点[2]。",
+      "replacement_path": [
+        "H:ecee7bc5-1559-509f-908e-6d9faef6defb",
+        "C:P-8d89ccb2df52070e"
+      ]
+    },
+    {
+      "pair_id": "P-7572549ff55b67b8",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接早期关系测试不佳后继续第一层和第二层设计、改变调研实验方式。替代路径先提出按原文要点建关系，再推进第一、二层并转向 AI 调研小案例实验，覆盖同一开发方向。 直连证据：SOURCE要点[1]、TARGET要点[1]。 替代路径逐边核对：H:0f7b6440-aa65-530b-9519-febf9510c4be（事件关系建立的测试效果很糟糕→AI 带来的职业不自信，与专业经验仍然有用的认识；SOURCE要点[1]、TARGET要点[3]）；H:c3bfb105-e4cd-5232-b992-ac5f6269efaf（AI 带来的职业不自信，与专业经验仍然有用的认识→梳理个人知识图谱第二层，发现自己被设计带偏了；SOURCE要点[3]、TARGET要点[1]）；C:P-88d6af0a01645f5a（梳理个人知识图谱第二层，发现自己被设计带偏了→知识图谱需求不清时，让AI调研、实验，小步拼出方案；SOURCE要点[7]、TARGET要点[1]）。",
+      "replacement_path": [
+        "H:0f7b6440-aa65-530b-9519-febf9510c4be",
+        "H:c3bfb105-e4cd-5232-b992-ac5f6269efaf",
+        "C:P-88d6af0a01645f5a"
+      ]
+    },
+    {
+      "pair_id": "P-d8cf9771cbd3ad8b",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接父亲答应带饭、实际使用饭盒并反馈方便热饭；路径先记录提醒带饭和简化携带，再记录已吃上热饭，完整覆盖。 证据编号：直连 SOURCE要点[6]、TARGET要点[1, 3]。 替代路径逐边核对：H:a9d69494-d536-5dee-9cee-c4d347770e80 SOURCE要点[6]→TARGET要点[1]；C:P-846b15349b640115 SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:a9d69494-d536-5dee-9cee-c4d347770e80",
+        "C:P-846b15349b640115"
+      ]
+    },
+    {
+      "pair_id": "P-e0e6a6e1e9bdcbff",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接父亲午饭生活干预从无可行方案到饭盒实际使用并反馈。替代路径经高血脂生活干预、接受带饭和简化饭盒携带，再到饭盒实际使用反馈，完整覆盖午饭解决方案。 直连证据：SOURCE要点[5]、TARGET要点[1]。 替代路径逐边核对：H:ecee7bc5-1559-509f-908e-6d9faef6defb（帮我爸看心脏和血脂报告，考虑先做生活干预→跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒；SOURCE要点[3]、TARGET要点[1, 6]）；H:a9d69494-d536-5dee-9cee-c4d347770e80（跟父母谈检查结果，劝我爸调整用药、带饭和少喝酒→提醒我爸上班带饭，也再跟我妈说说饮食限制；SOURCE要点[6]、TARGET要点[1]）；C:P-846b15349b640115（提醒我爸上班带饭，也再跟我妈说说饮食限制→我爸觉得加热饭盒好用，想把这份正反馈传给全家；SOURCE要点[1]、TARGET要点[1]）。",
+      "replacement_path": [
+        "H:ecee7bc5-1559-509f-908e-6d9faef6defb",
+        "H:a9d69494-d536-5dee-9cee-c4d347770e80",
+        "C:P-846b15349b640115"
+      ]
+    },
+    {
+      "pair_id": "P-f0830045578cb724",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接日记平台需求不清到采用 AI 调研、小步实验；路径先推进人物事件第一层与第二层尝试，再因设计偏差改成调研和小案例实验，完整覆盖。 证据编号：直连 SOURCE要点[4]、TARGET要点[1, 2]。 替代路径逐边核对：H:c3bfb105-e4cd-5232-b992-ac5f6269efaf SOURCE要点[3]→TARGET要点[1]；C:P-88d6af0a01645f5a SOURCE要点[7]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:c3bfb105-e4cd-5232-b992-ac5f6269efaf",
+        "C:P-88d6af0a01645f5a"
+      ]
+    }
+  ]
+}

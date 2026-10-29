@@ -1,0 +1,50 @@
+{
+  "context_sha256": "4ce39114a0fc8652c58e421fddd45fab38772b2789651769e5a63aad6649213d",
+  "decisions": [
+    {
+      "pair_id": "P-24857bc5ab766705",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接缺少领域知识导致平台反复试错到沉淀准确性问题、考虑 Codex/skill；路径先记录第一层与第二层探索，再记录准确性问题和流程调整，涵盖所述发展。 证据编号：直连 SOURCE要点[4]、TARGET要点[3]。 替代路径逐边核对：H:c3bfb105-e4cd-5232-b992-ac5f6269efaf SOURCE要点[3]→TARGET要点[1]；C:P-dfd777298f75be51 SOURCE要点[7]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:c3bfb105-e4cd-5232-b992-ac5f6269efaf",
+        "C:P-dfd777298f75be51"
+      ]
+    },
+    {
+      "pair_id": "P-4d30ef1cd3f6efaf",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接父亲生日计划挑选新手机到新机到货配置；路径记录父亲选定下单，再记录到货并按习惯完成配置，完整覆盖。 证据编号：直连 SOURCE要点[1]、TARGET要点[1]。 替代路径逐边核对：H:922da9f6-ea63-54fc-8631-dad2b1eae808 SOURCE要点[1]→TARGET要点[2]；C:P-102013b32229413a SOURCE要点[2]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:922da9f6-ea63-54fc-8631-dad2b1eae808",
+        "C:P-102013b32229413a"
+      ]
+    },
+    {
+      "pair_id": "P-6f2abd44d83f2684",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接的是事件关系准确性问题及继续调整建图流程；替代路径先提出按原文要点建立关系，再延续到准确性实验和 Codex/skill 流程，相关问题连续推进，没有额外独立后续。 证据编号：直连 SOURCE要点[1]、TARGET要点[1, 2]。 替代路径逐边核对：H:0f7b6440-aa65-530b-9519-febf9510c4be SOURCE要点[1]→TARGET要点[3]；C:P-24857bc5ab766705 SOURCE要点[4]→TARGET要点[3]。",
+      "replacement_path": [
+        "H:0f7b6440-aa65-530b-9519-febf9510c4be",
+        "C:P-24857bc5ab766705"
+      ]
+    },
+    {
+      "pair_id": "P-93195863ac0ec27d",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接父亲旧手机损坏后换机到新机到货配置；路径记录旧机问题及选购计划，再记录父亲选机、下单和配置，完整覆盖同一换机事项。 证据编号：直连 SOURCE要点[2]、TARGET要点[1]。 替代路径逐边核对：H:100868f7-c8d9-539f-967f-f154f88d75c8 SOURCE要点[2]→TARGET要点[1]；C:P-4d30ef1cd3f6efaf SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:100868f7-c8d9-539f-967f-f154f88d75c8",
+        "C:P-4d30ef1cd3f6efaf"
+      ]
+    },
+    {
+      "pair_id": "P-dfd777298f75be51",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接第二层设计偏差后转入第一层实现、继而发现准确性问题；路径先记录设计后续推进至第一层，再记录真实效果及准确性顾虑，完整覆盖。 证据编号：直连 SOURCE要点[7]、TARGET要点[1]。 替代路径逐边核对：H:4f985a38-a74a-59e9-86e5-cfd3d645767d SOURCE要点[7]→TARGET要点[1]；C:P-8311ddfacbd97910 SOURCE要点[2]→TARGET要点[1, 3]。",
+      "replacement_path": [
+        "H:4f985a38-a74a-59e9-86e5-cfd3d645767d",
+        "C:P-8311ddfacbd97910"
+      ]
+    }
+  ]
+}

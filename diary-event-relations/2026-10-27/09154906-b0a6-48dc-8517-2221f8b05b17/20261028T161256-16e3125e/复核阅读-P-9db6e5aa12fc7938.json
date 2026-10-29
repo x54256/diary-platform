@@ -1,0 +1,426 @@
+{
+  "context_sha256": "8e8eaf731e5aadfbc2ca397fad7d92e783304c9192f5b242ee1eb205eba68485",
+  "pair": {
+    "edge_id": "C:P-9db6e5aa12fc7938",
+    "pair_id": "P-9db6e5aa12fc7938",
+    "source": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+    "target": "67cef5e8-7f93-4010-a1e3-ca72928d4e57",
+    "description": "此前为事件关系图谱规划从人工样例走向自动建立，这次继续实现自动关系中的传递冗余连线处理，功能刚开始。",
+    "relation": {
+      "source_event": "E008",
+      "target_event": "E095",
+      "relation_type": "后续事件",
+      "certainty": "EXPLICIT",
+      "description": "此前为事件关系图谱规划从人工样例走向自动建立，这次继续实现自动关系中的传递冗余连线处理，功能刚开始。",
+      "source_evidence": [
+        {
+          "point_no": 2,
+          "quote": "第三步，让 AI 根据积累的数据重新分析、设计图谱，最终由大模型自动建立。"
+        }
+      ],
+      "target_evidence": [
+        {
+          "point_no": 1,
+          "quote": "所以要在建立关系线时去掉这种冗余连线。这项功能今天只开了个头。"
+        }
+      ]
+    }
+  },
+  "found_path": [
+    "H:805bc92f-74e9-5597-bd8a-c7de85107932",
+    "H:0cf93455-1f07-58cc-86c5-0658fd57ca0f",
+    "C:P-849295e5e2c857d9"
+  ],
+  "edges": [
+    {
+      "edge_id": "C:P-9db6e5aa12fc7938",
+      "pair_id": "P-9db6e5aa12fc7938",
+      "source": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "target": "67cef5e8-7f93-4010-a1e3-ca72928d4e57",
+      "description": "此前为事件关系图谱规划从人工样例走向自动建立，这次继续实现自动关系中的传递冗余连线处理，功能刚开始。",
+      "relation": {
+        "source_event": "E008",
+        "target_event": "E095",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前为事件关系图谱规划从人工样例走向自动建立，这次继续实现自动关系中的传递冗余连线处理，功能刚开始。",
+        "source_evidence": [
+          {
+            "point_no": 2,
+            "quote": "第三步，让 AI 根据积累的数据重新分析、设计图谱，最终由大模型自动建立。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 1,
+            "quote": "所以要在建立关系线时去掉这种冗余连线。这项功能今天只开了个头。"
+          }
+        ]
+      }
+    },
+    {
+      "edge_id": "H:805bc92f-74e9-5597-bd8a-c7de85107932",
+      "source": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "target": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "description": "此前提出先人工建立事件图谱后，又进一步提出先结构化事件原文、提取内容要点再建立关系的优化设想。",
+      "certainty": "EXPLICIT",
+      "evidence": [
+        {
+          "side": "SOURCE",
+          "point_id": "11689170-cd26-4882-ad9c-a3e17cb152af"
+        },
+        {
+          "side": "TARGET",
+          "point_id": "90bf00f0-4bfd-499d-a360-51b482baadaa"
+        }
+      ]
+    },
+    {
+      "edge_id": "H:0cf93455-1f07-58cc-86c5-0658fd57ca0f",
+      "source": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "target": "fca046cb-a4de-4678-9f4e-c25103d07645",
+      "description": "此前日记平台考虑先结构化事件和要点再建立关系，之后已整理九月日记，并做出要点提取skill，计划继续关系提取、先试用第一层。",
+      "certainty": "EXPLICIT",
+      "evidence": [
+        {
+          "side": "SOURCE",
+          "point_id": "90bf00f0-4bfd-499d-a360-51b482baadaa"
+        },
+        {
+          "side": "TARGET",
+          "point_id": "656ec90d-63f1-40ad-9f4f-d38bf1f1d024"
+        },
+        {
+          "side": "TARGET",
+          "point_id": "fe7aab06-891e-493b-88e1-9e10607226ab"
+        }
+      ]
+    },
+    {
+      "edge_id": "C:P-849295e5e2c857d9",
+      "pair_id": "P-849295e5e2c857d9",
+      "source": "fca046cb-a4de-4678-9f4e-c25103d07645",
+      "target": "67cef5e8-7f93-4010-a1e3-ca72928d4e57",
+      "description": "此前暂缓更高层知识库但要求保留原有分析能力，这次开始制作分析skill，明确先实现旧版功能，再逐步重构。",
+      "relation": {
+        "source_event": "E075",
+        "target_event": "E095",
+        "relation_type": "后续事件",
+        "certainty": "EXPLICIT",
+        "description": "此前暂缓更高层知识库但要求保留原有分析能力，这次开始制作分析skill，明确先实现旧版功能，再逐步重构。",
+        "source_evidence": [
+          {
+            "point_no": 3,
+            "quote": "现阶段还需保障原有分析实现能继续使用。"
+          }
+        ],
+        "target_evidence": [
+          {
+            "point_no": 2,
+            "quote": "我想先把旧版本能做的功能用 skill 做出来，让它先能用，再慢慢重构。"
+          }
+        ]
+      }
+    }
+  ],
+  "events": {
+    "33bb7b95-2174-4175-8ae2-aefb5ffa32d2": {
+      "id": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "run_id": "065ef971-30f5-4f3c-aafe-749cc3de24b0",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "diary_id": "828580fd-50a7-4a15-9d80-7acfe7ec987e",
+      "diary_date": "2026-09-09",
+      "title": "AI 带来的职业不自信，与专业经验仍然有用的认识",
+      "points": [
+        {
+          "id": "9b936258-bae5-49e5-a64e-4226643aa84a",
+          "no": 1,
+          "summary": "AI 浪潮让我连工作也失去自信，困惑面试还能讲什么",
+          "detail": "最近玩植物大战僵尸时，我发现一个贯穿自己很多方面的问题：我好像对所有事情都没有自信了。以前对工作还有些自信，AI 浪潮来了以后，连工作也没有把握了。尤其困扰我的是，去面试时到底该讲什么？原来那些东西是不是都老套、过时了，跟 AI 说一下不就能做出来吗？不过，我也觉得这种想法可能不太对。",
+          "embedding_sha256": "a467f3a4f7b736f282bb832a0269c32b0375a73066fba516ea7b3ac4632c4454"
+        },
+        {
+          "id": "6b686268-1e37-45d1-89b2-df7b8176988f",
+          "no": 2,
+          "summary": "公众号文章提出，完善 AI 产物仍需要自己懂",
+          "detail": "昨天看了一篇微信公众号文章，里面说 GPT-6 发布后更强大了，甚至能直接做三维建模、操控电脑上的软件，做出想要的效果。但文章也指出，AI 做出来的毕竟只是个 demo。如果自己不了解，就没办法在这个基础上继续优化完善，把它做成真正想要的样子，只能更多地让 AI 试错。",
+          "embedding_sha256": "da63121c5c3f673e256394876a25eea7846a71c071a29b810d4def872fdca0f8"
+        },
+        {
+          "id": "90bf00f0-4bfd-499d-a360-51b482baadaa",
+          "no": 3,
+          "summary": "日记平台在不断试错中调整实现思路",
+          "detail": "做日记管理平台时，我很能体会不懂相关领域、只能不断试错的情况。最初我想呈现事项的发展、人的发展和心路历程，后来看到一个叫 LLMwiki 的知识库概念，又想做知识库。做着做着，我觉得直接做知识库不对，应该先建立事件图谱，确定事件之间的关系，再继续往下做。\n\n现在我又发现，直接建事件图谱的准确性很差，应该先结构化整理事件原文，弄清楚一个事件讲了哪几件事、有哪些内容和要点，再建立这些点之间的关系，这样准确性可能会高一些。这属于优化方面的问题。",
+          "embedding_sha256": "4b3f395d0976b2dbea5195228c2567fbf9b28b6d2f16838c3ebfa95bd4264bd6"
+        },
+        {
+          "id": "a1564a64-8656-460a-b205-97889df1a7ea",
+          "no": 4,
+          "summary": "缺少心理学和 AI 开发知识，让想法难以变成明确需求",
+          "detail": "做日记平台时，我不懂心理学，也不懂大模型、知识库，不清楚大模型能做什么、这些东西应该怎么做。我只有不成熟的想法，连需求都算不上，更不知道如何实现。最终想呈现事项和人的发展，比如人格的发展，但人格具体包含哪些内容，我没有相应的心理学知识；技术上怎样一步步实现，我也不清楚，因为没有做过 AI 方面的开发，所以一直在试错。",
+          "embedding_sha256": "31b3b043f83423658912c4c96bc2a121ac855bfccc848b029ee1792ab2b4e084"
+        },
+        {
+          "id": "8f9ad244-8f3a-408d-a130-a616b9f67b11",
+          "no": 5,
+          "summary": "江西项目的排错经历让我觉得，用好 AI 仍得自己会",
+          "detail": "江西项目最近找了几个前端帮我做后台功能。简单的事情，跟 AI 沟通一下就能做出来；但遇到问题时，因为我懂，我能很快看出原因，直接告诉 AI，再把问题解决。他们不懂，就只能反复把报错发给 AI，让它改，再发报错、再改，在不断试错中浪费很多时间。\n\n这让我体会到那篇公众号文章的意思：有了 AI，能做的事情更多了，对我们的要求可能也更多。它做出来的东西再牛逼，也只是个 demo，真想用起来，还是得自己会，才能在它做出的基础上继续完善成想要的东西。",
+          "embedding_sha256": "537033ca5fff29e1f5261a9c8cbc61013f8289a48388fea253f49b47b356b821"
+        },
+        {
+          "id": "342fdfc9-479c-4600-82eb-85072e6c0789",
+          "no": 6,
+          "summary": "设计模式和工作经验仍有价值，简历无需彻底推翻",
+          "detail": "我以前写在简历上的设计模式和工作经验仍然有价值。正因为有这些经验，我才能判断问题、指导 AI，告诉它这里要用某种设计模式，以应对将来的扩展和其他可能出现的问题，并继续完善产物。这仍然是我的价值。因此，我觉得没有必要因为进入 AI 时代，就把简历彻底推翻重做；可以补充一些新经验，但不必完全重来。",
+          "embedding_sha256": "8c5453a2aec91da53574644812ebe3abbe7978f7a6d443f2b4b9d0f1fbd969ec"
+        }
+      ]
+    },
+    "67cef5e8-7f93-4010-a1e3-ca72928d4e57": {
+      "id": "67cef5e8-7f93-4010-a1e3-ca72928d4e57",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "ab26cfb2-cd8d-4eb2-a9ed-1e4880685445",
+      "run_status": "POINTS_READY",
+      "diary_id": "09154906-b0a6-48dc-8517-2221f8b05b17",
+      "diary_date": "2026-10-27",
+      "occurred_on": null,
+      "source_order": 3,
+      "title": "推进日记平台功能并发现整理质量问题",
+      "run_source_sha256": "62f87eda527b761fa1375c271ba78365f4a89532d9bc9376213474e8f0445a70",
+      "points": [
+        {
+          "id": "b2b3a295-2536-4f11-93e2-0a4c14b89705",
+          "no": 1,
+          "summary": "开始处理后续关系中的冗余连线",
+          "detail": "今天下午继续做日记管理平台，开始处理事件后续关系中的传递关系：B 是 A 的后续，C 是 B 的后续，那么 C 也是 A 的后续。如果把这种推导出来的关系也画上线，图上的连线就会很多，而且没有价值，所以要在建立关系线时去掉这种冗余连线。这项功能今天只开了个头。",
+          "embedding_sha256": "c9852dcbaadce3a7d0a08482a40d0fc447ae86f5f9ab7c65e200326a54bc8a54"
+        },
+        {
+          "id": "4ff4fa87-6793-46d9-b43d-ed3818bdad42",
+          "no": 2,
+          "summary": "先实现旧版分析 skill，再逐步重构",
+          "detail": "今天下午开始做日记分析的 skill，这项功能只开了个头。现有 skill 已包括事件整理、要点提取和关系识别，具体分析还没完成，新版本怎么设计也没想好。我想先把旧版本能做的功能用 skill 做出来，让它先能用，再慢慢重构。",
+          "embedding_sha256": "419d30683f45f75a5ab0758269a646d3f494f709f63b1dfbfb470a8bcf6f826b"
+        },
+        {
+          "id": "e2b7df54-379c-4772-b440-4b9163a8f35c",
+          "no": 3,
+          "summary": "发现整理对逻辑关注不足、要点标题偶有偏差",
+          "detail": "我发现现在的日记整理太侧重语音转写错字，提问大多围绕转写错误，却不太关注整体逻辑是否通顺，很少针对逻辑不通的地方提问。另外，要点提取的标题偶尔也有偏差，我觉得可能还需要增加一个检查环节，检查整体逻辑和标题是否准确。",
+          "embedding_sha256": "bb987f2f44123cb39688265395ac81373226060e769a360ac49805e1da415ab0"
+        },
+        {
+          "id": "5c0dddfd-2425-402e-bf61-ce950351314b",
+          "no": 4,
+          "summary": "认为及时整理能降低日记审阅成本",
+          "detail": "现在的日记整理也算能用了，但仍得自己审阅。我正在批量处理之前积压的两个月日记，全部看一遍也看不过来，而且隔了这么久，很多事已经忘了。以后如果记完就上传、整理和分析，事情还记得清楚，我觉得审阅成本就不会这么高。",
+          "embedding_sha256": "c0ce2b4610714e9a2a37fa52fde6f505bd59c4f86230d8dd6fbd2745f6d40888"
+        }
+      ]
+    },
+    "7ae780e3-b215-4752-a6f5-636e1a5e108b": {
+      "id": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "ef702bb7-0ac9-49ba-8961-d133955644ee",
+      "run_status": "PUBLISHED",
+      "diary_id": "16ef80a9-a28b-43e5-b820-ff29cdccf58a",
+      "diary_date": "2026-09-03",
+      "occurred_on": null,
+      "source_order": 4,
+      "title": "事件关系图谱测试不理想，准备从人工到自动化分三步推进",
+      "run_source_sha256": "c7246f2564d2f62bc654a8ec2225e95cc8caff8ee6424d297398b73d379d158d",
+      "points": [
+        {
+          "id": "e2fb2eaa-381c-4055-8a89-2946c54252b4",
+          "no": 1,
+          "summary": "图谱真实数据测试很差，意识到要先弄清自己的需求",
+          "detail": "这周应该是周二，我花一天研究平台事件关系，在上周整理的图谱需求上继续细化，差不多后让 AI 用真实数据测试。不相关的事也被连起来，效果很差，想到投入那么多精力，我很失落。后来调整状态，觉得自己需求不清，跟 AI 只会越沟通越乱，首先得弄清要做什么、怎么做。",
+          "embedding_sha256": "fd43075b73f9d559625fd2c405d1c11f101414ec59daab1dc6f37e73fdec33ba"
+        },
+        {
+          "id": "11689170-cd26-4882-ad9c-a3e17cb152af",
+          "no": 2,
+          "summary": "准备先人工画图谱，再搬到线上，最后交给 AI 自动建立",
+          "detail": "我准备分三步推进事件关系图谱。第一步，根据每天日记整理出的事件，纯人工、没有系统参与地建立联系、画图谱，弄清事件、人物、经验、思考等实体，以及关系和关系类型。第二步，把线下人工关系搬到日记管理平台，通过人工连线等操作落到系统里。第三步，让 AI 根据积累的数据重新分析、设计图谱，最终由大模型自动建立。\n\n不能一下把尚不具体的东西交给 AI，要先积累样例、素材，分析设计才贴切。这是从线下到线上、从人工到全自动，像政务办公从线下邮寄文件，到系统，再到 AI 一句话。我觉得复杂、抽象、不显而易见的事，这样做比较正确。",
+          "embedding_sha256": "639f9e1dd42766e3a348ec46975eca23432d62af4a10efc07eb594ea0cd78565"
+        },
+        {
+          "id": "b35bf249-84c8-4d7c-8c19-c0a2ebff0183",
+          "no": 3,
+          "summary": "暂缓推进图谱，准备状态轻松时再做",
+          "detail": "最近没继续推进图谱，一方面想先完成江西工作；另一方面工作已经让我很烦，平台不可能一蹴而就，还要经历艰辛爬坡。我准备找自己比较轻松的时间再做，不在特别烦的时候硬搞。",
+          "embedding_sha256": "dcbc5a6b39f531baa7f75536e0be19530e71868fb26cfe40d7c5012c8a0b0538"
+        }
+      ]
+    },
+    "fca046cb-a4de-4678-9f4e-c25103d07645": {
+      "id": "fca046cb-a4de-4678-9f4e-c25103d07645",
+      "user_id": "2d7e382a-db46-45b3-b0c5-5c8ded2cc1f7",
+      "run_id": "d42eceab-3c42-42b5-9018-39fb2092d793",
+      "run_status": "PUBLISHED",
+      "diary_id": "09cf0bb7-21c9-4f30-bba9-920043d6ffef",
+      "diary_date": "2026-10-21",
+      "occurred_on": null,
+      "source_order": 3,
+      "title": "九月日记已整理入库，知识库先做好第一层再试用",
+      "run_source_sha256": "0a90260cdb00cf3c1b6c5221bcde86ca26e78d42347b9e2f63569d725d82e26a",
+      "points": [
+        {
+          "id": "fe7aab06-891e-493b-88e1-9e10607226ab",
+          "no": 1,
+          "summary": "九月整理已入库，继续测试要点skill并计划做事件关系",
+          "detail": "上班时间继续测试昨天做的日记整理skill，发现问题就修，现在基本问题不大。九月份的日记也都用它整理、入库了。\n\n下午又做了知识库沉淀里的事件要点提取skill，用一篇日记试了一下。明天接着拿九月其他日记的事件测试，没问题再做事件关系提取，把知识库第一层彻底做出来。",
+          "embedding_sha256": "9e4a52e7e09573b1e066e7ecf867f4101d12dd736e88ac6e48de3c80eb0d8ff4"
+        },
+        {
+          "id": "656ec90d-63f1-40ad-9f4f-d38bf1f1d024",
+          "no": 2,
+          "summary": "先稳住第一层并试用，后续知识库层级暂缓",
+          "detail": "做完第一层，我觉得先不往第二、第三层推进。先完善页面交互、展示，试用一段，确认地基没问题再继续。第一层搭错，后面做再快也没用，时间精力越投越多，最后推翻重来更难受。\n\n还是小步快跑，在这上面运行一阵，有问题就改，接着学些知识，也许会让后面几层的想法更成熟。这次日记管理平台基本推翻重做，也是这几个月积累知识、试错带来的成长。我现在认为这条路线对，但到底对不对，还要实验。",
+          "embedding_sha256": "6f5732ca94ca3f7314433e9512199988b5524e1825afc1c92c5f5adcd6b3c76a"
+        },
+        {
+          "id": "3b9d9c1c-57c1-4e33-bc42-75ae4c14ccda",
+          "no": 3,
+          "summary": "知识库未完成前，仍需保证原日记分析可用",
+          "detail": "日记分析原计划等知识库完成后基于它来做，但后面几层暂缓，分析也不能一下完成，所以现阶段还需保障原有分析实现能继续使用。",
+          "embedding_sha256": "ae55c6cc4588d33bfa09c17df3aac684709cb27f64fad4c4001fc84a16e85e57"
+        }
+      ]
+    }
+  },
+  "graph_index": [
+    {
+      "edge_id": "H:012dea55-6ef9-5776-bf6f-f963c4ea3ca0",
+      "source": "a5329c5a-9b24-47f9-b21f-3c4739a65abf",
+      "target": "fca046cb-a4de-4678-9f4e-c25103d07645"
+    },
+    {
+      "edge_id": "H:0cf93455-1f07-58cc-86c5-0658fd57ca0f",
+      "source": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "target": "fca046cb-a4de-4678-9f4e-c25103d07645"
+    },
+    {
+      "edge_id": "H:1178e94d-ea8a-54d6-8b64-ee985c9fb03b",
+      "source": "ff1067e2-8a09-4be3-a0cb-56246a2a71a9",
+      "target": "3e227c62-b757-4c31-9d3c-79caf5b7753b"
+    },
+    {
+      "edge_id": "H:133628ba-9a42-569e-9253-9c0657e89ace",
+      "source": "05718a02-902a-4660-ac1a-eac3bd3b4bf2",
+      "target": "836206c5-5018-4016-b2ad-b9ac16b68ed2"
+    },
+    {
+      "edge_id": "H:443a4eac-5d54-542a-a79d-8a2435b5f34e",
+      "source": "92af1400-ae10-4708-8747-5a3120b61813",
+      "target": "ff1067e2-8a09-4be3-a0cb-56246a2a71a9"
+    },
+    {
+      "edge_id": "H:68dbea60-b9eb-52af-be27-badd3e883d88",
+      "source": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "target": "03107cc0-da4d-4752-8b2a-aa275a1607d6"
+    },
+    {
+      "edge_id": "H:6bfe4ca5-2a3b-54e6-affc-b93ba30ea010",
+      "source": "3e227c62-b757-4c31-9d3c-79caf5b7753b",
+      "target": "836206c5-5018-4016-b2ad-b9ac16b68ed2"
+    },
+    {
+      "edge_id": "H:78fba552-3fac-5ab6-8d26-38f05853b993",
+      "source": "a5329c5a-9b24-47f9-b21f-3c4739a65abf",
+      "target": "ff1067e2-8a09-4be3-a0cb-56246a2a71a9"
+    },
+    {
+      "edge_id": "H:79317c48-217a-5870-b069-18875505d75f",
+      "source": "05718a02-902a-4660-ac1a-eac3bd3b4bf2",
+      "target": "03107cc0-da4d-4752-8b2a-aa275a1607d6"
+    },
+    {
+      "edge_id": "H:79d88aa1-0cb5-59ac-8aba-44cc411987aa",
+      "source": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82",
+      "target": "5bb4259d-b304-4c0a-80d2-6ea88458cf34"
+    },
+    {
+      "edge_id": "H:7fa989f6-983f-52ba-afcc-ed017911c5ff",
+      "source": "03107cc0-da4d-4752-8b2a-aa275a1607d6",
+      "target": "836206c5-5018-4016-b2ad-b9ac16b68ed2"
+    },
+    {
+      "edge_id": "H:805bc92f-74e9-5597-bd8a-c7de85107932",
+      "source": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "target": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2"
+    },
+    {
+      "edge_id": "H:83328381-3b6a-556b-9e73-63f7f0ea0525",
+      "source": "03107cc0-da4d-4752-8b2a-aa275a1607d6",
+      "target": "a5329c5a-9b24-47f9-b21f-3c4739a65abf"
+    },
+    {
+      "edge_id": "H:a3e52986-a22d-595e-96fa-b1d3ec86d48a",
+      "source": "5bb4259d-b304-4c0a-80d2-6ea88458cf34",
+      "target": "eb82f46a-a97f-4556-867e-3ad132e80605"
+    },
+    {
+      "edge_id": "H:ad366742-5278-52f8-a176-a3294507c486",
+      "source": "fca046cb-a4de-4678-9f4e-c25103d07645",
+      "target": "836206c5-5018-4016-b2ad-b9ac16b68ed2"
+    },
+    {
+      "edge_id": "H:b0e4a64f-b88b-54bb-b7f7-96b486d1cd61",
+      "source": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce",
+      "target": "eb82f46a-a97f-4556-867e-3ad132e80605"
+    },
+    {
+      "edge_id": "H:c3bfb105-e4cd-5232-b992-ac5f6269efaf",
+      "source": "33bb7b95-2174-4175-8ae2-aefb5ffa32d2",
+      "target": "d0d060a8-e47f-4739-a4ed-dc3d43ef2e82"
+    },
+    {
+      "edge_id": "H:d26f0e69-4f53-55c9-b849-50df098e2ff1",
+      "source": "eb82f46a-a97f-4556-867e-3ad132e80605",
+      "target": "05718a02-902a-4660-ac1a-eac3bd3b4bf2"
+    },
+    {
+      "edge_id": "H:eb144620-7917-5641-b09d-d28d4e1ed55c",
+      "source": "fca046cb-a4de-4678-9f4e-c25103d07645",
+      "target": "92af1400-ae10-4708-8747-5a3120b61813"
+    },
+    {
+      "edge_id": "H:f5cd798d-d41e-5846-a915-243dfc0bb64d",
+      "source": "7ae780e3-b215-4752-a6f5-636e1a5e108b",
+      "target": "b1d40cb7-af4e-46a4-8376-1dc11dc585ce"
+    },
+    {
+      "edge_id": "C:P-fc1f90b217f902be",
+      "source": "03107cc0-da4d-4752-8b2a-aa275a1607d6",
+      "target": "67cef5e8-7f93-4010-a1e3-ca72928d4e57"
+    },
+    {
+      "edge_id": "C:P-a84ae5580c9fafc7",
+      "source": "836206c5-5018-4016-b2ad-b9ac16b68ed2",
+      "target": "67cef5e8-7f93-4010-a1e3-ca72928d4e57"
+    },
+    {
+      "edge_id": "C:P-0169f2c0d7dbf718",
+      "source": "92af1400-ae10-4708-8747-5a3120b61813",
+      "target": "67cef5e8-7f93-4010-a1e3-ca72928d4e57"
+    },
+    {
+      "edge_id": "C:P-aa7bc9e81616f6f8",
+      "source": "a5329c5a-9b24-47f9-b21f-3c4739a65abf",
+      "target": "67cef5e8-7f93-4010-a1e3-ca72928d4e57"
+    },
+    {
+      "edge_id": "C:P-849295e5e2c857d9",
+      "source": "fca046cb-a4de-4678-9f4e-c25103d07645",
+      "target": "67cef5e8-7f93-4010-a1e3-ca72928d4e57"
+    },
+    {
+      "edge_id": "C:P-11db462e924cd8d1",
+      "source": "ff1067e2-8a09-4be3-a0cb-56246a2a71a9",
+      "target": "67cef5e8-7f93-4010-a1e3-ca72928d4e57"
+    }
+  ],
+  "index_total": 26,
+  "next_index_offset": null
+}

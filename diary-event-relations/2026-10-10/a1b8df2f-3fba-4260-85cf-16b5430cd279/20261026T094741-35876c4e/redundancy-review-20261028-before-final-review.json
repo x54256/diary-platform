@@ -1,0 +1,23 @@
+{
+  "context_sha256": "9c3fb474bc2f1b567162c5913e0264db99c002b1d77d91529ecfef69e9b7b764",
+  "decisions": [
+    {
+      "pair_id": "P-5921b444a0c1ec39",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接图谱初测不佳后继续设计并回到第一层真实模型实验；路径由早期问题转至小步调研实验，再明确进入第一层实现与真实实验，阶段连续。 证据编号：直连 SOURCE要点[1]、TARGET要点[1, 2]。 替代路径逐边核对：H:defa9e00-3e55-59df-9d52-30a01520f2ac SOURCE要点[2, 1]→TARGET要点[1, 2]；C:P-2550a3fa1dc52303 SOURCE要点[2]→TARGET要点[1, 2]。",
+      "replacement_path": [
+        "H:defa9e00-3e55-59df-9d52-30a01520f2ac",
+        "C:P-2550a3fa1dc52303"
+      ]
+    },
+    {
+      "pair_id": "P-688e689f7568a833",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接第二层设计跑偏后重做设计并转入第一层实现；路径记录重新调研设计，再延续至第一层方案和真实模型试验，阶段连续。 证据编号：直连 SOURCE要点[7]、TARGET要点[1]。 替代路径逐边核对：H:79d88aa1-0cb5-59ac-8aba-44cc411987aa SOURCE要点[7]→TARGET要点[1]；C:P-2550a3fa1dc52303 SOURCE要点[2]→TARGET要点[1, 2]。",
+      "replacement_path": [
+        "H:79d88aa1-0cb5-59ac-8aba-44cc411987aa",
+        "C:P-2550a3fa1dc52303"
+      ]
+    }
+  ]
+}

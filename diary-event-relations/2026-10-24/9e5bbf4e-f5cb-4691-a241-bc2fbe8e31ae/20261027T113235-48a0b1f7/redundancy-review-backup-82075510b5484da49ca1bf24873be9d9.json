@@ -1,0 +1,88 @@
+{
+  "context_sha256": "13b116c5f440aca11bf648a378dd304dfc47318c195e0c2abdc9fba667475b3a",
+  "decisions": [
+    {
+      "pair_id": "P-0520857e6a9e9f2a",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接墨西哥出差从成行到返程并已到美国；路径从当地出差进展到返程预期，再到抵美视频，覆盖同一行程的后续阶段。 证据编号：直连 SOURCE要点[1, 4]、TARGET要点[2]。 替代路径逐边核对：H:c15ec739-c5cb-593d-9df3-d7237124f51e SOURCE要点[4]→TARGET要点[1]；C:P-874c46094ee70c04 SOURCE要点[2]→TARGET要点[2]。",
+      "replacement_path": [
+        "H:c15ec739-c5cb-593d-9df3-d7237124f51e",
+        "C:P-874c46094ee70c04"
+      ]
+    },
+    {
+      "pair_id": "P-1b6ee9542bf6fe0d",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接生日盲盒由六件礼物构想延展到新增菠萝蜜、将 AirPods 计入礼物；路径记录大礼物改为现金，再记录继续增加礼物，覆盖完整清单演进。 证据编号：直连 SOURCE要点[5]、TARGET要点[2, 3]。 替代路径逐边核对：H:96c6b96a-1480-555a-9e44-e90dff075f93 SOURCE要点[5]→TARGET要点[1]；C:P-58c9910edd8e243b SOURCE要点[1]→TARGET要点[2, 3]。",
+      "replacement_path": [
+        "H:96c6b96a-1480-555a-9e44-e90dff075f93",
+        "C:P-58c9910edd8e243b"
+      ]
+    },
+    {
+      "pair_id": "P-3ff9be6aaf407dd2",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接九月整理入库、要点试验后继续关系提取到实际布置十月任务；路径记录九月关系工作和十月日记审阅，再执行十月任务，完整覆盖。 证据编号：直连 SOURCE要点[1]、TARGET要点[1]。 替代路径逐边核对：H:0f63ecd0-8a31-5e21-b2b0-83910bc1d625 SOURCE要点[1]→TARGET要点[1]；C:P-9428ee111f6cc0e8 SOURCE要点[2]→TARGET要点[1, 2]。",
+      "replacement_path": [
+        "H:0f63ecd0-8a31-5e21-b2b0-83910bc1d625",
+        "C:P-9428ee111f6cc0e8"
+      ]
+    },
+    {
+      "pair_id": "P-4b1e2af1e34f9863",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接墨西哥出差从在地经历到返程抵美并视频；路径记录墨西哥当地状态，再记录返程、抵美和视频，完整覆盖。 证据编号：直连 SOURCE要点[1]、TARGET要点[2]。 替代路径逐边核对：H:432fc3e5-658e-5a09-818a-feda91b50f0b SOURCE要点[1]→TARGET要点[1]；C:P-874c46094ee70c04 SOURCE要点[2]→TARGET要点[2]。",
+      "replacement_path": [
+        "H:432fc3e5-658e-5a09-818a-feda91b50f0b",
+        "C:P-874c46094ee70c04"
+      ]
+    },
+    {
+      "pair_id": "P-52240e41b163b71f",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接发现父亲旧手机损坏、计划换机到后来确认新机收到且父亲高兴；路径记录旧机问题和换机计划，再记录父亲收到手机，完整覆盖换机结果。 证据编号：直连 SOURCE要点[2]、TARGET要点[2]。 替代路径逐边核对：H:100868f7-c8d9-539f-967f-f154f88d75c8 SOURCE要点[2]→TARGET要点[1]；C:P-cfefa661511feb35 SOURCE要点[1]→TARGET要点[2]。",
+      "replacement_path": [
+        "H:100868f7-c8d9-539f-967f-f154f88d75c8",
+        "C:P-cfefa661511feb35"
+      ]
+    },
+    {
+      "pair_id": "P-8d6ebdacaeba3cda",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接考虑用 Codex/skill 处理知识沉淀到实际布置十月要点与关系任务；路径依次记录切换路线、整理 skill、九月入库及要点试验，最后落实十月任务，完整覆盖。 证据编号：直连 SOURCE要点[3]、TARGET要点[1, 2]。 替代路径逐边核对：H:79317c48-217a-5870-b069-18875505d75f SOURCE要点[3]→TARGET要点[1]；H:83328381-3b6a-556b-9e73-63f7f0ea0525 SOURCE要点[1]→TARGET要点[1]；H:012dea55-6ef9-5776-bf6f-f963c4ea3ca0 SOURCE要点[2]→TARGET要点[1]；C:P-3ff9be6aaf407dd2 SOURCE要点[1]→TARGET要点[1]。",
+      "replacement_path": [
+        "H:79317c48-217a-5870-b069-18875505d75f",
+        "H:83328381-3b6a-556b-9e73-63f7f0ea0525",
+        "H:012dea55-6ef9-5776-bf6f-f963c4ea3ca0",
+        "C:P-3ff9be6aaf407dd2"
+      ]
+    },
+    {
+      "pair_id": "P-a103c53f13dec2c1",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接九月事件关系试验到给 Codex 布置十月要点及关系任务；路径记录继续关系识别并处理十月日记，再实际布置十月任务，完整覆盖。 证据编号：直连 SOURCE要点[2]、TARGET要点[1]。 替代路径逐边核对：H:443a4eac-5d54-542a-a79d-8a2435b5f34e SOURCE要点[1]→TARGET要点[1]；C:P-9428ee111f6cc0e8 SOURCE要点[2]→TARGET要点[1, 2]。",
+      "replacement_path": [
+        "H:443a4eac-5d54-542a-a79d-8a2435b5f34e",
+        "C:P-9428ee111f6cc0e8"
+      ]
+    },
+    {
+      "pair_id": "P-c01bd2cb99d811a1",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接生日礼物被拒后继续扩充礼物清单；路径记录礼物选项被拒、改送现金，再记录后续新增菠萝蜜及 AirPods 计入礼物，事项连续。 证据编号：直连 SOURCE要点[1]、TARGET要点[2, 3]。 替代路径逐边核对：H:67b3d402-689e-5cad-90f5-6e607c06ac24 SOURCE要点[1]→TARGET要点[1]；C:P-58c9910edd8e243b SOURCE要点[1]→TARGET要点[2, 3]。",
+      "replacement_path": [
+        "H:67b3d402-689e-5cad-90f5-6e607c06ac24",
+        "C:P-58c9910edd8e243b"
+      ]
+    },
+    {
+      "pair_id": "P-cfefa661511feb35",
+      "decision": "INDIRECT_FOLLOWUP",
+      "reason": "直连承接父亲生日时计划选新手机到父亲已收到手机；路径记录父亲挑选、下单，再记录收到手机，完整覆盖。 证据编号：直连 SOURCE要点[1]、TARGET要点[2]。 替代路径逐边核对：H:922da9f6-ea63-54fc-8631-dad2b1eae808 SOURCE要点[1]→TARGET要点[2]；C:P-0dbd32f0db69cdf8 SOURCE要点[2]→TARGET要点[2]。",
+      "replacement_path": [
+        "H:922da9f6-ea63-54fc-8631-dad2b1eae808",
+        "C:P-0dbd32f0db69cdf8"
+      ]
+    }
+  ]
+}
