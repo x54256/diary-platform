@@ -90,6 +90,12 @@ def remote_document(stage, args, p):
         if action == 'export':
             result['source'] = content['source']
             if 'capabilities' in content: result['capabilities'] = content['capabilities']
+    if stage == 'organize' and action == 'save' and p.get('write'):
+        from review_flow import transition
+        current = result.pop('review_source')
+        transition('wait', current)
+        result['next_stage'] = 'review'
+        result['reason'] = '整理已保存，请在应用中审阅；收到明确通知后再复查并继续'
     return result
 
 
@@ -191,6 +197,10 @@ def maybe_remote(stage, args):
                 result = {'run_dir': str(folder), 'events': len(source['events']),
                           'excluded': len(source['excluded_events']), 'source_sha256': source['source_sha256']}
         else: result = request(stage, action, p)
+        if stage == 'workflow':
+            from review_flow import gate
+            result = gate(result, lambda: request('organize-review', 'export',
+                {'diary_id': result['diary_id'], 'user_id': result['user_id']})['file'])
         print(json.dumps(result, ensure_ascii=False, indent=2, default=str))
     except ApiError as error:
         print(str(error), file=sys.stderr)

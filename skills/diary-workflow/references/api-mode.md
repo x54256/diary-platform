@@ -66,3 +66,9 @@ python3 skills/diary-event-points/scripts/store_points.py embedding-config
 5. 稿件、来源或配置变化时按对应 Skill 重新预检；内容或保存范围变化后重新确认。
 
 本地 `db` 模式仍使用 `backend/venv/bin/python` 和现有数据库权限流程。
+
+## 完整流程的云端交互
+
+API 模式的完整 diary-workflow 现执行 [先保存、人工审阅后续接](cloud-review.md)：整理入库后必停；收到实际审阅完成通知后复查并保存联动修改，后续无澄清问题则自动完成。该规则优先于本文件及子 Skill 原有逐稿确认描述。单独调用子 Skill 和本地 db 流程保持原确认方式。
+
+新增 organize-review/export、prepare、save 接口，通过 review_diary.py 共用当前来源读取与定点修订逻辑；不新增数据库表或放开冻结来源。

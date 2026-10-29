@@ -9,6 +9,9 @@ description: 将整理后的日记事件拆解为中心明确的有序要点，�
 
 开始前读取[数据访问与云端配置](../diary-workflow/references/api-mode.md)。默认 `DIARY_DATA_MODE=db`；云端配置 `DIARY_DATA_MODE=api` 后，原脚本通过应用接口读写，命令中的 `backend/venv/bin/python` 改为 `python3`。API 模式不加载数据库配置，接口失败不切回数据库；逐阶段审阅、整稿确认、来源指纹及失败恢复规则继续执行。
 
+**执行规则优先级**：用户调用完整 diary-workflow 且使用 API 模式时，先读取[云端审阅与自动续接规则](../diary-workflow/references/cloud-review.md)，该规则优先于本文逐稿确认与逐阶段等待要求；单独调用本 Skill 和本地 db 流程继续原确认规则。文件或数据库修订后，均遵循[通用联动复查](../diary-organizer/references/revision-review.md)。
+
+
 
 将已经整理的日记事件组织为中心明确的内容单元，使读者能先浏览主旨，看清事件包含哪些内容，再直接找到、阅读和引用其中某一部分。每项用简短主旨定位内容，详情完整保留该单元的有效信息并自然重写。默认使用中文，保留来源人称。用户要求正式入库时，通过本 Skill 的入库脚本保存已确认稿及其向量。
 

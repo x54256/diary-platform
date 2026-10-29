@@ -1,6 +1,6 @@
 interface:
   display_name: "日记完整处理"
-  short_description: "按固定顺序串联整理、要点、关系与分析，逐阶段确认入库并自动续接已有进度"
-  default_prompt: "使用 $diary-workflow 处理指定日期的日记，核对已有进度，逐阶段审阅确认后入库并自动继续。"
+  short_description: "串联四阶段，本地逐稿确认，云端整理入库后暂停审阅并按通知续接"
+  default_prompt: "使用 $diary-workflow 处理指定日期的日记，核对数据模式与已有进度，按该模式的审阅暂停及保存规则执行。"
 policy:
   allow_implicit_invocation: false

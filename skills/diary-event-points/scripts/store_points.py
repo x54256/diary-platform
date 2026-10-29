@@ -208,7 +208,8 @@ def target(db, source, *, lock=False, own_task=None):
     return diary, fresh, digest(fresh)
 
 
-def prepare(db, markdown, source_path):
+def prepare(db, markdown, source_path, *, review_mode='SKILL_USER_CONFIRMED'):
+    require(review_mode in ('SKILL_USER_CONFIRMED', 'SKILL_WORKFLOW_AUTHORIZED'), '不支持该审核来源')
     require(schema_ready(db), '需先应用 051_event_points_ready.sql，以支持要点就绪状态')
     markdown, source_path = Path(markdown).resolve(), Path(source_path).resolve()
     source = read_source(source_path)
@@ -224,7 +225,7 @@ def prepare(db, markdown, source_path):
         'user_id': source['user_id'], 'diary_id': source['diary_id'], 'diary_date': source['diary_date'],
         'points_source_sha256': source_hash, 'config_sha256': digest(config),
         'skill_sha256': file_digest(SKILL_ROOT / 'SKILL.md'),
-        'review_mode': 'SKILL_USER_CONFIRMED', 'events': events}
+        'review_mode': review_mode, 'events': events}
     packet['confirmation_sha256'] = digest(packet)
     return packet
 
@@ -238,7 +239,7 @@ def verify_packet(packet, confirmed=None, *, files=True):
             '入库包已修改，须重新预检')
     if confirmed is not None:
         require(confirmed == packet['confirmation_sha256'], '确认指纹不匹配')
-    require(packet['review_mode'] == 'SKILL_USER_CONFIRMED', '不支持该审核来源')
+    require(packet['review_mode'] in ('SKILL_USER_CONFIRMED', 'SKILL_WORKFLOW_AUTHORIZED'), '不支持该审核来源')
     UUID(packet['user_id']); UUID(packet['diary_id'])
     if not files:
         return None
@@ -470,6 +471,7 @@ def main(argv=None):
     prep.add_argument('--source', type=Path, required=True)
     prep.add_argument('--markdown', type=Path, required=True)
     prep.add_argument('--output', type=Path, required=True)
+    prep.add_argument('--workflow-authorized', action='store_true', help='记录完整流程授权下的 Agent 自查保存')
     save = commands.add_parser('save')
     save.add_argument('packet', type=Path)
     save.add_argument('--write', action='store_true')
@@ -500,7 +502,8 @@ def main(argv=None):
                 else: db.rollback()
             elif args.command == 'prepare':
                 readonly(db)
-                packet = prepare(db, args.markdown, args.source)
+                packet = prepare(db, args.markdown, args.source, review_mode=
+                    'SKILL_WORKFLOW_AUTHORIZED' if args.workflow_authorized else 'SKILL_USER_CONFIRMED')
                 db.rollback()
                 with args.output.open('x', encoding='utf-8') as out:
                     out.write(json.dumps(packet, ensure_ascii=False, indent=2) + '\n')
@@ -520,7 +523,7 @@ def main(argv=None):
                     old = existing_task(db, packet)
                     if old: result = {'phase': 'existing', 'write': False, **status(db, old)}
                     else:
-                        current = prepare(db, Path(packet['markdown']['path']), Path(packet['source_file']['path']))
+                        current = prepare(db, Path(packet['markdown']['path']), Path(packet['source_file']['path']), review_mode=packet['review_mode'])
                         require(current == packet, '预检状态已变化，请重新生成入库包')
                         result = {'phase': 'validated', 'write': False, 'stored': False}
                     db.rollback()

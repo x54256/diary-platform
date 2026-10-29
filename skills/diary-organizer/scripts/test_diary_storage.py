@@ -177,6 +177,91 @@ class StorageTest(unittest.TestCase):
             with self.assertRaises(ValueError):
                 call('export', {'diary_id': str(self.diary_id), 'user_id': str(uuid4())})
 
+    def review_source(self):
+        from review_diary import export_current
+        with self.Session.begin() as db:
+            persist_result(db, self.target(db), self.result)
+        with self.Session() as db:
+            from models.diary import Diary
+            return export_current(db, db.get(Diary, self.diary_id))
+
+    def test_review_patch_preserves_ids_body_and_metadata_and_updates_revision(self):
+        from review_diary import execute, compare
+        from models.diary import Diary
+        original = self.review_source()
+        eid = original['events'][0]['event_id']
+        changes = {'events': [{'event_id': eid, 'feeling': ['找到原因后轻松。', '剩余工作让我疲惫。']}], 'plans': ['先休息。']}
+        with self.Session.begin() as db:
+            packet = execute(db, 'prepare', {'exported': original, 'changes': changes})['packet']
+        with self.Session.begin() as db:
+            receipt = execute(db, 'save', {'packet': packet, 'write': True, 'confirmed_sha256': packet['confirmation_sha256']})
+        current = receipt['source']
+        self.assertEqual(current['events'][0]['event_id'], eid)
+        self.assertEqual(current['events'][0]['body'], original['events'][0]['body'])
+        self.assertEqual(current['events'][0]['reflection'], original['events'][0]['reflection'])
+        self.assertEqual(current['events'][0]['feeling'], changes['events'][0]['feeling'])
+        self.assertEqual(current['plans'], ['先休息。'])
+        self.assertEqual(current['source']['structured_revision'], original['source']['structured_revision'] + 1)
+        self.assertEqual(compare(original, current)['changed_events'][0]['fields'], ['feeling'])
+        with self.Session() as db:
+            self.assertEqual(db.get(Diary, self.diary_id).original_text, '测试原文')
+            self.assertIn('剩余工作让我疲惫。', db.get(Diary, self.diary_id).organized.content)
+
+    def test_review_rejects_unknown_fields_wrong_confirmation_and_concurrent_edits(self):
+        from review_diary import execute, prepare
+        from models.diary import Diary
+        original = self.review_source(); eid = original['events'][0]['event_id']
+        for changes in ({'events': [{'event_id': str(uuid4()), 'feeling': []}]},
+                        {'events': [{'event_id': eid, 'body': []}]}, {'plans': '一段话'},
+                        {'events': [{'event_id': eid, 'feeling': ['']}]}, {'introduction': '不在定点范围内'}):
+            with self.assertRaises(ValueError): prepare(original, changes)
+        packet = prepare(original, {'events': [{'event_id': eid, 'reflection': ['明确认识。']}]})
+        with self.Session.begin() as db:
+            with self.assertRaises(ValueError): execute(db, 'save', {'packet': packet, 'write': True, 'confirmed_sha256': 'wrong'})
+        with self.Session.begin() as db:
+            # 模拟直接 SQL/ORM 修改，未增加 revision 也必须检测到。
+            db.get(Diary, self.diary_id).organized.events[0].body = json.dumps(['人工修订后的正文。'])
+        with self.Session.begin() as db:
+            with self.assertRaisesRegex(ValueError, '来源已变化'):
+                execute(db, 'save', {'packet': packet, 'write': True, 'confirmed_sha256': packet['confirmation_sha256']})
+
+    def test_review_api_roundtrip_and_source_lock(self):
+        from review_diary import prepare
+        from services.skill_worker import execute
+        from config import settings
+        from models.diary import Diary, DiaryStatus
+        from services.graph_runtime import GraphError
+        original = self.review_source()
+        with patch('database.SessionLocal', self.Session), patch.object(settings, 'SKILL_API_USERNAME', 'isolated'):
+            def call(action, params):
+                return execute({'stage': 'organize-review', 'action': action, 'params': params, 'files': {}})
+            current = call('export', {'diary_id': str(self.diary_id), 'user_id': str(self.user_id)})['file']
+            packet = call('prepare', {'exported': current, 'changes': {'plans': ['人工明确的新计划。']}})['packet']
+            self.assertFalse(call('save', {'packet': packet})['stored'])
+            self.assertTrue(call('save', {'packet': packet, 'write': True, 'confirmed_sha256': packet['confirmation_sha256']})['stored'])
+            with self.assertRaises(ValueError): call('export', {'diary_id': str(self.diary_id), 'user_id': str(uuid4())})
+            current = call('export', {'diary_id': str(self.diary_id), 'user_id': str(self.user_id)})['file']
+            packet = prepare(current, {'plans': []})
+            with self.Session.begin() as db:
+                db.get(Diary, self.diary_id).status = DiaryStatus.analyzed
+            with self.assertRaises(GraphError):
+                call('prepare', {'exported': current, 'changes': {'plans': []}})
+
+    def test_shared_app_update_keeps_importance_edit_working(self):
+        from models.diary import Diary
+        from schemas.diary import DiaryOrganizedUpdate
+        from services.organized_update import apply_organized_update
+        self.review_source()
+        with self.Session.begin() as db:
+            diary = db.get(Diary, self.diary_id)
+            event = diary.organized.events[0]
+            old_revision = diary.organized.structured_revision
+            payload = DiaryOrganizedUpdate.model_validate({'events': [{'id': str(event.id), 'user_importance': 'HIGH', 'user_importance_reason': '用户明确修订'}]})
+            apply_organized_update(db, diary, payload, self.user_id)
+            self.assertEqual(event.user_importance, 'HIGH')
+            self.assertIsNotNone(event.importance_updated_at)
+            self.assertEqual(diary.organized.structured_revision, old_revision)
+
     def tearDown(self):
         self.engine.dispose()
 

@@ -231,7 +231,8 @@ class StorePointsTest(unittest.TestCase):
         with patch.object(settings, 'SKILL_API_USERNAME', 'isolated'):
             def call(action, params, upload=None):
                 return api_execute({'stage': 'points', 'action': action, 'params': params, 'files': upload or {}})
-            packet = call('prepare', {'markdown': md, 'source': source}, files)['packet']
+            packet = call('prepare', {'markdown': md, 'source': source, 'workflow_authorized': True}, files)['packet']
+            self.assertEqual(packet['review_mode'], 'SKILL_WORKFLOW_AUTHORIZED')
             self.assertEqual(packet['markdown']['path'], md)
             with self.assertRaises(StorageError):
                 call('save', {'packet': packet, 'write': True, 'confirmed_sha256': 'wrong'}, files)

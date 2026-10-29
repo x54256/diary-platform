@@ -1,16 +1,19 @@
 ---
 name: diary-workflow
-description: 按整理、要点提取、关系识别、分析的固定顺序处理 diary-platform 日记，每阶段展示完整稿，用户确认后入库并自动进入下一阶段，再次调用时从首个未完成阶段继续。仅在用户明确要求日记完整处理或调用本 Skill 时使用。
+description: 串联 diary-platform 的整理、要点、关系和分析。本地逐阶段确认；云端整理入库后暂停人工审阅，用户通知后联动复查并自动完成无澄清问题的后续阶段。仅在用户明确要求完整处理或调用本 Skill 时使用。
 ---
 
 # 日记完整处理
 
 ## 数据访问模式
 
-开始前读取[数据访问与云端配置](references/api-mode.md)。默认 `DIARY_DATA_MODE=db`；云端配置 `DIARY_DATA_MODE=api` 后，原脚本通过应用接口读写，命令中的 `backend/venv/bin/python` 改为 `python3`。API 模式不加载数据库配置，接口失败不切回数据库；逐阶段审阅、整稿确认、来源指纹及失败恢复规则继续执行。
+开始前读取[数据访问与云端配置](references/api-mode.md)。默认 `DIARY_DATA_MODE=db`；云端配置 `DIARY_DATA_MODE=api` 后，原脚本通过应用接口读写，命令中的 `backend/venv/bin/python` 改为 `python3`。API 模式不加载数据库配置，接口失败不切回数据库；来源指纹和失败恢复规则继续执行；确认时机按以下模式规则执行。
+
+**执行规则优先级**：用户调用完整 diary-workflow 且使用 API 模式时，先读取[云端审阅与自动续接规则](references/cloud-review.md)，该规则优先于本文逐稿确认与逐阶段等待要求；单独调用子 Skill 和本地 db 流程继续原确认规则。文件或数据库修订后，均遵循[通用联动复查](../diary-organizer/references/revision-review.md)。
 
 
-用户只调用本 Skill 一次，即授权本流程按顺序使用以下四个子 Skill。逐阶段保留审稿与确认，保存成功后直接继续下一阶段，不再要求用户点名子 Skill 或确认是否继续。
+
+用户只调用本 Skill 一次，即授权本流程按顺序使用以下四个子 Skill。本地逐阶段保留审稿与确认；云端按审阅分支暂停和续接。具备续接条件后保存成功直接继续下一阶段，不再要求用户点名子 Skill 或确认是否继续。
 
 | 阶段 | 读取并遵循的子 Skill | 完成依据 |
 | --- | --- | --- |
@@ -40,6 +43,7 @@ backend/venv/bin/python skills/diary-workflow/scripts/status.py \
 脚本只输出身份、阶段状态、数量及阻塞原因；复用关系 Skill 的来源与向量校验，不输出正文、向量或认证信息，不调用外部服务。网络失败按项目权限流程重试只读查询。阶段判断是当前时点的路由依据，实际保存仍由子 Skill 再次预检。
 
 - `next_stage` 为 `organize / points / relations / analyze`：从该阶段继续，复用前面已验证的有效结果。即使分析已存在而图谱尚未完成，也只补缺少的阶段，保留已有有效分析。
+- `next_stage` 为 `review`：人工审阅尚未完成或须联动复查，按云端规则处理，不能直接进入要点。
 - `next_stage` 为 `complete`：报告四阶段均已完成，不重新生成任何结果。
 - `selection_required=true`：先确认唯一目标，再检查该 ID；没有候选时核实日期或 ID，不编造目标。
 - `blocked=true`：说明具体原因。来源过期、多个有效运行、缺失或无效向量、分析版本冲突等不能通过自动覆盖旧结果解决。

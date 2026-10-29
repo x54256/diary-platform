@@ -43,3 +43,6 @@ docker-compose.**.yml**
 **/*.zip
 .workbuddy
 diary-event-relations/**/.results.lock
+
+diary-workflows/**/.review.lock
+diary-workflows/**/state.json.tmp

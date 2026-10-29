@@ -9,6 +9,9 @@ description: 基于已入库日记事件要点，召回历史候选并识别后�
 
 开始前读取[数据访问与云端配置](../diary-workflow/references/api-mode.md)。默认 `DIARY_DATA_MODE=db`；云端配置 `DIARY_DATA_MODE=api` 后，原脚本通过应用接口读写，命令中的 `backend/venv/bin/python` 改为 `python3`。API 模式不加载数据库配置，接口失败不切回数据库；逐阶段审阅、整稿确认、来源指纹及失败恢复规则继续执行。
 
+**执行规则优先级**：用户调用完整 diary-workflow 且使用 API 模式时，先读取[云端审阅与自动续接规则](../diary-workflow/references/cloud-review.md)，该规则优先于本文逐稿确认与逐阶段等待要求；单独调用本 Skill 和本地 db 流程继续原确认规则。文件或数据库修订后，均遵循[通用联动复查](../diary-organizer/references/revision-review.md)。
+
+
 
 从已经确认并保存的事件要点识别具体事件之间的事实联系。提供只读数据库来源、本地关系判断与修订，以及显式授权后的关系入库。默认中文；判断单位是事件对，资料按日去重并按预算拆批。当前 agent 完成语义判断，脚本负责召回、稿件解析、身份映射、完整性校验及入库包转换，不默认执行固定 A/B/C 模型流水线。
 

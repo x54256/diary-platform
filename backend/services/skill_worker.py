@@ -16,6 +16,7 @@ STAGES = {
     'workflow': ('diary-workflow', 'status'),
     'people': ('diary-organizer', 'export_people'),
     'organize': ('diary-organizer', 'store_diary'),
+    'organize-review': ('diary-organizer', 'review_diary'),
     'points-source': ('diary-event-points', 'export_events'),
     'points': ('diary-event-points', 'store_points'),
     'supplement': ('diary-event-points', 'supplement_points'),
@@ -25,6 +26,7 @@ STAGES = {
 ACTIONS = {
     'workflow': {'status'}, 'people': {'export'},
     'organize': {'find', 'export', 'prepare', 'save'},
+    'organize-review': {'export', 'prepare', 'save'},
     'points-source': {'find', 'export'},
     'points': {'prepare', 'save', 'status', 'schema', 'embedding-config'},
     'supplement': {'prepare', 'save', 'status'},
@@ -120,7 +122,12 @@ def document(m, action, p, analysis=False):
             return {'packet': packet, 'validated': True, 'stored': False,
                     'confirmation_sha256': packet['confirmation_sha256']}
         if writing:
-            return {'status': '已提交', **m.persist_result(db, diary, result)}
+            receipt = {'status': '已提交', **m.persist_result(db, diary, result)}
+            if not analysis:
+                from review_diary import export_current
+                db.expire(diary, ['organized'])
+                receipt['review_source'] = export_current(db, diary)
+            return receipt
         return {'validated': True, 'stored': False, 'confirmation_sha256': packet['confirmation_sha256']}
 
 
@@ -134,7 +141,8 @@ def points(m, action, p):
             return m.ensure_schema(db)
     if action == 'prepare':
         with session() as db:
-            packet = m.prepare(db, Path(p['markdown']), Path(p['source']))
+            packet = m.prepare(db, Path(p['markdown']), Path(p['source']),
+                review_mode='SKILL_WORKFLOW_AUTHORIZED' if p.get('workflow_authorized') else 'SKILL_USER_CONFIRMED')
         return {'packet': packet, 'confirmation_sha256': packet['confirmation_sha256'],
                 'events': len(packet['events']), 'points': sum(len(e['points']) for e in packet['events']), 'stored': False}
     packet = p['packet']
@@ -147,7 +155,7 @@ def points(m, action, p):
                 return m.status(db, task)
             if action == 'status':
                 return {'phase': 'not_submitted', 'stored': False}
-            current = m.prepare(db, Path(packet['markdown']['path']), Path(packet['source_file']['path']))
+            current = m.prepare(db, Path(packet['markdown']['path']), Path(packet['source_file']['path']), review_mode=packet['review_mode'])
             m.require(current == packet, '预检状态已变化，请重新生成入库包')
             return {'validated': True, 'stored': False}
         task, reused = m.submit(db, packet, p.get('confirmed_sha256'))
@@ -263,6 +271,9 @@ def execute(request):
     m = importlib.import_module(module)
     with uploaded_files(request.get('files', {})):
         if stage == 'workflow': return workflow(m, p)
+        if stage == 'organize-review':
+            with session(action == 'save' and p.get('write', False)) as db:
+                return m.execute(db, action, p)
         if stage == 'people':
             with session() as db: return {'file': m.export_people(db, username)}
         if stage in {'organize', 'analyze'}: return document(m, action, p, analysis=stage == 'analyze')
@@ -286,6 +297,7 @@ if __name__ == '__main__':
             result = execute(request)
         print(json.dumps({'ok': True, 'result': result}, ensure_ascii=False, default=str, allow_nan=False))
     except Exception as error:
-        safe = type(error) is ValueError or type(error).__name__ in {'WorkflowError', 'StorageError', 'AnalysisInputError'}
+        safe = (type(error) is ValueError or type(error).__name__ in {'WorkflowError', 'StorageError', 'AnalysisInputError'}
+                or (type(error).__name__ == 'GraphError' and getattr(error, 'code', None) in {'SOURCE_LOCKED', 'USER_TASK_ACTIVE'}))
         message = str(error) if safe else type(error).__name__
         print(json.dumps({'ok': False, 'error': '操作未完成：' + message + '；保存失败请先查询状态'}, ensure_ascii=False))

@@ -9,6 +9,9 @@ description: 将口述转写或自由书写的日记整理为保真、通顺、�
 
 开始前读取[数据访问与云端配置](../diary-workflow/references/api-mode.md)。默认 `DIARY_DATA_MODE=db`；云端配置 `DIARY_DATA_MODE=api` 后，原脚本通过应用接口读写，命令中的 `backend/venv/bin/python` 改为 `python3`。API 模式不加载数据库配置，接口失败不切回数据库；逐阶段审阅、整稿确认、来源指纹及失败恢复规则继续执行。
 
+**执行规则优先级**：用户调用完整 diary-workflow 且使用 API 模式时，先读取[云端审阅与自动续接规则](../diary-workflow/references/cloud-review.md)，该规则优先于本文逐稿确认与逐阶段等待要求；单独调用本 Skill 和本地 db 流程继续原确认规则。文件或数据库修订后，均遵循[通用联动复查](references/revision-review.md)。
+
+
 
 将用户原文整理为好读的自然日记，完整保留有信息价值的内容。默认使用中文，延续原文的人称、语气和表达尺度。
 
@@ -130,6 +133,7 @@ backend/venv/bin/python skills/diary-organizer/scripts/export_people.py \
 
 事件正文之后，可使用 `### 感受`、`### 反思与成长`：
 
+- feeling 与 reflection 按独立含义分项，Markdown 使用列表；不同感受或认识分别占一项，同一项的原因和解释可保留多个句子，不按句号机械拆分。
 - 仅整理用户已表达的感受或认识，保留必要的触发背景，使其独立可读。
 - 感受、反思只提取核心表达和理解它所必需的背景，避免再次复述完整事件经过或整段观点推演；完整细节和推演过程保留在正文中。
 - 原文只描述行为或身体表现时，不据此推导用户未表达的情绪；没有明确反思时省略该部分。
