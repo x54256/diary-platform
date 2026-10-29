@@ -1,7 +1,7 @@
 <template>
   <div class="relative h-dvh flex flex-col overflow-hidden">
     <!-- 顶部导航栏 -->
-    <NavBar :title="diaryTitle" :show-back="true">
+    <NavBar :title="diaryTitle" :show-back="true" back-to="/">
       <template #title>
         <input
           v-if="inlineEditingField === 'title'"

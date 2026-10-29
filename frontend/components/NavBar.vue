@@ -35,6 +35,7 @@
 const props = withDefaults(defineProps<{
   title?: string
   showBack?: boolean
+  backTo?: string
 }>(), {
   title: '',
   showBack: false,
@@ -43,6 +44,10 @@ const props = withDefaults(defineProps<{
 // 返回上一页
 const router = useRouter()
 const goBack = () => {
+  if (props.backTo) {
+    void router.push(props.backTo)
+    return
+  }
   router.back()
 }
 </script>
