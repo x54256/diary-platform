@@ -8,8 +8,11 @@ from datetime import timedelta, timezone
 import json
 import os
 from pathlib import Path
-import re
+
 import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "shared"))
+from skill_files import read_bytes, read_text
+import re
 from uuid import UUID, uuid4
 
 from export_events import PROJECT_ROOT, SKILL_ROOT, ExportError, digest
@@ -26,7 +29,7 @@ def require(condition, message):
 
 def file_digest(path):
     import hashlib
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    return hashlib.sha256(read_bytes(path)).hexdigest()
 
 
 def open_backend(path):
@@ -81,7 +84,7 @@ def parse_markdown(value):
 
 
 def read_source(path):
-    source = json.loads(Path(path).read_text(encoding='utf-8'))
+    source = json.loads(read_text(path))
     require(source.get('origin') == 'database' and source.get('schema_version') == 1,
             '只能使用本 Skill 导出的数据库来源快照')
     require(source.get('source_sha256') == digest({k: v for k, v in source.items() if k != 'source_sha256'}),
@@ -209,7 +212,7 @@ def prepare(db, markdown, source_path):
     require(schema_ready(db), '需先应用 051_event_points_ready.sql，以支持要点就绪状态')
     markdown, source_path = Path(markdown).resolve(), Path(source_path).resolve()
     source = read_source(source_path)
-    events = parse_markdown(markdown.read_text(encoding='utf-8'))
+    events = parse_markdown(read_text(markdown))
     check_draft(events, source)
     _, _, source_hash = target(db, source)
     config = freeze_embedding_config()
@@ -243,7 +246,7 @@ def verify_packet(packet, confirmed=None, *, files=True):
         require(file_digest(packet[key]['path']) == packet[key]['sha256'], '来源或稿件文件已变化，须重新预检')
     source = read_source(packet['source_file']['path'])
     require(all(packet[k] == source[k] for k in ('user_id', 'diary_id', 'diary_date')), '入库包目标与来源不一致')
-    events = parse_markdown(Path(packet['markdown']['path']).read_text(encoding='utf-8'))
+    events = parse_markdown(read_text(packet['markdown']['path']))
     check_draft(events, source)
     require(packet['events'] == events, '入库包文字或事件范围与稿件不一致')
     require(bool(packet['events']), '没有可保存的要点')
@@ -473,9 +476,12 @@ def main(argv=None):
     save.add_argument('--confirmed-sha256')
     stat = commands.add_parser('status')
     stat.add_argument('packet', type=Path)
+    commands.add_parser('embedding-config')
     schema = commands.add_parser('schema')
     schema.add_argument('--write', action='store_true')
     args = parser.parse_args(argv)
+    from skill_api import maybe_remote
+    maybe_remote("points", args)
     for key in ('source', 'markdown', 'output', 'packet'):
         if hasattr(args, key): setattr(args, key, getattr(args, key).resolve())
     try:
@@ -484,7 +490,10 @@ def main(argv=None):
         if args.command == 'prepare': require(not args.output.exists(), '入库包已存在，请使用新文件名')
         SessionLocal = open_backend(args.backend_dir)
         with SessionLocal() as db:
-            if args.command == 'schema':
+            if args.command == 'embedding-config':
+                config = freeze_embedding_config()
+                result = {'model': config['models']['embedding'], 'dimension': 1024, 'input': '全部要点详情'}
+            elif args.command == 'schema':
                 if not args.write: readonly(db)
                 result = ensure_schema(db, write=args.write)
                 if args.write: db.commit()

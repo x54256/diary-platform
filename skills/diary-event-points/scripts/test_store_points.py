@@ -223,6 +223,30 @@ class StorePointsTest(unittest.TestCase):
         self.assertTrue(kwargs.get('embedding'))
         return {'data': [{'index': 0, 'embedding': [1.0] + [0.0]*1023}]}
 
+    def test_api_upload_saves_points_and_reuses_original_task_after_retry(self):
+        from config import settings
+        from services.skill_worker import execute as api_execute
+        md, source = '/cloud/points/事件要点.md', '/cloud/points/source.json'
+        files = {md: self.markdown.read_text(), source: self.source_path.read_text()}
+        with patch.object(settings, 'SKILL_API_USERNAME', 'isolated'):
+            def call(action, params, upload=None):
+                return api_execute({'stage': 'points', 'action': action, 'params': params, 'files': upload or {}})
+            packet = call('prepare', {'markdown': md, 'source': source}, files)['packet']
+            self.assertEqual(packet['markdown']['path'], md)
+            with self.assertRaises(StorageError):
+                call('save', {'packet': packet, 'write': True, 'confirmed_sha256': 'wrong'}, files)
+            params = {'packet': packet, 'write': True, 'confirmed_sha256': packet['confirmation_sha256']}
+            with patch('services.graph_runtime.GraphContext.call', AsyncMock(side_effect=self.response)):
+                result = call('save', params, files)
+            self.assertTrue(result['stored'])
+            self.assertEqual(result['stored_points'], 2)
+            self.assertTrue(call('status', {'packet': packet})['stored'])
+            with patch('services.graph_runtime.GraphContext.call', AsyncMock(side_effect=AssertionError('重复外发'))):
+                again = call('save', params, files)
+            self.assertEqual(result['task_id'], again['task_id'])
+            self.db.expire_all()
+            self.assertEqual(self.db.query(GraphEventPoint).count(), 2)
+
     def test_only_embedding_is_called_and_points_ready_leaves_diary_untouched(self):
         p = self.packet(); task, _ = self.send(p)
         raw = self.markdown.read_bytes()

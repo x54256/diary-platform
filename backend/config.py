@@ -12,6 +12,10 @@ class Settings(BaseSettings):
     # 任务队列环境标识。共享数据库时必须为本地、测试、生产设置不同值。
     APP_ENV: str = "local"
 
+    # Skill 固定 Token；留空时关闭接口。仅允许访问绑定用户。
+    SKILL_API_TOKEN: str = ""
+    SKILL_API_USERNAME: str = "x5456"
+
     # JWT 密钥
     SECRET_KEY: str = "L8qA6Gzbc1zb1iGw3CCgrTmzOyAWJR235dUOiQ0C7zk"
 

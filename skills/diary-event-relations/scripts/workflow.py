@@ -12,8 +12,10 @@ import json
 import math
 import os
 from pathlib import Path
-import shutil
+
 import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "shared"))
+import shutil
 from uuid import UUID, uuid4
 from zoneinfo import ZoneInfo
 
@@ -403,6 +405,8 @@ def main(argv=None):
             cmd.add_argument('--replace-published',action='store_true')
             cmd.add_argument('--accept-published-revisions',action='store_true')
     args=parser.parse_args(argv)
+    from skill_api import maybe_remote
+    maybe_remote("relations", args)
     try:
         if args.command in ('schema','prepare-storage','save','storage-status'):
             from storage import execute

@@ -4,7 +4,9 @@
 import argparse
 import json
 from pathlib import Path
+
 import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "shared"))
 from datetime import date
 from uuid import UUID
 
@@ -103,6 +105,8 @@ def main():
     target.add_argument('--date', type=date.fromisoformat)
     target.add_argument('--diary-id', type=UUID)
     args = parser.parse_args()
+    from skill_api import maybe_remote
+    maybe_remote("workflow", args)
     try:
         with connection(args.backend_dir) as conn:
             found = list_diaries(conn, args.username, args.date, args.diary_id)

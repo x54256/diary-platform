@@ -8,8 +8,10 @@ import hashlib
 import json
 import os
 from pathlib import Path
-import shutil
+
 import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "shared"))
+import shutil
 from uuid import UUID, uuid4
 from zoneinfo import ZoneInfo
 
@@ -221,6 +223,8 @@ def main(argv=None):
         if name == "export":
             command.add_argument("--event-id", type=UUID, action="append", default=[])
     args = parser.parse_args(argv)
+    from skill_api import maybe_remote
+    maybe_remote("points-source", args)
     try:
         with read_connection(load_engine(args.backend_dir)) as connection:
             kwargs = {"diary_date": args.date, "diary_id": args.diary_id}

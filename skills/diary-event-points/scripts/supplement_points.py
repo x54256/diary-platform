@@ -7,6 +7,10 @@ from datetime import datetime, timezone
 import json
 import os
 from pathlib import Path
+
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "shared"))
+from skill_files import read_text
 from uuid import UUID, uuid4, uuid5
 
 from store_points import (StorageError, check_draft, digest, file_digest, freeze_embedding_config,
@@ -96,7 +100,7 @@ def prepare(db,inputs):
     config=freeze_embedding_config();items=[];seen=set()
     for entry in inputs:
         source_path=Path(entry['source']).resolve();markdown=Path(entry['markdown']).resolve()
-        source=source_view(read_source(source_path));draft=parse_markdown(markdown.read_text());check_draft(draft,source)
+        source=source_view(read_source(source_path));draft=parse_markdown(read_text(markdown));check_draft(draft,source)
         data,run,owner,_=capture(db,source,entry['run_id'])
         require(str(run.id)not in seen,'补充运行重复');seen.add(str(run.id))
         require(owner.config_snapshot.get('embedding_model')==config['embedding_model'],'原要点与当前向量配置不一致，不能混用模型')
@@ -138,7 +142,7 @@ def verify(packet,confirmed=None):
         for name in ('source_file','markdown'):
             require(file_digest(item[name]['path'])==item[name]['sha256'],'来源或已审阅稿已变化')
         require(source_view(read_source(item['source_file']['path']))==item['source'],'补充包来源不匹配')
-        draft=parse_markdown(Path(item['markdown']['path']).read_text());check_draft(draft,item['source'])
+        draft=parse_markdown(read_text(item['markdown']['path']));check_draft(draft,item['source'])
         byid={e['event_id']:e for e in draft}
         for e in item['events']:
             require(e['title']==byid[e['event_id']]['title']and
@@ -266,6 +270,8 @@ def main():
         p=sub.add_parser(name);p.add_argument('packet',type=Path)
         if name=='save':p.add_argument('--write',action='store_true');p.add_argument('--confirmed-sha256')
     args=parser.parse_args()
+    from skill_api import maybe_remote
+    maybe_remote("supplement", args)
     for name in ('inputs','output','packet'):
         if hasattr(args,name):setattr(args,name,getattr(args,name).resolve())
     try:

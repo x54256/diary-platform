@@ -225,6 +225,28 @@ class StorageTest(unittest.TestCase):
         self.markdown = "\n\n".join(event_markdown(x) for x in reversed(self.ordered_ids)) + "\n" + diary_markdown() + action_markdown()
         self.result = parse_markdown(self.markdown, self.exported)
 
+    def test_api_analysis_saves_uploaded_draft_and_rejects_stale_confirmation(self):
+        from config import settings
+        from services.skill_worker import execute
+        from models.diary import AnalysisRun, Diary
+        md, source = '/cloud/analysis/分析稿.md', '/cloud/analysis/source.json'
+        with patch('database.SessionLocal', self.Session), patch.object(settings, 'SKILL_API_USERNAME', 'isolated'):
+            def call(action, params, files=None):
+                return execute({'stage': 'analyze', 'action': action, 'params': params, 'files': files or {}})
+            exported = call('export', {'diary_id': str(self.diary_id), 'user_id': str(self.user_id)})['file']
+            files = {md: self.markdown, source: json.dumps(exported, ensure_ascii=False)}
+            packet = call('prepare', {'markdown': md, 'source': source}, files)['packet']
+            with self.Session() as db: self.assertEqual(db.query(AnalysisRun).count(), 0)
+            with self.assertRaises(ValueError):
+                call('save', {'packet': packet, 'write': True, 'confirmed_sha256': 'wrong'}, files)
+            with self.assertRaises(ValueError):
+                call('save', {'packet': packet, 'write': True, 'confirmed_sha256': packet['confirmation_sha256']}, {**files, md: self.markdown + '\n改稿'})
+            receipt = call('save', {'packet': packet, 'write': True, 'confirmed_sha256': packet['confirmation_sha256']}, files)
+            self.assertEqual(receipt['actions'], 1)
+            with self.Session() as db:
+                self.assertEqual(db.get(Diary, self.diary_id).status.value, 'analyzed')
+                self.assertEqual(db.query(AnalysisRun).count(), 1)
+
     def tearDown(self):
         self.engine.dispose()
 

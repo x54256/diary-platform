@@ -51,6 +51,7 @@ RUN pip install --no-index --find-links=/wheels -r /app/backend/requirements.txt
     && rm -rf /wheels
 
 COPY backend/ /app/backend/
+COPY skills/ /app/skills/
 COPY --from=frontend-build /build/frontend/.output/ /app/frontend/.output/
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY docker/start.sh /app/start.sh

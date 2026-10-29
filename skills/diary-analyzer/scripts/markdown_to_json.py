@@ -7,6 +7,10 @@ import json
 import re
 from datetime import date, time
 from pathlib import Path
+
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "shared"))
+from skill_files import read_bytes, read_text
 from uuid import UUID
 
 
@@ -37,11 +41,11 @@ def digest(value):
 
 
 def file_digest(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    return hashlib.sha256(read_bytes(path)).hexdigest()
 
 
 def read_export(path):
-    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    data = json.loads(read_text(path))
     if not isinstance(data, dict) or set(data) != {
         "schema_version", "source", "structured_diary", "person_relations", "export_sha256"
     } or data["schema_version"] != 1:

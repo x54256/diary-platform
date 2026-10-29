@@ -21,6 +21,7 @@ from routers.voice_profile import router as voice_profile_router
 from routers.reviews import router as reviews_router
 from routers.actions import router as actions_router
 from routers.graph import router as graph_router
+from routers.skill_api import router as skill_api_router
 from utils.log_context import ContextFormatter, LogContextFilter, log_extra, new_id, reset_request_context, set_request_context
 
 # ---------------------------------------------------------------------------
@@ -137,6 +138,7 @@ api_router.include_router(voice_profile_router)
 api_router.include_router(reviews_router)
 api_router.include_router(actions_router)
 api_router.include_router(graph_router)
+api_router.include_router(skill_api_router)
 app.include_router(api_router)
 
 

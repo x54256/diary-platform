@@ -5,6 +5,9 @@ import argparse
 import json
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "shared"))
+
 from store_diary import open_backend
 
 
@@ -36,6 +39,8 @@ def main():
     parser.add_argument("--backend-dir", type=Path, default=Path(__file__).resolve().parents[3] / "backend")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
+    from skill_api import maybe_remote
+    maybe_remote("people", args)
     output = args.output.resolve()
     try:
         SessionLocal = open_backend(args.backend_dir)

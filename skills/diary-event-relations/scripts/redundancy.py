@@ -5,7 +5,10 @@ from collections import defaultdict, deque
 from copy import deepcopy
 import json
 from pathlib import Path
+
 import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "shared"))
+from skill_api import api_enabled, request
 from uuid import uuid4
 
 from workflow import (PROJECT_ROOT, WorkflowError, check_rows, digest, load_package,
@@ -174,7 +177,10 @@ def execute(args):
         if args.command == 'prepare':
             from db_source import connection
             rows = saved_results(folder,snapshot)
-            with connection(args.backend_dir) as conn: history = history_context(conn,snapshot)
+            if api_enabled():
+                history = request('relations', 'history-context', {'snapshot': snapshot})['history']
+            else:
+                with connection(args.backend_dir) as conn: history = history_context(conn,snapshot)
             ctx = make_context(snapshot,rows,history)
             if (folder/CONTEXT).exists():
                 require(read_json(folder/CONTEXT) == ctx, '已有不同冗余上下文，请保留当前运行并新建识别运行')

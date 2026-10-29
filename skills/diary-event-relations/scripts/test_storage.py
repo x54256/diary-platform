@@ -55,6 +55,27 @@ class StorageTest(unittest.TestCase):
         w.render(self.folder)
         self.packet=s.build_packet(self.folder,'isolated')
 
+    def test_api_publication_preserves_storage_fingerprint_and_is_idempotent(self):
+        import sys
+        sys.path.insert(0, str(w.PROJECT_ROOT / 'backend'))
+        from unittest.mock import patch
+        from contextlib import contextmanager
+        from services.skill_worker import relations
+        @contextmanager
+        def connection(_backend):
+            with s.readonly(self.engine) as conn: yield conn
+        params = {'packet': self.packet, 'username': 'isolated'}
+        with patch('db_source.connection', connection), patch('db_source.backend_engine', return_value=self.engine):
+            before = relations(w, 'preflight', params)
+            self.assertFalse(before['stored'])
+            saved = relations(w, 'save', {**params, 'write': True, 'confirmed_sha256': self.packet['storage_sha256']})
+            self.assertTrue(saved['stored'])
+            self.assertTrue(relations(w, 'storage-status', params)['stored'])
+            again = relations(w, 'save', {**params, 'write': True, 'confirmed_sha256': self.packet['storage_sha256']})
+            self.assertTrue(again['stored'])
+            self.assertEqual(saved['storage_sha256'], self.packet['storage_sha256'])
+        self.assertEqual(self.state()[2], 1)
+
     def transaction(self,packet=None,sha=None):
         packet=packet or self.packet
         with self.engine.begin()as c:

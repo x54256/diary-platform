@@ -151,6 +151,32 @@ class StorageTest(unittest.TestCase):
                          diary_date=date(2026, 9, 29)))
         self.result = parse_markdown(SAMPLE)
 
+    def test_api_roundtrip_uses_uploaded_cloud_files_and_original_confirmation(self):
+        from config import settings
+        from services.skill_worker import execute
+        from models.diary import Diary, OrganizeTask
+        cloud_md, cloud_notes, cloud_source = '/cloud/diary/整理稿.md', '/cloud/diary/澄清记录.md', '/cloud/diary/source.json'
+        with patch('database.SessionLocal', self.Session), patch.object(settings, 'SKILL_API_USERNAME', 'isolated'):
+            def call(action, params, files=None):
+                return execute({'stage': 'organize', 'action': action, 'params': params, 'files': files or {}})
+            exported = call('export', {'diary_id': str(self.diary_id), 'user_id': str(self.user_id)})['file']
+            files = {cloud_md: SAMPLE, cloud_notes: '本次无需澄清。', cloud_source: json.dumps(exported, ensure_ascii=False)}
+            packet = call('prepare', {'markdown': cloud_md, 'clarifications': cloud_notes, 'source': cloud_source}, files)['packet']
+            self.assertEqual(packet['markdown']['path'], cloud_md)
+            with self.Session() as db:
+                self.assertEqual(db.query(OrganizeTask).count(), 0)
+            with self.assertRaises(ValueError):
+                call('save', {'packet': packet, 'write': True, 'confirmed_sha256': 'wrong'}, files)
+            changed = {**files, cloud_notes: '新增澄清'}
+            with self.assertRaises(ValueError):
+                call('save', {'packet': packet, 'write': True, 'confirmed_sha256': packet['confirmation_sha256']}, changed)
+            receipt = call('save', {'packet': packet, 'write': True, 'confirmed_sha256': packet['confirmation_sha256']}, files)
+            self.assertEqual(receipt['events'], 1)
+            with self.Session() as db:
+                self.assertEqual(db.get(Diary, self.diary_id).status.value, 'organized')
+            with self.assertRaises(ValueError):
+                call('export', {'diary_id': str(self.diary_id), 'user_id': str(uuid4())})
+
     def tearDown(self):
         self.engine.dispose()
 

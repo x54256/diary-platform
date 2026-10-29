@@ -7,6 +7,10 @@ import json
 import re
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "shared"))
+from skill_files import read_bytes, read_text
+
 
 def digest(value):
     data = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
@@ -14,7 +18,7 @@ def digest(value):
 
 
 def file_digest(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    return hashlib.sha256(read_bytes(path)).hexdigest()
 
 
 def paragraphs(lines):

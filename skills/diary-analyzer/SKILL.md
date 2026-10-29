@@ -5,6 +5,11 @@ description: 从 diary-platform 数据库读取已整理且尚未分析的日记
 
 # 日记分析
 
+## 数据访问模式
+
+开始前读取[数据访问与云端配置](../diary-workflow/references/api-mode.md)。默认 `DIARY_DATA_MODE=db`；云端配置 `DIARY_DATA_MODE=api` 后，原脚本通过应用接口读写，命令中的 `backend/venv/bin/python` 改为 `python3`。API 模式不加载数据库配置，接口失败不切回数据库；逐阶段审阅、整稿确认、来源指纹及失败恢复规则继续执行。
+
+
 ## 任务边界
 
 - 仅手动调用；用户显式调用 [diary-workflow](../diary-workflow/SKILL.md) 时，已授权总入口在分析阶段使用本 Skill，无需再单独点名。第一版仅处理状态为 `organized`、没有任何分析轮次、整理修订有效的日记。已分析日记停止，不通过删除旧轮次或修改状态绕过限制。

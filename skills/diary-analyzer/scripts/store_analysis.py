@@ -7,6 +7,9 @@ import os
 import sys
 from datetime import date, datetime
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "shared"))
+from skill_files import read_text
 from uuid import UUID
 from zoneinfo import ZoneInfo
 
@@ -124,7 +127,7 @@ def validate_backend_result(result):
 
 def make_packet(markdown, source_path):
     exported = read_export(source_path)
-    result = parse_markdown(Path(markdown).read_text(encoding="utf-8"), exported)
+    result = parse_markdown(read_text(markdown), exported)
     packet = {"schema_version": 1, "exported": exported,
               "markdown": {"path": str(Path(markdown).resolve()), "sha256": file_digest(markdown)},
               "source_file": {"path": str(Path(source_path).resolve()), "sha256": file_digest(source_path)},
@@ -268,6 +271,8 @@ def main():
     save.add_argument("--write", action="store_true")
     save.add_argument("--confirmed-sha256")
     args = parser.parse_args()
+    from skill_api import maybe_remote
+    maybe_remote("analyze", args)
     for key, value in vars(args).copy().items():
         if isinstance(value, Path):
             setattr(args, key, value.resolve())

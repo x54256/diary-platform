@@ -5,6 +5,11 @@ description: 将口述转写或自由书写的日记整理为保真、通顺、�
 
 # 日记整理
 
+## 数据访问模式
+
+开始前读取[数据访问与云端配置](../diary-workflow/references/api-mode.md)。默认 `DIARY_DATA_MODE=db`；云端配置 `DIARY_DATA_MODE=api` 后，原脚本通过应用接口读写，命令中的 `backend/venv/bin/python` 改为 `python3`。API 模式不加载数据库配置，接口失败不切回数据库；逐阶段审阅、整稿确认、来源指纹及失败恢复规则继续执行。
+
+
 将用户原文整理为好读的自然日记，完整保留有信息价值的内容。默认使用中文，延续原文的人称、语气和表达尺度。
 
 ## 工作目录

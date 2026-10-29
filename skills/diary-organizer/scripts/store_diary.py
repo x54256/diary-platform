@@ -7,6 +7,9 @@ import os
 import sys
 from datetime import date, datetime
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "shared"))
+from skill_files import read_text
 from uuid import UUID
 
 from markdown_to_json import digest, file_digest, parse_markdown, validate_result
@@ -157,14 +160,14 @@ def snapshot(diary):
 def make_packet(markdown, clarifications, source):
     if markdown.parent != clarifications.parent:
         raise ValueError("澄清记录须与整理稿在同一目录")
-    if not clarifications.read_text(encoding="utf-8").strip():
+    if not read_text(clarifications).strip():
         raise ValueError("澄清记录不能为空；无提问时写明本次无需澄清")
     packet = {
         "schema_version": 1,
         "source": source,
         "markdown": {"path": str(markdown), "sha256": file_digest(markdown)},
         "clarifications": {"path": str(clarifications), "sha256": file_digest(clarifications)},
-        "result": parse_markdown(markdown.read_text(encoding="utf-8")),
+        "result": parse_markdown(read_text(markdown)),
     }
     packet["confirmation_sha256"] = digest(packet)
     return packet
@@ -184,7 +187,7 @@ def verify_packet(packet, confirmed=None):
     for key in ("markdown", "clarifications"):
         if file_digest(packet[key]["path"]) != packet[key]["sha256"]:
             raise ValueError("整理稿或澄清记录已修改，须重新预检和确认")
-    regenerated = parse_markdown(Path(packet["markdown"]["path"]).read_text(encoding="utf-8"))
+    regenerated = parse_markdown(read_text(packet["markdown"]["path"]))
     if regenerated != packet["result"]:
         raise ValueError("整理稿与入库结果不一致")
 
@@ -273,6 +276,8 @@ def main():
     save.add_argument("--write", action="store_true")
     save.add_argument("--confirmed-sha256")
     args = parser.parse_args()
+    from skill_api import maybe_remote
+    maybe_remote("organize", args)
     # 必须先解析本地绝对路径，再切换到 backend 加载 .env。
     for key, value in vars(args).copy().items():
         if isinstance(value, Path):
