@@ -10,7 +10,7 @@ test('向量化用途和模型管理使用独立 embedding 类型', async () => 
   const settings = await readFile(resolve(root, '../pages/admin/model-settings.vue'), 'utf8')
   const models = await readFile(resolve(root, '../pages/admin/models.vue'), 'utf8')
   const channels = await readFile(resolve(root, '../pages/admin/channels.vue'), 'utf8')
-  assert.match(settings, /key: 'embedding', label: '向量化', modelType: 'embedding'/)
+  assert.match(settings, /key: 'graph_embedding', label: '图谱向量', modelType: 'embedding'/)
   assert.match(models, /option value="embedding"/)
   assert.match(models, /文本向量化/)
   assert.match(channels, /option value="embedding"/)

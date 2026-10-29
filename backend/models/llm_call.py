@@ -3,7 +3,7 @@
 import uuid
 from datetime import datetime
 
-from sqlalchemy import Column, DateTime, ForeignKey, Integer, String
+from sqlalchemy import Column, DateTime, Integer, String
 from sqlalchemy.dialects.postgresql import UUID
 
 from database import Base
@@ -26,4 +26,3 @@ class LlmCallLog(Base):
     error_type = Column(String(100), nullable=True)
     request_id = Column(String(100), nullable=True)
     chain_id = Column(String(100), nullable=True)
-    review_task_id = Column(UUID(as_uuid=True), ForeignKey("review_tasks.id", ondelete="SET NULL"), nullable=True)

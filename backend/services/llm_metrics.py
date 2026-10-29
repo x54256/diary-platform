@@ -2,7 +2,6 @@
 
 import json
 import logging
-import uuid
 from typing import Any
 
 logger = logging.getLogger("llm.metrics")
@@ -71,7 +70,6 @@ def record_llm_call(
     duration_ms: int,
     status: str,
     error_type: str | None = None,
-    review_task_id: str | None = None,
     completion_tokens: int | None = None,
 ) -> None:
     """独立事务保存一次调用；统计失败不得影响主业务。"""
@@ -93,7 +91,6 @@ def record_llm_call(
             error_type=error_type,
             request_id=context["request_id"],
             chain_id=context["chain_id"],
-            review_task_id=uuid.UUID(review_task_id) if review_task_id else None,
         ))
         db.commit()
     except Exception:

@@ -2,7 +2,7 @@
   <div class="space-y-5">
     <div>
       <h1 class="text-xl font-semibold text-neutral-900 sm:text-2xl">模型设置</h1>
-      <p class="mt-1 text-sm leading-5 text-neutral-500">配置整理、分析、回顾、事件建图、对话、语音转文字和语义向量化当前使用的可调用模型。</p>
+      <p class="mt-1 text-sm leading-5 text-neutral-500">配置整理、分析、事件建图、对话、语音转文字和图谱向量化当前使用的可调用模型。</p>
     </div>
 
     <section class="bg-white border border-neutral-200 rounded p-4">
@@ -93,7 +93,7 @@
             {{ testResults[usage.key].message }}
           </span>
           <button
-            v-if="usage.key === 'organize' || usage.key === 'analysis' || usage.key === 'review' || usage.key === 'graph'"
+            v-if="usage.key === 'organize' || usage.key === 'analysis' || usage.key === 'graph'"
             class="h-8 px-3 border border-neutral-300 rounded text-sm"
             @click="openStepSettings(usage)"
           >
@@ -202,11 +202,9 @@ const { api } = useApi()
 const usages = [
   { key: 'organize', label: '整理', modelType: 'language' },
   { key: 'analysis', label: '分析', modelType: 'language' },
-  { key: 'review', label: '回顾', modelType: 'language' },
   { key: 'graph', label: '事件建图', modelType: 'language' },
   { key: 'chat', label: '对话', modelType: 'language' },
   { key: 'transcription', label: '语音转文字', modelType: 'asr' },
-  { key: 'embedding', label: '向量化', modelType: 'embedding' },
   { key: 'graph_embedding', label: '图谱向量', modelType: 'embedding' },
 ]
 

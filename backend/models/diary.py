@@ -9,7 +9,6 @@ from sqlalchemy.dialects.postgresql import UUID, JSONB
 from sqlalchemy.orm import relationship
 
 # pgvector 由 requirements.txt 引入，运行环境必须安装。
-from pgvector.sqlalchemy import Vector
 
 from database import Base
 
@@ -299,92 +298,6 @@ class DiaryEvent(Base):
     # M:N 关系，事件标签
     tags = relationship("Tag", secondary="event_tags", back_populates="events")
     favorites = relationship("Favorite", back_populates="event", cascade="all, delete-orphan")
-    # 语义分块向量（1 事件 : 0..3 分块），删除事件时级联删除。
-    # lazy="select"：延迟加载——正常读取事件（关键词检索 / 序列化）不触碰该表，
-    # 避免关键词分支与 pgvector/event_embedding_chunks 耦合，也减少一次无谓查询。
-    embedding_chunks = relationship(
-        "EventEmbeddingChunk",
-        back_populates="event",
-        cascade="all, delete-orphan",
-        lazy="select",
-    )
-
-
-class EventEmbeddingChunk(Base):
-    """当前可用的事件语义块。
-
-    分析层记录所属分析轮次；查询只能使用仍为 CURRENT 的轮次。更新时由
-    SearchSemanticIndexState 先标记 PENDING，再异步覆盖本行，避免旧向量短暂参与召回。
-    """
-
-    __tablename__ = "event_embedding_chunks"
-
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    event_id = Column(
-        UUID(as_uuid=True),
-        ForeignKey("diary_events.id", ondelete="CASCADE"),
-        nullable=False,
-    )
-    analysis_run_id = Column(UUID(as_uuid=True), ForeignKey("analysis_runs.id", ondelete="CASCADE"), nullable=True)
-    # event_content / self_understanding / cognition
-    chunk_type = Column(String(20), nullable=False)
-    content = Column(Text, nullable=False)
-    # 向量维度固定 1024（与 EMBEDDING 模型及迁移 038 一致）；换模型需全量重算。
-    embedding = Column(Vector(1024), nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-
-    __table_args__ = (
-        UniqueConstraint("event_id", "chunk_type", name="uq_event_embedding_chunks_event_chunk"),
-        Index("ix_event_embedding_chunks_event_id", "event_id"),
-    )
-
-    # 关系映射
-    event = relationship("DiaryEvent", back_populates="embedding_chunks")
-    analysis_run = relationship("AnalysisRun")
-
-
-class SearchKeywordSegment(Base):
-    """可展示、可精确子串匹配的搜索片段。
-
-    一行即一条结果摘要的来源。分析片段带 analysis_run_id，SQL 查询通过 CURRENT
-    轮次约束过滤失效内容，而不是依赖异步清理时序。
-    """
-
-    __tablename__ = "search_keyword_segments"
-
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    diary_id = Column(UUID(as_uuid=True), ForeignKey("diaries.id", ondelete="CASCADE"), nullable=False)
-    event_id = Column(UUID(as_uuid=True), ForeignKey("diary_events.id", ondelete="CASCADE"), nullable=False)
-    analysis_run_id = Column(UUID(as_uuid=True), ForeignKey("analysis_runs.id", ondelete="CASCADE"), nullable=True)
-    kind = Column(String(32), nullable=False)
-    content = Column(Text, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
-
-    __table_args__ = (
-        Index("ix_search_keyword_segments_diary", "diary_id"),
-        Index("ix_search_keyword_segments_event", "event_id"),
-    )
-
-
-class SearchSemanticIndexState(Base):
-    """语义块的异步索引状态，用于排除过期向量并反馈 PARTIAL。"""
-
-    __tablename__ = "search_semantic_index_states"
-
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    event_id = Column(UUID(as_uuid=True), ForeignKey("diary_events.id", ondelete="CASCADE"), nullable=False)
-    analysis_run_id = Column(UUID(as_uuid=True), ForeignKey("analysis_runs.id", ondelete="CASCADE"), nullable=True)
-    chunk_type = Column(String(20), nullable=False)
-    content_hash = Column(String(64), nullable=False)
-    status = Column(String(16), nullable=False, default="PENDING")
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
-
-    __table_args__ = (
-        UniqueConstraint("event_id", "chunk_type", name="uq_search_semantic_state_event_chunk"),
-        Index("ix_search_semantic_states_status", "status"),
-    )
 
 
 class DiaryAnnotation(Base):

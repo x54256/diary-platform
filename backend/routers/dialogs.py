@@ -1,6 +1,5 @@
 """对话管理路由"""
 
-import json
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -10,7 +9,6 @@ from sqlalchemy.orm import Session
 from database import get_db
 from models.dialog import Dialog, DialogMessage, MessageRole, SourceType
 from models.diary import Diary
-from models.review import ReviewSource, ReviewSourceSetItem, ReviewVersion
 from models.user import User
 from schemas.dialog import (
     DialogCreate,
@@ -39,22 +37,8 @@ def create_dialog(
             detail=f"无效的来源类型: {dialog_data.source_type}",
         )
 
-    if source_type == SourceType.review:
-        if not dialog_data.source_id:
-            raise HTTPException(status_code=400, detail="回顾对话必须绑定回顾版本")
-        version = db.query(ReviewVersion).filter(
-            ReviewVersion.id == dialog_data.source_id,
-            ReviewVersion.user_id == current_user.id,
-        ).first()
-        if not version:
-            raise HTTPException(status_code=404, detail="回顾版本不存在")
-        existing = db.query(Dialog).filter(
-            Dialog.user_id == current_user.id,
-            Dialog.source_type == SourceType.review,
-            Dialog.source_id == version.id,
-        ).first()
-        if existing:
-            return existing
+    if source_type not in {SourceType.diary_detail, SourceType.ai_companion}:
+        raise HTTPException(status_code=400, detail="该对话来源暂不支持")
 
     dialog = Dialog(
         user_id=current_user.id,
@@ -66,14 +50,6 @@ def create_dialog(
         db.commit()
     except IntegrityError:
         db.rollback()
-        if source_type == SourceType.review:
-            existing = db.query(Dialog).filter(
-                Dialog.user_id == current_user.id,
-                Dialog.source_type == SourceType.review,
-                Dialog.source_id == dialog_data.source_id,
-            ).first()
-            if existing:
-                return existing
         raise HTTPException(status_code=409, detail="对话已经存在")
     db.refresh(dialog)
     return dialog
@@ -128,6 +104,9 @@ async def send_message(
             detail="对话不存在",
         )
 
+    if dialog.source_type not in {SourceType.diary_detail, SourceType.ai_companion}:
+        raise HTTPException(status_code=400, detail="该对话来源暂不支持")
+
     # a) 保存用户消息到 dialog_messages
     user_message = DialogMessage(
         dialog_id=dialog.id,
@@ -166,52 +145,6 @@ async def send_message(
                         context += f"心情：{org.mood}\n"
                     if org.location:
                         context += f"地点：{org.location}\n"
-    elif dialog.source_type == SourceType.review:
-        version = db.query(ReviewVersion).filter(
-            ReviewVersion.id == dialog.source_id,
-            ReviewVersion.user_id == current_user.id,
-        ).first()
-        if version:
-            sources = (
-                db.query(ReviewSource)
-                .join(ReviewSourceSetItem, ReviewSourceSetItem.source_id == ReviewSource.id)
-                .filter(ReviewSourceSetItem.source_set_id == version.source_set_id)
-                .order_by(ReviewSource.source_date, ReviewSource.id)
-                .all()
-            )
-            feedback = [
-                {
-                    "analysis_item_id": str(item.analysis_item_id),
-                    "rating": item.rating,
-                    "comment": item.comment,
-                    "is_inherited": item.is_inherited,
-                }
-                for item in version.feedback
-            ]
-            source_snapshot = [
-                {
-                    "source_id": str(item.id),
-                    "source_type": item.source_type,
-                    "source_date": item.source_date.isoformat(),
-                    "period_role": item.period_role,
-                    "content": item.content,
-                    "origin_review_id": str(item.origin_review_id) if item.origin_review_id else None,
-                    "origin_review_version_id": str(item.origin_review_version_id) if item.origin_review_version_id else None,
-                    "snapshot": item.snapshot or {},
-                }
-                for item in sources
-            ]
-            context = (
-                f"回顾周期：{version.review.period_start} 至 {version.review.period_end}\n"
-                f"固定版本：v{version.version_no}\n"
-                f"事件层：\n{json.dumps(version.event_document, ensure_ascii=False)}\n\n"
-                f"分析层：\n{json.dumps(version.analysis_document, ensure_ascii=False)}\n\n"
-                f"行动：\n" + "\n".join(
-                    (item.edited_content or item.content) for item in version.actions
-                ) + "\n\n"
-                f"评分与文字反馈：\n{json.dumps(feedback, ensure_ascii=False)}\n\n"
-                f"冻结来源摘录：\n{json.dumps(source_snapshot, ensure_ascii=False)}"
-            )
     # ai_companion: context 保持为空字符串
 
     # d) 调用 AI 服务

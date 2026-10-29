@@ -1,6 +1,5 @@
 """管理端模型配置服务。"""
 
-from dataclasses import dataclass
 from datetime import datetime
 from typing import Any
 from uuid import UUID
@@ -13,14 +12,11 @@ from utils.crypto import decrypt_text, encrypt_text
 
 MODEL_TYPES = ["language", "asr", "embedding"]
 REASONING_MODES = ["unsupported", "switchable", "always_on"]
-SETTING_KEYS = ["organize", "analysis", "review", "graph", "chat", "transcription", "embedding", "graph_embedding"]
+SETTING_KEYS = ["organize", "analysis", "graph", "chat", "transcription", "graph_embedding"]
 LANGUAGE_CATEGORIES = ["通用对话", "深度推理", "长上下文", "代码能力", "轻量高速"]
 ASR_CATEGORIES = ["实时语音识别", "录音文件识别"]
 EMBEDDING_CATEGORIES = ["文本向量化"]
 
-# 语义检索 embedding 向量维度（与 qwen3.7-text-embedding 默认维、迁移 038 一致）。
-# 换模型需全量重算向量。
-EMBEDDING_DIMENSIONS = 1024
 ABILITY_TIER_ORDER = {
     "T0 旗舰全能": 1,
     "T0 全能旗舰": 1,
@@ -38,11 +34,9 @@ ABILITY_TIER_ORDER = {
 SETTING_REQUIREMENTS = {
     "organize": ("language", "openai_chat"),
     "analysis": ("language", "openai_chat"),
-    "review": ("language", "openai_chat"),
     "graph": ("language", "openai_chat"),
     "chat": ("language", "openai_chat"),
     "transcription": ("asr", "dashscope_asr"),
-    "embedding": ("embedding", "openai_embeddings"),
     "graph_embedding": ("embedding", "openai_embeddings"),
 }
 STEP_SETTING_KEYS = {
@@ -57,9 +51,6 @@ STEP_SETTING_KEYS = {
     "action_planning": "analysis",
     "feedback_core_analysis": "analysis",
     "feedback_cognition_analysis": "analysis",
-    "review_daily_material": "review",
-    "review_event_organize": "review",
-    "review_analysis_action": "review",
     "graph_point_generate": "graph",
     "graph_point_review": "graph",
     "graph_point_combined": "graph",
@@ -79,9 +70,6 @@ STEP_LABELS = {
     "action_planning": "行动规划",
     "feedback_core_analysis": "反馈核心分析",
     "feedback_cognition_analysis": "反馈认知分析",
-    "review_daily_material": "每日周回顾素材",
-    "review_event_organize": "回顾事件组织",
-    "review_analysis_action": "回顾分析与行动",
     "graph_point_generate": "事件要点生成",
     "graph_point_review": "修正版独立复核",
     "graph_point_combined": "要点审核与修正",
@@ -502,7 +490,7 @@ def save_model_settings(
         channel_model = _load_channel_model(db, data.get("channel_model_id"))
         validate_setting_choice(setting_key, channel_model)
         thinking_enabled = data.get("thinking_enabled")
-        if setting_key in {"transcription", "embedding", "graph_embedding"}:
+        if setting_key in {"transcription", "graph_embedding"}:
             if thinking_enabled is not None:
                 raise ModelConfigError(f"{setting_key} 不能配置思考模式")
         elif not isinstance(thinking_enabled, bool):
@@ -543,7 +531,7 @@ def save_model_settings(
         step_map = {item.step_key: item for item in db.query(ModelStepSetting).all()}
         for key, setting in setting_map.items():
             validate_setting_choice(key, setting.channel_model)
-            if key not in {"transcription", "embedding", "graph_embedding"}:
+            if key not in {"transcription", "graph_embedding"}:
                 validate_thinking_choice(setting.channel_model, bool(setting.thinking_enabled), key)
         for step_key, setting_key in STEP_SETTING_KEYS.items():
             default = setting_map.get(setting_key)
@@ -623,38 +611,3 @@ def decrypt_channel_key(channel: ApiChannel) -> str:
     if not channel.api_key_encrypted:
         raise ModelConfigError("渠道未配置密钥")
     return decrypt_text(channel.api_key_encrypted)
-
-
-@dataclass(frozen=True)
-class EmbeddingConfig:
-    """语义检索 embedding 模型配置（来自管理端 DB 托管的 EMBEDDING 用途设置）。"""
-
-    api_key: str
-    api_base_url: str
-    model_name: str
-    dimensions: int = EMBEDDING_DIMENSIONS
-
-
-def get_embedding_config() -> EmbeddingConfig:
-    """返回语义检索 embedding 模型配置。
-
-    配置来源：管理端 DB 托管的 EMBEDDING setting_key（与 chat/organize 等一致，
-    由 ModelSetting + ChannelModel + ApiChannel 解析）。embedding 模型需在模型目录中
-    注册为 embedding 类型、reasoning_mode=unsupported；向量化用途不配置思考模式。
-
-    Returns:
-        EmbeddingConfig：含 api_key / api_base_url / model_name / dimensions。
-
-    Raises:
-        ModelRuntimeError: EMBEDDING 用途未配置可用模型（请在管理端模型设置中配置）。
-    """
-    # 延迟导入避免与 model_runtime 形成循环依赖（model_runtime 已导入本模块）。
-    from services.model_runtime import resolve_model_setting
-
-    runtime = resolve_model_setting("embedding")
-    return EmbeddingConfig(
-        api_key=runtime.api_key,
-        api_base_url=runtime.api_base_url,
-        model_name=runtime.model_name,
-        dimensions=EMBEDDING_DIMENSIONS,
-    )

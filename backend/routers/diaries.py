@@ -43,7 +43,6 @@ from schemas.diary import (
     DiaryAnnotationCreate,
     DiaryAnnotationResponse,
 )
-from schemas.search import SearchListResponse
 from services.ai import ai_service
 from services.analysis_history import (
     ALL_ANALYSIS_TYPES,
@@ -52,7 +51,6 @@ from services.analysis_history import (
     effective_feedback,
     get_current_analysis_run,
 )
-from services.search_service import search_diaries as search_diaries_service
 from services.auth import get_current_user
 from services.graph_runtime import GraphError
 from services.graph_tasks import assert_source_writable, can_retry_task
@@ -468,7 +466,7 @@ def active_diary_query(db: Session, current_user: User):
 
 
 # ─────────────────── 创建 / 列表 / 日历 / 搜索 ───────────────────
-# 注意：静态路径（calendar、search）必须在 {diary_id} 之前注册，
+# 注意：静态路径（calendar）必须在 {diary_id} 之前注册，
 # 否则会被 {diary_id} 匹配。
 
 
@@ -742,41 +740,6 @@ def get_calendar_days(
     ]
 
 
-@router.get("/search", response_model=SearchListResponse)
-def search_diaries(
-    q: str = Query(..., min_length=1, description="搜索关键词（必填，至少 1 个字符）"),
-    start_date: Optional[date] = Query(None, description="起始日期 YYYY-MM-DD（基于 diary.diary_date）"),
-    end_date: Optional[date] = Query(None, description="结束日期 YYYY-MM-DD（基于 diary.diary_date）"),
-    limit: int = Query(20, ge=1, le=100, description="每页数量"),
-    offset: int = Query(0, ge=0, description="偏移量"),
-    db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user),
-):
-    """统一搜索：按日记聚合关键词与语义命中，分页返回日记结果卡。
-
-    检索范围：DiaryEvent 的 event_title/body/feeling/reflection + 关联 EVENT 作用域
-    analysis_items 的 content/question。按 user_id 隔离、过滤 status∈(organized,analyzed)、
-    过滤软删除、按所属 diary.diary_date 做日期范围筛选。
-
-    关键词严格大小写不敏感子串匹配；语义服务不可用时仍返回关键词结果。
-    """
-    # 日期范围校验（start_date 不能晚于 end_date）
-    if start_date and end_date and start_date > end_date:
-        raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail="start_date 不能晚于 end_date",
-        )
-
-    items, total, semantic_status = search_diaries_service(
-        db=db,
-        user_id=current_user.id,
-        q=q,
-        start_date=start_date,
-        end_date=end_date,
-        limit=limit,
-        offset=offset,
-    )
-    return SearchListResponse(items=items, total=total, semantic_status=semantic_status)
 
 
 def serialize_favorite(favorite: Favorite, db: Session, user_id: UUID) -> dict:

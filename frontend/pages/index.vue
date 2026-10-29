@@ -20,78 +20,8 @@
       </div>
     </div>
 
-    <!-- 搜索框 -->
-    <div class="px-4 py-3 space-y-2">
-      <div class="relative">
-        <input
-          v-model="searchQuery"
-          type="text"
-          placeholder="搜索日记事件..."
-          @keyup.enter="handleSearch"
-          class="w-full pl-10 pr-4 py-2 rounded-lg bg-neutral-100 text-base sm:text-sm text-neutral-800 placeholder-neutral-400"
-        />
-        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 text-sm">🔍</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <input
-          v-model="searchStartDate"
-          type="date"
-          aria-label="起始日期"
-          class="min-w-0 flex-1 rounded-lg bg-neutral-100 px-2 py-1.5 text-base sm:text-xs text-neutral-700"
-        />
-        <span class="text-xs text-neutral-400">至</span>
-        <input
-          v-model="searchEndDate"
-          type="date"
-          aria-label="结束日期"
-          class="min-w-0 flex-1 rounded-lg bg-neutral-100 px-2 py-1.5 text-base sm:text-xs text-neutral-700"
-        />
-      </div>
-    </div>
-
-    <!-- 搜索结果（日记卡，无限滚动） -->
-    <div v-if="searchActive" class="px-4 pb-4">
-      <div class="flex items-center justify-between mb-2">
-        <span class="text-xs text-neutral-500">搜索结果（{{ searchResults.length }} / {{ searchTotal }} 篇）</span>
-        <button @click="clearSearch" class="text-xs text-primary-600">清除</button>
-      </div>
-      <div v-if="semanticStatus === 'PARTIAL'" class="mb-2 rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-700">部分语义索引仍在生成中，当前结果已基于可用内容返回。</div>
-      <div v-else-if="semanticStatus === 'UNAVAILABLE'" class="mb-2 rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-700">语义搜索暂不可用，当前结果仅基于关键词。</div>
-      <div v-if="searchLoading && searchResults.length === 0" class="text-center text-sm text-neutral-400 py-6">搜索中...</div>
-      <div v-else-if="searchResults.length === 0" class="text-center text-sm text-neutral-400 py-6">未找到相关日记</div>
-      <div v-else class="space-y-2">
-        <div
-          v-for="item in searchResults"
-          :key="item.diary_id"
-          class="rounded-xl border border-neutral-100 bg-white p-4 shadow-sm"
-        >
-          <NuxtLink :to="`/diary/${item.diary_id}`" class="block active:bg-neutral-50">
-            <div class="flex items-center justify-between gap-3">
-              <h2 class="min-w-0 truncate text-sm font-medium text-neutral-800">{{ item.title || '未命名日记' }}</h2>
-              <time class="shrink-0 text-xs text-neutral-400">{{ formatDateInAppTimeZone(item.diary_date) }}</time>
-            </div>
-            <div class="mt-3 space-y-2">
-              <div v-for="(match, index) in visibleSearchMatches(item)" :key="`${match.event_id}-${match.kind}-${index}`" class="text-sm leading-6 text-neutral-600 line-clamp-2">
-                <span v-if="match.semantic_layer" class="mr-1 rounded bg-primary-50 px-1.5 py-0.5 text-[10px] text-primary-700">{{ semanticLayerLabel(match.semantic_layer) }}</span>
-                <template v-for="(part, partIndex) in highlightSearchSnippet(match.snippet, match.keyword_matched)" :key="partIndex">
-                  <mark v-if="match.keyword_matched && partIndex % 2 === 1" class="bg-transparent text-red-600">{{ part }}</mark>
-                  <template v-else>{{ part }}</template>
-                </template>
-              </div>
-            </div>
-          </NuxtLink>
-          <button v-if="item.matches.length > 3" type="button" class="mt-2 text-xs text-primary-600" @click.prevent="toggleSearchMatches(item.diary_id)">
-            {{ searchMatchesExpanded(item.diary_id) ? '收起命中' : `展开全部命中（${item.matches.length}）` }}
-          </button>
-        </div>
-        <div ref="searchSentinel" class="h-8 text-center text-xs text-neutral-400">
-          {{ searchLoading ? '加载中...' : searchHasMore ? '继续下滑加载更多' : '已显示全部结果' }}
-        </div>
-      </div>
-    </div>
-
     <!-- 视图切换：日历 / 时间线 / 收藏 -->
-    <div v-if="!searchActive" class="px-4 flex gap-2 mb-3">
+    <div class="px-4 flex gap-2 mb-3">
       <button
         v-for="mode in viewModes"
         :key="mode.key"
@@ -107,48 +37,7 @@
       </button>
     </div>
 
-    <!-- 每日凝练视图 -->
-    <div v-if="!searchActive && viewMode === 'daily-digests'" class="flex-1 px-4 pb-20">
-      <div v-if="dailyDigestLoading" class="text-center text-sm text-neutral-400 py-6">加载中...</div>
-      <div v-else-if="dailyDigests.length === 0" class="text-center text-sm text-neutral-400 py-10">
-        暂无已生成的每日凝练
-      </div>
-      <div v-else class="space-y-3">
-        <NuxtLink
-          v-for="digest in dailyDigests"
-          :key="digest.id"
-          :to="`/daily-digests/${digest.id}`"
-          class="block rounded-lg bg-white p-4 active:bg-neutral-50"
-        >
-          <div class="flex items-center justify-between gap-3">
-            <div class="text-sm font-medium text-neutral-800">
-              {{ formatDateInAppTimeZone(digest.digest_date) }} {{ weekDayInAppTimeZone(digest.digest_date) }}
-            </div>
-            <span class="text-xs text-primary-600">查看详情 ›</span>
-          </div>
-          <div class="mt-3">
-            <div class="text-xs text-neutral-400">主要变化</div>
-            <ul v-if="digest.material_document.day_overview.main_changes.length" class="mt-1 space-y-1 text-sm leading-6 text-neutral-700">
-              <li v-for="item in digest.material_document.day_overview.main_changes" :key="item">· {{ item }}</li>
-            </ul>
-            <p v-else class="mt-1 text-sm text-neutral-400">暂无主要变化</p>
-          </div>
-          <div class="mt-3">
-            <div class="text-xs text-neutral-400">整体状态</div>
-            <div v-if="digest.material_document.day_overview.overall_state.length" class="mt-1 flex flex-wrap gap-2">
-              <span v-for="item in digest.material_document.day_overview.overall_state" :key="item" class="rounded-full bg-primary-50 px-2.5 py-1 text-xs text-primary-700">{{ item }}</span>
-            </div>
-            <p v-else class="mt-1 text-sm text-neutral-400">暂无整体状态</p>
-          </div>
-        </NuxtLink>
-        <div ref="dailyDigestSentinel" class="h-8 text-center text-xs text-neutral-400">
-          {{ dailyDigestLoadingMore ? '加载中...' : dailyDigestHasMore ? '继续下滑加载更多' : '已显示全部每日凝练' }}
-        </div>
-      </div>
-    </div>
-
-    <!-- 收藏视图 -->
-    <div v-if="!searchActive && viewMode === 'favorites'" class="flex-1 px-4 pb-20">
+    <div v-if="viewMode === 'favorites'" class="flex-1 px-4 pb-20">
       <div class="flex gap-2 mb-3">
         <button
           v-for="filter in favoriteFilters"
@@ -197,7 +86,7 @@
     </div>
 
     <!-- 日历视图 -->
-    <div v-if="!searchActive && viewMode === 'calendar'" class="flex-1 px-4 pb-20">
+    <div v-if="viewMode === 'calendar'" class="flex-1 px-4 pb-20">
       <div class="bg-white rounded-lg p-4">
         <!-- 星期标题 -->
         <div class="grid grid-cols-7 gap-1 mb-2">
@@ -237,7 +126,7 @@
     </div>
 
     <!-- 时间线视图 -->
-    <div v-if="!searchActive && viewMode === 'timeline'" class="flex-1 px-4 pb-20">
+    <div v-if="viewMode === 'timeline'" class="flex-1 px-4 pb-20">
       <div v-if="timelineLoading" class="text-center text-sm text-neutral-400 py-6">
         加载中...
       </div>
@@ -308,9 +197,7 @@
 <script setup lang="ts">
 // 日记浏览页（主页）：使用 default 布局（带 Tab 栏）
 import { addDaysToDateKey, dateKeyInAppTimeZone, formatDateInAppTimeZone, formatDateTimeInAppTimeZone, weekDayInAppTimeZone } from '~/utils/datetime'
-import type { Diary, DiaryBrowseItem, DiaryCalendarDay, ReviewDailyDigest, ReviewDailyDigestList } from '~/types'
-import { useSearch } from '~/composables/useSearch'
-import { splitSearchSnippet } from '~/utils/search-highlight'
+import type { Diary, DiaryBrowseItem, DiaryCalendarDay } from '~/types'
 definePageMeta({
   layout: 'default',
   middleware: 'auth',
@@ -330,74 +217,12 @@ const todayParts = dateKeyInAppTimeZone().split('-').map(Number)
 const currentYear = ref(todayParts[0])
 const currentMonth = ref(todayParts[1])
 
-// 统一搜索（关键词 + 日期范围 + 无限滚动分页）
-const {
-  query: searchQuery,
-  startDate: searchStartDate,
-  endDate: searchEndDate,
-  results: searchResults,
-  total: searchTotal,
-  loading: searchLoading,
-  hasMore: searchHasMore,
-  semanticStatus,
-  search: doSearch,
-  reset: resetSearch,
-} = useSearch()
-const searchActive = ref(false)
-const searchSentinel = ref<HTMLElement | null>(null)
-let searchObserver: IntersectionObserver | null = null
-const expandedSearchMatchDiaryIds = ref<string[]>([])
-
-const searchMatchesExpanded = (diaryId: string) => expandedSearchMatchDiaryIds.value.includes(diaryId)
-const toggleSearchMatches = (diaryId: string) => {
-  expandedSearchMatchDiaryIds.value = searchMatchesExpanded(diaryId)
-    ? expandedSearchMatchDiaryIds.value.filter(id => id !== diaryId)
-    : [...expandedSearchMatchDiaryIds.value, diaryId]
-}
-const visibleSearchMatches = (item: typeof searchResults.value[number]) =>
-  searchMatchesExpanded(item.diary_id) ? item.matches : item.matches.slice(0, 3)
-const semanticLayerLabel = (layer: string) => ({
-  event_content: '事件内容', self_understanding: '自我理解', cognition: '认知整理',
-}[layer] || '语义匹配')
-const highlightSearchSnippet = (text: string, matched: boolean) => {
-  return splitSearchSnippet(text, searchQuery.value.trim(), matched)
-}
-
-const handleSearch = async () => {
-  if (!searchQuery.value.trim()) return
-  searchActive.value = true
-  await doSearch(true)
-}
-
-const clearSearch = () => {
-  resetSearch()
-  expandedSearchMatchDiaryIds.value = []
-  searchActive.value = false
-}
-
-const loadMoreSearch = () => {
-  if (!searchActive.value || searchLoading.value || !searchHasMore.value) return
-  doSearch(false)
-}
-
-const handleSearchFavoriteToggle = async (eventId: string) => {
-  const item = searchResults.value.find((r) => r.id === eventId)
-  if (!item) return
-  try {
-    await api(`/diaries/${item.diary_id}/events/${eventId}/favorite`, { method: 'PUT' })
-    item.is_favorite = !item.is_favorite
-  } catch (err) {
-    console.error('收藏事件失败', err)
-  }
-}
-
 // 视图模式
-const viewMode = ref<'calendar' | 'timeline' | 'favorites' | 'daily-digests'>('calendar')
+const viewMode = ref<'calendar' | 'timeline' | 'favorites'>('calendar')
 const viewModes = [
   { key: 'calendar' as const, label: '日历' },
   { key: 'timeline' as const, label: '时间线' },
   { key: 'favorites' as const, label: '★ 收藏' },
-  { key: 'daily-digests' as const, label: '每日凝练' },
 ]
 
 // 星期标题
@@ -424,14 +249,6 @@ const timelineOffset = ref(0)
 const timelinePageSize = 20
 const timelineSentinel = ref<HTMLElement | null>(null)
 let timelineObserver: IntersectionObserver | null = null
-const dailyDigests = ref<ReviewDailyDigest[]>([])
-const dailyDigestLoading = ref(false)
-const dailyDigestLoadingMore = ref(false)
-const dailyDigestHasMore = ref(true)
-const dailyDigestLoaded = ref(false)
-const dailyDigestCursor = ref<string | null>(null)
-const dailyDigestSentinel = ref<HTMLElement | null>(null)
-let dailyDigestObserver: IntersectionObserver | null = null
 const pageStateKey = 'diary-platform:diary-index-state'
 const browseCache = useState<{
   calendarKey: string | null
@@ -579,43 +396,6 @@ const loadMoreTimeline = async () => {
   }
 }
 
-const loadDailyDigests = async () => {
-  if (dailyDigestLoading.value) return
-  dailyDigestLoading.value = true
-  dailyDigestCursor.value = null
-  dailyDigestHasMore.value = true
-  try {
-    const page = await api<ReviewDailyDigestList>('/daily-digests', { params: { limit: 10 } })
-    dailyDigests.value = page.items
-    dailyDigestLoaded.value = true
-    dailyDigestCursor.value = page.next_cursor
-    dailyDigestHasMore.value = !!page.next_cursor
-  } catch (err) {
-    console.error('加载每日凝练失败', err)
-    dailyDigests.value = []
-    dailyDigestHasMore.value = false
-  } finally {
-    dailyDigestLoading.value = false
-  }
-}
-
-const loadMoreDailyDigests = async () => {
-  if (dailyDigestLoading.value || dailyDigestLoadingMore.value || !dailyDigestHasMore.value || !dailyDigestCursor.value) return
-  dailyDigestLoadingMore.value = true
-  try {
-    const page = await api<ReviewDailyDigestList>('/daily-digests', {
-      params: { limit: 10, cursor: dailyDigestCursor.value },
-    })
-    dailyDigests.value.push(...page.items)
-    dailyDigestCursor.value = page.next_cursor
-    dailyDigestHasMore.value = !!page.next_cursor
-  } catch (err) {
-    console.error('加载更多每日凝练失败', err)
-  } finally {
-    dailyDigestLoadingMore.value = false
-  }
-}
-
 const loadFavorites = async () => {
   if (favoritesLoading.value || favoritesLoaded.value) return
   favoritesLoading.value = true
@@ -659,7 +439,6 @@ const handleDateClick = (day: number) => {
   }
 }
 
-// 搜索与清除逻辑见上方 useSearch 封装（handleSearch / clearSearch / loadMoreSearch）
 
 // ── 快捷日期筛选 ──
 type FilterKey = 'today' | 'yesterday' | 'week' | 'last7' | 'month'
@@ -797,9 +576,6 @@ watch(viewMode, (newMode) => {
   if (newMode === 'favorites') {
     loadFavorites()
   }
-  if (newMode === 'daily-digests' && !dailyDigestLoaded.value) {
-    loadDailyDigests()
-  }
 })
 
 const savePageState = () => {
@@ -818,7 +594,7 @@ onMounted(() => {
   if (saved) {
     try {
       const state = JSON.parse(saved)
-      if (['calendar', 'timeline', 'favorites', 'daily-digests'].includes(state.viewMode)) viewMode.value = state.viewMode
+      if (['calendar', 'timeline', 'favorites'].includes(state.viewMode)) viewMode.value = state.viewMode
       if (Number.isInteger(state.year) && Number.isInteger(state.month)) {
         currentYear.value = state.year
         currentMonth.value = state.month
@@ -833,14 +609,6 @@ onMounted(() => {
     if (entries.some(entry => entry.isIntersecting)) loadMoreTimeline()
   })
   if (timelineSentinel.value) timelineObserver.observe(timelineSentinel.value)
-  searchObserver = new IntersectionObserver(entries => {
-    if (entries.some(entry => entry.isIntersecting)) loadMoreSearch()
-  })
-  if (searchSentinel.value) searchObserver.observe(searchSentinel.value)
-  dailyDigestObserver = new IntersectionObserver(entries => {
-    if (entries.some(entry => entry.isIntersecting)) loadMoreDailyDigests()
-  })
-  if (dailyDigestSentinel.value) dailyDigestObserver.observe(dailyDigestSentinel.value)
   window.addEventListener('scroll', savePageState, { passive: true })
   homeRefreshRoot.value?.addEventListener('touchstart', onRefreshTouchStart, { passive: true })
   homeRefreshRoot.value?.addEventListener('touchmove', onRefreshTouchMove, { passive: false })
@@ -852,19 +620,9 @@ watch(timelineSentinel, element => {
   if (element && timelineObserver) timelineObserver.observe(element)
 })
 
-watch(searchSentinel, element => {
-  if (element && searchObserver) searchObserver.observe(element)
-})
-
-watch(dailyDigestSentinel, element => {
-  if (element && dailyDigestObserver) dailyDigestObserver.observe(element)
-})
-
 onBeforeUnmount(() => {
   savePageState()
   timelineObserver?.disconnect()
-  dailyDigestObserver?.disconnect()
-  searchObserver?.disconnect()
   window.removeEventListener('scroll', savePageState)
   homeRefreshRoot.value?.removeEventListener('touchstart', onRefreshTouchStart)
   homeRefreshRoot.value?.removeEventListener('touchmove', onRefreshTouchMove)
@@ -910,9 +668,7 @@ const refreshHome = async () => {
   if (refreshing.value) return
   refreshing.value = true
   try {
-    if (searchActive.value) {
-      await doSearch(true)
-    } else if (viewMode.value === 'calendar') {
+    if (viewMode.value === 'calendar') {
       browseCache.value.calendarLoaded = false
       await loadCalendar()
     } else if (viewMode.value === 'timeline') {
@@ -921,10 +677,6 @@ const refreshHome = async () => {
     } else if (viewMode.value === 'favorites') {
       favoritesLoaded.value = false
       await loadFavorites()
-    } else {
-      dailyDigestLoaded.value = false
-      dailyDigests.value = []
-      await loadDailyDigests()
     }
   } finally {
     refreshing.value = false

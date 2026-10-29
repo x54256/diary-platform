@@ -87,9 +87,4 @@ def apply_organized_update(db, diary, update_data, user_id):
             plans=json.loads(organized.plans) if isinstance(organized.plans, str) else (organized.plans or []),
         )
 
-    if structured_changed:
-        db.flush()
-        from services.search_indexing import refresh_changed_event_search_indexes
-        for event in organized.events:
-            refresh_changed_event_search_indexes(db, event.id, include_event_content=True, include_analysis=False)
     return organized

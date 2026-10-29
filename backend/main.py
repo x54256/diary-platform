@@ -14,11 +14,9 @@ from routers.tags import router as tags_router
 from routers.dialogs import router as dialogs_router
 from routers.admin_backup import router as admin_backup_router
 from routers.admin_models import router as admin_models_router
-from routers.admin_search import router as admin_search_router
 from routers.transcriptions import router as transcriptions_router
 from routers.schedules import router as schedules_router
 from routers.voice_profile import router as voice_profile_router
-from routers.reviews import router as reviews_router
 from routers.actions import router as actions_router
 from routers.graph import router as graph_router
 from routers.skill_api import router as skill_api_router
@@ -131,11 +129,9 @@ api_router.include_router(tags_router)
 api_router.include_router(dialogs_router)
 api_router.include_router(admin_backup_router)
 api_router.include_router(admin_models_router)
-api_router.include_router(admin_search_router)
 api_router.include_router(transcriptions_router)
 api_router.include_router(schedules_router)
 api_router.include_router(voice_profile_router)
-api_router.include_router(reviews_router)
 api_router.include_router(actions_router)
 api_router.include_router(graph_router)
 api_router.include_router(skill_api_router)
@@ -165,12 +161,6 @@ async def startup():
     await schedule_occurrence_scheduler.start()
     from services.transcription_tasks import transcription_task_manager
     await transcription_task_manager.start()
-    from services.review_tasks import review_task_manager
-    await review_task_manager.start()
-    from services.search_rebuild_jobs import search_index_rebuild_scheduler
-    await search_index_rebuild_scheduler.start()
-    from services.search_rebuild_jobs import search_index_maintenance_scheduler
-    await search_index_maintenance_scheduler.start()
     from services.graph_tasks import graph_task_manager
     await graph_task_manager.start()
 
@@ -185,12 +175,6 @@ async def shutdown():
     await schedule_occurrence_scheduler.stop()
     from services.transcription_tasks import transcription_task_manager
     await transcription_task_manager.stop()
-    from services.review_tasks import review_task_manager
-    await review_task_manager.stop()
-    from services.search_rebuild_jobs import search_index_rebuild_scheduler
-    await search_index_rebuild_scheduler.stop()
-    from services.search_rebuild_jobs import search_index_maintenance_scheduler
-    await search_index_maintenance_scheduler.stop()
 
 
 def _recover_stuck_tasks():

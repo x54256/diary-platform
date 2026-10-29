@@ -4,7 +4,7 @@ import enum
 import uuid
 from datetime import datetime
 
-from sqlalchemy import Column, Text, DateTime, Enum, ForeignKey, Index, text
+from sqlalchemy import Column, Text, DateTime, Enum, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
@@ -15,7 +15,7 @@ class SourceType(enum.Enum):
     """对话来源类型枚举"""
 
     diary_detail = "diary_detail"    # 日记详情对话
-    review = "review"                # 复盘对话
+    review = "review"                # 历史回顾来源，仅用于兼容既有数据
     ai_companion = "ai_companion"    # AI 伙伴对话
 
 
@@ -30,14 +30,6 @@ class Dialog(Base):
     """对话表"""
 
     __tablename__ = "dialogs"
-    __table_args__ = (
-        Index(
-            "uq_dialogs_user_review_source",
-            "user_id", "source_type", "source_id",
-            unique=True,
-            postgresql_where=text("source_type = 'review' AND source_id IS NOT NULL"),
-        ),
-    )
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)

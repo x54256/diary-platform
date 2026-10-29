@@ -40,7 +40,7 @@ class RuntimeModelConfig:
 
 
 # 语义检索 embedding 默认模型名（决策 12）：未配置 EMBEDDING 用途时的回退值。
-# 维度与迁移 038、embedding_client 一致（1024）。仅作模型名回退；api_key /
+# 图谱向量维度固定为 1024。仅作模型名回退；api_key /
 # api_base_url 仍须来自管理端 DB 配置，否则上层 fail-open 降级为关键词召回。
 EMBEDDING_MODEL_DEFAULT = "qwen3.7-text-embedding"
 
