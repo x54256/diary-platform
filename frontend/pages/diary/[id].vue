@@ -1800,16 +1800,44 @@ watch(() => route.hash, async hash => {
   if (hash.startsWith('#event-')) { await setDiaryView('list'); await scrollToEventAnchor() }
 })
 
+const restoreDiaryDisplay = () => {
+  let saved: { view?: string; scrollTop?: number } | null = null
+  try { saved = JSON.parse(sessionStorage.getItem(viewStorageKey()) || 'null') } catch { /* 忽略损坏的页面状态 */ }
+  if (route.query.view === 'graph') {
+    diaryView.value = 'graph'
+    graphMounted.value = true
+    pointsMounted.value = false
+    return
+  }
+  if (route.query.view === 'points') {
+    diaryView.value = 'points'
+    graphMounted.value = false
+    pointsMounted.value = true
+    return
+  }
+  if (saved && window.history.state?.diaryDisplay === viewStorageKey()) {
+    diaryView.value = saved.view === 'graph' ? 'graph' : saved.view === 'points' ? 'points' : 'list'
+    graphMounted.value = diaryView.value === 'graph'
+    pointsMounted.value = diaryView.value === 'points'
+    listScrollTop = Number(saved.scrollTop) || 0
+  } else {
+    diaryView.value = 'list'
+    graphMounted.value = false
+    pointsMounted.value = false
+  }
+}
+
+watch(diaryId, async () => {
+  activeTab.value = 'diary'
+  diary.value = null
+  restoreDiaryDisplay()
+  await loadDiary()
+})
+
 // ───────────────── 初始化 ─────────────────
 onMounted(async () => {
   try {
-    const saved = JSON.parse(sessionStorage.getItem(viewStorageKey()) || 'null')
-    if (saved && window.history.state?.diaryDisplay === viewStorageKey() && !route.hash.startsWith('#event-')) {
-      diaryView.value = saved.view === 'graph' ? 'graph' : saved.view === 'points' ? 'points' : 'list'
-      graphMounted.value = diaryView.value === 'graph'
-      pointsMounted.value = diaryView.value === 'points'
-      listScrollTop = Number(saved.scrollTop) || 0
-    }
+    restoreDiaryDisplay()
   } catch { /* 无缓存时默认列表 */ }
   await loadDiary()
   if (diaryView.value === 'list' && !route.hash && diaryContentRef.value) diaryContentRef.value.scrollTop = listScrollTop
