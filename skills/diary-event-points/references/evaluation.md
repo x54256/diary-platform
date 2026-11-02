@@ -16,6 +16,8 @@ backend/venv/bin/python -m unittest discover -s skills/diary-event-points/script
 
 ## 行为试跑
 
+批量向量回归还须覆盖：完整详情数组、乱序响应的正确索引映射、缺失／重复／越界／布尔索引拒绝、跨批失败后只恢复未完成批次、正式要点无半套保存，以及无批量字段的旧配置保持单条。外部服务使用替身，实际代理的批量能力另行验收。
+
 入库脚本变更后运行 `backend/venv/bin/python -m unittest discover -s skills/diary-event-points/scripts -p 'test_store_points.py' -v`。使用隔离数据库验证原文不改写、审核来源、用户归属、来源及文件变化拒绝、全部事件覆盖、无关元数据变化不影响保存、旧包仅供状态查询、只读默认、同包幂等、事务回滚、失败恢复、向量复用，以及仅调用向量模型后保存为 `POINTS_READY`。外部调用使用替身；这不代表真实服务或 PostgreSQL 约束已验收。真实写入须有用户授权。
 
 `../evals/cases.json` 包含合成输入及核对条件。执行者只获得 Skill、用户请求与输入，不获得核对条件或预期答案。使用独立临时目录，禁止连接数据库、在线模型服务或修改真实日记。

@@ -78,6 +78,14 @@ backend/venv/bin/python skills/diary-event-points/scripts/store_points.py save \
 
 ## 4. 查询与恢复
 
+### 同步批量向量
+
+新预检将 `embedding_batch_size` 冻结到配置：`qwen3.7-text-embedding` / `qwen3.7-text-embedding-flash` 为20，`text-embedding-v3` / `text-embedding-v4` 为10，其他模型为1。上限依据[服务同步 API 文档](https://help.aliyun.com/en/model-studio/text-embedding-synchronous-api)，兼容代理是否支持仍须实际验收；不支持时报告错误，不静默换模型或目的地。旧配置缺失该字段时仍按1处理。
+
+每批发送独立的完整详情数组，不改变模型标识或1024维要求。响应可乱序，但索引必须是完整且无重复的整数序列，每条向量均须合法；全部校验通过后按索引映射到要点 UUID，并以单写者更新检查点。批次审计键绑定有序要点 UUID，请求哈希绑定输入。失败保留已成功批次，按原包恢复；若响应已审计而检查点尚未保存，既有审计缓存可恢复同一请求。全部向量完成后仍执行最终来源复验和原子保存。这是同步多输入，不是离线 Batch 作业。
+
+### 查询状态
+
 ```bash
 backend/venv/bin/python skills/diary-event-points/scripts/store_points.py status RUN_DIR/入库包-仅要点.json
 ```

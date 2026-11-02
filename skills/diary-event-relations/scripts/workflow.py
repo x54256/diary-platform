@@ -194,16 +194,29 @@ def payload(snapshot, pairs):
 
 def batches(snapshot):
     config = snapshot['config']
+    order = config.get('batch_order', 'source')
+    require(order in ('source', 'shared_event_v1'), '未知分批顺序')
     def fits(items):
         return (len(items) <= config['max_pairs_per_batch'] and
                 len(json.dumps(payload(snapshot, items), ensure_ascii=False, separators=(',', ':'))) <= config['max_batch_chars'])
-    groups, group = [], []
-    for pair in snapshot['pairs']:
-        require(fits([pair]), '单事件对完整资料超过字符预算；提高 max_batch_chars 后重新准备，不得截断')
-        if group and not fits(group + [pair]):
-            groups.append(group); group = []
-        group.append(pair)
-    if group: groups.append(group)
+    def pack(pairs):
+        groups, group = [], []
+        for pair in pairs:
+            require(fits([pair]), '单事件对完整资料超过字符预算；提高 max_batch_chars 后重新准备，不得截断')
+            if group and not fits(group + [pair]):
+                groups.append(group); group = []
+            group.append(pair)
+        if group: groups.append(group)
+        return groups
+    groups = pack(snapshot['pairs'])
+    if order == 'shared_event_v1':
+        grouped = pack(sorted(snapshot['pairs'], key=lambda p: (
+            max(p['event_a'], p['event_b']), min(p['event_a'], p['event_b']))))
+        def cost(items):
+            return (sum(len(json.dumps(payload(snapshot, g), ensure_ascii=False,
+                                       separators=(',', ':'))) for g in items), len(items))
+        # 不改变召回及 pair_id；仅在完整输入体积更小时采用新顺序。
+        if cost(grouped) < cost(groups): groups = grouped
     return [{'batch_id': f'B{i:03}', 'pair_ids': [p['pair_id'] for p in group],
              'payload': payload(snapshot, group)} for i,group in enumerate(groups, 1)]
 

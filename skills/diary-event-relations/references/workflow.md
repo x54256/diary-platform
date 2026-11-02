@@ -54,6 +54,14 @@ backend/venv/bin/python skills/diary-event-relations/scripts/workflow.py read RU
 
 ## 完成与数据库复验
 
+### 分组与读取复用
+
+新运行配置 `batch_order=shared_event_v1`：比较原候选顺序与按共享端点分组后的完整输入体积，只在分组更省时采用；相同体积时优先较少批次。该策略不增减候选，不改变 pair_id、召回分数、详情或预算，实际判断顺序以批次清单为准。旧运行缺少该字段时保持原始顺序，校验旧包时不套用当前设置。
+
+同一冻结包中的事件通过 `package_sha256 + 事件别名` 定位。当前上下文已完整读取且仍保有其全部详情时，后续配对可复用这些内容；不能仅凭已读标记、标题或摘要判断。切换包、恢复后详情不可用或显示截断时重新读全。现有 `read` 仍输出本批全部事件详情，不隐式省略资料。
+
+### 完成命令
+
 ```bash
 backend/venv/bin/python skills/diary-event-relations/scripts/workflow.py check RUN_DIR
 backend/venv/bin/python skills/diary-event-relations/scripts/workflow.py verify RUN_DIR

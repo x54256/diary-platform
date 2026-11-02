@@ -28,17 +28,27 @@ def history_context(conn, snapshot):
         require(inventory == snapshot['history_inventory'], '历史正式要点已变化，请新建关系识别运行')
     byid = {e['id']: e for e in events}
     edges = []
-    for row in query(conn, """SELECT e.id,e.run_id,e.source_event_id,e.target_event_id,
+    relations = query(conn, """SELECT e.id,e.run_id,e.source_event_id,e.target_event_id,
              e.source_run_id,e.target_run_id,e.description,e.certainty
              FROM graph_event_relations e JOIN graph_runs r ON r.id=e.run_id AND r.user_id=e.user_id
              WHERE e.user_id=:uid AND r.status='PUBLISHED' AND r.diary_date<:day
-             AND e.relation_type='后续事件' ORDER BY e.id""", {'uid': uid, 'day': day}):
+             AND e.relation_type='后续事件' ORDER BY e.id""", {'uid': uid, 'day': day})
+    proofs = {}
+    # 只查询已按用户筛选出的关系；分块避免数据库参数上限，不放松逐条归属校验。
+    for start in range(0, len(relations), 500):
+        params = {f'r{i}': str(row['id']) for i, row in enumerate(relations[start:start + 500])}
+        placeholders = ','.join(':' + key for key in params)
+        for p in query(conn, 'SELECT relation_id,side,point_id,point_event_id,point_run_id '
+                       f'FROM graph_relation_evidence WHERE relation_id IN ({placeholders}) '
+                       'ORDER BY relation_id,side,point_id', params):
+            proofs.setdefault(str(p['relation_id']), []).append(p)
+    for row in relations:
         a, b = str(row['source_event_id']), str(row['target_event_id'])
         require(a in byid and b in byid, '历史后续边端点已失效，不能静默排除')
         require(byid[a]['run_id'] == str(row['source_run_id']) and
                 byid[b]['run_id'] == str(row['target_run_id']), '历史后续边引用过期运行')
         proof = []
-        for p in query(conn, 'SELECT side,point_id,point_event_id,point_run_id FROM graph_relation_evidence WHERE relation_id=:id ORDER BY side,point_id', {'id': str(row['id'])}):
+        for p in proofs.get(str(row['id']), []):
             require(p['side'] in ('SOURCE', 'TARGET'), '历史证据侧别非法')
             eid = a if p['side'] == 'SOURCE' else b
             require(str(p['point_event_id']) == eid and str(p['point_run_id']) == byid[eid]['run_id'], '历史证据归属错误')
