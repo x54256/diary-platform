@@ -64,10 +64,10 @@
         </div>
         <template v-if="selectedRelation">
           <span v-if="selectedRelation.certainty === 'SPECULATIVE'" class="mt-1 inline-block text-xs text-amber-700">推测关系</span>
-          <p class="mt-2 whitespace-pre-wrap break-words text-sm leading-6 text-neutral-700">{{ selectedRelation.description || '暂无关系描述' }}</p>
+          <p class="mt-2 whitespace-pre-wrap break-words diary-reading">{{ selectedRelation.description || '暂无关系描述' }}</p>
           <div v-for="side in evidenceSides" :key="side.label" class="mt-2">
             <p class="text-xs font-medium text-neutral-500">{{ side.label }}<span v-if="side.event?.title"> · {{ side.event.title }}</span></p>
-            <ol v-if="side.points.length" class="mt-1 space-y-1 text-sm leading-6 text-neutral-700">
+            <ol v-if="side.points.length" class="mt-1 space-y-1 diary-reading">
               <li v-for="point in side.points" :key="point.id" class="flex gap-1.5 whitespace-pre-wrap break-words">
                 <span class="shrink-0 font-medium">{{ point.no }}.</span><span class="min-w-0">{{ point.summary }}</span>
               </li>
@@ -75,7 +75,7 @@
             <p v-else class="mt-1 text-sm text-neutral-400">暂无关联要点</p>
           </div>
         </template>
-        <ol v-else-if="selectedEvent && selectedEvent.points.length" class="mt-2 space-y-1 text-sm leading-6 text-neutral-700">
+        <ol v-else-if="selectedEvent && selectedEvent.points.length" class="mt-2 space-y-1 diary-reading">
           <li v-for="point in selectedEvent.points" :key="point.id" class="flex gap-1.5 whitespace-pre-wrap break-words">
             <span class="shrink-0 font-medium">{{ point.no }}.</span><span class="min-w-0">{{ point.summary }}</span>
           </li>
@@ -110,7 +110,7 @@
             </section>
             <section class="detail-block">
               <h4>关系描述</h4>
-              <p class="detail-description">{{ selectedRelation.description || '暂无关系描述' }}</p>
+              <p class="detail-description diary-reading">{{ selectedRelation.description || '暂无关系描述' }}</p>
             </section>
             <section class="detail-block">
               <h4>关系依据</h4>
@@ -119,10 +119,10 @@
                   <h5>{{ side.label }} · {{ side.event?.title || '未命名事件' }}</h5>
                   <template v-if="side.points.length">
                     <div v-for="point in side.points" :key="point.id" class="mt-2">
-                      <p class="evidence-point"><strong>{{ point.no }}.</strong> {{ point.summary }}</p>
+                      <p class="evidence-point diary-reading"><strong>{{ point.no }}.</strong> {{ point.summary }}</p>
                       <details class="mt-1">
                         <summary class="flex min-h-11 cursor-pointer items-center text-sm font-medium text-primary-700">查看原文依据</summary>
-                        <p class="evidence">{{ point.detail }}</p>
+                        <p class="evidence diary-reading">{{ point.detail }}</p>
                       </details>
                     </div>
                   </template>
@@ -137,7 +137,7 @@
             <section class="detail-block">
               <h4>事件要点</h4>
               <div v-if="selectedEvent.points.length" class="event-points">
-                <p v-for="point in selectedEvent.points" :key="point.id" class="event-point"><strong>{{ point.no }}. {{ point.summary }}：</strong>{{ point.detail }}</p>
+                <p v-for="point in selectedEvent.points" :key="point.id" class="event-point diary-reading"><strong>{{ point.no }}. {{ point.summary }}：</strong>{{ point.detail }}</p>
               </div>
               <p v-else class="panel-intro">暂无事件要点</p>
             </section>
@@ -448,7 +448,6 @@ onBeforeUnmount(() => { generation++; if (pendingNodeTap) clearTimeout(pendingNo
 .graph-detail .detail-block { border-color: var(--graph-line); }
 .graph-detail .detail-block h4 { color: var(--graph-muted); }
 .graph-detail .detail-title { color: var(--graph-ink); }
-.graph-detail .detail-description { color: #4b5563; font-size: 14px; line-height: 1.75; }
 .graph-detail .detail-type { color: #a84d28; background: #fdf8f3; }
 .graph-detail .evidence-group { border-color: var(--graph-line); background: #f9fafb; }
 .graph-detail .evidence-group h5 { color: var(--graph-muted); }
@@ -464,15 +463,13 @@ onBeforeUnmount(() => { generation++; if (pendingNodeTap) clearTimeout(pendingNo
 .detail-block { margin-top: 18px; padding-top: 14px; border-top: 1px solid #e5e7eb; }
 .detail-block h4 { margin: 0 0 9px; color: #6b7280; font-size: 12px; font-weight: 600; }
 .event-points { display: grid; gap: 12px; }
-.event-point { margin: 0; color: #374151; font-size: 14px; line-height: 1.75; }
-.event-point strong { color: #1f2937; font-weight: 600; }
+.event-point { margin: 0; }
 .relation-direction { padding: 8px 18px; color: #6b7280; font-size: 13px; }
 .relation-evidence { display: grid; gap: 12px; }
 .evidence-group { padding: 12px; border: 1px solid #e5e7eb; border-radius: 12px; background: #f9fafb; }
 .evidence-group h5 { margin: 0 0 9px; color: #6b7280; font-size: 12px; font-weight: 600; line-height: 1.5; }
-.evidence-point { margin: 0; color: #374151; font-size: 14px; line-height: 1.65; }
-.evidence-point strong { color: #1f2937; }
-.evidence { padding: 12px; border-left: 3px solid #cc6230; border-radius: 4px 10px 10px 4px; background: #fdf8f3; color: #374151; font-size: 14px; line-height: 1.65; white-space: pre-wrap; overflow-wrap: anywhere; }
+.evidence-point { margin: 0; }
+.evidence { padding: 12px; border-left: 3px solid #cc6230; border-radius: 4px 10px 10px 4px; background: #fdf8f3; white-space: pre-wrap; overflow-wrap: anywhere; }
 .connection { width: 100%; min-height: 52px; display: flex; align-items: center; gap: 9px; padding: 8px 10px; border: 0; border-radius: 9px; background: #f3f4f6; cursor: pointer; text-align: left; }
 .connection:hover { background: #e5e7eb; }
 .connection strong { display: block; color: #1f2937; font-size: 14px; line-height: 1.4; }

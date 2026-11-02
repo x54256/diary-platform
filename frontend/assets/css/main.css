@@ -95,6 +95,16 @@
   color: #171717;
 }
 
+/* 事件、要点与图谱共用的正文阅读样式。 */
+.diary-reading {
+  @apply text-base leading-relaxed text-neutral-800;
+}
+
+.diary-reading strong {
+  font-weight: 600;
+  color: inherit;
+}
+
 .favorite-event-highlight {
   box-shadow: 0 0 0 2px #f59e0b;
   transition: box-shadow 240ms ease-out;

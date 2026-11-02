@@ -21,7 +21,7 @@
           </header>
           <div class="px-4 py-3">
             <ol class="space-y-3">
-              <li v-for="point in event.points" :key="point.id" class="whitespace-pre-wrap break-words text-base leading-relaxed text-neutral-800"><strong class="font-semibold">{{ point.no }}. {{ point.summary }}：</strong>{{ point.detail }}</li>
+              <li v-for="point in event.points" :key="point.id" class="diary-reading whitespace-pre-wrap break-words"><strong class="font-semibold">{{ point.no }}. {{ point.summary }}：</strong>{{ point.detail }}</li>
             </ol>
             <section v-if="eventRelations(event.event_id).length" class="mt-5 border-t border-neutral-100 pt-4" :aria-label="`${event.title}的连接关系`">
               <h3 class="mb-3 flex items-center gap-2 text-sm font-medium text-neutral-700">
