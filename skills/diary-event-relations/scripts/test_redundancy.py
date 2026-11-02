@@ -12,6 +12,49 @@ from test_workflow import event, vectors
 
 
 class RedundancyTest(unittest.TestCase):
+    def test_history_evidence_is_bulk_loaded_and_still_checks_ownership(self):
+        a = event('2026-09-07'); b = event('2026-09-08', uid=a['user_id'])
+        events = [a, b]
+        snapshot = {'user_id': a['user_id'], 'diary_date': '2026-09-09'}
+        relations = [{'id': str(i), 'source_event_id': a['id'], 'target_event_id': b['id'],
+                      'source_run_id': a['run_id'], 'target_run_id': b['run_id'],
+                      'description': '延续', 'certainty': 'EXPLICIT'} for i in range(2)]
+        proof = [{'relation_id': row['id'], 'side': side, 'point_id': e['points'][0]['id'],
+                  'point_event_id': e['id'], 'point_run_id': e['run_id']}
+                 for row in relations for side, e in [('SOURCE', a), ('TARGET', b)]]
+        with patch('db_source.database_history', return_value=(events, {}, {})), \
+                patch('db_source.query', side_effect=[relations, proof]) as query:
+            material = r.history_context(None, snapshot)
+        self.assertEqual(len(material['edges']), 2)
+        self.assertEqual(query.call_count, 2)
+        self.assertIn(' IN (', query.call_args.args[1])
+        proof[0]['point_event_id'] = b['id']
+        with patch('db_source.database_history', return_value=(events, {}, {})), \
+                patch('db_source.query', side_effect=[relations, proof]):
+            with self.assertRaisesRegex(w.WorkflowError, '归属错误'):
+                r.history_context(None, snapshot)
+
+    def test_history_evidence_chunks_large_lists_and_skips_empty_lists(self):
+        a = event('2026-09-07'); b = event('2026-09-08', uid=a['user_id'])
+        snapshot = {'user_id': a['user_id'], 'diary_date': '2026-09-09'}
+        relations = [{'id': str(i), 'source_event_id': a['id'], 'target_event_id': b['id'],
+                      'source_run_id': a['run_id'], 'target_run_id': b['run_id'],
+                      'description': '延续', 'certainty': 'EXPLICIT'} for i in range(501)]
+        def query(_conn, sql, params):
+            if 'graph_relation_evidence' not in sql: return relations
+            return [{'relation_id': rid, 'side': side, 'point_id': e['points'][0]['id'],
+                     'point_event_id': e['id'], 'point_run_id': e['run_id']}
+                    for rid in params.values() for side, e in [('SOURCE', a), ('TARGET', b)]]
+        with patch('db_source.database_history', return_value=([a, b], {}, {})), \
+                patch('db_source.query', side_effect=query) as calls:
+            self.assertEqual(len(r.history_context(None, snapshot)['edges']), 501)
+        self.assertEqual(calls.call_count, 3)
+        self.assertEqual([len(c.args[2]) for c in calls.call_args_list[1:]], [500, 1])
+        with patch('db_source.database_history', return_value=([a, b], {}, {})), \
+                patch('db_source.query', return_value=[]) as calls:
+            self.assertEqual(r.history_context(None, snapshot)['edges'], [])
+        self.assertEqual(calls.call_count, 1)
+
     def setup_graph(self, fork=False):
         a=event('2026-09-07');b=event('2026-09-08',uid=a['user_id'])
         c=event('2026-09-09'if fork else'2026-09-10',uid=a['user_id'])

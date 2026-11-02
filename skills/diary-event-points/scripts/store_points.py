@@ -117,7 +117,11 @@ def freeze_embedding_config():
     from services.graph_runtime import freeze_model
     model = freeze_model(resolve_model_setting('graph_embedding'), thinking=False)
     require(model['model_type'] == 'embedding', '配置的用途必须是向量模型')
+    # 未知服务保持单条；已知模型按同步 API 上限批量，冻结到配置以便恢复。
+    batch_size = {'qwen3.7-text-embedding': 20, 'qwen3.7-text-embedding-flash': 20,
+                  'text-embedding-v3': 10, 'text-embedding-v4': 10}.get(model['model_name'], 1)
     return {'models': {'embedding': model}, 'prompts': {}, 'embedding_model': digest(model),
+            'embedding_batch_size': batch_size,
             'embedding_max_chars': settings.GRAPH_EMBEDDING_MAX_CHARS,
             'context_limit': settings.GRAPH_CONTEXT_TOKEN_LIMIT}
 
@@ -335,6 +339,7 @@ async def embed_points(ctx, state):
                     except StorageError: continue
                     cache.setdefault(p['detail'], (v, str(old.id), p['id']))
     reused = dict(state.get('vector_reuse', {}))
+    pending = []
     for work in state['point_work'].values():
         for point in work['points']:
             pid = point['id']
@@ -346,15 +351,30 @@ async def embed_points(ctx, state):
                 vectors[pid] = vector
                 reused[pid] = {'run_id': old_run, 'point_id': old_point}
             else:
-                def check(data):
-                    require(isinstance(data, dict) and isinstance(data.get('data'), list)
-                            and len(data['data']) == 1 and data['data'][0].get('index') == 0,
-                            '向量响应结构不正确')
-                    validate_vector(data['data'][0].get('embedding'))
-                result = await ctx.call('embedding', pid, [point['detail']], check, embedding=True)
-                check(result)
-                vectors[pid] = result['data'][0]['embedding']
+                pending.append(point)
+                continue
             state = ctx.save('EMBED_POINTS', vectors=vectors, vector_reuse=reused)
+    batch_size = ctx.config.get('embedding_batch_size', 1)
+    require(type(batch_size) is int and 1 <= batch_size <= 20, '向量批次大小须为1至20的整数')
+    for start in range(0, len(pending), batch_size):
+        points = pending[start:start + batch_size]
+
+        def check(data):
+            require(isinstance(data, dict) and isinstance(data.get('data'), list)
+                    and len(data['data']) == len(points), '向量响应结构不正确')
+            rows = data['data']
+            require(all(isinstance(row, dict) and type(row.get('index')) is int for row in rows)
+                    and sorted(row['index'] for row in rows) == list(range(len(points))),
+                    '向量响应索引不完整或重复')
+            for row in rows:
+                validate_vector(row.get('embedding'))
+
+        # 单条保留旧审计键；批次键绑定稳定 UUID 顺序，与请求哈希共同保护恢复。
+        unit = points[0]['id'] if len(points) == 1 else 'batch:' + digest([p['id'] for p in points])
+        result = await ctx.call('embedding', unit, [p['detail'] for p in points], check, embedding=True)
+        check(result)
+        vectors.update({points[row['index']]['id']: row['embedding'] for row in result['data']})
+        state = ctx.save('EMBED_POINTS', vectors=vectors, vector_reuse=reused)
     return state
 
 

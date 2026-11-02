@@ -75,6 +75,33 @@ class WorkflowTest(unittest.TestCase):
         for h in (event('2026-09-08'),event('2026-09-10',uid=self.a['user_id'])):
             with self.assertRaises(w.WorkflowError):self.prepare(history=[h])
 
+    def test_grouped_batches_preserve_all_pairs_details_budget_and_legacy_packages(self):
+        history = [event('2026-09-08', uid=self.a['user_id'], detail='完整历史详情。' * 20)
+                   for _ in range(8)]
+        snapshot = self.prepare(history=history, config={**self.config, 'max_pairs_per_batch': 4})
+        legacy = copy.deepcopy(snapshot)
+        legacy['config'].pop('batch_order', None)
+        legacy['package_sha256'] = w.digest({k:v for k,v in legacy.items() if k!='package_sha256'})
+        for source in (snapshot, legacy):
+            groups = w.batches(source)
+            self.assertCountEqual([p for g in groups for p in g['pair_ids']],
+                                  [p['pair_id'] for p in source['pairs']])
+            for group in groups:
+                self.assertLessEqual(len(group['pair_ids']), 4)
+                self.assertLessEqual(len(json.dumps(group['payload'], ensure_ascii=False,
+                    separators=(',', ':'))), source['config']['max_batch_chars'])
+                for e in group['payload']['events']:
+                    self.assertEqual(e['points'][0]['detail'], source['events'][e['id']]['points'][0]['detail'])
+            folder = w.write_package(source, self.root)
+            self.assertEqual(w.load_package(folder)[0], source)
+        self.assertEqual([p for g in w.batches(legacy) for p in g['pair_ids']],
+                         [p['pair_id'] for p in legacy['pairs']])
+        # 对相同快照仅切换顺序策略；新策略不能增加完整 payload 字符量。
+        same = copy.deepcopy(snapshot); same['config'].pop('batch_order')
+        def chars(s): return sum(len(json.dumps(g['payload'], ensure_ascii=False,
+                                                separators=(',', ':'))) for g in w.batches(s))
+        self.assertLessEqual(chars(snapshot), chars(same))
+
     def test_invalid_vectors_and_model_mismatch(self):
         for values in ([1.], [0.]*1024, [float('nan')]+[0.]*1023, [True]+[0.]*1023):
             with self.assertRaises(w.WorkflowError):w.validate_vector(values)

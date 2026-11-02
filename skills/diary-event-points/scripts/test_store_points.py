@@ -48,7 +48,8 @@ class StorePointsTest(unittest.TestCase):
         self.Session = sessionmaker(bind=self.engine, expire_on_commit=False)
         self.db = self.Session()
         self.addCleanup(self.db.close)
-        self.config = {'embedding_model': 'isolated-model', 'embedding_max_chars': 8000}
+        self.config = {'embedding_model': 'isolated-model', 'embedding_max_chars': 8000,
+                       'embedding_batch_size': 20}
         for name in ('database.SessionLocal', 'services.graph_runtime.SessionLocal'):
             p = patch(name, self.Session)
             p.start(); self.addCleanup(p.stop)
@@ -221,7 +222,8 @@ class StorePointsTest(unittest.TestCase):
     def response(self, *args, **kwargs):
         self.assertEqual(args[0], 'embedding')
         self.assertTrue(kwargs.get('embedding'))
-        return {'data': [{'index': 0, 'embedding': [1.0] + [0.0]*1023}]}
+        return {'data': [{'index': i, 'embedding': [float(i + 1)] + [0.0]*1023}
+                         for i in reversed(range(len(args[2])))]}
 
     def test_api_upload_saves_points_and_reuses_original_task_after_retry(self):
         from config import settings
@@ -257,10 +259,12 @@ class StorePointsTest(unittest.TestCase):
         result = status(self.db, self.db.get(GraphTask, task.id))
         self.assertTrue(result['stored']); self.assertEqual(result['stored_points'], 2)
         self.assertEqual(result['vectors'], 2)
-        self.assertEqual(call.await_count, 2)
+        self.assertEqual(call.await_count, 1)
         points = self.db.query(GraphEventPoint).all()
         self.assertEqual({point.detail for point in points}, {'有效经历。', '日常经历。'})
         run = self.db.query(GraphRun).one()
+        ordered = [p for work in run.checkpoint['point_work'].values() for p in work['points']]
+        self.assertEqual([run.checkpoint['vectors'][p['id']][0] for p in ordered], [1., 2.])
         self.assertEqual(run.status, 'POINTS_READY'); self.assertIsNone(run.published_at)
         self.assertEqual(self.db.get(Diary, self.diary.id).status, DiaryStatus.organized)
         self.assertFalse(self.db.get(DiaryEvent, self.event.id).is_in_graph)
@@ -286,6 +290,47 @@ class StorePointsTest(unittest.TestCase):
         self.db.expire_all()
         self.assertTrue(status(self.db, self.db.get(GraphTask, task.id))['stored'])
         self.assertEqual(self.db.query(GraphTask).count(), 1)
+
+    def test_batch_boundary_failure_resumes_without_repeating_completed_batch(self):
+        # 23 条完整详情跨两个批次；第二批失败后只补剩余三条。
+        raw = self.markdown.read_text().replace('### 1. 要点中心\n\n有效经历。',
+            '\n\n'.join(f'### {i}. 中心{i}\n\n完整详情{i}。' for i in range(1, 23)))
+        self.markdown.write_text(raw)
+        p = self.packet(); task, _ = self.send(p)
+        counter = 0
+        def fail_second(*args, **kwargs):
+            nonlocal counter
+            counter += 1
+            if counter == 2: raise StorageError('模拟服务失败')
+            return self.response(*args, **kwargs)
+        with patch('services.graph_runtime.GraphContext.call', AsyncMock(side_effect=fail_second)) as call:
+            with self.assertRaises(StorageError): asyncio.run(execute(self.Session, task.id, p))
+        self.db.expire_all()
+        self.assertEqual([len(c.args[2]) for c in call.await_args_list], [20, 3])
+        self.assertEqual(call.await_args_list[0].args[2], [f'完整详情{i}。' for i in range(1, 21)])
+        self.assertEqual(self.db.query(GraphEventPoint).count(), 0)
+        with patch('services.graph_runtime.GraphContext.call', AsyncMock(side_effect=self.response)) as call:
+            asyncio.run(execute(self.Session, task.id, p))
+        self.assertEqual([len(c.args[2]) for c in call.await_args_list], [3])
+        self.db.expire_all()
+        self.assertEqual(self.db.query(GraphEventPoint).count(), 23)
+
+    def test_batch_rejects_missing_duplicate_boolean_and_out_of_range_indexes(self):
+        for indexes in ([0], [0, 0], [0, True], [0, 2]):
+            with self.subTest(indexes=indexes):
+                p = self.packet(); task, _ = self.send(p)
+                result = {'data': [{'index': i, 'embedding': [1.] + [0.]*1023} for i in indexes]}
+                with patch('services.graph_runtime.GraphContext.call', AsyncMock(return_value=result)):
+                    with self.assertRaises(StorageError): asyncio.run(execute(self.Session, task.id, p))
+                self.db.expire_all()
+                self.assertEqual(self.db.query(GraphEventPoint).count(), 0)
+
+    def test_legacy_config_keeps_single_input_requests(self):
+        self.config.pop('embedding_batch_size')
+        p = self.packet(); task, _ = self.send(p)
+        with patch('services.graph_runtime.GraphContext.call', AsyncMock(side_effect=self.response)) as call:
+            asyncio.run(execute(self.Session, task.id, p))
+        self.assertEqual([len(c.args[2]) for c in call.await_args_list], [1, 1])
 
     def test_changed_source_before_final_commit_saves_no_points(self):
         p = self.packet(); task, _ = self.send(p)

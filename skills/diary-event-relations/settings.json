@@ -4,5 +4,6 @@
   "top_k": 6,
   "max_batch_chars": 12000,
   "max_pairs_per_batch": 12,
-  "retain_all_min_similarity": 0.5
+  "retain_all_min_similarity": 0.5,
+  "batch_order": "shared_event_v1"
 }
