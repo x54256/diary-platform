@@ -58,8 +58,10 @@ def compare(before, after):
 
 
 def validate_changes(changes, source):
-    if not isinstance(changes, dict) or set(changes) - {'events', 'plans'}:
-        raise ValueError('只支持 events 与 plans 定点修改')
+    if not isinstance(changes, dict) or set(changes) - {'events', 'plans', 'introduction', 'trivia'}:
+        raise ValueError('只支持 events、plans、introduction 与 trivia 定点修改')
+    if 'introduction' in changes and not isinstance(changes['introduction'], str):
+        raise ValueError('introduction 须为字符串；清空使用空字符串')
     ids = {e['event_id'] for e in source['events']}; seen = set()
     events = changes.get('events', [])
     if not isinstance(events, list): raise ValueError('events 须为数组')
@@ -76,9 +78,10 @@ def validate_changes(changes, source):
                 if not isinstance(e[f], list): raise ValueError('修改值须为数组')
                 array(e[f])
                 if f == 'body' and not e[f]: raise ValueError('正文不能为空')
-    if 'plans' in changes:
-        if not isinstance(changes['plans'], list): raise ValueError('plans 须为数组')
-        array(changes['plans'])
+    for field in ('plans', 'trivia'):
+        if field in changes:
+            if not isinstance(changes[field], list): raise ValueError(f'{field} 须为数组')
+            array(changes[field])
 
 
 def prepare(source, changes):

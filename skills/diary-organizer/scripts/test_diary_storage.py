@@ -213,7 +213,9 @@ class StorageTest(unittest.TestCase):
         original = self.review_source(); eid = original['events'][0]['event_id']
         for changes in ({'events': [{'event_id': str(uuid4()), 'feeling': []}]},
                         {'events': [{'event_id': eid, 'body': []}]}, {'plans': '一段话'},
-                        {'events': [{'event_id': eid, 'feeling': ['']}]}, {'introduction': '不在定点范围内'}):
+                        {'events': [{'event_id': eid, 'feeling': ['']}]}, {'summary': '不在定点范围内'},
+                        {'introduction': None}, {'introduction': []}, {'trivia': None},
+                        {'trivia': '一段话'}, {'trivia': ['']}, {'trivia': [1]}):
             with self.assertRaises(ValueError): prepare(original, changes)
         packet = prepare(original, {'events': [{'event_id': eid, 'reflection': ['明确认识。']}]})
         with self.Session.begin() as db:
@@ -236,9 +238,35 @@ class StorageTest(unittest.TestCase):
             def call(action, params):
                 return execute({'stage': 'organize-review', 'action': action, 'params': params, 'files': {}})
             current = call('export', {'diary_id': str(self.diary_id), 'user_id': str(self.user_id)})['file']
-            packet = call('prepare', {'exported': current, 'changes': {'plans': ['人工明确的新计划。']}})['packet']
+            changes = {'introduction': '修订后的背景。', 'trivia': ['买了面包。', '取了快递。']}
+            packet = call('prepare', {'exported': current, 'changes': changes})['packet']
             self.assertFalse(call('save', {'packet': packet})['stored'])
-            self.assertTrue(call('save', {'packet': packet, 'write': True, 'confirmed_sha256': packet['confirmation_sha256']})['stored'])
+            receipt = call('save', {'packet': packet, 'write': True, 'confirmed_sha256': packet['confirmation_sha256']})
+            self.assertTrue(receipt['stored'])
+            updated = call('export', {'diary_id': str(self.diary_id), 'user_id': str(self.user_id)})['file']
+            for field, value in changes.items():
+                self.assertEqual(updated[field], value)
+            self.assertEqual(updated['events'], current['events'])
+            self.assertEqual(updated['plans'], current['plans'])
+            self.assertEqual(updated['source']['structured_revision'], current['source']['structured_revision'] + 1)
+            with self.Session() as db:
+                content = db.get(Diary, self.diary_id).organized.content
+                self.assertIn('修订后的背景。', content)
+                self.assertIn('买了面包。', content)
+                self.assertNotIn('买了牛奶。', content)
+            # 分别清空字段，验证未提交的字段保留当前值。
+            for field, empty in (('introduction', ''), ('trivia', [])):
+                before = updated
+                packet = call('prepare', {'exported': before, 'changes': {field: empty}})['packet']
+                updated = call('save', {'packet': packet, 'write': True,
+                                       'confirmed_sha256': packet['confirmation_sha256']})['source']
+                self.assertEqual(updated[field], empty)
+                for unchanged in {'introduction', 'trivia', 'events', 'plans'} - {field}:
+                    self.assertEqual(updated[unchanged], before[unchanged])
+            with self.Session() as db:
+                content = db.get(Diary, self.diary_id).organized.content
+                self.assertNotIn('修订后的背景。', content)
+                self.assertNotIn('买了面包。', content)
             with self.assertRaises(ValueError): call('export', {'diary_id': str(self.diary_id), 'user_id': str(uuid4())})
             current = call('export', {'diary_id': str(self.diary_id), 'user_id': str(self.user_id)})['file']
             packet = prepare(current, {'plans': []})

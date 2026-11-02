@@ -37,7 +37,7 @@ python3 skills/diary-organizer/scripts/review_diary.py diff --before BASELINE.js
 {"events":[{"event_id":"真实事件UUID","feeling":["第一项感受。","另一项独立感受。"],"reflection":["有来源依据的反思。"]}],"plans":["更新后仍符合本人意图的计划。"]}
 ```
 
-允许 event_title、body、feeling、reflection 和日记级 plans；未提供的字段保持当前值。用户对文件正文的明确修改可通过 body 保存。新增、删除事件或变更引入与琐事超出该定点入口时，先明确变动范围并使用已支持的整理方式，不猜配 ID。保存仍受应用来源锁定约束。
+允许事件级 event_title、body、feeling、reflection，以及日记级 introduction、trivia、plans；未提供的字段保持当前值。introduction 使用字符串，清空使用空字符串；trivia、plans 使用非空字符串数组，清空使用空数组。用户对文件正文的明确修改可通过 body 保存。新增、删除事件超出该定点入口时，先明确变动范围并使用已支持的整理方式，不猜配 ID。保存仍受应用来源锁定约束。
 
 ```bash
 python3 skills/diary-organizer/scripts/review_diary.py prepare --source SOURCE.json --changes changes.json --output PATCH.json
