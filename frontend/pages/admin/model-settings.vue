@@ -356,7 +356,7 @@ const saveSettings = async () => {
     if (draft[usage.key].channel_model_id) {
       body[usage.key] = {
         channel_model_id: draft[usage.key].channel_model_id,
-        thinking_enabled: ['transcription', 'embedding', 'graph_embedding'].includes(usage.key) ? null : draft[usage.key].thinking_enabled,
+        thinking_enabled: ['transcription', 'graph_embedding'].includes(usage.key) ? null : draft[usage.key].thinking_enabled,
       }
     }
   }
@@ -390,7 +390,7 @@ const testUsage = async (key: string) => {
       body: {
         setting_key: key,
         channel_model_id: draft[key].channel_model_id,
-        thinking_enabled: ['transcription', 'embedding', 'graph_embedding'].includes(key) ? null : draft[key].thinking_enabled,
+        thinking_enabled: ['transcription', 'graph_embedding'].includes(key) ? null : draft[key].thinking_enabled,
       },
     })
     testResults[key] = {
@@ -418,7 +418,7 @@ const testSelectedSettings = async () => {
     const groups = new Map<string, any[]>()
     for (const usage of selectedUsages) {
       const channelModelId = draft[usage.key].channel_model_id
-      const thinkingEnabled = ['transcription', 'embedding', 'graph_embedding'].includes(usage.key) ? 'none' : String(draft[usage.key].thinking_enabled)
+      const thinkingEnabled = ['transcription', 'graph_embedding'].includes(usage.key) ? 'none' : String(draft[usage.key].thinking_enabled)
       const groupKey = `${channelModelId}:${thinkingEnabled}`
       groups.set(groupKey, [...(groups.get(groupKey) || []), usage])
     }
@@ -430,7 +430,7 @@ const testSelectedSettings = async () => {
           body: {
             setting_key: usage.key,
             channel_model_id: draft[usage.key].channel_model_id,
-            thinking_enabled: ['transcription', 'embedding', 'graph_embedding'].includes(usage.key) ? null : draft[usage.key].thinking_enabled,
+            thinking_enabled: ['transcription', 'graph_embedding'].includes(usage.key) ? null : draft[usage.key].thinking_enabled,
           },
         })
         const payload = {

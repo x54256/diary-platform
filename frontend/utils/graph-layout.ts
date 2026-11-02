@@ -127,6 +127,9 @@ export function layoutGraph(nodes: Node[], edges: Edge[], diaryId: string, previ
   const dates = new Map<string, Node[]>()
   const neighbors = new Map(nodes.map(node => [node.event_id, new Set<string>()]))
 
+  // 只让本次节点集合内的关系参与邻接、受力和压缩等布局阶段。
+  edges = edges.filter(edge => neighbors.has(edge.source_event_id) && neighbors.has(edge.target_event_id))
+
   for (const edge of edges) {
     neighbors.get(edge.source_event_id)?.add(edge.target_event_id)
     neighbors.get(edge.target_event_id)?.add(edge.source_event_id)

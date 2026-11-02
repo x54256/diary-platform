@@ -418,8 +418,8 @@ class StorageTest(unittest.TestCase):
             with self.assertRaises(ValueError):
                 export_people(db, "missing")
 
-    def test_create_and_replace_preserve_source_and_refresh_search(self):
-        from models.diary import Diary, DiaryEvent, OrganizeTask, SearchKeywordSegment, SearchSemanticIndexState
+    def test_create_and_replace_preserve_source_and_increment_revision(self):
+        from models.diary import Diary, DiaryEvent, OrganizeTask
 
         with self.Session.begin() as db:
             diary = self.target(db)
@@ -430,8 +430,6 @@ class StorageTest(unittest.TestCase):
             self.assertNotEqual(initial, snapshot(diary))
             self.assertEqual(diary.original_text, "测试原文")
             self.assertEqual(diary.organized.structured_revision, 1)
-            self.assertEqual(db.query(SearchSemanticIndexState).one().status, "PENDING")
-            self.assertGreater(db.query(SearchKeywordSegment).count(), 0)
             changed = copy.deepcopy(self.result)
             changed["events"][0]["body"] = ["补充验证后的正文。"]
             persist_result(db, diary, changed)
@@ -447,13 +445,21 @@ class StorageTest(unittest.TestCase):
 
         with self.Session.begin() as db:
             persist_result(db, self.target(db), self.result)
+            original_event_id = db.query(DiaryEvent).one().id
+        changed = copy.deepcopy(self.result)
+        changed["events"][0]["body"] = ["这段替换正文应随失败一起回滚。"]
         with self.assertRaises(RuntimeError):
             with self.Session.begin() as db:
-                with patch("services.search_indexing.refresh_changed_event_search_indexes", side_effect=RuntimeError("isolated failure")):
-                    persist_result(db, self.target(db), self.result)
+                diary = self.target(db)
+                # 所有修改flush后，在最终读回阶段注入失败，验证整次替换回滚。
+                with patch.object(db, "query", side_effect=RuntimeError("isolated failure")):
+                    persist_result(db, diary, changed)
         with self.Session() as db:
             self.assertEqual(db.query(OrganizeTask).count(), 1)
-            self.assertEqual(json.loads(db.query(DiaryEvent).one().body), self.result["events"][0]["body"])
+            event = db.query(DiaryEvent).one()
+            self.assertEqual(event.id, original_event_id)
+            self.assertEqual(event.organized.structured_revision, 1)
+            self.assertEqual(json.loads(event.body), self.result["events"][0]["body"])
 
     def test_rejects_wrong_owner_and_running_task(self):
         from models.diary import OrganizeTask

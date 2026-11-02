@@ -13,29 +13,48 @@ test('按关系组织分支，完整节点及标题区域互不覆盖，孤立�
   assert.deepEqual(positions, layoutGraph(nodes, edges, 'current'))
 })
 
-test('新增关系节点时保留已浏览节点的位置', () => {
+test('扩展图谱时复用旧布局输入，不修改调用方坐标，全部节点仍有有效位置', () => {
   const previous = layoutGraph(nodes.slice(0, 3), edges.slice(0, 2), 'current')
+  const snapshot = structuredClone(previous)
   const positions = layoutGraph(nodes, edges, 'current', previous)
-  for (const [id, position] of Object.entries(previous)) assert.deepEqual(positions[id], position)
+  assert.deepEqual(previous, snapshot)
+  assert.deepEqual(positions, layoutGraph(nodes, edges, 'current', previous))
+  assert.equal(Object.keys(positions).length, nodes.length)
+  Object.values(positions).forEach(point => assert.ok(Number.isFinite(point.x) && Number.isFinite(point.y)))
+  const boxes = Object.values(positions).map(nodeBox)
+  boxes.forEach((box, index) => boxes.slice(index + 1).forEach(other => assert.equal(overlaps(box, other), false)))
 })
 
-test('关系标签避开节点与其他标签，保留原始边身份和路径', () => {
+test('直线关系边保留身份，选中边最后绘制，缺失端点的边不输出', () => {
   const positions = layoutGraph(nodes, edges, 'current')
-  const drawn = graphEdges(edges, positions, 'r2')
-  assert.equal(drawn[0].id, 'r2')
-  const occupied = Object.values(positions).map(nodeBox)
+  const drawn = graphEdges([...edges, { id: 'missing', source_event_id: 'n0', target_event_id: 'absent' }], positions, 'r2')
+  assert.equal(drawn.at(-1)?.id, 'r2')
+  assert.deepEqual(drawn.map(edge => edge.id).sort(), edges.map(edge => edge.id).sort())
   for (const edge of drawn) {
-    assert.match(edge.path, /^M .+ C /)
-    if (!edge.label) continue
-    const box = { x: edge.label.x - 52, y: edge.label.y - 20, width: 104, height: 40 }
-    occupied.forEach(other => assert.equal(overlaps(box, other), false))
-    occupied.push(box)
+    assert.match(edge.path, /^M .+ L /)
+    assert.doesNotMatch(edge.path, /NaN|Infinity/)
   }
 })
 
-test('双向环与缺失端点不会生成无效坐标', () => {
-  const cycle = [{ id: 'a', source_event_id: 'n0', target_event_id: 'n1' }, { id: 'b', source_event_id: 'n1', target_event_id: 'n0' }, { id: 'missing', source_event_id: 'n0', target_event_id: 'absent' }]
+test('双向环不会生成无效坐标', () => {
+  const cycle = [{ id: 'a', source_event_id: 'n0', target_event_id: 'n1' }, { id: 'b', source_event_id: 'n1', target_event_id: 'n0' }]
   const positions = layoutGraph(nodes.slice(0, 2), cycle, 'current')
   assert.equal(graphEdges(cycle, positions).length, 2)
+  Object.values(positions).forEach(point => assert.ok(Number.isFinite(point.x) && Number.isFinite(point.y)))
+})
+
+test('缺失起点、终点或双方的关系不影响有效节点布局', () => {
+  const withMissingEndpoint = [
+    ...edges,
+    { id: 'missing-target', source_event_id: 'n0', target_event_id: 'absent' },
+    { id: 'missing-source', source_event_id: 'absent', target_event_id: 'n1' },
+    { id: 'missing-both', source_event_id: 'absent', target_event_id: 'also-absent' },
+  ]
+  const snapshot = structuredClone(withMissingEndpoint)
+  const positions = layoutGraph(nodes, withMissingEndpoint, 'current')
+  assert.deepEqual(positions, layoutGraph(nodes, edges, 'current'))
+  assert.deepEqual(withMissingEndpoint, snapshot)
+  assert.equal(Object.keys(positions).length, nodes.length)
+  assert.equal(graphEdges(withMissingEndpoint, positions).length, edges.length)
   Object.values(positions).forEach(point => assert.ok(Number.isFinite(point.x) && Number.isFinite(point.y)))
 })

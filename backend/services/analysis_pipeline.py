@@ -1,47 +1,22 @@
-"""LangGraph 分析流水线 - 3 环节串行 + 标签落库"""
+"""图谱分析共享提示词、行动输入构造、标签与结果保存。"""
 
-import json
 import logging
 import uuid
 import hashlib
 from datetime import datetime
 from typing import Any, TypedDict
 
-from langgraph.graph import END, START, StateGraph
-
-from database import SessionLocal
-from models.diary import AnalysisItem, AnalysisRun, Diary, DiaryEvent, DiaryOrganized, DiaryStatus, OrganizeTask
+from models.diary import AnalysisItem, Diary, DiaryEvent, DiaryOrganized, DiaryStatus
 from models.tag import EventTag, Tag, diary_tags
-from services.analysis_history import (
-    COGNITION_ANALYSIS_TYPES,
-    CORE_ANALYSIS_TYPES,
-    create_analysis_run_from_state,
-    effective_feedback,
-    feedback_keys_for_run,
-    feedback_to_context,
-    run_to_state,
-    section_key,
-)
-from services.pipeline import (
-    _get_llm,
-    _invoke_llm,
-    _update_step,
-    get_checkpointer,
-    cleanup_checkpoint,
-    run_graph_with_checkpoint,
-)
-from services.person_relations import load_person_relation_context
+from services.analysis_history import create_analysis_run_from_state, feedback_keys_for_run, section_key
 from services.action_items import apply_action_planning_result
 from utils.log_context import Stopwatch, log_extra
 
 logger = logging.getLogger(__name__)
 
-# AI 交互日志（复用 pipeline.py 的双写模式）
-_ai_logger = logging.getLogger("ai_pipeline")
-
 
 # ---------------------------------------------------------------------------
-# Analysis Pipeline State
+# 分析发布状态
 # ---------------------------------------------------------------------------
 
 class AnalysisState(TypedDict, total=False):
@@ -77,22 +52,6 @@ class AnalysisState(TypedDict, total=False):
 
     # ── 进度追踪 ──
     current_step: str
-
-
-class FeedbackAnalysisState(TypedDict, total=False):
-    structured_diary: dict
-    person_relations: list[dict]
-    task_id: str
-    diary_id: str
-    user_id: str
-    diary_organized_id: str
-    previous_run_id: str
-    previous_state: dict
-    feedback_context: list
-    merged_core: dict
-    merged: dict
-    current_step: str
-    action_items: list
 
 
 # ---------------------------------------------------------------------------
@@ -176,7 +135,7 @@ CORE_ANALYSIS_RULES = PERSON_RELATION_RULES + "\n" + """
 
 ## 全局统一硬性约束（全模块通用）
 1. 一一对应规则：事件级结果与events顺序匹配，event_analyses 第 N 项对应 events 第 N 项，title直接复用事件原标题，禁止改写；事件级分析仅针对单条事件，不跨事件推理；日记级分析综合全部事件总结。
-2. 推断规范：允许有限的推断，推断必须必须能在当前事件中找到事实依据；无对应线索则对应字段返回空，禁止编造内容硬凑分析；如果依据不足，只保留有明确依据的部分，不强行补深层解释。
+2. 推断规范：允许有限的推断，推断必须能在当前事件中找到事实依据；无对应线索则对应字段返回空，禁止编造内容硬凑分析；如果依据不足，只保留有明确依据的部分，不强行补深层解释。
 3. 输出格式：所有分析、建议均为数组，严格输出标准JSON，除重点标记规则允许的 **...** 和 <red>...</red> 外，不要输出其他 markdown、HTML 或额外注释；每条分析为一段完整连贯文本，像是正常对话一样，避免过度结构化。数组天然表示顺序，数组项内部禁止再写“1.”、“第一”、“首先”等编号或排序前缀。
 4. 通用禁止项：不做人格/长期心理结构诊断、不强行要求改造他人/不可控客观条件、不输出鸡汤空话、不给出辞职/分手等重大高成本决策类建议，仅低成本、可落地调整方案。
 5. 输出内容人称要求：分析内容是写给用户本人看的，不要使用“用户……”这类第三人称表述，优先使用“你……”或直接使用无主语的分析句式。
@@ -446,309 +405,15 @@ ACTION_PLANNING_PROMPT = """你负责把一篇日记中的后续计划与 AI 分
 
 
 # ---------------------------------------------------------------------------
-# 3 个 Node 异步函数
+# 共享输入与存储辅助函数
 # ---------------------------------------------------------------------------
-
-def _json_dumps(value: Any) -> str:
-    """统一 JSON 日志序列化，避免中文被转义。"""
-    return json.dumps(value, ensure_ascii=False)
-
-
-def _log_llm_request(step_name: str, system_prompt: str, input_data: dict) -> str:
-    """记录分析流水线完整 LLM 请求，并返回 user message。"""
-    user_message = _json_dumps(input_data)
-    _ai_logger.info(
-        "[%s] LLM 完整请求: system=%s\nuser=%s",
-        step_name,
-        system_prompt,
-        user_message,
-        extra=log_extra(event="analysis.llm.request_payload", step=step_name),
-    )
-    return user_message
-
-
-def _log_llm_response(step_name: str, result: dict) -> None:
-    """记录分析流水线完整 LLM JSON 响应。"""
-    _ai_logger.info(
-        "[%s] LLM 完整响应: %s",
-        step_name,
-        _json_dumps(result),
-        extra=log_extra(event="analysis.llm.response_payload", step=step_name),
-    )
 
 
 def _list_len(value: Any) -> int:
     return len(value) if isinstance(value, list) else 0
 
 
-def safe_list(value: Any) -> list:
-    return value if isinstance(value, list) else []
-
-
-def _count_event_inner_items(event_items: Any, inner_key: str) -> int:
-    if not isinstance(event_items, list):
-        return 0
-    total = 0
-    for item in event_items:
-        if isinstance(item, dict):
-            total += _list_len(item.get(inner_key))
-    return total
-
-
-async def mood_tag_extract(state: AnalysisState) -> dict:
-    """Node 1 (环节 7): 元数据、心情 + 标签提取 (temp=0.3)"""
-    task_id = state["task_id"]
-    started = Stopwatch()
-    _update_step(task_id, "mood_tag_extract")
-
-    original_text = state["original_text"]
-    structured_diary = state["structured_diary"]
-    event_count = _list_len(structured_diary.get("events"))
-    logger.info(
-        "分析流水线环节7开始: diary_id=%s, task_id=%s, event_count=%d",
-        state.get("diary_id"),
-        task_id,
-        event_count,
-    )
-
-    llm = _get_llm(0.3, "analysis", "mood_tag_extract")
-    input_data = {"structured_diary": structured_diary}
-    result = await _invoke_llm(
-        llm,
-        MOOD_TAG_PROMPT,
-        _log_llm_request("mood_tag_extract", MOOD_TAG_PROMPT, input_data),
-        step_name="mood_tag_extract",
-    )
-    _log_llm_response("mood_tag_extract", result)
-
-    mood = result.get("mood", "")
-    if not isinstance(mood, str):
-        mood = ""
-
-    event_tags = result.get("event_tags", [])
-    if not isinstance(event_tags, list):
-        event_tags = []
-    # 容错：确保每个元素有 title 和 tags 字段
-    validated_event_tags = []
-    for et in event_tags:
-        if not isinstance(et, dict):
-            continue
-        title = et.get("title", "")
-        tags = et.get("tags", {})
-        if not isinstance(tags, dict):
-            tags = {}
-        # 确保五类标签都是 list
-        for tag_type in ["domain", "topic", "person_object", "psychological", "knowledge"]:
-            if not isinstance(tags.get(tag_type), list):
-                tags[tag_type] = []
-        validated_event_tags.append({"title": title, "tags": tags})
-
-    tag_count = 0
-    for event_tag in validated_event_tags:
-        tag_groups = event_tag.get("tags", {})
-        if isinstance(tag_groups, dict):
-            tag_count += sum(_list_len(tags) for tags in tag_groups.values())
-    logger.info(
-        "分析流水线环节7完成: diary_id=%s, task_id=%s, mood=%s, event_tag_count=%d, tag_count=%d",
-        state.get("diary_id"),
-        task_id,
-        mood,
-        len(validated_event_tags),
-        tag_count,
-        extra=log_extra(
-            event="analysis.node.completed",
-            step="mood_tag_extract",
-            diary_id=state.get("diary_id"),
-            task_id=task_id,
-            event_count=event_count,
-            event_tag_count=len(validated_event_tags),
-            tag_count=tag_count,
-            duration_ms=started.elapsed_ms(),
-        ),
-    )
-    title = result.get("title", "")
-    summary = result.get("summary", "")
-    location = result.get("location", "")
-    if not isinstance(title, str):
-        title = ""
-    if not isinstance(summary, str):
-        summary = ""
-    if not isinstance(location, str):
-        location = ""
-
-    return {
-        "title": title,
-        "summary": summary,
-        "location": location,
-        "mood": mood,
-        "event_tags": validated_event_tags,
-    }
-
-
-async def core_analysis(state: AnalysisState) -> dict:
-    """环节 8：核心分析 + 可行动建议"""
-    task_id = state["task_id"]
-    started = Stopwatch()
-    _update_step(task_id, "core_analysis")
-
-    events = state["structured_diary"].get("events", [])
-    input_data = {
-        "events": events,
-        "person_relations": state.get("person_relations", []),
-    }
-    logger.info(
-        "分析流水线环节8开始: diary_id=%s, task_id=%s, event_count=%d",
-        state.get("diary_id"),
-        task_id,
-        _list_len(events),
-    )
-
-    llm = _get_llm(0.5, "analysis", "core_analysis")
-    result = await _invoke_llm(
-        llm,
-        CORE_ANALYSIS_PROMPT,
-        _log_llm_request("core_analysis", CORE_ANALYSIS_PROMPT, input_data),
-        step_name="core_analysis",
-    )
-    _log_llm_response("core_analysis", result)
-
-    # 提取并容错处理每个字段
-    def safe_list(val):
-        return val if isinstance(val, list) else []
-
-    def safe_dict(val):
-        return val if isinstance(val, dict) else {}
-
-    event_analyses = []
-    for item in safe_list(result.get("event_analyses")):
-        if not isinstance(item, dict):
-            continue
-        event_analyses.append(
-            {
-                "title": item.get("title", ""),
-                "emotion_analyses": safe_list(item.get("emotion_analyses")),
-                "behavior_decision_analyses": safe_list(item.get("behavior_decision_analyses")),
-                "self_understanding_analyses": safe_list(item.get("self_understanding_analyses")),
-                "action_suggestions": safe_list(item.get("action_suggestions")),
-            }
-        )
-
-    diary_analysis = safe_dict(result.get("diary_analysis"))
-    output = {
-        "event_analyses": event_analyses,
-        "diary_analysis": {
-            "emotion_analyses": safe_list(diary_analysis.get("emotion_analyses")),
-            "behavior_decision_analyses": safe_list(diary_analysis.get("behavior_decision_analyses")),
-            "self_understanding_analyses": safe_list(diary_analysis.get("self_understanding_analyses")),
-            "action_suggestions": safe_list(diary_analysis.get("action_suggestions")),
-        },
-    }
-    logger.info(
-        "分析流水线环节8完成: diary_id=%s, task_id=%s, event_emotion=%d, diary_emotion=%d, event_behavior=%d, diary_behavior=%d, event_need=%d, diary_need=%d, event_action=%d, diary_action=%d",
-        state.get("diary_id"),
-        task_id,
-        _count_event_inner_items(output["event_analyses"], "emotion_analyses"),
-        _list_len(output["diary_analysis"]["emotion_analyses"]),
-        _count_event_inner_items(output["event_analyses"], "behavior_decision_analyses"),
-        _list_len(output["diary_analysis"]["behavior_decision_analyses"]),
-        _count_event_inner_items(output["event_analyses"], "self_understanding_analyses"),
-        _list_len(output["diary_analysis"]["self_understanding_analyses"]),
-        _count_event_inner_items(output["event_analyses"], "action_suggestions"),
-        _list_len(output["diary_analysis"]["action_suggestions"]),
-        extra=log_extra(
-            event="analysis.node.completed",
-            step="core_analysis",
-            diary_id=state.get("diary_id"),
-            task_id=task_id,
-            event_count=_list_len(events),
-            duration_ms=started.elapsed_ms(),
-        ),
-    )
-    return output
-
-
-async def cognition_analysis(state: AnalysisState) -> dict:
-    """环节 9：认知校准 + 问题解答 + 认知完善"""
-    task_id = state["task_id"]
-    started = Stopwatch()
-    _update_step(task_id, "cognition_analysis")
-
-    events = state["structured_diary"].get("events", [])
-    input_data = {
-        "events": events,
-        "person_relations": state.get("person_relations", []),
-    }
-    logger.info(
-        "分析流水线环节9开始: diary_id=%s, task_id=%s, event_count=%d",
-        state.get("diary_id"),
-        task_id,
-        _list_len(events),
-    )
-
-    llm = _get_llm(0.5, "analysis", "cognition_analysis")
-    result = await _invoke_llm(
-        llm,
-        COGNITION_ANALYSIS_PROMPT,
-        _log_llm_request("cognition_analysis", COGNITION_ANALYSIS_PROMPT, input_data),
-        step_name="cognition_analysis",
-    )
-    _log_llm_response("cognition_analysis", result)
-
-    def safe_list(val):
-        return val if isinstance(val, list) else []
-
-    def safe_dict(val):
-        return val if isinstance(val, dict) else {}
-
-    event_cognitive_calibration_analyses = []
-    event_question_answers = []
-    event_cognitive_enhancements = []
-    for item in safe_list(result.get("event_analyses")):
-        if not isinstance(item, dict):
-            continue
-        event_cognitive_calibration_analyses.append({
-            "title": item.get("title", ""),
-            "cognitive_calibration_analyses": safe_list(item.get("cognitive_calibration_analyses")),
-        })
-        event_question_answers.append({
-            "title": item.get("title", ""),
-            "question_answers": safe_list(item.get("question_answers")),
-        })
-        event_cognitive_enhancements.append({
-            "title": item.get("title", ""),
-            "cognitive_enhancements": safe_list(item.get("cognitive_enhancements")),
-        })
-
-    diary_analysis = safe_dict(result.get("diary_analysis"))
-    output = {
-        "event_cognitive_calibration_analyses": event_cognitive_calibration_analyses,
-        "diary_cognitive_calibration_analyses": safe_list(diary_analysis.get("cognitive_calibration_analyses")),
-        "event_question_answers": event_question_answers,
-        "event_cognitive_enhancements": event_cognitive_enhancements,
-        "diary_cognitive_enhancements": safe_list(diary_analysis.get("cognitive_enhancements")),
-    }
-    logger.info(
-        "分析流水线环节9完成: diary_id=%s, task_id=%s, event_calibration=%d, diary_calibration=%d, event_qa=%d, event_enhancement=%d, diary_enhancement=%d",
-        state.get("diary_id"),
-        task_id,
-        _count_event_inner_items(output["event_cognitive_calibration_analyses"], "cognitive_calibration_analyses"),
-        _list_len(output["diary_cognitive_calibration_analyses"]),
-        _count_event_inner_items(output["event_question_answers"], "question_answers"),
-        _count_event_inner_items(output["event_cognitive_enhancements"], "cognitive_enhancements"),
-        _list_len(output["diary_cognitive_enhancements"]),
-        extra=log_extra(
-            event="analysis.node.completed",
-            step="cognition_analysis",
-            diary_id=state.get("diary_id"),
-            task_id=task_id,
-            event_count=_list_len(events),
-            duration_ms=started.elapsed_ms(),
-        ),
-    )
-    return output
-
-
-def _action_planning_input(state: AnalysisState | FeedbackAnalysisState) -> dict:
+def _action_planning_input(state: AnalysisState) -> dict:
     """构造行动规划输入，并为分析建议分配稳定的本轮来源键。"""
     if "merged" in state:
         analysis_state = state.get("merged") or {}
@@ -791,191 +456,6 @@ def _action_planning_input(state: AnalysisState | FeedbackAnalysisState) -> dict
         "timezone": structured_diary.get("timezone") or "Asia/Shanghai",
         "plans": plan_items,
         "action_suggestions": suggestions,
-    }
-
-
-async def action_planning(state: AnalysisState | FeedbackAnalysisState) -> dict:
-    """环节 10：将后续计划与可行动建议整理为独立行动项。"""
-    task_id = state["task_id"]
-    started = Stopwatch()
-    _update_step(task_id, "action_planning")
-    input_data = _action_planning_input(state)
-    if not input_data["plans"] and not input_data["action_suggestions"]:
-        logger.info("行动规划无输入，返回空行动项", extra=log_extra(event="analysis.action_planning.empty", task_id=task_id))
-        return {"action_items": []}
-    llm = _get_llm(0.2, "analysis", "action_planning")
-    result = await _invoke_llm(
-        llm,
-        ACTION_PLANNING_PROMPT,
-        _log_llm_request("action_planning", ACTION_PLANNING_PROMPT, input_data),
-        step_name="action_planning",
-    )
-    _log_llm_response("action_planning", result)
-    normalized = []
-    source_text_by_key = {
-        item["source_key"]: item.get("text", "")
-        for item in input_data.get("plans", []) + input_data.get("action_suggestions", [])
-        if isinstance(item, dict) and item.get("source_key")
-    }
-    for raw in result.get("action_items") if isinstance(result, dict) and isinstance(result.get("action_items"), list) else []:
-        if not isinstance(raw, dict):
-            continue
-        title = str(raw.get("title") or "").strip()
-        if not title:
-            continue
-        schedule = raw.get("schedule") if isinstance(raw.get("schedule"), dict) else {}
-        analysis_date = input_data.get("analysis_date") or datetime.utcnow().date().isoformat()
-        if not schedule.get("start_date"):
-            schedule["start_date"] = analysis_date
-        if schedule.get("start_date") < analysis_date:
-            logger.warning("行动规划推荐日期早于分析日期，已调整: diary_id=%s start_date=%s analysis_date=%s", state.get("diary_id"), schedule.get("start_date"), analysis_date)
-            schedule["start_date"] = analysis_date
-        if "recurrence_month" not in schedule and "month" in schedule:
-            schedule["recurrence_month"] = schedule.pop("month")
-        if schedule.get("is_all_day", True):
-            schedule["is_all_day"] = True
-            schedule["start_time"] = None
-            schedule["end_time"] = None
-        raw_sources = raw.get("source") if isinstance(raw.get("source"), list) else []
-        source = []
-        unknown_keys = []
-        for source_item in raw_sources:
-            if not isinstance(source_item, dict):
-                continue
-            key = source_item.get("source_key")
-            if not isinstance(key, str) or key not in source_text_by_key:
-                unknown_keys.append(key)
-                continue
-            original_text = source_text_by_key[key]
-            excerpt = source_item.get("text")
-            if not isinstance(excerpt, str) or not excerpt.strip() or excerpt.strip() not in original_text:
-                logger.warning("行动规划来源摘录不是输入原文连续片段，已回填原文: diary_id=%s task_id=%s source_key=%s", state.get("diary_id"), task_id, key)
-                excerpt = original_text
-            source.append({"source_key": key, "text": excerpt.strip()})
-        source = list({item["source_key"]: item for item in source}.values())
-        source_keys = [item["source_key"] for item in source]
-        if unknown_keys:
-            logger.warning("行动规划返回未知来源键: diary_id=%s task_id=%s keys=%s", state.get("diary_id"), task_id, unknown_keys)
-        if not source_keys:
-            logger.warning("行动规划行动项没有合法来源: diary_id=%s task_id=%s", state.get("diary_id"), task_id)
-        plan_sources = [item for item in source if item["source_key"].startswith("plan:")]
-        analysis_sources = [item for item in source if item["source_key"].startswith("suggestion:")]
-        normalized.append({
-            "title": title[:200],
-            "source_keys": source_keys,
-            "source": source,
-            "plan_sources": plan_sources,
-            "analysis_sources": analysis_sources,
-            "schedule": schedule,
-        })
-    logger.info(
-        "行动规划完成: diary_id=%s, task_id=%s, action_count=%d",
-        state.get("diary_id"), task_id, len(normalized),
-        extra=log_extra(event="analysis.node.completed", step="action_planning", task_id=task_id,
-                        action_count=len(normalized), duration_ms=started.elapsed_ms()),
-    )
-    return {"action_items": normalized}
-
-
-async def feedback_core_analysis(state: FeedbackAnalysisState) -> dict:
-    """反馈重分析节点 1：根据反馈重写核心分析。"""
-    task_id = state["task_id"]
-    started = Stopwatch()
-    _update_step(task_id, "feedback_core_analysis")
-
-    feedback_context = state["feedback_context"]
-    core_input = {
-        "structured_diary": state["structured_diary"],
-        "person_relations": state.get("person_relations", []),
-        "previous_core_analysis": {
-            "diary_analysis": state["previous_state"]["diary_analysis"],
-            "event_analyses": state["previous_state"]["event_analyses"],
-        },
-        "feedback": [
-            item for item in feedback_context if item["analysis_type"] in CORE_ANALYSIS_TYPES
-        ],
-    }
-    if not core_input["feedback"]:
-        logger.info(
-            "反馈核心分析无命中内容，复用上一轮结果",
-            extra=log_extra(event="analysis.feedback.node.reused", step="feedback_core_analysis", task_id=task_id,
-                            feedback_count=0),
-        )
-        return {"merged_core": state["previous_state"]}
-
-    llm = _get_llm(0.2, "analysis", "feedback_core_analysis")
-    core_result = await _invoke_llm(
-        llm,
-        FEEDBACK_CORE_ANALYSIS_PROMPT,
-        _log_llm_request("feedback_core_analysis", FEEDBACK_CORE_ANALYSIS_PROMPT, core_input),
-        step_name="feedback_core_analysis",
-    )
-    _log_llm_response("feedback_core_analysis", core_result)
-    logger.info(
-        "反馈核心分析节点完成",
-        extra=log_extra(event="analysis.node.completed", step="feedback_core_analysis", task_id=task_id,
-                        feedback_count=len(core_input["feedback"]), duration_ms=started.elapsed_ms()),
-    )
-    return {
-        "merged_core": _merge_feedback_core(
-            state["previous_state"], core_result, feedback_context
-        )
-    }
-
-
-async def feedback_cognition_analysis(state: FeedbackAnalysisState) -> dict:
-    """反馈重分析节点 2：根据反馈重写认知分析。"""
-    task_id = state["task_id"]
-    started = Stopwatch()
-    _update_step(task_id, "feedback_cognition_analysis")
-
-    feedback_context = state["feedback_context"]
-    previous_state = state["previous_state"]
-    cognition_input = {
-        "structured_diary": state["structured_diary"],
-        "person_relations": state.get("person_relations", []),
-        "previous_cognition_analysis": {
-            "diary_cognitive_calibration_analyses": previous_state[
-                "diary_cognitive_calibration_analyses"
-            ],
-            "diary_cognitive_enhancements": previous_state["diary_cognitive_enhancements"],
-            "event_cognitive_calibration_analyses": previous_state[
-                "event_cognitive_calibration_analyses"
-            ],
-            "event_question_answers": previous_state["event_question_answers"],
-            "event_cognitive_enhancements": previous_state["event_cognitive_enhancements"],
-        },
-        "feedback": [
-            item for item in feedback_context if item["analysis_type"] in COGNITION_ANALYSIS_TYPES
-        ],
-    }
-    if not cognition_input["feedback"]:
-        logger.info(
-            "反馈认知分析无命中内容，复用上一轮结果",
-            extra=log_extra(event="analysis.feedback.node.reused", step="feedback_cognition_analysis", task_id=task_id,
-                            feedback_count=0),
-        )
-        return {"merged": state["merged_core"]}
-
-    llm = _get_llm(0.2, "analysis", "feedback_cognition_analysis")
-    cognition_result = await _invoke_llm(
-        llm,
-        FEEDBACK_COGNITION_ANALYSIS_PROMPT,
-        _log_llm_request(
-            "feedback_cognition_analysis", FEEDBACK_COGNITION_ANALYSIS_PROMPT, cognition_input
-        ),
-        step_name="feedback_cognition_analysis",
-    )
-    _log_llm_response("feedback_cognition_analysis", cognition_result)
-    logger.info(
-        "反馈认知分析节点完成",
-        extra=log_extra(event="analysis.node.completed", step="feedback_cognition_analysis", task_id=task_id,
-                        feedback_count=len(cognition_input["feedback"]), duration_ms=started.elapsed_ms()),
-    )
-    return {
-        "merged": _merge_feedback_cognition(
-            state["merged_core"], cognition_result, feedback_context
-        )
     }
 
 
@@ -1291,17 +771,9 @@ FEEDBACK_COGNITION_ANALYSIS_OUTPUT_SCHEMA = """
 FEEDBACK_COGNITION_ANALYSIS_PROMPT = COGNITION_ANALYSIS_RULES + "\n\n" + FEEDBACK_COGNITION_ANALYSIS_OUTPUT_SCHEMA
 
 
-def _feedback_targets(feedback_context: list[dict], allowed_types: set[str]) -> set[tuple]:
-    targets = {
-        (item.get("scope"), item.get("event_title"), item.get("analysis_type"))
-        for item in feedback_context
-        if item.get("analysis_type") in allowed_types
-    }
-    for scope, _event_title, analysis_type in list(targets):
-        if scope == "EVENT":
-            targets.add(("DIARY", None, analysis_type))
-    return targets
-
+# ---------------------------------------------------------------------------
+# 反馈继承
+# ---------------------------------------------------------------------------
 
 def _inherited_feedback_keys(feedback_context: list[dict]) -> set[tuple]:
     keys = set()
@@ -1315,90 +787,3 @@ def _inherited_feedback_keys(feedback_context: list[dict]) -> set[tuple]:
         if scope == "EVENT":
             keys.add(section_key("DIARY", None, analysis_type))
     return keys
-
-
-def _rewrite_items_by_target(rewritten: dict) -> dict[tuple, list]:
-    result: dict[tuple, list] = {}
-    rewrites = rewritten.get("rewrites", []) if isinstance(rewritten, dict) else []
-    if not isinstance(rewrites, list):
-        return result
-    for rewrite in rewrites:
-        if not isinstance(rewrite, dict):
-            continue
-        scope = rewrite.get("scope")
-        event_title = rewrite.get("event_title")
-        analysis_type = rewrite.get("analysis_type")
-        items = rewrite.get("items", [])
-        if scope not in {"DIARY", "EVENT"} or not analysis_type or not isinstance(items, list):
-            continue
-        result[(scope, event_title, analysis_type)] = items
-    return result
-
-
-def _merge_feedback_core(previous: dict, rewritten: dict, feedback_context: list[dict]) -> dict:
-    targets = _feedback_targets(feedback_context, CORE_ANALYSIS_TYPES)
-    if not targets:
-        return previous
-
-    merged = json.loads(json.dumps(previous, ensure_ascii=False))
-    rewrite_items = _rewrite_items_by_target(rewritten)
-    field_by_type = {
-        "EMOTION": "emotion_analyses",
-        "BEHAVIOR_DECISION": "behavior_decision_analyses",
-        "SELF_UNDERSTANDING": "self_understanding_analyses",
-        "ACTION_SUGGESTION": "action_suggestions",
-    }
-
-    for analysis_type, field_name in field_by_type.items():
-        if ("DIARY", None, analysis_type) in targets:
-            rewrite_key = ("DIARY", None, analysis_type)
-            if rewrite_key in rewrite_items:
-                merged["diary_analysis"][field_name] = safe_list(rewrite_items[rewrite_key])
-
-    for idx, current_event in enumerate(merged.get("event_analyses", [])):
-        title = current_event.get("title")
-        for analysis_type, field_name in field_by_type.items():
-            if ("EVENT", title, analysis_type) in targets:
-                rewrite_key = ("EVENT", title, analysis_type)
-                if rewrite_key in rewrite_items:
-                    current_event[field_name] = safe_list(rewrite_items[rewrite_key])
-
-    return merged
-
-
-def _merge_feedback_cognition(previous: dict, rewritten: dict, feedback_context: list[dict]) -> dict:
-    targets = _feedback_targets(feedback_context, COGNITION_ANALYSIS_TYPES)
-    if not targets:
-        return previous
-
-    merged = json.loads(json.dumps(previous, ensure_ascii=False))
-    rewrite_items = _rewrite_items_by_target(rewritten)
-
-    if ("DIARY", None, "COGNITIVE_CALIBRATION") in targets:
-        rewrite_key = ("DIARY", None, "COGNITIVE_CALIBRATION")
-        if rewrite_key in rewrite_items:
-            merged["diary_cognitive_calibration_analyses"] = safe_list(rewrite_items[rewrite_key])
-    if ("DIARY", None, "COGNITIVE_ENHANCEMENT") in targets:
-        rewrite_key = ("DIARY", None, "COGNITIVE_ENHANCEMENT")
-        if rewrite_key in rewrite_items:
-            merged["diary_cognitive_enhancements"] = safe_list(rewrite_items[rewrite_key])
-
-    event_field_map = {
-        "COGNITIVE_CALIBRATION": ("event_cognitive_calibration_analyses", "cognitive_calibration_analyses"),
-        "QUESTION_ANSWER": ("event_question_answers", "question_answers"),
-        "COGNITIVE_ENHANCEMENT": ("event_cognitive_enhancements", "cognitive_enhancements"),
-    }
-    for analysis_type, (state_key, field_name) in event_field_map.items():
-        for idx, current_event in enumerate(merged.get(state_key, [])):
-            title = current_event.get("title")
-            if ("EVENT", title, analysis_type) in targets:
-                rewrite_key = ("EVENT", title, analysis_type)
-                if rewrite_key in rewrite_items:
-                    current_event[field_name] = safe_list(rewrite_items[rewrite_key])
-
-    return merged
-
-
-# ---------------------------------------------------------------------------
-# 流水线执行
-# ---------------------------------------------------------------------------

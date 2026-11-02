@@ -31,8 +31,6 @@ class Settings(BaseSettings):
 
     # 大模型单个业务步骤的最大总调用次数；1 表示失败后不自动重试。
     LLM_MAX_ATTEMPTS: int = Field(default=1, ge=1)
-    # 每日回顾素材单批请求的输入 token 上限；完整事件不可拆分。
-    REVIEW_DAILY_MATERIAL_INPUT_TOKEN_BUDGET: int = Field(default=24000, ge=1024)
 
     # 事件图谱请求预算；随任务冻结，可按实际渠道容量配置。
     GRAPH_CONTEXT_TOKEN_LIMIT: int = Field(default=65536, ge=4096)

@@ -193,9 +193,8 @@ def verify_packet(packet, confirmed=None):
 
 
 def persist_result(db, diary, result):
-    """调用方持有事务；一并写入整理、事件、任务与搜索索引。"""
+    """调用方持有事务；一并写入整理、事件与任务，并核对读回结果。"""
     from models.diary import DiaryOrganized, DiaryEvent, DiaryStatus, OrganizeTask
-    from services.search_indexing import refresh_changed_event_search_indexes
     from utils.diary_render import render_diary_to_markdown
 
     validate_result(result)
@@ -241,8 +240,6 @@ def persist_result(db, diary, result):
     diary.status = DiaryStatus.organized
     diary.is_dirty = False
     db.flush()
-    for event in created:
-        refresh_changed_event_search_indexes(db, event.id, include_event_content=True, include_analysis=False)
     saved = db.query(DiaryEvent).filter(DiaryEvent.diary_organized_id == organized.id).order_by(
         DiaryEvent.sort_order).populate_existing().all()
     actual = [{"title": e.event_title, "body": json.loads(e.body), "feeling": json.loads(e.feeling),
