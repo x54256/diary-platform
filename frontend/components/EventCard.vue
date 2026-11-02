@@ -301,7 +301,6 @@ watch(() => [props.inlineEditField, props.event], () => {
 const handleInlineDoubleClick = (event: MouseEvent, field: 'title' | 'body' | 'feeling' | 'reflection') => {
   const target = event.target as HTMLElement
   if (target.closest('[data-annotation-id]')) return
-  if (!window.getSelection()?.isCollapsed) return
   emit('inline-edit-start', field)
 }
 

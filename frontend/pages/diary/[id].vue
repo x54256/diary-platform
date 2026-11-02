@@ -1410,8 +1410,6 @@ const updateInlineDraft = (event: Event) => {
 
 const startInlineEdit = (field: string, value: string) => {
   if (inlineSaving.value || structuredSaving.value) return
-  const selection = window.getSelection()
-  if (selection && !selection.isCollapsed) return
   inlineEditingField.value = field
   inlineDraft.value = value
   inlineSaveError.value = ''
