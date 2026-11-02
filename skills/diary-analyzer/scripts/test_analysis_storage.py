@@ -254,7 +254,7 @@ class StorageTest(unittest.TestCase):
         return load_target(db, str(self.diary_id), str(self.user_id), lock=lock)
 
     def test_save_binds_exact_event_and_preserves_metadata_and_graph(self):
-        from models.diary import AnalysisRun, AnalysisItem, Diary, DiaryActionItem, DiaryActionEventLink, SearchKeywordSegment
+        from models.diary import AnalysisRun, AnalysisItem, Diary, DiaryActionItem, DiaryActionEventLink
         from models.graph import GraphTask, GraphRun
         with self.Session.begin() as db:
             before = build_export(db, self.target(db))
@@ -273,7 +273,6 @@ class StorageTest(unittest.TestCase):
             self.assertEqual(db.query(AnalysisItem).count(), 2)
             self.assertEqual(db.query(DiaryActionEventLink).one().diary_event_id, UUID(self.ordered_ids[0]))
             self.assertEqual(db.query(DiaryActionItem).one().source_kind, "SUGGESTION")
-            self.assertGreater(db.query(SearchKeywordSegment).count(), 0)
             self.assertEqual(db.query(GraphTask).count(), 0)
             self.assertEqual(db.query(GraphRun).count(), 0)
             with self.assertRaises(ValueError):
@@ -282,7 +281,7 @@ class StorageTest(unittest.TestCase):
     def test_rollback_keeps_diary_unanalyzed_and_creates_nothing(self):
         from models.diary import AnalysisRun, DiaryActionItem, Diary, OrganizeTask
         with self.assertRaises(RuntimeError):
-            with self.Session.begin() as db, patch("services.search_indexing.refresh_changed_event_search_indexes",
+            with self.Session.begin() as db, patch("services.action_items.apply_action_planning_result",
                                                  side_effect=RuntimeError("isolated")):
                 persist_result(db, self.target(db), self.result)
         with self.Session() as db:
@@ -353,16 +352,17 @@ class StorageTest(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.target(db)
 
-    def test_emotion_only_still_refreshes_keywords(self):
-        from models.diary import SearchKeywordSegment
+    def test_emotion_only_analysis_can_be_saved_without_actions(self):
+        from models.diary import AnalysisItem, DiaryActionItem
         no_actions = "\n".join(event_markdown(x, suggestion="") for x in self.ordered_ids) + "\n" + diary_markdown()
         no_actions = no_actions.replace("### 情绪分析", "### 情绪分析\n\n- 验证结果让你放松。", 1)
         result = parse_markdown(no_actions, self.exported)
         with self.Session.begin() as db:
             persist_result(db, self.target(db), result)
         with self.Session() as db:
-            rows = db.query(SearchKeywordSegment).filter(SearchKeywordSegment.kind == "analysis_emotion").all()
+            rows = db.query(AnalysisItem).filter(AnalysisItem.analysis_type == "EMOTION").all()
             self.assertEqual([r.content for r in rows], ["验证结果让你放松。"])
+            self.assertEqual(db.query(DiaryActionItem).count(), 0)
 
     def test_cli_readonly_then_confirmed_single_use_save(self):
         from models.diary import AnalysisRun

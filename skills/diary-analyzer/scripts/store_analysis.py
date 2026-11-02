@@ -169,7 +169,6 @@ def persist_result(db, diary, result):
     """调用方持有事务与来源锁；按真实事件 ID 保存，不按标题或数组位置匹配。"""
     from models.diary import AnalysisRun, AnalysisItem, DiaryActionItem, DiaryStatus, OrganizeTask
     from services.action_items import apply_action_planning_result
-    from services.search_indexing import refresh_changed_event_search_indexes, rebuild_event_keyword_segments
     from services.analysis_history import add_text_items, add_question_answer_items
     kind_by_field = {"emotion_analyses": "EMOTION", "behavior_decision_analyses": "BEHAVIOR_DECISION",
                      "self_understanding_analyses": "SELF_UNDERSTANDING", "action_suggestions": "ACTION_SUGGESTION",
@@ -214,11 +213,6 @@ def persist_result(db, diary, result):
     created = apply_action_planning_result(db, diary.id, diary.user_id, run.id, actions)
     diary.status = DiaryStatus.analyzed
     db.flush()
-    for event in result["event_analyses"]:
-        event_id = UUID(event["event_id"])
-        refresh_changed_event_search_indexes(db, event_id, include_event_content=False, include_analysis=True)
-        # 只有情绪/行为分析时也须建立关键词；不能依赖语义层是否变化。
-        rebuild_event_keyword_segments(db, event_id)
     # 读回验证保存的完整分析，失败即由调用方事务回滚。
     expected = []
     for scope, event_id, row in [("DIARY", None, result["diary_analysis"])] + [
